@@ -1,0 +1,28 @@
+# macOS metadata
+.DS_Store
+
+# Dependencies
+node_modules/
+
+# Build/output (if any)
+dist/
+build/
+
+# IDE
+.vscode/
+.idea/
+
+# OS temp files
+Thumbs.db
+
+# Large data directories - tracked externally or via LFS
+data/
+
+# Logs and temp files
+*.log
+tmp/
+temp/
+
+# Environment variables
+.env
+.env.*
