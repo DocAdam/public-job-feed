@@ -516,11 +516,46 @@ function normalizeICIMSJob(job, context, titleRecords) {
   });
 }
 
+
+// Core-pipeline compatibility helpers added during the architecture transition.
+const { processJobBatch: processCoreJobBatch } = require("../core/pipeline/engine");
+
+function normalizeJobRecord(rawJob, context, options = {}) {
+  return processCoreJobBatch([rawJob], context, options)[0];
+}
+
+function normalizeJobBatch(rawJobs, context, options = {}) {
+  return processCoreJobBatch(rawJobs, context, options);
+}
+
+function detectSalaryInRecord(rawJob) {
+  return detectSalary(rawJob);
+}
+
+function detectWorkArrangementInRecord(rawJob) {
+  return detectWorkArrangement(rawJob);
+}
+
+function matchTitleToWatchlist(title, records) {
+  return matchTitle(title, records);
+}
+
+function getBestTitleCandidateMatch(title, records) {
+  return getBestTitleCandidate(title, records);
+}
+
 module.exports = {
   normalizeAshbyJob,
   normalizeBambooHRJob,
+  normalizeGenericAtsJob,
   normalizeGreenhouseJob,
   normalizeICIMSJob,
   normalizeLeverJob,
   normalizeWorkdayJob,
+  normalizeJobRecord,
+  normalizeJobBatch,
+  detectSalaryInRecord,
+  detectWorkArrangementInRecord,
+  matchTitleToWatchlist,
+  getBestTitleCandidateMatch,
 };

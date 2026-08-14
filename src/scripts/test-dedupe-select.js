@@ -1,5 +1,6 @@
 const assert = require("assert/strict");
-const { selectDedupedRows } = require("../lib/dedupe-select");
+const legacyDedupe = require("../lib/dedupe-select");
+const exportDedupe = require("../adapters/exports/export-dedupe");
 
 function row(overrides = {}) {
   return {
@@ -18,14 +19,24 @@ function row(overrides = {}) {
   };
 }
 
-const aliasResult = selectDedupedRows(
-  [
-    row({ Company: "Careers Chenega" }),
-    row({
-      Company: "Chenega",
-      DuplicateGroupKey: "https://careers.example.com/jobs/123/technical-writer/job | chenega:technicalwriter",
-    }),
-  ],
+function assertDedupeParity(rows, sliceName) {
+  assert.deepEqual(
+    exportDedupe.selectDedupedRows(rows, sliceName),
+    legacyDedupe.selectDedupedRows(rows, sliceName),
+    "Export dedupe adapter must preserve legacy selection behavior"
+  );
+}
+
+const aliasRows = [
+  row({ Company: "Careers Chenega" }),
+  row({
+    Company: "Chenega",
+    DuplicateGroupKey: "https://careers.example.com/jobs/123/technical-writer/job | chenega:technicalwriter",
+  }),
+];
+assertDedupeParity(aliasRows, "canonical-alias-fixture");
+const aliasResult = exportDedupe.selectDedupedRows(
+  aliasRows,
   "canonical-alias-fixture"
 );
 
@@ -33,11 +44,13 @@ assert.equal(aliasResult.rows.length, 1);
 assert.equal(aliasResult.rows[0].Company, "Chenega");
 assert.equal(aliasResult.summary.RemovedDuplicateRows, 1);
 
-const roleResult = selectDedupedRows(
-  [
-    row({ URL: "https://example.com/jobs/a", CanonicalURLKey: "https://example.com/jobs/a", DuplicateGroupKey: "same-role" }),
-    row({ URL: "https://example.com/jobs/b", CanonicalURLKey: "https://example.com/jobs/b", DuplicateGroupKey: "same-role" }),
-  ],
+const roleRows = [
+  row({ URL: "https://example.com/jobs/a", CanonicalURLKey: "https://example.com/jobs/a", DuplicateGroupKey: "same-role" }),
+  row({ URL: "https://example.com/jobs/b", CanonicalURLKey: "https://example.com/jobs/b", DuplicateGroupKey: "same-role" }),
+];
+assertDedupeParity(roleRows, "duplicate-group-fixture");
+const roleResult = exportDedupe.selectDedupedRows(
+  roleRows,
   "duplicate-group-fixture"
 );
 

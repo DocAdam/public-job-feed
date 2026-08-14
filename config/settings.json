@@ -1,0 +1,38 @@
+{
+  "pipeline": {
+    "defaultDeduplicate": true,
+    "enableTitleWatchlist": true,
+    "enableSalaryDetection": true,
+    "enableWorkArrangementDetection": true,
+    "maxJobRecordsPerBatch": 5000
+  },
+  "exports": {
+    "csvFormat": "utf8-bom",
+    "includeEmptyFields": false,
+    "columnsOrder": [
+      "Source",
+      "ATS",
+      "Company",
+      "CompanyKey",
+      "Title",
+      "Location",
+      "Department",
+      "URL",
+      "DatePosted",
+      "SalaryMin",
+      "SalaryMax",
+      "RemoteStatus",
+      "USRemoteEligible"
+    ]
+  },
+  "ats": {
+    "providers": ["ashby", "bamboohr", "greenhouse", "icims", "lever", "workday"],
+    "defaultTimeout": 30000,
+    "maxRetries": 3,
+    "retryDelay": 1000
+  },
+  "watchlist": {
+    "path": "config/title-watchlist.md",
+    "autoLoad": true
+  }
+}
