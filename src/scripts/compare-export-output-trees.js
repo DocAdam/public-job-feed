@@ -1,0 +1,9 @@
+const fs = require("fs/promises");
+const path = require("path");
+const crypto = require("crypto");
+
+function arg(name) { const i = process.argv.indexOf(name); return i === -1 ? "" : process.argv[i + 1]; }
+async function files(root, prefix = "") { const names = await fs.readdir(path.join(root, prefix), { withFileTypes: true }); const output = []; for (const name of names) { const relative = path.join(prefix, name.name); if (name.isDirectory()) output.push(...await files(root, relative)); else if (name.isFile() && /\.(csv|json)$/.test(name.name)) output.push(relative); } return output.sort(); }
+async function hash(file) { return new Promise((resolve, reject) => { const h = crypto.createHash("sha256"); const stream = require("fs").createReadStream(file); stream.on("data", (chunk) => h.update(chunk)); stream.on("end", () => resolve(h.digest("hex"))); stream.on("error", reject); }); }
+async function main() { const leftArg = arg("--left"); const rightArg = arg("--right"); if (!leftArg || !rightArg) throw new Error("Provide --left and --right output directories; refusing to compare the working directory by default."); const left = path.resolve(leftArg); const right = path.resolve(rightArg); const [a, b] = await Promise.all([files(left), files(right)]); const all = [...new Set([...a, ...b])].sort(); const mismatches = []; for (const relative of all) { if (!a.includes(relative) || !b.includes(relative) || await hash(path.join(left, relative)) !== await hash(path.join(right, relative))) mismatches.push(relative); } if (mismatches.length) throw new Error(`Output parity failed for ${mismatches.length} file(s):\n${mismatches.join("\n")}`); console.log(`Output parity passed: ${all.length} JSON/CSV files are byte-identical.`); }
+main().catch((error) => { console.error(error.message); process.exitCode = 1; });

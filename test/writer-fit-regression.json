@@ -1,0 +1,42 @@
+[
+  {
+    "title": "Technical Writer",
+    "expectedMinimumTier": "A"
+  },
+  {
+    "title": "Documentation Engineer",
+    "expectedMinimumTier": "A"
+  },
+  {
+    "title": "Staff Technical Writer",
+    "expectedMinimumTier": "A"
+  },
+  {
+    "title": "Technical Content Engineer",
+    "expectedMinimumTier": "A"
+  },
+  {
+    "title": "UX Writer",
+    "expectedMinimumTier": "A"
+  },
+  {
+    "title": "Content Writer",
+    "expectedMinimumTier": "A"
+  },
+  {
+    "title": "Backend Software Engineer",
+    "expectedMaximumTier": "C"
+  },
+  {
+    "title": "Solutions Architect",
+    "expectedMaximumTier": "C"
+  },
+  {
+    "title": "Software Engineer",
+    "expectedMaximumTier": "C"
+  },
+  {
+    "title": "Member of Technical Staff",
+    "expectedMaximumTier": "C"
+  }
+]
