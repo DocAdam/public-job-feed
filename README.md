@@ -2,11 +2,9 @@
 
 Standalone raw ingestion/export foundation for public ATS company catalogs.
 
-This project remains operationally separate from the main `job-finder` project. Its optional Job Finder consumer export reads the sibling project's personal title policy and writes a small versioned handoff file; it never reads or modifies Application Tracker data.
-
 The long-term goal is to ingest large public ATS company catalogs, fetch postings, normalize them, rate them with a writer/documentation-focused system, and export large CSV files that can be shared with technical writing, documentation, and content friends. The public link for the project is: [good documentation jobs](https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit?usp=sharing). The two primary tabs are updated at least twice per week: `01_good_documentation_jobs` and `remote_jobs_pivot`.
 
-The current project builds the source catalog inventory, analyzes it, creates a crawl queue, and supports controlled sample and batch fetching for Ashby, Greenhouse, Lever, Workday, BambooHR, and iCIMS. Ashby, Greenhouse, and Lever are supported API fetchers. Workday, BambooHR, and iCIMS are best-effort fetchers because their public surfaces are messier and less consistent. This project does not run an uncontrolled full crawl, score postings for applications, publish to Substack, or write to the existing `job-finder` app; integration is through the read-only consumer handoff file described below.
+The project builds the source catalog inventory, analyzes it, creates a crawl queue, and supports controlled sample and batch fetching for Ashby, Greenhouse, Lever, Workday, BambooHR, and iCIMS. Ashby, Greenhouse, and Lever are supported API fetchers. Workday, BambooHR, and iCIMS are best-effort fetchers because their public surfaces are messier and less consistent. This project does not run an uncontrolled full crawl, make application decisions, or publish to Substack automatically.
 
 ATS API and fetcher behavior is documented in [docs/ats-api-behavior.md](docs/ats-api-behavior.md).
 
@@ -16,21 +14,15 @@ The registry review layer turns candidate company records into a crawl queue. It
 
 The title watchlist lives in Markdown so the target role list can stay easy to edit before job fetching and scoring exist.
 
-## Current Operating Snapshot
-
-Last verified: 2026-07-15 after the global board catch-up, public release and Sheet rebuild, duplicate-link repair, operational safeguard tests, title-category analysis, and trend regeneration.
+## Operating Outputs and Storage
 
 - Active Google Sheets handoff folder: `data/jobs/gsheet-package/latest/`
 - Primary upload file: `data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv`
-- Current cleaned Good Documentation Jobs rows: 848
-- Current internal Company Coverage rows: 40857
-- Current public firehose rows before Google Sheets filtering/cleanup: 829486
-- Current indexed batches: 439 OK, 2 review
-- Current board catalog: 50170 fetch-eligible boards, 100% attempted, 0 currently due
-- Full firehose package copy is kept only in `data/jobs/gsheet-package/latest/06_full_firehose.csv`
-- Timestamped package folders are kept for comparison history, especially `01_good_documentation_jobs.csv`
-- `data/jobs/public/releases/` is intentionally empty unless `jobs:public-release -- --archive-release true` is used
-- Project size is currently about 50 GB; avoid reintroducing repeated multi-GB release or firehose snapshots
+- Full firehose package copy: `data/jobs/gsheet-package/latest/06_full_firehose.csv`
+- Timestamped package folders provide comparison history, especially for `01_good_documentation_jobs.csv`.
+- `data/jobs/public/releases/` stays empty unless `jobs:public-release -- --archive-release true` is used.
+
+Output counts and crawl status change with each refresh. Inspect the latest package, reports, and `npm run jobs:status` rather than relying on hard-coded README counts.
 
 Storage policy: keep latest working outputs and timestamped Google Sheets comparison history. Do not keep repeated copies of large processing files unless they are needed for audit/debugging. In practice, that means `data/jobs/public/` can hold current generated public outputs, `data/jobs/merged/public-feed-release/` can hold the current merge output, and `data/jobs/gsheet-package/latest/` can hold the only package-level full firehose.
 
@@ -40,7 +32,7 @@ Use this section as the day-to-day command map. The desktop launcher is the norm
 
 ## Full Desktop Refresh
 
-Runs the normal refresh workflow. It refreshes known-good boards, indexes refreshed batches, plans and runs exploratory batches, rebuilds the public release, exports the Job Finder consumer slice, rebuilds the Google Sheets package, checks and safely prunes deterministic broken links, regenerates trend reports and the confirmed US-remote daily comparison from the cleaned snapshot, syncs the cleaned package into `latest`, runs validation, refreshes status, and opens `data/jobs/gsheet-package/latest/` only if the checks pass.
+Runs the normal refresh workflow. It refreshes known-good boards, indexes refreshed batches, plans and runs exploratory batches, rebuilds the public release, rebuilds the Google Sheets package, checks and safely prunes deterministic broken links, regenerates trend reports and the confirmed US-remote daily comparison from the cleaned snapshot, syncs the cleaned package into `latest`, runs validation, refreshes status, and opens `data/jobs/gsheet-package/latest/` only if the checks pass.
 
 ```sh
 open launchers/Refresh\ Job\ Feed.command
@@ -1153,6 +1145,16 @@ Selection priority is transparent:
 
 Use the full firehose when you need auditability, every source row, or duplicate review. Use deduped views when sharing a cleaner CSV for review, spreadsheet filtering, or a shorter human-facing shortlist. Deduped views never delete rows from `data/jobs/public/public-job-feed-latest.csv/json`.
 
+### Streaming export validation (non-publishing)
+
+The normal `jobs:export-slices` command continues to use the legacy exporter. A SQLite-backed streaming implementation is available only as an explicit validation path:
+
+```sh
+npm run jobs:export-slices -- --use-streaming-export --profile full
+```
+
+This command stages and resolves data under `data/jobs/public/.staging/`; it does not replace public outputs or publish a release. The streaming pipeline has been validated for byte-identical output parity with the legacy exporter, but production publication remains a separate rollout. See [STREAMING_EXPORT_OPERATIONS.md](STREAMING_EXPORT_OPERATIONS.md) for the validation sequence, disk requirements, and test-only publication checks.
+
 ## Public Release
 
 ```sh
@@ -1611,12 +1613,15 @@ npm run jobs:test-ats-errors
 npm run jobs:test-passive-launcher
 npm run jobs:test-ats-alert
 npm run jobs:test-title-category
+npm run jobs:test-core-pipeline
+npm run jobs:test-streaming-export-phase-1
+npm run jobs:test-streaming-publisher-failures
 npm run jobs:compare-last-release
 npm run jobs:test-trends
 npm run jobs:test-all
 ```
 
-These commands are read-only validation checks. They do not fetch jobs, delete rows, publish, archive, or clean generated outputs.
+These commands do not modify the feed, package, or public outputs. They do not fetch jobs, delete rows, publish, archive, or clean generated outputs. The atomic-publisher failure test creates and removes fixtures only in the operating system's temporary directory.
 
 The operational safeguard tests verify board-count and retry-backoff accounting, Workday/iCIMS error classifications, the passive LaunchAgent repository and PATH configuration, ATS anomaly thresholds, and representative title-category fixtures. `jobs:test-all` runs all of them before the refresh launcher opens the package.
 
@@ -1761,19 +1766,3 @@ The catalog source list lives in:
 ```text
 src/config/catalog-sources.js
 ```
-# Job Finder Consumer Export
-
-The private Job Finder integration uses a small, versioned consumer slice
-instead of loading the multi-gigabyte public firehose on each review session.
-
-```bash
-npm run jobs:export-job-finder
-```
-
-By default this reads the sibling `../job-finder/job-titles.md` personal policy
-and writes:
-
-`data/jobs/consumers/job-finder/latest.json`
-
-Use `JOB_FINDER_TITLES_PATH` or `--titles` to override the title policy path.
-Run `npm run jobs:test-job-finder-consumer` for the focused contract tests.
