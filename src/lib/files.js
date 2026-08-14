@@ -84,6 +84,70 @@ async function* iterateLargeJsonArrayFile(filePath) {
 
 }
 
+async function* iterateStrictLineJsonArrayFile(filePath) {
+  const stream = nodeFs.createReadStream(filePath, { encoding: "utf8" });
+  const lines = readline.createInterface({
+    input: stream,
+    crlfDelay: Infinity,
+  });
+  let lineNumber = 0;
+  let sawOpeningBracket = false;
+  let sawClosingBracket = false;
+
+  try {
+    for await (const line of lines) {
+      lineNumber += 1;
+      const trimmed = line.trim();
+      if (!trimmed) continue;
+
+      if (!sawOpeningBracket) {
+        if (trimmed !== "[") {
+          throw new Error(`Expected opening [ on line ${lineNumber}`);
+        }
+        sawOpeningBracket = true;
+        continue;
+      }
+
+      if (trimmed === "]") {
+        sawClosingBracket = true;
+        continue;
+      }
+
+      if (sawClosingBracket || !trimmed.startsWith("{")) {
+        throw new Error(`Expected a JSON object or closing ] on line ${lineNumber}`);
+      }
+
+      const jsonText = trimmed.endsWith(",") ? trimmed.slice(0, -1) : trimmed;
+      let row;
+      try {
+        row = JSON.parse(jsonText);
+      } catch (error) {
+        throw new Error(`Invalid JSON object on line ${lineNumber}: ${error.message}`);
+      }
+
+      if (!row || Array.isArray(row) || typeof row !== "object") {
+        throw new Error(`Expected a JSON object on line ${lineNumber}`);
+      }
+
+      yield { lineNumber, row };
+    }
+
+    if (!sawOpeningBracket) throw new Error("Missing opening [");
+    if (!sawClosingBracket) throw new Error("Missing closing ]");
+  } catch (error) {
+    stream.destroy();
+    throw error;
+  } finally {
+    lines.close();
+    stream.destroy();
+  }
+}
+
+async function getAvailableBytes(filePath) {
+  const stats = await fs.statfs(filePath);
+  return Number(stats.bavail) * Number(stats.bsize);
+}
+
 async function writeJsonFile(filePath, data) {
   await ensureDir(path.dirname(filePath));
 
@@ -186,9 +250,12 @@ async function writeLargeJsonArrayFile(filePath, rows, mapRow = (row) => row) {
 module.exports = {
   ensureDir,
   fromRoot,
+  getAvailableBytes,
   iterateLargeJsonArrayFile,
+  iterateStrictLineJsonArrayFile,
   readJsonFile,
   readLargeJsonArrayFile,
+  stringifyJsonLine,
   writeJsonObjectFile,
   writeJsonFile,
   writeTextFile,

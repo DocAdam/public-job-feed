@@ -10,7 +10,15 @@
     "jobs:fetch-batch": "node src/scripts/fetch-batch-jobs.js",
     "jobs:index-batches": "node src/scripts/index-batches.js",
     "jobs:merge-batches": "node --max-old-space-size=16384 src/scripts/merge-batches.js",
-    "jobs:export-slices": "node src/scripts/export-public-slices.js",
+    "jobs:export-slices": "node src/scripts/export-public-slices-entrypoint.js",
+    "jobs:export-slices:streaming-dry-run": "node src/scripts/export-public-slices-streaming-dry-run.js",
+    "jobs:export-slices:streaming-stage-outputs": "node src/scripts/export-public-slices-streaming-stage-outputs.js",
+    "jobs:export-slices:legacy-baseline": "node --max-old-space-size=16384 src/scripts/export-public-slices-legacy-baseline.js",
+    "jobs:export-slices:legacy-dedupe-baseline": "node --max-old-space-size=8192 src/scripts/export-public-slices-legacy-dedupe-baseline.js",
+    "jobs:export-slices:compare-baselines": "node src/scripts/compare-export-output-trees.js",
+    "jobs:export-slices:recompute-dedupe": "node src/scripts/recompute-streaming-dedupe.js",
+    "jobs:export-slices:streaming-publish-test": "node src/scripts/export-public-slices-streaming-publish-test.js",
+    "jobs:test-streaming-publisher-failures": "node src/scripts/test-atomic-publisher-failure-modes.js",
     "jobs:export-job-finder": "node src/scripts/export-job-finder-consumer.js",
     "jobs:public-release": "node src/scripts/build-public-release.js",
     "jobs:ats-health": "node src/scripts/report-ats-health.js",
@@ -52,13 +60,15 @@
     "jobs:compare-last-release": "node src/scripts/compare-last-release.js",
     "jobs:test-job-finder-consumer": "node src/scripts/test-job-finder-consumer.js",
     "jobs:test-dedupe-select": "node src/scripts/test-dedupe-select.js",
+    "jobs:test-core-pipeline": "node src/scripts/test-core-pipeline.js",
+    "jobs:test-streaming-export-phase-1": "node src/scripts/test-streaming-export-phase-1.js",
     "jobs:test-catalog-maintenance": "node src/scripts/test-catalog-maintenance.js",
     "jobs:test-board-freshness": "node src/scripts/test-board-freshness.js",
     "jobs:test-ats-errors": "node src/scripts/test-ats-error-classification.js",
     "jobs:test-passive-launcher": "node src/scripts/test-passive-launcher.js",
     "jobs:test-ats-alert": "node src/scripts/test-ats-anomaly-alert.js",
     "jobs:test-title-category": "node src/scripts/test-title-category.js",
-    "jobs:test-all": "npm run jobs:test-catalog-maintenance && npm run jobs:test-board-freshness && npm run jobs:test-ats-errors && npm run jobs:test-passive-launcher && npm run jobs:test-ats-alert && npm run jobs:test-title-category && npm run jobs:test-dedupe-select && npm run jobs:test-release && npm run jobs:test-gsheet-grouping && npm run jobs:test-gsheet-package && npm run jobs:test-scoring && npm run jobs:test-greenhouse-normalize && npm run jobs:test-job-finder-consumer && npm run jobs:compare-last-release && npm run jobs:test-trends && npm run jobs:test-us-remote-report",
+    "jobs:test-all": "npm run jobs:test-catalog-maintenance && npm run jobs:test-board-freshness && npm run jobs:test-ats-errors && npm run jobs:test-passive-launcher && npm run jobs:test-ats-alert && npm run jobs:test-title-category && npm run jobs:test-dedupe-select && npm run jobs:test-core-pipeline && npm run jobs:test-streaming-export-phase-1 && npm run jobs:test-release && npm run jobs:test-gsheet-grouping && npm run jobs:test-gsheet-package && npm run jobs:test-scoring && npm run jobs:test-greenhouse-normalize && npm run jobs:test-job-finder-consumer && npm run jobs:compare-last-release && npm run jobs:test-trends && npm run jobs:test-us-remote-report",
     "catalogs:download": "node src/scripts/download-catalogs.js",
     "catalogs:normalize": "node src/scripts/normalize-catalogs.js",
     "catalogs:analyze": "node src/scripts/analyze-catalogs.js",
@@ -68,5 +78,8 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "dependencies": {
+    "better-sqlite3": "^12.11.1"
   }
 }

@@ -1,0 +1,5 @@
+[
+{"ATS":"greenhouse","Company":"Example Co","CompanyKey":"example-co","Title":"Technical Writer","WriterFitTier":"A","WriterFitScore":85,"TitleReviewBucket":"STRONG_MATCH","RemoteStatus":"Remote","USRemoteEligible":true,"SalaryDetected":true,"ExportQualityFlag":"REVIEW","DuplicateGroupKey":"example-writer","CanonicalURLKey":"https://example.test/jobs/1","URL":"https://example.test/jobs/1"},
+{"ATS":"greenhouse","Company":"Example Co","CompanyKey":"example-co","Title":"Technical Writer","WriterFitTier":"B","WriterFitScore":70,"TitleReviewBucket":"POSSIBLE_MATCH","RemoteStatus":"Remote","USRemoteEligible":true,"SalaryDetected":false,"ExportQualityFlag":"OK","DuplicateGroupKey":"example-writer","CanonicalURLKey":"https://example.test/jobs/2","URL":"https://example.test/jobs/2"},
+{"Company":"Other Co","CompanyKey":"other-co","Title":"Backend Engineer","WriterFitTier":"F","WriterFitScore":0,"TitleReviewBucket":"IGNORE_FOR_NOW","RemoteStatus":"Onsite","USRemoteEligible":false,"SalaryDetected":false,"ExportQualityFlag":"OK","URL":"https://example.test/jobs/3"}
+]
