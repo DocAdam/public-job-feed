@@ -516,6 +516,21 @@ function normalizeICIMSJob(job, context, titleRecords) {
   });
 }
 
+function normalizeTalentBrewJob(job, context, titleRecords) {
+  const normalized = normalizeGenericAtsJob(job, { ...context, ats: "talentbrew" }, titleRecords, {
+    title: getFirstText(job.title),
+    location: getFirstText(job.location),
+    department: getFirstText(job.department),
+    description: getFirstText(job.description, job.title),
+    salary: getFirstText(job.salary),
+    datePosted: getFirstText(job.datePosted),
+    url: getFirstText(job.url),
+    rawJobId: getFirstText(job.id),
+  });
+
+  return { ...normalized, Source: "TalentBrew public career site" };
+}
+
 
 // Core-pipeline compatibility helpers added during the architecture transition.
 const { processJobBatch: processCoreJobBatch } = require("../core/pipeline/engine");
@@ -551,6 +566,7 @@ module.exports = {
   normalizeGreenhouseJob,
   normalizeICIMSJob,
   normalizeLeverJob,
+  normalizeTalentBrewJob,
   normalizeWorkdayJob,
   normalizeJobRecord,
   normalizeJobBatch,

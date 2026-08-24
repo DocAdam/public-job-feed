@@ -7,6 +7,7 @@
   "scripts": {
     "titles:analyze": "node src/scripts/analyze-job-titles.js",
     "jobs:fetch-sample": "node src/scripts/fetch-sample-jobs.js",
+    "jobs:probe-talentbrew": "node src/scripts/probe-talentbrew-board.js",
     "jobs:fetch-batch": "node src/scripts/fetch-batch-jobs.js",
     "jobs:index-batches": "node src/scripts/index-batches.js",
     "jobs:merge-batches": "node --max-old-space-size=16384 src/scripts/merge-batches.js",
@@ -52,6 +53,7 @@
     "jobs:test-gsheet-package": "node src/scripts/test-gsheet-package.js",
     "jobs:test-gsheet-grouping": "node src/scripts/test-gsheet-grouping.js",
     "jobs:test-greenhouse-normalize": "node src/scripts/test-greenhouse-normalize.js",
+    "jobs:test-talentbrew-parser": "node src/scripts/test-talentbrew-parser.js",
     "jobs:test-curated-preview": "node src/scripts/preview-curated-submission.js",
     "jobs:test-curated-submissions": "node src/scripts/test-curated-submissions.js",
     "jobs:test-release": "node src/scripts/test-release.js",
