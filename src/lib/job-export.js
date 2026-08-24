@@ -227,6 +227,7 @@ const publicFeedHeaders = [
   "Department",
   "DatePosted",
   "URL",
+  "ApplyURL",
   "Description",
   "CatalogSlug",
   "BoardURL",

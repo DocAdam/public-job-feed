@@ -1,10 +1,10 @@
-# Google Sheets CSV Cleanup Plan
+# Clean a Google Sheets package after link checks
 
-This plan covers cleanup after URL pruning for Google Sheets handoff packages.
+Use this guide after checking job links in a Google Sheets package. It removes only temporary link-check files after you have reviewed and safely pruned confirmed broken links.
 
-## Goal
+## Keep and remove
 
-Keep the final pruned Google Sheets upload CSV and remove temporary URL-check artifacts from the package folder after review and pruning are complete.
+Keep the final Good Documentation Jobs upload CSV. Remove only temporary link-check artifacts from the package folder after review and pruning are complete.
 
 Primary file:
 
@@ -22,7 +22,6 @@ Temporary pruning/review files:
 
 Apply this cleanup to a completed package folder, such as:
 
-- `data/jobs/gsheet-package/latest/`
 - `data/jobs/gsheet-package/latest/`
 - `data/jobs/gsheet-package/YYYYMMDD-HHMM/`
 
@@ -91,13 +90,6 @@ Do not clean the source public exports, merged exports, full firehose, company c
    PACKAGE_DIR=data/jobs/gsheet-package/YYYYMMDD-HHMM
    wc -l "$PACKAGE_DIR/01_good_documentation_jobs.csv"
    wc -l "$PACKAGE_DIR/01_good_documentation_jobs-before-url-prune.csv"
-   ```
-
-   Expected example size change:
-
-   ```text
-   Before pruning: 01_good_documentation_jobs.csv around 40 KB
-   After pruning:  01_good_documentation_jobs.csv around 37 KB
    ```
 
    The pruned file should usually be smaller than the backup. It should not be suspiciously tiny. If the final CSV has fewer than 10 data rows, stop and do not clean artifacts.

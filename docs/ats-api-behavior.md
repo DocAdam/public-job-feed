@@ -1,12 +1,12 @@
-# ATS API Behavior
+# ATS source behavior
 
-Last updated: 2026-06-03
+Last updated: 2026-08-24
 
-This document describes how `public-job-feed` currently talks to public ATS job-board surfaces. It is an implementation guide for this repository, not a vendor API contract. Vendor behavior can change without notice, and this system treats unexpected responses as operational signals rather than hard failures for the whole run.
+This guide explains how Public Job Feed reads public employer job boards from each supported ATS. It is an implementation reference, not a vendor API contract. Employer sites can change without notice, so an unexpected response becomes a recorded signal for review rather than a failure for the entire refresh.
 
-The goal of these fetchers is simple: take a known company board record, request public job postings, normalize the returned jobs into the shared public feed schema, and preserve enough diagnostics to explain what happened later.
+Each fetcher starts with a known employer board, requests its public postings, turns the results into the shared job-record format, and keeps enough detail to explain the result later.
 
-## Shared Fetching Model
+## How a fetch works
 
 All ATS fetchers are called by the sample and batch job scripts:
 
@@ -32,7 +32,7 @@ The shared HTTP client is `src/lib/http.js`. It sends a `GET` request with:
 
 The client parses the response body as JSON. If the status is not OK, it throws an HTTP error. If the status is OK but the body is not valid JSON, it throws an invalid JSON error. The batch runner catches these errors, logs the failed board, and continues.
 
-## Batch Status Semantics
+## Board result statuses
 
 Every board attempt writes one fetch-log row. These statuses are intentionally small and operational:
 
@@ -61,7 +61,7 @@ The crawl queue marks a row as ready only when it has a usable fetch URL, a comp
 
 ## Normalized Output
 
-Regardless of ATS, fetched jobs are normalized into the public feed fields in `src/lib/jobs-normalize.js`. Normalization tries to produce consistent values for:
+Regardless of ATS, fetched jobs are normalized into the shared job-record fields in `src/lib/jobs-normalize.js`. Normalization tries to produce consistent values for:
 
 - Company and company key
 - Job title
@@ -79,7 +79,7 @@ After normalization, shared enrichment adds:
 - Title review bucket and priority
 - Remote, hybrid, onsite, and US-remote heuristics
 - Salary detection fields
-- Writer fit score and tier
+- Writer-fit score and tier
 - Duplicate and export quality fields
 
 These fields are review aids. They should be treated as spreadsheet filters, not final truth.
@@ -136,7 +136,7 @@ If `data.jobs` is not an array, the board is treated as empty.
 
 Ashby normalization reads common fields such as:
 
-| Public Feed Field | Ashby Source |
+| Job record field | Ashby source |
 | --- | --- |
 | `Title` | `title` |
 | `Description` | `descriptionHtml` or `description` |
@@ -210,7 +210,7 @@ If `data.jobs` is not an array, the board is treated as empty.
 
 Greenhouse normalization reads common fields such as:
 
-| Public Feed Field | Greenhouse Source |
+| Job record field | Greenhouse source |
 | --- | --- |
 | `Title` | `title` |
 | `Description` | `content` or `description` |
@@ -282,7 +282,7 @@ If the response body is not an array, the board is treated as empty.
 
 Lever normalization reads common fields such as:
 
-| Public Feed Field | Lever Source |
+| Job record field | Lever source |
 | --- | --- |
 | `Title` | `text` |
 | `Description` | `descriptionPlain`, `description`, `lists`, and `additionalPlain` |
@@ -363,7 +363,7 @@ If none of these are arrays, the board is treated as empty.
 
 Workday normalization reads common fields such as:
 
-| Public Feed Field | Workday Source |
+| Job record field | Workday source |
 | --- | --- |
 | `Title` | `title` or `jobTitle` |
 | `Description` | `jobDescription`, `description`, or title fallback |
@@ -436,7 +436,7 @@ If none of these are arrays, the board is treated as empty.
 
 BambooHR normalization reads common fields such as:
 
-| Public Feed Field | BambooHR Source |
+| Job record field | BambooHR source |
 | --- | --- |
 | `Title` | `jobOpeningName`, `title`, `jobTitle`, or `name` |
 | `Description` | `description`, `jobDescription`, `summary`, or title fallback |
@@ -507,7 +507,7 @@ If none of these are arrays, the board is treated as empty.
 
 iCIMS normalization reads common fields such as:
 
-| Public Feed Field | iCIMS Source |
+| Job record field | iCIMS source |
 | --- | --- |
 | `Title` | `title`, `jobTitle`, or `name` |
 | `Description` | `description`, `jobDescription`, or `overview` |
@@ -563,4 +563,3 @@ The next useful documentation improvements are:
 - Record common failure messages by ATS from recent fetch logs.
 - Document when a vendor response changed and what code change adapted to it.
 - Add per-ATS health thresholds for `SCALE_NOW`, `SAMPLE_MORE`, `REVIEW_FETCHER`, and `CATALOG_ONLY_FOR_NOW`.
-

@@ -229,6 +229,7 @@ function getDataDictionaryRows(headers) {
     "Posted Date": "Display-friendly posting date supplied by the ATS if available, formatted YYYY-MM-DD in simple public exports.",
     "Age (Days)": "Integer number of days between Posted Date and the report generation date in simple public exports.",
     URL: "Primary job URL.",
+    ApplyURL: "Direct application URL when a curated employer posting exposes one; otherwise use URL.",
     Description: "Raw or lightly normalized job description.",
     CatalogSlug: "Catalog slug used for board fetching.",
     BoardURL: "Likely public board URL.",

@@ -23,6 +23,7 @@ const {
   writerFitSummaryHeaders,
 } = require("../lib/job-export");
 const { normalizeTitle, readJobTitles } = require("../lib/job-titles");
+const { loadCuratedSubmissionRows } = require("../lib/curated-submissions");
 
 const batchIndexPath = fromRoot("data", "jobs", "index", "batch-index.json");
 const mergedRoot = fromRoot("data", "jobs", "merged");
@@ -641,6 +642,10 @@ async function main() {
   if (!includeReview) {
     mergedRows = mergedRows.filter((row) => row.ExportQualityFlag === "OK");
   }
+
+  const curated = await loadCuratedSubmissionRows(titleRecords, generatedAt);
+  mergedRows.push(...curated.rows);
+  console.log(`Approved curated submissions included: ${curated.rows.length}`);
 
   await ensureDir(outputDir);
 

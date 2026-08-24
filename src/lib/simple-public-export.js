@@ -184,7 +184,7 @@ function buildSimplePublicRow(row, reportRunDate) {
     Title: row.Title || "",
     Company: row.Company || "",
     Location: row.Location || "",
-    "Apply Link": row.URL || "",
+    "Apply Link": row.ApplyURL || row.URL || "",
     "Additional Apply Links": "",
     "Writer Fit Score": row.WriterFitScore || "",
     "Fit Tier": row.WriterFitTier || "",

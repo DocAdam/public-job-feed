@@ -1,8 +1,8 @@
-# Job Index Maintenance
+# Keeping job listings current
 
-The job feed now maintains a persistent snapshot for every catalog board. Catalog discovery and due-board refreshes start in parallel; the public release is built only after required maintenance finishes.
+The Public Job Feed keeps a recent snapshot for each catalog board. Catalog discovery and scheduled board checks can run in parallel. The release is built only after the required maintenance work finishes.
 
-## Manual public refresh
+## Run the normal refresh
 
 Run `launchers/Refresh Job Feed.command`. It:
 
@@ -10,15 +10,15 @@ Run `launchers/Refresh Job Feed.command`. It:
 2. Refreshes current good-match boards and a bounded cross-ATS sample of other due boards.
 3. Fetches newly added catalog boards by stable `ATS + slug` keys.
 4. Indexes the new batches and reports snapshot freshness.
-5. Builds the public release and Google Sheets package.
+5. Builds the Public Job Feed release and Google Sheets package.
 
 A source download is validated before it replaces the last-known-good file. Invalid JSON, zero rows, and an unapproved row-count decline above 20% use the previous source and appear as warnings in `data/catalogs/catalog-manifest.json`.
 
-## Passive maintenance
+## Scheduled maintenance
 
-Run `launchers/Install Passive Job Index Refresh.command` once to install the provided macOS `launchd` job. It performs a larger maintenance pass at 4:00 AM and 4:00 PM without publishing the Sheet. The next manual refresh consumes those recent board snapshots.
+Run `launchers/Install Passive Job Index Refresh.command` once to install the provided macOS `launchd` job. It performs a larger maintenance pass at 4:00 AM and 4:00 PM without rebuilding the reader-facing Google Sheets package. The next manual refresh uses those recent board snapshots.
 
-The passive job is intentionally not installed automatically by repository updates. Its definition is `launchers/com.public-job-feed.maintain-index.plist.example` and its logs are written under `data/jobs/logs/`.
+The scheduled job is not installed automatically by repository updates. Its definition is `launchers/com.public-job-feed.maintain-index.plist.example` and its logs are written under `data/jobs/logs/`.
 
 ## Useful commands
 
@@ -28,7 +28,7 @@ The passive job is intentionally not installed automatically by repository updat
 - `npm run jobs:board-freshness` rebuilds the ATS freshness report.
 - `npm run jobs:test-catalog-maintenance` runs catalog fallback and key-scheduling regression tests.
 
-The primary diagnostics are:
+## Where to look when something needs review
 
 - `data/catalogs/catalog-manifest.json`
 - `data/catalogs/crawl/catalog-queue-diff.json`

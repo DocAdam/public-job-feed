@@ -1,8 +1,8 @@
-# Get the Weekly Top 5 Jobs Substack Post
+# Prepare the weekly Top 5 Jobs post
 
-## Short Version
+## Quick workflow
 
-1. Finish the job-feed refresh.
+1. Finish the Public Job Feed refresh.
 
    For a normal weekly post:
 
@@ -45,7 +45,7 @@ Build this week's Top 5 documentation jobs Substack post.
 
 Use:
 - data/jobs/trends/latest/weekly-new-jobs.csv as the initial candidate pool.
-- data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv to confirm each candidate is still in the current cleaned feed.
+- data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv to confirm each candidate is still in the current Good Documentation Jobs package.
 - data/jobs/trends/latest/weekly-substack-report.md for the weekly feed count and factual market context.
 - /Users/adampugh/GitHub/writing-projects/substack-top-5-jobs-2026-07-20.md only as a previous-format reference. Do not carry its job facts into the new post.
 - The adam-substack-voice skill with the job-roundup profile.
