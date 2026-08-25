@@ -63,11 +63,30 @@ The normal macOS workflow is:
 open launchers/Refresh\ Job\ Feed.command
 ```
 
-It refreshes job data, rebuilds the current Public Job Feed release and Google Sheets package, checks links, validates the package, and updates operational reports. It does not publish directly to Google Sheets or Substack.
+It refreshes due boards, rebuilds the current feed and Google Sheets package, checks links, validates the result, and updates operational reports. It does not publish directly to Google Sheets or Substack.
+
+Each refresh uses this sequence:
+
+1. Check employer boards and record the latest result for each board.
+2. Build the current Public Job Feed from those current board results.
+3. Prepare the Google Sheets upload package and validate it.
+4. Keep compact fetch history for freshness and coverage reporting.
+
+The canonical current-feed files are:
+
+```text
+data/jobs/public/public-job-feed-latest.json
+data/jobs/public/public-job-feed-latest.csv
+```
+
+Job Finder-compatible exports read the JSON feed. The Google Sheets package reads the CSV feed. Other full-feed paths are compatibility links rather than additional copies.
 
 Useful commands:
 
 ```sh
+# Bring overdue board checks up to date before a large refresh.
+open launchers/Run\ Overnight\ Index\ Catch-Up.command
+
 # Rebuild the current feed from indexed batches.
 npm run jobs:public-release
 
@@ -79,6 +98,9 @@ npm run jobs:test-gsheet-package
 
 # Verify approved direct-employer submissions.
 npm run jobs:test-curated-submissions
+
+# Review raw-batch retention without changing any files.
+npm run jobs:plan-batch-retention
 ```
 
 The primary upload file is:
@@ -86,6 +108,18 @@ The primary upload file is:
 ```text
 data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv
 ```
+
+### Storage and retention
+
+The project keeps current board inputs, compact fetch history, and a short window of raw batches for recovery. New batch runs use JSON as the machine-readable format; the large batch CSV is available only when explicitly requested for investigation.
+
+Batch retirement is a separate maintenance task, never part of the normal refresh. Review the plan first, then use the guarded command only when you intend to retire validated, superseded batches:
+
+```sh
+npm run jobs:retire-batches -- --apply
+```
+
+For the retention rules, recovery behavior, and full-slice workflow, see [Storage lifecycle](docs/storage-lifecycle.md).
 
 ## Project guides
 
@@ -95,6 +129,7 @@ data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv
 | [Job-index maintenance](docs/job-index-maintenance.md) | Board freshness, retries, and scheduled maintenance. |
 | [ATS behavior](docs/ats-api-behavior.md) | Supported ATS sources and known limitations. |
 | [Google Sheets package cleanup](docs/gsheet-csv-cleanup-plan.md) | Checking and safely pruning deterministic broken links. |
+| [Storage lifecycle](docs/storage-lifecycle.md) | Keeping current data, compact history, and safe batch retention boundaries. |
 | [Weekly Top 5 workflow](docs/weekly-top-five-substack.md) | Preparing the editorial job-roundup draft. |
 
 ## Development notes

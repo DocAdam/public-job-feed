@@ -106,6 +106,23 @@ async function fileExists(filePath) {
   }
 }
 
+async function replaceWithRelativeSymlink(linkPath, targetPath) {
+  const relativeTarget = path.relative(path.dirname(linkPath), targetPath);
+  await fs.rm(linkPath, { force: true });
+  await fs.symlink(relativeTarget, linkPath);
+}
+
+async function writeFirehoseAliases() {
+  await replaceWithRelativeSymlink(
+    path.join(slicesDir, "public-job-feed-firehose.csv"),
+    path.join(publicDir, "public-job-feed-latest.csv")
+  );
+  await replaceWithRelativeSymlink(
+    path.join(slicesDir, "public-job-feed-firehose.json"),
+    path.join(publicDir, "public-job-feed-latest.json")
+  );
+}
+
 function isTrue(value) {
   return value === true || String(value).toUpperCase() === "TRUE";
 }
@@ -345,6 +362,10 @@ async function main() {
   if (options.writeFullSlices) {
     for (const slice of slices) {
       console.log(`Writing slice ${slice.name}: ${slice.rows.length} rows`);
+      if (slice.name === "firehose") {
+        await writeFirehoseAliases();
+        continue;
+      }
       await writeRows(slicesDir, slice.baseName, headers, slice.rows);
     }
   } else {

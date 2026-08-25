@@ -321,7 +321,7 @@ async function writeRefreshBatch(ats, candidates, options, titleRecords, generat
   artifacts.summary.BoardsSelected = candidates.length;
   artifacts.summary.RefreshKnownGood = true;
 
-  await writeBatchOutputs(outputPaths, artifacts);
+  await writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv: options.includePublicFeedCsv });
 
   return {
     ATS: ats,
@@ -337,6 +337,7 @@ async function main() {
   const dryRun = parseBoolean(getArgValue("--dry-run", "true"), true);
   const delayMs = parsePositiveInteger(getArgValue("--delay-ms", "250"), 250);
   const concurrency = Math.min(parsePositiveInteger(getArgValue("--concurrency", "3"), 3), 10);
+  const includePublicFeedCsv = parseBoolean(getArgValue("--include-batch-csv", "false"), false);
   const outputRoot = path.resolve(fromRoot(), getArgValue("--output-root", batchesRoot));
   const runId = getArgValue("--run-id", timestampForName());
   const allowedAts = getAllowedAts();
@@ -391,7 +392,15 @@ async function main() {
     }
 
     console.log(`\nRefreshing ${ats}: ${atsCandidates.length} boards`);
-    batchResults.push(await writeRefreshBatch(ats, atsCandidates, { outputRoot, runId, delayMs, concurrency }, titleRecords, generatedAt));
+    batchResults.push(
+      await writeRefreshBatch(
+        ats,
+        atsCandidates,
+        { outputRoot, runId, delayMs, concurrency, includePublicFeedCsv },
+        titleRecords,
+        generatedAt
+      )
+    );
   }
 
   await writeJsonFile(path.join(reportsDir, "known-good-refresh-results.json"), batchResults);

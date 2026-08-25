@@ -24,8 +24,10 @@ const {
 } = require("../lib/job-export");
 const { normalizeTitle, readJobTitles } = require("../lib/job-titles");
 const { loadCuratedSubmissionRows } = require("../lib/curated-submissions");
+const { isUsableBoardState } = require("../lib/batch-history");
 
 const batchIndexPath = fromRoot("data", "jobs", "index", "batch-index.json");
+const boardStatePath = fromRoot("data", "jobs", "index", "board-latest-fetch.json");
 const mergedRoot = fromRoot("data", "jobs", "merged");
 const publicRoot = fromRoot("data", "jobs", "public");
 const jobTitlesPath = fromRoot("data", "config", "job-titles.md");
@@ -484,6 +486,24 @@ async function readBatchFetchLogRows(batch) {
   }));
 }
 
+async function loadDerivedLatestFetchByBoard(selectedBatches) {
+  if (!(await fileExists(boardStatePath))) return null;
+
+  try {
+    const state = await readJsonFile(boardStatePath);
+    if (!isUsableBoardState(state, selectedBatches.length)) return null;
+    const latest = new Map();
+    for (const row of state.Boards) {
+      const key = getBoardKey(row);
+      if (key) latest.set(key, row);
+    }
+    return latest;
+  } catch (error) {
+    console.warn(`Derived board state unavailable; rebuilding from batch logs: ${error.message}`);
+    return null;
+  }
+}
+
 function isLargeCsvWriteError(error) {
   return error instanceof RangeError || /invalid string length/i.test(error.message || "");
 }
@@ -496,15 +516,20 @@ async function writeMergedOutputs(
   duplicateRows,
   atsSummaryRows,
   skipJson,
-  skipCsv
+  skipCsv,
+  writeFullFeed = true
 ) {
-  if (skipCsv) {
+  if (!writeFullFeed) {
+    // The current all-ATS release exposes compatibility links after public latest is written.
+  } else if (skipCsv) {
     await fs.rm(outputPaths.publicFeedCsv, { force: true });
     console.log(`Skipped large row CSV: ${outputPaths.publicFeedCsv}`);
   } else {
     await writeLargeCsvFile(outputPaths.publicFeedCsv, jobRows, mergedPublicFeedHeaders, formatCsvValue);
   }
-  if (skipJson) {
+  if (!writeFullFeed) {
+    // See the CSV branch above.
+  } else if (skipJson) {
     console.log(`Skipped large row JSON: ${outputPaths.publicFeedJson}`);
   } else {
     await writeLargeJsonArrayFile(outputPaths.publicFeedJson, jobRows, (row) => selectRow(mergedPublicFeedHeaders, row));
@@ -535,6 +560,18 @@ async function writeMergedOutputs(
   await writeJsonFile(outputPaths.duplicateSummaryJson, artifacts.duplicateSummary);
   await writeTextFile(outputPaths.atsSummaryCsv, rowsToCsv(atsSummaryHeaders, atsSummaryRows));
   await writeJsonFile(outputPaths.atsSummaryJson, atsSummaryRows);
+}
+
+async function replaceWithRelativeSymlink(linkPath, targetPath) {
+  const relativeTarget = path.relative(path.dirname(linkPath), targetPath);
+  await fs.rm(linkPath, { force: true });
+  await fs.symlink(relativeTarget, linkPath);
+}
+
+async function linkMergedCurrentFeed(outputPaths, skipJson, skipCsv) {
+  const publicPaths = getPublicLatestPaths();
+  if (!skipCsv) await replaceWithRelativeSymlink(outputPaths.publicFeedCsv, publicPaths.publicFeedCsv);
+  if (!skipJson) await replaceWithRelativeSymlink(outputPaths.publicFeedJson, publicPaths.publicFeedJson);
 }
 
 async function writePublicLatest(jobRows, summary, skipJson, skipCsv) {
@@ -603,16 +640,21 @@ async function main() {
   const generatedAt = new Date().toISOString();
   const outputDir = path.join(mergedRoot, outputName);
   const outputPaths = getOutputPaths(outputDir);
+  const useCurrentFeedCompatibilityLinks = ats === "all" && outputName === "public-feed-release";
   const titleRecords = await readJobTitles(jobTitlesPath);
   let mergedRows = [];
-  const latestLiveFetchByBoard = new Map();
-
-  for (const batch of selectedBatches) {
-    updateLatestLiveFetchByBoard(
-      latestLiveFetchByBoard,
-      await readBatchFetchLogRows(batch),
-      batch.BatchName
-    );
+  let latestLiveFetchByBoard = await loadDerivedLatestFetchByBoard(selectedBatches);
+  if (latestLiveFetchByBoard) {
+    console.log(`Using derived board state: ${latestLiveFetchByBoard.size} current board records.`);
+  } else {
+    latestLiveFetchByBoard = new Map();
+    for (const batch of selectedBatches) {
+      updateLatestLiveFetchByBoard(
+        latestLiveFetchByBoard,
+        await readBatchFetchLogRows(batch),
+        batch.BatchName
+      );
+    }
   }
 
   const latestBatchNames = new Set(
@@ -672,11 +714,15 @@ async function main() {
       duplicateRows,
       atsSummaryRows,
       skipJson,
-      skipCsv
+      skipCsv,
+      !useCurrentFeedCompatibilityLinks
     );
 
     if (ats === "all") {
       await writePublicLatest(artifacts.jobRows, summary, skipJson, skipCsv);
+      if (useCurrentFeedCompatibilityLinks) {
+        await linkMergedCurrentFeed(outputPaths, skipJson, skipCsv);
+      }
     }
   } catch (error) {
     if (isLargeCsvWriteError(error)) {

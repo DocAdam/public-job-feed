@@ -2,6 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const { rowsToCsv } = require("../lib/csv");
 const { ensureDir, fromRoot, readJsonFile, writeJsonFile } = require("../lib/files");
+const { writeDerivedBatchHistory } = require("../lib/batch-history");
 
 const batchesRoot = fromRoot("data", "jobs", "batches");
 const outputDir = fromRoot("data", "jobs", "index");
@@ -193,17 +194,31 @@ async function main() {
   }
 
   const rows = [];
+  const fetchLogRows = [];
   for (const batchName of batchNames) {
-    rows.push(await indexBatchFolder(batchName, indexedAt));
+    const row = await indexBatchFolder(batchName, indexedAt);
+    rows.push(row);
+    if (row.IndexStatus !== "OK") continue;
+    const fetchLog = await readJsonChecked(path.join(row.BatchFolder, "jobs-batch-fetch-log.json"));
+    if (Array.isArray(fetchLog.data)) {
+      fetchLogRows.push(...fetchLog.data.map((entry) => ({ ...entry, SourceBatch: row.BatchName })));
+    }
   }
 
   await fs.writeFile(outputCsvPath, rowsToCsv(indexHeaders, rows), "utf8");
   await writeJsonFile(outputJsonPath, rows);
+  const history = await writeDerivedBatchHistory({
+    outputDir,
+    generatedAt: indexedAt,
+    sourceBatchCount: rows.filter((row) => row.IndexStatus === "OK").length,
+    fetchLogRows,
+  });
 
   console.log("Batch index complete.");
   console.log(`Batches indexed: ${rows.length}`);
   console.log(`OK batches: ${rows.filter((row) => row.IndexStatus === "OK").length}`);
   console.log(`Review batches: ${rows.filter((row) => row.IndexStatus === "REVIEW").length}`);
+  console.log(`Current board state: ${history.boardCount} boards from ${history.eventCount} compact fetch events.`);
   console.log("Output folder:");
   console.log(outputDir);
 }

@@ -146,7 +146,7 @@ async function fetchAtsGroup(ats, records, entryByKey, options) {
   artifacts.summary.Limit = records.length;
   artifacts.summary.BoardsSelected = records.length;
   artifacts.summary.MaintenanceScope = options.scope;
-  await writeBatchOutputs(outputPaths, artifacts);
+  await writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv: options.includePublicFeedCsv });
   return { ats, batchName, fetchLogRows: result.fetchLogRows, jobRows: artifacts.jobRows };
 }
 
@@ -157,6 +157,7 @@ async function main() {
   const maxTotal = positiveNumber(getArgValue("--limit-total", "250"), 250);
   const budgetMinutes = positiveNumber(getArgValue("--budget-minutes", "45"), 45);
   const includeKnownGood = parseBoolean(getArgValue("--include-known-good", "false"));
+  const includePublicFeedCsv = parseBoolean(getArgValue("--include-batch-csv", "false"));
   const keysFile = getArgValue("--keys-file", "");
   const keysUnattemptedOnly = parseBoolean(getArgValue("--keys-unattempted-only", "true"), true);
   const outputRoot = path.resolve(fromRoot(), getArgValue("--output-root", batchesRoot));
@@ -204,7 +205,14 @@ async function main() {
   await ensureDir(outputRoot);
   const results = await Promise.all(
     Array.from(selectedByAts.entries()).map(([ats, records]) =>
-      fetchAtsGroup(ats, records, entryByKey, { outputRoot, runId, scope, titleRecords, deadlineAt })
+      fetchAtsGroup(ats, records, entryByKey, {
+        outputRoot,
+        runId,
+        scope,
+        titleRecords,
+        deadlineAt,
+        includePublicFeedCsv,
+      })
     )
   );
   const fetchLogs = results.flatMap((result) => result.fetchLogRows);

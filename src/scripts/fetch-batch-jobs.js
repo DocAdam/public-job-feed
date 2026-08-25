@@ -589,8 +589,10 @@ async function fetchAtsRows(rows, ats, titleRecords, delayMs, concurrency, optio
   };
 }
 
-async function writeBatchOutputs(outputPaths, artifacts) {
-  await writeCsv(outputPaths.publicFeedCsv, publicFeedHeaders, toCsvRows(artifacts.publicFeedRows));
+async function writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv = false } = {}) {
+  if (includePublicFeedCsv) {
+    await writeCsv(outputPaths.publicFeedCsv, publicFeedHeaders, toCsvRows(artifacts.publicFeedRows));
+  }
   await writeJsonFile(outputPaths.publicFeedJson, artifacts.publicFeedRows);
   await writeCsv(outputPaths.summaryCsv, summaryHeaders, [artifacts.summary]);
   await writeJsonFile(outputPaths.summaryJson, artifacts.summary);
@@ -620,6 +622,7 @@ async function main() {
   const delayMs = Number.parseInt(getArgValue("--delay-ms", "250"), 10);
   const requestedConcurrency = parsePositiveInteger(getArgValue("--concurrency", "3"), 3);
   const resume = parseBoolean(getArgValue("--resume", "true"), true);
+  const includePublicFeedCsv = parseBoolean(getArgValue("--include-batch-csv", "false"), false);
   const safeLimit = Number.isFinite(limit) && limit > 0 ? limit : 500;
   const safeOffset = Number.isFinite(offset) && offset > 0 ? offset : 0;
   const safeDelayMs = Number.isFinite(delayMs) && delayMs >= 0 ? delayMs : 250;
@@ -678,7 +681,7 @@ async function main() {
   const artifacts = buildJobExportArtifacts(mergedRawJobRows, mergedFetchLogRows, titleRecords, generatedAt);
   artifacts.fetchLogRows = mergedFetchLogRows;
 
-  await writeBatchOutputs(outputPaths, artifacts);
+  await writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv });
 
   console.log("\nBatch fetch complete.");
   console.log(`Batch name: ${batchName}`);
