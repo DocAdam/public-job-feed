@@ -244,6 +244,7 @@ function isPrunableFailure(check) {
     issue === "Final URL matches a known expired/error page pattern." ||
     issue === "URL is on the reviewed confirmed-dead job URL list." ||
     issue === "Page text matches a known closed/not-found job pattern." ||
+    issue === "Ashby job URL returned an empty generic Jobs page." ||
     issue.startsWith("Greenhouse job URL redirected")
   );
 }
@@ -371,7 +372,14 @@ async function main() {
   }
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = {
+  isPrunableFailure,
+  shouldKeepReviewRow,
+};

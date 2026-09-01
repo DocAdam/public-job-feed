@@ -55,6 +55,20 @@ function greenhouseBoardHost(hostname) {
   return host === "boards.greenhouse.io" || host === "job-boards.greenhouse.io";
 }
 
+function ashbyJobHost(hostname) {
+  return String(hostname || "").toLowerCase() === "jobs.ashbyhq.com";
+}
+
+function isAshbyEmptyJobShell(originalUrl, pageSample) {
+  if (!ashbyJobHost(originalUrl.hostname)) {
+    return false;
+  }
+
+  // Ashby returns this otherwise-successful generic document for removed job
+  // IDs. Active jobs use a title in the form "<role> @ <company>".
+  return /<title\b[^>]*>\s*jobs\s*<\/title>/i.test(pageSample);
+}
+
 function greenhouseJobId(url) {
   if (!greenhouseBoardHost(url.hostname)) {
     return "";
@@ -154,6 +168,10 @@ function classifyUrlIssue({ originalUrl, finalUrl, httpStatus, ok, pageSample = 
 
   if (knownBadPageTextPatterns.some((pattern) => pattern.test(pageSample))) {
     return "Page text matches a known closed/not-found job pattern.";
+  }
+
+  if (isAshbyEmptyJobShell(originalUrl, pageSample)) {
+    return "Ashby job URL returned an empty generic Jobs page.";
   }
 
   return "";
@@ -318,4 +336,5 @@ module.exports = {
   checkJobUrl,
   classifyUrlIssue,
   normalizeUrl,
+  isAshbyEmptyJobShell,
 };

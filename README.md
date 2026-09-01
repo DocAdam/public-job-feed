@@ -96,6 +96,9 @@ npm run jobs:gsheet-package
 # Validate the upload package.
 npm run jobs:test-gsheet-package
 
+# Review application links without changing the package.
+npm run jobs:gsheet-check-urls
+
 # Verify approved direct-employer submissions.
 npm run jobs:test-curated-submissions
 
@@ -108,6 +111,8 @@ The primary upload file is:
 ```text
 data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv
 ```
+
+The URL review only marks deterministic closures as safe to prune. This includes `404`/`410` responses, closed-job pages, known bad redirects, and an Ashby job URL that returns only its generic `Jobs` shell instead of a role page. Rate limits, access blocks, timeouts, and other ambiguous failures stay in the review report.
 
 ### Storage and retention
 

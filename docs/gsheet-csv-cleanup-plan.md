@@ -55,6 +55,8 @@ Do not clean the source public exports, merged exports, full firehose, company c
 
    Confirm that failures are genuinely unavailable jobs before pruning.
 
+   Safe-pruning detections include HTTP `404`/`410`, known expired or closed-job pages, bad Greenhouse redirects, and an Ashby job URL that returns only Ashby's generic `Jobs` page. The latter is an otherwise-successful response with no company, role, or application content. Rate limits, access blocks, timeouts, and other ambiguous failures must remain for manual review.
+
 4. Apply pruning.
 
    ```sh
