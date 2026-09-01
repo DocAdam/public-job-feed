@@ -1,4 +1,5 @@
 const { categorizeTitle } = require("./title-category");
+const { getPublicJobUrl } = require("./public-job-url-overrides");
 
 const SIMPLE_PUBLIC_HEADERS = [
   "Title",
@@ -184,7 +185,7 @@ function buildSimplePublicRow(row, reportRunDate) {
     Title: row.Title || "",
     Company: row.Company || "",
     Location: row.Location || "",
-    "Apply Link": row.ApplyURL || row.URL || "",
+    "Apply Link": getPublicJobUrl(row),
     "Additional Apply Links": "",
     "Writer Fit Score": row.WriterFitScore || "",
     "Fit Tier": row.WriterFitTier || "",
@@ -206,7 +207,7 @@ function buildSimpleFormulaRow(row, reportRunDate) {
     Title: simpleRow.Title,
     Company: simpleRow.Company,
     Location: simpleRow.Location,
-    Apply: buildHyperlinkFormula(row.URL),
+    Apply: buildHyperlinkFormula(simpleRow["Apply Link"]),
     "Additional Apply Links": "",
     "Writer Fit Score": simpleRow["Writer Fit Score"],
     "Fit Tier": simpleRow["Fit Tier"],

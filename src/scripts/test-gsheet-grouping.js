@@ -50,6 +50,48 @@ assert.strictEqual(rawSimpleRow["Additional Apply Links"], "");
 const rawFormulaRow = buildSimpleFormulaRow({ URL: "https://example.com/formula" }, "2026-07-20T00:00:00Z");
 assert.strictEqual(rawFormulaRow["Additional Apply Links"], "");
 assert.strictEqual(rawFormulaRow["Apply Link"], "https://example.com/formula");
+assert.strictEqual(
+  buildSimplePublicRow({ ApplyURL: "https://example.com/direct", URL: "https://example.com/ats" }, "2026-07-20T00:00:00Z")["Apply Link"],
+  "https://example.com/direct",
+  "ordinary rows should continue to prefer a direct application URL"
+);
+
+const posthogSimpleRow = buildSimplePublicRow(
+  {
+    ATS: "ashby",
+    CompanyKey: "posthog",
+    RawJobId: "56cc4793-348c-46c8-bba8-3337b990ecad",
+    URL: "https://jobs.ashbyhq.com/posthog/56cc4793-348c-46c8-bba8-3337b990ecad",
+  },
+  "2026-07-20T00:00:00Z"
+);
+assert.strictEqual(posthogSimpleRow["Apply Link"], "https://posthog.com/careers/member-of-the-technical-writing-staff");
+assert.strictEqual(
+  buildSimpleFormulaRow(
+    {
+      ATS: " AshBy ",
+      CompanyKey: " PostHog ",
+      RawJobId: "ec954b2d-5bb1-4d8a-b968-88002f78d62c",
+      URL: "https://jobs.ashbyhq.com/posthog/ec954b2d-5bb1-4d8a-b968-88002f78d62c",
+    },
+    "2026-07-20T00:00:00Z"
+  ).Apply,
+  '=HYPERLINK("https://posthog.com/careers/technical-content-writer","Apply")',
+  "formula exports should use the public URL override"
+);
+assert.strictEqual(
+  buildSimplePublicRow(
+    {
+      ATS: "ashby",
+      CompanyKey: "posthog",
+      RawJobId: "different-job-id",
+      URL: "https://jobs.ashbyhq.com/posthog/different-job-id",
+    },
+    "2026-07-20T00:00:00Z"
+  )["Apply Link"],
+  "https://jobs.ashbyhq.com/posthog/different-job-id",
+  "an override must not apply to a different job"
+);
 
 const groupedCgsFederal = groupPublicSheetCountryPostings([
   buildRow({ Company: "Cgsfederal", Location: "Atlanta, GA" }),
