@@ -52,7 +52,7 @@
     "jobs:trends": "node src/scripts/report-job-trends.js",
     "jobs:posting-patterns": "node src/scripts/report-posting-patterns.js",
     "jobs:report-us-remote": "node src/scripts/report-us-remote-daily.js",
-    "remotediff": "npm run jobs:report-us-remote",
+    "remotediff": "npm run jobs:report-us-remote && open data/jobs/reports/us-remote-daily-report.md",
     "jobs:test-gsheet-package": "node src/scripts/test-gsheet-package.js",
     "jobs:test-gsheet-grouping": "node src/scripts/test-gsheet-grouping.js",
     "jobs:test-greenhouse-normalize": "node src/scripts/test-greenhouse-normalize.js",
