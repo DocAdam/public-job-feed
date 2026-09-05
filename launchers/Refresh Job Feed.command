@@ -10,6 +10,7 @@ FRESHNESS_REPORT="$PROJECT_DIR/data/jobs/reports/board-freshness-report.md"
 ATS_ALERT_REPORT="$PROJECT_DIR/data/jobs/reports/ats-anomaly-alert.md"
 UNKNOWN_CATEGORY_REPORT="$PROJECT_DIR/data/jobs/reports/unknown-title-category-analysis.md"
 US_REMOTE_REPORT="$PROJECT_DIR/data/jobs/reports/us-remote-daily-report.md"
+INTERNATIONAL_REMOTE_REPORT="$PROJECT_DIR/data/jobs/reports/international-remote-daily-report.md"
 URL_FAILURES="$GSHEET_DIR/01_good_documentation_jobs-url-failures.csv"
 REFRESH_STATUS="$PROJECT_DIR/data/jobs/reports/refresh-job-feed-status.md"
 JOB_FINDER_SLICE="$PROJECT_DIR/data/jobs/consumers/job-finder/latest.json"
@@ -117,10 +118,12 @@ echo
 echo "Running validation tests before opening the Google Sheets package..."
 echo
 
-step_start "Step 6: generating confirmed US-remote daily report"
+step_start "Step 6: generating remote daily reports"
 npm run jobs:report-us-remote
+npm run jobs:report-international-remote
 step_complete "Step 6"
 echo "  - Confirmed US-remote daily report: $US_REMOTE_REPORT" >> "$REFRESH_STATUS"
+echo "  - Explicit international-remote daily report: $INTERNATIONAL_REMOTE_REPORT" >> "$REFRESH_STATUS"
 
 step_start "Step 7: running validation tests"
 if ! npm run jobs:test-all; then
@@ -195,6 +198,9 @@ echo "$UNKNOWN_CATEGORY_REPORT"
 echo
 echo "Confirmed US-remote daily report:"
 echo "$US_REMOTE_REPORT"
+echo
+echo "Explicit international-remote daily report:"
+echo "$INTERNATIONAL_REMOTE_REPORT"
 echo
 
 open "$GSHEET_DIR" || true

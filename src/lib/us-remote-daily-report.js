@@ -131,6 +131,7 @@ module.exports = {
   compareRows,
   filterConfirmedUsRemote,
   hasExplicitUsLocation,
+  jobKey,
   jobCsvName,
   readJobCsv,
   resolveSnapshots,

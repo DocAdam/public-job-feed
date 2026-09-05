@@ -72,6 +72,31 @@ Each refresh uses this sequence:
 3. Prepare the Google Sheets upload package and validate it.
 4. Keep compact fetch history for freshness and coverage reporting.
 
+### Daily remote-job reports
+
+The normal refresh creates two daily comparison reports from the two newest
+timestamped Google Sheets packages:
+
+- The US report includes only jobs where `Work Arrangement` is `Remote` and
+  the location has an explicit US marker.
+- The international report includes only jobs where `Work Arrangement` is
+  `Remote` and the location has an explicit non-US country, region, or
+  worldwide marker.
+
+A multi-region job, such as `US / Canada`, can be in both reports. A generic
+`Remote` location is not enough for either report because the eligible
+countries are not clear.
+
+The reports contain the current, added, removed, and continuing jobs. Each
+report is available as JSON and Markdown:
+
+```text
+data/jobs/reports/us-remote-daily-report.json
+data/jobs/reports/us-remote-daily-report.md
+data/jobs/reports/international-remote-daily-report.json
+data/jobs/reports/international-remote-daily-report.md
+```
+
 The canonical current-feed files are:
 
 ```text
@@ -101,6 +126,16 @@ npm run jobs:gsheet-check-urls
 
 # Verify approved direct-employer submissions.
 npm run jobs:test-curated-submissions
+
+# Create the US remote daily comparison report.
+npm run jobs:report-us-remote
+
+# Create the international remote daily comparison report.
+npm run jobs:report-international-remote
+
+# Create and open one remote report.
+npm run remotediff
+npm run internationaldiff
 
 # Review raw-batch retention without changing any files.
 npm run jobs:plan-batch-retention
