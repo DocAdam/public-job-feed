@@ -32,5 +32,15 @@ The original employer page remains the deduplication key. If the page provides a
 Every check is recorded in `data/jobs/reports/curated-submissions-health.json`.
 
 - A temporary or ambiguous failure keeps the last verified record in the feed.
-- A confirmed `404` or `410` response leaves the record out of that release.
+- A confirmed `404` or `410` response leaves the record out of that release and removes its cached fallback.
 - `PENDING`, `PAUSED`, and `CLOSED` entries stay in the intake file but are not included.
+
+## Test and verify
+
+`npm run jobs:test-curated-submissions` runs local fixtures. It does not make
+network requests or change the intake, cache, or production health report.
+
+`npm run jobs:verify-curated-submissions` makes live requests for approved
+entries and updates the cache and health report. It does not build the feed.
+A source-check result does not prove final export inclusion; inspect the
+release and package after their documented build steps.

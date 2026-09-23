@@ -43,13 +43,15 @@ Titles, descriptions, and export quality all affect the score. Read the posting 
 
 If you know about a role that belongs in the list, send Codex the employer name and a first-party job URL. Direct employer listings are preferred over aggregators or reposts.
 
-Approved submissions are verified during the next refresh, passed through the same scoring and duplicate checks as catalog-sourced roles, and added only when the posting is live and eligible. A submission is not a paid placement or a guarantee of inclusion.
+Approval adds a URL to intake. The next refresh checks its source data and applies scoring and duplicate checks. A temporary source failure can retain the last verified record. Check the submission health report and the final export to confirm inclusion. Approval does not guarantee that a role is open or included.
 
 For the contributor workflow and verification rules, see [curated direct employer submissions](docs/curated-submissions.md).
 
 ## Freshness and accuracy
 
-The project checks boards on a recurring schedule and records when a listing was last seen. A temporary employer-site failure does not immediately remove a previously verified curated listing; confirmed `404` and `410` closures do.
+The project checks boards on a recurring schedule. A board attempt can fail; a successful snapshot records the latest usable board result. A URL check has its own date and does not update the board fetch date. A temporary employer-site failure does not immediately remove a previously verified curated listing; confirmed `404` and `410` closures do.
+
+Bot checks, rate limits, and temporary outages do not establish that a job is closed. User browser observations are recorded separately from automated results. Writing-fit flags are separate from link and closure checks.
 
 Location, remote status, and salary are detected from public posting text. They can be incomplete or imperfect, so use them as filters rather than guarantees.
 
@@ -67,72 +69,47 @@ It refreshes due boards, rebuilds the current feed and Google Sheets package, ch
 
 Each refresh uses this sequence:
 
-1. Check employer boards and record the latest result for each board.
-2. Build the current Public Job Feed from those current board results.
-3. Prepare the Google Sheets upload package and validate it.
-4. Keep compact fetch history for freshness and coverage reporting.
+1. Maintain catalogs and check due boards.
+2. Build the current feed from indexed board results.
+3. Export the local Job Finder consumer file.
+4. Build the daily Google Sheets package.
+5. Check links, safely prune confirmed invalid links, and build the review report.
+6. Generate the separate and combined remote reports.
+7. Run validation tests.
+8. Record the refresh result and sync the final dashboard to both package copies.
 
-### Daily remote-job reports
+The desktop entry uses `launchers/Refresh Job Feed.desktop-wrapper.sh` to start
+the repository launcher. Keep one process definition in the repository.
+The consumer export is a local file; it does not modify Job Finder records.
 
-The normal refresh creates two daily comparison reports from the two newest
-timestamped Google Sheets packages:
+### Check the refresh result
 
-- The US report includes only jobs where `Work Arrangement` is `Remote` and
-  the location has an explicit US marker.
-- The international report includes only jobs where `Work Arrangement` is
-  `Remote` and the location has an explicit non-US country, region, or
-  worldwide marker.
+Before manual publication, check these files in `data/jobs/reports/`:
 
-A multi-region job, such as `US / Canada`, can be in both reports. A generic
-`Remote` location is not enough for either report because the eligible
-countries are not clear.
+- `refresh-run.json`: launcher path, hash, revision, run ID, and result.
+- `test-all-results.json`: full test result and the package ID tested.
+- `project-status-dashboard.md`: source dates, current failures, and warnings.
+- `package-evidence-review.md`: automated evidence and attributed user reviews.
+- `refresh-output-validation.json`: whether required outputs use the current inputs.
 
-The reports contain the current, added, removed, and continuing jobs. The
-combined command creates the full **All Remote Jobs — Daily Comparison** with
-a **Daily Jobs Snapshot** at the top. The opening snapshot is limited to 300
-lines and shows counts, up to five possible post subjects with three examples
-each, weekly changes, and focused-view commands. Below it, the original remote
-overview, overlap list, and full U.S. and international sections show added,
-removed, and current remote jobs. The 300-line limit applies only to the
-opening snapshot, not to the full remote report.
+A recent report-generation time does not make its source data current. A test
+with sample records does not establish that a live refresh completed. Check
+package IDs, source timestamps, and each report's status.
 
-```sh
-npm run allremotediff
-npm run allremotediff -- --region europe
-npm run allremotediff -- --country india
-npm run allremotediff -- --group technical-writing
-npm run allremotediff -- --region europe --work hybrid
-npm run allremotediff -- --topics
-npm run allremotediff -- --changes --limit 10
-npm run allremotediff -- --help
-```
+See [Status dashboard](docs/status-dashboard.md) for commands, status meanings,
+and the difference between board freshness, URL checks, and job status.
+Publication to Google Sheets or Substack remains a manual step.
 
-Focused reports show 20 examples in total by default. Use `--limit 1` through
-`--limit 100` to change this. Counts describe all matching jobs; the examples
-are a selection. Each filter combination writes a separate `jobs-view-*.md`
-file in `data/jobs/reports/`, so it does not replace the combined report.
-Use the sheet for the full list and other views.
+### Daily job reports
 
-The command reads the two newest saved packages directly. The weekly baseline
-is the oldest available package within the last seven days; actual package
-names are shown. Posting text and complete grouped locations, where available,
-come from `03_top_matches_full.csv` in the current package. The command does
-not refresh jobs, recheck links, change the sheet, or publish a post. The normal
-refresh still generates the separate U.S. and international remote reports.
+The refresh generates separate U.S. and international reports and one combined
+report with a daily snapshot. They compare saved packages. Added and removed
+jobs describe list membership, not posting or closure dates.
 
-Patterns describe this feed. Title groups are automated suggestions; text
-matches are topics to review, not confirmed requirements. Company counts use
-normalized source labels, and country mappings do not establish eligibility.
-Use `npm run jobs:report-all-remote -- [options]` to generate without opening
-an application.
-
-```text
-data/jobs/reports/us-remote-daily-report.json
-data/jobs/reports/us-remote-daily-report.md
-data/jobs/reports/international-remote-daily-report.json
-data/jobs/reports/international-remote-daily-report.md
-data/jobs/reports/all-remote-daily-report.md
-```
+Run `npm run allremotediff` to create and open the combined report. Use
+`npm run jobs:report-all-remote` to generate it without opening an application.
+See [Daily job reports](docs/daily-job-reports.md) for filters, focused views,
+location rules, output paths, and examples.
 
 The canonical current-feed files are:
 
@@ -141,7 +118,7 @@ data/jobs/public/public-job-feed-latest.json
 data/jobs/public/public-job-feed-latest.csv
 ```
 
-Job Finder-compatible exports read the JSON feed. The Google Sheets package reads the CSV feed. Other full-feed paths are compatibility links rather than additional copies.
+Job Finder-compatible exports read the JSON feed. The main Google Sheets jobs table is generated from deduplicated top-match JSON; detailed CSV files are included for review. Other full-feed paths are compatibility links rather than additional copies.
 
 Useful commands:
 
@@ -150,10 +127,10 @@ Useful commands:
 open launchers/Run\ Overnight\ Index\ Catch-Up.command
 
 # Rebuild the current feed from indexed batches.
-npm run jobs:public-release
+npm run jobs:public-release -- --profile daily
 
 # Build the local Google Sheets upload package.
-npm run jobs:gsheet-package
+npm run jobs:gsheet-package -- --profile daily
 
 # Validate the upload package.
 npm run jobs:test-gsheet-package
@@ -161,8 +138,11 @@ npm run jobs:test-gsheet-package
 # Review application links without changing the package.
 npm run jobs:gsheet-check-urls
 
-# Verify approved direct-employer submissions.
+# Test curated-submission logic with local fixtures.
 npm run jobs:test-curated-submissions
+
+# Fetch approved submissions and update their cache and health report.
+npm run jobs:verify-curated-submissions
 
 # Create the US remote daily comparison report.
 npm run jobs:report-us-remote
@@ -177,7 +157,7 @@ npm run internationaldiff
 # Open the remote comparison with the short daily snapshot at the top.
 npm run allremotediff
 
-# Review raw-batch retention without changing any files.
+# Write a raw-batch retention plan without deleting batches.
 npm run jobs:plan-batch-retention
 ```
 
@@ -205,6 +185,9 @@ For the retention rules, recovery behavior, and full-slice workflow, see [Storag
 
 | Guide | Use it for |
 | --- | --- |
+| [Refresh process diagram](docs/refresh-job-feed-process.md) | The refresh steps, data inputs, checks, and manual publication step. |
+| [Status dashboard](docs/status-dashboard.md) | Run evidence, source dates, tests, and user review. |
+| [Daily job reports](docs/daily-job-reports.md) | Remote comparisons, focused views, and command options. |
 | [Curated submissions](docs/curated-submissions.md) | Adding and verifying a direct employer listing. |
 | [Job-index maintenance](docs/job-index-maintenance.md) | Board freshness, retries, and scheduled maintenance. |
 | [ATS behavior](docs/ats-api-behavior.md) | Supported ATS sources and known limitations. |
@@ -216,9 +199,9 @@ For the retention rules, recovery behavior, and full-slice workflow, see [Storag
 
 ## Development notes
 
-Node.js 18 or later is required. The repository intentionally keeps raw catalogs, generated packages, and operational reports separate from source code. Treat generated data as read-only unless you are running its documented workflow.
+Node.js 26.x is the supported runtime for this checkout. Tests were run with Node.js 26.3.1. The locked SQLite dependency does not support Node.js 18. The repository intentionally keeps raw catalogs, generated packages, and operational reports separate from source code. Treat generated data as read-only unless you are running its documented workflow.
 
-Before changing source logic, run the focused test for the area you changed. The broad suite is available through:
+Run the focused test after each source change and fix any failures before continuing. The broad suite is available through:
 
 ```sh
 npm run jobs:test-all
