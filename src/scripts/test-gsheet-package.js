@@ -4,6 +4,8 @@ const { nullableNumber } = require("../lib/number");
 const { parseCsvRecords } = require("../lib/csv");
 const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
 
+const { packageIdentity, packageHash, previousPackage } = require("../lib/package-status");
+
 const packageRoot = fromRoot("data", "jobs", "gsheet-package");
 const reportsDir = fromRoot("data", "jobs", "reports");
 const defaultPackageDir = path.join(packageRoot, "latest");
@@ -100,23 +102,7 @@ async function readCsvIfExists(filePath) {
 }
 
 async function getPreviousPackageDir(packageDir, explicitPrevious) {
-  if (explicitPrevious) {
-    return path.resolve(fromRoot(), explicitPrevious);
-  }
-
-  if (!(await pathExists(packageRoot))) {
-    return "";
-  }
-
-  const resolvedPackageDir = path.resolve(packageDir);
-  const entries = await fs.readdir(packageRoot, { withFileTypes: true });
-  const timestampedDirs = entries
-    .filter((entry) => entry.isDirectory() && timestampPattern.test(entry.name))
-    .map((entry) => path.join(packageRoot, entry.name))
-    .filter((entryPath) => path.resolve(entryPath) !== resolvedPackageDir)
-    .sort((left, right) => path.basename(right).localeCompare(path.basename(left)));
-
-  return timestampedDirs[0] || "";
+  return previousPackage(packageDir, packageRoot, explicitPrevious ? path.resolve(fromRoot(), explicitPrevious) : "");
 }
 
 function addFailure(result, message) {
@@ -439,6 +425,8 @@ function buildMarkdown(result) {
     "## Package",
     "",
     `- Package directory: ${result.PackageDir}`,
+    `- Package run: ${result.PackageRun}`,
+    `- Copy consistency: ${result.CopyConsistency}`,
     `- Previous package directory: ${result.PreviousPackageDir || "not found"}`,
     "",
     "## Counts",
@@ -527,6 +515,8 @@ async function main() {
     PackageDir: packageDir,
     JobCsvPath: jobCsvPath,
     CompanyCoverageCsvPath: companyCoverageCsvPath,
+    PackageRun: await packageIdentity(packageDir),
+    CopyConsistency: "NOT_APPLICABLE",
     PreviousPackageDir: previousPackageDir,
     PreviousJobCsvPath: previousJobCsvPath,
     GoodDocumentationJobsRows: 0,
@@ -563,6 +553,11 @@ async function main() {
 
   await ensureDir(reportsDir);
   await validateManifest(result, packageDir);
+  if (path.basename(packageDir) === "latest") {
+    const sourceDir = path.join(packageRoot, result.PackageRun);
+    result.CopyConsistency = await packageHash(packageDir) === await packageHash(sourceDir) ? "PASS" : "FAIL";
+    if (result.CopyConsistency === "FAIL") addFailure(result, "Latest job CSV differs from its source package.");
+  }
   const reportRunDate = await readReportRunDate(packageDir);
   result.ReportRunDate = reportRunDate.value;
   result.ReportRunDatePath = reportRunDate.path;

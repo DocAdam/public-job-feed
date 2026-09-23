@@ -2,7 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const { spawn } = require("child_process");
 const { rowsToCsv } = require("../lib/csv");
-const { ensureDir, fromRoot, readJsonFile, writeTextFile } = require("../lib/files");
+const { ensureDir, fromRoot, readJsonFile, writeTextFile, writeJsonFile } = require("../lib/files");
 
 const publicDir = fromRoot("data", "jobs", "public");
 const slicesDir = path.join(publicDir, "slices");
@@ -543,6 +543,11 @@ async function main() {
     timestamp.iso,
     createdFiles
   );
+
+  await writeJsonFile(fromRoot("data", "jobs", "reports", "release-run-summary.json"), {
+    GeneratedAt: new Date().toISOString(), FeedGeneratedAt: latestSummary.GeneratedAt,
+    Profile: profile, ArchiveEnabled: archiveRelease, ReleaseFolder: archiveRelease ? releaseDir : null,
+  });
 
   await runOptionalNodeScript("src/scripts/report-ats-health.js", [], "ATS health report");
   await runOptionalNodeScript("src/scripts/report-crawl-coverage.js", [], "crawl coverage report");

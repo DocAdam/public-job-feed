@@ -16,6 +16,9 @@ const headers = [
   "Checked24Hours",
   "Checked7Days",
   "Checked30Days",
+  "SuccessfulSnapshots7Days",
+  "SuccessfulSnapshot7DayPercent",
+  "FailedBoardPercent",
   "DueBoards",
   "GoodMatchBoards",
   "JobsFoundBoards",
@@ -49,6 +52,10 @@ function summarize(ats, boards, nowMs) {
   const retryDelayed = failed.filter((row) => parseTime(row.NextCheckAt) > nowMs).length;
   const knownStatuses = new Set(["GOOD_MATCHES_FOUND", "JOBS_FOUND", "FETCHED_EMPTY", "FETCH_FAILED", "NOT_ATTEMPTED"]);
   const checked7 = checkedWithin(7);
+  const successful7 = eligible.filter((row) => {
+    const time = parseTime(row.LastSuccessAt);
+    return time > 0 && time <= nowMs && nowMs - time <= 7 * 86400000;
+  }).length;
   return {
     ATS: ats || "all",
     ActiveBoards: active.length,
@@ -58,6 +65,9 @@ function summarize(ats, boards, nowMs) {
     Checked24Hours: checkedWithin(1),
     Checked7Days: checked7,
     Checked30Days: checkedWithin(30),
+    SuccessfulSnapshots7Days: successful7,
+    SuccessfulSnapshot7DayPercent: percent(successful7, eligible.length),
+    FailedBoardPercent: percent(failed.length, eligible.length),
     DueBoards: due,
     GoodMatchBoards: statusCount("GOOD_MATCHES_FOUND"),
     JobsFoundBoards: statusCount("JOBS_FOUND"),
@@ -70,6 +80,24 @@ function summarize(ats, boards, nowMs) {
     AttemptCoveragePercent: percent(attempted.length, eligible.length),
     Fresh7DayPercent: percent(checked7, eligible.length),
   };
+}
+
+function failureBreakdown(boards, nowMs) {
+  const groups = new Map();
+  for (const row of boards.filter((item) => item.Active && item.FetchEligible && item.CoverageStatus === "FETCH_FAILED")) {
+    const key = `${row.ATS}|${row.LastErrorClass || "UNCLASSIFIED"}`;
+    if (!groups.has(key)) groups.set(key, { ATS: row.ATS, ErrorClass: row.LastErrorClass || "UNCLASSIFIED", Boards: 0,
+      Due: 0, LastAttemptOlder7Days: 0, LastSuccessOlder7Days: 0, LastSuccessUnknown: 0, Samples: [] });
+    const group = groups.get(key);
+    group.Boards += 1;
+    if (parseTime(row.NextCheckAt) <= nowMs) group.Due += 1;
+    if (nowMs - parseTime(row.LastAttemptAt) > 7 * 86400000) group.LastAttemptOlder7Days += 1;
+    if (!parseTime(row.LastSuccessAt)) group.LastSuccessUnknown += 1;
+    else if (nowMs - parseTime(row.LastSuccessAt) > 7 * 86400000) group.LastSuccessOlder7Days += 1;
+    if (group.Samples.length < 5) group.Samples.push({ BoardKey: row.BoardKey, LastAttemptAt: row.LastAttemptAt,
+      LastSuccessAt: row.LastSuccessAt, LastError: row.LastError });
+  }
+  return [...groups.values()].sort((a, b) => b.Boards - a.Boards);
 }
 
 function validateFreshnessSummary(summary) {
@@ -115,6 +143,8 @@ async function main() {
   if (catalogFetchEligible !== overall.FetchEligibleBoards) consistencyIssues.push("catalog fetch-eligible count does not match state rows");
   const report = {
     GeneratedAt: generatedAt,
+    StateGeneratedAt: state.GeneratedAt || null,
+    FailureBreakdown: failureBreakdown(state.Boards, nowMs),
     CatalogPipelineStatus: manifest.PipelineStatus || "unknown",
     CatalogPipelineCompletedAt: manifest.PipelineCompletedAt || "",
     CatalogRefreshStatus: manifest.RefreshStatus || "unknown",
@@ -138,7 +168,11 @@ async function main() {
     `- Fetch-eligible boards: ${overall.FetchEligibleBoards}`,
     `- Catalog boards: ${report.CatalogBoardCount}`,
     `- Attempted at least once: ${overall.AttemptedBoards} (${overall.AttemptCoveragePercent}%)`,
-    `- Checked in the last 7 days: ${overall.Checked7Days} (${overall.Fresh7DayPercent}%)`,
+    `- Attempts in the last 7 days: ${overall.Checked7Days} (${overall.Fresh7DayPercent}%)`,
+    `- Successful snapshots in the last 7 days: ${overall.SuccessfulSnapshots7Days} (${overall.SuccessfulSnapshot7DayPercent}%)`,
+    `- Current failed boards: ${overall.FailedBoards} (${overall.FailedBoardPercent}%)`,
+    `- Board state generated: ${report.StateGeneratedAt || "Unknown"}`,
+    "- A successful empty result counts as a successful snapshot. A failed attempt does not.",
     `- Currently due: ${overall.DueBoards}`,
     `- Never attempted: ${overall.NeverAttemptedBoards}`,
     `- Failed boards waiting for retry: ${overall.RetryDelayedFailedBoards}`,
@@ -146,14 +180,18 @@ async function main() {
     `- Consistency check: ${report.ConsistencyStatus}`,
     ...(consistencyIssues.length ? consistencyIssues.map((issue) => `- Consistency issue: ${issue}`) : []),
     "",
-    "| ATS | Eligible | Attempted | Last 24h | Last 7d | Due | Failed | Retry delayed |",
-    "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
+    "| ATS | Eligible | Attempted | Last 24h | Attempts 7d | Due | Failed | Retry delayed | Successful snapshots 7d |",
+    "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |",
     ...rows.slice(1).map(
       (row) =>
         `| ${row.ATS} | ${row.FetchEligibleBoards} | ${row.AttemptedBoards} | ${row.Checked24Hours} | ` +
-        `${row.Checked7Days} | ${row.DueBoards} | ${row.FailedBoards} | ${row.RetryDelayedFailedBoards} |`
+        `${row.Checked7Days} | ${row.DueBoards} | ${row.FailedBoards} | ${row.RetryDelayedFailedBoards} | ${row.SuccessfulSnapshots7Days} |`
     ),
     "",
+    "## Failed boards by cause", "",
+    "| ATS | Cause | Boards | Due | Last success older than 7 days | Last success unknown |",
+    "| --- | --- | ---: | ---: | ---: | ---: |",
+    ...report.FailureBreakdown.map((row) => `| ${row.ATS} | ${row.ErrorClass} | ${row.Boards} | ${row.Due} | ${row.LastSuccessOlder7Days} | ${row.LastSuccessUnknown} |`), "",
   ].join("\n");
   await ensureDir(reportsDir);
   await Promise.all([
@@ -174,4 +212,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main, summarize, validateFreshnessSummary };
+module.exports = { main, summarize, validateFreshnessSummary, failureBreakdown };

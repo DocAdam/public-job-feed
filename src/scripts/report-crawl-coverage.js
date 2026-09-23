@@ -1,3 +1,4 @@
+const { boardCoverage } = require("../lib/board-coverage");
 const nodeFs = require("fs");
 const fs = require("fs/promises");
 const path = require("path");
@@ -713,64 +714,10 @@ function getCompletionStatus(row) {
   return "NOT_STARTED";
 }
 
-function buildByAtsRows(queueRows, fetchLogs, attemptedByKey, remainingRows) {
-  const latestLogs = Array.from(attemptedByKey.values());
-  const logsByAts = new Map();
-  for (const log of latestLogs) {
-    const ats = normalizeAts(log.ATS);
-    if (!logsByAts.has(ats)) {
-      logsByAts.set(ats, []);
-    }
-    logsByAts.get(ats).push(log);
-  }
-
-  const remainingByAts = new Map();
-  for (const row of remainingRows) {
-    const ats = normalizeAts(row.ATS);
-    remainingByAts.set(ats, (remainingByAts.get(ats) || 0) + 1);
-  }
-
-  return atsList.map((ats) => {
-    const catalogRows = queueRows.filter((row) => isAtsPresent(row, ats)).length;
-    const candidateRows = getCoverageCandidateRows(queueRows, ats);
-    const crawlReadyRows = candidateRows.length;
-    const fetchSupportedRows = candidateRows.length;
-    const catalogOnlyRows = ats.supported ? 0 : queueRows.filter((row) => isAtsPresent(row, ats) || isCatalogOnlyRow(row)).length;
-    const logs = logsByAts.get(ats.key) || [];
-    const attemptedRows = logs.length;
-    const successRows = logs.filter((row) => cleanText(row.Status).toLowerCase() === "success" && (Number(row.JobCount) || 0) > 0).length;
-    const emptyRows = logs.filter((row) => cleanText(row.Status).toLowerCase() === "empty" || (cleanText(row.Status).toLowerCase() === "success" && !(Number(row.JobCount) || 0))).length;
-    const failedRows = logs.filter((row) => cleanText(row.Status).toLowerCase() === "failed").length;
-    const skippedRows = logs.filter((row) => cleanText(row.Status).toLowerCase() === "skipped").length;
-    const remaining = remainingByAts.get(ats.key) || 0;
-    const denominator = fetchSupportedRows + catalogOnlyRows;
-    const covered = Math.min(fetchSupportedRows, attemptedRows) + catalogOnlyRows;
-
-    const row = {
-      ATS: ats.key,
-      CatalogRows: catalogRows,
-      CrawlReadyRows: crawlReadyRows,
-      FetchSupportedRows: fetchSupportedRows,
-      AttemptedRows: attemptedRows,
-      SuccessRows: successRows,
-      EmptyRows: emptyRows,
-      FailedRows: failedRows,
-      SkippedRows: skippedRows,
-      CatalogOnlyRows: catalogOnlyRows,
-      RemainingRows: remaining,
-      CoveragePercent: percent(covered, denominator),
-      CompletionStatus: "",
-    };
-
-    row.CompletionStatus = getCompletionStatus(row);
-    return row;
-  });
-}
-
 function buildSummary(generatedAt, byAtsRows) {
   const fetchSupportedTotal = byAtsRows.reduce((sum, row) => sum + row.FetchSupportedRows, 0);
   const catalogOnlyTotal = byAtsRows.reduce((sum, row) => sum + row.CatalogOnlyRows, 0);
-  const attemptedTotal = byAtsRows.reduce((sum, row) => sum + Math.min(row.AttemptedRows, row.FetchSupportedRows), 0);
+  const attemptedTotal = byAtsRows.reduce((sum, row) => sum + row.AttemptedRows, 0);
   const remainingTotal = byAtsRows.reduce((sum, row) => sum + row.RemainingRows, 0);
   const denominator = fetchSupportedTotal + catalogOnlyTotal;
 
@@ -805,16 +752,16 @@ function buildMarkdownReport(generatedAt, summary, byAtsRows) {
     "## Have We Crawled Everything Yet?",
     "",
     haveCrawledEverything
-      ? "Yes. All currently crawl-ready fetch-supported companies have been attempted."
+      ? "Yes. All currently fetch-eligible catalog boards have been attempted."
       : `No. ${summary.RemainingTotal} crawl-ready fetch-supported rows remain.`,
     "",
     `Catalog accounted for: ${summary.CoveragePercentOverall}%`,
     "",
-    "Catalog accounted for includes successful, empty, failed, skipped, and explicitly catalog-only rows. It is not a freshness or fetch-success percentage; see board-freshness-report.md for recent checks.",
+    "Coverage uses the current board catalog and matching ATS + slug keys. Company coverage is a separate company-level diagnostic. Catalog accounted for includes successful, empty, failed, skipped, and explicitly catalog-only rows. It is not a freshness or fetch-success percentage; see board-freshness-report.md for recent checks.",
     "",
     "## ATS Coverage",
     "",
-    "| ATS | Catalog Rows | Crawl Ready | Fetch Supported | Attempted | Remaining | Catalog Only | Accounted For | Status |",
+    "| ATS | Catalog Boards | Crawl Ready | Fetch Supported | Attempted | Remaining | Catalog Only | Accounted For | Status |",
     "| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
     ...byAtsRows.map(
       (row) =>
@@ -869,13 +816,13 @@ async function main() {
   await readJsonFile(batchIndexPath);
   const fetchLogs = await readAllFetchLogs();
   const jobCountsByCompanyAts = await buildJobCountsFromPublicFeedCsv();
-  const attemptedByKey = latestLogByCoverageKey(fetchLogs);
-  const rowIndexByKey = buildRowIndexes(queueRows);
-  const remainingRows = buildRemainingRows(queueRows, attemptedByKey, rowIndexByKey);
-  const attemptedRows = buildAttemptedRows(fetchLogs);
+  const catalog = await readJsonFile(fromRoot("data", "catalogs", "crawl", "board-catalog.json"));
+  const coverage = boardCoverage(catalog, fetchLogs);
+  const remainingRows = coverage.remaining;
+  const attemptedRows = buildAttemptedRows(coverage.attempted);
   const companyCoverageRows = buildCompanyCoverageRows(queueRows, fetchLogs, jobCountsByCompanyAts);
-  const byAtsRows = buildByAtsRows(queueRows, fetchLogs, attemptedByKey, remainingRows);
-  const summary = buildSummary(generatedAt, byAtsRows);
+  const byAtsRows = coverage.byAts;
+  const summary = { ...buildSummary(generatedAt, byAtsRows), CoverageUnit: "stable ATS + catalog slug board key", CompanyQueueRows: queueRows.length };
 
   await writeCsv(path.join(reportsDir, "crawl-coverage-summary.csv"), summaryHeaders, [summary]);
   await writeJsonFile(path.join(reportsDir, "crawl-coverage-summary.json"), summary);

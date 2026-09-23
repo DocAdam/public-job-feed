@@ -1,6 +1,6 @@
 const assert = require("assert");
 const { fromRoot, readJsonFile } = require("../lib/files");
-const { summarize, validateFreshnessSummary } = require("./report-board-freshness");
+const { summarize, validateFreshnessSummary, failureBreakdown } = require("./report-board-freshness");
 
 function board(overrides = {}) {
   return {
@@ -18,12 +18,17 @@ async function main() {
   const now = Date.parse("2026-07-15T12:00:00.000Z");
   const rows = [
     board(),
-    board({ CoverageStatus: "JOBS_FOUND", LastAttemptAt: "2026-07-15T11:00:00.000Z", NextCheckAt: "2026-07-20T11:00:00.000Z" }),
+    board({ CoverageStatus: "JOBS_FOUND", LastAttemptAt: "2026-07-15T11:00:00.000Z", LastSuccessAt: "2026-07-15T11:00:00.000Z", NextCheckAt: "2026-07-20T11:00:00.000Z" }),
     board({ CoverageStatus: "FETCH_FAILED", LastAttemptAt: "2026-07-15T10:00:00.000Z", NextCheckAt: "2026-07-16T10:00:00.000Z" }),
     board({ CoverageStatus: "FETCH_FAILED", LastAttemptAt: "2026-07-14T10:00:00.000Z", NextCheckAt: "2026-07-15T10:00:00.000Z" }),
     board({ Active: false, FetchEligible: false }),
   ];
   const summary = summarize("", rows, now);
+  assert.equal(summary.SuccessfulSnapshots7Days, 1);
+  assert.equal(summary.SuccessfulSnapshot7DayPercent, 25);
+  assert.equal(summary.FailedBoardPercent, 50);
+  assert.equal(failureBreakdown(rows, now)[0].Boards, 2);
+  assert.equal(failureBreakdown(rows, now)[0].LastSuccessUnknown, 2);
   assert.equal(summary.ActiveBoards, 4);
   assert.equal(summary.FetchEligibleBoards, 4);
   assert.equal(summary.AttemptedBoards, 3);

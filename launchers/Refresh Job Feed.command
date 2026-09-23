@@ -30,10 +30,24 @@ echo
 
 mkdir -p "$PROJECT_DIR/data/jobs/reports"
 
+FEED_RUN_ID="$(node src/scripts/record-refresh-run.js start --launcher "$0" -- "$@")"
+export FEED_RUN_ID
+CURRENT_STEP="Starting"
+refresh_exit() {
+  local code=$?
+  if [ "$code" -ne 0 ]; then
+    node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status FAILED --exit-code "$code" --step "$CURRENT_STEP" || true
+    printf '\nFailed: %s (exit %s)\n' "$CURRENT_STEP" "$code" >> "$REFRESH_STATUS"
+    npm run jobs:status || true
+  fi
+}
+trap refresh_exit EXIT
+
 STEP_STARTED_AT=0
 
 step_start() {
   local label="$1"
+  CURRENT_STEP="$label"
   STEP_STARTED_AT="$(date +%s)"
   echo "- $label: started $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$REFRESH_STATUS"
 }
@@ -53,6 +67,9 @@ step_complete() {
   echo
   echo "Started: $(date -u '+%Y-%m-%d %H:%M UTC')"
   echo
+  echo "- Run ID: $FEED_RUN_ID"
+  echo "- Launcher: $0"
+  echo "- Run evidence: $PROJECT_DIR/data/jobs/reports/refresh-runs/$FEED_RUN_ID.json"
   echo "- Project: $PROJECT_DIR"
   echo "- Google Sheets package: $GSHEET_DIR"
   echo
@@ -109,6 +126,7 @@ if ! CLEAN_BROKEN_LINKS_OPEN=false CLEAN_BROKEN_LINKS_PAUSE=false "$PROJECT_DIR/
   fi
   exit 1
 fi
+npm run jobs:review-package-evidence
 step_complete "Step 5"
 LATEST_TIMESTAMPED_DIR="$(find "$PROJECT_DIR/data/jobs/gsheet-package" -maxdepth 1 -type d -name '20??????-????' | sort | tail -n 1)"
 URL_FAILURES="$LATEST_TIMESTAMPED_DIR/01_good_documentation_jobs-url-failures.csv"
@@ -165,10 +183,12 @@ if ! npm run jobs:test-all; then
   fi
   exit 1
 fi
+npm run jobs:validate-refresh-output
 step_complete "Step 7"
 
 step_start "Step 8: refreshing status dashboard"
-npm run jobs:status
+node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status COMPLETE --exit-code 0 --step "$CURRENT_STEP"
+npm run jobs:status -- --sync-package
 step_complete "Step 8"
 echo "Completed: $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$REFRESH_STATUS"
 

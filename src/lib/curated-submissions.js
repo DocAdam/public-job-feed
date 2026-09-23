@@ -96,7 +96,11 @@ function validateSubmission(submission, seenIds) {
   seenIds.add(id);
 }
 
-async function loadCuratedSubmissionRows(titleRecords, generatedAt = new Date().toISOString()) {
+async function loadCuratedSubmissionRows(titleRecords, generatedAt = new Date().toISOString(), options = {}) {
+  const submissionsPath = options.submissionsPath || module.exports.submissionsPath;
+  const reportPath = options.reportPath || fromRoot("data", "jobs", "reports", "curated-submissions-health.json");
+  const cachePath = options.cachePath || fromRoot("data", "jobs", "state", "curated-submissions-cache.json");
+  const fetchSource = options.fetchPosting || fetchPosting;
   let source;
   try {
     source = await readJsonFile(submissionsPath);
@@ -128,7 +132,7 @@ async function loadCuratedSubmissionRows(titleRecords, generatedAt = new Date().
       continue;
     }
     try {
-      const fetched = await fetchPosting(submission.URL);
+      const fetched = await fetchSource(submission.URL);
       const location = getLocations(fetched.jobPosting);
       const normalized = normalizeGenericAtsJob(
         {},
@@ -166,6 +170,7 @@ async function loadCuratedSubmissionRows(titleRecords, generatedAt = new Date().
       entries.push({ Id: submission.Id, Status: "APPROVED", Included: true, HTTPStatus: fetched.httpStatus, VerifiedURL: fetched.finalUrl, ApplyURL: applyUrl });
     } catch (error) {
       const confirmedClosed = [404, 410].includes(Number(error.httpStatus));
+      if (confirmedClosed) delete cache[submission.Id];
       const cached = cache[submission.Id];
       if (!confirmedClosed && cached) {
         rows.push(cached);

@@ -16,6 +16,9 @@ const knownBadPageTextPatterns = [
   /\bno longer accepting applications\b/i,
 ];
 const confirmedDeadUrls = new Set([
+  // User confirmed Unity job 7921865 inactive on 2026-09-23.
+  "https://unity.com/careers/positions?gh_jid=7921865",
+  "https://unity.com/careers/positions/7921865?gh_jid=7921865",
   "https://jobs.ashbyhq.com/arketa/3bf07433-ac6b-45bd-bd48-5c3351c9c340",
   "https://jobs.ashbyhq.com/bjakcareer/faebc310-bb09-4cb9-9abb-e7b661e81404",
   "https://jobs.ashbyhq.com/clipboard/1e2cd9dc-78ba-4fc8-a327-3bcd4b9712a1",

@@ -100,10 +100,10 @@ function numberValue(value) {
   return nullableNumber(value);
 }
 
+const { readPackageTimestamp } = require("../lib/package-time");
+const snapshotDates = new Map();
 function parseTimestamp(value) {
-  const match = String(value || "").match(/^(\d{4})(\d{2})(\d{2})-(\d{2})(\d{2})$/);
-  if (!match) return null;
-  return new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]), Number(match[4]), Number(match[5])));
+  return snapshotDates.get(String(value || "")) || null;
 }
 
 function pad2(value) {
@@ -297,6 +297,7 @@ function displayRowCompany(row, companyNormalization) {
 }
 
 async function loadSnapshots() {
+  snapshotDates.clear();
   const entries = await fs.readdir(packageRoot, { withFileTypes: true });
   const snapshots = [];
 
@@ -308,6 +309,7 @@ async function loadSnapshots() {
 
     const companyCoveragePath = path.join(packageDir, companyCoverageCsvName);
     const rows = await readCsvRows(jobCsvPath);
+    snapshotDates.set(entry.name, await readPackageTimestamp(packageDir));
     snapshots.push({
       id: entry.name,
       date: parseTimestamp(entry.name),
@@ -319,7 +321,7 @@ async function loadSnapshots() {
     });
   }
 
-  return snapshots.sort((left, right) => left.id.localeCompare(right.id));
+  return snapshots.sort((left, right) => left.date - right.date || left.id.localeCompare(right.id));
 }
 
 function buildHistory(snapshots) {

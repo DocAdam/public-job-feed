@@ -83,18 +83,53 @@
     "jobs:test-passive-launcher": "node src/scripts/test-passive-launcher.js",
     "jobs:test-ats-alert": "node src/scripts/test-ats-anomaly-alert.js",
     "jobs:test-title-category": "node src/scripts/test-title-category.js",
-    "jobs:test-all": "npm run jobs:test-catalog-maintenance && npm run jobs:test-batch-history && npm run jobs:test-board-freshness && npm run jobs:test-ats-errors && npm run jobs:test-passive-launcher && npm run jobs:test-ats-alert && npm run jobs:test-title-category && npm run jobs:test-dedupe-select && npm run jobs:test-core-pipeline && npm run jobs:test-streaming-export-phase-1 && npm run jobs:test-release && npm run jobs:test-gsheet-grouping && npm run jobs:test-gsheet-package && npm run jobs:test-url-health && npm run jobs:test-gsheet-url-pruning && npm run jobs:test-scoring && npm run jobs:test-greenhouse-normalize && npm run jobs:test-job-finder-consumer && npm run jobs:compare-last-release && npm run jobs:test-trends && npm run jobs:test-us-remote-report && npm run jobs:test-international-remote-report && npm run jobs:test-all-remote-report",
+    "jobs:test-all": "node src/scripts/run-test-suite.js",
     "catalogs:download": "node src/scripts/download-catalogs.js",
     "catalogs:normalize": "node src/scripts/normalize-catalogs.js",
     "catalogs:analyze": "node src/scripts/analyze-catalogs.js",
     "catalogs:crawl-queue": "node src/scripts/build-crawl-queue.js",
     "catalogs:refresh-safe": "node src/scripts/refresh-catalogs.js",
-    "catalogs:all": "npm run catalogs:refresh-safe -- --force true"
+    "catalogs:all": "npm run catalogs:refresh-safe -- --force true",
+    "jobs:test-status-dashboard": "node src/scripts/test-status-dashboard.js",
+    "jobs:review-package-evidence": "node src/scripts/review-package-evidence.js",
+    "jobs:test-refresh-launcher": "node src/scripts/test-refresh-launcher.js",
+    "jobs:verify-curated-submissions": "node src/scripts/verify-curated-submissions.js",
+    "jobs:validate-refresh-output": "node src/scripts/validate-refresh-output.js",
+    "jobs:test-refresh-reports": "node src/scripts/test-refresh-reports.js"
   },
   "engines": {
-    "node": ">=18"
+    "node": "26.x"
   },
   "dependencies": {
     "better-sqlite3": "^12.11.1"
-  }
+  },
+  "testSuites": [
+    "jobs:test-catalog-maintenance",
+    "jobs:test-batch-history",
+    "jobs:test-board-freshness",
+    "jobs:test-ats-errors",
+    "jobs:test-passive-launcher",
+    "jobs:test-ats-alert",
+    "jobs:test-title-category",
+    "jobs:test-dedupe-select",
+    "jobs:test-core-pipeline",
+    "jobs:test-streaming-export-phase-1",
+    "jobs:test-release",
+    "jobs:test-gsheet-grouping",
+    "jobs:test-gsheet-package",
+    "jobs:test-url-health",
+    "jobs:test-gsheet-url-pruning",
+    "jobs:test-scoring",
+    "jobs:test-greenhouse-normalize",
+    "jobs:test-job-finder-consumer",
+    "jobs:compare-last-release",
+    "jobs:test-trends",
+    "jobs:test-us-remote-report",
+    "jobs:test-international-remote-report",
+    "jobs:test-all-remote-report",
+    "jobs:test-status-dashboard",
+    "jobs:test-refresh-launcher",
+    "jobs:test-curated-submissions",
+    "jobs:test-refresh-reports"
+  ]
 }

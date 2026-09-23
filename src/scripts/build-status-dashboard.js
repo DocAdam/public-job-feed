@@ -2,9 +2,17 @@ const fs = require("fs/promises");
 const path = require("path");
 const { ensureDir, fromRoot, readJsonFile, writeJsonFile } = require("../lib/files");
 
+const { packageIdentity, syncDashboard } = require("../lib/package-status");
+
+const { exportProfile, saveRunSummary } = require("../lib/run-summary");
+
 const reportsDir = fromRoot("data", "jobs", "reports");
 
 const inputs = {
+  outputValidation: fromRoot("data", "jobs", "reports", "refresh-output-validation.json"),
+  refreshRun: fromRoot("data", "jobs", "reports", "refresh-run.json"),
+  exportRun: fromRoot("data", "jobs", "reports", "release-run-summary.json"),
+  refreshStatus: fromRoot("data", "jobs", "reports", "refresh-job-feed-status.md"),
   publicSummaryMd: fromRoot("data", "jobs", "public", "public-job-feed-summary.md"),
   latestSummary: fromRoot("data", "jobs", "public", "public-job-feed-latest-summary.json"),
   sliceSummary: fromRoot("data", "jobs", "public", "slices", "public-job-feed-slice-summary.json"),
@@ -19,6 +27,9 @@ const inputs = {
   archiveSummary: fromRoot("data", "jobs", "reports", "archive-summary.md"),
   nextBatchPlan: fromRoot("data", "jobs", "plans", "next-batch-plan.json"),
   batchIndex: fromRoot("data", "jobs", "index", "batch-index.json"),
+  evidenceReview: fromRoot("data", "jobs", "reports", "package-evidence-review.json"),
+  packageTest: fromRoot("data", "jobs", "reports", "test-gsheet-package-results.json"),
+  fullTest: fromRoot("data", "jobs", "reports", "test-all-results.json"),
   releaseTest: fromRoot("data", "jobs", "reports", "test-release-results.json"),
   scoringTest: fromRoot("data", "jobs", "reports", "test-scoring-results.json"),
   trendTest: fromRoot("data", "jobs", "reports", "test-trends-results.json"),
@@ -52,6 +63,31 @@ async function readTextIfExists(filePath, fallback = "") {
   }
 
   return fs.readFile(filePath, "utf8");
+}
+
+function sourceStatus(name, value, now = Date.now()) {
+  const records = Array.isArray(value) ? value : [value];
+  const dates = records.flatMap((row) => {
+    if (typeof row === "string") {
+      const match = row.match(/^Generated(?: at)?:\s*(.+)$/im);
+      return match ? [match[1]] : [];
+    }
+    return row ? [row.GeneratedAt || row.GeneratedAtUTC || row.Generated || ""] : [];
+  }).filter((date) => Number.isFinite(Date.parse(date)));
+  // Use the oldest input date when a report contains several records.
+  const timestamp = dates.length ? Math.min(...dates.map(Date.parse)) : null;
+  const maxAgeHours = ["inventorySummary", "largeFiles"].includes(name) ? 168 : 24;
+  const ageHours = timestamp === null ? null : Math.round((now - timestamp) / 3600000 * 10) / 10;
+  return {
+    Source: name,
+    Path: inputs[name] || "",
+    GeneratedAt: timestamp === null ? null : new Date(timestamp).toISOString(),
+    AgeHours: ageHours,
+    MaxAgeHours: maxAgeHours,
+    Status: value === null || value === undefined || value === "" ? "MISSING"
+      : timestamp === null ? "DATE_UNKNOWN" : ageHours < 0 ? "FUTURE_DATE"
+      : ageHours > maxAgeHours ? "STALE" : "CURRENT",
+  };
 }
 
 function getSliceRows(sliceSummaryRows, sliceName) {
@@ -147,7 +183,7 @@ function buildDashboard(data) {
   const boardFreshness = data.boardFreshness;
   const existingBatchNames = getExistingBatchNames(data.batchIndex);
   const releaseComparisonSummary =
-    data.releaseComparison && data.releaseComparison.Differences
+    data.releaseComparison && data.releaseComparison.Differences && Object.keys(data.releaseComparison.Differences).length > 0
       ? {
           CurrentRelease: data.releaseComparison.Current ? data.releaseComparison.Current.ReleaseName : "",
           PreviousRelease: data.releaseComparison.Previous ? data.releaseComparison.Previous.ReleaseName : "",
@@ -178,11 +214,13 @@ function buildDashboard(data) {
     ReviewNeededRows: getSliceRows(sliceSummary, "review-needed"),
   };
 
+  const profile = exportProfile(data);
+  const dedupedMetric = (name) => getDedupeRows(dedupeSummary, name) ?? (profile.Profile === "daily" ? "Skipped by daily profile" : null);
   const dedupedExportStatus = {
-    DedupedFirehoseRows: getDedupeRows(dedupeSummary, "deduped-firehose"),
-    DedupedWriterFocusRows: getDedupeRows(dedupeSummary, "deduped-writer-focus"),
+    DedupedFirehoseRows: dedupedMetric("deduped-firehose"),
+    DedupedWriterFocusRows: dedupedMetric("deduped-writer-focus"),
     DedupedStrongTopRows: getDedupeRows(dedupeSummary, "deduped-top"),
-    DedupedRemoteWriterFocusRows: getDedupeRows(dedupeSummary, "deduped-remote-writer-focus"),
+    DedupedRemoteWriterFocusRows: dedupedMetric("deduped-remote-writer-focus"),
   };
 
   const allReadyPlanRows = Array.isArray(nextBatchPlan)
@@ -197,17 +235,20 @@ function buildDashboard(data) {
 
   const cleanupDeleteCandidates = parseMarkdownMetric(cleanupSummary, "DELETE_CANDIDATE");
   const archiveCandidateCount =
-    parseMarkdownMetric(archiveSummary, "ARCHIVE_CANDIDATE") ||
-    parseMarkdownMetric(archiveSummary, "ARCHIVED") ||
-    null;
+    parseMarkdownMetric(archiveSummary, "ARCHIVE_CANDIDATE");
   const archiveCandidateSize = parseMarkdownMetric(archiveSummary, "Candidate/archived size bytes");
   const archiveFilesCreated = parseMarkdownMetric(archiveSummary, "ARCHIVED");
   const deletedFoldersCount = parseMarkdownMetric(archiveSummary, "DELETED_AFTER_ARCHIVE");
 
   return {
     GeneratedAt: new Date().toISOString(),
+    PackageRun: data.packageRun || "Unknown",
+    RefreshRun: data.refreshRun || null,
+    SourceReports: data.sourceReports || [],
+    EvidenceReview: data.evidenceReview ? { PackageRun: data.evidenceReview.PackageRun, ReviewRows: data.evidenceReview.ReviewRows, WritingReviewRows: data.evidenceReview.WritingReviewRows ?? null, LiveChecks: data.evidenceReview.LiveChecks } : null,
     PublicFeedStatus: publicFeedStatus,
     DedupedExportStatus: dedupedExportStatus,
+    ExportProfile: profile,
     ATSHealth: {
       Recommendations: Array.isArray(recommendations) ? recommendations : null,
       RowsByATS: getRowsByAts(latestSummary),
@@ -215,6 +256,8 @@ function buildDashboard(data) {
         ? "Workday now uses paginated POST search and iCIMS uses public HTML search parsing; both remain low-concurrency best-effort sources."
         : "Not available yet",
       AnomalyStatus: data.atsAnomaly ? data.atsAnomaly.Status : null,
+      AbsoluteStatus: data.atsAnomaly?.AbsoluteStatus || "UNKNOWN",
+      ByATS: data.atsAnomaly?.ByATS || [],
       AnomalyAlertCount: data.atsAnomaly ? data.atsAnomaly.AlertCount : null,
       AnomalyAlerts: data.atsAnomaly ? data.atsAnomaly.Alerts : null,
     },
@@ -238,6 +281,11 @@ function buildDashboard(data) {
           AttemptedBoards: boardFreshness.Overall.AttemptedBoards,
           Checked7Days: boardFreshness.Overall.Checked7Days,
           Fresh7DayPercent: boardFreshness.Overall.Fresh7DayPercent,
+          SuccessfulSnapshots7Days: boardFreshness.Overall.SuccessfulSnapshots7Days,
+          SuccessfulSnapshot7DayPercent: boardFreshness.Overall.SuccessfulSnapshot7DayPercent,
+          FailedBoards: boardFreshness.Overall.FailedBoards,
+          FailedBoardPercent: boardFreshness.Overall.FailedBoardPercent,
+          StateGeneratedAt: boardFreshness.StateGeneratedAt,
           DueBoards: boardFreshness.Overall.DueBoards,
           NeverAttemptedBoards: boardFreshness.Overall.NeverAttemptedBoards,
           RetryDelayedFailedBoards: boardFreshness.Overall.RetryDelayedFailedBoards,
@@ -277,6 +325,16 @@ function buildDashboard(data) {
       DeletedFoldersCount: deletedFoldersCount,
     },
     TestStatus: {
+      OutputValidationStatus: data.outputValidation && data.packageRun && data.outputValidation.PackageRun === data.packageRun ? data.outputValidation.Status : "NOT_CURRENT",
+      OutputValidationFailures: data.outputValidation?.Failures || [],
+      PackageStatus: data.packageTest?.Status || null,
+      PackageRows: data.packageTest?.GoodDocumentationJobsRows ?? null,
+      PackageWarnings: data.packageTest?.Warnings || [],
+      PackageCopyConsistency: data.packageTest?.CopyConsistency || null,
+      FullSuiteStatus: data.fullTest && data.packageRun && data.fullTest.PackageRun !== data.packageRun
+        ? "OTHER_PACKAGE_RUN" : data.fullTest?.Status || "NOT_RECORDED",
+      FullSuitePackageRun: data.fullTest?.PackageRun || null,
+      FullSuiteFailedTest: data.fullTest?.FailedTest || null,
       ReleaseTestStatus: data.releaseTest ? data.releaseTest.Status : null,
       ReleaseTestFailures: data.releaseTest ? (data.releaseTest.CriticalFailures || []).length : null,
       ReleaseTestWarnings: data.releaseTest ? (data.releaseTest.Warnings || []).length : null,
@@ -288,6 +346,8 @@ function buildDashboard(data) {
       ReleaseComparisonStatus: data.releaseComparison ? data.releaseComparison.Status : null,
       ReleaseComparisonSummary: releaseComparisonSummary,
       ReleaseComparisonWarning: data.releaseComparison ? data.releaseComparison.Warning : null,
+      ReleaseComparisonNote: data.releaseComparison?.Note || null,
+      ReleaseComparisonMode: data.releaseComparison?.Mode || null,
     },
     UnknownCategories: data.unknownCategories
       ? {
@@ -297,7 +357,13 @@ function buildDashboard(data) {
           ReviewBuckets: data.unknownCategories.ReviewBuckets,
         }
       : null,
-    SuggestedNextAction: getNextAction(
+    SuggestedNextAction: data.outputValidation?.Status === "FAIL" || data.packageTest?.Status === "FAIL" || data.fullTest?.Status === "FAIL"
+      ? "Resolve the failed validation before another package update. See test-all-results.json and test-gsheet-package-results.json."
+      : (data.sourceReports || []).some((row) => ["latestSummary", "boardFreshness", "atsAnomaly"].includes(row.Source) && row.Status !== "CURRENT")
+      ? "Refresh old or undated diagnostic reports before selecting more board fetches."
+      : ["HIGH", "WARN"].includes(data.atsAnomaly?.AbsoluteStatus)
+      ? "Review current ATS failure causes before increasing crawl volume. See board-freshness-report.md and ats-anomaly-alert.md."
+      : getNextAction(
       Boolean(latestSummary),
       Boolean(data.atsHealthSummary && recommendations),
       Boolean(crawlCoverageSummary && crawlCoverageByAts),
@@ -332,6 +398,27 @@ function buildMarkdown(dashboard) {
     "Internal status dashboard for the public-job-feed project. This is not public-facing documentation.",
     "",
     `Generated: ${dashboard.GeneratedAt}`,
+    `Package run: ${dashboard.PackageRun}`,
+    "",
+    "## Refresh Run Evidence",
+    "",
+    ...(dashboard.RefreshRun ? [
+      `- Run ID: ${dashboard.RefreshRun.RunId}`,
+      `- Status: ${dashboard.RefreshRun.Status}`,
+      `- Launcher: ${dashboard.RefreshRun.LauncherPath}`,
+      `- Launcher SHA-256: ${dashboard.RefreshRun.LauncherSHA256}`,
+      `- Git revision: ${dashboard.RefreshRun.GitRevision}`,
+      `- Working tree changed: ${dashboard.RefreshRun.WorkingTreeChanged}`,
+      `- Arguments: ${JSON.stringify(dashboard.RefreshRun.Arguments)}`,
+    ] : ["No run evidence recorded. The next refresh will record the launcher path, hash, revision, and arguments."]),
+    "",
+    "## Source Report Dates",
+    "",
+    "Status age limits: 24 hours for operational reports; seven days for inventory. Missing dates remain unknown.",
+    "",
+    "| Source | Generated (UTC) | Age (hours) | Status |",
+    "| --- | --- | ---: | --- |",
+    ...(dashboard.SourceReports || []).map((row) => `| ${row.Source} | ${row.GeneratedAt || "Unknown"} | ${row.AgeHours ?? "Unknown"} | ${row.Status} |`),
     "",
     "## Public Feed Status",
     "",
@@ -344,6 +431,7 @@ function buildMarkdown(dashboard) {
     "",
     "## Deduped Export Status",
     "",
+    `- Export profile: ${dashboard.ExportProfile.Profile} (${dashboard.ExportProfile.Evidence})`,
     `- Deduped firehose rows: ${markdownValue(dashboard.DedupedExportStatus.DedupedFirehoseRows)}`,
     `- Deduped writer focus rows: ${markdownValue(dashboard.DedupedExportStatus.DedupedWriterFocusRows)}`,
     `- Deduped strong/top rows: ${markdownValue(dashboard.DedupedExportStatus.DedupedStrongTopRows)}`,
@@ -361,16 +449,20 @@ function buildMarkdown(dashboard) {
     for (const row of recommendations) {
       lines.push(`- ${row.ATS}: ${row.ScaleRecommendation} (${row.Reason})`);
     }
-    lines.push("", `Rows by ATS: ${dashboard.ATSHealth.RowsByATS}`, dashboard.ATSHealth.WorkdayICIMSNote, "");
+    lines.push("", "These recommendations are based on historical fetch totals. Check recent health before increasing volume.", `ATS included: ${dashboard.ATSHealth.RowsByATS}`, dashboard.ATSHealth.WorkdayICIMSNote, "");
   }
-  lines.push(`- ATS anomaly status: ${markdownValue(dashboard.ATSHealth.AnomalyStatus)}`);
+  lines.push(`- Change from baseline: ${markdownValue(dashboard.ATSHealth.AnomalyStatus)}`);
+  lines.push(`- Absolute recent failure status: ${dashboard.ATSHealth.AbsoluteStatus}`);
+  for (const row of dashboard.ATSHealth.ByATS) {
+    if (row.AbsoluteHealth) lines.push(`- ${row.ATS}: ${row.AbsoluteHealth.Status}; ${row.AbsoluteHealth.FailureCount}/${row.AbsoluteHealth.Attempts} recent results failed (${row.AbsoluteHealth.FailureRate}%); matched-board change: ${row.Status}`);
+  }
   lines.push(`- ATS anomaly alerts: ${markdownValue(dashboard.ATSHealth.AnomalyAlertCount)}`);
   for (const row of dashboard.ATSHealth.AnomalyAlerts || []) {
     lines.push(`- ${row.Severity}: ${row.ATS} ${row.Metric} ${row.BaselineRate}% -> ${row.RecentRate}%`);
   }
   lines.push("");
 
-  lines.push("## Crawl Coverage", "");
+  lines.push("## Crawl Coverage", "", "Coverage records attempts. It does not confirm successful fetches or open jobs.", "");
   lines.push(`- Catalog accounted for percent: ${markdownValue(dashboard.CrawlCoverage.CoveragePercentOverall)}`);
   lines.push(`- Remaining supported crawl rows: ${markdownValue(dashboard.CrawlCoverage.RemainingSupportedCrawlRows)}`);
 
@@ -393,7 +485,10 @@ function buildMarkdown(dashboard) {
       `- Catalog completed: ${markdownValue(dashboard.SnapshotFreshness.CatalogPipelineCompletedAt)}`,
       `- Fetch-eligible boards: ${markdownValue(dashboard.SnapshotFreshness.FetchEligibleBoards)}`,
       `- Attempted boards: ${markdownValue(dashboard.SnapshotFreshness.AttemptedBoards)}`,
-      `- Checked in 7 days: ${markdownValue(dashboard.SnapshotFreshness.Checked7Days)} (${markdownValue(dashboard.SnapshotFreshness.Fresh7DayPercent)}%)`,
+      `- Attempted in 7 days: ${markdownValue(dashboard.SnapshotFreshness.Checked7Days)} (${markdownValue(dashboard.SnapshotFreshness.Fresh7DayPercent)}%)`,
+      `- Successful snapshots in 7 days: ${markdownValue(dashboard.SnapshotFreshness.SuccessfulSnapshots7Days)} (${markdownValue(dashboard.SnapshotFreshness.SuccessfulSnapshot7DayPercent)}%)`,
+      `- Current failed boards: ${markdownValue(dashboard.SnapshotFreshness.FailedBoards)} (${markdownValue(dashboard.SnapshotFreshness.FailedBoardPercent)}%)`,
+      `- Board state generated: ${markdownValue(dashboard.SnapshotFreshness.StateGeneratedAt)}`,
       `- Due boards: ${markdownValue(dashboard.SnapshotFreshness.DueBoards)}`,
       `- Never attempted: ${markdownValue(dashboard.SnapshotFreshness.NeverAttemptedBoards)}`,
       `- Retry-delayed failed boards: ${markdownValue(dashboard.SnapshotFreshness.RetryDelayedFailedBoards)}`,
@@ -417,7 +512,19 @@ function buildMarkdown(dashboard) {
     lines.push("Not available yet", "");
   }
 
+  lines.push("## Retained Jobs for Review", "",
+    dashboard.EvidenceReview ? `- Rows: ${dashboard.EvidenceReview.ReviewRows}; package: ${dashboard.EvidenceReview.PackageRun}; live URL checks: ${dashboard.EvidenceReview.LiveChecks}; open roles flagged for writing review: ${dashboard.EvidenceReview.WritingReviewRows ?? "Unknown"}` : "No review report recorded.",
+    "- Evidence: data/jobs/reports/package-evidence-review.md",
+    "- URL check time and board fetch time are separate. Job status uses attributed user observations where available.", "");
+
   lines.push("## Automated Tests", "");
+  lines.push(`- Current output validation: ${dashboard.TestStatus.OutputValidationStatus}`);
+  for (const failure of dashboard.TestStatus.OutputValidationFailures) lines.push(`- Output failure: ${failure}`);
+  lines.push(`- Full suite: ${dashboard.TestStatus.FullSuiteStatus} (package ${dashboard.TestStatus.FullSuitePackageRun || "unknown"})`);
+  if (dashboard.TestStatus.FullSuiteFailedTest) lines.push(`- Failed test: ${dashboard.TestStatus.FullSuiteFailedTest}`);
+  lines.push(`- Package validation: ${markdownValue(dashboard.TestStatus.PackageStatus)}`);
+  lines.push(`- Package copy consistency: ${markdownValue(dashboard.TestStatus.PackageCopyConsistency)}`);
+  for (const warning of dashboard.TestStatus.PackageWarnings) lines.push(`- Package warning: ${warning}`);
   lines.push(`- Release Test Status: ${markdownValue(dashboard.TestStatus.ReleaseTestStatus)}`);
   if (dashboard.TestStatus.ReleaseTestStatus) {
     lines.push(
@@ -437,6 +544,8 @@ function buildMarkdown(dashboard) {
     );
   }
   lines.push(`- Release Comparison Status: ${markdownValue(dashboard.TestStatus.ReleaseComparisonStatus)}`);
+  if (dashboard.TestStatus.ReleaseComparisonNote) lines.push(`- Comparison note: ${dashboard.TestStatus.ReleaseComparisonNote}`);
+  if (dashboard.TestStatus.ReleaseComparisonMode) lines.push(`- Comparison mode: ${dashboard.TestStatus.ReleaseComparisonMode}`);
   if (dashboard.TestStatus.ReleaseComparisonWarning) {
     lines.push(`- Release Comparison Warning: ${dashboard.TestStatus.ReleaseComparisonWarning}`);
   }
@@ -517,6 +626,10 @@ async function main() {
   await ensureDir(reportsDir);
 
   const data = {
+    outputValidation: await readJsonIfExists(inputs.outputValidation),
+    refreshRun: await readJsonIfExists(inputs.refreshRun),
+    exportRun: await readJsonIfExists(inputs.exportRun),
+    refreshStatus: await readTextIfExists(inputs.refreshStatus),
     publicSummaryMd: await readTextIfExists(inputs.publicSummaryMd, ""),
     latestSummary: await readJsonIfExists(inputs.latestSummary),
     sliceSummary: await readJsonIfExists(inputs.sliceSummary),
@@ -531,6 +644,9 @@ async function main() {
     archiveSummary: await readTextIfExists(inputs.archiveSummary, ""),
     nextBatchPlan: await readJsonIfExists(inputs.nextBatchPlan),
     batchIndex: await readJsonIfExists(inputs.batchIndex),
+    evidenceReview: await readJsonIfExists(inputs.evidenceReview),
+    packageTest: await readJsonIfExists(inputs.packageTest),
+    fullTest: await readJsonIfExists(inputs.fullTest),
     releaseTest: await readJsonIfExists(inputs.releaseTest),
     scoringTest: await readJsonIfExists(inputs.scoringTest),
     trendTest: await readJsonIfExists(inputs.trendTest),
@@ -540,10 +656,20 @@ async function main() {
     atsAnomaly: await readJsonIfExists(inputs.atsAnomaly),
     unknownCategories: await readJsonIfExists(inputs.unknownCategories),
   };
+  const packageRoot = fromRoot("data", "jobs", "gsheet-package");
+  if (await fileExists(path.join(packageRoot, "latest", "gsheet-package-manifest.json"))) {
+    data.packageRun = await packageIdentity(path.join(packageRoot, "latest"));
+  }
+  data.sourceReports = ["latestSummary", "sliceSummary", "dedupeSummary", "atsHealthSummary", "crawlCoverageSummary", "cleanupSummary", "boardFreshness", "atsAnomaly", "inventorySummary", "archiveSummary", "releaseTest", "outputValidation", "evidenceReview", "packageTest", "fullTest", "scoringTest", "trendTest", "unknownCategories"].map((name) => sourceStatus(name, data[name]));
   const dashboard = buildDashboard(data);
 
   await writeJsonFile(path.join(reportsDir, "project-status-dashboard.json"), dashboard);
   await fs.writeFile(path.join(reportsDir, "project-status-dashboard.md"), buildMarkdown(dashboard), "utf8");
+
+  if (process.argv.includes("--sync-package")) {
+    await syncDashboard(packageRoot, buildMarkdown(dashboard));
+    await saveRunSummary(path.join(reportsDir, "run-summaries"), dashboard, data.latestSummary);
+  }
 
   console.log("Project status dashboard complete.");
   console.log("Output files:");
@@ -551,7 +677,11 @@ async function main() {
   console.log(path.join(reportsDir, "project-status-dashboard.json"));
 }
 
-main().catch((error) => {
-  console.error(error);
-  process.exitCode = 1;
-});
+if (require.main === module) {
+  main().catch((error) => {
+    console.error(error);
+    process.exitCode = 1;
+  });
+}
+
+module.exports = { buildDashboard, buildMarkdown, parseMarkdownMetric, sourceStatus };

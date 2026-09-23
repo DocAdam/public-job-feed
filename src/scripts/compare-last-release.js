@@ -2,6 +2,9 @@ const fs = require("fs/promises");
 const path = require("path");
 const { ensureDir, fromRoot, readJsonFile, writeJsonFile } = require("../lib/files");
 
+const { packageIdentity } = require("../lib/package-status");
+const { saveRunSummary } = require("../lib/run-summary");
+
 const releasesDir = fromRoot("data", "jobs", "public", "releases");
 const reportsDir = fromRoot("data", "jobs", "reports");
 
@@ -110,6 +113,11 @@ function buildMarkdown(report) {
     "",
   ];
 
+  if (report.Note) {
+    lines.push(report.Note, "");
+    return lines.join("\n");
+  }
+
   if (report.Warning) {
     lines.push("## Warning", "", report.Warning, "");
     return lines.join("\n");
@@ -158,17 +166,35 @@ async function main() {
     Differences: {},
   };
 
-  if (releaseFolders.length < 2) {
-    report.Status = "WARN";
-    report.Warning = "Only one or zero release folders exist; comparison requires at least two releases.";
+  const summaryDir = path.join(reportsDir, "run-summaries");
+  const currentRun = await packageIdentity(fromRoot("data", "jobs", "gsheet-package", "latest"));
+  const packageTest = await readJsonIfExists(path.join(reportsDir, "test-gsheet-package-results.json"));
+  const latestSummary = await readJsonIfExists(fromRoot("data", "jobs", "public", "public-job-feed-latest-summary.json"));
+  const coverage = await readJsonIfExists(path.join(reportsDir, "crawl-coverage-summary.json"));
+  if (packageTest?.PackageRun === currentRun && latestSummary) {
+    await saveRunSummary(summaryDir, { GeneratedAt: report.GeneratedAt, PackageRun: currentRun,
+      TestStatus: { PackageRows: packageTest.GoodDocumentationJobsRows },
+      CrawlCoverage: { CoveragePercentOverall: coverage?.CoveragePercentOverall ?? null } }, latestSummary);
+  }
+
+  const summaryNames = (await fs.readdir(summaryDir).catch((error) => {
+    if (error.code === "ENOENT") return [];
+    throw error;
+  })).filter((name) => /^\d{8}-\d{4}\.json$/.test(name)).sort().reverse();
+  const summaries = await Promise.all(summaryNames.slice(0, 2).map((name) => readJsonFile(path.join(summaryDir, name))));
+  if (summaries.length < 2 && releaseFolders.length < 2) {
+    report.Status = "NOT_APPLICABLE";
+    report.Mode = "No comparison baseline";
+    report.Note = `Archive comparison not applicable: fewer than two optional archives. Saved small run summaries: ${summaries.length}; two distinct runs are needed.`;
     await writeJsonFile(path.join(reportsDir, "release-comparison.json"), report);
     await fs.writeFile(path.join(reportsDir, "release-comparison.md"), buildMarkdown(report), "utf8");
-    console.log(report.Warning);
+    console.log(report.Note);
     return;
   }
 
-  report.Current = await getMetrics(releaseFolders[0]);
-  report.Previous = await getMetrics(releaseFolders[1]);
+  report.Mode = summaries.length >= 2 ? "Small run summaries" : "Archive snapshots";
+  report.Current = summaries.length >= 2 ? summaries[0] : await getMetrics(releaseFolders[0]);
+  report.Previous = summaries.length >= 2 ? summaries[1] : await getMetrics(releaseFolders[1]);
 
   const metrics = [
     "TotalRows",

@@ -57,4 +57,17 @@ function evaluateAtsAnomalies(ats, recentRows, baselineRows, options = {}) {
   };
 }
 
-module.exports = { evaluateAtsAnomalies, summarizeAttempts };
+function absoluteHealth(rows, options = {}) {
+  const minimumAttempts = options.minimumAttempts ?? 20;
+  const warningRate = options.warningRate ?? 20;
+  const highRate = options.highRate ?? 50;
+  const summary = summarizeAttempts(rows);
+  const failures = rows.filter((row) => String(row.Status).toLowerCase() === "failed").length;
+  const failureRate = rate(failures, summary.Attempts);
+  return { ...summary, FailureCount: failures, FailureRate: failureRate,
+    MinimumAttempts: minimumAttempts, WarningRate: warningRate, HighRate: highRate,
+    Status: summary.Attempts < minimumAttempts ? "INSUFFICIENT_DATA"
+      : failureRate >= highRate ? "HIGH" : failureRate >= warningRate ? "WARN" : "OK" };
+}
+
+module.exports = { evaluateAtsAnomalies, summarizeAttempts, absoluteHealth };

@@ -99,7 +99,7 @@ function buildMarkdown(result) {
     `- Good Documentation Jobs rows: ${result.GoodDocumentationJobsRows}`,
     `- Company Coverage rows: ${result.CompanyCoverageRows}`,
     `- Coverage percent: ${result.CoveragePercent}`,
-    `- Latest release folder: ${result.LatestReleaseFolder || "missing"}`,
+    `- Latest release folder: ${result.LatestReleaseFolder || "Not created; archives are optional"}`,
     "",
     "## Critical Failures",
     "",
@@ -174,8 +174,8 @@ async function main() {
   }
 
   result.LatestReleaseFolder = await getLatestReleaseFolder();
-  if (!result.LatestReleaseFolder) {
-    addWarning(result, "Release folder missing.");
+  if (!result.LatestReleaseFolder && process.argv.includes("--require-archive")) {
+    addFailure(result, "Required release archive is missing.");
   }
 
   result.Status = result.CriticalFailures.length > 0 ? "FAIL" : "PASS";

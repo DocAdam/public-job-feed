@@ -1,6 +1,6 @@
 const fs = require("fs/promises");
 const path = require("path");
-const { evaluateAtsAnomalies } = require("../lib/ats-anomaly");
+const { evaluateAtsAnomalies, absoluteHealth } = require("../lib/ats-anomaly");
 const { ensureDir, fromRoot, readJsonFile, writeJsonFile, writeTextFile } = require("../lib/files");
 
 const batchesDir = fromRoot("data", "jobs", "batches");
@@ -67,6 +67,7 @@ async function main() {
     );
     return {
       ...result,
+      AbsoluteHealth: absoluteHealth([...recentByBoard.values()]),
       RecentBoards: recentByBoard.size,
       BaselineBoards: baselineByBoard.size,
       MatchedBoards: matchedKeys.length,
@@ -81,6 +82,9 @@ async function main() {
     RecentWindowStart: new Date(recentStart).toISOString(),
     BaselineWindowStart: new Date(baselineStart).toISOString(),
     Status: alerts.some((row) => row.Severity === "HIGH") ? "HIGH" : alerts.length ? "WARN" : "OK",
+    AbsoluteStatus: byAts.some((row) => row.AbsoluteHealth.Status === "HIGH") ? "HIGH"
+      : byAts.some((row) => row.AbsoluteHealth.Status === "WARN") ? "WARN"
+      : byAts.some((row) => row.AbsoluteHealth.Status === "INSUFFICIENT_DATA") ? "INSUFFICIENT_DATA" : "OK",
     AlertCount: alerts.length,
     Alerts: alerts,
     ByATS: byAts,
@@ -89,7 +93,8 @@ async function main() {
     "# ATS Anomaly Alert",
     "",
     `Generated: ${generatedAt}`,
-    `Status: ${report.Status}`,
+    `Change from baseline: ${report.Status}`,
+    `Absolute recent failure status: ${report.AbsoluteStatus}`,
     "",
     "Compares the latest result for boards checked in both the most recent 24 hours and the preceding seven-day baseline. Matching the same boards avoids treating a one-time catalog expansion as an ATS regression. An alert requires at least 20 recent and 50 baseline matched attempts, a 10 percentage-point increase, and a 1.5x increase.",
     "",
@@ -97,6 +102,10 @@ async function main() {
     "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: |",
     ...byAts.map((row) => `| ${row.ATS} | ${row.Status} | ${row.RecentBoards} | ${row.MatchedBoards} | ${row.NewRecentBoards} | ${row.Recent.HTTPFailureRate}% | ${row.Recent.EmptyRate}% | ${row.Recent.ZeroJobRate}% |`),
     "",
+    "## Absolute recent failure rates", "",
+    "Uses each board\'s latest terminal result in the last 24 hours, including new boards. Review thresholds: at least 20 results; WARN at 20% failures; HIGH at 50%. These thresholds do not change crawl schedules.", "",
+    "| ATS | Results | Failed | Failure rate | Status |", "| --- | ---: | ---: | ---: | --- |",
+    ...byAts.map((row) => `| ${row.ATS} | ${row.AbsoluteHealth.Attempts} | ${row.AbsoluteHealth.FailureCount} | ${row.AbsoluteHealth.FailureRate}% | ${row.AbsoluteHealth.Status} |`), "",
     "## Alerts",
     "",
     ...(alerts.length ? alerts.map((row) => `- ${row.Severity}: ${row.ATS} ${row.Metric} rose from ${row.BaselineRate}% to ${row.RecentRate}% (+${row.PointIncrease} points).`) : ["None."]),

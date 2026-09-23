@@ -13,6 +13,8 @@ async function main() {
   const inputPath = path.resolve(argValue("--input", defaultInputPath));
   const titlesPath = path.resolve(argValue("--titles", process.env.JOB_FINDER_TITLES_PATH || defaultTitlesPath));
   const outputPath = path.resolve(argValue("--output", defaultOutputPath));
+  const feedSummary = inputPath === defaultInputPath
+    ? JSON.parse(await fs.readFile(fromRoot("data/jobs/public/public-job-feed-latest-summary.json"), "utf8")) : null;
   const titleRecords = await readJobTitles(titlesPath);
   const titleText = await fs.readFile(titlesPath, "utf8");
   const selector = createJobFinderConsumerSelector(titleRecords);
@@ -33,6 +35,7 @@ async function main() {
     generatedAt,
     source: {
       name: "public-job-feed",
+      feedGeneratedAt: feedSummary?.GeneratedAt || null,
       inputPath,
       titlePolicyPath: titlesPath,
       titlePolicySha256: crypto.createHash("sha256").update(titleText).digest("hex"),
