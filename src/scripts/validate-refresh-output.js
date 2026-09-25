@@ -26,6 +26,7 @@ async function main() {
   let failures;
   try {
     packageRun = await packageIdentity(latest);
+    await require("../lib/refresh-output-paths").urlFailurePath(fromRoot("data/jobs/gsheet-package"));
     const data = { packageRun, packageTime: (await readPackageTimestamp(latest)).toISOString(),
       us: await read(path.join(reports, "us-remote-daily-report.json")),
       international: await read(path.join(reports, "international-remote-daily-report.json")),

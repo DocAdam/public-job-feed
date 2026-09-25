@@ -128,8 +128,8 @@ if ! CLEAN_BROKEN_LINKS_OPEN=false CLEAN_BROKEN_LINKS_PAUSE=false "$PROJECT_DIR/
 fi
 npm run jobs:review-package-evidence
 step_complete "Step 5"
-LATEST_TIMESTAMPED_DIR="$(find "$PROJECT_DIR/data/jobs/gsheet-package" -maxdepth 1 -type d -name '20??????-????' | sort | tail -n 1)"
-URL_FAILURES="$LATEST_TIMESTAMPED_DIR/01_good_documentation_jobs-url-failures.csv"
+URL_FAILURES="$(node src/lib/refresh-output-paths.js)"
+LATEST_TIMESTAMPED_DIR="$(dirname "$URL_FAILURES")"
 echo "  - Cleaned timestamped package: $LATEST_TIMESTAMPED_DIR" >> "$REFRESH_STATUS"
 echo "  - URL failures: $URL_FAILURES" >> "$REFRESH_STATUS"
 
@@ -189,6 +189,7 @@ step_complete "Step 7"
 step_start "Step 8: refreshing status dashboard"
 node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status COMPLETE --exit-code 0 --step "$CURRENT_STEP"
 npm run jobs:status -- --sync-package
+node src/lib/refresh-output-paths.js --check-all
 step_complete "Step 8"
 echo "Completed: $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$REFRESH_STATUS"
 

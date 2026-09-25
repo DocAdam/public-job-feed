@@ -27,10 +27,12 @@ async function main() {
     for (const folder of ["src/scripts", "src/lib", "data/jobs/reports", "data/jobs/gsheet-package/latest"]) {
       await fs.mkdir(path.join(root, folder), { recursive: true });
     }
-    for (const file of ["src/scripts/validate-refresh-output.js", "src/lib/files.js", "src/lib/csv.js", "src/lib/package-status.js", "src/lib/package-time.js"]) {
+    for (const file of ["src/scripts/validate-refresh-output.js", "src/lib/files.js", "src/lib/csv.js", "src/lib/package-status.js", "src/lib/package-time.js", "src/lib/refresh-output-paths.js"]) {
       await fs.copyFile(fromRoot(file), path.join(root, file));
     }
     const latest = path.join(root, "data/jobs/gsheet-package/latest");
+    await fs.mkdir(path.join(root, "data/jobs/gsheet-package/20260923-0709"));
+    await fs.writeFile(path.join(root, "data/jobs/gsheet-package/20260923-0709/01_good_documentation_jobs-url-failures.csv"), "Title\n");
     const manifest = path.join(latest, "gsheet-package-manifest.json");
     const reports = path.join(root, "data/jobs/reports");
     const output = path.join(reports, "refresh-output-validation.json");

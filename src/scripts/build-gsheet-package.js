@@ -1,3 +1,4 @@
+const { packageEligibility } = require("../lib/public-package-eligibility");
 const fs = require("fs/promises");
 const path = require("path");
 const { spawn } = require("child_process");
@@ -840,15 +841,21 @@ async function buildSimpleTopFiles(outputDir, generatedAt, topMatchesResult, opt
     return manifestRows;
   }
 
+  const eligibility = packageEligibility(topMatchesResult.rows);
   const simpleRows = sortSimpleJobRowsForUpload(
-    groupPublicSheetCountryPostings(topMatchesResult.rows.map((row) => buildSimplePublicRow(row, generatedAt)))
+    groupPublicSheetCountryPostings(eligibility.included.map((row) => buildSimplePublicRow(row, generatedAt)))
   );
   const formulaRows = options.formulaFileName
     ? sortSimpleJobRowsForUpload(
-      groupPublicSheetCountryPostings(topMatchesResult.rows.map((row) => buildSimpleFormulaRow(row, generatedAt)))
+      groupPublicSheetCountryPostings(eligibility.included.map((row) => buildSimpleFormulaRow(row, generatedAt)))
     )
     : [];
 
+  manifestRows.push(await writeGeneratedCsvFile(
+    outputDir, "public-package-exclusions.csv", sourcePath,
+    ["Title", "Company", "URL", "ReviewedAt", "Reason"], eligibility.excluded,
+    { recommendedUse: "Internal eligibility audit", purpose: "Exact-URL exclusions from public package rows.", notes: "Raw source records and scores are preserved." }
+  ));
   if (options.includeStartHere) {
     manifestRows.push(
       await writeGeneratedCsvFile(
@@ -862,7 +869,7 @@ async function buildSimpleTopFiles(outputDir, generatedAt, topMatchesResult, opt
             options.simpleFileName,
             simpleRows.length,
             options.coveragePercent,
-            getLastCheckedRange(topMatchesResult.rows)
+            getLastCheckedRange(eligibility.included)
           ),
         ],
         {
@@ -1328,4 +1335,5 @@ if (require.main === module) {
 
 module.exports = {
   groupPublicSheetCountryPostings,
+  buildSimpleTopFiles,
 };

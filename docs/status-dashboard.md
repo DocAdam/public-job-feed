@@ -50,7 +50,7 @@ The fixture test is `npm run jobs:test-refresh-reports`.
 
 `npm run jobs:review-package-evidence` creates a review report from saved
 package data and saved URL checks. It selects uncertain URL results and jobs
-whose board check is more than 14 days old or has no usable date.
+whose board check is more than seven days old or has no usable date.
 
 Add `-- --check-urls` for a bounded live URL check. The command checks at most
 50 selected rows, with four concurrent requests and a 15-second request
@@ -79,3 +79,39 @@ User reviews are stored in `data/config/package-user-reviews.json`. Browser
 observations apply to the named package. Confirmed closure and writing-fit
 flags remain attached to the exact job URL. These records do not change
 board fetch dates.
+
+## Review status and package eligibility
+
+The submitted-role summary checks the exact URL in the current public package.
+It reports source verification separately. A cached record or a health report
+from another feed run is not a current source verification.
+
+Earlier browser observations remain visible with their date and package ID.
+They do not confirm that the posting is still open. A writing-fit flag is a
+separate decision and does not establish open or closed status.
+
+The freshness review uses exclusive groups: more than seven through fourteen
+days, more than fourteen days, and unknown date. A role with both old board
+evidence and uncertain URL evidence appears once in the total.
+
+The launcher resolves its URL-failure report from the `latest` package manifest.
+The report remains in the timestamped package. A missing report stops the run.
+
+Public-package exclusions are exact-URL decisions in
+`src/lib/public-package-eligibility.js`. They apply before public-row grouping.
+Each generated package includes `public-package-exclusions.csv`, including a
+header when no rows were excluded. Source records, scores, and diagnostic
+exports remain available. The September 23 Carvana decision excludes only the
+specified loan-document review role. It takes effect at the next package build.
+
+Inventory, cleanup, and archive figures show the saved report date beside the
+figures. Their age does not cause cleanup or deletion. Baseline-change alerts
+and absolute failure rates are separate measures; inspect both.
+
+See [the saved source failure review](source-failure-review-2026-09-25.md) for
+sample evidence and the limits of diagnosis without new source requests.
+
+For a saved-data preview without replacing run reports, use
+`npm run jobs:review-package-evidence -- --output-dir /tmp/public-job-feed-review-preview`.
+The launcher also checks all reported file paths after dashboard sync. A missing
+required output leaves the final run record marked `FAILED`.

@@ -8,14 +8,22 @@ const { fromRoot } = require("../lib/files");
 const exec = promisify(execFile);
 
 async function main() {
-  const root = await fs.mkdtemp(path.join(os.tmpdir(), "feed-launcher-test-"));
+  const root = await fs.mkdtemp(path.join(os.tmpdir(), "feed launcher test-"));
   try {
     for (const dir of ["bin", "src/scripts", "src/lib", "launchers", "data/jobs/gsheet-package/20260923-0709"]) {
       await fs.mkdir(path.join(root, dir), { recursive: true });
     }
-    for (const file of ["src/scripts/record-refresh-run.js", "src/lib/files.js"]) {
+    for (const file of ["src/scripts/record-refresh-run.js", "src/lib/files.js", "src/lib/package-status.js", "src/lib/csv.js", "src/lib/refresh-output-paths.js"]) {
       await fs.copyFile(fromRoot(file), path.join(root, file));
     }
+    const packageRoot = path.join(root, "data/jobs/gsheet-package");
+    await fs.mkdir(path.join(packageRoot, "latest"));
+    await fs.mkdir(path.join(packageRoot, "20990101-0000")); // Must not select the newest folder.
+    await fs.writeFile(path.join(packageRoot, "latest/gsheet-package-manifest.json"), JSON.stringify([
+      { FileName: "01_good_documentation_jobs.csv", OutputPath: path.join(packageRoot, "20260923-0709/01_good_documentation_jobs.csv") },
+    ]));
+    const urlReport = path.join(packageRoot, "20260923-0709/01_good_documentation_jobs-url-failures.csv");
+    await fs.writeFile(urlReport, "Title\n");
     const source = await fs.readFile(fromRoot("launchers", "Refresh Job Feed.command"), "utf8");
     // Only replace the fixture's working directory and executable search path.
     const fixture = source.replace(/^PROJECT_DIR=.*$/m, `PROJECT_DIR="${root}"`)
@@ -25,6 +33,10 @@ async function main() {
     await fs.writeFile(path.join(root, "launchers", "Clean Broken Links.command"), "#!/bin/bash\nexit 0\n", { mode: 0o755 });
     await fs.writeFile(path.join(root, "bin", "npm"), '#!/bin/bash\nprintf "%s\\n" "$*" >> "$TEST_COMMAND_LOG"\nif [[ -n "$TEST_FAIL_MATCH" && "$*" == *"$TEST_FAIL_MATCH"* ]]; then exit 7; fi\n', { mode: 0o755 });
     await fs.writeFile(path.join(root, "bin", "open"), "#!/bin/bash\nexit 0\n", { mode: 0o755 });
+    for (const name of require("../lib/refresh-output-paths").reportedFiles) {
+      await fs.mkdir(path.dirname(path.join(root, name)), { recursive: true });
+      await fs.writeFile(path.join(root, name), "fixture\n");
+    }
     const log = path.join(root, "commands.log");
     const env = { ...process.env, TEST_COMMAND_LOG: log, TEST_FAIL_MATCH: "" };
     await exec("/bin/bash", [launcher, "test argument with spaces"], { env, timeout: 15000 });
@@ -56,6 +68,18 @@ async function main() {
     assert.equal(syncFailure.ExitCode, 7);
     assert.match(syncFailure.LastStep, /Step 8/);
     assert.doesNotMatch(await fs.readFile(path.join(root, "data/jobs/reports/refresh-job-feed-status.md"), "utf8"), /^Completed:/m);
+    const missingReport = path.join(root, "data/jobs/reports/us-remote-daily-report.md");
+    await fs.rm(missingReport);
+    await assert.rejects(exec("/bin/bash", [launcher], { env, timeout: 15000 }), error => error.code === 1);
+    const missingOutput = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
+    assert.equal(missingOutput.Status, "FAILED");
+    assert.match(missingOutput.LastStep, /Step 8/);
+    await fs.writeFile(missingReport, "fixture\n");
+    await fs.rm(urlReport);
+    await assert.rejects(exec("/bin/bash", [launcher], { env, timeout: 15000 }), error => error.code === 1);
+    const missing = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
+    assert.equal(missing.Status, "FAILED");
+    assert.match(missing.LastStep, /Step 5/);
     const wrapper = await fs.readFile(fromRoot("launchers", "Refresh Job Feed.desktop-wrapper.sh"), "utf8");
     assert.ok(wrapper.includes(`exec /bin/bash "${fromRoot("launchers", "Refresh Job Feed.command")}" "$@"`));
     await exec("/bin/bash", ["-n", fromRoot("launchers", "Refresh Job Feed.desktop-wrapper.sh")]);

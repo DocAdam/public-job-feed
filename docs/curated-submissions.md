@@ -44,3 +44,7 @@ network requests or change the intake, cache, or production health report.
 entries and updates the cache and health report. It does not build the feed.
 A source-check result does not prove final export inclusion; inspect the
 release and package after their documented build steps.
+
+The package evidence report shows source verification and exact-URL package
+inclusion separately. A passing source check can still produce no public
+package row after eligibility, scoring, duplicate, and URL checks.

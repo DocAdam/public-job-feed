@@ -51,7 +51,7 @@ For the contributor workflow and verification rules, see [curated direct employe
 
 The project checks boards on a recurring schedule. A board attempt can fail; a successful snapshot records the latest usable board result. A URL check has its own date and does not update the board fetch date. A temporary employer-site failure does not immediately remove a previously verified curated listing; confirmed `404` and `410` closures do.
 
-Bot checks, rate limits, and temporary outages do not establish that a job is closed. User browser observations are recorded separately from automated results. Writing-fit flags are separate from link and closure checks.
+Bot checks, rate limits, and temporary outages do not establish that a job is closed. User browser observations are recorded separately from automated results. Writing-fit flags are separate from link and closure checks. Exact-role package exclusions retain an audit record; they do not delete source records.
 
 Location, remote status, and salary are detected from public posting text. They can be incomplete or imperfect, so use them as filters rather than guarantees.
 
@@ -76,7 +76,7 @@ Each refresh uses this sequence:
 5. Check links, safely prune confirmed invalid links, and build the review report.
 6. Generate the separate and combined remote reports.
 7. Run validation tests.
-8. Record the refresh result and sync the final dashboard to both package copies.
+8. Record the refresh result, sync the final dashboard to both package copies, and check reported output paths.
 
 The desktop entry uses `launchers/Refresh Job Feed.desktop-wrapper.sh` to start
 the repository launcher. Keep one process definition in the repository.
@@ -99,6 +99,33 @@ package IDs, source timestamps, and each report's status.
 See [Status dashboard](docs/status-dashboard.md) for commands, status meanings,
 and the difference between board freshness, URL checks, and job status.
 Publication to Google Sheets or Substack remains a manual step.
+
+### Review evidence and package exclusions
+
+The evidence report shows source verification and final package inclusion
+separately for a submitted role. Earlier browser observations retain their
+dates and package IDs; they do not confirm that a posting is still open.
+The freshness review separates board checks older than seven days, older
+than fourteen days, and checks with no usable date.
+
+Exact-URL writing-fit exclusions apply before public rows are grouped. Each
+package includes `public-package-exclusions.csv` with the excluded URL,
+review date, and reason. Raw records, scores, and diagnostic exports remain
+available. Exclusion changes take effect on the next package build.
+
+The URL-failure report stays in the timestamped package identified by the
+`latest` manifest. The launcher checks reported file paths before it finishes;
+a missing required file leaves the run marked `FAILED`.
+
+To preview the review from saved data without replacing run reports:
+
+```sh
+npm run jobs:review-package-evidence -- --output-dir /tmp/public-job-feed-review-preview
+```
+
+Read baseline-change alerts and absolute failure rates together. No baseline
+alert does not mean low failures. Inventory and cleanup figures describe the
+saved report dates shown beside them.
 
 ### Daily job reports
 
@@ -190,6 +217,7 @@ For the retention rules, recovery behavior, and full-slice workflow, see [Storag
 | [Daily job reports](docs/daily-job-reports.md) | Remote comparisons, focused views, and command options. |
 | [Curated submissions](docs/curated-submissions.md) | Adding and verifying a direct employer listing. |
 | [Job-index maintenance](docs/job-index-maintenance.md) | Board freshness, retries, and scheduled maintenance. |
+| [Saved source failure review](docs/source-failure-review-2026-09-25.md) | September 25 evidence, sample records, and limits of offline diagnosis. |
 | [ATS behavior](docs/ats-api-behavior.md) | Supported ATS sources and known limitations. |
 | [Connect to public ATS job boards](docs/connect-public-ats-job-boards.md) | An overview and provider-specific guides for the project’s ATS connections. |
 | [Understand Public Job Feed data](docs/public-job-feed-data.md) | Data provenance, field groups, outputs, and safe use of the feed. |

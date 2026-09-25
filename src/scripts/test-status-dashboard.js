@@ -23,7 +23,7 @@ async function main() {
   const auto = { ApplyLink: observation.ApplyLink, UrlStatus: "Bad", HttpStatus: 403, JobOpenStatus: "UNVERIFIED" };
   assert.equal(applyUserReview(auto, [observation], "one").JobOpenStatus, "USER_CONFIRMED_OPEN");
   assert.equal(applyUserReview(auto, [observation], "one").HttpStatus, 403);
-  assert.equal(applyUserReview(auto, [observation], "two").UserReviewStatus, "NOT_REVIEWED");
+  assert.equal(applyUserReview(auto, [observation], "two").UserReviewStatus, "PREVIOUS_REVIEW");
   assert.equal(applyUserReview(auto, [{ ...observation, Status: "USER_REPORTED_OUTAGE" }], "one").JobOpenStatus, "UNVERIFIED");
   assert.equal(applyUserReview(auto, [{ ...observation, PackageRun: "", FlagForWritingReview: true }], "two").FlagForWritingReview, true);
 

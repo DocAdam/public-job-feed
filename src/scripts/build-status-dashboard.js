@@ -388,6 +388,10 @@ function markdownValue(value) {
 }
 
 function buildMarkdown(dashboard) {
+  const sourceNote = name => {
+    const source = dashboard.SourceReports.find(row => row.Source === name);
+    return `- ${name}: ${source?.GeneratedAt || "Unknown date"} (${source?.Status || "DATE_UNKNOWN"}). These figures describe that saved report.`;
+  };
   const recommendations = dashboard.ATSHealth.Recommendations || [];
   const readyRows = dashboard.NextBatchPlan.RecommendedOrder || [];
   const skippedRows = dashboard.NextBatchPlan.SkippedATS || [];
@@ -456,6 +460,7 @@ function buildMarkdown(dashboard) {
   for (const row of dashboard.ATSHealth.ByATS) {
     if (row.AbsoluteHealth) lines.push(`- ${row.ATS}: ${row.AbsoluteHealth.Status}; ${row.AbsoluteHealth.FailureCount}/${row.AbsoluteHealth.Attempts} recent results failed (${row.AbsoluteHealth.FailureRate}%); matched-board change: ${row.Status}`);
   }
+  lines.push("Baseline-change alerts and absolute failure rates are separate. No baseline alert does not mean low failures.");
   lines.push(`- ATS anomaly alerts: ${markdownValue(dashboard.ATSHealth.AnomalyAlertCount)}`);
   for (const row of dashboard.ATSHealth.AnomalyAlerts || []) {
     lines.push(`- ${row.Severity}: ${row.ATS} ${row.Metric} ${row.BaselineRate}% -> ${row.RecentRate}%`);
@@ -513,7 +518,7 @@ function buildMarkdown(dashboard) {
   }
 
   lines.push("## Retained Jobs for Review", "",
-    dashboard.EvidenceReview ? `- Rows: ${dashboard.EvidenceReview.ReviewRows}; package: ${dashboard.EvidenceReview.PackageRun}; live URL checks: ${dashboard.EvidenceReview.LiveChecks}; open roles flagged for writing review: ${dashboard.EvidenceReview.WritingReviewRows ?? "Unknown"}` : "No review report recorded.",
+    dashboard.EvidenceReview ? `- Rows: ${dashboard.EvidenceReview.ReviewRows}; package: ${dashboard.EvidenceReview.PackageRun}; live URL checks: ${dashboard.EvidenceReview.LiveChecks}; roles flagged for writing review: ${dashboard.EvidenceReview.WritingReviewRows ?? "Unknown"}` : "No review report recorded.",
     "- Evidence: data/jobs/reports/package-evidence-review.md",
     "- URL check time and board fetch time are separate. Job status uses attributed user observations where available.", "");
 
@@ -594,6 +599,7 @@ function buildMarkdown(dashboard) {
     "",
     "## Storage / Inventory",
     "",
+    sourceNote("inventorySummary"),
     `- Total files: ${markdownValue(dashboard.StorageInventory.TotalFiles)}`,
     `- Total size bytes: ${markdownValue(dashboard.StorageInventory.TotalSizeBytes)}`,
     `- Release count: ${markdownValue(dashboard.StorageInventory.ReleaseCount)}`,
@@ -603,6 +609,8 @@ function buildMarkdown(dashboard) {
     "",
     "## Cleanup / Archive",
     "",
+    sourceNote("cleanupSummary"),
+    sourceNote("archiveSummary"),
     `- Cleanup delete candidates: ${markdownValue(dashboard.CleanupArchive.CleanupDeleteCandidates)}`,
     `- Archive candidate count: ${markdownValue(dashboard.CleanupArchive.ArchiveCandidateCount)}`,
     `- Archive candidate size bytes: ${markdownValue(dashboard.CleanupArchive.ArchiveCandidateSizeBytes)}`,
