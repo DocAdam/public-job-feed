@@ -1,0 +1,265 @@
+{
+  "metrics": [
+    {
+      "raw_good_jobs": 5,
+      "duplicate_export_rows": 0,
+      "unmatched_good_job_rows": 0,
+      "good_jobs": 5,
+      "remote_jobs": 2,
+      "remote_share": 40,
+      "hybrid_jobs": 1,
+      "hybrid_share": 20,
+      "onsite_jobs": 1,
+      "onsite_share": 20,
+      "unknown_work_arrangement_jobs": 1,
+      "unknown_work_arrangement_share": 20,
+      "explicit_us_remote_jobs": 1,
+      "searchable_jobs": 4,
+      "searchable_text_coverage": 80,
+      "ai_mentions": 2,
+      "ai_share": 50,
+      "api_mentions": 1,
+      "api_share": 25,
+      "docs_as_code_mentions": 1,
+      "docs_as_code_share": 25,
+      "company_count": 10,
+      "catalog_slug_count": 10,
+      "ats_type_count": 3,
+      "weekly_baseline_snapshot_id": null,
+      "weekly_added": null,
+      "weekly_removed": null,
+      "weekly_net_change": null,
+      "weekly_churn_count": null,
+      "weekly_churn_rate": null,
+      "time_source": "fixture",
+      "snapshot_id": "20260101-1200",
+      "observed_at": "2026-01-01 12:00:00",
+      "report_observed_at": "2026-01-01 12:00:00"
+    },
+    {
+      "raw_good_jobs": 5,
+      "duplicate_export_rows": 0,
+      "unmatched_good_job_rows": 0,
+      "good_jobs": 5,
+      "remote_jobs": 2,
+      "remote_share": 40,
+      "hybrid_jobs": 1,
+      "hybrid_share": 20,
+      "onsite_jobs": 1,
+      "onsite_share": 20,
+      "unknown_work_arrangement_jobs": 1,
+      "unknown_work_arrangement_share": 20,
+      "explicit_us_remote_jobs": 1,
+      "searchable_jobs": 4,
+      "searchable_text_coverage": 80,
+      "ai_mentions": 2,
+      "ai_share": 50,
+      "api_mentions": 1,
+      "api_share": 25,
+      "docs_as_code_mentions": 1,
+      "docs_as_code_share": 25,
+      "company_count": 10,
+      "catalog_slug_count": 10,
+      "ats_type_count": 3,
+      "weekly_baseline_snapshot_id": null,
+      "weekly_added": null,
+      "weekly_removed": null,
+      "weekly_net_change": null,
+      "weekly_churn_count": null,
+      "weekly_churn_rate": null,
+      "time_source": "fixture",
+      "snapshot_id": "20260125-1200",
+      "observed_at": "2026-01-25 12:00:00",
+      "report_observed_at": "2026-01-25 12:00:00"
+    },
+    {
+      "raw_good_jobs": 5,
+      "duplicate_export_rows": 0,
+      "unmatched_good_job_rows": 0,
+      "good_jobs": 5,
+      "remote_jobs": 2,
+      "remote_share": 40,
+      "hybrid_jobs": 1,
+      "hybrid_share": 20,
+      "onsite_jobs": 1,
+      "onsite_share": 20,
+      "unknown_work_arrangement_jobs": 1,
+      "unknown_work_arrangement_share": 20,
+      "explicit_us_remote_jobs": 1,
+      "searchable_jobs": 4,
+      "searchable_text_coverage": 80,
+      "ai_mentions": 2,
+      "ai_share": 50,
+      "api_mentions": 1,
+      "api_share": 25,
+      "docs_as_code_mentions": 1,
+      "docs_as_code_share": 25,
+      "company_count": 10,
+      "catalog_slug_count": 10,
+      "ats_type_count": 3,
+      "weekly_baseline_snapshot_id": "20260125-1200",
+      "weekly_added": 1,
+      "weekly_removed": 1,
+      "weekly_net_change": 0,
+      "weekly_churn_count": 2,
+      "weekly_churn_rate": 40,
+      "time_source": "fixture",
+      "snapshot_id": "20260201-1200",
+      "observed_at": "2026-02-01 12:00:00",
+      "report_observed_at": "2026-02-01 12:00:00"
+    }
+  ],
+  "roles": [
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Technical Writing",
+      "job_count": 5
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Documentation Engineering",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Content Writing",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Content Design / UX Writing",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Developer Relations",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Knowledge Management",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Technical Content",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Management / Leadership",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Adjacent Roles",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260101-1200",
+      "role_group": "Unknown",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Technical Writing",
+      "job_count": 5
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Documentation Engineering",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Content Writing",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Content Design / UX Writing",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Developer Relations",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Knowledge Management",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Technical Content",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Management / Leadership",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Adjacent Roles",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260125-1200",
+      "role_group": "Unknown",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Technical Writing",
+      "job_count": 5
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Documentation Engineering",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Content Writing",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Content Design / UX Writing",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Developer Relations",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Knowledge Management",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Technical Content",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Management / Leadership",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Adjacent Roles",
+      "job_count": 0
+    },
+    {
+      "snapshot_id": "20260201-1200",
+      "role_group": "Unknown",
+      "job_count": 0
+    }
+  ],
+  "generatedAt": "fixture"
+}

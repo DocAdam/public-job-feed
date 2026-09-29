@@ -1,0 +1,1446 @@
+{
+  "status": "passed",
+  "validated_at": "2026-09-28T14:48:15.810Z",
+  "database": "data/jobs/history/jobs-history.duckdb",
+  "exception_policy": "approved: preserve all raw rows; latest valid zoned FetchedAt wins; lowest raw row number breaks ties; preserve unmatched 01 rows",
+  "counts": {
+    "snapshots": "131",
+    "raw_rows": "94079",
+    "resolved_observations": "94069",
+    "canonical_keys": "2973",
+    "job_keys": "2923",
+    "raw_good_rows": "83474",
+    "matched_observations": "83424",
+    "matched_good_rows": "83434",
+    "exceptions": "40",
+    "duplicate_sibling_raw_rows": "20",
+    "raw_company_labels": "1453",
+    "raw_company_keys": "1453"
+  },
+  "latest_snapshot": {
+    "snapshot_id": "20260928-0552",
+    "observed_at": "2026-09-28 05:52:00",
+    "top_match_count": 853,
+    "good_job_count": 767,
+    "inclusion_rate": 0.8991793669402111,
+    "company_count": 556,
+    "catalog_slug_count": 558,
+    "ats_type_count": 7,
+    "imported_at": "2026-09-28 09:45:12.575196",
+    "raw_top_match_row_count": 853,
+    "resolved_observation_count": 853,
+    "duplicate_canonical_row_count": 0,
+    "unmatched_good_job_count": 0,
+    "total_postings": "853",
+    "good_postings": "767",
+    "excluded": "86"
+  },
+  "duplicate_snapshot": {
+    "snapshot_id": "20260715-0556",
+    "observed_at": "2026-07-15 05:56:00",
+    "top_match_count": 929,
+    "good_job_count": 858,
+    "inclusion_rate": 0.9235737351991388,
+    "company_count": 582,
+    "catalog_slug_count": 591,
+    "ats_type_count": 6,
+    "imported_at": "2026-09-28 07:23:10.58151",
+    "raw_top_match_row_count": 929,
+    "resolved_observation_count": 919,
+    "duplicate_canonical_row_count": 10,
+    "unmatched_good_job_count": 0
+  },
+  "duplicate_resolution": [
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://bowheadcareers-uicalaska.icims.com/jobs/25617/technical-writer/job",
+      "selected_raw_row_number": 500,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T09:53:46.047Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://bowheadcareers-uicalaska.icims.com/jobs/25669/technical-writer/job",
+      "selected_raw_row_number": 499,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T09:53:46.047Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-chenega.icims.com/jobs/40888/senior-technical-writer/job",
+      "selected_raw_row_number": 261,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T07:33:05.374Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-chenega.icims.com/jobs/40958/senior-technical-writer/job",
+      "selected_raw_row_number": 260,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T07:33:05.374Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-eastwestbank.icims.com/jobs/13288/senior-mortgage-loan-documentation-specialist/job",
+      "selected_raw_row_number": 295,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T07:58:37.959Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-eastwestbank.icims.com/jobs/13289/senior-mortgage-loan-documentation-specialist/job",
+      "selected_raw_row_number": 294,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T07:58:37.959Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-mccarthyca.icims.com/jobs/2246/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "selected_raw_row_number": 887,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T09:06:23.333Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-mccarthyca.icims.com/jobs/2265/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "selected_raw_row_number": 886,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T09:06:23.333Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-mccarthyca.icims.com/jobs/2267/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "selected_raw_row_number": 885,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T09:06:23.333Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    },
+    {
+      "snapshot_id": "20260715-0556",
+      "canonical_url_key": "https://careers-mccarthyca.icims.com/jobs/2311/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "selected_raw_row_number": 884,
+      "canonical_group_row_count": 2,
+      "duplicate_canonical_row_count": 1,
+      "fetched_at": "2026-07-15T09:06:23.333Z",
+      "selection_rule": "latest_valid_fetched_at_then_lowest_raw_row_number"
+    }
+  ],
+  "good_job_exceptions": [
+    {
+      "snapshot_id": "20260824-1624",
+      "raw_row_number": 115,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260825-0538",
+      "raw_row_number": 119,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260826-0658",
+      "raw_row_number": 122,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260827-0509",
+      "raw_row_number": 123,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260827-0518",
+      "raw_row_number": 9,
+      "apply_link": "https://posthog.com/careers/member-of-the-technical-writing-staff",
+      "title": "Member of the Technical Writing Staff",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260827-0518",
+      "raw_row_number": 10,
+      "apply_link": "https://posthog.com/careers/technical-content-writer",
+      "title": "Technical Content Writer",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260827-0518",
+      "raw_row_number": 124,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260828-0620",
+      "raw_row_number": 21,
+      "apply_link": "https://posthog.com/careers/member-of-the-technical-writing-staff",
+      "title": "Member of the Technical Writing Staff",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260828-0620",
+      "raw_row_number": 22,
+      "apply_link": "https://posthog.com/careers/technical-content-writer",
+      "title": "Technical Content Writer",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260828-0620",
+      "raw_row_number": 135,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260829-0639",
+      "raw_row_number": 29,
+      "apply_link": "https://posthog.com/careers/member-of-the-technical-writing-staff",
+      "title": "Member of the Technical Writing Staff",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260829-0639",
+      "raw_row_number": 30,
+      "apply_link": "https://posthog.com/careers/technical-content-writer",
+      "title": "Technical Content Writer",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260829-0639",
+      "raw_row_number": 137,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260830-1127",
+      "raw_row_number": 35,
+      "apply_link": "https://posthog.com/careers/member-of-the-technical-writing-staff",
+      "title": "Member of the Technical Writing Staff",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260830-1127",
+      "raw_row_number": 36,
+      "apply_link": "https://posthog.com/careers/technical-content-writer",
+      "title": "Technical Content Writer",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260831-0536",
+      "raw_row_number": 33,
+      "apply_link": "https://posthog.com/careers/member-of-the-technical-writing-staff",
+      "title": "Member of the Technical Writing Staff",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260831-0536",
+      "raw_row_number": 34,
+      "apply_link": "https://posthog.com/careers/technical-content-writer",
+      "title": "Technical Content Writer",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260901-0603",
+      "raw_row_number": 2,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260901-0603",
+      "raw_row_number": 38,
+      "apply_link": "https://posthog.com/careers/member-of-the-technical-writing-staff",
+      "title": "Member of the Technical Writing Staff",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260901-0603",
+      "raw_row_number": 39,
+      "apply_link": "https://posthog.com/careers/technical-content-writer",
+      "title": "Technical Content Writer",
+      "company": "Posthog",
+      "location": "Remote",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260902-0528",
+      "raw_row_number": 4,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260904-0441",
+      "raw_row_number": 5,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260905-0704",
+      "raw_row_number": 14,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260906-0700",
+      "raw_row_number": 14,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260907-0701",
+      "raw_row_number": 16,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260908-0506",
+      "raw_row_number": 17,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260909-0608",
+      "raw_row_number": 21,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260910-0605",
+      "raw_row_number": 30,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260911-0656",
+      "raw_row_number": 35,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260912-0710",
+      "raw_row_number": 36,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260913-1043",
+      "raw_row_number": 37,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260914-0650",
+      "raw_row_number": 38,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260915-0613",
+      "raw_row_number": 52,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260916-0616",
+      "raw_row_number": 54,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260917-0458",
+      "raw_row_number": 55,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260918-0646",
+      "raw_row_number": 61,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260919-0628",
+      "raw_row_number": 62,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260920-0545",
+      "raw_row_number": 64,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260921-0631",
+      "raw_row_number": 77,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    },
+    {
+      "snapshot_id": "20260922-0700",
+      "raw_row_number": 90,
+      "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+      "title": "Technical Writer",
+      "company": "NetApp",
+      "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+      "reason": "no_matching_top_match_url"
+    }
+  ],
+  "source_warnings": [
+    "20260715-0556: 10 duplicate canonical rows resolved; all 929 raw rows preserved",
+    "20260824-1624: 1 unmatched good-job rows preserved as exceptions",
+    "20260825-0538: 1 unmatched good-job rows preserved as exceptions",
+    "20260826-0658: 1 unmatched good-job rows preserved as exceptions",
+    "20260827-0509: 1 unmatched good-job rows preserved as exceptions",
+    "20260827-0518: 3 unmatched good-job rows preserved as exceptions",
+    "20260828-0620: 3 unmatched good-job rows preserved as exceptions",
+    "20260829-0639: 3 unmatched good-job rows preserved as exceptions",
+    "20260830-1127: 2 unmatched good-job rows preserved as exceptions",
+    "20260831-0536: 2 unmatched good-job rows preserved as exceptions",
+    "20260901-0603: 3 unmatched good-job rows preserved as exceptions",
+    "20260902-0528: 1 unmatched good-job rows preserved as exceptions",
+    "20260904-0441: 1 unmatched good-job rows preserved as exceptions",
+    "20260905-0704: 1 unmatched good-job rows preserved as exceptions",
+    "20260906-0700: 1 unmatched good-job rows preserved as exceptions",
+    "20260907-0701: 1 unmatched good-job rows preserved as exceptions",
+    "20260908-0506: 1 unmatched good-job rows preserved as exceptions",
+    "20260909-0608: 1 unmatched good-job rows preserved as exceptions",
+    "20260910-0605: 1 unmatched good-job rows preserved as exceptions",
+    "20260911-0656: 1 unmatched good-job rows preserved as exceptions",
+    "20260912-0710: 1 unmatched good-job rows preserved as exceptions",
+    "20260913-1043: 1 unmatched good-job rows preserved as exceptions",
+    "20260914-0650: 1 unmatched good-job rows preserved as exceptions",
+    "20260915-0613: 1 unmatched good-job rows preserved as exceptions",
+    "20260916-0616: 1 unmatched good-job rows preserved as exceptions",
+    "20260917-0458: 1 unmatched good-job rows preserved as exceptions",
+    "20260918-0646: 1 unmatched good-job rows preserved as exceptions",
+    "20260919-0628: 1 unmatched good-job rows preserved as exceptions",
+    "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+    "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+    "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+    "01_good_documentation_jobs.csv: 4 header variants (union by name)"
+  ],
+  "structural_audit_errors": [],
+  "commands": {
+    "build": {
+      "exit_status": 0,
+      "imported": 131,
+      "metrics_refreshed": 131
+    },
+    "audit": {
+      "exit_status": 0
+    },
+    "update_runs": [
+      {
+        "exit_status": 0,
+        "imported": 0,
+        "metrics_refreshed": 0
+      }
+    ],
+    "report": {
+      "exit_status": 0,
+      "output": "data/jobs/reports/jobs-history-report.md"
+    }
+  },
+  "idempotency": {
+    "passed": true,
+    "all_table_counts_and_content_fingerprints_unchanged": true,
+    "before": {
+      "snapshots": {
+        "row_count": "131",
+        "fingerprint": "4623555590414588218"
+      },
+      "posting_observations": {
+        "row_count": "94069",
+        "fingerprint": "11904684702033894356"
+      },
+      "raw_top_match_rows": {
+        "row_count": "94079",
+        "fingerprint": "5957776886343419067"
+      },
+      "raw_good_job_rows": {
+        "row_count": "83474",
+        "fingerprint": "9413606277249849736"
+      },
+      "good_job_exceptions": {
+        "row_count": "40",
+        "fingerprint": "17956344061565209839"
+      },
+      "snapshot_files": {
+        "row_count": "262",
+        "fingerprint": "15713852571471427297"
+      },
+      "source_artifacts": {
+        "row_count": "655",
+        "fingerprint": "9574469969128380137"
+      },
+      "historical_content_metrics": {
+        "row_count": "131",
+        "fingerprint": "6312532983603924491"
+      },
+      "historical_role_metrics": {
+        "row_count": "1310",
+        "fingerprint": "2206779557542176095"
+      }
+    },
+    "after": {
+      "snapshots": {
+        "row_count": "131",
+        "fingerprint": "4623555590414588218"
+      },
+      "posting_observations": {
+        "row_count": "94069",
+        "fingerprint": "11904684702033894356"
+      },
+      "raw_top_match_rows": {
+        "row_count": "94079",
+        "fingerprint": "5957776886343419067"
+      },
+      "raw_good_job_rows": {
+        "row_count": "83474",
+        "fingerprint": "9413606277249849736"
+      },
+      "good_job_exceptions": {
+        "row_count": "40",
+        "fingerprint": "17956344061565209839"
+      },
+      "snapshot_files": {
+        "row_count": "262",
+        "fingerprint": "15713852571471427297"
+      },
+      "source_artifacts": {
+        "row_count": "655",
+        "fingerprint": "9574469969128380137"
+      },
+      "historical_content_metrics": {
+        "row_count": "131",
+        "fingerprint": "6312532983603924491"
+      },
+      "historical_role_metrics": {
+        "row_count": "1310",
+        "fingerprint": "2206779557542176095"
+      }
+    }
+  },
+  "primary_keys": [
+    {
+      "table_name": "good_job_exceptions",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "raw_row_number"
+      ]
+    },
+    {
+      "table_name": "historical_content_metrics",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id"
+      ]
+    },
+    {
+      "table_name": "historical_role_metrics",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "role_group"
+      ]
+    },
+    {
+      "table_name": "posting_observations",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "canonical_url_key"
+      ]
+    },
+    {
+      "table_name": "raw_good_job_rows",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "raw_row_number"
+      ]
+    },
+    {
+      "table_name": "raw_top_match_rows",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "raw_row_number"
+      ]
+    },
+    {
+      "table_name": "snapshot_files",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "file_name"
+      ]
+    },
+    {
+      "table_name": "snapshots",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id"
+      ]
+    },
+    {
+      "table_name": "source_artifacts",
+      "constraint_type": "PRIMARY KEY",
+      "constraint_column_names": [
+        "snapshot_id",
+        "file_name"
+      ]
+    }
+  ],
+  "example_queries": {
+    "corpus": {
+      "sql": "SELECT observed_at, top_match_count, good_job_count FROM snapshots ORDER BY observed_at",
+      "row_count": 131,
+      "sample": [
+        {
+          "observed_at": "2026-06-02 18:10:00",
+          "top_match_count": 116,
+          "good_job_count": 116
+        },
+        {
+          "observed_at": "2026-06-02 18:12:00",
+          "top_match_count": 116,
+          "good_job_count": 116
+        }
+      ]
+    },
+    "longest": {
+      "sql": "SELECT * FROM posting_lifecycle ORDER BY snapshots_seen DESC,canonical_url_key LIMIT 25",
+      "row_count": 25,
+      "sample": [
+        {
+          "canonical_url_key": "https://job-boards.greenhouse.io/barbaricum/jobs/4513627008",
+          "first_seen": "2026-06-02 18:10:00",
+          "last_seen": "2026-09-28 05:52:00",
+          "snapshots_seen": "131",
+          "first_observed_title": "Knowledge Manager",
+          "latest_observed_title": "Knowledge Manager",
+          "first_observed_company": "Barbaricum",
+          "latest_observed_company": "Barbaricum",
+          "first_observed_location": "Fort Eustis, Virginia, United States; Fort Leavenworth, Kansas, United States",
+          "latest_observed_location": "Fort Eustis, Virginia, United States; Fort Leavenworth, Kansas, United States"
+        },
+        {
+          "canonical_url_key": "https://jobs.ashbyhq.com/bio/0c137ae4-1d96-4823-b06f-b95a1e21ac40",
+          "first_seen": "2026-06-02 18:10:00",
+          "last_seen": "2026-09-28 05:52:00",
+          "snapshots_seen": "131",
+          "first_observed_title": "Science Content Writer",
+          "latest_observed_title": "Science Content Writer",
+          "first_observed_company": "Bio",
+          "latest_observed_company": "Bio",
+          "first_observed_location": "Remote",
+          "latest_observed_location": "Remote"
+        }
+      ]
+    },
+    "remote": {
+      "sql": "SELECT snapshot_id,observed_at,remote_postings,total_postings,remote_postings::DOUBLE/nullif(total_postings,0) remote_share FROM daily_market_metrics ORDER BY observed_at",
+      "row_count": 131,
+      "sample": [
+        {
+          "snapshot_id": "20260602-1810",
+          "observed_at": "2026-06-02 18:10:00",
+          "remote_postings": "39",
+          "total_postings": "116",
+          "remote_share": 0.33620689655172414
+        },
+        {
+          "snapshot_id": "20260602-1812",
+          "observed_at": "2026-06-02 18:12:00",
+          "remote_postings": "39",
+          "total_postings": "116",
+          "remote_share": 0.33620689655172414
+        }
+      ]
+    },
+    "inclusion": {
+      "sql": "SELECT observed_at,inclusion_rate FROM snapshots ORDER BY observed_at",
+      "row_count": 131,
+      "sample": [
+        {
+          "observed_at": "2026-06-02 18:10:00",
+          "inclusion_rate": 1
+        },
+        {
+          "observed_at": "2026-06-02 18:12:00",
+          "inclusion_rate": 1
+        }
+      ]
+    },
+    "newUrls": {
+      "sql": "SELECT s.snapshot_id,s.observed_at,count(l.canonical_url_key) new_urls FROM snapshots s LEFT JOIN posting_lifecycle l ON l.first_seen=s.observed_at GROUP BY s.snapshot_id,s.observed_at ORDER BY s.observed_at",
+      "row_count": 131,
+      "sample": [
+        {
+          "snapshot_id": "20260602-1810",
+          "observed_at": "2026-06-02 18:10:00",
+          "new_urls": "116"
+        },
+        {
+          "snapshot_id": "20260602-1812",
+          "observed_at": "2026-06-02 18:12:00",
+          "new_urls": "0"
+        }
+      ]
+    },
+    "anomalies": {
+      "sql": "SELECT snapshot_id,raw_top_match_row_count,resolved_observation_count,duplicate_canonical_row_count,good_job_count,unmatched_good_job_count FROM snapshots ORDER BY snapshot_id",
+      "row_count": 131,
+      "sample": [
+        {
+          "snapshot_id": "20260602-1810",
+          "raw_top_match_row_count": 116,
+          "resolved_observation_count": 116,
+          "duplicate_canonical_row_count": 0,
+          "good_job_count": 116,
+          "unmatched_good_job_count": 0
+        },
+        {
+          "snapshot_id": "20260602-1812",
+          "raw_top_match_row_count": 116,
+          "resolved_observation_count": 116,
+          "duplicate_canonical_row_count": 0,
+          "good_job_count": 116,
+          "unmatched_good_job_count": 0
+        }
+      ]
+    },
+    "siblings": {
+      "sql": "SELECT raw_row_number,canonical_url_key,selected_for_observation,selected_raw_row_number,raw_values FROM raw_top_match_rows WHERE snapshot_id='20260715-0556' AND canonical_group_row_count>1 ORDER BY canonical_url_key,raw_row_number",
+      "row_count": 20,
+      "sample": [
+        {
+          "raw_row_number": 153,
+          "canonical_url_key": "https://bowheadcareers-uicalaska.icims.com/jobs/25617/technical-writer/job",
+          "selected_for_observation": false,
+          "selected_raw_row_number": 500
+        },
+        {
+          "raw_row_number": 500,
+          "canonical_url_key": "https://bowheadcareers-uicalaska.icims.com/jobs/25617/technical-writer/job",
+          "selected_for_observation": true,
+          "selected_raw_row_number": 500
+        }
+      ]
+    },
+    "exceptions": {
+      "sql": "SELECT snapshot_id,apply_link,title,company,location,raw_values->>'Work Arrangement' work_arrangement,raw_values->>'Writer Fit Score' writer_fit_score,reason FROM good_job_exceptions ORDER BY snapshot_id,raw_row_number",
+      "row_count": 40,
+      "sample": [
+        {
+          "snapshot_id": "20260824-1624",
+          "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+          "title": "Technical Writer",
+          "company": "NetApp",
+          "location": "Morrisville, NC, US | Boulder, Colorado, United States | Cranberry Township, Pennsylvania, United States",
+          "work_arrangement": "Hybrid",
+          "writer_fit_score": "85",
+          "reason": "no_matching_top_match_url"
+        },
+        {
+          "snapshot_id": "20260825-0538",
+          "apply_link": "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+          "title": "Technical Writer",
+          "company": "NetApp",
+          "location": "Morrisville, NC, US | Cranberry Township, Pennsylvania, United States | Boulder, Colorado, United States",
+          "work_arrangement": "Hybrid",
+          "writer_fit_score": "85",
+          "reason": "no_matching_top_match_url"
+        }
+      ]
+    }
+  },
+  "source_file_verification": {
+    "files_checked": 2469,
+    "changed": [],
+    "added": [],
+    "removed": []
+  },
+  "tests": {
+    "targeted_history": "passed",
+    "changed_javascript_syntax": "passed",
+    "relevant_report_tests": [
+      "jobs:test-trends",
+      "jobs:test-all-remote-report",
+      "jobs:test-content-metrics"
+    ],
+    "diff_check": "passed"
+  },
+  "limits": [
+    "Observation dates are not authoritative posting or closure dates.",
+    "Snapshot coverage metrics describe the raw shortlist, not all configured sources.",
+    "FetchedAt comparison uses explicit zones and millisecond precision; equal times use raw row order.",
+    "Raw JSON preserves parsed CSV field values; source files and hashes preserve byte-level provenance."
+  ],
+  "historical_content_metrics": {
+    "status": "passed",
+    "latest_parity_targets": {
+      "good_jobs": 767,
+      "remote_jobs": 147,
+      "hybrid_jobs": 107,
+      "onsite_jobs": 484,
+      "unknown_work_arrangement_jobs": 29,
+      "explicit_us_remote_jobs": 45,
+      "searchable_jobs": 753,
+      "ai_mentions": 253,
+      "api_mentions": 92,
+      "docs_as_code_mentions": 23
+    },
+    "independent_daily_csv_parity": "passed",
+    "daily_baseline": "20260921-0631",
+    "totals": {
+      "snapshots": "131",
+      "raw_good_rows": "83474",
+      "good_jobs": "83464",
+      "duplicate_export_rows": "10",
+      "exception_rows": "40",
+      "fallback_times": "0"
+    },
+    "latest": {
+      "snapshot_id": "20260928-0552",
+      "observed_at": "2026-09-28 05:52:00",
+      "report_observed_at": "2026-09-28 10:52:24.489",
+      "time_source": "package_readme",
+      "definition_hash": "a82154638c60f040e70e61f1d7a389211a18edc63484d278690fc9209bb6b226",
+      "raw_good_jobs": 767,
+      "duplicate_export_rows": 0,
+      "unmatched_good_job_rows": 0,
+      "unmatched_good_jobs": 0,
+      "good_jobs": 767,
+      "remote_jobs": 147,
+      "remote_share": 19.165580182529336,
+      "hybrid_jobs": 107,
+      "hybrid_share": 13.95045632333768,
+      "onsite_jobs": 484,
+      "onsite_share": 63.10299869621904,
+      "unknown_work_arrangement_jobs": 29,
+      "unknown_work_arrangement_share": 3.780964797913951,
+      "explicit_us_remote_jobs": 45,
+      "searchable_jobs": 753,
+      "searchable_text_coverage": 98.17470664928291,
+      "ai_mentions": 253,
+      "ai_share": 33.59893758300132,
+      "api_mentions": 92,
+      "api_share": 12.217795484727755,
+      "docs_as_code_mentions": 23,
+      "docs_as_code_share": 3.054448871181939,
+      "company_count": 556,
+      "catalog_slug_count": 558,
+      "ats_type_count": 7,
+      "weekly_baseline_snapshot_id": "20260921-0631",
+      "weekly_added": 96,
+      "weekly_removed": 137,
+      "weekly_net_change": -41,
+      "weekly_churn_count": 233,
+      "weekly_churn_rate": 28.836633663366335
+    },
+    "weekly": {
+      "snapshot_id": "20260921-0631",
+      "observed_at": "2026-09-21 06:31:00",
+      "report_observed_at": "2026-09-21 11:31:00.689",
+      "time_source": "package_readme",
+      "definition_hash": "a82154638c60f040e70e61f1d7a389211a18edc63484d278690fc9209bb6b226",
+      "raw_good_jobs": 808,
+      "duplicate_export_rows": 0,
+      "unmatched_good_job_rows": 1,
+      "unmatched_good_jobs": 1,
+      "good_jobs": 808,
+      "remote_jobs": 168,
+      "remote_share": 20.792079207920793,
+      "hybrid_jobs": 109,
+      "hybrid_share": 13.490099009900991,
+      "onsite_jobs": 503,
+      "onsite_share": 62.25247524752475,
+      "unknown_work_arrangement_jobs": 28,
+      "unknown_work_arrangement_share": 3.4653465346534658,
+      "explicit_us_remote_jobs": 48,
+      "searchable_jobs": 795,
+      "searchable_text_coverage": 98.39108910891089,
+      "ai_mentions": 270,
+      "ai_share": 33.9622641509434,
+      "api_mentions": 97,
+      "api_share": 12.20125786163522,
+      "docs_as_code_mentions": 23,
+      "docs_as_code_share": 2.8930817610062896,
+      "company_count": 577,
+      "catalog_slug_count": 579,
+      "ats_type_count": 7,
+      "weekly_baseline_snapshot_id": "20260914-0650",
+      "weekly_added": 181,
+      "weekly_removed": 173,
+      "weekly_net_change": 8,
+      "weekly_churn_count": 354,
+      "weekly_churn_rate": 44.25
+    },
+    "monthly": {
+      "snapshot_id": "20260828-0620",
+      "observed_at": "2026-08-28 06:20:00",
+      "report_observed_at": "2026-08-28 11:20:19.863",
+      "time_source": "package_readme",
+      "definition_hash": "a82154638c60f040e70e61f1d7a389211a18edc63484d278690fc9209bb6b226",
+      "raw_good_jobs": 805,
+      "duplicate_export_rows": 0,
+      "unmatched_good_job_rows": 3,
+      "unmatched_good_jobs": 3,
+      "good_jobs": 805,
+      "remote_jobs": 178,
+      "remote_share": 22.111801242236027,
+      "hybrid_jobs": 114,
+      "hybrid_share": 14.161490683229813,
+      "onsite_jobs": 491,
+      "onsite_share": 60.993788819875775,
+      "unknown_work_arrangement_jobs": 22,
+      "unknown_work_arrangement_share": 2.732919254658385,
+      "explicit_us_remote_jobs": 65,
+      "searchable_jobs": 790,
+      "searchable_text_coverage": 98.13664596273291,
+      "ai_mentions": 303,
+      "ai_share": 38.35443037974684,
+      "api_mentions": 102,
+      "api_share": 12.91139240506329,
+      "docs_as_code_mentions": 24,
+      "docs_as_code_share": 3.0379746835443036,
+      "company_count": 564,
+      "catalog_slug_count": 568,
+      "ats_type_count": 7,
+      "weekly_baseline_snapshot_id": "20260821-0704",
+      "weekly_added": 136,
+      "weekly_removed": 158,
+      "weekly_net_change": -22,
+      "weekly_churn_count": 294,
+      "weekly_churn_rate": 35.55018137847642
+    },
+    "latest_roles": [
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Technical Writing",
+        "job_count": 262
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Documentation Engineering",
+        "job_count": 9
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Content Writing",
+        "job_count": 209
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Content Design / UX Writing",
+        "job_count": 35
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Developer Relations",
+        "job_count": 18
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Knowledge Management",
+        "job_count": 27
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Technical Content",
+        "job_count": 54
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Management / Leadership",
+        "job_count": 25
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Adjacent Roles",
+        "job_count": 123
+      },
+      {
+        "snapshot_id": "20260928-0552",
+        "role_group": "Unknown",
+        "job_count": 5
+      }
+    ],
+    "coverage_warnings": {
+      "weekly": [],
+      "monthly": []
+    },
+    "publishing_signals": [
+      {
+        "type": "remote_share_change",
+        "metric": "remote_share",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 20.792079207920793,
+        "current": 19.165580182529336,
+        "delta": -1.6264990253914569,
+        "coverage_warning": false
+      },
+      {
+        "type": "good_job_count_change",
+        "metric": "good_jobs",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 808,
+        "current": 767,
+        "delta": -41,
+        "coverage_warning": false
+      },
+      {
+        "type": "us_remote_change",
+        "metric": "explicit_us_remote_jobs",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 48,
+        "current": 45,
+        "delta": -3,
+        "coverage_warning": false
+      },
+      {
+        "type": "topic_share_change",
+        "metric": "ai_share",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 33.9622641509434,
+        "current": 33.59893758300132,
+        "delta": -0.3633265679420745,
+        "coverage_warning": false
+      },
+      {
+        "type": "topic_share_change",
+        "metric": "api_share",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 12.20125786163522,
+        "current": 12.217795484727755,
+        "delta": 0.01653762309253537,
+        "coverage_warning": false
+      },
+      {
+        "type": "topic_share_change",
+        "metric": "docs_as_code_share",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 2.8930817610062896,
+        "current": 3.054448871181939,
+        "delta": 0.1613671101756493,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Technical Writing",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 284,
+        "current": 262,
+        "delta": -22,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Documentation Engineering",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 11,
+        "current": 9,
+        "delta": -2,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Content Writing",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 218,
+        "current": 209,
+        "delta": -9,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Content Design / UX Writing",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 31,
+        "current": 35,
+        "delta": 4,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Knowledge Management",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 31,
+        "current": 27,
+        "delta": -4,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Management / Leadership",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 23,
+        "current": 25,
+        "delta": 2,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Adjacent Roles",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 136,
+        "current": 123,
+        "delta": -13,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Unknown",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 2,
+        "current": 5,
+        "delta": 3,
+        "coverage_warning": false
+      },
+      {
+        "type": "weekly_churn",
+        "period": "7-day",
+        "baseline_snapshot_id": "20260921-0631",
+        "current_snapshot_id": "20260928-0552",
+        "count": 233,
+        "rate": 28.836633663366335,
+        "coverage_warning": false
+      },
+      {
+        "type": "remote_share_change",
+        "metric": "remote_share",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 22.111801242236027,
+        "current": 19.165580182529336,
+        "delta": -2.9462210597066907,
+        "coverage_warning": false
+      },
+      {
+        "type": "good_job_count_change",
+        "metric": "good_jobs",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 805,
+        "current": 767,
+        "delta": -38,
+        "coverage_warning": false
+      },
+      {
+        "type": "us_remote_change",
+        "metric": "explicit_us_remote_jobs",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 65,
+        "current": 45,
+        "delta": -20,
+        "coverage_warning": false
+      },
+      {
+        "type": "topic_share_change",
+        "metric": "ai_share",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 38.35443037974684,
+        "current": 33.59893758300132,
+        "delta": -4.755492796745514,
+        "coverage_warning": false
+      },
+      {
+        "type": "topic_share_change",
+        "metric": "api_share",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 12.91139240506329,
+        "current": 12.217795484727755,
+        "delta": -0.6935969203355352,
+        "coverage_warning": false
+      },
+      {
+        "type": "topic_share_change",
+        "metric": "docs_as_code_share",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 3.0379746835443036,
+        "current": 3.054448871181939,
+        "delta": 0.016474187637635307,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Technical Writing",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 259,
+        "current": 262,
+        "delta": 3,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Content Writing",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 216,
+        "current": 209,
+        "delta": -7,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Content Design / UX Writing",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 31,
+        "current": 35,
+        "delta": 4,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Developer Relations",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 26,
+        "current": 18,
+        "delta": -8,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Knowledge Management",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 39,
+        "current": 27,
+        "delta": -12,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Technical Content",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 49,
+        "current": 54,
+        "delta": 5,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Management / Leadership",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 24,
+        "current": 25,
+        "delta": 1,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Adjacent Roles",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 149,
+        "current": 123,
+        "delta": -26,
+        "coverage_warning": false
+      },
+      {
+        "type": "role_group_change",
+        "role": "Unknown",
+        "period": "30-day",
+        "baseline_snapshot_id": "20260828-0620",
+        "current_snapshot_id": "20260928-0552",
+        "baseline": 3,
+        "current": 5,
+        "delta": 2,
+        "coverage_warning": false
+      }
+    ],
+    "tests": [
+      "daily parity",
+      "topic denominators",
+      "all existing role groups",
+      "weekly and monthly baseline selection",
+      "churn",
+      "coverage thresholds",
+      "unmatched exceptions",
+      "duplicate export reconciliation",
+      "zero denominators",
+      "deterministic rendering",
+      "incremental baseline dependencies"
+    ],
+    "limits": [
+      "No earlier weekly snapshot means NULL comparison values.",
+      "Raw 01 duplicates count once for good_jobs; raw_good_jobs and duplicate_export_rows preserve reconciliation.",
+      "U.S. remote reuses the daily filter on raw export rows.",
+      "Topic mentions are not requirements; missing text is not a negative match.",
+      "Coverage measures use the raw 03 shortlist."
+    ]
+  }
+}

@@ -16,7 +16,13 @@ build/
 Thumbs.db
 
 # Large data directories - tracked externally or via LFS
-data/
+data/*
+!data/jobs/
+data/jobs/*
+!data/jobs/history/
+data/jobs/history/*
+!data/jobs/history/README.md
+!data/jobs/history/validation.json
 
 # Logs and temp files
 *.log
