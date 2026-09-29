@@ -28,7 +28,8 @@ function main() {
   const { buildSnapshotWithRemote } = require('../lib/all-remote-daily-report');
   const combined = buildSnapshotWithRemote(input);
   assert(combined.startsWith('# All Remote Jobs — Daily Comparison'));
-  assert(combined.includes(daily.replace(/^(#{1,5}) /gm, '$1# ')));
+  const withoutMetrics = markdown => markdown.replace(/## Content metrics\n[\s\S]*?(?=## Possible post subjects)/, '');
+  assert(withoutMetrics(combined.replace(/^(#{2,6}) /gm, heading => heading.slice(1))).includes(withoutMetrics(daily)));
   assert(combined.indexOf('## Daily Jobs Snapshot') < combined.indexOf('## US Remote Jobs'));
   assert(combined.includes('## International Remote Jobs'));
   assert(combined.includes('### Current jobs in both reports'));

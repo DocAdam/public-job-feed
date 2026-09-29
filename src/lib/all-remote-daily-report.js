@@ -27,6 +27,13 @@ function uniqueRowCount(leftRows, rightRows) {
   return new Set([...leftRows, ...rightRows].map(jobKey)).size;
 }
 
+function remoteSummary(usRows, internationalRows) {
+  return {
+    us: usRows.length, international: internationalRows.length,
+    unique: uniqueRowCount(usRows, internationalRows), overlap: overlapRows(usRows, internationalRows),
+  };
+}
+
 function previousRows(report) {
   const addedKeys = new Set(report.Added.map(jobKey));
   return [
@@ -76,9 +83,10 @@ function reportSection(heading, report) {
   ];
 }
 
-function buildMarkdown({ generatedAt, usReport, internationalReport, review }) {
+function buildMarkdown({ generatedAt, usReport, internationalReport, review, currentRemote }) {
   validateReports(usReport, internationalReport);
-  const currentOverlap = overlapRows(usReport.Current, internationalReport.Current);
+  const summary = currentRemote || remoteSummary(usReport.Current, internationalReport.Current);
+  const currentOverlap = summary.overlap;
   const usPrevious = previousRows(usReport);
   const internationalPrevious = previousRows(internationalReport);
 
@@ -99,7 +107,7 @@ function buildMarkdown({ generatedAt, usReport, internationalReport, review }) {
     `| US remote | ${usReport.Counts.Current} | ${usReport.Counts.Previous} | ${usReport.Counts.Added} | ${usReport.Counts.Removed} | ${usReport.Counts.Continuing} |`,
     `| International remote | ${internationalReport.Counts.Current} | ${internationalReport.Counts.Previous} | ${internationalReport.Counts.Added} | ${internationalReport.Counts.Removed} | ${internationalReport.Counts.Continuing} |`,
     "",
-    `- Unique current jobs across both reports: ${uniqueRowCount(usReport.Current, internationalReport.Current)}`,
+    `- Unique current jobs across both reports: ${summary.unique}`,
     `- Unique previous jobs across both reports: ${uniqueRowCount(usPrevious, internationalPrevious)}`,
     `- Current jobs in both reports: ${currentOverlap.length}`,
     "",
@@ -134,11 +142,13 @@ function buildSnapshotWithRemote(input) {
   });
   const us = require("./us-remote-daily-report").compareRows(input.currentRows, input.previousRows);
   const international = require("./international-remote-daily-report").compareRows(input.currentRows, input.previousRows);
+  const currentRemote = remoteSummary(us.current, international.current);
   const remote = buildMarkdown({ generatedAt: input.generatedAt,
+    currentRemote,
     usReport: makeReport(us, "Work Arrangement exactly Remote plus explicit US, U.S., USA, or United States location marker."),
     internationalReport: makeReport(international, "Work Arrangement exactly Remote plus an explicit non-US country, region, or worldwide location marker. Multi-region listings can overlap with the US report."),
   });
-  const snapshot = buildSnapshot(input).replace(/^(#{1,5}) /gm, '$1# ');
+  const snapshot = buildSnapshot({ ...input, remoteSummary: currentRemote }).replace(/^(#{1,5}) /gm, '$1# ');
   return '# All Remote Jobs — Daily Comparison\n\n'
     + '[Daily snapshot](#daily-jobs-snapshot) · [Remote comparison](#remote-comparison) · [U.S. remote jobs](#us-remote-jobs) · [International remote jobs](#international-remote-jobs)\n\n'
     + snapshot
@@ -151,6 +161,7 @@ module.exports = {
   buildMarkdown,
   overlapRows,
   previousRows,
+  remoteSummary,
   uniqueRowCount,
   validateReports,
 };

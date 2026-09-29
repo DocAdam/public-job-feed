@@ -63,3 +63,106 @@ data/jobs/reports/all-remote-daily-report.md
 
 
 The combined report is also generated during the normal refresh. These commands write local reports. They do not fetch new jobs or publish the Sheet.
+
+## Content metrics
+
+The opening snapshot includes **Content metrics** after Overview. It describes
+all jobs and all work arrangements in the saved package. Use these counts as
+evidence for draft Substack and LinkedIn posts. They describe this feed, not
+the whole job market. Focused views keep their existing output.
+
+`src/lib/content-metrics.js` calculates a structured metric object and renders
+the tables. `jobs-snapshot.js` supplies the existing enriched, unique job rows.
+It shares one membership comparison and one role-change table with the new
+metrics. `all-remote-daily-report.js` passes the same remote counts and overlap
+rows to both the snapshot and the remote comparison. The remote filters,
+country parser, role classifier, and package-selection code are unchanged.
+
+### Definitions and denominators
+
+- **Job count:** unique jobs from `01_good_documentation_jobs.csv`, using the
+  existing `jobKey` function. The key is the application URL in lowercase,
+  without trailing slashes. If no URL is present, it uses company, title, and
+  location. The opening snapshot already removes duplicate identities.
+- **Work arrangements:** use the package values Remote, Hybrid, Onsite, and
+  Unknown. An empty value is Unknown, as in the existing snapshot. Counts are
+  not new classifications. Each share divides its count by all current jobs.
+- **Remote availability:** use the same U.S. and international filtered lists
+  as the full comparison. A job can be in both. The unique count is the union
+  of their job identities. U.S. and unique qualifying remote shares divide by
+  all current jobs. Generic Remote listings can be outside both lists.
+- **Weekly baseline:** the oldest available package within seven days of the
+  current package's recorded UTC timestamp. The report names the packages.
+  It does not assume that the baseline is exactly seven days old.
+- **Weekly movement:** added jobs are current identities absent from the
+  baseline. Removed jobs are baseline identities absent now. These are list
+  changes, not posting or closure dates. Net inventory change is current jobs
+  minus baseline jobs. Churn is added plus removed. Churn rate is
+  `100 * churn / baseline jobs`; it can exceed 100%.
+- **Role movement:** reuse the existing Weekly changes by role group data.
+  The largest increase must have a positive delta; the largest decrease must
+  have a negative delta. Both exclude Unknown. Ties use ascending group name.
+  If no group qualifies, show None. Growing, declining, and unchanged counts
+  include Unknown and only groups present in the current or baseline package.
+- **Titles:** use the existing `normalizeTitle` helper from `job-titles.js`.
+  It converts case, whitespace, and punctuation, including `&` to `and`.
+  There is no fuzzy or semantic grouping. Missing titles have a separate label.
+  This count does not change the existing role classification.
+- **Company/source labels:** use the snapshot's company key, including its
+  job-identity fallback when normalization produces an empty label. These keys
+  remove existing suffix terms and spaces. The table shows the keys directly.
+  They can include intermediaries and are not verified employer names.
+- **Geography:** reuse the enriched `places` from the existing location parser.
+  A job counts once per unique resolved country. It can count in more than one
+  country. City/state-derived countries are included. Country presence does
+  not establish hiring eligibility. The unresolved/incomplete count reuses
+  the existing `Needs location review` flag. Region-only and worldwide labels
+  can have no country without that flag, so the two coverage counts need not
+  sum to all jobs. No second country parser is used.
+- **Searchable text:** count nonempty descriptions after the existing HTML
+  cleanup. The join matches the main application URL to `URL` in
+  `03_top_matches_full.csv`, using the same URL identity normalization. Extra
+  application links can supply full grouped locations, but their descriptions
+  are not combined. Coverage divides searchable jobs by all current jobs.
+  A missing details file or empty/unmatched description counts as missing text.
+- **Topic shares:** each matching job counts once per topic. The denominator
+  is searchable jobs, not all jobs. Jobs without text are not negative matches.
+  Topics can overlap. These are mentions, not confirmed requirements; text can
+  include company background. Unlike possible post subjects, these counts have
+  no minimum number of company labels.
+
+Percentages have one decimal place. A zero denominator produces **N/A**.
+Titles, company/source labels, and countries each show up to ten rows. Sort
+by descending count, then ascending normalized display value for ties, using
+fixed string order. The 300-line opening-summary limit remains in force; the
+build fails rather than truncating existing sections.
+
+### Topic definitions
+
+Content metrics reuse the existing posting-text matcher in `daily-jobs-review.js`.
+Matching is case-insensitive and uses word boundaries:
+
+- **AI:** AI, artificial intelligence, generative AI, gen AI, genAI, large
+  language model/models, LLM/LLMs, conversational AI, or machine learning.
+  A substring such as `ai` in `maintain` does not match.
+- **API:** API/APIs or application programming interface/interfaces. This
+  includes REST API and GraphQL API. A substring in `rapid` does not match.
+- **Docs-as-code:** reuse the existing Docs as code expression for docs as
+  code, docs-as-code, documentation as code, or documentation-as-code.
+  Git and GitHub alone do not match.
+
+### Build and test
+
+Run from the project root:
+
+```sh
+npm run jobs:test-content-metrics
+npm run jobs:test-all-remote-report
+npm run jobs:report-all-remote
+```
+
+The first command checks the calculations and the saved Markdown fixture at
+`src/scripts/fixtures/content-metrics.md`. The second checks the existing remote
+reports and snapshot behavior. The third rebuilds the combined report from
+saved data only. `npm run allremotediff` runs the same build and opens the file.
+Neither build command fetches jobs, checks links, updates Sheets, or publishes.

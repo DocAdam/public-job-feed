@@ -96,7 +96,8 @@
     "jobs:verify-curated-submissions": "node src/scripts/verify-curated-submissions.js",
     "jobs:validate-refresh-output": "node src/scripts/validate-refresh-output.js",
     "jobs:test-refresh-reports": "node src/scripts/test-refresh-reports.js",
-    "jobs:test-review-improvements": "node src/scripts/test-review-improvements.js"
+    "jobs:test-review-improvements": "node src/scripts/test-review-improvements.js",
+    "jobs:test-content-metrics": "node src/scripts/test-content-metrics.js"
   },
   "engines": {
     "node": "26.x"
@@ -128,6 +129,7 @@
     "jobs:test-us-remote-report",
     "jobs:test-international-remote-report",
     "jobs:test-all-remote-report",
+    "jobs:test-content-metrics",
     "jobs:test-status-dashboard",
     "jobs:test-refresh-launcher",
     "jobs:test-curated-submissions",

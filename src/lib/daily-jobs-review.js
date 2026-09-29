@@ -66,6 +66,15 @@ const topics = [
   ['Structured authoring', /\b(?:DITA|structured authoring|structured content)\b/i],
   ['Accessibility', /\b(?:WCAG|accessible content|content accessibility)\b/i],
 ];
+// Counts use the same posting-text matcher as the existing topic views.
+const contentTopics = [
+  ['AI mentions', /\b(?:AI|artificial intelligence|generative AI|gen AI|genAI|large language models?|LLMs?|conversational AI|machine learning)\b/i],
+  ['API mentions', /\b(?:APIs?|application programming interfaces?)\b/i],
+  ['Docs-as-code mentions', topics.find(([label]) => label === 'Docs as code')[1]],
+];
+function matchTopics(rows, definitions = topics) {
+  return definitions.map(([label, regex]) => ({ label, regex, rows: rows.filter(row => regex.test(row.description)) }));
+}
 function enrich(rows, details) {
   const byUrl = new Map(details.map(row => [jobKey({ 'Apply Link': row.URL }), row]));
   return unique(rows).map((row, index) => {
@@ -204,4 +213,4 @@ function buildDailyReview({ generatedAt, currentSnapshot, previousSnapshot, curr
   out.push(`[Open Good Documentation Jobs: full active list and other views](${sheetUrl})`, '');
   return out.join('\n');
 }
-module.exports = { buildDailyReview, locate, enrich, plainDescription, group, variedExamples, topics, companyCount, sheetUrl, countries, regions };
+module.exports = { buildDailyReview, locate, enrich, plainDescription, group, variedExamples, topics, contentTopics, matchTopics, company, companyCount, sheetUrl, countries, regions };

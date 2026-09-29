@@ -1,6 +1,7 @@
-const { enrich, group, variedExamples, topics, companyCount, sheetUrl, countries, regions } = require('./daily-jobs-review');
+const { enrich, group, variedExamples, matchTopics, companyCount, sheetUrl, countries, regions } = require('./daily-jobs-review');
 const { jobKey } = require('./us-remote-daily-report');
-const { categorizeTitle, titleCategories } = require('./title-category');
+const { titleCategories } = require('./title-category');
+const { buildContentMetrics, renderContentMetrics, compareMembership, roleChanges } = require('./content-metrics');
 const slug = value => String(value).toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const clean = value => String(value || '').replace(/\s+/g, ' ').trim();
 const md = value => clean(value).replace(/[\\`*_[\]<>|]/g, '\\$&');
@@ -75,12 +76,13 @@ function buildSnapshot(input, options = parseOptions([])) {
   const previous = filterRows(enrich(input.previousRows, input.previousDetails || []), options);
   const baseline = filterRows(enrich(input.baselineRows, input.baselineDetails || []), options);
   const keys = jobs => new Set(jobs.map(jobKey));
-  const previousKeys = keys(previous), baselineKeys = keys(baseline), currentKeys = keys(rows);
-  const added = rows.filter(r => !previousKeys.has(jobKey(r)));
-  const absent = previous.filter(r => !currentKeys.has(jobKey(r)));
-  const weeklyAdded = rows.filter(r => !baselineKeys.has(jobKey(r)));
+  const previousKeys = keys(previous);
+  const { added, removed: absent } = compareMembership(rows, previous);
+  const weekly = compareMembership(rows, baseline);
+  const weeklyAdded = weekly.added;
+  const roles = roleChanges(rows, baseline);
   const categories = group(rows, r => [r.category]);
-  const matches = topics.map(([label, regex]) => ({ label, regex, rows: rows.filter(r => regex.test(r.description)) }))
+  const matches = matchTopics(rows)
     .filter(t => companyCount(t.rows) >= 3).sort((a, b) => companyCount(b.rows) - companyCount(a.rows));
   const selected = options.focused;
   const out = [selected ? '# Jobs: focused view' : '# Daily Jobs Snapshot', '',
@@ -94,13 +96,13 @@ function buildSnapshot(input, options = parseOptions([])) {
   const example = row => `- [${md(short(row.Title, 120))} - ${md(short(row.Company, 65))}](${clean(row['Apply Link'])}) · ${md(short(row.fullLocation, 160))} · ${md(row['Work Arrangement'] || 'Unknown')}${row.places.some(p => p.inferred) ? ' · Country derived from city/state' : ''}`;
   const movement = () => {
     out.push('## Weekly changes by role group', '', '| Role group | Baseline | Current | Change |', '| --- | ---: | ---: | ---: |');
-    for (const name of titleCategories) {
-      const before = baseline.filter(r => r.category === name).length, now = rows.filter(r => r.category === name).length;
-      if (before || now) out.push(`| ${name} | ${before} | ${now} | ${now - before >= 0 ? '+' : ''}${now - before} |`);
+    for (const { name, baseline: before, current: now, delta } of roles) {
+      out.push(`| ${name} | ${before} | ${now} | ${delta >= 0 ? '+' : ''}${delta} |`);
     }
     out.push('', `${weeklyAdded.length} current jobs were absent from the weekly baseline.`, '');
   };
   if (!selected) {
+    out.push(...renderContentMetrics(buildContentMetrics({ rows, baseline, weekly, roles, remoteSummary: input.remoteSummary })));
     out.push('## Possible post subjects', '', 'Examples vary by country and company where possible. They are not ranked recommendations.', '');
     const ideas = categories.filter(([name, jobs]) => !['Adjacent Roles', 'Unknown'].includes(name) && companyCount(jobs) >= 3).slice(0,3);
     for (const [name, jobs] of ideas) {
