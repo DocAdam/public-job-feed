@@ -16,6 +16,9 @@ function classifyFetchError(ats, error = {}) {
   if (status === 401 || status === 403) return "ACCESS_BLOCKED";
   if (source === "workday" && status === 422) return "ENDPOINT_REJECTED";
   if (status >= 400) return "HTTP_CLIENT_ERROR";
+  if (error.diagnostics?.error_class === "unexpected_content_type") return /html|careers|challenge/.test(error.diagnostics.response_detail || "") ? "UNEXPECTED_HTML_RESPONSE" : "UNEXPECTED_CONTENT_TYPE";
+  if (error.diagnostics?.error_class === "schema_validation_failure") return "SCHEMA_VALIDATION_FAILURE";
+  if (error.diagnostics?.error_class === "application_rejection") return "APPLICATION_REJECTION";
   if (/json|parse|unexpected token|html/.test(message)) return "RESPONSE_PARSE_ERROR";
   if (/dns|enotfound|getaddrinfo|network|fetch failed|econn/.test(message)) return "NETWORK_ERROR";
   return "UNKNOWN_FETCH_ERROR";

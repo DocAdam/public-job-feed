@@ -75,6 +75,7 @@ function toHistoryEvent(row) {
     HttpStatus: row.HttpStatus === undefined || row.HttpStatus === null ? "" : row.HttpStatus,
     JobCount: Number(row.JobCount) || 0,
     ErrorClass: cleanText(row.ErrorClass),
+    ...(row.Diagnostic ? { Diagnostic: row.Diagnostic } : {}),
     FetchedAt: fetchedAt,
   };
 }

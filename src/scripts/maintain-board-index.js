@@ -1,3 +1,4 @@
+const { withBatchRun } = require("../lib/batch-run");
 const fs = require("fs/promises");
 const path = require("path");
 const { enumerateBoardEntries, toFetchQueueRow } = require("../lib/board-registry");
@@ -132,11 +133,13 @@ async function fetchAtsGroup(ats, records, entryByKey, options) {
   const batchName = `maintain-${options.scope}-${ats}-${options.runId}`;
   const batchDir = path.join(options.outputRoot, batchName);
   const outputPaths = getOutputPaths(batchDir);
-  await ensureDir(batchDir);
-  console.log(`\nMaintenance ${ats}: ${rows.length} boards`);
-  const result = await fetchAtsRows(rows, ats, options.titleRecords, config.delayMs, config.concurrency, {
-    deadlineAt: options.deadlineAt,
+  return withBatchRun(batchDir, async phase => {
+    await phase("fetch");
+    console.log(`\nMaintenance ${ats}: ${rows.length} boards`);
+    const result = await fetchAtsRows(rows, ats, options.titleRecords, config.delayMs, config.concurrency, {
+      deadlineAt: options.deadlineAt,
   });
+  await phase("build_artifacts");
   const generatedAt = new Date().toISOString();
   const artifacts = buildJobExportArtifacts(result.jobRows, result.fetchLogRows, options.titleRecords, generatedAt);
   artifacts.fetchLogRows = result.fetchLogRows;
@@ -146,8 +149,10 @@ async function fetchAtsGroup(ats, records, entryByKey, options) {
   artifacts.summary.Limit = records.length;
   artifacts.summary.BoardsSelected = records.length;
   artifacts.summary.MaintenanceScope = options.scope;
+  await phase("write_outputs");
   await writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv: options.includePublicFeedCsv });
   return { ats, batchName, fetchLogRows: result.fetchLogRows, jobRows: artifacts.jobRows };
+  });
 }
 
 async function main() {
@@ -237,4 +242,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main };
+module.exports = { main, fetchAtsGroup };

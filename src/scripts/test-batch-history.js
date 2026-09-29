@@ -14,7 +14,7 @@ async function main() {
   try {
     const rows = [
       { ATS: "ashby", CatalogSlug: "alpha", Status: "success", FetchedAt: "2026-07-01T00:00:00.000Z", SourceBatch: "old", JobCount: 2 },
-      { ATS: "ashby", CatalogSlug: "alpha", Status: "failed", FetchedAt: "2026-07-02T00:00:00.000Z", SourceBatch: "failed" },
+      { ATS: "ashby", CatalogSlug: "alpha", Status: "failed", FetchedAt: "2026-07-02T00:00:00.000Z", SourceBatch: "failed", Diagnostic: { error_class: "http_failure", http_status: 404, response_prefix: "missing" } },
       { ATS: "ashby", CatalogSlug: "alpha", Status: "empty", FetchedAt: "2026-07-03T00:00:00.000Z", SourceBatch: "new" },
       { ATS: "lever", CatalogSlug: "beta", Status: "success", FetchedAt: "2026-08-01T00:00:00.000Z", SourceBatch: "current", JobCount: 1 },
     ];
@@ -35,6 +35,7 @@ async function main() {
       .gunzipSync(await fs.readFile(path.join(tempDir, "history", "fetch-events", "2026-07.jsonl.gz")))
       .toString("utf8");
     assert.equal(july.trim().split("\n").length, 3);
+    assert.deepEqual(july.trim().split("\n").map(JSON.parse).find(row => row.Status === "failed").Diagnostic, rows[1].Diagnostic);
     console.log("Batch history tests passed.");
   } finally {
     await fs.rm(tempDir, { recursive: true, force: true });

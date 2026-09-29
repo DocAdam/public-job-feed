@@ -1,53 +1,43 @@
-async function fetchJson(url, options = {}) {
-  const timeoutMs = options.timeoutMs || 20000;
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), timeoutMs);
+const { safeUrl, payloadShape, responseEvidence } = require('./failure-diagnostics');
 
+async function fetchResponse(url, options = {}, json = true) {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), options.timeoutMs || 20000);
+  let diagnostics = {
+    request_url: safeUrl(url), request_method: options.method || 'GET',
+    request_payload_shape: payloadShape(options.body), error_class: 'transport_failure',
+  };
   try {
     const response = await fetch(url, {
-      headers: {
-        accept: "application/json",
-        "user-agent": "public-job-feed-sample/0.1",
-        ...(options.headers || {}),
-      },
-      method: options.method || "GET",
-      body: options.body,
-      signal: controller.signal,
+      headers: { accept: json ? 'application/json' : 'text/html', 'user-agent': 'public-job-feed-sample/0.1', ...(options.headers || {}) },
+      method: options.method || 'GET', body: options.body, signal: controller.signal,
     });
     const text = await response.text();
-    let data = null;
-
-    if (text) {
-      try {
-        data = JSON.parse(text);
-      } catch (error) {
-        if (!response.ok) {
-          const httpError = new Error(`HTTP ${response.status}`);
-          httpError.status = response.status;
-          httpError.body = text.slice(0, 500);
-          throw httpError;
-        }
-
-        throw new Error(`Invalid JSON response: ${error.message}`);
-      }
-    }
-
-    if (!response.ok) {
-      const error = new Error(`HTTP ${response.status}`);
+    diagnostics = responseEvidence(url, options, response, text);
+    const fail = (message, errorClass) => {
+      const error = new Error(message);
       error.status = response.status;
-      error.data = data;
+      error.diagnostics = { ...diagnostics, error_class: errorClass };
       throw error;
-    }
-
-    return {
-      data,
-      status: response.status,
     };
-  } finally {
-    clearTimeout(timeout);
-  }
+    if (!response.ok) fail(`HTTP ${response.status}`, 'http_failure');
+    if (!json) return { text, status: response.status, diagnostics };
+    if (diagnostics.response_detail && /html|careers|challenge/.test(diagnostics.response_detail)) {
+      fail('Expected JSON; received HTML', 'unexpected_content_type');
+    }
+    let data = null;
+    try { data = text ? JSON.parse(text) : null; }
+    catch {
+      const nonJsonType = diagnostics.content_type && !/application\/(?:[\w.-]+\+)?json/i.test(diagnostics.content_type);
+      fail('Invalid JSON response', nonJsonType ? 'unexpected_content_type' : 'parse_failure');
+    }
+    // Some servers omit or mislabel JSON. Preserve support for valid JSON in that case.
+    return { data, status: response.status, diagnostics };
+  } catch (error) {
+    if (!error.diagnostics) error.diagnostics = { ...diagnostics, error_class: 'transport_failure' };
+    throw error;
+  } finally { clearTimeout(timeout); }
 }
-
-module.exports = {
-  fetchJson,
-};
+function fetchJson(url, options = {}) { return fetchResponse(url, options, true); }
+function fetchText(url, options = {}) { return fetchResponse(url, options, false); }
+module.exports = { fetchJson, fetchText };

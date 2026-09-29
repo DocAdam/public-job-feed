@@ -1,3 +1,4 @@
+const { boardDiagnostic, redactText, safeUrl } = require("../lib/failure-diagnostics");
 const fs = require("fs/promises");
 const path = require("path");
 const { fetchAshbyBoard, getAshbyFetchUrl, getAshbySlugFromUrl } = require("../lib/ats/ashby");
@@ -391,7 +392,7 @@ async function fetchSampleRows(rows, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: "",
-        BoardURL: boardUrl,
+        BoardURL: safeUrl(boardUrl),
         FetchURL: "",
         FetchEndpoint: "",
         Status: "skipped",
@@ -410,7 +411,7 @@ async function fetchSampleRows(rows, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: slug,
-        BoardURL: boardUrl,
+        BoardURL: safeUrl(boardUrl),
         FetchURL: "",
         FetchEndpoint: "",
         Status: "skipped",
@@ -451,9 +452,9 @@ async function fetchSampleRows(rows, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: slug,
-        BoardURL: boardUrl,
-        FetchURL: result.fetchUrl,
-        FetchEndpoint: result.fetchUrl,
+        BoardURL: safeUrl(boardUrl),
+        FetchURL: safeUrl(result.fetchUrl),
+        FetchEndpoint: safeUrl(result.fetchUrl),
         Status: status,
         HttpStatus: result.httpStatus,
         JobCount: jobs.length,
@@ -468,17 +469,18 @@ async function fetchSampleRows(rows, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: slug,
-        BoardURL: boardUrl,
-        FetchURL: fetchUrl,
-        FetchEndpoint: fetchUrl,
+        BoardURL: safeUrl(boardUrl),
+        FetchURL: safeUrl(fetchUrl),
+        FetchEndpoint: safeUrl(fetchUrl),
         Status: "failed",
         HttpStatus: error.status || "",
         JobCount: 0,
-        Error: error.message,
+        Error: redactText(error.message),
+        Diagnostic: boardDiagnostic(ats, slug, boardUrl, fetchUrl, error, fetchedAt),
         FetchedAt: fetchedAt,
       });
 
-      console.log(`  failed: ${error.message}`);
+      console.log(`  failed: ${redactText(error.message)}`);
     }
   }
 

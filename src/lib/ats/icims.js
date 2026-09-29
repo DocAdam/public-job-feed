@@ -1,3 +1,6 @@
+const { fetchText: requestText } = require("../http");
+const fetchText = url => requestText(url, { timeoutMs: 30000, headers: { "user-agent": "public-job-feed-icims/1.0" } });
+
 function cleanText(value) {
   if (value === null || value === undefined) return "";
   return String(value).trim();
@@ -84,26 +87,6 @@ function parseICIMSJobs(html) {
     });
   }
   return jobs;
-}
-
-async function fetchText(url) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30000);
-  try {
-    const response = await fetch(url, {
-      headers: { accept: "text/html", "user-agent": "public-job-feed-icims/1.0" },
-      redirect: "follow",
-      signal: controller.signal,
-    });
-    if (!response.ok) {
-      const error = new Error(`HTTP ${response.status}`);
-      error.status = response.status;
-      throw error;
-    }
-    return { text: await response.text(), status: response.status };
-  } finally {
-    clearTimeout(timeout);
-  }
 }
 
 async function fetchICIMSBoard(slug, sourceUrl = "") {

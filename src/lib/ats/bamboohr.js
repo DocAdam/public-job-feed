@@ -1,3 +1,4 @@
+const { validateJobResponse } = require("../failure-diagnostics");
 const { fetchJson } = require("../http");
 
 function cleanText(value) {
@@ -58,6 +59,7 @@ async function fetchBambooHRBoard(slug, sourceUrl = "") {
   }
 
   const result = await fetchJson(fetchUrl);
+  validateJobResponse(result, ["result", "jobs", "jobOpenings", "openings"]);
 
   return {
     fetchUrl,

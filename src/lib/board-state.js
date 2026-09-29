@@ -292,6 +292,7 @@ function updateBoardState(state, fetchLogRows, jobRows, now = new Date().toISOSt
       LastSuccessAt: ["success", "empty"].includes(status) ? fetchedAt : record.LastSuccessAt,
       LastError: cleanText(log.Error),
       LastErrorClass: cleanText(log.ErrorClass),
+      LastDiagnostic: status === "failed" ? (log.Diagnostic || null) : null,
       JobCount: counts.jobs,
       GoodMatchCount: counts.good,
       AttemptCount: Number(record.AttemptCount || 0) + 1,

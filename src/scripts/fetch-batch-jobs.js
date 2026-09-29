@@ -1,3 +1,5 @@
+const { withBatchRun } = require("../lib/batch-run");
+const { boardDiagnostic, redactText, safeUrl } = require("../lib/failure-diagnostics");
 const fs = require("fs/promises");
 const path = require("path");
 const { fetchAshbyBoard, getAshbyFetchUrl, getAshbySlugFromUrl } = require("../lib/ats/ashby");
@@ -27,7 +29,7 @@ const {
 } = require("../lib/ats/icims");
 const { rowsToCsv } = require("../lib/csv");
 const { classifyFetchError } = require("../lib/ats-error-classification");
-const { ensureDir, fromRoot, readJsonFile, writeJsonFile } = require("../lib/files");
+const { ensureDir, fromRoot, readJsonFile, writeJsonFile, writeLargeJsonArrayFile } = require("../lib/files");
 const {
   badRowsHeaders,
   bucketSummaryHeaders,
@@ -447,7 +449,7 @@ async function fetchOneAtsRow(row, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: slug,
-        BoardURL: boardUrl,
+        BoardURL: safeUrl(boardUrl),
         FetchURL: "",
         FetchEndpoint: "",
         Status: "skipped",
@@ -487,9 +489,9 @@ async function fetchOneAtsRow(row, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: slug,
-        BoardURL: boardUrl,
-        FetchURL: result.fetchUrl,
-        FetchEndpoint: result.fetchUrl,
+        BoardURL: safeUrl(boardUrl),
+        FetchURL: safeUrl(result.fetchUrl),
+        FetchEndpoint: safeUrl(result.fetchUrl),
         Status: status,
         HttpStatus: result.httpStatus,
         JobCount: jobs.length,
@@ -506,13 +508,14 @@ async function fetchOneAtsRow(row, ats, titleRecords) {
         Company: row.PreferredCompanyName || "",
         CompanyKey: row.CompanyKey || "",
         CatalogSlug: slug,
-        BoardURL: boardUrl,
-        FetchURL: fetchUrl,
-        FetchEndpoint: fetchUrl,
+        BoardURL: safeUrl(boardUrl),
+        FetchURL: safeUrl(fetchUrl),
+        FetchEndpoint: safeUrl(fetchUrl),
         Status: "failed",
         HttpStatus: error.status || "",
         JobCount: 0,
-        Error: error.message,
+        Error: redactText(error.message),
+        Diagnostic: boardDiagnostic(ats, slug, getAtsSourceUrl(row, ats) || boardUrl, fetchUrl, error, fetchedAt),
         ErrorClass: classifyFetchError(ats, error),
         FetchedAt: fetchedAt,
       },
@@ -590,14 +593,15 @@ async function fetchAtsRows(rows, ats, titleRecords, delayMs, concurrency, optio
 }
 
 async function writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv = false } = {}) {
+  await writeCsv(outputPaths.fetchLogCsv, fetchLogHeaders, artifacts.fetchLogRows);
+  await writeJsonFile(outputPaths.fetchLogJson, artifacts.fetchLogRows);
+
   if (includePublicFeedCsv) {
     await writeCsv(outputPaths.publicFeedCsv, publicFeedHeaders, toCsvRows(artifacts.publicFeedRows));
   }
-  await writeJsonFile(outputPaths.publicFeedJson, artifacts.publicFeedRows);
+  await writeLargeJsonArrayFile(outputPaths.publicFeedJson, artifacts.publicFeedRows);
   await writeCsv(outputPaths.summaryCsv, summaryHeaders, [artifacts.summary]);
   await writeJsonFile(outputPaths.summaryJson, artifacts.summary);
-  await writeCsv(outputPaths.fetchLogCsv, fetchLogHeaders, artifacts.fetchLogRows);
-  await writeJsonFile(outputPaths.fetchLogJson, artifacts.fetchLogRows);
   await writeCsv(outputPaths.titleBucketSummaryCsv, bucketSummaryHeaders, artifacts.bucketSummaryRows);
   await writeJsonFile(outputPaths.titleBucketSummaryJson, artifacts.bucketSummaryRows);
   await writeCsv(outputPaths.remoteSummaryCsv, remoteSummaryHeaders, artifacts.remoteSummaryRows);
@@ -651,54 +655,58 @@ async function main() {
     return;
   }
 
-  await ensureDir(batchDir);
+  return withBatchRun(batchDir, async phase => {
+    await phase("read_inputs");
+    const crawlQueue = await readJsonFile(crawlQueuePath);
+    const titleRecords = await readJobTitles(jobTitlesPath);
+    const selectedRows = getCandidateRows(crawlQueue, ats, priority, safeLimit, safeOffset);
+    const existingFetchLogRows = resume ? await readJsonIfExists(outputPaths.fetchLogJson, []) : [];
+    const existingJobRows = resume ? await readJsonIfExists(outputPaths.publicFeedJson, []) : [];
+    const attemptedSlugs = getAttemptedSlugs(existingFetchLogRows);
+    const rowsToFetch = selectedRows.filter((row) => !attemptedSlugs.has(getAtsSlug(row, ats)));
+    const skippedDueToResume = selectedRows.length - rowsToFetch.length;
 
-  const crawlQueue = await readJsonFile(crawlQueuePath);
-  const titleRecords = await readJobTitles(jobTitlesPath);
-  const selectedRows = getCandidateRows(crawlQueue, ats, priority, safeLimit, safeOffset);
-  const existingFetchLogRows = resume ? await readJsonIfExists(outputPaths.fetchLogJson, []) : [];
-  const existingJobRows = resume ? await readJsonIfExists(outputPaths.publicFeedJson, []) : [];
-  const attemptedSlugs = getAttemptedSlugs(existingFetchLogRows);
-  const rowsToFetch = selectedRows.filter((row) => !attemptedSlugs.has(getAtsSlug(row, ats)));
-  const skippedDueToResume = selectedRows.length - rowsToFetch.length;
+    console.log(`Batch name: ${batchName}`);
+    console.log(`ATS: ${ats}`);
+    console.log(`Priority: ${priority}`);
+    console.log(`Offset: ${safeOffset}`);
+    console.log(`Limit: ${safeLimit}`);
+    console.log(`Delay ms: ${safeDelayMs}`);
+    console.log(`Concurrency: ${safeConcurrency}`);
+    console.log(`Output root: ${batchesRoot}`);
+    console.log(`Boards selected: ${selectedRows.length}`);
+    console.log(`Boards skipped due to resume: ${skippedDueToResume}`);
+    console.log(`Boards attempted this run: ${rowsToFetch.length}`);
 
-  console.log(`Batch name: ${batchName}`);
-  console.log(`ATS: ${ats}`);
-  console.log(`Priority: ${priority}`);
-  console.log(`Offset: ${safeOffset}`);
-  console.log(`Limit: ${safeLimit}`);
-  console.log(`Delay ms: ${safeDelayMs}`);
-  console.log(`Concurrency: ${safeConcurrency}`);
-  console.log(`Output root: ${batchesRoot}`);
-  console.log(`Boards selected: ${selectedRows.length}`);
-  console.log(`Boards skipped due to resume: ${skippedDueToResume}`);
-  console.log(`Boards attempted this run: ${rowsToFetch.length}`);
+    await phase("fetch");
+    const runResults = await fetchAtsRows(rowsToFetch, ats, titleRecords, safeDelayMs, safeConcurrency);
+    const mergedFetchLogRows = mergeFetchLogs(existingFetchLogRows, runResults.fetchLogRows);
+    const mergedRawJobRows = mergeJobs(existingJobRows, runResults.jobRows);
+    const generatedAt = new Date().toISOString();
+    await phase("build_artifacts");
+    const artifacts = buildJobExportArtifacts(mergedRawJobRows, mergedFetchLogRows, titleRecords, generatedAt);
+    artifacts.fetchLogRows = mergedFetchLogRows;
 
-  const runResults = await fetchAtsRows(rowsToFetch, ats, titleRecords, safeDelayMs, safeConcurrency);
-  const mergedFetchLogRows = mergeFetchLogs(existingFetchLogRows, runResults.fetchLogRows);
-  const mergedRawJobRows = mergeJobs(existingJobRows, runResults.jobRows);
-  const generatedAt = new Date().toISOString();
-  const artifacts = buildJobExportArtifacts(mergedRawJobRows, mergedFetchLogRows, titleRecords, generatedAt);
-  artifacts.fetchLogRows = mergedFetchLogRows;
+    await phase("write_outputs");
+    await writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv });
 
-  await writeBatchOutputs(outputPaths, artifacts, { includePublicFeedCsv });
-
-  console.log("\nBatch fetch complete.");
-  console.log(`Batch name: ${batchName}`);
-  console.log(`ATS: ${ats}`);
-  console.log(`Priority: ${priority}`);
-  console.log(`Offset: ${safeOffset}`);
-  console.log(`Limit: ${safeLimit}`);
-  console.log(`Delay ms: ${safeDelayMs}`);
-  console.log(`Concurrency: ${safeConcurrency}`);
-  console.log(`Output root: ${batchesRoot}`);
-  console.log(`Boards selected: ${selectedRows.length}`);
-  console.log(`Boards skipped due to resume: ${skippedDueToResume}`);
-  console.log(`Boards attempted this run: ${rowsToFetch.length}`);
-  console.log(`Jobs fetched this run: ${runResults.jobRows.length}`);
-  console.log(`Total jobs in batch output: ${artifacts.jobRows.length}`);
-  console.log("Output folder:");
-  console.log(batchDir);
+    console.log("\nBatch fetch complete.");
+    console.log(`Batch name: ${batchName}`);
+    console.log(`ATS: ${ats}`);
+    console.log(`Priority: ${priority}`);
+    console.log(`Offset: ${safeOffset}`);
+    console.log(`Limit: ${safeLimit}`);
+    console.log(`Delay ms: ${safeDelayMs}`);
+    console.log(`Concurrency: ${safeConcurrency}`);
+    console.log(`Output root: ${batchesRoot}`);
+    console.log(`Boards selected: ${selectedRows.length}`);
+    console.log(`Boards skipped due to resume: ${skippedDueToResume}`);
+    console.log(`Boards attempted this run: ${rowsToFetch.length}`);
+    console.log(`Jobs fetched this run: ${runResults.jobRows.length}`);
+    console.log(`Total jobs in batch output: ${artifacts.jobRows.length}`);
+    console.log("Output folder:");
+    console.log(batchDir);
+  });
 }
 
 if (require.main === module) {
@@ -712,6 +720,8 @@ module.exports = {
   fetchAtsRows,
   fetchLogHeaders,
   getAtsSlug,
+  getAtsFetchUrl,
+  fetchOneAtsRow,
   getOutputPaths,
   mergeFetchLogs,
   mergeJobs,

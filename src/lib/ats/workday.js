@@ -1,3 +1,4 @@
+const { validateJobResponse } = require("../failure-diagnostics");
 const { fetchJson } = require("../http");
 
 function cleanText(value) {
@@ -107,6 +108,7 @@ async function fetchWorkdayBoard(slug, sourceUrl = "") {
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ appliedFacets: {}, limit, offset, searchText: "" }),
     });
+    validateJobResponse(result, ["jobPostings", "jobs", "data.jobPostings"]);
     httpStatus = result.status;
     const pageJobs = extractJobs(result.data);
     jobs.push(...pageJobs);
