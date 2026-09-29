@@ -1,0 +1,1515 @@
+{
+  "analysisDate": "2026-09-27",
+  "total": 837999,
+  "fields": [
+    "SourceBatch",
+    "SourceATSCount",
+    "CrossATSDuplicate",
+    "CrossATSDuplicateATSList",
+    "Source",
+    "ATS",
+    "Company",
+    "CompanyKey",
+    "Title",
+    "ExportQualityFlag",
+    "ExportQualityIssues",
+    "PossibleDuplicate",
+    "DuplicateReason",
+    "JobKey",
+    "CompanyTitleLocationKey",
+    "CanonicalURLKey",
+    "DuplicateGroupKey",
+    "TitleReviewBucket",
+    "TitleReviewPriority",
+    "TitleReviewReason",
+    "TitleDomainSignal",
+    "TitleSenioritySignal",
+    "TitleLeadershipSignal",
+    "TitleICSignal",
+    "WriterFitVersion",
+    "WriterFitBaseScore",
+    "WriterFitScore",
+    "WriterFitTier",
+    "WriterFitReasons",
+    "WriterFitPositiveSignals",
+    "WriterFitNegativeSignals",
+    "WriterFitPenaltySignals",
+    "WriterFitDemotionReason",
+    "WriterFitGuardrailApplied",
+    "TitleMatchType",
+    "TitleMatchCategory",
+    "MatchedWatchlistTitle",
+    "TitleMatchScore",
+    "TitleConfidence",
+    "Location",
+    "RemoteStatus",
+    "RemoteSignal",
+    "RemoteConfidence",
+    "USRemoteEligible",
+    "LocationRisk",
+    "LocationReviewReason",
+    "SalaryDetected",
+    "SalaryMin",
+    "SalaryMax",
+    "SalaryCurrency",
+    "SalaryPeriod",
+    "SalaryText",
+    "Department",
+    "DatePosted",
+    "URL",
+    "Description",
+    "CatalogSlug",
+    "BoardURL",
+    "FetchURL",
+    "FetchedAt",
+    "RawJobId",
+    "RawJobURL",
+    "RawLocation",
+    "RawDepartment",
+    "ApplyURL"
+  ],
+  "stats": {
+    "ashby": {
+      "rows": 44424,
+      "companies": 2282,
+      "boards": 2294,
+      "missing": {
+        "SalaryMin": 37278,
+        "SalaryMax": 37278,
+        "SalaryCurrency": 37278,
+        "SalaryPeriod": 37936,
+        "Description": 1
+      },
+      "remote": {
+        "Onsite": 20415,
+        "Remote": 13223,
+        "Hybrid": 10717,
+        "Unknown": 69
+      },
+      "dates": {
+        "absolute": 44424
+      },
+      "metrics": {
+        "salaryDetected": 7146,
+        "fetchedOver30DaysAgo": 627,
+        "remoteOnlyInDescription": 9257,
+        "locationDiffersRaw": 7337,
+        "descriptionMentionsDocumentation": 7605,
+        "remoteInLocation": 6994,
+        "usRemoteEligible": 4211,
+        "currencyReviewCandidate": 282,
+        "twoSignalsWithoutConventionalTitle": 149,
+        "possibleDuplicate": 1995,
+        "descriptionEqualsTitle": 1,
+        "descriptionUnder200": 100,
+        "crossATSFlag": 2,
+        "conventionalTitle": 12
+      },
+      "hosts": {
+        "jobs.ashbyhq.com": 44424
+      },
+      "fetchMin": "2026-06-02T13:36:46.209Z",
+      "fetchMax": "2026-09-27T12:13:41.084Z"
+    },
+    "bamboohr": {
+      "rows": 46735,
+      "companies": 6449,
+      "boards": 6449,
+      "missing": {
+        "DatePosted": 46735,
+        "SalaryMin": 46673,
+        "SalaryMax": 46673,
+        "SalaryCurrency": 46673,
+        "SalaryPeriod": 46710,
+        "Department": 5476,
+        "Location": 1072
+      },
+      "remote": {
+        "Onsite": 44633,
+        "Remote": 920,
+        "Unknown": 1043,
+        "Hybrid": 139
+      },
+      "dates": {
+        "missing": 46735
+      },
+      "metrics": {
+        "descriptionEqualsTitle": 46735,
+        "descriptionUnder200": 46735,
+        "fetchedOver30DaysAgo": 410,
+        "remoteOnlyInDescription": 682,
+        "usRemoteEligible": 426,
+        "rawIdAcrossBoardsGroups": 1838,
+        "rawIdAcrossBoardsExtraRows": 44047,
+        "possibleDuplicate": 955,
+        "remoteInLocation": 250,
+        "salaryDetected": 62,
+        "descriptionMentionsDocumentation": 9,
+        "conventionalTitle": 9
+      },
+      "hosts": {
+        "upike.bamboohr.com": 174,
+        "theweitzcompany.bamboohr.com": 150,
+        "armstrongfluidtechnology.bamboohr.com": 149,
+        "401auto.bamboohr.com": 120,
+        "orag.bamboohr.com": 102,
+        "foodpeople.bamboohr.com": 102,
+        "ems.bamboohr.com": 100,
+        "gasproservices.bamboohr.com": 99,
+        "morrisonexpress.bamboohr.com": 98,
+        "fesslerbowman.bamboohr.com": 95,
+        "arcetyp.bamboohr.com": 92,
+        "baileynelson.bamboohr.com": 90
+      },
+      "fetchMin": "2026-06-22T15:50:55.361Z",
+      "fetchMax": "2026-09-27T12:14:10.970Z"
+    },
+    "greenhouse": {
+      "rows": 167994,
+      "companies": 4734,
+      "boards": 4734,
+      "missing": {
+        "SalaryMin": 100992,
+        "SalaryMax": 100992,
+        "SalaryCurrency": 100992,
+        "SalaryPeriod": 117895,
+        "Department": 773,
+        "Location": 7
+      },
+      "remote": {
+        "Unknown": 153,
+        "Hybrid": 37103,
+        "Onsite": 99722,
+        "Remote": 31016
+      },
+      "dates": {
+        "absolute": 167994
+      },
+      "metrics": {
+        "descriptionUnder200": 320,
+        "residualMarkup": 167981,
+        "fetchedOver30DaysAgo": 3956,
+        "possibleDuplicate": 30920,
+        "urlWithQuery": 52455,
+        "canonicalDifferentIdExtraRows": 22989,
+        "remoteOnlyInDescription": 22814,
+        "descriptionMentionsDocumentation": 33293,
+        "twoSignalsWithoutConventionalTitle": 647,
+        "remoteInLocation": 18588,
+        "salaryDetected": 67002,
+        "usRemoteEligible": 13813,
+        "currencyReviewCandidate": 3487,
+        "rawIdAcrossBoardsGroups": 10,
+        "rawIdAcrossBoardsExtraRows": 10,
+        "crossATSFlag": 1,
+        "descriptionEqualsTitle": 12,
+        "conventionalTitle": 76
+      },
+      "hosts": {
+        "job-boards.greenhouse.io": 109599,
+        "boards.greenhouse.io": 13889,
+        "job-boards.eu.greenhouse.io": 6748,
+        "jobs.bayada.com": 2572,
+        "www.carvana.com": 1799,
+        "yourfuture.urpt.com": 1169,
+        "www.equipmentshare.com": 1027,
+        "databricks.com": 888,
+        "stripe.com": 693,
+        "app.careerpuck.com": 526,
+        "www.vml.com": 504,
+        "www.asm.com": 476
+      },
+      "fetchMin": "2026-06-02T15:49:17.525Z",
+      "fetchMax": "2026-09-27T12:13:48.630Z"
+    },
+    "lever": {
+      "rows": 59548,
+      "companies": 1589,
+      "boards": 1590,
+      "missing": {
+        "SalaryMin": 53807,
+        "SalaryMax": 53807,
+        "SalaryCurrency": 53807,
+        "SalaryPeriod": 54390,
+        "Department": 59,
+        "Description": 164,
+        "Location": 66
+      },
+      "remote": {
+        "Remote": 15075,
+        "Hybrid": 6983,
+        "Onsite": 37392,
+        "Unknown": 98
+      },
+      "dates": {
+        "absolute": 59548
+      },
+      "metrics": {
+        "salaryDetected": 5741,
+        "remoteInLocation": 2300,
+        "fetchedOver30DaysAgo": 271,
+        "remoteOnlyInDescription": 12085,
+        "descriptionMentionsDocumentation": 10609,
+        "usRemoteEligible": 4284,
+        "possibleDuplicate": 4349,
+        "crossATSFlag": 1,
+        "descriptionUnder200": 231,
+        "twoSignalsWithoutConventionalTitle": 163,
+        "currencyReviewCandidate": 262,
+        "conventionalTitle": 63
+      },
+      "hosts": {
+        "jobs.lever.co": 59548
+      },
+      "fetchMin": "2026-06-22T15:25:52.441Z",
+      "fetchMax": "2026-09-27T12:14:08.535Z"
+    },
+    "icims": {
+      "rows": 256282,
+      "companies": 3472,
+      "boards": 3476,
+      "missing": {
+        "DatePosted": 256282,
+        "Description": 36478,
+        "Department": 256282,
+        "SalaryMin": 253209,
+        "SalaryMax": 253209,
+        "SalaryCurrency": 253209,
+        "SalaryPeriod": 254211,
+        "Location": 49949
+      },
+      "remote": {
+        "Onsite": 200245,
+        "Unknown": 46977,
+        "Remote": 4697,
+        "Hybrid": 4363
+      },
+      "dates": {
+        "missing": 256282
+      },
+      "metrics": {
+        "descriptionUnder200": 68190,
+        "possibleDuplicate": 228829,
+        "fetchedOver30DaysAgo": 316,
+        "rawIdAcrossBoardsGroups": 49373,
+        "rawIdAcrossBoardsExtraRows": 196070,
+        "canonicalDifferentIdExtraRows": 117519,
+        "remoteOnlyInDescription": 2051,
+        "descriptionMentionsDocumentation": 3099,
+        "remoteInLocation": 2308,
+        "usRemoteEligible": 2142,
+        "salaryDetected": 3073,
+        "currencyReviewCandidate": 13,
+        "descriptionEqualsTitle": 147,
+        "urlWithQuery": 2320,
+        "twoSignalsWithoutConventionalTitle": 18,
+        "conventionalTitle": 118
+      },
+      "hosts": {
+        "careers-northside.icims.com": 4000,
+        "careers-ovg.icims.com": 2400,
+        "careers-enfra.icims.com": 2091,
+        "careers-vhchealth.icims.com": 2043,
+        "careers-dohertyinc.icims.com": 2000,
+        "careers-emcorgroup.icims.com": 2000,
+        "careers-piedmont.icims.com": 2000,
+        "careers-primehealthcare.icims.com": 2000,
+        "careers-redlobster.icims.com": 2000,
+        "careers-flanigans.icims.com": 2000,
+        "careers-hrblock.icims.com": 2000,
+        "careers-kimley-horn.icims.com": 2000
+      },
+      "fetchMin": "2026-07-15T05:51:53.696Z",
+      "fetchMax": "2026-09-27T12:14:11.355Z"
+    },
+    "workday": {
+      "rows": 263014,
+      "companies": 3105,
+      "boards": 4940,
+      "missing": {
+        "Department": 263014,
+        "SalaryMin": 262950,
+        "SalaryMax": 262950,
+        "SalaryCurrency": 262950,
+        "SalaryPeriod": 263007,
+        "Location": 3417,
+        "DatePosted": 4631,
+        "Description": 31
+      },
+      "remote": {
+        "Onsite": 249539,
+        "Unknown": 3588,
+        "Remote": 8466,
+        "Hybrid": 1421
+      },
+      "dates": {
+        "relative_or_other": 258343,
+        "missing": 4631,
+        "absolute": 40
+      },
+      "metrics": {
+        "descriptionEqualsTitle": 262843,
+        "descriptionUnder200": 262905,
+        "fetchedOver30DaysAgo": 6050,
+        "possibleDuplicate": 46696,
+        "rawIdNotInUrl": 7678,
+        "rawIdAcrossBoardsGroups": 25452,
+        "rawIdAcrossBoardsExtraRows": 40076,
+        "remoteInLocation": 7399,
+        "usRemoteEligible": 3012,
+        "remoteOnlyInDescription": 904,
+        "repeatedQualifiedIdRows": 669,
+        "conventionalTitle": 46,
+        "descriptionMentionsDocumentation": 126,
+        "salaryDetected": 64,
+        "crossATSFlag": 1
+      },
+      "hosts": {
+        "pwc.wd3.myworkdayjobs.com": 8354,
+        "ghr.wd1.myworkdayjobs.com": 4329,
+        "gevernova.wd5.myworkdayjobs.com": 4000,
+        "maersk.wd3.myworkdayjobs.com": 2523,
+        "dollartree.wd5.myworkdayjobs.com": 2391,
+        "jci.wd5.myworkdayjobs.com": 2237,
+        "globalhr.wd5.myworkdayjobs.com": 2133,
+        "myview.wd3.myworkdayjobs.com": 2055,
+        "pae.wd1.myworkdayjobs.com": 2050,
+        "ccf.wd1.myworkdayjobs.com": 2019,
+        "davita.wd1.myworkdayjobs.com": 2002,
+        "cvshealth.wd1.myworkdayjobs.com": 2000
+      },
+      "fetchMin": "2026-07-15T05:50:21.655Z",
+      "fetchMax": "2026-09-27T12:14:58.408Z"
+    },
+    "direct-employer": {
+      "rows": 2,
+      "companies": 2,
+      "boards": 2,
+      "missing": {
+        "RawJobId": 2,
+        "Location": 1,
+        "Department": 2,
+        "SalaryMin": 2,
+        "SalaryMax": 2,
+        "SalaryCurrency": 2,
+        "SalaryPeriod": 2
+      },
+      "remote": {
+        "Remote": 1,
+        "Hybrid": 1
+      },
+      "dates": {
+        "absolute": 2
+      },
+      "metrics": {
+        "possibleDuplicate": 1,
+        "crossATSFlag": 1,
+        "remoteOnlyInDescription": 1,
+        "canonicalDifferentIdExtraRows": 1,
+        "descriptionMentionsDocumentation": 2,
+        "conventionalTitle": 2
+      },
+      "hosts": {
+        "jobs.ashbyhq.com": 1,
+        "unitytech.wd1.myworkdayjobs.com": 1
+      },
+      "fetchMin": "2026-09-27T12:20:06.610Z",
+      "fetchMax": "2026-09-27T12:20:06.610Z"
+    }
+  },
+  "historyStats": {
+    "greenhouse": {
+      "observations": 37444,
+      "identities": 893,
+      "repeated": 882,
+      "gapReturns": 89,
+      "changes": {
+        "DatePosted": 473,
+        "Title": 30,
+        "Description": 298,
+        "SalaryMin": 63,
+        "SalaryMax": 68,
+        "SalaryCurrency": 48,
+        "SalaryPeriod": 48,
+        "Location": 22,
+        "RemoteStatus": 7,
+        "USRemoteEligible": 7,
+        "URL": 1
+      },
+      "companies": 407
+    },
+    "ashby": {
+      "observations": 9716,
+      "identities": 217,
+      "repeated": 213,
+      "gapReturns": 10,
+      "changes": {
+        "Description": 65,
+        "Title": 11,
+        "DatePosted": 23,
+        "RemoteStatus": 7,
+        "Location": 18,
+        "SalaryMin": 5,
+        "SalaryMax": 5,
+        "USRemoteEligible": 5
+      },
+      "companies": 156
+    },
+    "lever": {
+      "observations": 13514,
+      "identities": 658,
+      "repeated": 653,
+      "gapReturns": 3,
+      "changes": {
+        "Title": 11,
+        "Description": 48,
+        "Location": 7,
+        "SalaryMin": 4,
+        "SalaryMax": 3,
+        "SalaryCurrency": 2,
+        "SalaryPeriod": 2,
+        "RemoteStatus": 4,
+        "USRemoteEligible": 3
+      },
+      "companies": 112
+    },
+    "bamboohr": {
+      "observations": 5779,
+      "identities": 151,
+      "repeated": 149,
+      "gapReturns": 4,
+      "changes": {
+        "Title": 7,
+        "Description": 7,
+        "Location": 4
+      },
+      "companies": 113
+    },
+    "workday": {
+      "observations": 16634,
+      "identities": 775,
+      "repeated": 746,
+      "gapReturns": 104,
+      "changes": {
+        "DatePosted": 3009,
+        "Title": 19,
+        "Description": 21,
+        "Location": 8,
+        "URL": 8,
+        "RemoteStatus": 4,
+        "USRemoteEligible": 3
+      },
+      "companies": 413
+    },
+    "icims": {
+      "observations": 10089,
+      "identities": 455,
+      "repeated": 346,
+      "gapReturns": 33,
+      "changes": {
+        "Description": 11,
+        "Title": 8,
+        "URL": 18,
+        "Location": 7,
+        "RemoteStatus": 4,
+        "USRemoteEligible": 4
+      },
+      "companies": 247
+    },
+    "direct-employer": {
+      "observations": 37,
+      "identities": 3,
+      "repeated": 3,
+      "gapReturns": 2,
+      "changes": {
+        "Location": 13,
+        "DatePosted": 2
+      },
+      "companies": 3
+    }
+  },
+  "snapshots": [
+    {
+      "package": "20260602-1810",
+      "rows": 116,
+      "path": "data/jobs/gsheet-package/20260602-1810/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260602-1812",
+      "rows": 116,
+      "path": "data/jobs/gsheet-package/20260602-1812/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260602-2051",
+      "rows": 116,
+      "path": "data/jobs/gsheet-package/20260602-2051/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260602-2053",
+      "rows": 116,
+      "path": "data/jobs/gsheet-package/20260602-2053/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260602-2054",
+      "rows": 116,
+      "path": "data/jobs/gsheet-package/20260602-2054/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260603-1407",
+      "rows": 147,
+      "path": "data/jobs/gsheet-package/20260603-1407/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260604-1335",
+      "rows": 164,
+      "path": "data/jobs/gsheet-package/20260604-1335/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260605-0620",
+      "rows": 169,
+      "path": "data/jobs/gsheet-package/20260605-0620/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260606-0636",
+      "rows": 178,
+      "path": "data/jobs/gsheet-package/20260606-0636/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260606-1138",
+      "rows": 190,
+      "path": "data/jobs/gsheet-package/20260606-1138/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260608-0653",
+      "rows": 197,
+      "path": "data/jobs/gsheet-package/20260608-0653/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260610-0603",
+      "rows": 203,
+      "path": "data/jobs/gsheet-package/20260610-0603/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260611-1007",
+      "rows": 208,
+      "path": "data/jobs/gsheet-package/20260611-1007/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260612-0640",
+      "rows": 209,
+      "path": "data/jobs/gsheet-package/20260612-0640/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260613-1003",
+      "rows": 216,
+      "path": "data/jobs/gsheet-package/20260613-1003/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260615-0910",
+      "rows": 229,
+      "path": "data/jobs/gsheet-package/20260615-0910/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260619-0755",
+      "rows": 299,
+      "path": "data/jobs/gsheet-package/20260619-0755/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260621-0717",
+      "rows": 295,
+      "path": "data/jobs/gsheet-package/20260621-0717/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260622-0914",
+      "rows": 380,
+      "path": "data/jobs/gsheet-package/20260622-0914/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260622-1000",
+      "rows": 410,
+      "path": "data/jobs/gsheet-package/20260622-1000/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260622-2242",
+      "rows": 410,
+      "path": "data/jobs/gsheet-package/20260622-2242/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260623-0541",
+      "rows": 575,
+      "path": "data/jobs/gsheet-package/20260623-0541/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260623-0542",
+      "rows": 575,
+      "path": "data/jobs/gsheet-package/20260623-0542/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260623-0545",
+      "rows": 575,
+      "path": "data/jobs/gsheet-package/20260623-0545/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260623-1815",
+      "rows": 575,
+      "path": "data/jobs/gsheet-package/20260623-1815/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260624-0549",
+      "rows": 516,
+      "path": "data/jobs/gsheet-package/20260624-0549/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260625-1009",
+      "rows": 533,
+      "path": "data/jobs/gsheet-package/20260625-1009/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260626-0858",
+      "rows": 526,
+      "path": "data/jobs/gsheet-package/20260626-0858/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260627-1149",
+      "rows": 518,
+      "path": "data/jobs/gsheet-package/20260627-1149/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260629-0934",
+      "rows": 515,
+      "path": "data/jobs/gsheet-package/20260629-0934/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260630-0718",
+      "rows": 512,
+      "path": "data/jobs/gsheet-package/20260630-0718/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260701-0641",
+      "rows": 505,
+      "path": "data/jobs/gsheet-package/20260701-0641/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260702-0937",
+      "rows": 493,
+      "path": "data/jobs/gsheet-package/20260702-0937/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260703-0646",
+      "rows": 486,
+      "path": "data/jobs/gsheet-package/20260703-0646/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260705-1622",
+      "rows": 485,
+      "path": "data/jobs/gsheet-package/20260705-1622/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260706-1013",
+      "rows": 480,
+      "path": "data/jobs/gsheet-package/20260706-1013/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260706-1029",
+      "rows": 480,
+      "path": "data/jobs/gsheet-package/20260706-1029/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260706-1042",
+      "rows": 480,
+      "path": "data/jobs/gsheet-package/20260706-1042/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260707-0601",
+      "rows": 466,
+      "path": "data/jobs/gsheet-package/20260707-0601/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260708-0453",
+      "rows": 457,
+      "path": "data/jobs/gsheet-package/20260708-0453/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260709-0613",
+      "rows": 445,
+      "path": "data/jobs/gsheet-package/20260709-0613/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260710-1002",
+      "rows": 432,
+      "path": "data/jobs/gsheet-package/20260710-1002/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260711-0751",
+      "rows": 431,
+      "path": "data/jobs/gsheet-package/20260711-0751/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260712-0755",
+      "rows": 430,
+      "path": "data/jobs/gsheet-package/20260712-0755/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260713-0837",
+      "rows": 425,
+      "path": "data/jobs/gsheet-package/20260713-0837/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260714-0607",
+      "rows": 414,
+      "path": "data/jobs/gsheet-package/20260714-0607/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260714-1142",
+      "rows": 415,
+      "path": "data/jobs/gsheet-package/20260714-1142/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260714-1604",
+      "rows": 415,
+      "path": "data/jobs/gsheet-package/20260714-1604/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260714-1607",
+      "rows": 415,
+      "path": "data/jobs/gsheet-package/20260714-1607/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260714-1813",
+      "rows": 457,
+      "path": "data/jobs/gsheet-package/20260714-1813/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260715-0556",
+      "rows": 929,
+      "path": "data/jobs/gsheet-package/20260715-0556/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260715-0613",
+      "rows": 919,
+      "path": "data/jobs/gsheet-package/20260715-0613/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260716-0631",
+      "rows": 902,
+      "path": "data/jobs/gsheet-package/20260716-0631/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260717-0701",
+      "rows": 907,
+      "path": "data/jobs/gsheet-package/20260717-0701/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260718-0525",
+      "rows": 925,
+      "path": "data/jobs/gsheet-package/20260718-0525/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260719-0538",
+      "rows": 924,
+      "path": "data/jobs/gsheet-package/20260719-0538/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260720-0539",
+      "rows": 934,
+      "path": "data/jobs/gsheet-package/20260720-0539/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260720-0609",
+      "rows": 934,
+      "path": "data/jobs/gsheet-package/20260720-0609/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260720-0610",
+      "rows": 934,
+      "path": "data/jobs/gsheet-package/20260720-0610/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260721-0453",
+      "rows": 937,
+      "path": "data/jobs/gsheet-package/20260721-0453/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260721-0938",
+      "rows": 933,
+      "path": "data/jobs/gsheet-package/20260721-0938/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260722-0739",
+      "rows": 950,
+      "path": "data/jobs/gsheet-package/20260722-0739/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260723-0702",
+      "rows": 955,
+      "path": "data/jobs/gsheet-package/20260723-0702/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260724-0658",
+      "rows": 972,
+      "path": "data/jobs/gsheet-package/20260724-0658/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260724-1707",
+      "rows": 972,
+      "path": "data/jobs/gsheet-package/20260724-1707/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260725-0528",
+      "rows": 948,
+      "path": "data/jobs/gsheet-package/20260725-0528/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260726-0646",
+      "rows": 953,
+      "path": "data/jobs/gsheet-package/20260726-0646/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260727-0533",
+      "rows": 1000,
+      "path": "data/jobs/gsheet-package/20260727-0533/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260728-0606",
+      "rows": 986,
+      "path": "data/jobs/gsheet-package/20260728-0606/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260729-0706",
+      "rows": 982,
+      "path": "data/jobs/gsheet-package/20260729-0706/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260730-0723",
+      "rows": 963,
+      "path": "data/jobs/gsheet-package/20260730-0723/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260731-0535",
+      "rows": 955,
+      "path": "data/jobs/gsheet-package/20260731-0535/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260801-0555",
+      "rows": 937,
+      "path": "data/jobs/gsheet-package/20260801-0555/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260802-0411",
+      "rows": 933,
+      "path": "data/jobs/gsheet-package/20260802-0411/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260803-0702",
+      "rows": 942,
+      "path": "data/jobs/gsheet-package/20260803-0702/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260804-0704",
+      "rows": 910,
+      "path": "data/jobs/gsheet-package/20260804-0704/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260805-0603",
+      "rows": 899,
+      "path": "data/jobs/gsheet-package/20260805-0603/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260806-0517",
+      "rows": 883,
+      "path": "data/jobs/gsheet-package/20260806-0517/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260807-0852",
+      "rows": 912,
+      "path": "data/jobs/gsheet-package/20260807-0852/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260808-0619",
+      "rows": 922,
+      "path": "data/jobs/gsheet-package/20260808-0619/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260809-0543",
+      "rows": 930,
+      "path": "data/jobs/gsheet-package/20260809-0543/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260810-0621",
+      "rows": 927,
+      "path": "data/jobs/gsheet-package/20260810-0621/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260811-0552",
+      "rows": 932,
+      "path": "data/jobs/gsheet-package/20260811-0552/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260812-0647",
+      "rows": 940,
+      "path": "data/jobs/gsheet-package/20260812-0647/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260813-0522",
+      "rows": 934,
+      "path": "data/jobs/gsheet-package/20260813-0522/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260814-0502",
+      "rows": 934,
+      "path": "data/jobs/gsheet-package/20260814-0502/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260815-0921",
+      "rows": 928,
+      "path": "data/jobs/gsheet-package/20260815-0921/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260817-0659",
+      "rows": 941,
+      "path": "data/jobs/gsheet-package/20260817-0659/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260818-0615",
+      "rows": 946,
+      "path": "data/jobs/gsheet-package/20260818-0615/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260819-0818",
+      "rows": 936,
+      "path": "data/jobs/gsheet-package/20260819-0818/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260820-0547",
+      "rows": 927,
+      "path": "data/jobs/gsheet-package/20260820-0547/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260821-0704",
+      "rows": 930,
+      "path": "data/jobs/gsheet-package/20260821-0704/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260822-1033",
+      "rows": 962,
+      "path": "data/jobs/gsheet-package/20260822-1033/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260824-0636",
+      "rows": 963,
+      "path": "data/jobs/gsheet-package/20260824-0636/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260824-1624",
+      "rows": 964,
+      "path": "data/jobs/gsheet-package/20260824-1624/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260825-0538",
+      "rows": 978,
+      "path": "data/jobs/gsheet-package/20260825-0538/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260826-0658",
+      "rows": 965,
+      "path": "data/jobs/gsheet-package/20260826-0658/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260827-0509",
+      "rows": 948,
+      "path": "data/jobs/gsheet-package/20260827-0509/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260827-0518",
+      "rows": 948,
+      "path": "data/jobs/gsheet-package/20260827-0518/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260828-0620",
+      "rows": 958,
+      "path": "data/jobs/gsheet-package/20260828-0620/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260829-0639",
+      "rows": 933,
+      "path": "data/jobs/gsheet-package/20260829-0639/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260830-1127",
+      "rows": 945,
+      "path": "data/jobs/gsheet-package/20260830-1127/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260831-0536",
+      "rows": 948,
+      "path": "data/jobs/gsheet-package/20260831-0536/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260901-0603",
+      "rows": 903,
+      "path": "data/jobs/gsheet-package/20260901-0603/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260902-0528",
+      "rows": 894,
+      "path": "data/jobs/gsheet-package/20260902-0528/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260903-0547",
+      "rows": 904,
+      "path": "data/jobs/gsheet-package/20260903-0547/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260904-0441",
+      "rows": 910,
+      "path": "data/jobs/gsheet-package/20260904-0441/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260905-0704",
+      "rows": 930,
+      "path": "data/jobs/gsheet-package/20260905-0704/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260906-0700",
+      "rows": 934,
+      "path": "data/jobs/gsheet-package/20260906-0700/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260907-0701",
+      "rows": 942,
+      "path": "data/jobs/gsheet-package/20260907-0701/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260908-0506",
+      "rows": 930,
+      "path": "data/jobs/gsheet-package/20260908-0506/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260909-0608",
+      "rows": 949,
+      "path": "data/jobs/gsheet-package/20260909-0608/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260910-0605",
+      "rows": 912,
+      "path": "data/jobs/gsheet-package/20260910-0605/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260911-0656",
+      "rows": 918,
+      "path": "data/jobs/gsheet-package/20260911-0656/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260912-0710",
+      "rows": 917,
+      "path": "data/jobs/gsheet-package/20260912-0710/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260913-1043",
+      "rows": 926,
+      "path": "data/jobs/gsheet-package/20260913-1043/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260914-0650",
+      "rows": 929,
+      "path": "data/jobs/gsheet-package/20260914-0650/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260915-0613",
+      "rows": 949,
+      "path": "data/jobs/gsheet-package/20260915-0613/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260916-0616",
+      "rows": 929,
+      "path": "data/jobs/gsheet-package/20260916-0616/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260917-0458",
+      "rows": 922,
+      "path": "data/jobs/gsheet-package/20260917-0458/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260918-0646",
+      "rows": 953,
+      "path": "data/jobs/gsheet-package/20260918-0646/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260919-0628",
+      "rows": 940,
+      "path": "data/jobs/gsheet-package/20260919-0628/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260920-0545",
+      "rows": 930,
+      "path": "data/jobs/gsheet-package/20260920-0545/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260921-0631",
+      "rows": 949,
+      "path": "data/jobs/gsheet-package/20260921-0631/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260922-0700",
+      "rows": 964,
+      "path": "data/jobs/gsheet-package/20260922-0700/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260923-0709",
+      "rows": 907,
+      "path": "data/jobs/gsheet-package/20260923-0709/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260924-0617",
+      "rows": 908,
+      "path": "data/jobs/gsheet-package/20260924-0617/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260925-0552",
+      "rows": 893,
+      "path": "data/jobs/gsheet-package/20260925-0552/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260926-0533",
+      "rows": 846,
+      "path": "data/jobs/gsheet-package/20260926-0533/03_top_matches_full.csv"
+    },
+    {
+      "package": "20260927-0734",
+      "rows": 854,
+      "path": "data/jobs/gsheet-package/20260927-0734/03_top_matches_full.csv"
+    }
+  ],
+  "urlStats": {
+    "observations": 77282,
+    "uniqueUrls": 2632,
+    "statuses": {
+      "Bad": 4579,
+      "Good": 72302,
+      "Rate Limited": 129,
+      "Greenhouse Detail 406": 180,
+      "Timeout": 89,
+      "Fetch Error": 3
+    },
+    "issues": {
+      "Final URL matches a known expired/error page pattern.": 189,
+      "HTTP 404": 750,
+      "HTTP 429; URL was not pruned because the site rate-limited the checker.": 129,
+      "URL is on the reviewed confirmed-dead job URL list.": 71,
+      "HTTP 403": 2567,
+      "Page text matches a known closed/not-found job pattern.": 339,
+      "HTTP 503": 29,
+      "HTTP 406 from Greenhouse detail page; Greenhouse board API still lists this job, so it was kept for review.": 180,
+      "HTTP 406": 61,
+      "Timed out after 15000ms.": 89,
+      "HTTP 410": 377,
+      "fetch failed": 3,
+      "HTTP 502": 17,
+      "HTTP 520": 1,
+      "HTTP 500": 108,
+      "Ashby job URL returned an empty generic Jobs page.": 70
+    },
+    "byATS": {
+      "greenhouse": {
+        "observations": 29610,
+        "issues": 3973,
+        "http200Issues": 476,
+        "companies": 407
+      },
+      "ashby": {
+        "observations": 7993,
+        "issues": 137,
+        "http200Issues": 70,
+        "companies": 156
+      },
+      "lever": {
+        "observations": 9179,
+        "issues": 282,
+        "http200Issues": 0,
+        "companies": 112
+      },
+      "bamboohr": {
+        "observations": 5304,
+        "issues": 0,
+        "http200Issues": 0,
+        "companies": 113
+      },
+      "workday": {
+        "observations": 15673,
+        "issues": 98,
+        "http200Issues": 0,
+        "companies": 413
+      },
+      "icims": {
+        "observations": 9487,
+        "issues": 490,
+        "http200Issues": 52,
+        "companies": 247
+      },
+      "direct-employer": {
+        "observations": 36,
+        "issues": 0,
+        "http200Issues": 0,
+        "companies": 3
+      }
+    },
+    "http200Issues": 598,
+    "changedFinalUrl": 5047
+  },
+  "stateGeneratedAt": "2026-09-27T12:15:07.636Z",
+  "stateStats": {
+    "ashby": {
+      "boards": 3161,
+      "status": {
+        "failed": 727,
+        "success": 2211,
+        "empty": 223
+      },
+      "error": {
+        "BOARD_NOT_FOUND": 731
+      },
+      "failedWithPriorSuccess": 150
+    },
+    "bamboohr": {
+      "boards": 11316,
+      "status": {
+        "success": 6320,
+        "failed": 2722,
+        "empty": 2274
+      },
+      "error": {
+        "RESPONSE_PARSE_ERROR": 2516,
+        "ACCESS_BLOCKED": 190,
+        "TIMEOUT": 14,
+        "NETWORK_ERROR": 2
+      },
+      "failedWithPriorSuccess": 259
+    },
+    "greenhouse": {
+      "boards": 8333,
+      "status": {
+        "failed": 3107,
+        "success": 4522,
+        "empty": 704
+      },
+      "error": {
+        "BOARD_NOT_FOUND": 3090,
+        "TIMEOUT": 14
+      },
+      "failedWithPriorSuccess": 349
+    },
+    "icims": {
+      "boards": 10108,
+      "status": {
+        "empty": 1197,
+        "failed": 5592,
+        "success": 3319
+      },
+      "error": {
+        "BOARD_NOT_FOUND": 5378,
+        "UPSTREAM_SERVER_ERROR": 136,
+        "ACCESS_BLOCKED": 66,
+        "TIMEOUT": 11,
+        "NETWORK_ERROR": 1
+      },
+      "failedWithPriorSuccess": 258
+    },
+    "lever": {
+      "boards": 4368,
+      "status": {
+        "failed": 2433,
+        "empty": 392,
+        "success": 1543
+      },
+      "error": {
+        "BOARD_NOT_FOUND": 2428,
+        "TIMEOUT": 6
+      },
+      "failedWithPriorSuccess": 121
+    },
+    "workday": {
+      "boards": 12884,
+      "status": {
+        "failed": 7271,
+        "success": 4860,
+        "empty": 753
+      },
+      "error": {
+        "TIMEOUT": 29,
+        "ENDPOINT_REJECTED": 6790,
+        "BOARD_NOT_FOUND": 120,
+        "UPSTREAM_SERVER_ERROR": 84,
+        "ACCESS_BLOCKED": 246,
+        "NETWORK_ERROR": 2
+      },
+      "failedWithPriorSuccess": 97
+    }
+  },
+  "batchStats": {
+    "ashby": {
+      "attempts": 44273,
+      "status": {
+        "failed": 7534,
+        "empty": 1721,
+        "success": 35018
+      },
+      "companies": 3136,
+      "boards": 3161,
+      "min": "2026-06-02T13:35:37.575Z",
+      "max": "2026-09-27T12:13:41.538Z",
+      "count2000": 0,
+      "examples": []
+    },
+    "bamboohr": {
+      "attempts": 126680,
+      "status": {
+        "failed": 27245,
+        "success": 85697,
+        "empty": 13738
+      },
+      "companies": 11316,
+      "boards": 11316,
+      "min": "2026-06-02T15:51:23.033Z",
+      "max": "2026-09-27T12:14:10.970Z",
+      "count2000": 0,
+      "examples": []
+    },
+    "greenhouse": {
+      "attempts": 108474,
+      "status": {
+        "failed": 28227,
+        "success": 74781,
+        "empty": 5466
+      },
+      "companies": 8333,
+      "boards": 8333,
+      "min": "2026-06-02T15:49:04.772Z",
+      "max": "2026-09-27T12:13:48.630Z",
+      "count2000": 0,
+      "examples": []
+    },
+    "lever": {
+      "attempts": 47671,
+      "status": {
+        "success": 23589,
+        "failed": 21228,
+        "empty": 2854
+      },
+      "companies": 4362,
+      "boards": 4368,
+      "min": "2026-06-02T15:53:21.748Z",
+      "max": "2026-09-27T12:14:12.067Z",
+      "count2000": 0,
+      "examples": []
+    },
+    "workday": {
+      "attempts": 54116,
+      "status": {
+        "empty": 1934,
+        "success": 36968,
+        "failed": 15214
+      },
+      "companies": 3614,
+      "boards": 12884,
+      "min": "2026-07-15T04:34:31.809Z",
+      "max": "2026-09-27T12:14:58.408Z",
+      "count2000": 203,
+      "examples": [
+        {
+          "file": "data/jobs/batches/maintain-due-workday-20260715t055015/jobs-batch-fetch-log.json",
+          "ATS": "workday",
+          "Company": "Pae",
+          "CompanyKey": "pae",
+          "CatalogSlug": "pae|wd1|amentum_careers",
+          "BoardURL": "https://pae.wd1.myworkdayjobs.com/amentum_careers",
+          "FetchURL": "https://pae.wd1.myworkdayjobs.com/wday/cxs/pae/amentum_careers/jobs",
+          "FetchEndpoint": "https://pae.wd1.myworkdayjobs.com/wday/cxs/pae/amentum_careers/jobs",
+          "Status": "success",
+          "HttpStatus": 200,
+          "JobCount": 2000,
+          "Error": "",
+          "FetchedAt": "2026-07-15T05:50:34.053Z"
+        },
+        {
+          "file": "data/jobs/batches/maintain-due-workday-20260715t055015/jobs-batch-fetch-log.json",
+          "ATS": "workday",
+          "Company": "Panerabread",
+          "CompanyKey": "panerabread",
+          "CatalogSlug": "panerabread|wd5|panera_careers",
+          "BoardURL": "https://panerabread.wd5.myworkdayjobs.com/panera_careers",
+          "FetchURL": "https://panerabread.wd5.myworkdayjobs.com/wday/cxs/panerabread/panera_careers/jobs",
+          "FetchEndpoint": "https://panerabread.wd5.myworkdayjobs.com/wday/cxs/panerabread/panera_careers/jobs",
+          "Status": "success",
+          "HttpStatus": 200,
+          "JobCount": 2000,
+          "Error": "",
+          "FetchedAt": "2026-07-15T05:51:22.310Z"
+        },
+        {
+          "file": "data/jobs/batches/maintain-due-workday-20260722t210002/jobs-batch-fetch-log.json",
+          "ATS": "workday",
+          "Company": "Dollartree",
+          "CompanyKey": "dollartree",
+          "CatalogSlug": "dollartree|wd5|dollartreeus",
+          "BoardURL": "https://dollartree.wd5.myworkdayjobs.com/dollartreeus",
+          "FetchURL": "https://dollartree.wd5.myworkdayjobs.com/wday/cxs/dollartree/dollartreeus/jobs",
+          "FetchEndpoint": "https://dollartree.wd5.myworkdayjobs.com/wday/cxs/dollartree/dollartreeus/jobs",
+          "Status": "success",
+          "HttpStatus": 200,
+          "JobCount": 2000,
+          "Error": "",
+          "ErrorClass": "",
+          "FetchedAt": "2026-07-22T21:06:27.433Z"
+        },
+        {
+          "file": "data/jobs/batches/maintain-due-workday-20260723t090002/jobs-batch-fetch-log.json",
+          "ATS": "workday",
+          "Company": "Cvshealth",
+          "CompanyKey": "cvshealth",
+          "CatalogSlug": "cvshealth|wd1|cvs_health_careers",
+          "BoardURL": "https://cvshealth.wd1.myworkdayjobs.com/cvs_health_careers",
+          "FetchURL": "https://cvshealth.wd1.myworkdayjobs.com/wday/cxs/cvshealth/cvs_health_careers/jobs",
+          "FetchEndpoint": "https://cvshealth.wd1.myworkdayjobs.com/wday/cxs/cvshealth/cvs_health_careers/jobs",
+          "Status": "success",
+          "HttpStatus": 200,
+          "JobCount": 2000,
+          "Error": "",
+          "ErrorClass": "",
+          "FetchedAt": "2026-07-23T09:06:35.314Z"
+        },
+        {
+          "file": "data/jobs/batches/maintain-due-workday-20260723t090002/jobs-batch-fetch-log.json",
+          "ATS": "workday",
+          "Company": "Davita",
+          "CompanyKey": "davita",
+          "CatalogSlug": "davita|wd1|dkc_external",
+          "BoardURL": "https://davita.wd1.myworkdayjobs.com/dkc_external",
+          "FetchURL": "https://davita.wd1.myworkdayjobs.com/wday/cxs/davita/dkc_external/jobs",
+          "FetchEndpoint": "https://davita.wd1.myworkdayjobs.com/wday/cxs/davita/dkc_external/jobs",
+          "Status": "success",
+          "HttpStatus": 200,
+          "JobCount": 2000,
+          "Error": "",
+          "ErrorClass": "",
+          "FetchedAt": "2026-07-23T09:08:30.958Z"
+        }
+      ]
+    },
+    "icims": {
+      "attempts": 55374,
+      "status": {
+        "failed": 16191,
+        "success": 35380,
+        "empty": 3803
+      },
+      "companies": 10097,
+      "boards": 10108,
+      "min": "2026-07-15T03:02:47.695Z",
+      "max": "2026-09-27T12:14:11.355Z",
+      "count2000": 0,
+      "examples": []
+    }
+  },
+  "logFiles": 1355,
+  "discoveryCandidateCount": 1519
+}

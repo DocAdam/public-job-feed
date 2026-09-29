@@ -1,0 +1,110 @@
+{
+  "status": "PASS",
+  "checks": {
+    "fullFeedMatchesSavedSummary": true,
+    "cohortBalances": true,
+    "urlTotalsReconcile": true,
+    "allInputHashesUnchanged": true,
+    "verifiedInputFiles": 1608,
+    "verifiedBytes": 5917728710,
+    "localFileLinks": 14,
+    "confirmedSalaryExamples": 2,
+    "finalMarkdownLinksAndAnchors": true,
+    "allThreeScriptsSyntaxCheck": true
+  },
+  "codeHashes": [
+    {
+      "path": "src/lib/jobs-normalize.js",
+      "sha256": "aecf4884434c9bab811bc95b2a71d393fae436afc63e125aa574e74d59490166"
+    },
+    {
+      "path": "src/lib/job-dedupe.js",
+      "sha256": "de2555e410b2249efea18ff5f6bfb3985b55c86e5c4abde63ef839e9716068b3"
+    },
+    {
+      "path": "src/lib/job-url-health.js",
+      "sha256": "2a5c7a80398099e1892953b8473ed701eec00886cf6761c6fd891783bcfe1b53"
+    },
+    {
+      "path": "src/lib/work-arrangement.js",
+      "sha256": "bb12169f3e4c8e99b5643044d17f6f4e915daf36c23e7e1e0a6275ccc33f5e2f"
+    },
+    {
+      "path": "src/lib/salary-detect.js",
+      "sha256": "6db2321f3c093ef5d9d2d31cc94159332f13b1e3e6a6b298fe9a145d608404a3"
+    },
+    {
+      "path": "src/lib/curated-submissions.js",
+      "sha256": "1655c13bfbac215285e39f27c8e44b26ed8812c1d1256439c38252b350a04305"
+    },
+    {
+      "path": "src/scripts/merge-batches.js",
+      "sha256": "8ba3e6f8483a926c05f23fafa2ae50a3dc3c3a16a71f76fb5ea3df2fed983394"
+    },
+    {
+      "path": "src/scripts/fetch-batch-jobs.js",
+      "sha256": "d8742094a0f33068e2f7ca9d443bb9ce57f8dafeca489217f5676598b8fb7802"
+    },
+    {
+      "path": "src/scripts/report-job-trends.js",
+      "sha256": "77d6c10d0ce9523a98489e35af4296a2cd6be32158214b0647a004cec1cd3841"
+    },
+    {
+      "path": "src/lib/ats/ashby.js",
+      "sha256": "e81144dff2fdd599964f71f18f055cb788528b905d4bb7a2e7bf15b96de11c17"
+    },
+    {
+      "path": "src/lib/ats/greenhouse.js",
+      "sha256": "99656eaec429629f600774103d51f71178c9ca5215759b48d47cd3f30a5586dc"
+    },
+    {
+      "path": "src/lib/ats/lever.js",
+      "sha256": "29a8416b95ee941f79228410f37f0b45bc053eac7bf0b08a3355beeb14cd0ae6"
+    },
+    {
+      "path": "src/lib/ats/bamboohr.js",
+      "sha256": "82aa61ef8e774fa8589541887fe271d4f479dfe27c3d56e260b2c426bfe5b89d"
+    },
+    {
+      "path": "src/lib/ats/workday.js",
+      "sha256": "a24cf18b6ce864defd3c888a5f9df81407c7715e001acda944b3006d724b5417"
+    },
+    {
+      "path": "src/lib/ats/icims.js",
+      "sha256": "9cb70e54969491e27e2f731acdc9c0eb22fb88000752c02e1ebb85213bcb837a"
+    },
+    {
+      "path": "src/lib/ats/talentbrew.js",
+      "sha256": "8d94ca7eae9e7554772c0e3e3e46e3b367c5f7e2555136d92959f970360c30af"
+    }
+  ],
+  "fixtureChecksRunInThisTask": [
+    [
+      "node src/scripts/test-job-url-health.js",
+      "PASS"
+    ],
+    [
+      "node src/scripts/test-dedupe-select.js",
+      "PASS"
+    ],
+    [
+      "node src/scripts/test-ats-error-classification.js",
+      "PASS"
+    ],
+    [
+      "node src/scripts/test-talentbrew-parser.js",
+      "PASS"
+    ]
+  ],
+  "commands": [
+    "node --max-old-space-size=6144 reports/research/ats-behavior-2026-09-27/analyze-ats-behavior.js",
+    "node --max-old-space-size=6144 reports/research/ats-behavior-2026-09-27/analyze-saved-cohorts.js",
+    "node reports/research/ats-behavior-2026-09-27/validate-analysis.js"
+  ],
+  "limits": [
+    "Fixture results above record earlier commands in this task; this validation script does not rerun them.",
+    "The full suite was not rerun.",
+    "No live open-status or ATS-wide completeness claim is validated.",
+    "Research scripts and reports are the only intended writes."
+  ]
+}
