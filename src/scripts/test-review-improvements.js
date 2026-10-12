@@ -28,6 +28,42 @@ assert.equal(selection.excluded.length, 2);
 assert.deepEqual(selection.included, [other]);
 assert.match(selection.excluded[0].Reason, /not writing/);
 assert.equal(carvana.Title, 'Loan Document Specialist');
+
+const roleReview = require('../config/public-package-role-exclusions.json');
+const approvedRoles = [
+  { Title: 'Web Developer, Technical SEO', Company: 'Keepersecurity', URL: 'https://job-boards.greenhouse.io/keepersecurity/jobs/4444326009' },
+  { Title: 'Senior Manager, Technical Program Management', Company: 'Airbnb', URL: 'https://careers.airbnb.com/positions/8231975?gh_jid=8231975' },
+  { Title: 'Senior Information Security Architect', Company: 'Verisign', URL: 'https://job-boards.greenhouse.io/verisign/jobs/8011544003' },
+  { Title: 'Information Security Architect', Company: 'Sumup', URL: 'https://sumup.com/careers/positions/8644927002?gh_jid=8644927002' },
+  { Title: 'Technical Program Manager, Developer Velocity', Company: 'Openai', URL: 'https://jobs.ashbyhq.com/openai/ad958934-fd89-4033-8b13-1a4871d8073c' },
+  { Title: 'Technical Program Manager, API Platform', Company: 'Anthropic', URL: 'https://job-boards.greenhouse.io/anthropic/jobs/5256303008' },
+];
+const validSpecialists = [
+  { Title: 'Documentation Specialist', Company: 'Amtechsoftware', URL: 'https://job-boards.greenhouse.io/amtechsoftware/jobs/4406360009' },
+  { Title: 'Documentation Specialist', Company: 'Parloa', URL: 'https://job-boards.eu.greenhouse.io/parloa/jobs/4767450101' },
+];
+const reviewedRoles = roleReview.ExcludedListings.map(({ Title, Company, URL }) => ({
+  Title, Company, URL, WriterFitScore: 85, TitleReviewBucket: 'STRONG_MATCH',
+}));
+assert.equal(reviewedRoles.length, 50, 'Include every reviewed posting, including the two grouped links.');
+assert.equal(new Set(reviewedRoles.map(item => item.URL)).size, 50);
+const differentPosting = { ...reviewedRoles[0], URL: `${reviewedRoles[0].URL}-different-posting` };
+const retainedRoles = [...approvedRoles, ...validSpecialists, differentPosting];
+const reviewedInputs = [carvana, ...reviewedRoles, ...retainedRoles];
+const originalReviewedInputs = JSON.stringify(reviewedInputs);
+const reviewedSelection = packageEligibility(reviewedInputs);
+assert.deepEqual(reviewedSelection.included, retainedRoles, 'Keep the six approved roles, valid specialists, and unreviewed posting URLs.');
+assert.equal(reviewedSelection.excluded.length, 51);
+assert.equal(JSON.stringify(reviewedInputs), originalReviewedInputs, 'Preserve source records and scores.');
+for (const item of reviewedSelection.excluded.slice(1)) {
+  assert.equal(item.ReviewedAt, '2026-10-12');
+  assert.equal(item.SourcePackage, '20261012-0604');
+  assert.match(item.Reason, /User review: outside search scope/);
+}
+for (const field of ['URL', 'ApplyURL', 'RawJobURL']) {
+  assert.equal(packageEligibility([{ Title: 'Changed title', [field]: reviewedRoles[0].URL }]).excluded.length, 1,
+    `Retain the exact-role decision through the ${field} field and a title change.`);
+}
 async function packageFixture() {
   const fs = require('fs/promises'), os = require('os'), path = require('path');
   const { buildSimpleTopFiles } = require('./build-gsheet-package');
@@ -45,6 +81,22 @@ async function packageFixture() {
     }
     assert.ok(manifest.find(row => row.FileName === 'public-package-exclusions.csv').Exists);
     assert.equal(parseCsvRecords(await fs.readFile(path.join(dir, 'public-package-exclusions.csv'), 'utf8')).rows.length, 2);
+
+    await buildSimpleTopFiles(dir, '2026-10-12T11:04:00Z', { exists: true, rows: reviewedInputs }, {
+      simpleFileName: 'jobs.csv', formulaFileName: 'formulas.csv', includeStartHere: true, coveragePercent: 100,
+    });
+    for (const name of ['jobs.csv', 'formulas.csv']) {
+      const output = parseCsvRecords(await fs.readFile(path.join(dir, name), 'utf8')).rows;
+      const field = name === 'jobs.csv' ? 'Apply Link' : 'Apply';
+      const expected = retainedRoles.map(item => name === 'jobs.csv' ? item.URL : `=HYPERLINK("${item.URL}","Apply")`);
+      assert.deepEqual(new Set(output.map(item => item[field])), new Set(expected));
+      assert.equal(output.length, retainedRoles.length);
+    }
+    const audit = parseCsvRecords(await fs.readFile(path.join(dir, 'public-package-exclusions.csv'), 'utf8')).rows;
+    assert.equal(audit.length, 51);
+    assert.deepEqual(new Set(audit.map(item => item.URL)), new Set([carvana.URL, ...reviewedRoles.map(item => item.URL)]));
+    assert.ok(audit.some(item => item.URL.endsWith('Documentation-Specialist_JR125540')));
+    assert.ok(audit.some(item => item.URL.endsWith('Ocean-Freight-Export--Documentation-Specialist_JR118874')));
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
 }
 packageFixture().then(() => console.log('Package exclusion fixture passed.')).catch(error => { console.error(error); process.exitCode = 1; });

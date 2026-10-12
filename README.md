@@ -113,6 +113,14 @@ package includes `public-package-exclusions.csv` with the excluded URL,
 review date, and reason. Raw records, scores, and diagnostic exports remain
 available. Exclusion changes take effect on the next package build.
 
+The [October 12 role review](docs/job-scope-review-2026-10-12.md) records
+50 approved posting exclusions and six roles approved to remain.
+The exclusion records are in
+`src/config/public-package-role-exclusions.json`. They use exact posting URLs;
+`specialist` alone does not exclude a role. A new posting URL requires a
+separate review. Existing packages and reports remain unchanged until their
+normal build commands run.
+
 The URL-failure report stays in the timestamped package identified by the
 `latest` manifest. The launcher checks reported file paths before it finishes;
 a missing required file leaves the run marked `FAILED`.

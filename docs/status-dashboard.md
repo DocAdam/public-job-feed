@@ -104,6 +104,21 @@ header when no rows were excluded. Source records, scores, and diagnostic
 exports remain available. The September 23 Carvana decision excludes only the
 specified loan-document review role. It takes effect at the next package build.
 
+The October 12 review adds 50 exact posting URLs from package
+`20261012-0604`. The decisions are in
+`src/config/public-package-role-exclusions.json`, with the saved titles,
+companies, posting dates, source package, review date, and reasons. These
+URLs cover 48 public rows and two additional links in grouped rows.
+The six reviewed roles at Keeper Security, Airbnb, Verisign, SumUp,
+OpenAI, and Anthropic remain eligible. The word `specialist` alone does
+not exclude a role. A new posting URL requires a separate review.
+These decisions apply to future package builds. Other outputs apply them
+when they use the same eligibility filter.
+Saved packages and reports are not changed by a source-code update.
+
+See the [October 12 role review](job-scope-review-2026-10-12.md) for the
+review method, approved roles, tests, and limits.
+
 Inventory, cleanup, and archive figures show the saved report date beside the
 figures. Their age does not cause cleanup or deletion. Baseline-change alerts
 and absolute failure rates are separate measures; inspect both.

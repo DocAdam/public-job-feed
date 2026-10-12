@@ -1,0 +1,357 @@
+{
+  "ReviewedAt": "2026-10-12",
+  "SourcePackage": "20261012-0604",
+  "SourceFile": "data/jobs/gsheet-package/20261012-0604/01_good_documentation_jobs.csv",
+  "ExcludedListings": [
+    {
+      "URL": "https://job-boards.greenhouse.io/uasi/jobs/5380631008",
+      "Title": "HCC Clinical Documentation Specialist",
+      "Company": "Uasi",
+      "PostedDate": "2026-08-07",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-dchsystem.icims.com/jobs/13949/outpatient-clinical-documentation-specialist/job",
+      "Title": "Outpatient Clinical Documentation Specialist",
+      "Company": "Careers Dchsystem",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-chsli.icims.com/jobs/72700/clinical-documentation-specialist---drg-appeals/job",
+      "Title": "Clinical Documentation Specialist - DRG Appeals",
+      "Company": "Chsli",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://bmc.wd1.myworkdayjobs.com/bmc/job/Remote/Clinical-Documentation-Specialist--Per-Diem_51160",
+      "Title": "Clinical Documentation Specialist, Per Diem",
+      "Company": "Bmc",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://gehc.wd5.myworkdayjobs.com/gehc_externalsite/job/Zipf/Clinical-Documentation-Specialist--f-m-d-_R4047192-1",
+      "Title": "Clinical Documentation Specialist (f/m/d)",
+      "Company": "Gehc",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://martin.wd1.myworkdayjobs.com/mphc/job/Portland-ME/Clinical-Documentation-Improvement-Nurse-Coder--Certified-_REQ-2026-227",
+      "Title": "Clinical Documentation Specialist RN - Hybrid in Maine - $1,500 sign-on bonus",
+      "Company": "Martin",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://memorialhermann.wd5.myworkdayjobs.com/external/job/Medical-Plaza-North/Clinical-Documentation-Specialist--Remote-_100187757",
+      "Title": "Clinical Documentation Specialist (Remote)",
+      "Company": "Memorialhermann",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://sih.wd5.myworkdayjobs.com/sih_external/job/Herrin-121-South-14th-St/Clinical-Documentation-Specialist-Outpatient_JR105550",
+      "Title": "Clinical Documentation Specialist Outpatient",
+      "Company": "Sih",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-arh.icims.com/jobs/39427/clinical-documentation-specialist/job",
+      "Title": "Clinical Documentation Specialist",
+      "Company": "Arh",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-arh.icims.com/jobs/39428/clinical-documentation-specialist/job",
+      "Title": "Clinical Documentation Specialist",
+      "Company": "Arh",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-arh.icims.com/jobs/39596/clinical-documentation-specialist/job",
+      "Title": "Clinical Documentation Specialist",
+      "Company": "Arh",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-bronxcare.icims.com/jobs/5783/clinical-documentation-specialist/job",
+      "Title": "Clinical Documentation Specialist",
+      "Company": "Bronxcare",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://montefiore.wd12.myworkdayjobs.com/slch/job/70-Dubois-Street/Clinical-Documentation-Specialist_JR231406",
+      "Title": "Clinical Documentation Specialist",
+      "Company": "Montefiore",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://careers-methodisthospitals.icims.com/jobs/12922/clinical-document-specialist/job",
+      "Title": "CLINICAL DOCUMENT SPECIALIST",
+      "Company": "Methodisthospitals",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (clinical records)."
+    },
+    {
+      "URL": "https://jobs.lever.co/jobgether/9aa0b3aa-5d66-4c4f-95c7-91fa33d9b509",
+      "Title": "Trailing Document Specialist",
+      "Company": "Jobgether",
+      "PostedDate": "2026-10-09",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://job-boards.greenhouse.io/strongpointpartners/jobs/5383356008",
+      "Title": "Retirement Document Specialist, (TFG)",
+      "Company": "Strongpointpartners",
+      "PostedDate": "2026-08-07",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://careers-eastwestbank.icims.com/jobs/13288/senior-mortgage-loan-documentation-specialist/job",
+      "Title": "Senior Mortgage Loan Documentation Specialist",
+      "Company": "Eastwestbank",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://careers-fult.icims.com/jobs/23944/senior-commercial-fulfillment-documentation-specialist/job",
+      "Title": "Senior Commercial Fulfillment Documentation Specialist",
+      "Company": "Fult",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://careers-renasant.icims.com/jobs/15780/efl-operations-documentation-specialist/job",
+      "Title": "EFL Operations Documentation Specialist",
+      "Company": "Renasant",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://careers-ucbi.icims.com/jobs/2279/deposit-documentation-specialist/job",
+      "Title": "Deposit Documentation Specialist",
+      "Company": "Ucbi",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://unitedfidelity.wd12.myworkdayjobs.com/external/job/Evansville-IN/Commercial-Loan-Documentation-Specialist-II_JR100312",
+      "Title": "Commercial Loan Documentation Specialist II",
+      "Company": "Unitedfidelity",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://oldrepublic.wd1.myworkdayjobs.com/oldrepublictitle/job/CA-Roseville-905-Highland-Pointe-Dr-Ste-150/Recording-Document-Specialist_R-4346",
+      "Title": "Recording Document Specialist",
+      "Company": "Oldrepublic",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://zillow.wd5.myworkdayjobs.com/zillow_group_external/job/Remote-USA/Trailing-Document-Specialist_P751517",
+      "Title": "Trailing Document Specialist",
+      "Company": "Zillow",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (finance and title records)."
+    },
+    {
+      "URL": "https://corelab.wd12.myworkdayjobs.com/clb/job/Godley-Texas/Team-Lead-Shipping---Inventory-Control_R1399",
+      "Title": "Export Documentation Specialist",
+      "Company": "Corelab",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://maersk.wd3.myworkdayjobs.com/maersk_careers/job/India-Chennai-600116/Documentation-Specialist_R195759",
+      "Title": "Documentation Specialist",
+      "Company": "Maersk",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://optinizer.bamboohr.com/careers/253",
+      "Title": "Customs Compliance & Documentation Specialist",
+      "Company": "Optinizer",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://rhe.wd3.myworkdayjobs.com/r1111/job/Mandaue-Philippines/Documentation-Specialist_JR125539",
+      "Title": "Documentation Specialist",
+      "Company": "Rhe",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://rhe.wd3.myworkdayjobs.com/r1111/job/Pasay-Philippines/Documentation-Specialist_JR125540",
+      "Title": "Documentation Specialist",
+      "Company": "Rhe",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://rhe.wd3.myworkdayjobs.com/r1111/job/Taipei-Taiwan/Ocean-Freight-Export--Documentation-Specialist_JR125194",
+      "Title": "Ocean Freight Export, Documentation Specialist",
+      "Company": "Rhe",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://rhe.wd3.myworkdayjobs.com/r1111/job/TWTPE01---Taipei-Rhenus-Logistics-Taiwan-Ltd/Ocean-Freight-Export--Documentation-Specialist_JR118874",
+      "Title": "Ocean Freight Export, Documentation Specialist",
+      "Company": "Rhe",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (freight and customs)."
+    },
+    {
+      "URL": "https://job-boards.greenhouse.io/spsnorthamerica/jobs/5443573008",
+      "Title": "Digital Document Specialist",
+      "Company": "Spsnorthamerica",
+      "PostedDate": "2026-10-07",
+      "Reason": "User review: outside search scope (personnel and document processing)."
+    },
+    {
+      "URL": "https://jobs.lever.co/ajax/8614b0c8-9de9-4016-b1bf-a8ce6918996b",
+      "Title": "HR Documentation Specialist",
+      "Company": "Ajax",
+      "PostedDate": "2026-08-24",
+      "Reason": "User review: outside search scope (personnel and document processing)."
+    },
+    {
+      "URL": "https://mii.wd5.myworkdayjobs.com/mitekvietnam/job/H-Ch-Minh-Vit-Nam/HR-Employee-Lifecycle---Documentation-Specialist_R06717",
+      "Title": "HR Employee Lifecycle & Documentation Specialist",
+      "Company": "Mii",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (personnel and document processing)."
+    },
+    {
+      "URL": "https://www.proofserve.com/careers/4740819005?gh_jid=4740819005",
+      "Title": "Legal Document Specialist (Southfield, MI)",
+      "Company": "Proof",
+      "PostedDate": "2026-10-06",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://careers-istmanagement.icims.com/jobs/6010/legal-document-specialist/job",
+      "Title": "Legal Document Specialist",
+      "Company": "Istmanagement",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://careers-mccarthyca.icims.com/jobs/2246/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "Title": "Bilingual Document Specialist (Remote - Multiple Shifts Available)",
+      "Company": "Mccarthyca",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://careers-mccarthyca.icims.com/jobs/2265/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "Title": "Bilingual Document Specialist (Remote - Multiple Shifts Available)",
+      "Company": "Mccarthyca",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://careers-mccarthyca.icims.com/jobs/2267/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "Title": "Bilingual Document Specialist (Remote - Multiple Shifts Available)",
+      "Company": "Mccarthyca",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://careers-mccarthyca.icims.com/jobs/2311/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "Title": "Bilingual Document Specialist (Remote - Multiple Shifts Available)",
+      "Company": "Mccarthyca",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://careers-mccarthyca.icims.com/jobs/2643/bilingual-document-specialist-%28remote---multiple-shifts-available%29/job",
+      "Title": "Bilingual Document Specialist (Remote - Multiple Shifts Available)",
+      "Company": "Mccarthyca",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (legal documents)."
+    },
+    {
+      "URL": "https://jobs.lever.co/fwgsolutions/5d205b9a-3897-42de-8ba2-ed72940671c9",
+      "Title": "Configuration Documentation Specialist",
+      "Company": "Fwgsolutions",
+      "PostedDate": "2026-07-08",
+      "Reason": "User review: outside search scope (other administration)."
+    },
+    {
+      "URL": "https://careers-acadiahealthcare.icims.com/jobs/110567/project-director---documentation-integrity/job",
+      "Title": "Project Director - Documentation Integrity",
+      "Company": "Acadiahealthcare",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (other administration)."
+    },
+    {
+      "URL": "https://careers-peraton.icims.com/jobs/171689/catalog-%26-technical-documentation-administrator/job",
+      "Title": "Catalog & Technical Documentation Administrator",
+      "Company": "Peraton",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (other administration)."
+    },
+    {
+      "URL": "https://careers-tatitlek.icims.com/jobs/2719/*administrative-and-documentation-specialist*/job",
+      "Title": "*Administrative and Documentation Specialist*",
+      "Company": "Tatitlek",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (other administration)."
+    },
+    {
+      "URL": "https://job-boards.greenhouse.io/gruns/jobs/5441653008",
+      "Title": "Stability & Documentation Manager - R&D",
+      "Company": "Gruns",
+      "PostedDate": "2026-10-01",
+      "Reason": "User review: outside search scope (quality and regulatory documents)."
+    },
+    {
+      "URL": "https://jobs.lever.co/penumbrainc/ab146fff-5d18-46f9-be5b-dfbf22d739ff",
+      "Title": "QA Document Specialist I - Temp",
+      "Company": "Penumbrainc",
+      "PostedDate": "2026-09-29",
+      "Reason": "User review: outside search scope (quality and regulatory documents)."
+    },
+    {
+      "URL": "https://careers-atcc.icims.com/jobs/4070/senior-regulatory-document-specialist/job",
+      "Title": "Senior Regulatory Document Specialist",
+      "Company": "Atcc",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (quality and regulatory documents)."
+    },
+    {
+      "URL": "https://packsize.wd108.myworkdayjobs.com/packsize_careers/job/Packsize-Louisville/Quality-Documentation-Specialist_R-100801",
+      "Title": "Quality Documentation Specialist",
+      "Company": "Packsize",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (quality and regulatory documents)."
+    },
+    {
+      "URL": "https://propharmagroup.wd1.myworkdayjobs.com/ppgcareers/job/India/Technical-Procedure-Writer_JR10525",
+      "Title": "Quality Documentation Specialist",
+      "Company": "Propharmagroup",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (quality and regulatory documents)."
+    },
+    {
+      "URL": "https://astrazeneca.wd3.myworkdayjobs.com/careers/job/UK---Cambridge/Nonclinical-Document-Specialist-_R-260908-1",
+      "Title": "Nonclinical Document Specialist",
+      "Company": "Astrazeneca",
+      "PostedDate": "",
+      "Reason": "User review: outside search scope (quality and regulatory documents)."
+    }
+  ]
+}
