@@ -62,3 +62,31 @@ In a full slice build, the firehose slice is also a compatibility link to the ca
 ## Recovery
 
 Raw batch folders are not deleted until their state is represented by both the derived board-state index and the compressed history ledger. If a derived index is missing, stale, or invalid, the merge automatically falls back to reading the existing batch fetch logs.
+
+## History database and recovery evidence
+
+Normal history commands select the writer from the existing database format.
+An ordinary build or update does not approve a storage-format migration.
+Migration, replacement, and recovery need an exact reviewed scope, checked
+source and code hashes, and the applicable approval record. The
+[writer integration review](plans/job-history-integration-review.md) records the
+command effects. The [accepted migration review](plans/job-history-production-migration-review.md)
+records the later October 19 execution.
+
+Keep database operation folders, journals, approved records, runtime copies,
+source manifests, and retained controls with their recovery bindings. A backup
+from before an accepted migration can contain fewer snapshots than the current
+database. Do not copy an old database over a newer accepted history. Review a
+recovery candidate that covers every accepted snapshot. A former test path or
+approval template is not a current recovery command.
+
+Use [Daily history and 1Pugh backup](daily-history-backups.md) for the current
+managed daily-backup and restore procedure. That policy does not adopt legacy
+backups, archives, or migration controls. This document cleanup does not approve
+any data, backup, or Git-object removal.
+
+The [review-record index](plans/README.md) groups completed operations, earlier
+failures, remaining limits, and final receipts. It also maps the three redundant
+log copies removed by P01 to equal retained logs. Original manifests and dated
+results remain unchanged. Use current operating guides for a new operation;
+do not rerun historical execution helpers or old removal lists.

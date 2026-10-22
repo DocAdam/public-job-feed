@@ -216,6 +216,19 @@ npm run jobs:retire-batches -- --apply
 
 For the retention rules, recovery behavior, and full-slice workflow, see [Storage lifecycle](docs/storage-lifecycle.md).
 
+### Completed review records
+
+Use the [review-record index](docs/plans/README.md) for completed migrations,
+cleanup receipts, test results, failed attempts, and recovery evidence. Current
+procedures remain in the operating guides. Old counts and removal lists are
+historical; do not rerun their execution helpers.
+
+The P01 document cleanup retained the original evidence paths and removed three
+log copies that exactly matched retained logs in the same operation folders.
+The index records each former path, retained path, size, and hash. Keep original
+manifests and recovery records. When records change, update this index and the
+README, then check references and links in the same group.
+
 ## Project guides
 
 | Guide | Use it for |
