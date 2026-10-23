@@ -3,7 +3,7 @@ const path = require("path");
 const { readJobCsv, resolveSnapshots } = require("../lib/us-remote-daily-report");
 const { parseCsvRecords } = require("../lib/csv");
 const { buildSnapshot, parseOptions, reportFilename, help } = require("../lib/jobs-snapshot");
-const { buildSnapshotWithRemote } = require("../lib/all-remote-daily-report");
+const { buildSnapshotWithRemote, buildSubstackMarkdown } = require("../lib/all-remote-daily-report");
 const { execFileSync } = require("child_process");
 const { fromRoot, writeTextFile } = require("../lib/files");
 
@@ -38,7 +38,9 @@ async function main() {
     baselineRows: baseline.rows, baselineSnapshot, details, previousDetails, baselineDetails };
   const generatedAt = new Date().toISOString().replace("T", " ").replace(/\.\d{3}Z$/, " UTC");
   const input = { ...review, generatedAt, currentSnapshot: usReport.CurrentSnapshot, previousSnapshot: usReport.PreviousSnapshot };
-  const markdown = options.focused ? buildSnapshot(input, options) : buildSnapshotWithRemote(input);
+  const markdown = options.substack
+    ? buildSubstackMarkdown({ ...input, reportDate: (await readPackageTimestamp(currentDir)).toISOString() })
+    : options.focused ? buildSnapshot(input, options) : buildSnapshotWithRemote(input);
   await writeTextFile(outputPath, markdown, "utf8");
 
   console.log("Daily Jobs Review complete.");

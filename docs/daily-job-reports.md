@@ -47,6 +47,58 @@ come from `03_top_matches_full.csv` in the current package. The command does
 not refresh jobs, recheck links, change the sheet, or publish a post. The normal
 refresh still generates the separate U.S. and international remote reports.
 
+## Substack outputs
+
+These files are saved writing inputs. Use [Substack publication](substack-publication.md)
+and the current Working Notes instructions for the final article. The normal
+weekly edition keeps the supplied list and uses **Writing and documentation
+jobs** with **Week of [Adam's edition date]** in the subtitle field. A report's
+`Snapshot` date is a source date, not the edition date. **Five recent
+documentation jobs** is a separate series with verified recent employer dates
+and one short explanation per role. Do not turn a daily comparison into a
+weekly claim.
+
+`npm run jobs:report-all-remote -- --substack` writes the remote publication
+list from `01_good_documentation_jobs.csv`. This saved public list combines
+exact company/title location variants and removes confirmed invalid links.
+It uses the same geographic filters as the daily remote reports.
+
+`npm run jobs:report-substack-full` writes the full publication list. It uses
+the selected records in `03_top_matches_full.csv` from the package identified
+by the `latest` manifest, checks their identity against the canonical feed,
+and retains the saved package values. It applies the existing exact-record
+exclusion. It does not combine public-list location variants or apply the
+public list's link-removal results. Its counts describe source records, not
+the complete collected feed or the checked public list.
+
+Both outputs use **Snapshot** for the package date in America/Chicago and
+**Added since previous package** for daily membership changes. Added records
+are absent from the previous list. Removed records are absent from the
+current list. Continuing records are in both. These are not posting or
+closure dates. Neither output calls daily additions weekly additions.
+
+The full report groups locations with the existing country and city/state
+mappings. The remote publication list uses the remote comparison markers.
+Some markers are city names. Neither method confirms eligibility for all
+locations of a grouped listing. Geographic sections can overlap. Presentation
+grouping reduces the bullet count; it does not reduce the reported job count.
+Full-report grouped bullets retain all source application links. Remote
+grouped bullets link to the public Sheet. Employer names use the existing
+preferred-name field and description-based cleanup; unresolved source labels
+remain visible.
+
+Generate both reports before manual publication, then run:
+
+```sh
+npm run jobs:validate-refresh-output -- --publication
+```
+
+This optional check uses the existing validator and output path. It compares
+publication package IDs, snapshot dates, arrangement totals, daily changes,
+remote totals, and overlap with the saved source records. The normal refresh
+check does not require these optional publication outputs. This check does
+not fetch jobs, check live links, or publish.
+
 Patterns describe this feed. Title groups are automated suggestions; text
 matches are topics to review, not confirmed requirements. Company counts use
 normalized source labels, and country mappings do not establish eligibility.

@@ -143,6 +143,22 @@ jobs describe list membership, not posting or closure dates.
 
 Run `npm run allremotediff` to create and open the combined report. Use
 `npm run jobs:report-all-remote` to generate it without opening an application.
+Run `npm run allremotediff -- --substack` to create and open a separate,
+Substack Markdown input file at
+`data/jobs/reports/substack-remote-jobs.md`. This output uses the current saved
+jobs and the existing U.S. and international remote filters. It lists jobs by
+posted date, newest first. Jobs without a posted date appear after dated jobs.
+The command does not publish to Substack or change the other reports.
+Run `npm run jobs:report-substack-full` to create the full Substack report at
+`data/jobs/reports/substack-full-report.md`. This report resolves the selected
+records in the latest saved package against the canonical feed. It retains the
+saved package values and compares its detailed shortlist with the previous
+package's detailed shortlist. It includes remote, hybrid, onsite, and unknown
+arrangements before public-list location grouping and link removal. It is not
+the complete collected feed. The command does not refresh or publish.
+Both Substack outputs show the source package date and daily list changes.
+After generating both outputs, run `npm run jobs:validate-refresh-output -- --publication`
+to check their package IDs, source dates, and statistics against saved records.
 See [Daily job reports](docs/daily-job-reports.md) for filters, focused views,
 location rules, output paths, and examples.
 
@@ -191,6 +207,12 @@ npm run internationaldiff
 
 # Open the remote comparison with the short daily snapshot at the top.
 npm run allremotediff
+
+# Create and open the remote Substack Markdown input.
+npm run allremotediff -- --substack
+
+# Create the full Substack report without opening or publishing it.
+npm run jobs:report-substack-full
 
 # Write a raw-batch retention plan without deleting batches.
 npm run jobs:plan-batch-retention

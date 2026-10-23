@@ -1,6 +1,8 @@
 const { buildDailyReview, locate, enrich } = require("../lib/daily-jobs-review");
 const {
   buildMarkdown,
+  buildSubstackMarkdown,
+  displayCompanyName,
   overlapRows,
   previousRows,
   uniqueRowCount,
@@ -61,6 +63,75 @@ function main() {
   assert(overlapRows(usReport.Current, internationalReport.Current).length === 1, "Expected one overlapping job.");
   assert(uniqueRowCount(usReport.Current, internationalReport.Current) === 3, "Expected three unique current jobs.");
   assert(previousRows(usReport).length === 2, "Expected two reconstructed previous US jobs.");
+
+  const substackRows = [
+    { ...row("Old-date new US role", "https://example.test/older-us", "US"), Company: "Alpha", "Work Arrangement": "Remote", "Posted Date": "2020-09-20" },
+    { ...row("No-date US role", "https://example.test/no-date-us", "US"), Company: "Beta", "Work Arrangement": "Remote", "Posted Date": "" },
+    { ...row("Newest shared role", "https://example.test/newest-shared", "US / Canada"), Company: "Gamma", "Work Arrangement": "Remote", "Posted Date": "2026-10-01" },
+    { ...row("Middle international role", "https://example.test/middle-int", "Germany"), Company: "Delta", "Work Arrangement": "Remote", "Posted Date": "2026-09-25" },
+    { ...row("Hybrid role", "https://example.test/hybrid", "US"), Company: "Epsilon", "Work Arrangement": "Hybrid", "Posted Date": "2026-10-02" },
+  ];
+  const substackPreviousRows = [substackRows[1], substackRows[3]];
+  const substackDetails = [
+    { URL: "https://example.test/newest-shared", Description: "Graphite is a technology-enabled growth agency." },
+  ];
+  substackRows[2].Company = "Graphitehq";
+  const substack = buildSubstackMarkdown({
+    generatedAt: "2026-10-01T12:00:00Z",
+    currentRows: substackRows,
+    previousRows: substackPreviousRows,
+    details: substackDetails,
+  });
+  for (const text of [
+    "# Writing and documentation jobs — Remote openings",
+    "Snapshot: October 1, 2026",
+    "4 unique remote jobs · 3 U.S. remote · 2 international remote",
+    "[Open the full active Google Sheet](https://docs.google.com/spreadsheets/",
+    "## Added since previous package",
+    "## U.S. remote jobs",
+    "## International remote jobs",
+    "- [Newest shared role](https://example.test/newest-shared) — Graphite — US / Canada",
+  ]) assert(substack.includes(text), `Expected Substack Markdown to include: ${text}`);
+  assert(!substack.split("\n").filter(line => line.startsWith("- ")).some(line => /2026-10-01|Oct\. 1, 2026/.test(line)), "Job bullets must not display posting dates.");
+  assert(displayCompanyName({ Company: "Lightfeatheriollc" }, { Description: "LightFeather is seeking a developer." }) === "LightFeather", "Expected the employer display name from posting text.");
+  assert(displayCompanyName({ Company: "Defenseunicorns" }, { Description: "Defense Unicorns delivers secure software." }) === "Defense Unicorns", "Expected the spaced employer display name from posting text.");
+  assert(displayCompanyName({ Company: "Jobgether" }, { Description: "The client is seeking a writer." }) === "Jobgether", "Unmatched company names must keep their existing display value.");
+  assert(displayCompanyName({ Company: "Referralsuseonly" }, { Description: "Elastic, the Search AI Company, enables everyone to find answers." }) === "Elastic", "Both publication reports must use existing employer-name cleanup.");
+  const savedDate = buildSubstackMarkdown({ generatedAt: "2026-10-11T12:00:00Z", reportDate: "2026-10-10T11:58:00Z",
+    currentSnapshot: "20261010-0658", previousSnapshot: "20261009-0509", currentRows: substackRows, previousRows: substackRows });
+  assert(savedDate.includes("Snapshot: October 10, 2026"), "The snapshot date must come from the package.");
+  assert(savedDate.includes("0 unique remote jobs added since the previous package."), "Continuing remote jobs must not count as additions.");
+  assert(savedDate.includes("1 jobs appear in both regional lists"), "Overlapping geography must be explicit.");
+  const newStart = substack.indexOf("## Added since previous package");
+  const usStart = substack.indexOf("## U.S. remote jobs");
+  const internationalStart = substack.indexOf("## International remote jobs");
+  const newSection = substack.slice(newStart, usStart);
+  const usSection = substack.slice(usStart, internationalStart);
+  assert(newStart < usStart, "Added since previous package must appear before the regional lists.");
+  assert(newSection.includes("Newest shared role") && newSection.includes("Old-date new US role"), "Added since previous package must use comparison membership, including older postings.");
+  assert((newSection.match(/Newest shared role/g) || []).length === 1, "A multi-region job must occur once in Added since previous package.");
+  assert(usSection.indexOf("Newest shared role") < usSection.indexOf("Old-date new US role"), "Dated US jobs must stay newest first internally.");
+  assert(usSection.indexOf("Old-date new US role") < usSection.indexOf("No-date US role"), "US jobs without dates must follow dated jobs.");
+  const internationalSection = substack.slice(internationalStart);
+  assert(internationalSection.indexOf("Newest shared role") < internationalSection.indexOf("Middle international role"), "International jobs must be newest first.");
+  assert((substack.match(/Newest shared role/g) || []).length === 3, "A multi-region job must appear once in Added since previous package and in both regional sections.");
+  assert(!substack.includes("Hybrid role"), "Substack mode must reuse remote qualification filters.");
+  for (const excluded of ["methodology", "Possible post subjects", "churn", "npm run"]) {
+    assert(!substack.includes(excluded), `Substack Markdown must exclude: ${excluded}`);
+  }
+
+  const groupedRows = [
+    { ...row("Content Writer - Amharic - Remote", "https://example.test/lilt-amharic", "Ethiopia | US"), Company: "LILT", "Work Arrangement": "Remote", "Posted Date": "2026-09-30" },
+    { ...row("Content Writer - Urdu - Remote", "https://example.test/lilt-urdu", "India | Pakistan | US"), Company: "LILT", "Work Arrangement": "Remote", "Posted Date": "2026-09-29" },
+    { ...row("Localization Program Manager", "https://example.test/lilt-manager", "US"), Company: "LILT", "Work Arrangement": "Remote", "Posted Date": "2026-09-28" },
+  ];
+  const groupedMarkdown = buildSubstackMarkdown({ generatedAt: "2026-10-01T12:00:00Z", currentRows: groupedRows });
+  const groupedUs = groupedMarkdown.slice(groupedMarkdown.indexOf("## U.S. remote jobs"), groupedMarkdown.indexOf("## International remote jobs"));
+  assert((groupedUs.match(/Remote Content Writers — multiple languages/g) || []).length === 1, "LILT language variants must collapse into one US entry.");
+  assert(groupedUs.includes("Multiple countries and languages"), "The LILT group must summarize its scope.");
+  assert(!groupedUs.includes("Content Writer - Amharic") && !groupedUs.includes("Content Writer - Urdu"), "Grouped language titles must not remain as separate US entries.");
+  assert(groupedUs.includes("Localization Program Manager"), "A distinct role at LILT must remain separate.");
+  assert(groupedMarkdown.includes("3 unique remote jobs · 3 U.S. remote · 2 international remote"), "Presentation grouping must not change source counts.");
 
   const markdown = buildMarkdown({
     generatedAt: "2026-09-05 12:01:00 UTC",

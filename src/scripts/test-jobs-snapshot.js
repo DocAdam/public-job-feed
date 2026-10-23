@@ -17,7 +17,9 @@ function main() {
   assert(empty.includes('No matching examples'));
   assert.equal(parseOptions(['--country','uk']).country,'GB');
   assert.equal(parseOptions(['--group','technical-writing']).group,'Technical Writing');
-  for (const args of [['--limit','0'],['--limit','101'],['--country','madeup'],['--region','madeup'],['--group','madeup'],['--work','madeup'],['--limit'],['--topics','--changes'],['--bogus']]) assert.throws(()=>parseOptions(args));
+  const substack = parseOptions(['--open','--substack']);
+  assert.equal(reportFilename(substack),'substack-remote-jobs.md');
+  for (const args of [['--limit','0'],['--limit','101'],['--country','madeup'],['--region','madeup'],['--group','madeup'],['--work','madeup'],['--limit'],['--topics','--changes'],['--substack','--work','remote'],['--bogus']]) assert.throws(()=>parseOptions(args));
   const topicInput = {...input, details:rows.map(r=>({URL:r['Apply Link'],Description:'Maintain API documentation and knowledge bases.'}))};
   const topicView = buildSnapshot(topicInput,parseOptions(['--topics','--limit','3']));
   assert.equal((topicView.match(/https:\/\/example.test\//g)||[]).length,3);

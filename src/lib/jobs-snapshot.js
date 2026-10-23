@@ -11,13 +11,16 @@ function parseOptions(argv) {
   const options = { limit: 20 };
   for (let i = 0; i < argv.length; i++) {
     const key = argv[i];
-    if (['--topics', '--changes', '--open', '--help'].includes(key)) { options[key.slice(2)] = true; continue; }
+    if (['--topics', '--changes', '--substack', '--open', '--help'].includes(key)) { options[key.slice(2)] = true; continue; }
     if (!['--region', '--country', '--group', '--work', '--limit'].includes(key)) throw new Error(`Unknown option: ${key}. Use --help.`);
     const value = argv[++i];
     if (!value || value.startsWith('--')) throw new Error(`${key} needs a value.`);
     options[key.slice(2)] = value;
   }
   if (options.topics && options.changes) throw new Error('Use --topics or --changes, not both.');
+  if (options.substack && (options.region || options.country || options.group || options.work || options.topics || options.changes)) {
+    throw new Error('Use --substack by itself. --open can also be used.');
+  }
   if (!/^\d+$/.test(String(options.limit)) || +options.limit < 1 || +options.limit > 100) throw new Error('--limit must be an integer from 1 to 100.');
   options.limit = +options.limit;
   if (options.region) {
@@ -45,6 +48,7 @@ function parseOptions(argv) {
   return options;
 }
 function reportFilename(options) {
+  if (options.substack) return 'substack-remote-jobs.md';
   if (!options.focused) return 'all-remote-daily-report.md';
   const parts = ['jobs-view'];
   for (const key of ['region', 'country', 'group', 'work']) if (options[key]) parts.push(key, slug(options[key]));
@@ -60,6 +64,8 @@ function filterRows(rows, options) {
 }
 const help = `Remote report with an opening snapshot (snapshot maximum 300 lines):
   npm run allremotediff
+Substack-ready remote job list:
+  npm run allremotediff -- --substack
 Focused views (20 examples by default):
   npm run allremotediff -- --region europe
   npm run allremotediff -- --country india

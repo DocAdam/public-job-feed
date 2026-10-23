@@ -68,6 +68,14 @@ async function main() {
   assert.ok(validateOutputs({ ...data, us: { ...data.us, CurrentSnapshot: "old" } }).some(x => x.includes("US report package")));
   assert.ok(validateOutputs({ ...data, consumer: { source: {}, summary: { scannedRows: 9 } } }).length >= 2);
   assert.ok(validateOutputs({ ...data, trends: { ...data.trends, GeneratedAt: "2026-09-22T12:00:00Z" } }).some(x => x.includes("predates")));
+  const publication = { label: "Substack", date: "September 23, 2026", statistics: ["4 current jobs · 1 remote · 1 hybrid · 1 onsite · 1 unknown"],
+    markdown: "Snapshot: September 23, 2026\nPackages: 20260923-0709 (current); 20260922-0709 (previous).\n4 current jobs · 1 remote · 1 hybrid · 1 onsite · 1 unknown\n" };
+  const publicationData = { ...data, us: { ...data.us, PreviousSnapshot: "20260922-0709" }, publication: [publication] };
+  assert.deepEqual(validateOutputs(publicationData), []);
+  for (const [before, after] of [["4 current jobs", "5 current jobs"], ["4 current jobs", "14 current jobs"], [" · 1 unknown", ""], ["20260923-0709 (current)", "20260922-0709 (current)"], ["Snapshot: September 23", "Snapshot: September 24"]]) {
+    assert.ok(validateOutputs({ ...publicationData, publication: [{ ...publication, markdown: publication.markdown.replace(before, after) }] }).length > 0);
+  }
+  assert.ok(validateOutputs({ ...publicationData, publication: [{ ...publication, markdown: publication.markdown + "New this week" }] }).some(x => x.includes("weekly")));
   console.log("Report identity, UTC timestamp, and board coverage fixtures passed.");
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });
