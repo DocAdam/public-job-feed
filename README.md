@@ -226,6 +226,20 @@ data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv
 
 The URL review only marks deterministic closures as safe to prune. This includes `404`/`410` responses, closed-job pages, known bad redirects, and an Ashby job URL that returns only its generic `Jobs` shell instead of a role page. Rate limits, access blocks, timeouts, and other ambiguous failures stay in the review report.
 
+### Saved job history
+
+The history database uses compact storage while it retains raw rows, resolved
+observations, public-list membership, and exceptions as separate evidence.
+Dated CSV packages remain the source of truth. History events describe saved
+list changes; they do not prove employer closure or reposting.
+
+Use `npm run jobs:history-update`, `npm run jobs:history-audit`, and
+`npm run jobs:history-report`. The commands select the writer from the existing
+database format. Updates use a staged copy and a shared history lock. Format
+migration and recovery require a separate reviewed operation. Keep source
+packages and recovery records. Do not replace newer accepted history with an
+older backup that contains fewer snapshots.
+
 ### Storage and retention
 
 The project keeps current board inputs, compact fetch history, and a short window of raw batches for recovery. New batch runs use JSON as the machine-readable format; the large batch CSV is available only when explicitly requested for investigation.

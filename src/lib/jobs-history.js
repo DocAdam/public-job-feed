@@ -76,7 +76,7 @@ function observationSelect(s, headers) {
   const types = Object.fromEntries([...headers].map(h => [h, 'VARCHAR']));
   return `SELECT ${[...headers].map(h => `try_cast(nullif(${ident(h)}, '') AS ${type(h)}) AS ${ident(snake(h))}`).join(',')}, ${Object.keys(META_TYPES).map(ident).join(',')} FROM ${jsonSource(s.staged, {...types, ...META_TYPES})}`;
 }
-async function scan(root, stage) {
+async function scan(root, stage, { parseCsv = parseCsvRecords } = {}) {
   const discovery = await discover(root);
   const result = { ...discovery, snapshots: [], headers: new Set(REQUIRED), variants: {}, warnings: [], errors: [] };
   if (discovery.malformed.length) result.errors.push(`Malformed snapshot names: ${discovery.malformed.join(', ')}`);
@@ -87,7 +87,7 @@ async function scan(root, stage) {
       for (const file of FILES) {
         const data = await fs.readFile(path.join(root, id, file));
         checkCsv(data.toString('utf8'), `${id}/${file}`);
-        const parsed = parseCsvRecords(data.toString('utf8'));
+        const parsed = parseCsv(data.toString('utf8'));
         const variant = JSON.stringify(parsed.headers);
         ((result.variants[file] ||= {})[variant] ||= []).push(id);
         sources.push({ file, sha256: hash(data), ...parsed });
@@ -237,23 +237,38 @@ async function audit(c, scanResult) {
   return errors;
 }
 async function summary(c) {
-  return { ...(await query(c, `SELECT count(*) observations, count(DISTINCT canonical_url_key) canonical_urls, count(DISTINCT job_key) job_keys, count(DISTINCT company_key) company_keys FROM posting_observations`))[0], raw_top_match_rows: (await query(c, 'SELECT count(*) n FROM raw_top_match_rows'))[0].n, raw_job_keys: (await query(c, 'SELECT count(DISTINCT job_key) n FROM raw_top_match_rows'))[0].n, good_job_exceptions: (await query(c, 'SELECT count(*) n FROM good_job_exceptions'))[0].n, raw_good_job_rows: (await query(c, 'SELECT count(*) n FROM raw_good_job_rows'))[0].n, duplicate_canonical_rows: (await query(c, 'SELECT coalesce(sum(duplicate_canonical_row_count),0) n FROM snapshots'))[0].n, snapshots: (await query(c, 'SELECT count(*) n FROM snapshots'))[0].n, latest: (await query(c, 'SELECT * FROM daily_market_metrics ORDER BY snapshot_id DESC LIMIT 1'))[0] };
+  // One scalar per query bounds wide compatibility-view plans at full history.
+  const result={};
+  for(const [name,table,expression] of [
+    ['observations','posting_observations','count(*)'],['canonical_urls','posting_observations','count(DISTINCT canonical_url_key)'],
+    ['job_keys','posting_observations','count(DISTINCT job_key)'],['company_keys','posting_observations','count(DISTINCT company_key)'],
+    ['raw_top_match_rows','raw_top_match_rows','count(*)'],['raw_job_keys','raw_top_match_rows','count(DISTINCT job_key)'],
+    ['good_job_exceptions','good_job_exceptions','count(*)'],['raw_good_job_rows','raw_good_job_rows','count(*)'],
+    ['duplicate_canonical_rows','snapshots','coalesce(sum(duplicate_canonical_row_count),0)'],['snapshots','snapshots','count(*)']]){
+    try{result[name]=(await query(c,`SELECT ${expression} n FROM ${table}`))[0].n;}
+    catch(e){throw new Error(`Summary ${name}: ${e.message}`,{cause:e});}
+  }
+  const latest=(await query(c,'SELECT max(snapshot_id) id FROM snapshots'))[0].id;
+  result.latest=latest?(await query(c,`SELECT * FROM daily_market_metrics WHERE snapshot_id=${sql(latest)}`))[0]:undefined;
+  return result;
 }
-async function runHistory(mode, { root = path.resolve('data/jobs/gsheet-package'), database = path.resolve('data/jobs/history/jobs-history.duckdb') } = {}) {
+// Programmatic controls let tests isolate the original scan and bound DuckDB.
+// Normal commands retain the same scanner and database settings.
+async function runLegacyHistory(mode, { root = path.resolve('data/jobs/gsheet-package'), database = path.resolve('data/jobs/history/jobs-history.duckdb'), databaseOptions = {}, scanSource = scan, lease } = {}) {
   if (!['build', 'update', 'audit'].includes(mode)) throw new Error('Expected build, update or audit');
   root = path.resolve(root); database = path.resolve(database);
   if (database === root || database.startsWith(root + path.sep)) throw new Error('Database must be outside the snapshot archive');
   await fs.mkdir(path.dirname(database), { recursive: true });
-  const lock = `${database}.history-lock`;
-  const handle = await fs.open(lock, 'wx');
+  await require('./job-history-access').assertLease(lease,database);
+  if(!['v1','absent'].includes(await require('./job-history-runtime').detect(database)))throw new Error('Legacy writer requires v1');
   let stage, instance, c;
   const target = mode === 'build' ? `${database}.build-${crypto.randomUUID()}` : database;
   try {
     stage = await fs.mkdtemp(path.join(os.tmpdir(), 'jobs-history-'));
-    const scanned = await scan(root, stage);
+    const scanned = await scanSource(root, stage);
     if (scanned.errors.length) throw new Error(scanned.errors.join('\n'));
     if (mode !== 'build') await fs.access(database);
-    instance = await DuckDBInstance.create(target, mode === 'audit' ? { access_mode: 'READ_ONLY' } : {});
+    instance = await DuckDBInstance.create(target, { ...databaseOptions, ...(mode === 'audit' ? { access_mode: 'READ_ONLY' } : {}) });
     c = await instance.connect();
     let imported = 0, metricsRefreshed = 0;
     if (mode !== 'audit') {
@@ -280,7 +295,8 @@ async function runHistory(mode, { root = path.resolve('data/jobs/gsheet-package'
     c?.closeSync(); instance?.closeSync();
     if (mode === 'build') { await fs.rm(target, { force: true }); await fs.rm(`${target}.wal`, { force: true }); }
     if (stage) await fs.rm(stage, { recursive: true, force: true });
-    await handle.close(); await fs.rm(lock, { force: true });
+
   }
 }
-module.exports = { fetchedTime, discover, normalizeUrl, observedAt, runHistory, query, scan, snake };
+async function runHistory(mode,options={}) { return require('./job-history-runtime').runHistory(mode,options); }
+module.exports = { runLegacyHistory, audit, summary, fetchedTime, discover, normalizeUrl, observedAt, runHistory, query, scan, snake, views, REQUIRED, RAW_TYPES, GOOD_TYPES, EXCEPTION_TYPES, META_TYPES, type, ident };

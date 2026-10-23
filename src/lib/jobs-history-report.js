@@ -150,11 +150,13 @@ function renderReport({metrics,roles,generatedAt}){
     '- Crawler coverage changed historically. These totals are not a pure labor-market index. Churn means application-URL membership changes, not confirmed openings or closures.','');
   return {markdown:out.join('\n'),signals,current,weekly,monthly,largestChanges,trends,facts};
 }
-async function historyReport(database,generatedAt=new Date().toISOString()){
-  const instance=await DuckDBInstance.create(database,{access_mode:'READ_ONLY'}),c=await instance.connect();
+async function historyReport(database,generatedAt=new Date().toISOString(),{lease}={}){
+  return require('./job-history-access').withLease(database,async()=>{
+  const instance=await DuckDBInstance.create(database,{...require('./job-history-bounded-storage').DATABASE_OPTIONS,access_mode:'READ_ONLY'}),c=await instance.connect();
   try{const errors=await auditMetrics(c);if(errors.length)throw new Error(errors.join('\n')+'; run jobs:history-update.');
     const read=async sql=>(await c.runAndReadAll(sql)).getRowObjectsJson();
     return renderReport({metrics:await read('SELECT * FROM historical_content_metrics'),roles:await read('SELECT * FROM historical_role_metrics'),generatedAt});
   }finally{c.closeSync();instance.closeSync();}
+  },{lease});
 }
 module.exports={selectLargestChanges,sampleTrends,publishingFacts,renderLargestChanges,renderTrends,coverageChange,signalsFor,renderReport,historyReport};
