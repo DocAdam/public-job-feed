@@ -346,6 +346,7 @@ README, then check references and links in the same group.
 | [Daily history and backup](docs/daily-history-backups.md) | History updates, 1Pugh checks, restore tests, and managed retention. |
 | [Substack publication](docs/substack-publication.md) | Choosing the post type, sources, dates, metrics, and support copy. |
 | [Five recent documentation jobs](docs/weekly-top-five-substack.md) | Verifying and explaining five recent roles for the separate series. |
+| [ISTC talk research](research/istc-talk/README.md) | Source evidence, measured project results, and a proposed talk. |
 
 ## Development notes
 
