@@ -13,7 +13,7 @@ async function main() {
     for (const dir of ["bin", "src/scripts", "src/lib", "launchers", "data/jobs/gsheet-package/20260923-0709"]) {
       await fs.mkdir(path.join(root, dir), { recursive: true });
     }
-    for (const file of ["src/scripts/refresh-run-lock.js", "src/lib/feed-refresh-lock.js", "src/lib/batch-maintenance.js", "src/scripts/record-refresh-run.js", "src/lib/files.js", "src/lib/package-status.js", "src/lib/csv.js", "src/lib/refresh-output-paths.js"]) {
+    for (const file of ["src/scripts/refresh-run-lock.js", "src/lib/feed-refresh-lock.js", "src/lib/batch-maintenance.js", "src/scripts/record-refresh-run.js", "src/lib/files.js", "src/lib/package-status.js", "src/lib/package-manifest.js", "src/lib/package-history-guard.js", "src/lib/csv.js", "src/lib/refresh-output-paths.js"]) {
       await fs.copyFile(fromRoot(file), path.join(root, file));
     }
     const packageRoot = path.join(root, "data/jobs/gsheet-package");
@@ -50,7 +50,10 @@ async function main() {
     assert.ok(calls.indexOf("jobs:test-all") < calls.indexOf("jobs:status -- --sync-package"));
     assert.ok(calls.includes("jobs:review-package-evidence"));
     assert.ok(calls.indexOf("jobs:validate-refresh-output") < calls.indexOf("jobs:history-daily"));
-    assert.ok(calls.indexOf("jobs:history-daily") < calls.indexOf("jobs:status -- --sync-package"));
+    assert.ok(calls.indexOf("jobs:validate-refresh-output") < calls.indexOf("jobs:status -- --sync-package"));
+    assert.ok(calls.indexOf("jobs:status -- --sync-package") < calls.indexOf("jobs:history-daily"));
+    assert.equal(calls.match(/jobs:status -- --sync-package/g)?.length, 1);
+    assert.ok(calls.slice(calls.indexOf("jobs:history-daily")).includes("jobs:status\n"));
     assert.equal(await fs.access(path.join(root, 'data/jobs/state/feed-refresh.lock')).then(() => true, () => false), false);
     const lock = require('../lib/feed-refresh-lock');
     const token = await lock.acquire(root);
@@ -79,14 +82,16 @@ async function main() {
     const syncFailure = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
     assert.equal(syncFailure.Status, "FAILED");
     assert.equal(syncFailure.ExitCode, 7);
-    assert.match(syncFailure.LastStep, /Step 8/);
+    assert.match(syncFailure.LastStep, /finalizing the dashboard before history/);
+    assert.doesNotMatch(await fs.readFile(log, "utf8"), /jobs:history-daily/);
     assert.doesNotMatch(await fs.readFile(path.join(root, "data/jobs/reports/refresh-job-feed-status.md"), "utf8"), /^Completed:/m);
     const missingReport = path.join(root, "data/jobs/reports/us-remote-daily-report.md");
     await fs.rm(missingReport);
     await assert.rejects(exec("/bin/bash", [launcher], { env, timeout: 15000 }), error => error.code === 1);
     const missingOutput = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
     assert.equal(missingOutput.Status, "FAILED");
-    assert.match(missingOutput.LastStep, /Step 8/);
+    assert.match(missingOutput.LastStep, /finalizing the dashboard before history/);
+    assert.doesNotMatch(await fs.readFile(log, "utf8"), /jobs:history-daily/);
     await fs.writeFile(missingReport, "fixture\n");
     await fs.rm(urlReport);
     await assert.rejects(exec("/bin/bash", [launcher], { env, timeout: 15000 }), error => error.code === 1);

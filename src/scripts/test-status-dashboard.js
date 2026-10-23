@@ -5,6 +5,8 @@ const path = require("path");
 const { packageIdentity, syncDashboard, previousPackage } = require("../lib/package-status");
 
 const { buildDashboard, sourceStatus } = require("./build-status-dashboard");
+const { buildMarkdown } = require("./build-status-dashboard");
+const { parseCsvRecords } = require("../lib/csv");
 
 const { executeTests } = require("./run-test-suite");
 
@@ -36,6 +38,12 @@ async function main() {
   assert.equal(buildDashboard({ packageRun: "20260923-0709", fullTest: { PackageRun: "20260922-0700", Status: "PASS" } }).TestStatus.FullSuiteStatus, "OTHER_PACKAGE_RUN");
   assert.match(buildDashboard({ fullTest: { Status: "FAIL" } }).SuggestedNextAction, /Resolve the failed validation/);
   assert.equal(buildRunSummary(daily, {}).TotalRows, null);
+  const repair = { RunId: "repair", RunType: "HISTORY_REPAIR", RepairOfRunId: "feed", PackageRun: "20260923-0709", History: "PASS", Backup: "PASS" };
+  const repairInput = { refreshRun: { RunId: "feed" }, packageRun: "20260923-0709", historyBackup: repair };
+  assert.equal(buildDashboard(repairInput).HistoryBackup.RunId, "repair");
+  assert.match(buildMarkdown(buildDashboard(repairInput)), /Result source: history repair repair/);
+  assert.equal(buildDashboard({ ...repairInput, packageRun: "other" }).HistoryBackup, null);
+  assert.equal(buildDashboard({ ...repairInput, refreshRun: { RunId: "other" } }).HistoryBackup, null);
   const failedRows = Array.from({ length: 100 }, () => ({ Status: "failed", HttpStatus: 403, JobCount: 0 }));
   assert.equal(evaluateAtsAnomalies("lever", failedRows, failedRows).Status, "OK");
   assert.equal(absoluteHealth(failedRows).Status, "HIGH");
@@ -75,7 +83,7 @@ async function main() {
       await fs.mkdir(path.join(root, dir));
       await fs.writeFile(path.join(root, dir, "gsheet-package-manifest.json"), JSON.stringify([
         { FileName: "01_good_documentation_jobs.csv", OutputPath: path.join(root, id, "01_good_documentation_jobs.csv"), SizeBytes: 13, Exists: true },
-        { FileName: "PROJECT_STATUS_DASHBOARD.md", OutputPath: path.join(root, id, "PROJECT_STATUS_DASHBOARD.md"), SizeBytes: 0, Exists: false },
+        { FileName: "PROJECT_STATUS_DASHBOARD.md", OutputPath: path.join(root, id, "PROJECT_STATUS_DASHBOARD.md"), SizeBytes: 0, Exists: false, RecommendedSheetTabName: "Status", ExtraField: "later-row value" },
       ]));
       await fs.writeFile(path.join(root, dir, "01_good_documentation_jobs.csv"), "Title\nWriter\n");
     }
@@ -96,6 +104,10 @@ async function main() {
       assert.equal(await fs.readFile(path.join(root, dir, "PROJECT_STATUS_DASHBOARD.md"), "utf8"), markdown);
       const manifest = JSON.parse(await fs.readFile(path.join(root, dir, "gsheet-package-manifest.json"), "utf8"));
       assert.equal(manifest.find((row) => row.FileName === "PROJECT_STATUS_DASHBOARD.md").SizeBytes, Buffer.byteLength(markdown));
+      const csv = parseCsvRecords(await fs.readFile(path.join(root, dir, "gsheet-package-manifest.csv"), "utf8"));
+      assert.ok(csv.headers.includes("RecommendedSheetTabName"));
+      assert.equal(csv.rows[1].RecommendedSheetTabName, "Status");
+      assert.equal(csv.rows[1].ExtraField, "later-row value");
     }
     await assert.rejects(syncDashboard(root, "Package run: other\n"), /does not match/);
     await fs.writeFile(path.join(root, "latest", "01_good_documentation_jobs.csv"), "Title\nChanged\n");

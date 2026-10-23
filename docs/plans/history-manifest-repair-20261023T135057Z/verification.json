@@ -1,0 +1,84 @@
+{
+  "status": "PASS",
+  "startedAt": "2026-10-23T14:12:54.273Z",
+  "phases": [
+    {
+      "name": "OWNED_REFRESH_LOCK",
+      "at": "2026-10-23T14:12:54.290Z"
+    },
+    {
+      "name": "ACCEPTED_METADATA_RESTORED",
+      "at": "2026-10-23T14:13:37.609Z",
+      "files": 3,
+      "databaseUnchanged": true
+    },
+    {
+      "name": "CURRENT_PACKAGE_FINALIZED",
+      "at": "2026-10-23T14:13:40.279Z",
+      "package": "20261023-0624",
+      "manifestColumns": 11
+    },
+    {
+      "name": "HISTORY_IMPORT_ACCEPTED",
+      "at": "2026-10-23T14:17:09.829Z",
+      "generation": "a96222a8-98be-4e16-b0d6-2826841f7235",
+      "imported": 1,
+      "snapshots": "156"
+    },
+    {
+      "name": "BACKUP_AND_FULL_RESTORE_STARTED",
+      "at": "2026-10-23T14:17:46.749Z"
+    },
+    {
+      "name": "BACKUP_COPIED",
+      "at": "2026-10-23T14:22:46.668Z"
+    },
+    {
+      "name": "FULL_RESTORE_AUDIT_PASSED",
+      "at": "2026-10-23T14:23:38.901Z"
+    }
+  ],
+  "retention": "SKIPPED; preserve all existing backup and recovery payloads",
+  "repairRunId": "99f28a70-8b5b-44b0-9c63-fa4542f6dad0",
+  "completedAt": "2026-10-23T14:26:33.659Z",
+  "generation": "a96222a8-98be-4e16-b0d6-2826841f7235",
+  "databaseSha256": "99a5f6929cda8d982321c31fc074223702db86a55c5993c56db5e85a3c1b6975",
+  "snapshotCount": "156",
+  "latestSnapshot": "20261023-0624",
+  "backup": {
+    "status": "PASS",
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261023T141746767Z-ce7bb563-ae8b-4b73-a152-11af034a1110",
+    "verifiedAt": "2026-10-23T14:23:53.010Z",
+    "databaseHash": "99a5f6929cda8d982321c31fc074223702db86a55c5993c56db5e85a3c1b6975",
+    "snapshot": "20261023-0624"
+  },
+  "changedPackageFiles": [
+    "data/jobs/gsheet-package/20261022-0622/PROJECT_STATUS_DASHBOARD.md",
+    "data/jobs/gsheet-package/20261022-0622/gsheet-package-manifest.csv",
+    "data/jobs/gsheet-package/20261022-0622/gsheet-package-manifest.json",
+    "data/jobs/gsheet-package/20261023-0624/PROJECT_STATUS_DASHBOARD.md",
+    "data/jobs/gsheet-package/20261023-0624/gsheet-package-manifest.csv",
+    "data/jobs/gsheet-package/20261023-0624/gsheet-package-manifest.json",
+    "data/jobs/gsheet-package/latest/PROJECT_STATUS_DASHBOARD.md",
+    "data/jobs/gsheet-package/latest/gsheet-package-manifest.csv",
+    "data/jobs/gsheet-package/latest/gsheet-package-manifest.json"
+  ],
+  "preservation": {
+    "packageRecordsChecked": 2985,
+    "jobCsvFilesUnchanged": 314,
+    "oldRecoveryFiles": 711,
+    "oldDailyBackups": 1,
+    "originalFeedRunUnchanged": true,
+    "existingBackupOrRecoveryRemovals": 0
+  },
+  "fullSuite": {
+    "status": "PASS",
+    "suites": 36
+  },
+  "postDashboardAudit": "PASS",
+  "noOpUpdate": {
+    "imported": 0,
+    "databaseHashUnchanged": true
+  },
+  "packageWriteGuard": "refused imported package"
+}

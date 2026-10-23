@@ -7,7 +7,11 @@ It then checks a verified backup on 1Pugh. The dashboard shows these results
 separately. Feed `COMPLETE` does not establish history or backup success.
 
 Read `data/jobs/reports/daily-history-backup.json` or its Markdown report.
-The dashboard uses that result only when its run ID matches `refresh-run.json`.
+The dashboard uses that result when its run ID matches `refresh-run.json`.
+An explicit `HISTORY_REPAIR` result can instead name that feed run in
+`RepairOfRunId` and the same current package in `PackageRun`. The dashboard
+labels the repair and original feed run separately; it does not claim a new
+feed refresh occurred.
 An older success must not appear as a current backup result. A missing drive
 gives backup `SKIPPED` if history passes. History failure prevents a new backup;
 inspect its warning and preserve the source evidence before further work.
@@ -22,12 +26,15 @@ each source was checked at that time. Read the source dates before you act.
 ## Build and check
 
 Run `npm run jobs:status` to update the report folder only. After package
-validation, run `npm run jobs:status -- --sync-package` to update the report
-and both copies of the current package dashboard. This command also saves a
-small run summary. It does not fetch boards or rebuild job exports.
+validation and before history import, run
+`npm run jobs:status -- --sync-package` to finalize both package dashboard
+copies. These snapshots say that history and backup have not yet run. Both
+commands save a small run summary. They do not fetch boards or rebuild jobs.
 
-The sync checks the package ID and job CSV hashes. A mismatch stops the sync.
-The refresh launcher runs validation before it syncs the final dashboard.
+The sync checks the package ID and job CSV hashes and retains all manifest CSV
+columns. A mismatch stops the sync. Sync and package rebuild hold the history
+lease and refuse an already imported package. After import, update reports
+only. A later report must not change a source manifest used by history.
 
 Run `npm run jobs:test-status-dashboard` and
 `npm run jobs:test-refresh-launcher` for the focused regression tests.

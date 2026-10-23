@@ -101,6 +101,7 @@
     "jobs:history-build": "node src/scripts/jobs-history.js build",
     "jobs:history-daily": "node src/scripts/daily-history-backup.js",
     "jobs:test-history-backup": "node src/scripts/test-history-backup.js",
+    "jobs:test-history-finalization": "node src/scripts/test-history-package-finalization.js",
     "jobs:history-update": "node src/scripts/jobs-history.js update",
     "jobs:history-audit": "node src/scripts/jobs-history.js audit",
     "jobs:test-history": "node src/scripts/test-jobs-history.js",
@@ -124,6 +125,7 @@
   },
   "testSuites": [
     "jobs:test-history-backup",
+    "jobs:test-history-finalization",
     "jobs:test-catalog-maintenance",
     "jobs:test-batch-history",
     "jobs:test-board-freshness",

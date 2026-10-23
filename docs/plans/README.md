@@ -82,6 +82,11 @@ The retained operation records, synthetic fixtures, and 40 original logs are
 included in Git with their original paths. The logs are explicit historical
 exceptions to the general log ignore rule. Future run logs remain ignored.
 
+The [approved manifest repair](history-manifest-repair-20261023T135057Z/README.md)
+records the later implementation, three-file restoration, pending import, and
+backup verification. Read its completion status. This does not change the
+original failed-run record or establish that a full feed refresh ran again.
+
 ## Duplicate logs removed by P01
 
 The three removed files below matched retained logs in the same operation

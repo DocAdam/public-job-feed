@@ -3,7 +3,9 @@ const path = require("path");
 const crypto = require("crypto");
 const { writeTextFile } = require("./files");
 const { writeJsonFile } = require("./files");
-const { rowsToCsv } = require("./csv");
+const { parseCsvRecords } = require("./csv");
+const { manifestCsv } = require("./package-manifest");
+const { withMutablePackage } = require("./package-history-guard");
 
 const jobsFile = "01_good_documentation_jobs.csv";
 
@@ -22,29 +24,37 @@ async function packageHash(packageDir) {
 async function syncDashboard(packageRoot, markdown) {
   const latest = path.join(packageRoot, "latest");
   const id = await packageIdentity(latest);
-  const timestamped = path.join(packageRoot, id);
-  if (await packageIdentity(timestamped) !== id || await packageHash(latest) !== await packageHash(timestamped)) {
-    throw new Error("Dashboard sync refused: latest and timestamped packages differ.");
-  }
-  if (!markdown.includes(`Package run: ${id}\n`)) throw new Error("Dashboard package run does not match latest.");
-  for (const dir of [timestamped, latest]) {
-    await writeTextFile(path.join(dir, "PROJECT_STATUS_DASHBOARD.md"), markdown);
-    const manifestPath = path.join(dir, "gsheet-package-manifest.json");
-    const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
-    const entry = manifest.find((row) => row.FileName === "PROJECT_STATUS_DASHBOARD.md");
-    if (entry) {
+  return withMutablePackage(packageRoot, id, async () => {
+    const timestamped = path.join(packageRoot, id);
+    if (await packageIdentity(latest) !== id || await packageIdentity(timestamped) !== id || await packageHash(latest) !== await packageHash(timestamped)) {
+      throw new Error("Dashboard sync refused: latest and timestamped packages differ.");
+    }
+    if (!markdown.includes(`Package run: ${id}\n`)) throw new Error("Dashboard package run does not match latest.");
+    const updates = [];
+    for (const dir of [timestamped, latest]) {
+      const manifestPath = path.join(dir, "gsheet-package-manifest.json");
+      const manifest = JSON.parse(await fs.readFile(manifestPath, "utf8"));
+      const entry = manifest.find((row) => row.FileName === "PROJECT_STATUS_DASHBOARD.md");
+      if (!entry) throw new Error(`Dashboard manifest entry missing: ${dir}`);
       entry.SizeBytes = Buffer.byteLength(markdown);
       entry.Exists = true;
+      let headers = [];
+      try { headers = parseCsvRecords(await fs.readFile(path.join(dir, "gsheet-package-manifest.csv"), "utf8")).headers; }
+      catch (error) { if (error.code !== "ENOENT") throw error; }
+      updates.push({ dir, manifestPath, manifest, csv: manifestCsv(manifest, headers) });
+    }
+    for (const { dir, manifestPath, manifest, csv } of updates) {
+      await writeTextFile(path.join(dir, "PROJECT_STATUS_DASHBOARD.md"), markdown);
       await writeJsonFile(manifestPath, manifest);
-      await writeTextFile(path.join(dir, "gsheet-package-manifest.csv"), rowsToCsv(Object.keys(manifest[0]), manifest));
+      await writeTextFile(path.join(dir, "gsheet-package-manifest.csv"), csv);
     }
-  }
-  for (const dir of [timestamped, latest]) {
-    if (await fs.readFile(path.join(dir, "PROJECT_STATUS_DASHBOARD.md"), "utf8") !== markdown) {
-      throw new Error(`Dashboard copy differs: ${dir}`);
+    for (const dir of [timestamped, latest]) {
+      if (await fs.readFile(path.join(dir, "PROJECT_STATUS_DASHBOARD.md"), "utf8") !== markdown) {
+        throw new Error(`Dashboard copy differs: ${dir}`);
+      }
     }
-  }
-  return id;
+    return id;
+  });
 }
 
 async function previousPackage(packageDir, root = path.dirname(packageDir), explicit = "") {

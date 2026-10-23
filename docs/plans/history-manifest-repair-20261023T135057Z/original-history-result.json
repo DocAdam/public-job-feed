@@ -1,0 +1,16 @@
+{
+  "RunId": "b7c60842-15b2-49c7-b33d-b2dc18f6a3e1",
+  "GeneratedAt": "2026-10-23T11:28:00.507Z",
+  "History": "FAILED",
+  "Backup": "NOT_RUN",
+  "LastVerified": {
+    "status": "PASS",
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261022T112856703Z-15fdc859-30e0-471f-9865-eff3b553418d",
+    "verifiedAt": "2026-10-22T11:35:28.784Z",
+    "databaseHash": "7370ade23f897fb6fe9fb120081254d2ef3ddb070cfc593e6a1f8bd0cf13de7d",
+    "snapshot": "20261022-0622"
+  },
+  "Warnings": [
+    "Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node --max-old-space-size=128 --expose-gc /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-runtime-worker.js inspect /Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package\nsnapshot inventory Error: Source hash mismatch: 20261022-0622/gsheet-package-manifest.json\n    at /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-runtime-worker.js:32:75\n    at async openRead (/Users/adampugh/GitHub/public-job-feed/src/lib/job-history-runtime.js:15:34)\n"
+  ]
+}

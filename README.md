@@ -87,8 +87,13 @@ Each refresh uses this sequence:
 5. Check links, safely prune confirmed invalid links, and build the review report.
 6. Generate the separate and combined remote reports.
 7. Run validation tests.
-8. Update and audit history, then check the 1Pugh backup and managed retention.
-9. Record the feed result, sync the final dashboard to both package copies, and check reported output paths.
+8. Finalize the current package dashboard and both manifest formats, then check reported output paths.
+9. Update and audit history, then check the 1Pugh backup and managed retention.
+10. Record the feed result and update the final dashboard in the reports folder only.
+
+The package dashboard is a snapshot taken before history and backup run. Later
+results stay in `data/jobs/reports/`. Dashboard sync and package rebuild refuse
+a package already imported into history. Both operations use the history lock.
 
 Feed, history, and backup results are separate. A successful feed result does
 not establish a successful history update or backup. A missing 1Pugh drive skips
@@ -114,6 +119,8 @@ with sample records does not establish that a live refresh completed. Check
 package IDs, source timestamps, and each report's status.
 The history/backup report must have the same run ID as the refresh. An older
 successful backup report does not verify a later refresh.
+An explicitly linked history repair can supply a later result for the same
+package. The dashboard names that repair and its original feed run separately.
 
 See [Status dashboard](docs/status-dashboard.md) for commands, status meanings,
 and the difference between board freshness, URL checks, and job status.
@@ -278,11 +285,13 @@ migration and recovery require a separate reviewed operation. Keep source
 packages and recovery records. Do not replace newer accepted history with an
 older backup that contains fewer snapshots.
 
-On October 23, 2026, the feed completed, but history failed on a saved package
-manifest hash mismatch. Backup did not run. The
-[dated checkpoint](docs/plans/history-checkpoint-2026-10-23.md) records the last
-accepted generation and the unresolved source failure. No repair is part of
-this commit cleanup.
+The October 23, 2026 feed initially completed, but history failed on a saved
+package manifest hash mismatch. Backup did not run. The
+[dated checkpoint](docs/plans/history-checkpoint-2026-10-23.md) preserves that
+failure. The approved repair imported `20261023-0624`, which brought history to
+156 snapshots. History and the new 1Pugh backup passed; a full restore test also
+passed. The [repair record](docs/plans/history-manifest-repair-20261023T135057Z/README.md)
+contains the checks and limits. The earlier failure record remains unchanged.
 
 ### Storage and retention
 

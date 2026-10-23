@@ -1,0 +1,23 @@
+[
+  {
+    "name": "gsheet-package-manifest.json",
+    "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261022-0622/gsheet-package-manifest.json",
+    "beforeHash": "1b24829181df1d756b8a5883891c80256ccc68ae36cd9ee211ea4a0d2bb8ffec",
+    "acceptedHash": "8c8d1d012da4d0c8385aaa43ee175a278f989947aab570ba96d2747162423683",
+    "state": "restored"
+  },
+  {
+    "name": "gsheet-package-manifest.csv",
+    "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261022-0622/gsheet-package-manifest.csv",
+    "beforeHash": "2f8c19c1a4f6bf793ed6523a32aba0bf074ce6ffb32f143a0238572105bc1e42",
+    "acceptedHash": "de27c1fd750d2c16503502a5c214afa1e7c56f4ca730b188e9789d831fd60698",
+    "state": "restored"
+  },
+  {
+    "name": "PROJECT_STATUS_DASHBOARD.md",
+    "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261022-0622/PROJECT_STATUS_DASHBOARD.md",
+    "beforeHash": "cc940185c2c7e69da0ccf3c5d997468bcce372a0dae79bca778e1a3584a55355",
+    "acceptedHash": "683112ecb0d05ae3f082605826aafbf52a35f060eed6f452343dd929b1046f10",
+    "state": "restored"
+  }
+]

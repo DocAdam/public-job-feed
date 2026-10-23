@@ -15,6 +15,8 @@ const {
   getLastCheckedRange,
 } = require("../lib/simple-public-export");
 const { ensureDir, fromRoot, readJsonFile, writeJsonFile, writeTextFile } = require("../lib/files");
+const { manifestCsv } = require("../lib/package-manifest");
+const { withMutablePackage } = require("../lib/package-history-guard");
 
 const publicDir = fromRoot("data", "jobs", "public");
 const reportsDir = fromRoot("data", "jobs", "reports");
@@ -26,20 +28,6 @@ const companyCoverageJsonPath = path.join(reportsDir, "company-coverage.json");
 const crawlCoverageSummaryPath = path.join(reportsDir, "crawl-coverage-summary.json");
 const dataDictionaryCsvPath = path.join(publicDir, "public-job-feed-data-dictionary.csv");
 const dataDictionaryMarkdownPath = path.join(publicDir, "public-job-feed-data-dictionary.md");
-
-const manifestHeaders = [
-  "FileName",
-  "SourcePath",
-  "OutputPath",
-  "Exists",
-  "SizeBytes",
-  "RecommendedSheetTabName",
-  "RecommendedPrimary",
-  "RecommendedSecondary",
-  "RecommendedUse",
-  "Purpose",
-  "Notes",
-];
 
 const packageFiles = [
   {
@@ -1085,7 +1073,7 @@ async function writeManifestFiles(outputDir, manifestRows) {
   const csvPath = path.join(outputDir, "gsheet-package-manifest.csv");
   const jsonPath = path.join(outputDir, "gsheet-package-manifest.json");
 
-  await writeTextFile(csvPath, rowsToCsv(manifestHeaders, manifestRows));
+  await writeTextFile(csvPath, manifestCsv(manifestRows));
   await writeJsonFile(jsonPath, manifestRows);
 }
 
@@ -1174,12 +1162,11 @@ async function getDirectorySize(dirPath) {
   return total;
 }
 
-async function main() {
+async function buildPackage(timestamp) {
   const profile = getProfile();
   const legacyPackages = parseBoolean(getArgValue("--legacy-packages", profile === "full" ? "true" : "false"), profile === "full");
   const includeFirehose = parseBoolean(getArgValue("--include-firehose", "true"), true);
   const firehoseMode = String(getArgValue("--firehose-mode", profile === "daily" ? "link" : "copy")).trim().toLowerCase();
-  const timestamp = getTimestampParts(new Date());
   const packageDir = path.join(packageRoot, timestamp.folder);
   const latestDir = path.join(packageRoot, "latest");
   const latestCleanDir = path.join(packageRoot, "latest-clean");
@@ -1321,6 +1308,11 @@ async function main() {
     console.log(`Latest clean package size bytes: ${latestCleanSize}`);
     console.log(`Top matches only package size bytes: ${topOnlySize}`);
   }
+}
+
+async function main() {
+  const timestamp = getTimestampParts(new Date());
+  return withMutablePackage(packageRoot, timestamp.folder, () => buildPackage(timestamp));
 }
 
 if (require.main === module) {

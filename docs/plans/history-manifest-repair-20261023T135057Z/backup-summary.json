@@ -1,0 +1,12 @@
+{
+  "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261023T141746767Z-ce7bb563-ae8b-4b73-a152-11af034a1110",
+  "generation": "a96222a8-98be-4e16-b0d6-2826841f7235",
+  "databaseHash": "99a5f6929cda8d982321c31fc074223702db86a55c5993c56db5e85a3c1b6975",
+  "latestSnapshot": "20261023-0624",
+  "fingerprint": "c76c5357bc0a39232d791976726e895526fff92048dbb755e5c1d3ea7b64c76b",
+  "files": 3222,
+  "uncompressedBytes": 4541513259,
+  "fullRestore": true,
+  "reportMatches": true,
+  "verifiedAt": "2026-10-23T14:23:38.927Z"
+}

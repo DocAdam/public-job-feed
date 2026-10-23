@@ -27,7 +27,7 @@ async function main() {
     for (const folder of ["src/scripts", "src/lib", "data/jobs/reports", "data/jobs/gsheet-package/latest"]) {
       await fs.mkdir(path.join(root, folder), { recursive: true });
     }
-    for (const file of ["src/scripts/validate-refresh-output.js", "src/lib/files.js", "src/lib/csv.js", "src/lib/package-status.js", "src/lib/package-time.js", "src/lib/refresh-output-paths.js"]) {
+    for (const file of ["src/scripts/validate-refresh-output.js", "src/lib/files.js", "src/lib/csv.js", "src/lib/package-status.js", "src/lib/package-manifest.js", "src/lib/package-history-guard.js", "src/lib/package-time.js", "src/lib/refresh-output-paths.js"]) {
       await fs.copyFile(fromRoot(file), path.join(root, file));
     }
     const latest = path.join(root, "data/jobs/gsheet-package/latest");

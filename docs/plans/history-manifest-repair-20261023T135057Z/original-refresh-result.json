@@ -1,0 +1,15 @@
+{
+  "RunId": "b7c60842-15b2-49c7-b33d-b2dc18f6a3e1",
+  "StartedAt": "2026-10-23T11:01:58.294Z",
+  "Status": "COMPLETE",
+  "ProjectRoot": "/Users/adampugh/GitHub/public-job-feed",
+  "LauncherPath": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+  "LauncherSHA256": "45a85a94956e49a9bcde2209295ca58097352b5ea0dbc4d89b76995743215a31",
+  "GitRevision": "73ec53ddbdc8162a5d1b32823b9c00149b92219a",
+  "WorkingTreeChanged": true,
+  "Arguments": [],
+  "ParentLauncher": "/Users/adampugh/Desktop/Refresh Job Feed.command",
+  "ExitCode": 0,
+  "LastStep": "Step 8: refreshing status dashboard",
+  "CompletedAt": "2026-10-23T11:28:00.594Z"
+}

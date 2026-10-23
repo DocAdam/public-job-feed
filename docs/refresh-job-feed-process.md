@@ -83,14 +83,18 @@ flowchart TD
     G -. "Cleanup or validation failure" .-> X
     I -- Yes --> V{"validate-refresh-output.js<br/>Current package IDs and source dates?"}
     V -- No --> X
-    V -- Yes --> HB["daily-history-backup.js<br/>Update and audit history<br/>Create and restore-test a backup on 1Pugh<br/>Record missing-drive or failure status"]
-    HB --> J["build-status-dashboard.js --sync-package<br/>Record separate feed, history, and backup results<br/>Sync dashboards and open latest package"]
+    V -- Yes --> PF["build-status-dashboard.js --sync-package<br/>Finalize the current package snapshot and complete CSV schema<br/>Check package ID and reported paths"]
+    PF --> HB["daily-history-backup.js<br/>Check pending dashboard identities<br/>Update and audit history<br/>Create and restore-test a backup on 1Pugh<br/>Record missing-drive or failure status"]
+    HB --> J["build-status-dashboard.js<br/>Record separate feed, history, and backup results<br/>Update reports only and open latest package"]
     J -. "Separate manual step" .-> K(["Upload to Google Sheets<br/>or publish to Substack"])
 ```
 
 See [Daily history and 1Pugh backup](daily-history-backups.md) for checks, restore
 steps, and retention. Existing backups and historical CSV files are preserved.
 A backup failure does not change a successful feed result to a feed failure.
+No package sync runs after history import. Package dashboards remain snapshots
+from before history and backup; current results stay in the reports folder.
+Sync and rebuild refuse an already imported package under the history lease.
 
 Duplicate selection uses [dedupe-select.js](../src/lib/dedupe-select.js).
 It joins rows by duplicate-group or canonical-URL keys, with fallback keys

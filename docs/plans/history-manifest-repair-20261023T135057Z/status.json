@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "phase": "REPAIR_VERIFIED",
+  "repairRunId": "99f28a70-8b5b-44b0-9c63-fa4542f6dad0",
+  "privateEvidence": "/Users/adampugh/GitHub/public-job-feed/.git/history-manifest-repair/20261023T135057Z",
+  "generation": "a96222a8-98be-4e16-b0d6-2826841f7235",
+  "snapshots": "156",
+  "backup": "PASS",
+  "changedPackageFiles": 9
+}

@@ -13,8 +13,11 @@ Do not run a manual history writer or change packages while a refresh is active.
 1. Take a lock for the complete refresh. A second launcher stops and must be
    retried after the first finishes. An interrupted owner needs manual review; locks do not expire
    by age. The lock releases before the completed terminal waits for a key.
-2. After the feed checks pass, use the existing history writer to import new
-   dated packages. Audit the result. Keep its existing recovery and disk guards.
+2. After the feed checks pass, finalize the current package dashboard and both
+   manifest formats. Check its package ID and reported paths. Then import new
+   dated packages and audit history. The daily history command refuses a pending
+   package with a dashboard from another run or an incorrect dashboard size.
+   Keep the existing recovery, source-hash, and disk guards.
 3. Identify 1Pugh by its mount path, external device, writable state, and volume
    UUID `A56D5D1E-1F58-30E1-9A46-A83B1E5ABDD1`.
 4. Hold the history lease while making a new compressed backup. Include the
@@ -26,9 +29,16 @@ Do not run a manual history writer or change packages while a refresh is active.
    did not change. Recheck all source hashes and the drive before acceptance.
 6. Save `VERIFIED.json` only after those checks pass. Rename the new folder from
    `.pending-...` to `daily-...`. An earlier verified backup is never overwritten.
-7. Record the results and then build the final status dashboard. The backed-up
-   source packages reflect the completed feed checks, before this last dashboard
-   sync. The CSV files do not change in that sync.
+7. Record the results and build the final status dashboard in `data/jobs/reports/`
+   only. Do not sync either package copy after import. The package dashboard is
+   explicitly marked as a snapshot before history and backup. Its bytes and both
+   manifests remain unchanged after that point.
+
+Before a manual history update for a new package, use
+`npm run jobs:status -- --sync-package` after feed validation. This command
+preserves the complete manifest CSV schema. It and the package builder refuse
+to change a package that history already contains. The history lease covers the
+package writes, so an active history writer or reader also stops them.
 
 The new backup root is:
 
@@ -118,18 +128,23 @@ real history database, and a simulated drive. They cover a missing/wrong drive,
 new history while disconnected, full restore and report checks, repeated runs,
 failed copies, corruption, changed sources, active writers, retention, and
 recovery after local expiry. Launcher tests check ordering and lock release.
+Run `npm run jobs:test-history-finalization` to check package finalization,
+complete manifest columns, refusal of writes after import, and a second daily
+import and backup. These tests use temporary data and a simulated drive.
 
 The policy is enabled in the desktop refresh. Saved reports for October 22,
 2026 record feed `COMPLETE`, history `PASS`, and backup `PASS` for run
 `07b4e7ee-68de-44eb-846e-4ba6a37350f2`, through snapshot `20261022-0622`.
 The commit review did not independently restore that external backup.
 
-The October 23 feed completed, but history failed on a source hash mismatch for
-`20261022-0622/gsheet-package-manifest.json`. Backup was `NOT_RUN`. This is not
-a current successful history audit. Preserve the source file, accepted history,
-and failure evidence for a separate review. Do not rewrite saved hashes or
-rebuild history to bypass the failure. See the
-[dated checkpoint](plans/history-checkpoint-2026-10-23.md).
+The October 23 feed completed, but history initially failed on a source hash
+mismatch for `20261022-0622/gsheet-package-manifest.json`. Backup was `NOT_RUN`. The
+[dated checkpoint](plans/history-checkpoint-2026-10-23.md) preserves that result.
+The approved repair imported the pending `20261023-0624` snapshot. The new history
+audit and the full 1Pugh backup restore test passed. History now has 156 snapshots.
+See the [repair record](plans/history-manifest-repair-20261023T135057Z/README.md)
+for evidence and limits. Recorded source hashes were not rewritten. The repair
+did not rebuild the database or remove existing backup and recovery copies.
 
 A full restore adds time and temporary disk use to each new backup. Use current
 run reports for measured results; the small isolated tests do not establish a

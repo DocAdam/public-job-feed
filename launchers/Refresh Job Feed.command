@@ -192,6 +192,11 @@ fi
 npm run jobs:validate-refresh-output
 step_complete "Step 7"
 
+step_start "Package: finalizing the dashboard before history"
+npm run jobs:status -- --sync-package
+node src/lib/refresh-output-paths.js --check-all
+step_complete "Package finalization"
+
 step_start "History: updating and verifying the 1Pugh backup"
 if ! npm run jobs:history-daily; then
   echo "Warning: the history/backup command could not finish. The feed checks passed; backup status is not verified." | tee -a "$REFRESH_STATUS"
@@ -200,7 +205,7 @@ step_complete "History and backup check"
 
 step_start "Step 8: refreshing status dashboard"
 node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status COMPLETE --exit-code 0 --step "$CURRENT_STEP"
-npm run jobs:status -- --sync-package
+npm run jobs:status
 node src/lib/refresh-output-paths.js --check-all
 step_complete "Step 8"
 echo "Completed: $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$REFRESH_STATUS"

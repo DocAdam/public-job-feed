@@ -245,7 +245,13 @@ function buildDashboard(data) {
     GeneratedAt: new Date().toISOString(),
     PackageRun: data.packageRun || "Unknown",
     RefreshRun: data.refreshRun || null,
-    HistoryBackup: data.historyBackup?.RunId === data.refreshRun?.RunId && data.historyBackup?.RunId ? data.historyBackup : null,
+    HistoryBackup: data.historyBackup?.RunId && data.refreshRun?.RunId && (
+      data.historyBackup.RunId === data.refreshRun.RunId || (
+        data.historyBackup.RunType === "HISTORY_REPAIR" &&
+        data.historyBackup.RepairOfRunId === data.refreshRun.RunId &&
+        data.historyBackup.PackageRun === data.packageRun
+      )
+    ) ? data.historyBackup : null,
     SourceReports: data.sourceReports || [],
     EvidenceReview: data.evidenceReview ? { PackageRun: data.evidenceReview.PackageRun, ReviewRows: data.evidenceReview.ReviewRows, WritingReviewRows: data.evidenceReview.WritingReviewRows ?? null, LiveChecks: data.evidenceReview.LiveChecks } : null,
     PublicFeedStatus: publicFeedStatus,
@@ -405,6 +411,11 @@ function buildMarkdown(dashboard) {
     "",
     `Generated: ${dashboard.GeneratedAt}`,
     `Package run: ${dashboard.PackageRun}`,
+    ...(dashboard.PackageSnapshot ? [
+      "",
+      "Package snapshot: feed validation is complete. History and backup run after this snapshot.",
+      "Read data/jobs/reports/project-status-dashboard.md for their final results.",
+    ] : []),
     "",
     "## Refresh Run Evidence",
     "",
@@ -421,6 +432,10 @@ function buildMarkdown(dashboard) {
     "## History and 1Pugh Backup",
     "",
     ...(dashboard.HistoryBackup ? [
+      ...(dashboard.HistoryBackup.RunType === "HISTORY_REPAIR" ? [
+        `- Result source: history repair ${dashboard.HistoryBackup.RunId}`,
+        `- Repairs feed run: ${dashboard.HistoryBackup.RepairOfRunId}`,
+      ] : []),
       `- History: ${dashboard.HistoryBackup.History}`,
       `- Backup: ${dashboard.HistoryBackup.Backup}`,
       `- Latest history snapshot: ${dashboard.HistoryBackup.LatestSnapshot || "Unknown"}`,
@@ -689,7 +704,10 @@ async function main() {
   await fs.writeFile(path.join(reportsDir, "project-status-dashboard.md"), buildMarkdown(dashboard), "utf8");
 
   if (process.argv.includes("--sync-package")) {
-    await syncDashboard(packageRoot, buildMarkdown(dashboard));
+    const packageSnapshot = { ...dashboard, PackageSnapshot: true, HistoryBackup: null };
+    await syncDashboard(packageRoot, buildMarkdown(packageSnapshot));
+  }
+  if (/^\d{8}-\d{4}$/.test(dashboard.PackageRun)) {
     await saveRunSummary(path.join(reportsDir, "run-summaries"), dashboard, data.latestSummary);
   }
 

@@ -127,6 +127,7 @@ async function dailyHistory(options, dependencies = {}) {
   let state;
   try {
     state = await retention.loadState(stateFile); status.LastVerified = state.lastVerified;
+    await require('./package-history-guard').checkPendingDashboards(source, database);
     // Reclaim only managed, proven obsolete payloads before the writer's disk guard.
     try {
       const available = await probe();
