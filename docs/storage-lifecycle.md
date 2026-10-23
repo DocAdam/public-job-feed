@@ -2,6 +2,11 @@
 
 This guide explains which generated job-data files are current inputs, which are compact historical records, and when older artifacts can be retired.
 
+The daily refresh now updates the history database and checks a backup on
+1Pugh. See [Daily history and 1Pugh backup](daily-history-backups.md) for the
+separate retention policy for new daily backups. Existing archives and recovery
+copies remain outside that policy. Raw-batch cleanup remains a separate action.
+
 ## Current data
 
 Keep these files available:

@@ -1,5 +1,21 @@
 # Status dashboard
 
+## Feed, history, and backup results
+
+The desktop refresh updates and audits history after the feed checks pass.
+It then checks a verified backup on 1Pugh. The dashboard shows these results
+separately. Feed `COMPLETE` does not establish history or backup success.
+
+Read `data/jobs/reports/daily-history-backup.json` or its Markdown report.
+The dashboard uses that result only when its run ID matches `refresh-run.json`.
+An older success must not appear as a current backup result. A missing drive
+gives backup `SKIPPED` if history passes. History failure prevents a new backup;
+inspect its warning and preserve the source evidence before further work.
+
+The last verified backup date and snapshot describe the earlier backup. They do
+not verify the current run. See [Daily history and 1Pugh backup](daily-history-backups.md)
+for restore checks, managed retention, and failure limits.
+
 The dashboard combines saved reports. Its generation time does not mean that
 each source was checked at that time. Read the source dates before you act.
 

@@ -99,6 +99,8 @@
     "jobs:test-refresh-reports": "node src/scripts/test-refresh-reports.js",
     "jobs:test-review-improvements": "node src/scripts/test-review-improvements.js",
     "jobs:history-build": "node src/scripts/jobs-history.js build",
+    "jobs:history-daily": "node src/scripts/daily-history-backup.js",
+    "jobs:test-history-backup": "node src/scripts/test-history-backup.js",
     "jobs:history-update": "node src/scripts/jobs-history.js update",
     "jobs:history-audit": "node src/scripts/jobs-history.js audit",
     "jobs:test-history": "node src/scripts/test-jobs-history.js",
@@ -121,6 +123,7 @@
     "better-sqlite3": "^12.11.1"
   },
   "testSuites": [
+    "jobs:test-history-backup",
     "jobs:test-catalog-maintenance",
     "jobs:test-batch-history",
     "jobs:test-board-freshness",

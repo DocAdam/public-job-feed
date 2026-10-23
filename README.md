@@ -65,7 +65,11 @@ The normal macOS workflow is:
 open launchers/Refresh\ Job\ Feed.command
 ```
 
-It refreshes due boards, rebuilds the current feed and Google Sheets package, checks links, validates the result, and updates operational reports. It does not publish directly to Google Sheets or Substack.
+It refreshes due boards, rebuilds the current feed and Google Sheets package, checks links, and validates the result. It then updates and audits history and checks a verified backup on 1Pugh. It does not publish directly to Google Sheets or Substack.
+
+The launcher holds a lock for the complete refresh. A second launcher stops
+before it starts work. An interrupted lock requires an owner check; it does not
+expire by age.
 
 Each refresh uses this sequence:
 
@@ -76,7 +80,12 @@ Each refresh uses this sequence:
 5. Check links, safely prune confirmed invalid links, and build the review report.
 6. Generate the separate and combined remote reports.
 7. Run validation tests.
-8. Record the refresh result, sync the final dashboard to both package copies, and check reported output paths.
+8. Update and audit history, then check the 1Pugh backup and managed retention.
+9. Record the feed result, sync the final dashboard to both package copies, and check reported output paths.
+
+Feed, history, and backup results are separate. A successful feed result does
+not establish a successful history update or backup. A missing 1Pugh drive skips
+backup and retention. History can still update if its source checks pass.
 
 The desktop entry uses `launchers/Refresh Job Feed.desktop-wrapper.sh` to start
 the repository launcher. Keep one process definition in the repository.
@@ -91,10 +100,13 @@ Before manual publication, check these files in `data/jobs/reports/`:
 - `project-status-dashboard.md`: source dates, current failures, and warnings.
 - `package-evidence-review.md`: automated evidence and attributed user reviews.
 - `refresh-output-validation.json`: whether required outputs use the current inputs.
+- `daily-history-backup.json` and `.md`: history, backup, retention, and last verified backup results.
 
 A recent report-generation time does not make its source data current. A test
 with sample records does not establish that a live refresh completed. Check
 package IDs, source timestamps, and each report's status.
+The history/backup report must have the same run ID as the refresh. An older
+successful backup report does not verify a later refresh.
 
 See [Status dashboard](docs/status-dashboard.md) for commands, status meanings,
 and the difference between board freshness, URL checks, and job status.
@@ -258,6 +270,11 @@ to that retirement command. Plans expire after 24 hours; changed inputs require
 a new plan. See [Storage lifecycle](docs/storage-lifecycle.md) for the checks,
 locks, recovery limits, and full-slice workflow.
 
+Managed daily backups have a separate guarded retention policy. It can remove
+eligible daily backups and registered local recovery payloads. It does not adopt
+legacy archives, backups, or migration controls. See
+[Daily history and 1Pugh backup](docs/daily-history-backups.md).
+
 ### Completed review records
 
 Use the [review-record index](docs/plans/README.md) for completed migrations,
@@ -287,6 +304,7 @@ README, then check references and links in the same group.
 | [Understand Public Job Feed data](docs/public-job-feed-data.md) | Data provenance, field groups, outputs, and safe use of the feed. |
 | [Google Sheets package cleanup](docs/gsheet-csv-cleanup-plan.md) | Checking and safely pruning deterministic broken links. |
 | [Storage lifecycle](docs/storage-lifecycle.md) | Keeping current data, compact history, and safe batch retention boundaries. |
+| [Daily history and backup](docs/daily-history-backups.md) | History updates, 1Pugh checks, restore tests, and managed retention. |
 | [Weekly Top 5 workflow](docs/weekly-top-five-substack.md) | Preparing the editorial job-roundup draft. |
 
 ## Development notes

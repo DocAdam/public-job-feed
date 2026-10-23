@@ -18,6 +18,11 @@ JOB_FINDER_SLICE="$PROJECT_DIR/data/jobs/consumers/job-finder/latest.json"
 
 cd "$PROJECT_DIR"
 
+FEED_REFRESH_TOKEN="$(node src/scripts/refresh-run-lock.js acquire "$$")"
+export FEED_REFRESH_TOKEN
+# Keep the complete refresh, history update, and backup under one owner.
+trap 'node src/scripts/refresh-run-lock.js release "$FEED_REFRESH_TOKEN"' EXIT
+
 echo "========================================"
 echo "Public Job Feed Refresh"
 echo "========================================"
@@ -40,6 +45,7 @@ refresh_exit() {
     printf '\nFailed: %s (exit %s)\n' "$CURRENT_STEP" "$code" >> "$REFRESH_STATUS"
     npm run jobs:status || true
   fi
+  node src/scripts/refresh-run-lock.js release "$FEED_REFRESH_TOKEN" || true
 }
 trap refresh_exit EXIT
 
@@ -186,6 +192,12 @@ fi
 npm run jobs:validate-refresh-output
 step_complete "Step 7"
 
+step_start "History: updating and verifying the 1Pugh backup"
+if ! npm run jobs:history-daily; then
+  echo "Warning: the history/backup command could not finish. The feed checks passed; backup status is not verified." | tee -a "$REFRESH_STATUS"
+fi
+step_complete "History and backup check"
+
 step_start "Step 8: refreshing status dashboard"
 node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status COMPLETE --exit-code 0 --step "$CURRENT_STEP"
 npm run jobs:status -- --sync-package
@@ -230,6 +242,10 @@ echo "Combined all-remote daily report:"
 echo "$ALL_REMOTE_REPORT"
 echo
 
+# Release the owner before the terminal waits for a key after completed work.
+node src/scripts/refresh-run-lock.js release "$FEED_REFRESH_TOKEN"
+trap - EXIT
+unset FEED_REFRESH_TOKEN
 open "$GSHEET_DIR" || true
 
 echo

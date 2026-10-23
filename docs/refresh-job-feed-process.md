@@ -3,6 +3,8 @@
 These diagrams summarize the current `Refresh Job Feed.command` process.
 Script names refer to `src/scripts/` unless a different folder is shown.
 The refresh prepares local files. Publication is a separate manual step.
+The launcher holds a full-refresh lock through the feed build, history update,
+and backup checks. A second launcher stops before it starts work.
 
 ## Source checks and feed build
 
@@ -31,7 +33,6 @@ Catalog checks and due-board checks start in parallel. The index step waits
 for the required checks to finish. Invalid catalog data uses the previous
 source; an unapproved row-count decline above 20% also triggers this fallback.
 A required maintenance failure stops the refresh before the release build.
-
 Within board maintenance, ATS groups run one at a time because each group
 uses the same exclusive batch lock. Requests within each group keep their
 configured concurrency. All groups share the same time limit.
@@ -82,9 +83,14 @@ flowchart TD
     G -. "Cleanup or validation failure" .-> X
     I -- Yes --> V{"validate-refresh-output.js<br/>Current package IDs and source dates?"}
     V -- No --> X
-    V -- Yes --> J["build-status-dashboard.js --sync-package<br/>Record completion, sync dashboards, and open latest package"]
+    V -- Yes --> HB["daily-history-backup.js<br/>Update and audit history<br/>Create and restore-test a backup on 1Pugh<br/>Record missing-drive or failure status"]
+    HB --> J["build-status-dashboard.js --sync-package<br/>Record separate feed, history, and backup results<br/>Sync dashboards and open latest package"]
     J -. "Separate manual step" .-> K(["Upload to Google Sheets<br/>or publish to Substack"])
 ```
+
+See [Daily history and 1Pugh backup](daily-history-backups.md) for checks, restore
+steps, and retention. Existing backups and historical CSV files are preserved.
+A backup failure does not change a successful feed result to a feed failure.
 
 Duplicate selection uses [dedupe-select.js](../src/lib/dedupe-select.js).
 It joins rows by duplicate-group or canonical-URL keys, with fallback keys

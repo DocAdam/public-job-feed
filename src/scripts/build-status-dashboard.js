@@ -9,6 +9,7 @@ const { exportProfile, saveRunSummary } = require("../lib/run-summary");
 const reportsDir = fromRoot("data", "jobs", "reports");
 
 const inputs = {
+  historyBackup: fromRoot("data", "jobs", "reports", "daily-history-backup.json"),
   outputValidation: fromRoot("data", "jobs", "reports", "refresh-output-validation.json"),
   refreshRun: fromRoot("data", "jobs", "reports", "refresh-run.json"),
   exportRun: fromRoot("data", "jobs", "reports", "release-run-summary.json"),
@@ -244,6 +245,7 @@ function buildDashboard(data) {
     GeneratedAt: new Date().toISOString(),
     PackageRun: data.packageRun || "Unknown",
     RefreshRun: data.refreshRun || null,
+    HistoryBackup: data.historyBackup?.RunId === data.refreshRun?.RunId && data.historyBackup?.RunId ? data.historyBackup : null,
     SourceReports: data.sourceReports || [],
     EvidenceReview: data.evidenceReview ? { PackageRun: data.evidenceReview.PackageRun, ReviewRows: data.evidenceReview.ReviewRows, WritingReviewRows: data.evidenceReview.WritingReviewRows ?? null, LiveChecks: data.evidenceReview.LiveChecks } : null,
     PublicFeedStatus: publicFeedStatus,
@@ -415,6 +417,17 @@ function buildMarkdown(dashboard) {
       `- Working tree changed: ${dashboard.RefreshRun.WorkingTreeChanged}`,
       `- Arguments: ${JSON.stringify(dashboard.RefreshRun.Arguments)}`,
     ] : ["No run evidence recorded. The next refresh will record the launcher path, hash, revision, and arguments."]),
+    "",
+    "## History and 1Pugh Backup",
+    "",
+    ...(dashboard.HistoryBackup ? [
+      `- History: ${dashboard.HistoryBackup.History}`,
+      `- Backup: ${dashboard.HistoryBackup.Backup}`,
+      `- Latest history snapshot: ${dashboard.HistoryBackup.LatestSnapshot || "Unknown"}`,
+      `- Last verified backup: ${dashboard.HistoryBackup.LastVerified?.verifiedAt || "None recorded"}`,
+      `- Last backed-up snapshot: ${dashboard.HistoryBackup.LastVerified?.snapshot || "Unknown"}`,
+      ...(dashboard.HistoryBackup.Warnings || []).map(w => `- Warning: ${w}`),
+    ] : ["No history/backup result for this refresh. Backup is not verified for this run."]),
     "",
     "## Source Report Dates",
     "",
@@ -634,6 +647,7 @@ async function main() {
   await ensureDir(reportsDir);
 
   const data = {
+    historyBackup: await readJsonIfExists(inputs.historyBackup),
     outputValidation: await readJsonIfExists(inputs.outputValidation),
     refreshRun: await readJsonIfExists(inputs.refreshRun),
     exportRun: await readJsonIfExists(inputs.exportRun),

@@ -13,7 +13,7 @@ async function main() {
     for (const dir of ["bin", "src/scripts", "src/lib", "launchers", "data/jobs/gsheet-package/20260923-0709"]) {
       await fs.mkdir(path.join(root, dir), { recursive: true });
     }
-    for (const file of ["src/scripts/record-refresh-run.js", "src/lib/files.js", "src/lib/package-status.js", "src/lib/csv.js", "src/lib/refresh-output-paths.js"]) {
+    for (const file of ["src/scripts/refresh-run-lock.js", "src/lib/feed-refresh-lock.js", "src/lib/batch-maintenance.js", "src/scripts/record-refresh-run.js", "src/lib/files.js", "src/lib/package-status.js", "src/lib/csv.js", "src/lib/refresh-output-paths.js"]) {
       await fs.copyFile(fromRoot(file), path.join(root, file));
     }
     const packageRoot = path.join(root, "data/jobs/gsheet-package");
@@ -32,13 +32,13 @@ async function main() {
     await fs.writeFile(launcher, fixture);
     await fs.writeFile(path.join(root, "launchers", "Clean Broken Links.command"), "#!/bin/bash\nexit 0\n", { mode: 0o755 });
     await fs.writeFile(path.join(root, "bin", "npm"), '#!/bin/bash\nprintf "%s\\n" "$*" >> "$TEST_COMMAND_LOG"\nif [[ -n "$TEST_FAIL_MATCH" && "$*" == *"$TEST_FAIL_MATCH"* ]]; then exit 7; fi\n', { mode: 0o755 });
-    await fs.writeFile(path.join(root, "bin", "open"), "#!/bin/bash\nexit 0\n", { mode: 0o755 });
+    await fs.writeFile(path.join(root, "bin", "open"), '#!/bin/bash\nif [ -e "$TEST_PROJECT/data/jobs/state/feed-refresh.lock" ]; then echo "LOCK_HELD_AT_OPEN" >> "$TEST_COMMAND_LOG"; fi\nexit 0\n', { mode: 0o755 });
     for (const name of require("../lib/refresh-output-paths").reportedFiles) {
       await fs.mkdir(path.dirname(path.join(root, name)), { recursive: true });
       await fs.writeFile(path.join(root, name), "fixture\n");
     }
     const log = path.join(root, "commands.log");
-    const env = { ...process.env, TEST_COMMAND_LOG: log, TEST_FAIL_MATCH: "" };
+    const env = { ...process.env, TEST_PROJECT: root, TEST_COMMAND_LOG: log, TEST_FAIL_MATCH: "" };
     await exec("/bin/bash", [launcher, "test argument with spaces"], { env, timeout: 15000 });
     const complete = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
     assert.equal(complete.Status, "COMPLETE");
@@ -46,8 +46,21 @@ async function main() {
     assert.equal(complete.LauncherPath, await fs.realpath(launcher));
     assert.match(complete.LauncherSHA256, /^[0-9a-f]{64}$/);
     const calls = await fs.readFile(log, "utf8");
+    assert.doesNotMatch(calls, /LOCK_HELD_AT_OPEN/);
     assert.ok(calls.indexOf("jobs:test-all") < calls.indexOf("jobs:status -- --sync-package"));
     assert.ok(calls.includes("jobs:review-package-evidence"));
+    assert.ok(calls.indexOf("jobs:validate-refresh-output") < calls.indexOf("jobs:history-daily"));
+    assert.ok(calls.indexOf("jobs:history-daily") < calls.indexOf("jobs:status -- --sync-package"));
+    assert.equal(await fs.access(path.join(root, 'data/jobs/state/feed-refresh.lock')).then(() => true, () => false), false);
+    const lock = require('../lib/feed-refresh-lock');
+    const token = await lock.acquire(root);
+    await fs.writeFile(log, '');
+    await assert.rejects(exec('/bin/bash', [launcher], { env, timeout: 15000 }), /refresh lock exists/);
+    assert.equal(await fs.readFile(log, 'utf8'), '');
+    await lock.release(root, token);
+    await exec('/bin/bash', [launcher], { env: { ...env, TEST_FAIL_MATCH: 'jobs:history-daily' }, timeout: 15000 });
+    assert.equal(JSON.parse(await fs.readFile(path.join(root, 'data/jobs/reports/refresh-run.json'), 'utf8')).Status, 'COMPLETE');
+    assert.match(await fs.readFile(path.join(root, 'data/jobs/reports/refresh-job-feed-status.md'), 'utf8'), /backup status is not verified/);
     await fs.writeFile(log, "");
     await assert.rejects(exec("/bin/bash", [launcher], { env: { ...env, TEST_FAIL_MATCH: "jobs:public-release" }, timeout: 15000 }), (error) => error.code === 7);
     const failed = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
@@ -60,7 +73,7 @@ async function main() {
     const oldOutput = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
     assert.equal(oldOutput.Status, "FAILED");
     assert.match(oldOutput.LastStep, /Step 7/);
-    assert.doesNotMatch(await fs.readFile(log, "utf8"), /--sync-package/);
+    assert.doesNotMatch(await fs.readFile(log, "utf8"), /--sync-package|jobs:history-daily/);
     await fs.writeFile(log, "");
     await assert.rejects(exec("/bin/bash", [launcher], { env: { ...env, TEST_FAIL_MATCH: "jobs:status -- --sync-package" }, timeout: 15000 }), (error) => error.code === 7);
     const syncFailure = JSON.parse(await fs.readFile(path.join(root, "data/jobs/reports/refresh-run.json"), "utf8"));
@@ -81,7 +94,11 @@ async function main() {
     assert.equal(missing.Status, "FAILED");
     assert.match(missing.LastStep, /Step 5/);
     const wrapper = await fs.readFile(fromRoot("launchers", "Refresh Job Feed.desktop-wrapper.sh"), "utf8");
-    assert.ok(wrapper.includes(`exec /bin/bash "${fromRoot("launchers", "Refresh Job Feed.command")}" "$@"`));
+    // The installed launcher path stays fixed when tests use a copied Git tree.
+    const configuredProject = source.match(/^PROJECT_DIR="([^"]+)"$/m)?.[1];
+    assert.ok(configuredProject && path.isAbsolute(configuredProject));
+    const configuredLauncher = path.join(configuredProject, "launchers", "Refresh Job Feed.command");
+    assert.ok(wrapper.includes(`exec /bin/bash "${configuredLauncher}" "$@"`));
     await exec("/bin/bash", ["-n", fromRoot("launchers", "Refresh Job Feed.desktop-wrapper.sh")]);
   } finally {
     await fs.rm(root, { recursive: true, force: true });
