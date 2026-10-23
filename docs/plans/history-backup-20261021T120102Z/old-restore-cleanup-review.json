@@ -1,0 +1,1489 @@
+{
+  "status": "REVIEW_ONLY_NOT_AUTHORIZED_FOR_DELETION",
+  "checked_at": "2026-10-21T12:07:16.721253+00:00",
+  "archive_checks": [
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/README.md",
+      "sha256": "5bd678fcdc27231232b1a89fc4353be32d80151a49994ad004608d70872bd7bc",
+      "bytes": 2716
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/README.md",
+      "sha256": "5bd678fcdc27231232b1a89fc4353be32d80151a49994ad004608d70872bd7bc",
+      "bytes": 2716
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/archive_batches.py",
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4",
+      "bytes": 10918
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/archive_batches.py",
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4",
+      "bytes": 10918
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/batches.tar.gz",
+      "sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+      "bytes": 5285897960
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/batches.tar.gz",
+      "sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+      "bytes": 5285897960
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/manifest.json",
+      "sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4",
+      "bytes": 7788936
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/manifest.json",
+      "sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4",
+      "bytes": 7788936
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/retention-plan.json",
+      "sha256": "cbc0f4902af83bd0e2ae810300f33709c5d8cc8626d2b287a68912dc4554b403",
+      "bytes": 524276
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/retention-plan.json",
+      "sha256": "cbc0f4902af83bd0e2ae810300f33709c5d8cc8626d2b287a68912dc4554b403",
+      "bytes": 524276
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/verification.json",
+      "sha256": "d3d6eb13018fca37025edc7912600c466f4ca37dc73744f9148728ad3afe7071",
+      "bytes": 1127
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/verification.json",
+      "sha256": "d3d6eb13018fca37025edc7912600c466f4ca37dc73744f9148728ad3afe7071",
+      "bytes": 1127
+    }
+  ],
+  "candidates": [
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/restore-test",
+      "files": [
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1789290009184737688
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-duplicate-summary.csv",
+          "bytes": 125,
+          "sha256": "6c535100bd4a0695d73a4e8849d98fd54f61dfac9218baa93b1c6037e2e79c52",
+          "mtime_ns": 1789290009184035851
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-duplicate-summary.json",
+          "bytes": 158,
+          "sha256": "a98cc571687366df6f076147b8e595c160a1896a19b66d46152d7e9be043b422",
+          "mtime_ns": 1789290009184257561
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1789290009184559354
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-fetch-log.csv",
+          "bytes": 3506,
+          "sha256": "887f8724d5c6715a9a7ea90c367f7a6e5219e7832be7cb64de0960139ce17687",
+          "mtime_ns": 1789290009180172958
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-fetch-log.json",
+          "bytes": 6958,
+          "sha256": "c3ea609991e4f018c541a9e3370768a2ff9cb9a21b8a84baa57dafdbceabcec8",
+          "mtime_ns": 1789290009180508168
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "c56cee8265de7c67c9b5dd667f7c42782f0dc7697f7a9f4b9719cd10ffaa1427",
+          "mtime_ns": 1789290009182813971
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "41211d4414c3522bb3b81ede6af23bffa8c65ea01f7e9922c37467f214b2465a",
+          "mtime_ns": 1789290009183048305
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "5d3eb5acced46485d41432ce5d33d28efd8d70931f34b146047a3d709544d659",
+          "mtime_ns": 1789290009181502381
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "4b07a711bc0df83c55fc32ceb8decf3a8840a4c49d1b3bc2543c33019fc7f26a",
+          "mtime_ns": 1789290009181788258
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-salary-summary.csv",
+          "bytes": 76,
+          "sha256": "b6d4185928435d4436e0927aab4e1fbb11bebffbb2db0d7e12f0e35fa81cd7d9",
+          "mtime_ns": 1789290009182146342
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-salary-summary.json",
+          "bytes": 228,
+          "sha256": "9b29b967cb4a4c02e7141b55c90801036a9b39b6e8c95a2c56f301de42e12d87",
+          "mtime_ns": 1789290009182431302
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-summary.csv",
+          "bytes": 947,
+          "sha256": "cb4206853db9196dd316b207fc02120fcfedb5196ab6a1af8d1493ecde6244a5",
+          "mtime_ns": 1789290009179345746
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-summary.json",
+          "bytes": 1347,
+          "sha256": "9b955ea35fa3f748ad30819606ea0854ff06260f9a355decb14bc3db7e4f7e04",
+          "mtime_ns": 1789290009179736415
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-title-bucket-summary.csv",
+          "bytes": 156,
+          "sha256": "9375b621dc5a1514ac17c90470be0f10b9ee4654882013855408d9acb9b5f5fa",
+          "mtime_ns": 1789290009180844128
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-title-bucket-summary.json",
+          "bytes": 583,
+          "sha256": "e655bd4ed67b882c41f521f30a015869adc2c04c4b8a10f09a5e75815d22e7e3",
+          "mtime_ns": 1789290009181144338
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-writer-fit-summary.csv",
+          "bytes": 125,
+          "sha256": "c62982f97a5d4c2ed9dd6f0484c0efccbca9ea9dcf9abf7af05cf17bea4354e4",
+          "mtime_ns": 1789290009183367057
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-writer-fit-summary.json",
+          "bytes": 712,
+          "sha256": "18c5a343890a040749f3e46adf91bc59b084d8efa80546a82e34389f5e412b41",
+          "mtime_ns": 1789290009183667474
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/public-job-feed-batch.json",
+          "bytes": 4373,
+          "sha256": "3f1dc4e66c790e7a6bf018e898109ddf3078de2d9e1c6c4c3775251c2338ad0c",
+          "mtime_ns": 1789290009178556159
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1787576927543129617
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-duplicate-summary.csv",
+          "bytes": 125,
+          "sha256": "6c535100bd4a0695d73a4e8849d98fd54f61dfac9218baa93b1c6037e2e79c52",
+          "mtime_ns": 1787576927542543621
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-duplicate-summary.json",
+          "bytes": 158,
+          "sha256": "a98cc571687366df6f076147b8e595c160a1896a19b66d46152d7e9be043b422",
+          "mtime_ns": 1787576927542805327
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1787576927543019201
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-fetch-log.csv",
+          "bytes": 363,
+          "sha256": "78f9ccb423d36559668f50fd62e7cf3055e7b8f1617ee4ba8de4a6619b28c245",
+          "mtime_ns": 1787576927539777844
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-fetch-log.json",
+          "bytes": 500,
+          "sha256": "53f216a360e0a52b6ddc5b70ffc101e3dde0f5ec1e1d0b19942d52898066d454",
+          "mtime_ns": 1787576927539955593
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "f8aac36b64e3e052103a59b466f0d00d06e22ad95e6e5493a64aec7a398e4f7a",
+          "mtime_ns": 1787576927541394460
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "5f90242de5036c7a6faf42dc9fe84b48994d6aa5f3cc2ef11af2af2a5779cb28",
+          "mtime_ns": 1787576927541560293
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "5d3eb5acced46485d41432ce5d33d28efd8d70931f34b146047a3d709544d659",
+          "mtime_ns": 1787576927540522423
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "4b07a711bc0df83c55fc32ceb8decf3a8840a4c49d1b3bc2543c33019fc7f26a",
+          "mtime_ns": 1787576927540734672
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-salary-summary.csv",
+          "bytes": 76,
+          "sha256": "b6d4185928435d4436e0927aab4e1fbb11bebffbb2db0d7e12f0e35fa81cd7d9",
+          "mtime_ns": 1787576927541001462
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-salary-summary.json",
+          "bytes": 228,
+          "sha256": "9b29b967cb4a4c02e7141b55c90801036a9b39b6e8c95a2c56f301de42e12d87",
+          "mtime_ns": 1787576927541204878
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-summary.csv",
+          "bytes": 948,
+          "sha256": "2768ddab344e852162b23daf94ece9e05b8256707bbc20bc8126ec0911a6f545",
+          "mtime_ns": 1787576927539391430
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-summary.json",
+          "bytes": 1349,
+          "sha256": "471b608e9132b14fd146f25ac4c2147fea1cfac0d174358bf8bf9c54ea2d259a",
+          "mtime_ns": 1787576927539603137
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-title-bucket-summary.csv",
+          "bytes": 166,
+          "sha256": "bb71286f53439ff753207feca62d3641bf220f832fd3e1e4fbef1c8ca8d3fa7d",
+          "mtime_ns": 1787576927540144050
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-title-bucket-summary.json",
+          "bytes": 593,
+          "sha256": "ae96b78dcea734318541072407fe4d635a54c81921044ba822c39f4bfbc0aadc",
+          "mtime_ns": 1787576927540322341
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-writer-fit-summary.csv",
+          "bytes": 138,
+          "sha256": "ee89addaa378906a96a81bb112def9b3a85834df71a53647e117e0e6d66c7d6d",
+          "mtime_ns": 1787576927541759333
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-writer-fit-summary.json",
+          "bytes": 725,
+          "sha256": "fc5753aebcba506442d6c207a9d29a85146c0f586483defb925c81586d15b5f1",
+          "mtime_ns": 1787576927541987915
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/public-job-feed-batch.csv",
+          "bytes": 1742,
+          "sha256": "20eb966ca76c5cfedf14681d4fe28c4e30d881d80a18f9894e8006cf8099c76d",
+          "mtime_ns": 1787576927538906641
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/public-job-feed-batch.json",
+          "bytes": 2319,
+          "sha256": "d724faa4d77f3341507c05c86909fe7c533d6e1d13dffd733607f6dd573e819f",
+          "mtime_ns": 1787576927539161973
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1786914521774772167
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-duplicate-summary.csv",
+          "bytes": 142,
+          "sha256": "a078f8bf6105c499a19b549d3f58ac446075480231811819ba98518e16e40dce",
+          "mtime_ns": 1786914521708692760
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-duplicate-summary.json",
+          "bytes": 175,
+          "sha256": "0bc439499a6f8edc84caa22c9aaa1aea200487b5655c5499d7a9fbcf29c9045d",
+          "mtime_ns": 1786914521709010966
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-duplicates.csv",
+          "bytes": 2434875,
+          "sha256": "66b72b3605e7d88b8395f9a8d92d47edb120c0d4a7b6c9fd3c4151e3d815da7f",
+          "mtime_ns": 1786914521771483653
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-fetch-log.csv",
+          "bytes": 207047,
+          "sha256": "1b20d2026da15d7b79679c05659d76a499918b15de1d136c0d7af4f4cdda1067",
+          "mtime_ns": 1786914521698675469
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-fetch-log.json",
+          "bytes": 398179,
+          "sha256": "6a1ac1ff08a7e048e7da370acc2ffe6aae2aa639e64e86e3c2feb1f5091b8b3f",
+          "mtime_ns": 1786914521703814717
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-quality-summary.csv",
+          "bytes": 56,
+          "sha256": "eb0c564331d0c13af493d97c408aaf0fcbaa2d47ef1a4f2af73b4e3f8c034295",
+          "mtime_ns": 1786914521707178398
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-quality-summary.json",
+          "bytes": 185,
+          "sha256": "814ebb2d8d01099f199060e0fa1875fa54ccfece69d6edd6458856a059a729d9",
+          "mtime_ns": 1786914521707496395
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-remote-summary.csv",
+          "bytes": 177,
+          "sha256": "468bc9dce9a96423b4c946a54fc1418d01b33dbc48c7411952721e6f6d22de71",
+          "mtime_ns": 1786914521705533328
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-remote-summary.json",
+          "bytes": 638,
+          "sha256": "4829c1d3ef4c4f1257a8163ecc8e7309ec8f7285d7fbd069f20b70de4dfe5bec",
+          "mtime_ns": 1786914521705916867
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-salary-summary.csv",
+          "bytes": 95,
+          "sha256": "4151e65f5f4ed1fcc542343b4a903dc19924287a7c6299118d88ad723aa5fe3e",
+          "mtime_ns": 1786914521706385279
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-salary-summary.json",
+          "bytes": 243,
+          "sha256": "26029886eac29d6a0d958eea9d4ca2eec1e445763505022e9fdf5dfd76a2c7ef",
+          "mtime_ns": 1786914521706723360
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-summary.csv",
+          "bytes": 1057,
+          "sha256": "7b389428b767dac78002e4af9235a8e8b1f95f014a944c03d916aeb1b6d7793d",
+          "mtime_ns": 1786914521692574103
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-summary.json",
+          "bytes": 1464,
+          "sha256": "e67056713f0ad855d0829e41f95c765ceb83891a019b1702c513f7a5a29552f4",
+          "mtime_ns": 1786914521693088890
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-title-bucket-summary.csv",
+          "bytes": 2451,
+          "sha256": "de4aa5c02abe201bff13c4bb26cbf46287f73aefff8efea098d210b003ff8aef",
+          "mtime_ns": 1786914521704596128
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-title-bucket-summary.json",
+          "bytes": 2870,
+          "sha256": "4c48351ff173655feafbf2f5929162bc8ed45eade00f75c99f744df8f87f81d6",
+          "mtime_ns": 1786914521705013874
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-writer-fit-summary.csv",
+          "bytes": 2322,
+          "sha256": "fd8ec6cd97191a946af97041051462ba66a887c83fb18d8ef2c7fb83b417436f",
+          "mtime_ns": 1786914521707933516
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-writer-fit-summary.json",
+          "bytes": 2875,
+          "sha256": "7ff4b677b26977d7518bef1eec0c52658e563f868aff3ab7b40ec328d6c49fd7",
+          "mtime_ns": 1786914521708287513
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/public-job-feed-batch.csv",
+          "bytes": 417258853,
+          "sha256": "c7eec145db61385fcc65b7c27160af14946e5400bf0164b1ba0c7e3ad09ec849",
+          "mtime_ns": 1786914515938287409
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/public-job-feed-batch.json",
+          "bytes": 485292695,
+          "sha256": "c17aba54d54cfad626ce2a25d97ee503184f93980eb372b2487eb1e80e304171",
+          "mtime_ns": 1786914521691014408
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1789746907293478511
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-duplicate-summary.csv",
+          "bytes": 126,
+          "sha256": "74873e03b136018a3d11a8802ac7330f533a48ef2b9f83d02312cb25d695dc71",
+          "mtime_ns": 1789746907292791460
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-duplicate-summary.json",
+          "bytes": 159,
+          "sha256": "a8a06bbb0e5fd6f5fe6d94eedd1ce23ba336fac3b4f1847becbe15dcc27fda8c",
+          "mtime_ns": 1789746907293044505
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1789746907293300259
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-fetch-log.csv",
+          "bytes": 79852,
+          "sha256": "65a70e1f52eb29d3f0f6b0e4ca64c3a6ad6cacaeca14ae99842db881bd119846",
+          "mtime_ns": 1789746907288438772
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-fetch-log.json",
+          "bytes": 143484,
+          "sha256": "eb2bddb69ca6b85485359192a5c59cd0ce47f8244925a157ce9cfb201bd868da",
+          "mtime_ns": 1789746907289304826
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "7628981a3172ea2209c19dd7e313b71241936674ff1ab909d92c4313df44e451",
+          "mtime_ns": 1789746907291715153
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "d4061590dbe2e6e90ee27be6ece5861766c9c8006daf9ac4895727476169fd18",
+          "mtime_ns": 1789746907291934822
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "7e322af6379908c54346da90348890e0b2a2b3b2c13ab0523a090fd6717bbfde",
+          "mtime_ns": 1789746907290377716
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "5e755137eab0e9afdff0755ae3490bd1387ddf2db6273770998b8e38701888b2",
+          "mtime_ns": 1789746907290730097
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-salary-summary.csv",
+          "bytes": 77,
+          "sha256": "60d66203170b52c169b24eafad858ffbb591a48dfc4c82013f88c5ea00acd73f",
+          "mtime_ns": 1789746907291106977
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-salary-summary.json",
+          "bytes": 229,
+          "sha256": "7637ae103360dec16106bbc1ded772cda98b6eb626276f972859a14b0a552d4d",
+          "mtime_ns": 1789746907291413482
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-summary.csv",
+          "bytes": 957,
+          "sha256": "bd6336809f77ccd5b62e3d9674e64928f1036784e183af650cd7427dcf61db31",
+          "mtime_ns": 1789746907286569578
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-summary.json",
+          "bytes": 1359,
+          "sha256": "142e4d59c1a40e97dd9e36f50cdddc33cc16590d234eea175688e564d5f6d3ec",
+          "mtime_ns": 1789746907286926750
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-title-bucket-summary.csv",
+          "bytes": 468,
+          "sha256": "da10a16367777c332d4b9cb39cbaac701105eb6dd9b23c7778cbda4657bbce88",
+          "mtime_ns": 1789746907289787500
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-title-bucket-summary.json",
+          "bytes": 895,
+          "sha256": "a1a1fb59b5daea09cd13a563717c682de5e38b82be42befce2dbb83f60137b33",
+          "mtime_ns": 1789746907290030253
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-writer-fit-summary.csv",
+          "bytes": 444,
+          "sha256": "f0b6b650f6365735ddc2ed4aa7570f3a57075af686fbd7462db1b96cd13cbfc7",
+          "mtime_ns": 1789746907292217868
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-writer-fit-summary.json",
+          "bytes": 1031,
+          "sha256": "2d62b86df6c46d810db92ce7f9a04c05e618480dc98666267ee3867f08d89364",
+          "mtime_ns": 1789746907292433080
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/public-job-feed-batch.json",
+          "bytes": 26026,
+          "sha256": "0f16a94ecf98b760e8fc4fb035e56af0f1d56a781ba6587ef660098b8dcde6c7",
+          "mtime_ns": 1789746907285835942
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1789290013839298448
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-duplicate-summary.csv",
+          "bytes": 125,
+          "sha256": "24fdc569d1e82c38836ac617ff4a5613e5544113ce650371482de7f7841a8466",
+          "mtime_ns": 1789290013838228318
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-duplicate-summary.json",
+          "bytes": 158,
+          "sha256": "650f13c768f47bd8ec6e575012b7e837e91e4a1a525fbd6c8be43cac56d36ff8",
+          "mtime_ns": 1789290013838603486
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1789290013839017030
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-fetch-log.csv",
+          "bytes": 7333,
+          "sha256": "b46603df003c951115b45b993ac43d88c1c6827539eb32bda0e229d103e82a1a",
+          "mtime_ns": 1789290013832697584
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-fetch-log.json",
+          "bytes": 15630,
+          "sha256": "458e0db5a871703ce12119a7544ba3a6652da5fd7fda6f99ddc2ae1fa235c563",
+          "mtime_ns": 1789290013833249961
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "ca59717fc56142fe51931f4840ebb8c89c61e226ba0b0f8fe79fbed087aa14ea",
+          "mtime_ns": 1789290013836371018
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "eef01bde92399003c67544794029232e4120032dac30b782ace6e420af103051",
+          "mtime_ns": 1789290013836734144
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "dcdd2cec07729ffcdecec6e7cf0019820da3991bbaa8f8fb3631f4229b04bf75",
+          "mtime_ns": 1789290013834600134
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "ec772d776ce8a9adb059b31cd8f5c1c924071a8ec4dfbe4c579cd4d8c74dcbac",
+          "mtime_ns": 1789290013835022761
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-salary-summary.csv",
+          "bytes": 76,
+          "sha256": "901b0ebf4692412899eb778ab23610221b6fa45581c160127e8960c143fbcced",
+          "mtime_ns": 1789290013835570889
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-salary-summary.json",
+          "bytes": 228,
+          "sha256": "e9fffb5d12af281a159c0358bb5db095b2fc71b531b0be41e95ed87e4ec382f7",
+          "mtime_ns": 1789290013835924016
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-summary.csv",
+          "bytes": 951,
+          "sha256": "383f6f1815413feaa34195a5e479b8d3af1ac5df4116d7210dbffcdde547ec8f",
+          "mtime_ns": 1789290013831350453
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-summary.json",
+          "bytes": 1351,
+          "sha256": "085184a4ab0914484557ed7e5a54e07f67f8a08c127369e1cd1f149c78bb6cd6",
+          "mtime_ns": 1789290013831834913
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-title-bucket-summary.csv",
+          "bytes": 234,
+          "sha256": "e11bfcdc5d8b8d556e55fd0ef02323376a771f1a88763617a7e4a113234f7732",
+          "mtime_ns": 1789290013833687338
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-title-bucket-summary.json",
+          "bytes": 661,
+          "sha256": "b499f7e69ab1066a43344426abb7efa1e372029a16c6623f7064f03ba0ce8266",
+          "mtime_ns": 1789290013834052965
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-writer-fit-summary.csv",
+          "bytes": 206,
+          "sha256": "e37486a164e9e2431841b7148b01eb0f5900e673101295a698a7803bd0e41dc5",
+          "mtime_ns": 1789290013837142771
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-writer-fit-summary.json",
+          "bytes": 793,
+          "sha256": "ca6e9cd18c88685194f4ad9ab153150ce504ec72c67b73ad8491341f47279dfb",
+          "mtime_ns": 1789290013837619898
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/public-job-feed-batch.json",
+          "bytes": 20393,
+          "sha256": "5734bbab258ebce772aac3f51de88e94fdec39d65ee11c144e74d8920c9ddda7",
+          "mtime_ns": 1789290013830055322
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1787596713985709218
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-duplicate-summary.csv",
+          "bytes": 126,
+          "sha256": "1b86f7642ae86ac4bc33eb8f8b22037311552d70f1537c044900025f0b5b1cc7",
+          "mtime_ns": 1787596713984567086
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-duplicate-summary.json",
+          "bytes": 159,
+          "sha256": "3f265b79cf45a2d20b38d913499d44e77a17d5f40a2a5a00dcdb30e6c6d38f16",
+          "mtime_ns": 1787596713985001422
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1787596713985520800
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-fetch-log.csv",
+          "bytes": 7231,
+          "sha256": "f57eb1bc3e8254a98351a4d165cf1758cebd67f9f03a2cd99ff9c0a35c95cde1",
+          "mtime_ns": 1787596713980940773
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-fetch-log.json",
+          "bytes": 12978,
+          "sha256": "bf0957ebdc71d0c20dee6623e4fc4d20b7bda5dbfa59a421a406ea428ed00445",
+          "mtime_ns": 1787596713981290983
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-quality-summary.csv",
+          "bytes": 49,
+          "sha256": "1e28e31a7fb3f544b65d7dd6ef1498cb663004e542d036d8bc2f4fb4550d5785",
+          "mtime_ns": 1787596713983457621
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-quality-summary.json",
+          "bytes": 178,
+          "sha256": "130a2bbcfb5f80a428ac114158e8b8d0fe630ace2f6f8bb4493153f1e7f454ae",
+          "mtime_ns": 1787596713983695539
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-remote-summary.csv",
+          "bytes": 149,
+          "sha256": "b61a4cb04159db763853c7668c011e681c25da58e2ddae850074656e99047899",
+          "mtime_ns": 1787596713982242197
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-remote-summary.json",
+          "bytes": 610,
+          "sha256": "8b9d9c7ab38bf3edae689430a8f39e4bb17a46ea356eb0e4c01b6d2c80f5762e",
+          "mtime_ns": 1787596713982683908
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-salary-summary.csv",
+          "bytes": 77,
+          "sha256": "faa6b456eb0efec542780f68029fb97d26ffc9b720633b311df4edfb9ac16e4a",
+          "mtime_ns": 1787596713982926160
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-salary-summary.json",
+          "bytes": 229,
+          "sha256": "9cb5ecd0678a83e6501ee35fefab81b1b93012b63c00b629c8796682a2d33047",
+          "mtime_ns": 1787596713983182078
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-summary.csv",
+          "bytes": 963,
+          "sha256": "c6160046724f48e997d9e25c827bdcbf1f800aa260829b4b4dae845d52fa4796",
+          "mtime_ns": 1787596713980302935
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-summary.json",
+          "bytes": 1365,
+          "sha256": "d42a31792e67d76a611ce8f9a5a8a9582c058ad2a322cfe9a6c0689f99bb6cb6",
+          "mtime_ns": 1787596713980566437
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-title-bucket-summary.csv",
+          "bytes": 997,
+          "sha256": "464ee893cf9d68bc4356d2f4361a1a34753a88d3d763314118bb636ec77ee419",
+          "mtime_ns": 1787596713981607402
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-title-bucket-summary.json",
+          "bytes": 1424,
+          "sha256": "cc97f7acac37d70945ca2643d83002de3ff25a4c3a6e33f11213408296ed8bfd",
+          "mtime_ns": 1787596713981931862
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-writer-fit-summary.csv",
+          "bytes": 736,
+          "sha256": "f1938b1db8ddb2084c4ac3c5696bd4f4e1c1a94c9b0ece9aae1079b8f492c1c3",
+          "mtime_ns": 1787596713983986541
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-writer-fit-summary.json",
+          "bytes": 1317,
+          "sha256": "c18dcd120b563df9fd5fd356c68fe4bafb966efb0d4719a81247b4e4d60d204d",
+          "mtime_ns": 1787596713984244293
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/public-job-feed-batch.csv",
+          "bytes": 24613,
+          "sha256": "052d4b41f0a412519d0cc3ec0a7a4dcab850aead8d4001a40c5b0c02deffa0ad",
+          "mtime_ns": 1787596713977397293
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/public-job-feed-batch.json",
+          "bytes": 53401,
+          "sha256": "e8c5ba10acf0e02ea0aaf187b7380b3a6f74217b78af1ab31719789d2edcc54d",
+          "mtime_ns": 1787596713979911308
+        }
+      ],
+      "file_count": 117,
+      "bytes": 906049729,
+      "role": "Temporary sample restore of six batches; complete archives are kept locally and on 1Pugh"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/1pugh-restore-test-20261020T190242Z",
+      "files": [
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1789290009184737688
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-duplicate-summary.csv",
+          "bytes": 125,
+          "sha256": "6c535100bd4a0695d73a4e8849d98fd54f61dfac9218baa93b1c6037e2e79c52",
+          "mtime_ns": 1789290009184035851
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-duplicate-summary.json",
+          "bytes": 158,
+          "sha256": "a98cc571687366df6f076147b8e595c160a1896a19b66d46152d7e9be043b422",
+          "mtime_ns": 1789290009184257561
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1789290009184559354
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-fetch-log.csv",
+          "bytes": 3506,
+          "sha256": "887f8724d5c6715a9a7ea90c367f7a6e5219e7832be7cb64de0960139ce17687",
+          "mtime_ns": 1789290009180172958
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-fetch-log.json",
+          "bytes": 6958,
+          "sha256": "c3ea609991e4f018c541a9e3370768a2ff9cb9a21b8a84baa57dafdbceabcec8",
+          "mtime_ns": 1789290009180508168
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "c56cee8265de7c67c9b5dd667f7c42782f0dc7697f7a9f4b9719cd10ffaa1427",
+          "mtime_ns": 1789290009182813971
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "41211d4414c3522bb3b81ede6af23bffa8c65ea01f7e9922c37467f214b2465a",
+          "mtime_ns": 1789290009183048305
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "5d3eb5acced46485d41432ce5d33d28efd8d70931f34b146047a3d709544d659",
+          "mtime_ns": 1789290009181502381
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "4b07a711bc0df83c55fc32ceb8decf3a8840a4c49d1b3bc2543c33019fc7f26a",
+          "mtime_ns": 1789290009181788258
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-salary-summary.csv",
+          "bytes": 76,
+          "sha256": "b6d4185928435d4436e0927aab4e1fbb11bebffbb2db0d7e12f0e35fa81cd7d9",
+          "mtime_ns": 1789290009182146342
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-salary-summary.json",
+          "bytes": 228,
+          "sha256": "9b29b967cb4a4c02e7141b55c90801036a9b39b6e8c95a2c56f301de42e12d87",
+          "mtime_ns": 1789290009182431302
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-summary.csv",
+          "bytes": 947,
+          "sha256": "cb4206853db9196dd316b207fc02120fcfedb5196ab6a1af8d1493ecde6244a5",
+          "mtime_ns": 1789290009179345746
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-summary.json",
+          "bytes": 1347,
+          "sha256": "9b955ea35fa3f748ad30819606ea0854ff06260f9a355decb14bc3db7e4f7e04",
+          "mtime_ns": 1789290009179736415
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-title-bucket-summary.csv",
+          "bytes": 156,
+          "sha256": "9375b621dc5a1514ac17c90470be0f10b9ee4654882013855408d9acb9b5f5fa",
+          "mtime_ns": 1789290009180844128
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-title-bucket-summary.json",
+          "bytes": 583,
+          "sha256": "e655bd4ed67b882c41f521f30a015869adc2c04c4b8a10f09a5e75815d22e7e3",
+          "mtime_ns": 1789290009181144338
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-writer-fit-summary.csv",
+          "bytes": 125,
+          "sha256": "c62982f97a5d4c2ed9dd6f0484c0efccbca9ea9dcf9abf7af05cf17bea4354e4",
+          "mtime_ns": 1789290009183367057
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/jobs-batch-writer-fit-summary.json",
+          "bytes": 712,
+          "sha256": "18c5a343890a040749f3e46adf91bc59b084d8efa80546a82e34389f5e412b41",
+          "mtime_ns": 1789290009183667474
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-ashby-20260913t090005/public-job-feed-batch.json",
+          "bytes": 4373,
+          "sha256": "3f1dc4e66c790e7a6bf018e898109ddf3078de2d9e1c6c4c3775251c2338ad0c",
+          "mtime_ns": 1789290009178556159
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1787576927543129617
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-duplicate-summary.csv",
+          "bytes": 125,
+          "sha256": "6c535100bd4a0695d73a4e8849d98fd54f61dfac9218baa93b1c6037e2e79c52",
+          "mtime_ns": 1787576927542543621
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-duplicate-summary.json",
+          "bytes": 158,
+          "sha256": "a98cc571687366df6f076147b8e595c160a1896a19b66d46152d7e9be043b422",
+          "mtime_ns": 1787576927542805327
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1787576927543019201
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-fetch-log.csv",
+          "bytes": 363,
+          "sha256": "78f9ccb423d36559668f50fd62e7cf3055e7b8f1617ee4ba8de4a6619b28c245",
+          "mtime_ns": 1787576927539777844
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-fetch-log.json",
+          "bytes": 500,
+          "sha256": "53f216a360e0a52b6ddc5b70ffc101e3dde0f5ec1e1d0b19942d52898066d454",
+          "mtime_ns": 1787576927539955593
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "f8aac36b64e3e052103a59b466f0d00d06e22ad95e6e5493a64aec7a398e4f7a",
+          "mtime_ns": 1787576927541394460
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "5f90242de5036c7a6faf42dc9fe84b48994d6aa5f3cc2ef11af2af2a5779cb28",
+          "mtime_ns": 1787576927541560293
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "5d3eb5acced46485d41432ce5d33d28efd8d70931f34b146047a3d709544d659",
+          "mtime_ns": 1787576927540522423
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "4b07a711bc0df83c55fc32ceb8decf3a8840a4c49d1b3bc2543c33019fc7f26a",
+          "mtime_ns": 1787576927540734672
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-salary-summary.csv",
+          "bytes": 76,
+          "sha256": "b6d4185928435d4436e0927aab4e1fbb11bebffbb2db0d7e12f0e35fa81cd7d9",
+          "mtime_ns": 1787576927541001462
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-salary-summary.json",
+          "bytes": 228,
+          "sha256": "9b29b967cb4a4c02e7141b55c90801036a9b39b6e8c95a2c56f301de42e12d87",
+          "mtime_ns": 1787576927541204878
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-summary.csv",
+          "bytes": 948,
+          "sha256": "2768ddab344e852162b23daf94ece9e05b8256707bbc20bc8126ec0911a6f545",
+          "mtime_ns": 1787576927539391430
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-summary.json",
+          "bytes": 1349,
+          "sha256": "471b608e9132b14fd146f25ac4c2147fea1cfac0d174358bf8bf9c54ea2d259a",
+          "mtime_ns": 1787576927539603137
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-title-bucket-summary.csv",
+          "bytes": 166,
+          "sha256": "bb71286f53439ff753207feca62d3641bf220f832fd3e1e4fbef1c8ca8d3fa7d",
+          "mtime_ns": 1787576927540144050
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-title-bucket-summary.json",
+          "bytes": 593,
+          "sha256": "ae96b78dcea734318541072407fe4d635a54c81921044ba822c39f4bfbc0aadc",
+          "mtime_ns": 1787576927540322341
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-writer-fit-summary.csv",
+          "bytes": 138,
+          "sha256": "ee89addaa378906a96a81bb112def9b3a85834df71a53647e117e0e6d66c7d6d",
+          "mtime_ns": 1787576927541759333
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/jobs-batch-writer-fit-summary.json",
+          "bytes": 725,
+          "sha256": "fc5753aebcba506442d6c207a9d29a85146c0f586483defb925c81586d15b5f1",
+          "mtime_ns": 1787576927541987915
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/public-job-feed-batch.csv",
+          "bytes": 1742,
+          "sha256": "20eb966ca76c5cfedf14681d4fe28c4e30d881d80a18f9894e8006cf8099c76d",
+          "mtime_ns": 1787576927538906641
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-bamboohr-20260824t130846/public-job-feed-batch.json",
+          "bytes": 2319,
+          "sha256": "d724faa4d77f3341507c05c86909fe7c533d6e1d13dffd733607f6dd573e819f",
+          "mtime_ns": 1787576927539161973
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1786914521774772167
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-duplicate-summary.csv",
+          "bytes": 142,
+          "sha256": "a078f8bf6105c499a19b549d3f58ac446075480231811819ba98518e16e40dce",
+          "mtime_ns": 1786914521708692760
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-duplicate-summary.json",
+          "bytes": 175,
+          "sha256": "0bc439499a6f8edc84caa22c9aaa1aea200487b5655c5499d7a9fbcf29c9045d",
+          "mtime_ns": 1786914521709010966
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-duplicates.csv",
+          "bytes": 2434875,
+          "sha256": "66b72b3605e7d88b8395f9a8d92d47edb120c0d4a7b6c9fd3c4151e3d815da7f",
+          "mtime_ns": 1786914521771483653
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-fetch-log.csv",
+          "bytes": 207047,
+          "sha256": "1b20d2026da15d7b79679c05659d76a499918b15de1d136c0d7af4f4cdda1067",
+          "mtime_ns": 1786914521698675469
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-fetch-log.json",
+          "bytes": 398179,
+          "sha256": "6a1ac1ff08a7e048e7da370acc2ffe6aae2aa639e64e86e3c2feb1f5091b8b3f",
+          "mtime_ns": 1786914521703814717
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-quality-summary.csv",
+          "bytes": 56,
+          "sha256": "eb0c564331d0c13af493d97c408aaf0fcbaa2d47ef1a4f2af73b4e3f8c034295",
+          "mtime_ns": 1786914521707178398
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-quality-summary.json",
+          "bytes": 185,
+          "sha256": "814ebb2d8d01099f199060e0fa1875fa54ccfece69d6edd6458856a059a729d9",
+          "mtime_ns": 1786914521707496395
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-remote-summary.csv",
+          "bytes": 177,
+          "sha256": "468bc9dce9a96423b4c946a54fc1418d01b33dbc48c7411952721e6f6d22de71",
+          "mtime_ns": 1786914521705533328
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-remote-summary.json",
+          "bytes": 638,
+          "sha256": "4829c1d3ef4c4f1257a8163ecc8e7309ec8f7285d7fbd069f20b70de4dfe5bec",
+          "mtime_ns": 1786914521705916867
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-salary-summary.csv",
+          "bytes": 95,
+          "sha256": "4151e65f5f4ed1fcc542343b4a903dc19924287a7c6299118d88ad723aa5fe3e",
+          "mtime_ns": 1786914521706385279
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-salary-summary.json",
+          "bytes": 243,
+          "sha256": "26029886eac29d6a0d958eea9d4ca2eec1e445763505022e9fdf5dfd76a2c7ef",
+          "mtime_ns": 1786914521706723360
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-summary.csv",
+          "bytes": 1057,
+          "sha256": "7b389428b767dac78002e4af9235a8e8b1f95f014a944c03d916aeb1b6d7793d",
+          "mtime_ns": 1786914521692574103
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-summary.json",
+          "bytes": 1464,
+          "sha256": "e67056713f0ad855d0829e41f95c765ceb83891a019b1702c513f7a5a29552f4",
+          "mtime_ns": 1786914521693088890
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-title-bucket-summary.csv",
+          "bytes": 2451,
+          "sha256": "de4aa5c02abe201bff13c4bb26cbf46287f73aefff8efea098d210b003ff8aef",
+          "mtime_ns": 1786914521704596128
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-title-bucket-summary.json",
+          "bytes": 2870,
+          "sha256": "4c48351ff173655feafbf2f5929162bc8ed45eade00f75c99f744df8f87f81d6",
+          "mtime_ns": 1786914521705013874
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-writer-fit-summary.csv",
+          "bytes": 2322,
+          "sha256": "fd8ec6cd97191a946af97041051462ba66a887c83fb18d8ef2c7fb83b417436f",
+          "mtime_ns": 1786914521707933516
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/jobs-batch-writer-fit-summary.json",
+          "bytes": 2875,
+          "sha256": "7ff4b677b26977d7518bef1eec0c52658e563f868aff3ab7b40ec328d6c49fd7",
+          "mtime_ns": 1786914521708287513
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/public-job-feed-batch.csv",
+          "bytes": 417258853,
+          "sha256": "c7eec145db61385fcc65b7c27160af14946e5400bf0164b1ba0c7e3ad09ec849",
+          "mtime_ns": 1786914515938287409
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-greenhouse-20260816t210002/public-job-feed-batch.json",
+          "bytes": 485292695,
+          "sha256": "c17aba54d54cfad626ce2a25d97ee503184f93980eb372b2487eb1e80e304171",
+          "mtime_ns": 1786914521691014408
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1789746907293478511
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-duplicate-summary.csv",
+          "bytes": 126,
+          "sha256": "74873e03b136018a3d11a8802ac7330f533a48ef2b9f83d02312cb25d695dc71",
+          "mtime_ns": 1789746907292791460
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-duplicate-summary.json",
+          "bytes": 159,
+          "sha256": "a8a06bbb0e5fd6f5fe6d94eedd1ce23ba336fac3b4f1847becbe15dcc27fda8c",
+          "mtime_ns": 1789746907293044505
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1789746907293300259
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-fetch-log.csv",
+          "bytes": 79852,
+          "sha256": "65a70e1f52eb29d3f0f6b0e4ca64c3a6ad6cacaeca14ae99842db881bd119846",
+          "mtime_ns": 1789746907288438772
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-fetch-log.json",
+          "bytes": 143484,
+          "sha256": "eb2bddb69ca6b85485359192a5c59cd0ce47f8244925a157ce9cfb201bd868da",
+          "mtime_ns": 1789746907289304826
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "7628981a3172ea2209c19dd7e313b71241936674ff1ab909d92c4313df44e451",
+          "mtime_ns": 1789746907291715153
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "d4061590dbe2e6e90ee27be6ece5861766c9c8006daf9ac4895727476169fd18",
+          "mtime_ns": 1789746907291934822
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "7e322af6379908c54346da90348890e0b2a2b3b2c13ab0523a090fd6717bbfde",
+          "mtime_ns": 1789746907290377716
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "5e755137eab0e9afdff0755ae3490bd1387ddf2db6273770998b8e38701888b2",
+          "mtime_ns": 1789746907290730097
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-salary-summary.csv",
+          "bytes": 77,
+          "sha256": "60d66203170b52c169b24eafad858ffbb591a48dfc4c82013f88c5ea00acd73f",
+          "mtime_ns": 1789746907291106977
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-salary-summary.json",
+          "bytes": 229,
+          "sha256": "7637ae103360dec16106bbc1ded772cda98b6eb626276f972859a14b0a552d4d",
+          "mtime_ns": 1789746907291413482
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-summary.csv",
+          "bytes": 957,
+          "sha256": "bd6336809f77ccd5b62e3d9674e64928f1036784e183af650cd7427dcf61db31",
+          "mtime_ns": 1789746907286569578
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-summary.json",
+          "bytes": 1359,
+          "sha256": "142e4d59c1a40e97dd9e36f50cdddc33cc16590d234eea175688e564d5f6d3ec",
+          "mtime_ns": 1789746907286926750
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-title-bucket-summary.csv",
+          "bytes": 468,
+          "sha256": "da10a16367777c332d4b9cb39cbaac701105eb6dd9b23c7778cbda4657bbce88",
+          "mtime_ns": 1789746907289787500
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-title-bucket-summary.json",
+          "bytes": 895,
+          "sha256": "a1a1fb59b5daea09cd13a563717c682de5e38b82be42befce2dbb83f60137b33",
+          "mtime_ns": 1789746907290030253
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-writer-fit-summary.csv",
+          "bytes": 444,
+          "sha256": "f0b6b650f6365735ddc2ed4aa7570f3a57075af686fbd7462db1b96cd13cbfc7",
+          "mtime_ns": 1789746907292217868
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/jobs-batch-writer-fit-summary.json",
+          "bytes": 1031,
+          "sha256": "2d62b86df6c46d810db92ce7f9a04c05e618480dc98666267ee3867f08d89364",
+          "mtime_ns": 1789746907292433080
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-icims-20260918t155003/public-job-feed-batch.json",
+          "bytes": 26026,
+          "sha256": "0f16a94ecf98b760e8fc4fb035e56af0f1d56a781ba6587ef660098b8dcde6c7",
+          "mtime_ns": 1789746907285835942
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1789290013839298448
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-duplicate-summary.csv",
+          "bytes": 125,
+          "sha256": "24fdc569d1e82c38836ac617ff4a5613e5544113ce650371482de7f7841a8466",
+          "mtime_ns": 1789290013838228318
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-duplicate-summary.json",
+          "bytes": 158,
+          "sha256": "650f13c768f47bd8ec6e575012b7e837e91e4a1a525fbd6c8be43cac56d36ff8",
+          "mtime_ns": 1789290013838603486
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1789290013839017030
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-fetch-log.csv",
+          "bytes": 7333,
+          "sha256": "b46603df003c951115b45b993ac43d88c1c6827539eb32bda0e229d103e82a1a",
+          "mtime_ns": 1789290013832697584
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-fetch-log.json",
+          "bytes": 15630,
+          "sha256": "458e0db5a871703ce12119a7544ba3a6652da5fd7fda6f99ddc2ae1fa235c563",
+          "mtime_ns": 1789290013833249961
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-quality-summary.csv",
+          "bytes": 48,
+          "sha256": "ca59717fc56142fe51931f4840ebb8c89c61e226ba0b0f8fe79fbed087aa14ea",
+          "mtime_ns": 1789290013836371018
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-quality-summary.json",
+          "bytes": 177,
+          "sha256": "eef01bde92399003c67544794029232e4120032dac30b782ace6e420af103051",
+          "mtime_ns": 1789290013836734144
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-remote-summary.csv",
+          "bytes": 147,
+          "sha256": "dcdd2cec07729ffcdecec6e7cf0019820da3991bbaa8f8fb3631f4229b04bf75",
+          "mtime_ns": 1789290013834600134
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-remote-summary.json",
+          "bytes": 608,
+          "sha256": "ec772d776ce8a9adb059b31cd8f5c1c924071a8ec4dfbe4c579cd4d8c74dcbac",
+          "mtime_ns": 1789290013835022761
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-salary-summary.csv",
+          "bytes": 76,
+          "sha256": "901b0ebf4692412899eb778ab23610221b6fa45581c160127e8960c143fbcced",
+          "mtime_ns": 1789290013835570889
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-salary-summary.json",
+          "bytes": 228,
+          "sha256": "e9fffb5d12af281a159c0358bb5db095b2fc71b531b0be41e95ed87e4ec382f7",
+          "mtime_ns": 1789290013835924016
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-summary.csv",
+          "bytes": 951,
+          "sha256": "383f6f1815413feaa34195a5e479b8d3af1ac5df4116d7210dbffcdde547ec8f",
+          "mtime_ns": 1789290013831350453
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-summary.json",
+          "bytes": 1351,
+          "sha256": "085184a4ab0914484557ed7e5a54e07f67f8a08c127369e1cd1f149c78bb6cd6",
+          "mtime_ns": 1789290013831834913
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-title-bucket-summary.csv",
+          "bytes": 234,
+          "sha256": "e11bfcdc5d8b8d556e55fd0ef02323376a771f1a88763617a7e4a113234f7732",
+          "mtime_ns": 1789290013833687338
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-title-bucket-summary.json",
+          "bytes": 661,
+          "sha256": "b499f7e69ab1066a43344426abb7efa1e372029a16c6623f7064f03ba0ce8266",
+          "mtime_ns": 1789290013834052965
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-writer-fit-summary.csv",
+          "bytes": 206,
+          "sha256": "e37486a164e9e2431841b7148b01eb0f5900e673101295a698a7803bd0e41dc5",
+          "mtime_ns": 1789290013837142771
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/jobs-batch-writer-fit-summary.json",
+          "bytes": 793,
+          "sha256": "ca6e9cd18c88685194f4ad9ab153150ce504ec72c67b73ad8491341f47279dfb",
+          "mtime_ns": 1789290013837619898
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-lever-20260913t090005/public-job-feed-batch.json",
+          "bytes": 20393,
+          "sha256": "5734bbab258ebce772aac3f51de88e94fdec39d65ee11c144e74d8920c9ddda7",
+          "mtime_ns": 1789290013830055322
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-bad-rows.csv",
+          "bytes": 78,
+          "sha256": "fd8b6415d001eab24723d6e83e11cfc6e0b21134d4e178f7d23731027312c8cb",
+          "mtime_ns": 1787596713985709218
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-duplicate-summary.csv",
+          "bytes": 126,
+          "sha256": "1b86f7642ae86ac4bc33eb8f8b22037311552d70f1537c044900025f0b5b1cc7",
+          "mtime_ns": 1787596713984567086
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-duplicate-summary.json",
+          "bytes": 159,
+          "sha256": "3f265b79cf45a2d20b38d913499d44e77a17d5f40a2a5a00dcdb30e6c6d38f16",
+          "mtime_ns": 1787596713985001422
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-duplicates.csv",
+          "bytes": 74,
+          "sha256": "fec7c683afa38aa2882ea204881a287566e3a122071d019afbb49f0845745afc",
+          "mtime_ns": 1787596713985520800
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-fetch-log.csv",
+          "bytes": 7231,
+          "sha256": "f57eb1bc3e8254a98351a4d165cf1758cebd67f9f03a2cd99ff9c0a35c95cde1",
+          "mtime_ns": 1787596713980940773
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-fetch-log.json",
+          "bytes": 12978,
+          "sha256": "bf0957ebdc71d0c20dee6623e4fc4d20b7bda5dbfa59a421a406ea428ed00445",
+          "mtime_ns": 1787596713981290983
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-quality-summary.csv",
+          "bytes": 49,
+          "sha256": "1e28e31a7fb3f544b65d7dd6ef1498cb663004e542d036d8bc2f4fb4550d5785",
+          "mtime_ns": 1787596713983457621
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-quality-summary.json",
+          "bytes": 178,
+          "sha256": "130a2bbcfb5f80a428ac114158e8b8d0fe630ace2f6f8bb4493153f1e7f454ae",
+          "mtime_ns": 1787596713983695539
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-remote-summary.csv",
+          "bytes": 149,
+          "sha256": "b61a4cb04159db763853c7668c011e681c25da58e2ddae850074656e99047899",
+          "mtime_ns": 1787596713982242197
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-remote-summary.json",
+          "bytes": 610,
+          "sha256": "8b9d9c7ab38bf3edae689430a8f39e4bb17a46ea356eb0e4c01b6d2c80f5762e",
+          "mtime_ns": 1787596713982683908
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-salary-summary.csv",
+          "bytes": 77,
+          "sha256": "faa6b456eb0efec542780f68029fb97d26ffc9b720633b311df4edfb9ac16e4a",
+          "mtime_ns": 1787596713982926160
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-salary-summary.json",
+          "bytes": 229,
+          "sha256": "9cb5ecd0678a83e6501ee35fefab81b1b93012b63c00b629c8796682a2d33047",
+          "mtime_ns": 1787596713983182078
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-summary.csv",
+          "bytes": 963,
+          "sha256": "c6160046724f48e997d9e25c827bdcbf1f800aa260829b4b4dae845d52fa4796",
+          "mtime_ns": 1787596713980302935
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-summary.json",
+          "bytes": 1365,
+          "sha256": "d42a31792e67d76a611ce8f9a5a8a9582c058ad2a322cfe9a6c0689f99bb6cb6",
+          "mtime_ns": 1787596713980566437
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-title-bucket-summary.csv",
+          "bytes": 997,
+          "sha256": "464ee893cf9d68bc4356d2f4361a1a34753a88d3d763314118bb636ec77ee419",
+          "mtime_ns": 1787596713981607402
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-title-bucket-summary.json",
+          "bytes": 1424,
+          "sha256": "cc97f7acac37d70945ca2643d83002de3ff25a4c3a6e33f11213408296ed8bfd",
+          "mtime_ns": 1787596713981931862
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-writer-fit-summary.csv",
+          "bytes": 736,
+          "sha256": "f1938b1db8ddb2084c4ac3c5696bd4f4e1c1a94c9b0ece9aae1079b8f492c1c3",
+          "mtime_ns": 1787596713983986541
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/jobs-batch-writer-fit-summary.json",
+          "bytes": 1317,
+          "sha256": "c18dcd120b563df9fd5fd356c68fe4bafb966efb0d4719a81247b4e4d60d204d",
+          "mtime_ns": 1787596713984244293
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/public-job-feed-batch.csv",
+          "bytes": 24613,
+          "sha256": "052d4b41f0a412519d0cc3ec0a7a4dcab850aead8d4001a40c5b0c02deffa0ad",
+          "mtime_ns": 1787596713977397293
+        },
+        {
+          "path": "data/jobs/batches/maintain-due-workday-20260824t183758/public-job-feed-batch.json",
+          "bytes": 53401,
+          "sha256": "e8c5ba10acf0e02ea0aaf187b7380b3a6f74217b78af1ab31719789d2edcc54d",
+          "mtime_ns": 1787596713979911308
+        }
+      ],
+      "file_count": 117,
+      "bytes": 906049729,
+      "role": "Temporary sample restore of six batches; complete archives are kept locally and on 1Pugh"
+    }
+  ],
+  "deletions": 0
+}

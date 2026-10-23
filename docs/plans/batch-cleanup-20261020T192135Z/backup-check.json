@@ -1,0 +1,187 @@
+{
+  "status": "PASS",
+  "files": [
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/README.md",
+      "metadata": [
+        16777232,
+        31423353,
+        2716,
+        1792499350755596035,
+        1792499350755596035,
+        33188
+      ],
+      "link": null,
+      "sha256": "5bd678fcdc27231232b1a89fc4353be32d80151a49994ad004608d70872bd7bc"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/README.md",
+      "metadata": [
+        16777237,
+        67058,
+        2716,
+        1792522989250000000,
+        1792522989250000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "5bd678fcdc27231232b1a89fc4353be32d80151a49994ad004608d70872bd7bc"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/SHA256SUMS",
+      "metadata": [
+        16777232,
+        31423374,
+        492,
+        1792499439642962801,
+        1792499439642962801,
+        33188
+      ],
+      "link": null,
+      "sha256": "11f4e8c38d159d048ea9fc0a4a69cc2d7313f274221ed07c505abbe2db9381d1"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/SHA256SUMS",
+      "metadata": [
+        16777237,
+        67061,
+        492,
+        1792522989260000000,
+        1792522989260000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "11f4e8c38d159d048ea9fc0a4a69cc2d7313f274221ed07c505abbe2db9381d1"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/archive_batches.py",
+      "metadata": [
+        16777232,
+        31423352,
+        10918,
+        1792499350755514244,
+        1792499350755514244,
+        33188
+      ],
+      "link": null,
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/archive_batches.py",
+      "metadata": [
+        16777237,
+        67064,
+        10918,
+        1792522989260000000,
+        1792522989260000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/batches.tar.gz",
+      "metadata": [
+        16777232,
+        31420878,
+        5285897960,
+        1792499246507350597,
+        1792499363540058970,
+        33188
+      ],
+      "link": null,
+      "sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/batches.tar.gz",
+      "metadata": [
+        16777237,
+        67067,
+        5285897960,
+        1792523032760000000,
+        1792523032760000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/manifest.json",
+      "metadata": [
+        16777232,
+        31420876,
+        7788936,
+        1792498862263352547,
+        1792498862263352547,
+        33188
+      ],
+      "link": null,
+      "sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/manifest.json",
+      "metadata": [
+        16777237,
+        522053,
+        7788936,
+        1792523073540000000,
+        1792523073540000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/retention-plan.json",
+      "metadata": [
+        16777232,
+        31420877,
+        524276,
+        1792498862264660705,
+        1792498862264660705,
+        33188
+      ],
+      "link": null,
+      "sha256": "cbc0f4902af83bd0e2ae810300f33709c5d8cc8626d2b287a68912dc4554b403"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/retention-plan.json",
+      "metadata": [
+        16777237,
+        522115,
+        524276,
+        1792523073550000000,
+        1792523073550000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "cbc0f4902af83bd0e2ae810300f33709c5d8cc8626d2b287a68912dc4554b403"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/verification.json",
+      "metadata": [
+        16777232,
+        31423159,
+        1127,
+        1792499363540406220,
+        1792499363540406220,
+        33188
+      ],
+      "link": null,
+      "sha256": "d3d6eb13018fca37025edc7912600c466f4ca37dc73744f9148728ad3afe7071"
+    },
+    {
+      "path": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches/verification.json",
+      "metadata": [
+        16777237,
+        522121,
+        1127,
+        1792523073560000000,
+        1792523073560000000,
+        33216
+      ],
+      "link": null,
+      "sha256": "d3d6eb13018fca37025edc7912600c466f4ca37dc73744f9148728ad3afe7071"
+    }
+  ]
+}

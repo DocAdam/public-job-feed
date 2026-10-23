@@ -308,6 +308,13 @@ cleanup receipts, test results, failed attempts, and recovery evidence. Current
 procedures remain in the operating guides. Old counts and removal lists are
 historical; do not rerun their execution helpers.
 
+Completed removal records cover two old history test folders removed on
+October 20, 2026; 762 archived batch folders removed on October 20; and three
+restore-test folders removed on October 21. The retained archives, source CSV
+packages, and production recovery records were preserved. Logical bytes removed
+and measured free-space gains are different values. Read the final receipts in
+the index before using an older record.
+
 The P01 document cleanup retained the original evidence paths and removed three
 log copies that exactly matched retained logs in the same operation folders.
 The index records each former path, retained path, size, and hash. Keep original

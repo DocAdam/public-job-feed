@@ -1,0 +1,37 @@
+{
+  "at": "2026-10-20T11:31:40.402789+00:00",
+  "first_observed_process": {
+    "pid": 55747,
+    "ppid": 55341,
+    "started_local": "2026-10-20 06:08:28 CDT",
+    "command": "/bin/bash /Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command"
+  },
+  "first_observed_child": {
+    "pid": 57910,
+    "ppid": 55747,
+    "started_local": "2026-10-20 06:30:17 CDT",
+    "command": "/bin/bash /Users/adampugh/GitHub/public-job-feed/launchers/Clean Broken Links.command"
+  },
+  "current_process_snapshot": "  PID  PPID STARTED                      ARGS\n55747 55341 Tue Oct 20 06:08:28 2026     /bin/bash /Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command\n",
+  "reports": {
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/refresh-job-feed-status.md": "# Refresh Job Feed Status\n\nStarted: 2026-10-20 11:08 UTC\n\n- Run ID: 735a4f37-340c-4544-b37a-ced631028706\n- Launcher: /Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command\n- Run evidence: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/refresh-runs/735a4f37-340c-4544-b37a-ced631028706.json\n- Project: /Users/adampugh/GitHub/public-job-feed\n- Google Sheets package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest\n\n- Step 1: maintaining catalogs and board snapshots: started 2026-10-20 11:08 UTC\n- Step 1 complete (265s)\n- Step 2: rebuilding daily public release: started 2026-10-20 11:12 UTC\n- Step 2 complete (956s)\n- Step 3: exporting Job Finder consumer slice: started 2026-10-20 11:28 UTC\n- Step 3 complete (66s)\n- Step 4: rebuilding daily Google Sheets package: started 2026-10-20 11:29 UTC\n- Step 4 complete (22s)\n- Step 5: checking and safe-pruning broken links: started 2026-10-20 11:30 UTC\n- Step 5 complete (62s)\n  - Cleaned timestamped package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629\n  - URL failures: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-failures.csv\n- Step 6: generating remote daily reports: started 2026-10-20 11:31 UTC\n- Step 6 complete (1s)\n  - Confirmed US-remote daily report: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/us-remote-daily-report.md\n  - Explicit international-remote daily report: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/international-remote-daily-report.md\n  - Combined all-remote daily report: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/all-remote-daily-report.md\n- Step 7: running validation tests: started 2026-10-20 11:31 UTC\n",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/clean-broken-links-status.md": "# Clean Broken Links Status\n\nStarted: 2026-10-20 11:30 UTC\n\n- Newest timestamped package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629\n- Latest package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest\n- Timestamped package: validating package before URL checks: started 2026-10-20 11:30 UTC\n- Timestamped package validation before URL checks complete (0s)\n- Timestamped package: checking URL health and safe-pruning deterministic broken links: started 2026-10-20 11:30 UTC\n- Timestamped package URL health and safe prune complete (60s)\n  - URL failures: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-failures.csv\n  - URL summary: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-check-summary.md\n- Timestamped package: validating package after safe prune: started 2026-10-20 11:31 UTC\n- Timestamped package validation after safe prune complete (0s)\n- Regenerating trends after timestamped package safe prune: started 2026-10-20 11:31 UTC\n- Trends complete (1s)\n- Syncing latest upload files from the cleaned timestamped package: started 2026-10-20 11:31 UTC\n- Latest package sync complete (0s)\n- Latest package: validating synced package: started 2026-10-20 11:31 UTC\n- Latest package validation complete (1s)\n- Analyzing unknown title categories: started 2026-10-20 11:31 UTC\n- Unknown title-category analysis complete (0s)\nCompleted: 2026-10-20 11:31 UTC\n"
+  },
+  "file_metadata": [
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.csv",
+      "bytes": 2878227807,
+      "mtime_utc": "2026-10-20T11:27:31.852007+00:00"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv",
+      "bytes": 204247,
+      "mtime_utc": "2026-10-20T11:31:18.870795+00:00"
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb",
+      "bytes": 694169600,
+      "mtime_utc": "2026-10-20T01:46:15.097586+00:00"
+    }
+  ]
+}

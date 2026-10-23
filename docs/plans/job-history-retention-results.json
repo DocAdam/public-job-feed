@@ -1,0 +1,24 @@
+{
+  "status": "proposal_only_no_cleanup",
+  "as_of": "2026-10-20T02:37:21.007729+00:00",
+  "production_journal_state": "accepted",
+  "accepted_companions_match": {
+    "readme": true,
+    "validation": true,
+    "report": true
+  },
+  "first_phase_database_bytes": 7376531456,
+  "first_phase_database_paths": [
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a/v1-control.duckdb",
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a/prototype.duckdb",
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-B2D5Pb/backup-1b69a10c-f5ba-482d-8bb6-8411bff07877.duckdb",
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-B2D5Pb/v1-control.duckdb",
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-B2D5Pb/prototype.duckdb"
+  ],
+  "conditional_batch_bytes": 52339654474,
+  "first_plus_conditional_batch_bytes": 59716185930,
+  "later_control_bytes": 2273849344,
+  "csv_extra_copy_bytes_not_additive": 1032538526,
+  "batch_cleanup_blocked": "Monthly ledger writer replaces saved history with remaining raw-batch events; preserve old events and test reindex before retirement.",
+  "no_deleted_files": true
+}

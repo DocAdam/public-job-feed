@@ -1,0 +1,14 @@
+[
+  {
+    "command": "npm run jobs:test-batch-history",
+    "exit_code": 0,
+    "seconds": 6.551,
+    "log": "batch-history-final.log"
+  },
+  {
+    "command": "node src/scripts/test-failure-investigation.js",
+    "exit_code": 0,
+    "seconds": 0.176,
+    "log": "failure-investigation-final.log"
+  }
+]

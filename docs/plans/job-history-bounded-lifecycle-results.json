@@ -1,0 +1,356 @@
+{
+  "scope": "Phase 2 prototype only; full migration not started",
+  "bounded_processing": {
+    "status": "passed",
+    "parity": {
+      "mode": "saved-parity",
+      "snapshot_count": 8,
+      "counts": {
+        "raw_rows": "9775",
+        "observations": "5175",
+        "exceptions": "3",
+        "text_values": "2228",
+        "postings": "2402",
+        "content_versions": "2998"
+      },
+      "events": 8259,
+      "deepnote": {
+        "stream": "shortlist",
+        "subject_key": "https://jobs.ashbyhq.com/deepnote/eb00d9b0-0dfc-4ff7-9aa4-19cf22e9644c",
+        "snapshots_seen": "8",
+        "first_snapshot": "20260602-1810",
+        "last_snapshot": "20261019-0616",
+        "first_seen": "2026-06-02 23:10:49.456",
+        "last_seen": "2026-10-19 11:16:05.929",
+        "distinct_observed_dates": "8",
+        "distinct_content_versions": "1",
+        "left_censored": true,
+        "right_censored": true,
+        "time_uncertain": false,
+        "observed_span_hours": 3324.0879091666666,
+        "presence_period_count": 1,
+        "reappearance_count": 0,
+        "content_change_count": 0,
+        "schema_change_count": 0,
+        "evidence_note": "Presence in saved snapshots only; observed span is not confirmed days open."
+      },
+      "parity": {
+        "snapshots": 8,
+        "raw_top_rows": 5185,
+        "raw_good_rows": 4590,
+        "observations": 5175,
+        "exceptions": 3,
+        "v1_closed_bytes": 111423488,
+        "v1_build_and_audit_ms": 2472,
+        "population_parity": "passed",
+        "all_metric_values": "passed",
+        "all_role_values": "passed",
+        "full_report_parity": "passed"
+      },
+      "build_and_audit_ms": 8557,
+      "closed_bytes": 110112768,
+      "stats": {
+        "imported": 8,
+        "no_op": 0,
+        "max_batch_rows": 32,
+        "max_batch_bytes": 524225,
+        "worker_peak_rss_bytes": 481181696,
+        "worker_count": 8
+      },
+      "peak_rss_bytes": 2492661760,
+      "parent_peak_rss_bytes": 2011480064,
+      "source_files_checked": 56,
+      "limits": {
+        "packageBytes": 33554432,
+        "recordBytes": 4194304,
+        "batchBytes": 524288,
+        "batchRows": 32,
+        "readRows": 8,
+        "databaseMemory": "192MB"
+      },
+      "memory_after_import": {
+        "rss": 145244160,
+        "heapTotal": 14565376,
+        "heapUsed": 9152448,
+        "external": 12618950,
+        "arrayBuffers": 10346574
+      },
+      "memory_after_events": {
+        "rss": 187334656,
+        "heapTotal": 13516800,
+        "heapUsed": 9632408,
+        "external": 2563592,
+        "arrayBuffers": 260969
+      },
+      "database_storage": [
+        {
+          "database_name": "prototype",
+          "database_size": "105.0 MiB",
+          "block_size": "262144",
+          "total_blocks": "420",
+          "used_blocks": "231",
+          "free_blocks": "189",
+          "wal_size": "0 bytes",
+          "memory_usage": "45.2 MiB",
+          "memory_limit": "183.1 MiB"
+        }
+      ]
+    },
+    "isolated_workers": [
+      {
+        "mode": "saved-isolated",
+        "snapshot_count": 8,
+        "counts": {
+          "raw_rows": "9775",
+          "observations": "5175",
+          "exceptions": "3",
+          "text_values": "2228",
+          "postings": "2402",
+          "content_versions": "2998"
+        },
+        "events": 8259,
+        "deepnote": {
+          "stream": "shortlist",
+          "subject_key": "https://jobs.ashbyhq.com/deepnote/eb00d9b0-0dfc-4ff7-9aa4-19cf22e9644c",
+          "snapshots_seen": "8",
+          "first_snapshot": "20260602-1810",
+          "last_snapshot": "20261019-0616",
+          "first_seen": "2026-06-02 23:10:49.456",
+          "last_seen": "2026-10-19 11:16:05.929",
+          "distinct_observed_dates": "8",
+          "distinct_content_versions": "1",
+          "left_censored": true,
+          "right_censored": true,
+          "time_uncertain": false,
+          "observed_span_hours": 3324.0879091666666,
+          "presence_period_count": 1,
+          "reappearance_count": 0,
+          "content_change_count": 0,
+          "schema_change_count": 0,
+          "evidence_note": "Presence in saved snapshots only; observed span is not confirmed days open."
+        },
+        "parity": null,
+        "build_and_audit_ms": 7843,
+        "closed_bytes": 108015616,
+        "stats": {
+          "imported": 8,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 524225,
+          "worker_peak_rss_bytes": 462766080,
+          "worker_count": 8
+        },
+        "peak_rss_bytes": 649986048,
+        "parent_peak_rss_bytes": 187219968,
+        "source_files_checked": 56,
+        "limits": {
+          "packageBytes": 33554432,
+          "recordBytes": 4194304,
+          "batchBytes": 524288,
+          "batchRows": 32,
+          "readRows": 8,
+          "databaseMemory": "192MB"
+        },
+        "memory_after_import": {
+          "rss": 145195008,
+          "heapTotal": 14565376,
+          "heapUsed": 9188496,
+          "external": 12750022,
+          "arrayBuffers": 10477646
+        },
+        "memory_after_events": {
+          "rss": 187088896,
+          "heapTotal": 13254656,
+          "heapUsed": 9394624,
+          "external": 2553136,
+          "arrayBuffers": 250513
+        },
+        "database_storage": [
+          {
+            "database_name": "prototype",
+            "database_size": "103.0 MiB",
+            "block_size": "262144",
+            "total_blocks": "412",
+            "used_blocks": "230",
+            "free_blocks": "182",
+            "wal_size": "0 bytes",
+            "memory_usage": "4.7 MiB",
+            "memory_limit": "183.1 MiB"
+          }
+        ]
+      },
+      {
+        "mode": "stress",
+        "snapshot_count": 8,
+        "raw_rows": 3200,
+        "unique_content_versions": 1600,
+        "changed_events": 1400,
+        "elapsed_ms": 2528,
+        "closed_bytes": 45363200,
+        "stats": {
+          "imported": 8,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 507840,
+          "worker_peak_rss_bytes": 239697920,
+          "worker_count": 8
+        },
+        "peak_rss_bytes": 460242944,
+        "parent_peak_rss_bytes": 220545024,
+        "limits": {
+          "packageBytes": 33554432,
+          "recordBytes": 4194304,
+          "batchBytes": 524288,
+          "batchRows": 32,
+          "readRows": 8,
+          "databaseMemory": "192MB"
+        }
+      },
+      {
+        "mode": "stress",
+        "snapshot_count": 32,
+        "raw_rows": 12800,
+        "unique_content_versions": 6400,
+        "changed_events": 6200,
+        "elapsed_ms": 13075,
+        "closed_bytes": 140783616,
+        "stats": {
+          "imported": 32,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 507900,
+          "worker_peak_rss_bytes": 307118080,
+          "worker_count": 32
+        },
+        "peak_rss_bytes": 662290432,
+        "parent_peak_rss_bytes": 355172352,
+        "limits": {
+          "packageBytes": 33554432,
+          "recordBytes": 4194304,
+          "batchBytes": 524288,
+          "batchRows": 32,
+          "readRows": 8,
+          "databaseMemory": "192MB"
+        }
+      }
+    ],
+    "note": "One import worker per package, sequentially. Isolated benchmark parents use a 256 MiB V8 heap; import workers use 128 MiB; DuckDB uses a 192 MB setting. peak_rss_bytes is the conservative sum of parent peak and maximum child peak, which may occur at different times. RSS thresholds are test gates, not a hard OS memory limit. No full archive imported."
+  },
+  "lifecycle": {
+    "status": "passed",
+    "checks": [
+      "content changes and schema changes",
+      "two independent streams",
+      "duplicate export membership",
+      "one absence boundary",
+      "reappearance with prior content",
+      "calendar gaps and multiple runs per day",
+      "coverage warning including intervening changes",
+      "censoring and zero span",
+      "unknown and conflicting clocks",
+      "two no-op updates",
+      "changed old source rejection",
+      "failed and missing package",
+      "source mutation rollback",
+      "overlapping writer rejection",
+      "late insert equals rebuild",
+      "persistent hash collision",
+      "package and row size limits",
+      "corruption detection",
+      "empty history"
+    ],
+    "summary": {
+      "stream": "shortlist",
+      "subject_key": "https://fixture/a",
+      "snapshots_seen": "5",
+      "first_snapshot": "20260101-1200",
+      "last_snapshot": "20260107-1200",
+      "first_seen": "2026-01-01 12:00:00",
+      "last_seen": "2026-01-07 12:00:00",
+      "distinct_observed_dates": "4",
+      "distinct_content_versions": "4",
+      "left_censored": true,
+      "right_censored": true,
+      "time_uncertain": false,
+      "observed_span_hours": 144,
+      "presence_period_count": 2,
+      "reappearance_count": 1,
+      "content_change_count": 3,
+      "schema_change_count": 1,
+      "evidence_note": "Presence in saved snapshots only; observed span is not confirmed days open."
+    },
+    "stats": {
+      "max_batch_rows": 2,
+      "max_batch_bytes": 1285,
+      "imported": 8,
+      "no_op": 2
+    }
+  },
+  "protection": {
+    "existing_files_checked": 3159,
+    "expected_code_changes": [
+      "src/lib/job-history-storage.js",
+      "src/lib/jobs-history.js",
+      "src/scripts/test-job-history-storage.js"
+    ],
+    "unexpected_changes": [],
+    "unchanged_existing_files": 3156,
+    "historical_package_files_unchanged": 2924,
+    "warehouse_files_unchanged": 3,
+    "source_and_warehouse_inventories_unchanged": true,
+    "database_sha256_before": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+    "database_sha256_after": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+    "baseline_manifest_sha256": "7102f50ba67b6a8c7038d87034d6cf3128c48bd2b86fbe60aa5c60fdb3ee17b2"
+  },
+  "validation": {
+    "syntax_checks": [
+      "src/lib/jobs-history.js",
+      "src/lib/job-history-storage.js",
+      "src/scripts/test-job-history-storage.js",
+      "src/lib/job-history-bounded-storage.js",
+      "src/lib/job-history-bounded-runner.js",
+      "src/lib/job-history-lifecycle.js",
+      "src/scripts/job-history-storage-worker.js",
+      "src/scripts/test-job-history-bounded.js",
+      "src/scripts/test-job-history-lifecycle.js"
+    ],
+    "git_diff_check": "passed",
+    "new_file_whitespace_checks": "passed",
+    "commands_passed": [
+      "node src/scripts/test-job-history-bounded.js",
+      "node src/scripts/test-job-history-lifecycle.js",
+      "node src/scripts/test-job-history-storage.js",
+      "npm run jobs:test-history",
+      "npm run jobs:test-history-content",
+      "npm run jobs:test-content-metrics",
+      "npm run jobs:test-all-remote-report",
+      "npm run jobs:test-us-remote-report",
+      "npm run jobs:test-international-remote-report"
+    ],
+    "review_document_links_and_whitespace": "passed",
+    "tested_code_sha256": {
+      "src/lib/jobs-history.js": "aaf346f0b7972abba71d34da97f98b9749817e68d14ce159fe019498ff862c54",
+      "src/lib/job-history-storage.js": "11f1e26fa6e4dedce71d62bd3bca220e76de73418ace44f7b4ca687af80abe87",
+      "src/scripts/test-job-history-storage.js": "44e268537aea7c83bb65f92bae562e149b020968748d3c76765106db6e32dc68",
+      "src/lib/job-history-bounded-storage.js": "4a996783d87603b49bfd482b9537fcf19660573339e1df06852252a52a1086da",
+      "src/lib/job-history-bounded-runner.js": "5d5062d1e555f89038c3458167fbed12fea3cd62aae88f9dbca2e5a69a9938dd",
+      "src/lib/job-history-lifecycle.js": "d959bb3d23cc93790a730a40b3b9fed3722eef866c1e8bb6aacf71f5ecd1caaa",
+      "src/scripts/job-history-storage-worker.js": "13703dbce85a2398c462d4a9631a759b1f634acba6c3a799012e6123338616ae",
+      "src/scripts/test-job-history-bounded.js": "8c5b1f87f43e214977379452e0fc4ac483d1a011daa1c4d4334d5448681b2d1d",
+      "src/scripts/test-job-history-lifecycle.js": "ee760c22ff2686a680c912ab2a899b96300e833871e0f9e3a0f2ea4410a4433d"
+    }
+  },
+  "trial_failures_resolved": [
+    "Initial single-process memory trial exceeded 768 MiB",
+    "128 MiB import worker failed before record-at-a-time CSV parsing was added"
+  ],
+  "not_verified": [
+    "Full archive reconciliation and all 40 historical exceptions",
+    "All v1 wide SQL query contracts",
+    "Full historical metric refresh after late insertion",
+    "Process-kill recovery, promotion and rollback",
+    "Performance and memory beyond the measured sample/stress populations",
+    "Production integration"
+  ],
+  "temporary_databases_removed": true
+}

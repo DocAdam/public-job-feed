@@ -1,0 +1,88 @@
+ M README.md
+ M data/jobs/history/README.md
+ M data/jobs/history/validation.json
+ M docs/daily-job-reports.md
+ M docs/refresh-job-feed-process.md
+ M docs/storage-lifecycle.md
+ M docs/weekly-top-five-substack.md
+ M "launchers/Prepare Weekly Top 5 Substack.command"
+ M package.json
+ M src/lib/all-remote-daily-report.js
+ M src/lib/ats-error-classification.js
+ M src/lib/batch-history.js
+ M src/lib/batch-run.js
+ M src/lib/failure-diagnostics.js
+ M src/lib/http.js
+ M src/lib/jobs-history-report.js
+ M src/lib/jobs-history.js
+ M src/lib/jobs-snapshot.js
+ M src/scripts/fetch-batch-jobs.js
+ M src/scripts/index-batches.js
+ M src/scripts/jobs-history.js
+ M src/scripts/maintain-board-index.js
+ M src/scripts/plan-batch-retention.js
+ M src/scripts/query-jobs-history.js
+ M src/scripts/report-all-remote-daily.js
+ M src/scripts/report-jobs-history.js
+ M src/scripts/retire-batches.js
+ M src/scripts/test-all-remote-daily-report.js
+ M src/scripts/test-batch-history.js
+ M src/scripts/test-catalog-maintenance.js
+ M src/scripts/test-jobs-snapshot.js
+ M src/scripts/test-refresh-reports.js
+ M src/scripts/validate-refresh-output.js
+?? docs/failure-evidence-sampling.md
+?? docs/plans/
+?? docs/substack-draft-2026-10-19-review.md
+?? docs/substack-draft-2026-10-19.md
+?? docs/substack-publication.md
+?? src/lib/batch-history-ledger.js
+?? src/lib/batch-maintenance.js
+?? src/lib/batch-retention.js
+?? src/lib/board-probe.js
+?? src/lib/job-history-access.js
+?? src/lib/job-history-bounded-runner.js
+?? src/lib/job-history-bounded-storage.js
+?? src/lib/job-history-lifecycle.js
+?? src/lib/job-history-migration.js
+?? src/lib/job-history-parity.js
+?? src/lib/job-history-prototype-files.js
+?? src/lib/job-history-prototype-metrics.js
+?? src/lib/job-history-prototype-owner.js
+?? src/lib/job-history-runtime.js
+?? src/lib/job-history-sql-compatibility.js
+?? src/lib/job-history-storage.js
+?? src/lib/substack-full-report.js
+?? src/scripts/fixtures/failure-probes-2026-09-29.json
+?? src/scripts/job-history-file-worker.js
+?? src/scripts/job-history-full-candidate-worker.js
+?? src/scripts/job-history-prepare-worker.js
+?? src/scripts/job-history-runtime-worker.js
+?? src/scripts/job-history-storage-worker.js
+?? src/scripts/job-history-validation-control.js
+?? src/scripts/job-history-validation-scan-worker.js
+?? src/scripts/job-history-validation-worker.js
+?? src/scripts/manage-jobs-history.js
+?? src/scripts/probe-board.js
+?? src/scripts/report-failure-probes.js
+?? src/scripts/report-substack-full.js
+?? src/scripts/select-failure-probe-cohorts.js
+?? src/scripts/test-batch-history-recovery.js
+?? src/scripts/test-batch-retention.js
+?? src/scripts/test-board-probe.js
+?? src/scripts/test-job-history-bounded.js
+?? src/scripts/test-job-history-compaction-memory.js
+?? src/scripts/test-job-history-compaction.js
+?? src/scripts/test-job-history-copy-comparison.js
+?? src/scripts/test-job-history-file-worker.js
+?? src/scripts/test-job-history-full-candidate.js
+?? src/scripts/test-job-history-integration-full.js
+?? src/scripts/test-job-history-integration-worker.js
+?? src/scripts/test-job-history-integration.js
+?? src/scripts/test-job-history-lifecycle.js
+?? src/scripts/test-job-history-recovery.js
+?? src/scripts/test-job-history-sql.js
+?? src/scripts/test-job-history-storage.js
+?? src/scripts/test-job-history-validation-memory.js
+?? src/scripts/test-job-history-validation.js
+?? src/scripts/test-substack-full-report.js

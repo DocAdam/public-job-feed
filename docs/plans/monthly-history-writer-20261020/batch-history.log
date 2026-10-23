@@ -1,0 +1,24 @@
+
+> public-job-feed@0.1.0 jobs:test-batch-history
+> node src/scripts/test-batch-history.js
+
+PASS removed batches, late arrivals, repeated rebuilds, empty input, and diagnostic preservation
+PASS conflicting IDs fail closed; object key order does not create a conflict
+PASS saved truncated-gzip stops publication without changing saved bytes
+PASS saved bad-json stops publication without changing saved bytes
+PASS saved wrong-month stops publication without changing saved bytes
+PASS saved duplicate-id stops publication without changing saved bytes
+PASS saved oversized-saved stops publication without changing saved bytes
+PASS saved invalid-utf8 stops publication without changing saved bytes
+PASS oversized incoming record leaves the original ledger and state intact
+PASS ordinary write failure cleans only its own staged files
+PASS process death at temp-opened, explicit recovery, and idempotent retry
+PASS process death at temp-chunk-written, explicit recovery, and idempotent retry
+PASS process death at staged, explicit recovery, and idempotent retry
+PASS process death at month-published, explicit recovery, and idempotent retry
+PASS process death at before-state-publish, explicit recovery, and idempotent retry
+PASS unknown lock and unknown staging paths require manual review
+PASS symlinked ledger or parent cannot modify an external target
+PASS real index entry point retains old events after fixture batch removal and two rebuilds
+{"status":"passed","groups":18,"scope":"Synthetic temporary folders; no production index, batch, CSV, or database writes"}
+Batch history tests passed.

@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-refresh-launcher
+> node src/scripts/test-refresh-launcher.js
+
+Refresh launcher success and failure tests passed; no live refresh ran.

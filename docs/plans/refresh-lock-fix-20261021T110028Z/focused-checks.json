@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "commands": [
+    "npm run jobs:test-catalog-maintenance",
+    "npm run jobs:test-batch-history",
+    "node --check src/scripts/maintain-board-index.js",
+    "node --check src/scripts/test-catalog-maintenance.js",
+    "git diff --check"
+  ],
+  "recovery_test_groups": 18,
+  "retention_test_groups": 22,
+  "scope": "Synthetic fixtures for tests; no production data writes from these tests"
+}

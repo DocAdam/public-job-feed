@@ -1,0 +1,14 @@
+{
+  "at": "2026-10-20T11:11:22.611126+00:00",
+  "protected_files": 40601,
+  "protected_bytes": 132265139046,
+  "target_files": 18,
+  "archived_records": 13,
+  "expected_database_hashes": {
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/candidate.duckdb": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/v1-control.duckdb": "2278283cf4cbc6249f2b00ae0e2a3e213765ad75ff251d810365a218433c6863",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb.operations/9819f508-ece7-430f-9016-aae7e46e5078/before.duckdb": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7"
+  },
+  "empty_temp_directory_note": "Existing empty DuckDB spill directory; its modification time predates the retention review."
+}

@@ -1,0 +1,52 @@
+
+> public-job-feed@0.1.0 jobs:test-batch-history
+> node src/scripts/test-batch-history.js
+
+PASS removed batches, late arrivals, repeated rebuilds, empty input, and diagnostic preservation
+PASS conflicting IDs fail closed; object key order does not create a conflict
+PASS saved truncated-gzip stops publication without changing saved bytes
+PASS saved bad-json stops publication without changing saved bytes
+PASS saved wrong-month stops publication without changing saved bytes
+PASS saved duplicate-id stops publication without changing saved bytes
+PASS saved oversized-saved stops publication without changing saved bytes
+PASS saved invalid-utf8 stops publication without changing saved bytes
+PASS oversized incoming record leaves the original ledger and state intact
+PASS ordinary write failure cleans only its own staged files
+PASS process death at temp-opened, explicit recovery, and idempotent retry
+PASS process death at temp-chunk-written, explicit recovery, and idempotent retry
+PASS process death at staged, explicit recovery, and idempotent retry
+PASS process death at month-published, explicit recovery, and idempotent retry
+PASS process death at before-state-publish, explicit recovery, and idempotent retry
+PASS unknown lock and unknown staging paths require manual review
+PASS symlinked ledger or parent cannot modify an external target
+PASS real index entry point retains old events after fixture batch removal and two rebuilds
+{"status":"passed","groups":18,"scope":"Synthetic temporary folders; no production index, batch, CSV, or database writes"}
+PASS policy, exact state and ledger coverage; deterministic plan
+PASS fixture removal, reindex twice, all saved events retained
+PASS changed candidate bytes refuses deletion
+PASS new unindexed batch refuses deletion
+PASS missing batch refuses deletion
+PASS changed index refuses deletion
+PASS changed board job count refuses deletion
+PASS missing saved events refuses deletion
+PASS damaged ledger refuses deletion
+PASS active monthly writer refuses deletion
+PASS pending monthly recovery refuses deletion
+PASS symlink candidate file refuses deletion
+PASS unsafe indexed folder refuses deletion
+PASS duplicate indexed name refuses deletion
+PASS changed plan decisions, unknown names, unsafe paths, version and expiry
+PASS monthly lock stops index before it changes any output
+PASS saved diagnostics must match raw evidence
+PASS symlink batch folder and unknown owner refuse work
+PASS input change during planning refuses plan
+PASS real index owner blocks planning, retirement and collection; dead owner stays blocked
+PASS retirement lock spans validation and removal; index refuses before writes
+PASS collection and planner hold the same boundary; caught errors release it
+Batch retention safeguards: 22 test groups passed.
+Batch history tests passed.
+npm notice
+npm notice New major version of npm available! 11.16.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

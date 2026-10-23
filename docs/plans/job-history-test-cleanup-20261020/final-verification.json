@@ -1,0 +1,31 @@
+{
+  "at": "2026-10-20T11:15:33.953188+00:00",
+  "status": "passed",
+  "protected_files": 40601,
+  "protected_bytes": 132265139046,
+  "groups": {
+    "batches": 37163,
+    "packages": 2925,
+    "other_protected": 513
+  },
+  "content_hash_mismatches": 0,
+  "inventory_or_metadata_changes": 0,
+  "production_audit_matches_before": true,
+  "known_source_warnings": 32,
+  "production_structural_errors": [],
+  "production_snapshots": "152",
+  "latest": {
+    "snapshot_id": "20261019-0616",
+    "observed_at": "2026-10-19 06:16:00",
+    "total_postings": "878",
+    "good_postings": "743",
+    "remote_postings": "171",
+    "hybrid_postings": "130",
+    "onsite_postings": "543",
+    "us_remote_eligible_count": "50",
+    "company_count": 559,
+    "catalog_slug_count": 564,
+    "ats_type_count": 7
+  },
+  "removed_folders_absent": true
+}

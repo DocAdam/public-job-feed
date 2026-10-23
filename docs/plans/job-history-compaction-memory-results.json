@@ -1,0 +1,502 @@
+{
+  "status": "passed_for_tested_prototype_scope",
+  "scope": "Reduce compaction and audit memory in token-owned temporary prototypes. Production database and historical CSV files unchanged. No full migration.",
+  "review_type": "Implementer review; no independent agent review",
+  "gates": {
+    "saved_prototype_768_MiB": "passed",
+    "synthetic_8_and_32_snapshots_768_MiB": "passed",
+    "fourfold_growth_256_MiB": "passed",
+    "SQL_read_and_report_equivalence": "passed_for_eight_saved_packages_and_fixtures",
+    "recovery_and_rollback": "passed",
+    "protected_files": "passed",
+    "legacy_v1_control_memory": "not_qualified",
+    "full_archive_and_production_cutover": "not_started"
+  },
+  "compaction": {
+    "status": "passed",
+    "snapshots": 8,
+    "source_files": 56,
+    "first_seven": {
+      "before_bytes": 115879936,
+      "after_bytes": 66334720,
+      "backup_bytes": 115879936,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true,
+      "worker_peak_rss_bytes": 528138240
+    },
+    "after_eighth_append_bytes": 135016448,
+    "final_eight": {
+      "before_bytes": 135016448,
+      "after_bytes": 78131200,
+      "backup_bytes": 135016448,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true,
+      "worker_peak_rss_bytes": 531038208
+    },
+    "v1_control_bytes": 111947776,
+    "reduction_vs_v1_percent": 30.20745673411145,
+    "repeat": {
+      "before_bytes": 78131200,
+      "after_bytes": 77606912,
+      "backup_bytes": 78131200,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true,
+      "worker_peak_rss_bytes": 529907712
+    },
+    "rollback": {
+      "result": "previous_file_restored",
+      "worker_peak_rss_bytes": 342622208
+    },
+    "parity": {
+      "objects": [
+        {
+          "object": "snapshots",
+          "columns": 13,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "posting_observations",
+          "columns": 75,
+          "rows": 5175,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_files",
+          "columns": 5,
+          "rows": 16,
+          "differences": 0
+        },
+        {
+          "object": "source_artifacts",
+          "columns": 4,
+          "rows": 40,
+          "differences": 0
+        },
+        {
+          "object": "raw_top_match_rows",
+          "columns": 8,
+          "rows": 5185,
+          "differences": 0
+        },
+        {
+          "object": "raw_good_job_rows",
+          "columns": 8,
+          "rows": 4590,
+          "differences": 0
+        },
+        {
+          "object": "good_job_exceptions",
+          "columns": 9,
+          "rows": 3,
+          "differences": 0
+        },
+        {
+          "object": "historical_content_metrics",
+          "columns": 36,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "historical_role_metrics",
+          "columns": 3,
+          "rows": 80,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_summary",
+          "columns": 12,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "posting_lifecycle",
+          "columns": 10,
+          "rows": 2402,
+          "differences": 0
+        },
+        {
+          "object": "daily_market_metrics",
+          "columns": 11,
+          "rows": 8,
+          "differences": 0
+        }
+      ],
+      "report": "passed",
+      "imported_at": "Type and non-null parity; independent import timestamps"
+    },
+    "no_op_twice": "Exact logical fingerprints unchanged, including import timestamps",
+    "source_hashes": "unchanged",
+    "parent_peak_rss_bytes": 117587968,
+    "import_worker_peak_rss_bytes": 592560128,
+    "file_worker_peak_rss_bytes": 531038208,
+    "file_worker_count": 10,
+    "control_worker_peak_rss_bytes": 1559347200,
+    "prototype_conservative_peak_rss_bytes": 710131712,
+    "prototype_peak_limit_bytes": 805306368,
+    "whole_test_conservative_peak_rss_bytes": 1676918784,
+    "memory_scope": "Prototype peak includes imports, prepare, exact copy audit, fingerprints, repeat compaction, and recovery. Legacy v1 build and parity control measured separately; not memory-qualified.",
+    "limit": "Saved sample only; backup files are retained in the owned directory until test cleanup. No production promotion or full archive migration."
+  },
+  "growth": {
+    "status": "passed",
+    "cases": [
+      {
+        "snapshots": 8,
+        "raw_rows": 3200,
+        "unique_content_versions": 1600,
+        "compactions": [
+          {
+            "before_bytes": 50343936,
+            "after_bytes": 30683136,
+            "backup_bytes": 50343936,
+            "compared_objects": 37,
+            "closed_candidate_and_promoted_reopen": "passed",
+            "backup_retained": true,
+            "worker_peak_rss_bytes": 397918208
+          },
+          {
+            "before_bytes": 30683136,
+            "after_bytes": 30158848,
+            "backup_bytes": 30683136,
+            "compared_objects": 37,
+            "closed_candidate_and_promoted_reopen": "passed",
+            "backup_retained": true,
+            "worker_peak_rss_bytes": 407273472
+          }
+        ],
+        "rollback": {
+          "result": "previous_file_restored",
+          "worker_peak_rss_bytes": 230752256
+        },
+        "parent_peak_rss_bytes": 118292480,
+        "stats": {
+          "imported": 8,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 507840,
+          "worker_peak_rss_bytes": 311312384,
+          "worker_count": 8,
+          "file_worker_peak_rss_bytes": 407273472,
+          "file_worker_count": 8
+        },
+        "conservative_peak_rss_bytes": 525565952
+      },
+      {
+        "snapshots": 32,
+        "raw_rows": 12800,
+        "unique_content_versions": 6400,
+        "compactions": [
+          {
+            "before_bytes": 149434368,
+            "after_bytes": 81539072,
+            "backup_bytes": 149434368,
+            "compared_objects": 37,
+            "closed_candidate_and_promoted_reopen": "passed",
+            "backup_retained": true,
+            "worker_peak_rss_bytes": 536707072
+          },
+          {
+            "before_bytes": 81539072,
+            "after_bytes": 81539072,
+            "backup_bytes": 81539072,
+            "compared_objects": 37,
+            "closed_candidate_and_promoted_reopen": "passed",
+            "backup_retained": true,
+            "worker_peak_rss_bytes": 535674880
+          }
+        ],
+        "rollback": {
+          "result": "previous_file_restored",
+          "worker_peak_rss_bytes": 334233600
+        },
+        "parent_peak_rss_bytes": 149159936,
+        "stats": {
+          "imported": 32,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 507900,
+          "worker_peak_rss_bytes": 425754624,
+          "worker_count": 32,
+          "file_worker_peak_rss_bytes": 536707072,
+          "file_worker_count": 8
+        },
+        "conservative_peak_rss_bytes": 685867008
+      }
+    ],
+    "growth_bytes": 160301056,
+    "peak_limit_bytes": 805306368,
+    "growth_limit_bytes": 268435456,
+    "note": "Conservative sum of each isolated controller peak and its largest sequential child peak. Test dispatcher excluded. Synthetic history only; no OS-enforced RSS ceiling."
+  },
+  "copy_comparison": {
+    "status": "passed",
+    "cases": [
+      "cross-row value swap",
+      "late column change",
+      "JSON byte order",
+      "NULL versus string",
+      "NULL versus empty",
+      "NULL versus false",
+      "NULL versus zero",
+      "missing row",
+      "extra row",
+      "duplicate key at same count",
+      "NULL key",
+      "missing snapshot"
+    ],
+    "field_fingerprints": "passed",
+    "empty_snapshot": "passed",
+    "temporary_stage_cleanup": "passed"
+  },
+  "file_worker": {
+    "status": "passed",
+    "cases": [
+      "open_reader_guard",
+      "wrong_token_no_file_change",
+      "invalid_operation",
+      "concurrent_operations_rejected",
+      "child_error_propagated",
+      "busy_reset_after_error",
+      "worker_recovery",
+      "worker_rollback"
+    ],
+    "stats": {
+      "imported": 1,
+      "no_op": 0,
+      "max_batch_rows": 1,
+      "max_batch_bytes": 594,
+      "worker_peak_rss_bytes": 124665856,
+      "worker_count": 1,
+      "file_worker_peak_rss_bytes": 191922176,
+      "file_worker_count": 8
+    }
+  },
+  "recovery": {
+    "status": "passed",
+    "cases": [
+      "live_writer_and_recovery_rejected",
+      {
+        "point": "uncommitted",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "committed",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "before_copy",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "after_copy",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "prepared",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "old_renamed",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "promoted",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "complete",
+        "signal": "SIGKILL"
+      },
+      "explicit_file_rollback",
+      "rename_failure_restored",
+      "copy_failure_preserved",
+      "damaged_backup_refused",
+      {
+        "point": "committed",
+        "signal": "SIGKILL"
+      },
+      "rollback_with_pending_wal_refused",
+      "rollback_after_new_import_refused",
+      "malformed_lease_refused"
+    ],
+    "compaction": {
+      "before_bytes": 13381632,
+      "after_bytes": 13381632,
+      "backup_bytes": 13381632,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true
+    },
+    "limits": "Process-kill tests, injected copy failure, and real rename failure. No power-loss or full-disk hardware simulation. Production code rollback is outside this temporary prototype."
+  },
+  "bounded_import": {
+    "saved_peak_rss_bytes": 778354688,
+    "small_peak_rss_bytes": 530939904,
+    "large_peak_rss_bytes": 791150592,
+    "growth_bytes": 260210688
+  },
+  "validation": [
+    {
+      "command": "node src/scripts/test-job-history-copy-comparison.js",
+      "exit_code": 0,
+      "seconds": 0.19
+    },
+    {
+      "command": "node src/scripts/test-job-history-file-worker.js",
+      "exit_code": 0,
+      "seconds": 1.9
+    },
+    {
+      "command": "node --max-old-space-size=256 src/scripts/test-job-history-compaction.js",
+      "exit_code": 0,
+      "seconds": 49.88
+    },
+    {
+      "command": "node src/scripts/test-job-history-recovery.js",
+      "exit_code": 0,
+      "seconds": 6.0
+    },
+    {
+      "command": "node src/scripts/test-job-history-sql.js",
+      "exit_code": 0,
+      "seconds": 16.33
+    },
+    {
+      "command": "node src/scripts/test-job-history-bounded.js",
+      "exit_code": 0,
+      "seconds": 44.51
+    },
+    {
+      "command": "node src/scripts/test-job-history-storage.js",
+      "exit_code": 0,
+      "seconds": 0.46
+    },
+    {
+      "command": "node src/scripts/test-job-history-lifecycle.js",
+      "exit_code": 0,
+      "seconds": 0.72
+    },
+    {
+      "command": "npm run jobs:test-history",
+      "exit_code": 0,
+      "seconds": 2.41,
+      "summary": "\n> public-job-feed@0.1.0 jobs:test-history\n> node src/scripts/test-jobs-history.js\n\nPASS: discovery, integrity failures, URL membership, identity, types, schema union, empty snapshot, lifecycle, inclusion history, atomic rebuild, incremental update, idempotency, duplicate selection, raw preservation, exceptions, and corruption detection\n"
+    },
+    {
+      "command": "npm run jobs:test-history-content",
+      "exit_code": 0,
+      "seconds": 0.5,
+      "summary": "\n> public-job-feed@0.1.0 jobs:test-history-content\n> node src/scripts/test-history-content.js\n\nPASS: daily parity, topic denominators, exceptions, duplicate exports, baseline selection, churn, coverage, roles, deterministic report, zero denominators, dependent incremental refresh, deterministic publishing sections, weekly trends, coverage gaps, and existing-section preservation\n"
+    },
+    {
+      "command": "npm run jobs:test-content-metrics",
+      "exit_code": 0,
+      "seconds": 0.16,
+      "summary": "\n> public-job-feed@0.1.0 jobs:test-content-metrics\n> node src/scripts/test-content-metrics.js\n\nContent metrics calculation and report fixture tests: PASS\n"
+    },
+    {
+      "command": "npm run jobs:test-all-remote-report",
+      "exit_code": 0,
+      "seconds": 0.27,
+      "summary": "\n> public-job-feed@0.1.0 jobs:test-all-remote-report\n> node src/scripts/test-all-remote-daily-report.js\n\nJobs snapshot tests: PASS\nAll-remote daily report tests: PASS\n"
+    },
+    {
+      "command": "npm run jobs:test-us-remote-report",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "summary": "\n> public-job-feed@0.1.0 jobs:test-us-remote-report\n> node src/scripts/test-us-remote-daily-report.js\n\nUS-remote daily report tests: PASS\n"
+    },
+    {
+      "command": "npm run jobs:test-international-remote-report",
+      "exit_code": 0,
+      "seconds": 0.13,
+      "summary": "\n> public-job-feed@0.1.0 jobs:test-international-remote-report\n> node src/scripts/test-international-remote-daily-report.js\n\nInternational-remote daily report tests: PASS\n"
+    },
+    {
+      "command": "node --max-old-space-size=256 src/scripts/test-job-history-compaction-memory.js",
+      "exit_code": 0
+    }
+  ],
+  "syntax": [
+    {
+      "file": "src/lib/job-history-prototype-files.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "src/lib/job-history-bounded-runner.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "src/scripts/job-history-file-worker.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "src/scripts/test-job-history-compaction.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "src/scripts/test-job-history-copy-comparison.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "src/scripts/test-job-history-compaction-memory.js",
+      "exit_code": 0,
+      "output": ""
+    },
+    {
+      "file": "src/scripts/test-job-history-file-worker.js",
+      "exit_code": 0,
+      "output": ""
+    }
+  ],
+  "whitespace": {
+    "git_diff_check": "passed",
+    "changed_untracked_files": "passed"
+  },
+  "protection": {
+    "baseline_files": 3167,
+    "changed_existing_files": [
+      "src/scripts/test-job-history-compaction.js",
+      "src/lib/job-history-prototype-files.js",
+      "src/lib/job-history-bounded-runner.js"
+    ],
+    "missing_files": [],
+    "protected_files": 2927,
+    "protected_added": [],
+    "protected_removed": [],
+    "protected_changed": [],
+    "warehouse_sha256": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7"
+  },
+  "code_sha256": {
+    "src/lib/job-history-prototype-files.js": "aa62273a086ff3e472c0b696e2f5a433a82f9d5881ee2e0a6642c694514a58e0",
+    "src/lib/job-history-bounded-runner.js": "34da89bcfaf67170b6e00ff300cc8a2cb920c4c87ffefea1d2a7e28a78be5676",
+    "src/scripts/job-history-file-worker.js": "fa7e813a21f8f72daac34c6139b427f865c6c25def4c93eae173ae0f35e9f49a",
+    "src/scripts/test-job-history-compaction.js": "a13416970139563e1172b07a9e8823c90059126b3cc2e8166e06f1a916114df5",
+    "src/scripts/test-job-history-copy-comparison.js": "8eaad318ee31b7e9578ac8955b58a87e9857abc2aa64c989dcd93d4cf2633160",
+    "src/scripts/test-job-history-compaction-memory.js": "9b393daff623c0cb547b22cd0439e83fab3893a63950c0eaffaea1ac87a17724",
+    "src/scripts/test-job-history-file-worker.js": "1fbe36df807e83edb78e4b639c2d2bebc7d28503e7e9349bd84f9acad414cd97"
+  },
+  "development_failures": [
+    "Two simultaneous wide JSON transforms exceeded the unchanged 192 MB DuckDB setting.",
+    "Staging all wide columns still exceeded the setting during a repeated copy. Final implementation stages eight value columns plus identity.",
+    "File-worker isolation alone left the controller with large audit allocations. Prepare and fingerprint operations were also isolated.",
+    "The first 32-snapshot test failed while serializing text blobs for fingerprints. The final fingerprint hashes string fields before row JSON serialization."
+  ],
+  "limits": [
+    "RSS checks are measured test limits, not an OS-enforced memory ceiling.",
+    "Saved sample has eight snapshots and three exceptions; it does not validate the full archive or all 40 old exceptions.",
+    "Legacy v1 test build/parity control remains memory-heavy.",
+    "Existing import growth test has limited headroom.",
+    "Backups remain until owned prototype cleanup; smaller database size is not total disk space reclaimed.",
+    "Power-loss, full-disk hardware behavior, production writer integration, and production cutover remain untested."
+  ]
+}

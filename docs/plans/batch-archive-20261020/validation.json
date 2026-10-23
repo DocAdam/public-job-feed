@@ -1,0 +1,79 @@
+{
+  "status": "PASS_archive_complete_sources_kept",
+  "reviewed_at": "2026-10-20T12:31:40.678561+00:00",
+  "archive": {
+    "verified_archive_files": 14875,
+    "verified_archive_directories": 762,
+    "verified_source_bytes": 52741474676,
+    "restored_batches": [
+      "maintain-due-ashby-20260913t090005",
+      "maintain-due-bamboohr-20260824t130846",
+      "maintain-due-greenhouse-20260816t210002",
+      "maintain-due-icims-20260918t155003",
+      "maintain-due-lever-20260913t090005",
+      "maintain-due-workday-20260824t183758"
+    ],
+    "restored_files": 117,
+    "restored_bytes": 906049729,
+    "all_archive_paths_and_hashes_match": true,
+    "restore_disk_hashes_and_metadata_match": true,
+    "gzip_trailer_checked": true,
+    "status": "PASS",
+    "source_batches": 762,
+    "archive_bytes": 5285897960,
+    "archive_sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+    "manifest_sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4",
+    "archive_name": "batches.tar.gz",
+    "seconds": 468.18,
+    "completed_at": "2026-10-20T12:28:29.161946+00:00",
+    "source_content_and_metadata_unchanged": true,
+    "restore_copies_kept": true,
+    "source_deletions": 0,
+    "independent_copy_created": false,
+    "protection_check": "PASS"
+  },
+  "protected_data": {
+    "status": "passed",
+    "files": 40412,
+    "at": "2026-10-20T12:29:23.448077+00:00",
+    "content_and_metadata_mismatches": 0
+  },
+  "unit_tests": 17,
+  "source_syntax_checks": [
+    {
+      "file": "docs/plans/batch-archive-20261020/archive_batches.py",
+      "syntax": "PASS",
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4"
+    },
+    {
+      "file": "docs/plans/batch-archive-20261020/run_archive.py",
+      "syntax": "PASS",
+      "sha256": "69d785f3c786599334ba2345855c9be665a36f81d4f05c4ebbae90c3e20e0756"
+    },
+    {
+      "file": "docs/plans/batch-archive-20261020/test_archive.py",
+      "syntax": "PASS",
+      "sha256": "a45ee8a21f4440ed5d604e84c528cf6d6e984c3ecc49614af2445ad0fc57ea03"
+    },
+    {
+      "file": "docs/plans/batch-archive-20261020/verify-protected.py",
+      "syntax": "PASS",
+      "sha256": "29841452e8b6a52db6d5f9d7bf0f54b27c8a5a63c390e5f64e876778c252c506"
+    },
+    {
+      "file": "docs/plans/batch-archive-20261020/run_locked.cjs",
+      "syntax": "PASS",
+      "sha256": "2e99a871b8ad994aa551b68be8690b7c7eb878e9ff17d548d6258c5a2839bbb9"
+    }
+  ],
+  "checksum_command": "shasum -a 256 -c SHA256SUMS",
+  "checksum_command_exit_code": 0,
+  "checksum_files_passed": 6,
+  "git_diff_check_exit_code": 0,
+  "trailing_whitespace_errors": 0,
+  "new_archive_folder_logical_bytes": 6200276154,
+  "source_deletions": 0,
+  "maintenance_lock_released": true,
+  "independent_backup_created": false,
+  "cleanup_approved": false
+}

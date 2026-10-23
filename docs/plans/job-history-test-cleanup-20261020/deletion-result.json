@@ -1,0 +1,19 @@
+{
+  "status": "completed",
+  "started_at": "2026-10-20T11:13:54.557695+00:00",
+  "finished_at": "2026-10-20T11:13:57.792136+00:00",
+  "removed_folders": [
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a",
+    "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-B2D5Pb"
+  ],
+  "removed_files": 18,
+  "removed_logical_bytes": 7377244916,
+  "removed_allocated_bytes": 7377285120,
+  "database_bytes_removed": 7376531456,
+  "free_bytes_before": 105064620032,
+  "free_bytes_immediate_after": 112442159104,
+  "free_bytes_after_three_seconds": 112441942016,
+  "observed_free_space_increase": 7377321984,
+  "preserved_test_records": 13,
+  "space_note": "Observed volume change may include other system activity and APFS shared blocks or snapshots."
+}

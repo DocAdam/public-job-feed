@@ -1,0 +1,12 @@
+{
+  "checked_at": "2026-10-20T19:00:20.435272+00:00",
+  "original_bytes": 5285897960,
+  "original_sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+  "original_hash_pass": true,
+  "onedrive_local_bytes": 0,
+  "cloud_download_bytes": 0,
+  "cause": "NOT_DETERMINED",
+  "assistant_archive_mutations": 0,
+  "assistant_source_deletions": 0,
+  "recommendation": "DO_NOT_DELETE_BATCHES; create and verify a new independent backup first"
+}

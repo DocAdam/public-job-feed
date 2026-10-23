@@ -1,0 +1,361 @@
+{
+  "at": "2026-10-20T11:32:16.056592+00:00",
+  "status": "original_protected_data_unchanged_with_concurrent_refresh_changes",
+  "checked_baseline_files": 40387,
+  "unchanged_files": 40371,
+  "groups": {
+    "batches": 37163,
+    "other_protected": 24,
+    "dated_packages": 2889,
+    "latest_exports": 16,
+    "recovery_and_database": 295
+  },
+  "changed_files": [
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/00_start_here.csv",
+        "bytes": 566,
+        "mtime_ns": 1792408640805697884,
+        "inode": 31086724,
+        "link": null,
+        "sha256": "0d97b2a67102f10ccf1c509a79686cc3a1856d9a14bb9b7d7fe0e73e35627bc2"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/00_start_here.csv",
+        "bytes": 566,
+        "mtime_ns": 1792495878869229736,
+        "inode": 31401785,
+        "link": null,
+        "sha256": "fd3bde66e1ce6e35abf7fac517736ad79ab5413275ef05a2332d6d795dc21669"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv",
+        "bytes": 208388,
+        "mtime_ns": 1792408640807566514,
+        "inode": 31086725,
+        "link": null,
+        "sha256": "de8885d5661605ac7cc8d15f9533f1d607dcd5e25e02aae4e3d21ef370eb4515"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv",
+        "bytes": 204247,
+        "mtime_ns": 1792495878870794588,
+        "inode": 31401786,
+        "link": null,
+        "sha256": "e2e39aa6c95665bd5e182539d0ce1ef8f72672f4dc2133e2964a8c2dc0ed5dd6"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/02_company_coverage.csv",
+        "bytes": 5435248,
+        "mtime_ns": 1792408586256368180,
+        "inode": 31086726,
+        "link": null,
+        "sha256": "9bad8321dc9abf16a99a4c5e1e4e006b88aacfd21658f57f8940c3af12cd31ae"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/02_company_coverage.csv",
+        "bytes": 5435710,
+        "mtime_ns": 1792495817090636134,
+        "inode": 31401787,
+        "link": null,
+        "sha256": "ccc97fe72f861d0bb84bb96ba28542cfeb919f9edd75500dbbe8712cb5120c28"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/03_top_matches_full.csv",
+        "bytes": 4908139,
+        "mtime_ns": 1792408586259010855,
+        "inode": 31086727,
+        "link": null,
+        "sha256": "1aa6c7f9215a22d3f0eef722e0681df3de5a5c07f0264d4bba7463215c888e6f"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/03_top_matches_full.csv",
+        "bytes": 4921509,
+        "mtime_ns": 1792495817093456790,
+        "inode": 31401788,
+        "link": null,
+        "sha256": "fa8ba151c03feb595f8066de0d7741ede9da6d15ffeaac1188c61734b79dbb2f"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/06_full_firehose.csv",
+        "bytes": 39,
+        "mtime_ns": 1792408586260907778,
+        "inode": 31086739,
+        "link": "../../public/public-job-feed-latest.csv",
+        "sha256": "82892a45e1a17fde8aaec8b66c2c08cb6f11b81ddebd3954733bfe814eded772"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/06_full_firehose.csv",
+        "bytes": 39,
+        "mtime_ns": 1792495817097106289,
+        "inode": 31401800,
+        "link": "../../public/public-job-feed-latest.csv",
+        "sha256": "b21218093de511f7262cfee6eaf83fd98786a97eb9c820e75137a43a5b9ebff0"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/07_data_dictionary.csv",
+        "bytes": 10873,
+        "mtime_ns": 1792408586259250106,
+        "inode": 31086728,
+        "link": null,
+        "sha256": "cc1b87e27db615f106f2d5ca3d0ee441f1d1e05c05cd568274be375181064c79"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/07_data_dictionary.csv",
+        "bytes": 10873,
+        "mtime_ns": 1792495817095203185,
+        "inode": 31401789,
+        "link": null,
+        "sha256": "cc1b87e27db615f106f2d5ca3d0ee441f1d1e05c05cd568274be375181064c79"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/09_ats_health.csv",
+        "bytes": 359,
+        "mtime_ns": 1792408586259392565,
+        "inode": 31086729,
+        "link": null,
+        "sha256": "e6f62b6c0d25a53ca9f5393056fc2367d9b3be83289c7cea374c35646c329b17"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/09_ats_health.csv",
+        "bytes": 359,
+        "mtime_ns": 1792495817095361561,
+        "inode": 31401790,
+        "link": null,
+        "sha256": "01655987dbcd6aa8a467e1d200fb5bd1ff0baa0b7678284191982c529784e264"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/10_ats_recommendations.csv",
+        "bytes": 1084,
+        "mtime_ns": 1792408586259516648,
+        "inode": 31086730,
+        "link": null,
+        "sha256": "7a9bc12984c82b7e42f30fe10488f7026c3ee241668a5bc131728a1858274861"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/10_ats_recommendations.csv",
+        "bytes": 1084,
+        "mtime_ns": 1792495817095473146,
+        "inode": 31401791,
+        "link": null,
+        "sha256": "7a9bc12984c82b7e42f30fe10488f7026c3ee241668a5bc131728a1858274861"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/OPERATOR_NOTES.md",
+        "bytes": 3007,
+        "mtime_ns": 1792408586259661482,
+        "inode": 31086731,
+        "link": null,
+        "sha256": "20cb53ecf1b2db82b5412687f593191f6cd5822ae80c526e698797cc0a47dab6"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/OPERATOR_NOTES.md",
+        "bytes": 3007,
+        "mtime_ns": 1792495817095604689,
+        "inode": 31401792,
+        "link": null,
+        "sha256": "fe0853ad2c08ad1471eb34531f93800583c3c2d2dc58bd819bd6cf2f727e9490"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/PROJECT_STATUS_DASHBOARD.md",
+        "bytes": 7419,
+        "mtime_ns": 1792408669470154682,
+        "inode": 31088150,
+        "link": null,
+        "sha256": "14f33f205438fb55401a38686aab5525848451382630a6e89c73e4b8235cd439"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/PROJECT_STATUS_DASHBOARD.md",
+        "bytes": 7417,
+        "mtime_ns": 1792495914740218996,
+        "inode": 31403181,
+        "link": null,
+        "sha256": "f3e3cb4b63c1aa3b3cc6b208807bda0d26a9dba1adacf6b9636a9c29f7a25d33"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/PUBLISHING_PREP.md",
+        "bytes": 1589,
+        "mtime_ns": 1792408586259997983,
+        "inode": 31086733,
+        "link": null,
+        "sha256": "05e1ef77c9a067b1b1830be8ef40822d44029a802013472c39a2a1240bf25120"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/PUBLISHING_PREP.md",
+        "bytes": 1589,
+        "mtime_ns": 1792495817096099028,
+        "inode": 31401794,
+        "link": null,
+        "sha256": "28a6604c8e9081c2bca4656bcac27cc2bff117eb15b4e6ed81beafad56a31b72"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/README_GSHEET_PACKAGE.md",
+        "bytes": 2997,
+        "mtime_ns": 1792408586261087362,
+        "inode": 31086740,
+        "link": null,
+        "sha256": "cbcf0ce9441e84fd4175c72e250b2090c21717055c77533a9aa7b6727eec24e4"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/README_GSHEET_PACKAGE.md",
+        "bytes": 2997,
+        "mtime_ns": 1792495817097244166,
+        "inode": 31401801,
+        "link": null,
+        "sha256": "b8ce93cf468f12107d0fb56388ac0f1c532d7c9ecaab0467691cac386e038912"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/SOURCE_SUMMARY.md",
+        "bytes": 3825,
+        "mtime_ns": 1792408586260233692,
+        "inode": 31086735,
+        "link": null,
+        "sha256": "bbfa74cd29464c6bb6e5a07445191a0b53e93b739c953b780f86f0dd7eb6b901"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/SOURCE_SUMMARY.md",
+        "bytes": 3825,
+        "mtime_ns": 1792495817096372448,
+        "inode": 31401796,
+        "link": null,
+        "sha256": "b0033446faec4d18dfefe6b7133a78d083090300de596f08856817aa2677af99"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/gsheet-package-manifest.csv",
+        "bytes": 5123,
+        "mtime_ns": 1792408669470741851,
+        "inode": 31088152,
+        "link": null,
+        "sha256": "2a5701077e8d5f93b6847e83ec4e735859b1aee93cd44ed6e5eebb5be77e86da"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/gsheet-package-manifest.csv",
+        "bytes": 5123,
+        "mtime_ns": 1792495914740899920,
+        "inode": 31403183,
+        "link": null,
+        "sha256": "ff16b6d5c81c11007236d0dc6aa79020cc3fa3006d0df7ce289aa22138df58cb"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/gsheet-package-manifest.json",
+        "bytes": 8343,
+        "mtime_ns": 1792408669470489558,
+        "inode": 31088151,
+        "link": null,
+        "sha256": "dfb4fcab7d7e2e3d20c01aa637a9edd1837f23681eaa5e5a3819aad34f8f34ca"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/gsheet-package-manifest.json",
+        "bytes": 8343,
+        "mtime_ns": 1792495914740553958,
+        "inode": 31403182,
+        "link": null,
+        "sha256": "d5ca0bde67e7202eeec5e472ae38cecd6d7b20aaf009b11cff45ee57b664c977"
+      },
+      "stable_during_read": true
+    },
+    {
+      "group": "latest_exports",
+      "before": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/public-package-exclusions.csv",
+        "bytes": 8474,
+        "mtime_ns": 1792408586260591527,
+        "inode": 31086738,
+        "link": null,
+        "sha256": "a5c0a848a57a45971bac1036edcdcf9c53694a05a6aad203cdbe3eab5dd193ea"
+      },
+      "after": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/public-package-exclusions.csv",
+        "bytes": 8474,
+        "mtime_ns": 1792495817096806286,
+        "inode": 31401799,
+        "link": null,
+        "sha256": "a5c0a848a57a45971bac1036edcdcf9c53694a05a6aad203cdbe3eab5dd193ea"
+      },
+      "stable_during_read": true
+    }
+  ],
+  "unexpected_protected_changes": [],
+  "errors": [],
+  "added_paths": [
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/00_start_here.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-before-url-prune.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-check-summary.json",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-check-summary.md",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-failures.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs-url-review.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/01_good_documentation_jobs.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/02_company_coverage.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/03_top_matches_full.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/07_data_dictionary.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/09_ats_health.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/10_ats_recommendations.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/OPERATOR_NOTES.md",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/PROJECT_STATUS_DASHBOARD.md",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/PUBLISHING_PREP.md",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/README_GSHEET_PACKAGE.md",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/SOURCE_SUMMARY.md",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/gsheet-package-manifest.csv",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/gsheet-package-manifest.json",
+    "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261020-0629/public-package-exclusions.csv"
+  ],
+  "missing_paths": [],
+  "scope_note": "Independent refresh process started at 06:08:28 CDT, before this task baseline, and wrote current feed/package outputs. No production writer, index, refresh, or retirement command was invoked by this task."
+}

@@ -1,0 +1,80 @@
+{
+  "status": "PASS_independent_external_backup_verified",
+  "completed_at": "2026-10-20T19:05:11.544768+00:00",
+  "source": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches",
+  "destination": "/Volumes/1Pugh/Public Job Feed Archives/20261020-762-batches",
+  "restore_test": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/1pugh-restore-test-20261020T190242Z",
+  "volume_uuid": "A56D5D1E-1F58-30E1-9A46-A83B1E5ABDD1",
+  "volume_format": "ExFAT",
+  "separate_physical_device": "External USB disk4; distinct from internal source disk",
+  "copied_files": [
+    {
+      "file": "README.md",
+      "bytes": 2716,
+      "sha256": "5bd678fcdc27231232b1a89fc4353be32d80151a49994ad004608d70872bd7bc",
+      "status": "PASS"
+    },
+    {
+      "file": "SHA256SUMS",
+      "bytes": 492,
+      "sha256": "11f4e8c38d159d048ea9fc0a4a69cc2d7313f274221ed07c505abbe2db9381d1",
+      "status": "PASS"
+    },
+    {
+      "file": "archive_batches.py",
+      "bytes": 10918,
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4",
+      "status": "PASS"
+    },
+    {
+      "file": "batches.tar.gz",
+      "bytes": 5285897960,
+      "sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+      "status": "PASS"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 7788936,
+      "sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4",
+      "status": "PASS"
+    },
+    {
+      "file": "retention-plan.json",
+      "bytes": 524276,
+      "sha256": "cbc0f4902af83bd0e2ae810300f33709c5d8cc8626d2b287a68912dc4554b403",
+      "status": "PASS"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 1127,
+      "sha256": "d3d6eb13018fca37025edc7912600c466f4ca37dc73744f9148728ad3afe7071",
+      "status": "PASS"
+    }
+  ],
+  "copied_bytes": 5294226425,
+  "archive_and_restore_verification": {
+    "verified_archive_files": 14875,
+    "verified_archive_directories": 762,
+    "verified_source_bytes": 52741474676,
+    "restored_batches": [
+      "maintain-due-ashby-20260913t090005",
+      "maintain-due-bamboohr-20260824t130846",
+      "maintain-due-greenhouse-20260816t210002",
+      "maintain-due-icims-20260918t155003",
+      "maintain-due-lever-20260913t090005",
+      "maintain-due-workday-20260824t183758"
+    ],
+    "restored_files": 117,
+    "restored_bytes": 906049729,
+    "all_archive_paths_and_hashes_match": true,
+    "restore_disk_hashes_and_metadata_match": true,
+    "gzip_trailer_checked": true
+  },
+  "source_archive_package_unchanged": true,
+  "source_batches_modified": false,
+  "source_deletions": 0,
+  "test_restore_copies_kept": true,
+  "cleanup_authorized": false,
+  "seconds": 122.31,
+  "limits": "Archive bytes and embedded metadata verified. Restore tested on local APFS from the external archive; ExFAT does not preserve all POSIX metadata on direct extraction. Earlier verification.json is historical evidence and is kept unchanged."
+}

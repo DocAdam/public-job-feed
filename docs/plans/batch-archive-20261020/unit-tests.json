@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "checks": [
+    "nested paths, Unicode, empty and binary files; full round trip; nanosecond times",
+    "existing archive cannot be overwritten",
+    "existing restore directory cannot be overwritten",
+    "unknown restore batch",
+    "duplicate batch names",
+    "path traversal batch name",
+    "truncated archive",
+    "gzip checksum failure",
+    "wrong embedded manifest",
+    "missing archive paths",
+    "unsafe archive path",
+    "unexpected archive member",
+    "archive link is refused",
+    "changed expected hash",
+    "same-size member corruption",
+    "duplicate member path",
+    "source inventory changed"
+  ],
+  "count": 17,
+  "fixtures": "/Users/adampugh/GitHub/public-job-feed/docs/plans/batch-archive-20261020/fixture-tests-c28c46d0f7a04f2397449d9b84940984"
+}

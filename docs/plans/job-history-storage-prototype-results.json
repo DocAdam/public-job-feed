@@ -1,0 +1,124 @@
+{
+  "status": "passed",
+  "codec": "passed",
+  "synthetic": {
+    "audit": {
+      "raw_rows_reconstructed": 13,
+      "exception_rows_reconstructed": 1,
+      "errors": []
+    },
+    "constraints": {
+      "constraint_rejections": 5,
+      "corruption_rejections": 6,
+      "unknown_schema_rejected": true,
+      "transaction_rollback": "passed"
+    },
+    "parity": {
+      "snapshots": 5,
+      "raw_top_rows": 8,
+      "raw_good_rows": 5,
+      "observations": 5,
+      "exceptions": 1,
+      "v1_closed_bytes": 4730880,
+      "v1_build_and_audit_ms": 167,
+      "population_parity": "passed",
+      "all_metric_values": "passed",
+      "all_role_values": "passed",
+      "full_report_parity": "passed"
+    },
+    "deterministic_rebuild": "passed",
+    "checkpoint_reopen": "passed"
+  },
+  "repeated_posting": {
+    "observations": 60,
+    "posting_identities": 1,
+    "content_versions": 1,
+    "description_values": 1,
+    "audit": {
+      "raw_rows_reconstructed": 120,
+      "exception_rows_reconstructed": 0,
+      "errors": []
+    }
+  },
+  "saved_sample": {
+    "snapshot_ids": [
+      "20260602-1810",
+      "20260602-2051",
+      "20260714-1607",
+      "20260715-0556",
+      "20260809-0543",
+      "20260827-0518",
+      "20260928-0552",
+      "20261019-0616"
+    ],
+    "source_files_checked": 56,
+    "header_variants": 4,
+    "audit": {
+      "raw_rows_reconstructed": 9775,
+      "exception_rows_reconstructed": 3,
+      "errors": []
+    },
+    "parity": {
+      "snapshots": 8,
+      "raw_top_rows": 5185,
+      "raw_good_rows": 4590,
+      "observations": 5175,
+      "exceptions": 3,
+      "v1_closed_bytes": 111685632,
+      "v1_build_and_audit_ms": 2302,
+      "population_parity": "passed",
+      "all_metric_values": "passed",
+      "all_role_values": "passed",
+      "full_report_parity": "passed"
+    },
+    "catalog_counts": {
+      "texts": 2228,
+      "payloads": 9552,
+      "identities": 2402,
+      "versions": 2998
+    },
+    "deepnote": {
+      "observations": "8",
+      "content_versions": "1"
+    },
+    "duplicate_raw_excess_retained": 10,
+    "prototype_closed_bytes": 55586816,
+    "prototype_build_and_audit_ms": 1141,
+    "size_comparison_limit": "Same CSV/artifact population, but prototype lacks v1 wide SQL views, lifecycle views and stored metric tables. This is not a final migration size forecast.",
+    "sources_unchanged": true
+  },
+  "peak_rss_bytes": 2170159104,
+  "scope": "Phase 1 only. Isolated storage prototype; no production integration or full migration.",
+  "protection": {
+    "existing_files_checked": 3155,
+    "historical_package_files_checked": 2924,
+    "warehouse_files_checked": 3,
+    "mismatches": [],
+    "source_and_warehouse_inventory_unchanged": true,
+    "database_sha256_before": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+    "database_sha256_after": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+    "manifest_sha256": "8fbb4e879c10f112e8cece7897cdcbf0f5501fb2015cda27aa6473c9f341ff9a"
+  },
+  "checks": {
+    "node src/scripts/test-job-history-storage.js --saved-sample": "passed",
+    "npm run jobs:test-history": "passed",
+    "npm run jobs:test-history-content": "passed",
+    "npm run jobs:test-content-metrics": "passed",
+    "npm run jobs:test-all-remote-report": "passed",
+    "npm run jobs:test-us-remote-report": "passed",
+    "npm run jobs:test-international-remote-report": "passed",
+    "node --check src/lib/job-history-storage.js": "passed",
+    "node --check src/scripts/test-job-history-storage.js": "passed",
+    "git diff --check": "passed",
+    "new JavaScript whitespace checks": "passed"
+  },
+  "not_run": [
+    "Production history build/update/audit/report commands",
+    "Full archive migration",
+    "Incremental v2 update",
+    "Lifecycle event and presence-period implementation",
+    "Crash/promotion/rollback qualification",
+    "Full-population memory and storage benchmark"
+  ],
+  "temporary_databases_removed": true
+}

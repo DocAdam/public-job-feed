@@ -1,0 +1,127 @@
+{
+  "status": "PASS_review_only_no_production_deletion",
+  "reviewed_at": "2026-10-20T11:57:23.939750+00:00",
+  "retention_test_groups": 22,
+  "monthly_recovery_test_groups": 18,
+  "checks": [
+    {
+      "command": "npm run jobs:test-batch-history",
+      "exit_code": 0,
+      "seconds": 5.746,
+      "log": "jobs-test-batch-history.log"
+    },
+    {
+      "command": "npm run jobs:test-catalog-maintenance",
+      "exit_code": 0,
+      "seconds": 0.211,
+      "log": "jobs-test-catalog-maintenance.log"
+    },
+    {
+      "command": "node src/scripts/test-failure-investigation.js",
+      "exit_code": 0,
+      "seconds": 0.167,
+      "log": "src-scripts-test-failure-investigation.js.log"
+    },
+    {
+      "command": "npm run jobs:test-board-freshness",
+      "exit_code": 0,
+      "seconds": 0.423,
+      "log": "jobs-test-board-freshness.log"
+    },
+    {
+      "command": "npm run jobs:test-history",
+      "exit_code": 0,
+      "seconds": 5.843,
+      "log": "jobs-test-history.log"
+    },
+    {
+      "command": "npm run jobs:test-history-content",
+      "exit_code": 0,
+      "seconds": 0.928,
+      "log": "jobs-test-history-content.log"
+    },
+    {
+      "command": "npm run jobs:test-batch-history",
+      "exit_code": 0,
+      "seconds": 6.551,
+      "log": "batch-history-final.log"
+    },
+    {
+      "command": "node src/scripts/test-failure-investigation.js",
+      "exit_code": 0,
+      "seconds": 0.176,
+      "log": "failure-investigation-final.log"
+    }
+  ],
+  "syntax_files": 12,
+  "diff_check_exit_code": 0,
+  "trailing_whitespace_errors": [],
+  "plan": {
+    "version": 1,
+    "generatedAt": "2026-10-20T11:51:10.005Z",
+    "rawRetentionDays": 30,
+    "batchesRoot": "/Users/adampugh/GitHub/public-job-feed/data/jobs/batches",
+    "indexDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/index",
+    "inputFingerprint": "f3c0c965b0442a6b905941ca6e731be16cf47b51b86de596f48edba8ee5c8329",
+    "rowsHash": "05f8a6a7b23810185455f049ebfdfdd1b37976ca286f6d75889ce4efce7b2da2",
+    "checks": {
+      "boardCount": 29551,
+      "rawFetchRows": 590622,
+      "candidateFetchRows": 185491,
+      "matchedEvents": 590622,
+      "ledgerEvents": 590622,
+      "fullState": "PASS",
+      "protectedSubset": "PASS",
+      "ledgerCoverage": "PASS"
+    },
+    "totals": {
+      "batches": 1898,
+      "candidateCount": 762,
+      "candidateBytes": 52741474676
+    }
+  },
+  "production_dry_run": {
+    "GeneratedAt": "2026-10-20T11:53:11.861Z",
+    "Applied": false,
+    "CandidateCount": 762,
+    "DeletedCount": 0,
+    "Validation": "PASS",
+    "DeletedBatches": []
+  },
+  "dry_run_measurement": {
+    "seconds": 64.92,
+    "peak_rss_bytes": 542212096
+  },
+  "protected_data": {
+    "status": "passed",
+    "files": 40407,
+    "at": "2026-10-20T11:55:33.591440+00:00",
+    "content_and_metadata_mismatches": 0,
+    "groups": {
+      "batches": 37163,
+      "gsheet-package": 2945,
+      "history": 235,
+      "history-migrations": 54,
+      "index": 10
+    },
+    "maintenance_lock_removed": true
+  },
+  "production_index_run": false,
+  "production_database_update": false,
+  "batch_deletion_approved": false,
+  "raw_payload_archive_decision": "pending",
+  "source_hashes": {
+    "src/lib/batch-maintenance.js": "e612e980766ad56651c53ac8b8ae7c85d507e097e4f37cacdc85772722fd35c0",
+    "src/lib/batch-retention.js": "97e55612525e695c6fbd3947586587e4c1c19e931e0a924753777cf57018f8bb",
+    "src/lib/batch-run.js": "4c488254e0a3e3f9f48b844a8600bed8dd54732fd8bb489fd2e95f7336a2e8b5",
+    "src/lib/batch-history.js": "574030bd4e0aa94cc4b65097aec2e4580f6d19f23fa9b9cc64fa6bdb4aa331c3",
+    "src/lib/batch-history-ledger.js": "792cf81f4f765f0691e7f450a82e86188b43035c79166660da2d5912e2492d0a",
+    "src/scripts/fetch-batch-jobs.js": "cf518fe46efa09006fbad7b28010faa654e59a264ae0c4b4ecb0256aab681094",
+    "src/scripts/index-batches.js": "02568dca03b9ff831c465fde5a1ad9d41d14edfb098dd87dcd0c07918844ed81",
+    "src/scripts/plan-batch-retention.js": "90d81b025f2dcf4b9bc86324abb0bf916f05c77001563b351b58a5364f2b0a7f",
+    "src/scripts/retire-batches.js": "4ae68c5fa90e274248efc2f7fe43e2c471f0232a32bc688bea2060d8bb8b818b",
+    "src/scripts/test-batch-history.js": "e8e6ca34639b0346cbce8b6005015f69fb309d83373bcb99eb9bcf33600ca7e0",
+    "src/scripts/test-batch-history-recovery.js": "77d8a25d29423cdceb2eb4b163f562b3be601203e12d1d8cb137ca1f65b946b8",
+    "src/scripts/test-batch-retention.js": "f37356690d6d70c78c805fb894fb848d03df5b0a25763806641ed65f38d84373"
+  }
+}

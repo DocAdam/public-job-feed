@@ -1,0 +1,2462 @@
+{
+  "started_at": "2026-10-19T15:22:20.378Z",
+  "status": "failed",
+  "limits": {
+    "memory_estimate_bytes": 805306368,
+    "temporary_disk_bytes": 17179869184,
+    "minimum_free_bytes": 34359738368
+  },
+  "phases": [
+    {
+      "name": "read-only inventory",
+      "status": "passed",
+      "elapsed_ms": 88,
+      "worker_peak_rss_bytes": 89473024,
+      "controller_peak_rss_bytes": 52707328,
+      "conservative_peak_rss_bytes": 142180352,
+      "result": {
+        "source": {
+          "ids": [
+            "20260602-1810",
+            "20260602-1812",
+            "20260602-2051",
+            "20260602-2053",
+            "20260602-2054",
+            "20260603-1407",
+            "20260604-1335",
+            "20260605-0620",
+            "20260606-0636",
+            "20260606-1138",
+            "20260608-0653",
+            "20260610-0603",
+            "20260611-1007",
+            "20260612-0640",
+            "20260613-1003",
+            "20260615-0910",
+            "20260619-0755",
+            "20260621-0717",
+            "20260622-0914",
+            "20260622-1000",
+            "20260622-2242",
+            "20260623-0541",
+            "20260623-0542",
+            "20260623-0545",
+            "20260623-1815",
+            "20260624-0549",
+            "20260625-1009",
+            "20260626-0858",
+            "20260627-1149",
+            "20260629-0934",
+            "20260630-0718",
+            "20260701-0641",
+            "20260702-0937",
+            "20260703-0646",
+            "20260705-1622",
+            "20260706-1013",
+            "20260706-1029",
+            "20260706-1042",
+            "20260707-0601",
+            "20260708-0453",
+            "20260709-0613",
+            "20260710-1002",
+            "20260711-0751",
+            "20260712-0755",
+            "20260713-0837",
+            "20260714-0607",
+            "20260714-1142",
+            "20260714-1604",
+            "20260714-1607",
+            "20260714-1813",
+            "20260715-0556",
+            "20260715-0613",
+            "20260716-0631",
+            "20260717-0701",
+            "20260718-0525",
+            "20260719-0538",
+            "20260720-0539",
+            "20260720-0609",
+            "20260720-0610",
+            "20260721-0453",
+            "20260721-0938",
+            "20260722-0739",
+            "20260723-0702",
+            "20260724-0658",
+            "20260724-1707",
+            "20260725-0528",
+            "20260726-0646",
+            "20260727-0533",
+            "20260728-0606",
+            "20260729-0706",
+            "20260730-0723",
+            "20260731-0535",
+            "20260801-0555",
+            "20260802-0411",
+            "20260803-0702",
+            "20260804-0704",
+            "20260805-0603",
+            "20260806-0517",
+            "20260807-0852",
+            "20260808-0619",
+            "20260809-0543",
+            "20260810-0621",
+            "20260811-0552",
+            "20260812-0647",
+            "20260813-0522",
+            "20260814-0502",
+            "20260815-0921",
+            "20260817-0659",
+            "20260818-0615",
+            "20260819-0818",
+            "20260820-0547",
+            "20260821-0704",
+            "20260822-1033",
+            "20260824-0636",
+            "20260824-1624",
+            "20260825-0538",
+            "20260826-0658",
+            "20260827-0509",
+            "20260827-0518",
+            "20260828-0620",
+            "20260829-0639",
+            "20260830-1127",
+            "20260831-0536",
+            "20260901-0603",
+            "20260902-0528",
+            "20260903-0547",
+            "20260904-0441",
+            "20260905-0704",
+            "20260906-0700",
+            "20260907-0701",
+            "20260908-0506",
+            "20260909-0608",
+            "20260910-0605",
+            "20260911-0656",
+            "20260912-0710",
+            "20260913-1043",
+            "20260914-0650",
+            "20260915-0613",
+            "20260916-0616",
+            "20260917-0458",
+            "20260918-0646",
+            "20260919-0628",
+            "20260920-0545",
+            "20260921-0631",
+            "20260922-0700",
+            "20260923-0709",
+            "20260924-0617",
+            "20260925-0552",
+            "20260926-0533",
+            "20260927-0734",
+            "20260928-0552",
+            "20260929-0613",
+            "20260930-0644",
+            "20261001-0554",
+            "20261002-0513",
+            "20261003-0644",
+            "20261004-0521",
+            "20261005-0723",
+            "20261006-0524",
+            "20261007-0557",
+            "20261008-0603",
+            "20261009-0509",
+            "20261010-0658",
+            "20261011-1112",
+            "20261012-0604",
+            "20261013-0543",
+            "20261014-0727",
+            "20261015-0530",
+            "20261016-0608",
+            "20261017-0657",
+            "20261018-2107",
+            "20261019-0616"
+          ],
+          "malformed": []
+        },
+        "warehouse": {
+          "ids": [
+            {
+              "snapshot_id": "20260602-1810"
+            },
+            {
+              "snapshot_id": "20260602-1812"
+            },
+            {
+              "snapshot_id": "20260602-2051"
+            },
+            {
+              "snapshot_id": "20260602-2053"
+            },
+            {
+              "snapshot_id": "20260602-2054"
+            },
+            {
+              "snapshot_id": "20260603-1407"
+            },
+            {
+              "snapshot_id": "20260604-1335"
+            },
+            {
+              "snapshot_id": "20260605-0620"
+            },
+            {
+              "snapshot_id": "20260606-0636"
+            },
+            {
+              "snapshot_id": "20260606-1138"
+            },
+            {
+              "snapshot_id": "20260608-0653"
+            },
+            {
+              "snapshot_id": "20260610-0603"
+            },
+            {
+              "snapshot_id": "20260611-1007"
+            },
+            {
+              "snapshot_id": "20260612-0640"
+            },
+            {
+              "snapshot_id": "20260613-1003"
+            },
+            {
+              "snapshot_id": "20260615-0910"
+            },
+            {
+              "snapshot_id": "20260619-0755"
+            },
+            {
+              "snapshot_id": "20260621-0717"
+            },
+            {
+              "snapshot_id": "20260622-0914"
+            },
+            {
+              "snapshot_id": "20260622-1000"
+            },
+            {
+              "snapshot_id": "20260622-2242"
+            },
+            {
+              "snapshot_id": "20260623-0541"
+            },
+            {
+              "snapshot_id": "20260623-0542"
+            },
+            {
+              "snapshot_id": "20260623-0545"
+            },
+            {
+              "snapshot_id": "20260623-1815"
+            },
+            {
+              "snapshot_id": "20260624-0549"
+            },
+            {
+              "snapshot_id": "20260625-1009"
+            },
+            {
+              "snapshot_id": "20260626-0858"
+            },
+            {
+              "snapshot_id": "20260627-1149"
+            },
+            {
+              "snapshot_id": "20260629-0934"
+            },
+            {
+              "snapshot_id": "20260630-0718"
+            },
+            {
+              "snapshot_id": "20260701-0641"
+            },
+            {
+              "snapshot_id": "20260702-0937"
+            },
+            {
+              "snapshot_id": "20260703-0646"
+            },
+            {
+              "snapshot_id": "20260705-1622"
+            },
+            {
+              "snapshot_id": "20260706-1013"
+            },
+            {
+              "snapshot_id": "20260706-1029"
+            },
+            {
+              "snapshot_id": "20260706-1042"
+            },
+            {
+              "snapshot_id": "20260707-0601"
+            },
+            {
+              "snapshot_id": "20260708-0453"
+            },
+            {
+              "snapshot_id": "20260709-0613"
+            },
+            {
+              "snapshot_id": "20260710-1002"
+            },
+            {
+              "snapshot_id": "20260711-0751"
+            },
+            {
+              "snapshot_id": "20260712-0755"
+            },
+            {
+              "snapshot_id": "20260713-0837"
+            },
+            {
+              "snapshot_id": "20260714-0607"
+            },
+            {
+              "snapshot_id": "20260714-1142"
+            },
+            {
+              "snapshot_id": "20260714-1604"
+            },
+            {
+              "snapshot_id": "20260714-1607"
+            },
+            {
+              "snapshot_id": "20260714-1813"
+            },
+            {
+              "snapshot_id": "20260715-0556"
+            },
+            {
+              "snapshot_id": "20260715-0613"
+            },
+            {
+              "snapshot_id": "20260716-0631"
+            },
+            {
+              "snapshot_id": "20260717-0701"
+            },
+            {
+              "snapshot_id": "20260718-0525"
+            },
+            {
+              "snapshot_id": "20260719-0538"
+            },
+            {
+              "snapshot_id": "20260720-0539"
+            },
+            {
+              "snapshot_id": "20260720-0609"
+            },
+            {
+              "snapshot_id": "20260720-0610"
+            },
+            {
+              "snapshot_id": "20260721-0453"
+            },
+            {
+              "snapshot_id": "20260721-0938"
+            },
+            {
+              "snapshot_id": "20260722-0739"
+            },
+            {
+              "snapshot_id": "20260723-0702"
+            },
+            {
+              "snapshot_id": "20260724-0658"
+            },
+            {
+              "snapshot_id": "20260724-1707"
+            },
+            {
+              "snapshot_id": "20260725-0528"
+            },
+            {
+              "snapshot_id": "20260726-0646"
+            },
+            {
+              "snapshot_id": "20260727-0533"
+            },
+            {
+              "snapshot_id": "20260728-0606"
+            },
+            {
+              "snapshot_id": "20260729-0706"
+            },
+            {
+              "snapshot_id": "20260730-0723"
+            },
+            {
+              "snapshot_id": "20260731-0535"
+            },
+            {
+              "snapshot_id": "20260801-0555"
+            },
+            {
+              "snapshot_id": "20260802-0411"
+            },
+            {
+              "snapshot_id": "20260803-0702"
+            },
+            {
+              "snapshot_id": "20260804-0704"
+            },
+            {
+              "snapshot_id": "20260805-0603"
+            },
+            {
+              "snapshot_id": "20260806-0517"
+            },
+            {
+              "snapshot_id": "20260807-0852"
+            },
+            {
+              "snapshot_id": "20260808-0619"
+            },
+            {
+              "snapshot_id": "20260809-0543"
+            },
+            {
+              "snapshot_id": "20260810-0621"
+            },
+            {
+              "snapshot_id": "20260811-0552"
+            },
+            {
+              "snapshot_id": "20260812-0647"
+            },
+            {
+              "snapshot_id": "20260813-0522"
+            },
+            {
+              "snapshot_id": "20260814-0502"
+            },
+            {
+              "snapshot_id": "20260815-0921"
+            },
+            {
+              "snapshot_id": "20260817-0659"
+            },
+            {
+              "snapshot_id": "20260818-0615"
+            },
+            {
+              "snapshot_id": "20260819-0818"
+            },
+            {
+              "snapshot_id": "20260820-0547"
+            },
+            {
+              "snapshot_id": "20260821-0704"
+            },
+            {
+              "snapshot_id": "20260822-1033"
+            },
+            {
+              "snapshot_id": "20260824-0636"
+            },
+            {
+              "snapshot_id": "20260824-1624"
+            },
+            {
+              "snapshot_id": "20260825-0538"
+            },
+            {
+              "snapshot_id": "20260826-0658"
+            },
+            {
+              "snapshot_id": "20260827-0509"
+            },
+            {
+              "snapshot_id": "20260827-0518"
+            },
+            {
+              "snapshot_id": "20260828-0620"
+            },
+            {
+              "snapshot_id": "20260829-0639"
+            },
+            {
+              "snapshot_id": "20260830-1127"
+            },
+            {
+              "snapshot_id": "20260831-0536"
+            },
+            {
+              "snapshot_id": "20260901-0603"
+            },
+            {
+              "snapshot_id": "20260902-0528"
+            },
+            {
+              "snapshot_id": "20260903-0547"
+            },
+            {
+              "snapshot_id": "20260904-0441"
+            },
+            {
+              "snapshot_id": "20260905-0704"
+            },
+            {
+              "snapshot_id": "20260906-0700"
+            },
+            {
+              "snapshot_id": "20260907-0701"
+            },
+            {
+              "snapshot_id": "20260908-0506"
+            },
+            {
+              "snapshot_id": "20260909-0608"
+            },
+            {
+              "snapshot_id": "20260910-0605"
+            },
+            {
+              "snapshot_id": "20260911-0656"
+            },
+            {
+              "snapshot_id": "20260912-0710"
+            },
+            {
+              "snapshot_id": "20260913-1043"
+            },
+            {
+              "snapshot_id": "20260914-0650"
+            },
+            {
+              "snapshot_id": "20260915-0613"
+            },
+            {
+              "snapshot_id": "20260916-0616"
+            },
+            {
+              "snapshot_id": "20260917-0458"
+            },
+            {
+              "snapshot_id": "20260918-0646"
+            },
+            {
+              "snapshot_id": "20260919-0628"
+            },
+            {
+              "snapshot_id": "20260920-0545"
+            },
+            {
+              "snapshot_id": "20260921-0631"
+            },
+            {
+              "snapshot_id": "20260922-0700"
+            },
+            {
+              "snapshot_id": "20260923-0709"
+            },
+            {
+              "snapshot_id": "20260924-0617"
+            },
+            {
+              "snapshot_id": "20260925-0552"
+            },
+            {
+              "snapshot_id": "20260926-0533"
+            },
+            {
+              "snapshot_id": "20260927-0734"
+            },
+            {
+              "snapshot_id": "20260928-0552"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "name": "create",
+      "status": "passed",
+      "elapsed_ms": 92,
+      "worker_peak_rss_bytes": 91668480,
+      "controller_peak_rss_bytes": 53460992,
+      "conservative_peak_rss_bytes": 145129472,
+      "result": {
+        "directory": "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a",
+        "token": "[REDACTED_OWNER_TOKEN]"
+      }
+    },
+    {
+      "name": "import 20260602-1810",
+      "status": "passed",
+      "elapsed_ms": 280,
+      "worker_peak_rss_bytes": 219398144,
+      "controller_peak_rss_bytes": 53886976,
+      "conservative_peak_rss_bytes": 273285120,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260602-1812",
+      "status": "passed",
+      "elapsed_ms": 292,
+      "worker_peak_rss_bytes": 218824704,
+      "controller_peak_rss_bytes": 53968896,
+      "conservative_peak_rss_bytes": 272793600,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260602-2051",
+      "status": "passed",
+      "elapsed_ms": 292,
+      "worker_peak_rss_bytes": 221839360,
+      "controller_peak_rss_bytes": 54083584,
+      "conservative_peak_rss_bytes": 275922944,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260602-2053",
+      "status": "passed",
+      "elapsed_ms": 295,
+      "worker_peak_rss_bytes": 233226240,
+      "controller_peak_rss_bytes": 54247424,
+      "conservative_peak_rss_bytes": 287473664,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260602-2054",
+      "status": "passed",
+      "elapsed_ms": 293,
+      "worker_peak_rss_bytes": 221085696,
+      "controller_peak_rss_bytes": 54427648,
+      "conservative_peak_rss_bytes": 275513344,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260603-1407",
+      "status": "passed",
+      "elapsed_ms": 360,
+      "worker_peak_rss_bytes": 254033920,
+      "controller_peak_rss_bytes": 54607872,
+      "conservative_peak_rss_bytes": 308641792,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260604-1335",
+      "status": "passed",
+      "elapsed_ms": 391,
+      "worker_peak_rss_bytes": 267780096,
+      "controller_peak_rss_bytes": 54804480,
+      "conservative_peak_rss_bytes": 322584576,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260605-0620",
+      "status": "passed",
+      "elapsed_ms": 400,
+      "worker_peak_rss_bytes": 268025856,
+      "controller_peak_rss_bytes": 55033856,
+      "conservative_peak_rss_bytes": 323059712,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260606-0636",
+      "status": "passed",
+      "elapsed_ms": 418,
+      "worker_peak_rss_bytes": 305102848,
+      "controller_peak_rss_bytes": 55820288,
+      "conservative_peak_rss_bytes": 360923136,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260606-1138",
+      "status": "passed",
+      "elapsed_ms": 440,
+      "worker_peak_rss_bytes": 292159488,
+      "controller_peak_rss_bytes": 55836672,
+      "conservative_peak_rss_bytes": 347996160,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260608-0653",
+      "status": "passed",
+      "elapsed_ms": 453,
+      "worker_peak_rss_bytes": 299204608,
+      "controller_peak_rss_bytes": 55836672,
+      "conservative_peak_rss_bytes": 355041280,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260610-0603",
+      "status": "passed",
+      "elapsed_ms": 472,
+      "worker_peak_rss_bytes": 279101440,
+      "controller_peak_rss_bytes": 55853056,
+      "conservative_peak_rss_bytes": 334954496,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260611-1007",
+      "status": "passed",
+      "elapsed_ms": 510,
+      "worker_peak_rss_bytes": 280182784,
+      "controller_peak_rss_bytes": 55853056,
+      "conservative_peak_rss_bytes": 336035840,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260612-0640",
+      "status": "passed",
+      "elapsed_ms": 518,
+      "worker_peak_rss_bytes": 322469888,
+      "controller_peak_rss_bytes": 55885824,
+      "conservative_peak_rss_bytes": 378355712,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260613-1003",
+      "status": "passed",
+      "elapsed_ms": 535,
+      "worker_peak_rss_bytes": 337510400,
+      "controller_peak_rss_bytes": 55967744,
+      "conservative_peak_rss_bytes": 393478144,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260615-0910",
+      "status": "passed",
+      "elapsed_ms": 548,
+      "worker_peak_rss_bytes": 345620480,
+      "controller_peak_rss_bytes": 56098816,
+      "conservative_peak_rss_bytes": 401719296,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260619-0755",
+      "status": "passed",
+      "elapsed_ms": 625,
+      "worker_peak_rss_bytes": 357859328,
+      "controller_peak_rss_bytes": 56098816,
+      "conservative_peak_rss_bytes": 413958144,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260621-0717",
+      "status": "passed",
+      "elapsed_ms": 649,
+      "worker_peak_rss_bytes": 357728256,
+      "controller_peak_rss_bytes": 56098816,
+      "conservative_peak_rss_bytes": 413827072,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260622-0914",
+      "status": "passed",
+      "elapsed_ms": 842,
+      "worker_peak_rss_bytes": 390840320,
+      "controller_peak_rss_bytes": 56098816,
+      "conservative_peak_rss_bytes": 446939136,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260622-1000",
+      "status": "passed",
+      "elapsed_ms": 922,
+      "worker_peak_rss_bytes": 416661504,
+      "controller_peak_rss_bytes": 56180736,
+      "conservative_peak_rss_bytes": 472842240,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260622-2242",
+      "status": "passed",
+      "elapsed_ms": 941,
+      "worker_peak_rss_bytes": 420872192,
+      "controller_peak_rss_bytes": 56508416,
+      "conservative_peak_rss_bytes": 477380608,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260623-0541",
+      "status": "passed",
+      "elapsed_ms": 1271,
+      "worker_peak_rss_bytes": 472907776,
+      "controller_peak_rss_bytes": 56557568,
+      "conservative_peak_rss_bytes": 529465344,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260623-0542",
+      "status": "passed",
+      "elapsed_ms": 1239,
+      "worker_peak_rss_bytes": 447971328,
+      "controller_peak_rss_bytes": 56590336,
+      "conservative_peak_rss_bytes": 504561664,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260623-0545",
+      "status": "passed",
+      "elapsed_ms": 1312,
+      "worker_peak_rss_bytes": 453722112,
+      "controller_peak_rss_bytes": 56606720,
+      "conservative_peak_rss_bytes": 510328832,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260623-1815",
+      "status": "passed",
+      "elapsed_ms": 1403,
+      "worker_peak_rss_bytes": 460701696,
+      "controller_peak_rss_bytes": 56639488,
+      "conservative_peak_rss_bytes": 517341184,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260624-0549",
+      "status": "passed",
+      "elapsed_ms": 1374,
+      "worker_peak_rss_bytes": 473563136,
+      "controller_peak_rss_bytes": 57638912,
+      "conservative_peak_rss_bytes": 531202048,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260625-1009",
+      "status": "passed",
+      "elapsed_ms": 1514,
+      "worker_peak_rss_bytes": 491307008,
+      "controller_peak_rss_bytes": 57638912,
+      "conservative_peak_rss_bytes": 548945920,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260626-0858",
+      "status": "passed",
+      "elapsed_ms": 1472,
+      "worker_peak_rss_bytes": 563232768,
+      "controller_peak_rss_bytes": 57688064,
+      "conservative_peak_rss_bytes": 620920832,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260627-1149",
+      "status": "passed",
+      "elapsed_ms": 1646,
+      "worker_peak_rss_bytes": 557137920,
+      "controller_peak_rss_bytes": 57737216,
+      "conservative_peak_rss_bytes": 614875136,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260629-0934",
+      "status": "passed",
+      "elapsed_ms": 1673,
+      "worker_peak_rss_bytes": 519553024,
+      "controller_peak_rss_bytes": 57737216,
+      "conservative_peak_rss_bytes": 577290240,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260630-0718",
+      "status": "passed",
+      "elapsed_ms": 1764,
+      "worker_peak_rss_bytes": 526352384,
+      "controller_peak_rss_bytes": 57786368,
+      "conservative_peak_rss_bytes": 584138752,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260701-0641",
+      "status": "passed",
+      "elapsed_ms": 1823,
+      "worker_peak_rss_bytes": 519045120,
+      "controller_peak_rss_bytes": 57802752,
+      "conservative_peak_rss_bytes": 576847872,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260702-0937",
+      "status": "passed",
+      "elapsed_ms": 1884,
+      "worker_peak_rss_bytes": 521666560,
+      "controller_peak_rss_bytes": 57819136,
+      "conservative_peak_rss_bytes": 579485696,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260703-0646",
+      "status": "passed",
+      "elapsed_ms": 1981,
+      "worker_peak_rss_bytes": 519667712,
+      "controller_peak_rss_bytes": 57819136,
+      "conservative_peak_rss_bytes": 577486848,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260705-1622",
+      "status": "passed",
+      "elapsed_ms": 1987,
+      "worker_peak_rss_bytes": 541999104,
+      "controller_peak_rss_bytes": 57819136,
+      "conservative_peak_rss_bytes": 599818240,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260706-1013",
+      "status": "passed",
+      "elapsed_ms": 2147,
+      "worker_peak_rss_bytes": 577339392,
+      "controller_peak_rss_bytes": 57868288,
+      "conservative_peak_rss_bytes": 635207680,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260706-1029",
+      "status": "passed",
+      "elapsed_ms": 2119,
+      "worker_peak_rss_bytes": 524271616,
+      "controller_peak_rss_bytes": 57868288,
+      "conservative_peak_rss_bytes": 582139904,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260706-1042",
+      "status": "passed",
+      "elapsed_ms": 2118,
+      "worker_peak_rss_bytes": 530268160,
+      "controller_peak_rss_bytes": 57884672,
+      "conservative_peak_rss_bytes": 588152832,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260707-0601",
+      "status": "passed",
+      "elapsed_ms": 2173,
+      "worker_peak_rss_bytes": 518635520,
+      "controller_peak_rss_bytes": 57901056,
+      "conservative_peak_rss_bytes": 576536576,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260708-0453",
+      "status": "passed",
+      "elapsed_ms": 2129,
+      "worker_peak_rss_bytes": 527417344,
+      "controller_peak_rss_bytes": 57982976,
+      "conservative_peak_rss_bytes": 585400320,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260709-0613",
+      "status": "passed",
+      "elapsed_ms": 2292,
+      "worker_peak_rss_bytes": 518832128,
+      "controller_peak_rss_bytes": 58032128,
+      "conservative_peak_rss_bytes": 576864256,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260710-1002",
+      "status": "passed",
+      "elapsed_ms": 2394,
+      "worker_peak_rss_bytes": 577961984,
+      "controller_peak_rss_bytes": 58032128,
+      "conservative_peak_rss_bytes": 635994112,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260711-0751",
+      "status": "passed",
+      "elapsed_ms": 2368,
+      "worker_peak_rss_bytes": 543113216,
+      "controller_peak_rss_bytes": 58048512,
+      "conservative_peak_rss_bytes": 601161728,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260712-0755",
+      "status": "passed",
+      "elapsed_ms": 2481,
+      "worker_peak_rss_bytes": 530071552,
+      "controller_peak_rss_bytes": 58064896,
+      "conservative_peak_rss_bytes": 588136448,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260713-0837",
+      "status": "passed",
+      "elapsed_ms": 2522,
+      "worker_peak_rss_bytes": 522715136,
+      "controller_peak_rss_bytes": 58064896,
+      "conservative_peak_rss_bytes": 580780032,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260714-0607",
+      "status": "passed",
+      "elapsed_ms": 2566,
+      "worker_peak_rss_bytes": 523862016,
+      "controller_peak_rss_bytes": 58081280,
+      "conservative_peak_rss_bytes": 581943296,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260714-1142",
+      "status": "passed",
+      "elapsed_ms": 2668,
+      "worker_peak_rss_bytes": 527745024,
+      "controller_peak_rss_bytes": 58081280,
+      "conservative_peak_rss_bytes": 585826304,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260714-1604",
+      "status": "passed",
+      "elapsed_ms": 2713,
+      "worker_peak_rss_bytes": 549568512,
+      "controller_peak_rss_bytes": 58081280,
+      "conservative_peak_rss_bytes": 607649792,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260714-1607",
+      "status": "passed",
+      "elapsed_ms": 2641,
+      "worker_peak_rss_bytes": 523730944,
+      "controller_peak_rss_bytes": 58097664,
+      "conservative_peak_rss_bytes": 581828608,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260714-1813",
+      "status": "passed",
+      "elapsed_ms": 2956,
+      "worker_peak_rss_bytes": 552730624,
+      "controller_peak_rss_bytes": 58097664,
+      "conservative_peak_rss_bytes": 610828288,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260715-0556",
+      "status": "passed",
+      "elapsed_ms": 5585,
+      "worker_peak_rss_bytes": 621510656,
+      "controller_peak_rss_bytes": 58130432,
+      "conservative_peak_rss_bytes": 679641088,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260715-0556: 10 duplicate canonical rows resolved; all 929 raw rows preserved"
+        ]
+      }
+    },
+    {
+      "name": "import 20260715-0613",
+      "status": "passed",
+      "elapsed_ms": 4183,
+      "worker_peak_rss_bytes": 641597440,
+      "controller_peak_rss_bytes": 58130432,
+      "conservative_peak_rss_bytes": 699727872,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260716-0631",
+      "status": "passed",
+      "elapsed_ms": 4445,
+      "worker_peak_rss_bytes": 631816192,
+      "controller_peak_rss_bytes": 58146816,
+      "conservative_peak_rss_bytes": 689963008,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260717-0701",
+      "status": "passed",
+      "elapsed_ms": 4452,
+      "worker_peak_rss_bytes": 632569856,
+      "controller_peak_rss_bytes": 58163200,
+      "conservative_peak_rss_bytes": 690733056,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260718-0525",
+      "status": "passed",
+      "elapsed_ms": 4728,
+      "worker_peak_rss_bytes": 612073472,
+      "controller_peak_rss_bytes": 58163200,
+      "conservative_peak_rss_bytes": 670236672,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260719-0538",
+      "status": "passed",
+      "elapsed_ms": 4481,
+      "worker_peak_rss_bytes": 631357440,
+      "controller_peak_rss_bytes": 58163200,
+      "conservative_peak_rss_bytes": 689520640,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260720-0539",
+      "status": "passed",
+      "elapsed_ms": 5273,
+      "worker_peak_rss_bytes": 624918528,
+      "controller_peak_rss_bytes": 58195968,
+      "conservative_peak_rss_bytes": 683114496,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260720-0609",
+      "status": "passed",
+      "elapsed_ms": 5263,
+      "worker_peak_rss_bytes": 616660992,
+      "controller_peak_rss_bytes": 58195968,
+      "conservative_peak_rss_bytes": 674856960,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260720-0610",
+      "status": "passed",
+      "elapsed_ms": 5260,
+      "worker_peak_rss_bytes": 642580480,
+      "controller_peak_rss_bytes": 58212352,
+      "conservative_peak_rss_bytes": 700792832,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260721-0453",
+      "status": "passed",
+      "elapsed_ms": 5628,
+      "worker_peak_rss_bytes": 617873408,
+      "controller_peak_rss_bytes": 58245120,
+      "conservative_peak_rss_bytes": 676118528,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260721-0938",
+      "status": "passed",
+      "elapsed_ms": 5511,
+      "worker_peak_rss_bytes": 632946688,
+      "controller_peak_rss_bytes": 58261504,
+      "conservative_peak_rss_bytes": 691208192,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260722-0739",
+      "status": "passed",
+      "elapsed_ms": 5700,
+      "worker_peak_rss_bytes": 631078912,
+      "controller_peak_rss_bytes": 58261504,
+      "conservative_peak_rss_bytes": 689340416,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260723-0702",
+      "status": "passed",
+      "elapsed_ms": 5812,
+      "worker_peak_rss_bytes": 631341056,
+      "controller_peak_rss_bytes": 58261504,
+      "conservative_peak_rss_bytes": 689602560,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260724-0658",
+      "status": "passed",
+      "elapsed_ms": 6184,
+      "worker_peak_rss_bytes": 663846912,
+      "controller_peak_rss_bytes": 58294272,
+      "conservative_peak_rss_bytes": 722141184,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260724-1707",
+      "status": "passed",
+      "elapsed_ms": 6533,
+      "worker_peak_rss_bytes": 701284352,
+      "controller_peak_rss_bytes": 58294272,
+      "conservative_peak_rss_bytes": 759578624,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260725-0528",
+      "status": "passed",
+      "elapsed_ms": 6444,
+      "worker_peak_rss_bytes": 662503424,
+      "controller_peak_rss_bytes": 58310656,
+      "conservative_peak_rss_bytes": 720814080,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260726-0646",
+      "status": "passed",
+      "elapsed_ms": 6655,
+      "worker_peak_rss_bytes": 623411200,
+      "controller_peak_rss_bytes": 58949632,
+      "conservative_peak_rss_bytes": 682360832,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260727-0533",
+      "status": "passed",
+      "elapsed_ms": 7249,
+      "worker_peak_rss_bytes": 688652288,
+      "controller_peak_rss_bytes": 58998784,
+      "conservative_peak_rss_bytes": 747651072,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260728-0606",
+      "status": "passed",
+      "elapsed_ms": 7437,
+      "worker_peak_rss_bytes": 640761856,
+      "controller_peak_rss_bytes": 59015168,
+      "conservative_peak_rss_bytes": 699777024,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260729-0706",
+      "status": "passed",
+      "elapsed_ms": 8256,
+      "worker_peak_rss_bytes": 664666112,
+      "controller_peak_rss_bytes": 59031552,
+      "conservative_peak_rss_bytes": 723697664,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260730-0723",
+      "status": "passed",
+      "elapsed_ms": 8256,
+      "worker_peak_rss_bytes": 717062144,
+      "controller_peak_rss_bytes": 59031552,
+      "conservative_peak_rss_bytes": 776093696,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260731-0535",
+      "status": "passed",
+      "elapsed_ms": 8585,
+      "worker_peak_rss_bytes": 662503424,
+      "controller_peak_rss_bytes": 59080704,
+      "conservative_peak_rss_bytes": 721584128,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260801-0555",
+      "status": "passed",
+      "elapsed_ms": 8615,
+      "worker_peak_rss_bytes": 632389632,
+      "controller_peak_rss_bytes": 59080704,
+      "conservative_peak_rss_bytes": 691470336,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260802-0411",
+      "status": "passed",
+      "elapsed_ms": 8899,
+      "worker_peak_rss_bytes": 613515264,
+      "controller_peak_rss_bytes": 59080704,
+      "conservative_peak_rss_bytes": 672595968,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260803-0702",
+      "status": "passed",
+      "elapsed_ms": 9445,
+      "worker_peak_rss_bytes": 672055296,
+      "controller_peak_rss_bytes": 59097088,
+      "conservative_peak_rss_bytes": 731152384,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260804-0704",
+      "status": "passed",
+      "elapsed_ms": 9316,
+      "worker_peak_rss_bytes": 670023680,
+      "controller_peak_rss_bytes": 59113472,
+      "conservative_peak_rss_bytes": 729137152,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260805-0603",
+      "status": "passed",
+      "elapsed_ms": 9485,
+      "worker_peak_rss_bytes": 729645056,
+      "controller_peak_rss_bytes": 59146240,
+      "conservative_peak_rss_bytes": 788791296,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260806-0517",
+      "status": "passed",
+      "elapsed_ms": 9803,
+      "worker_peak_rss_bytes": 712441856,
+      "controller_peak_rss_bytes": 59228160,
+      "conservative_peak_rss_bytes": 771670016,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260807-0852",
+      "status": "passed",
+      "elapsed_ms": 10353,
+      "worker_peak_rss_bytes": 673234944,
+      "controller_peak_rss_bytes": 59228160,
+      "conservative_peak_rss_bytes": 732463104,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260808-0619",
+      "status": "passed",
+      "elapsed_ms": 10685,
+      "worker_peak_rss_bytes": 663601152,
+      "controller_peak_rss_bytes": 59228160,
+      "conservative_peak_rss_bytes": 722829312,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260809-0543",
+      "status": "passed",
+      "elapsed_ms": 10740,
+      "worker_peak_rss_bytes": 624295936,
+      "controller_peak_rss_bytes": 59228160,
+      "conservative_peak_rss_bytes": 683524096,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260810-0621",
+      "status": "passed",
+      "elapsed_ms": 10839,
+      "worker_peak_rss_bytes": 636436480,
+      "controller_peak_rss_bytes": 59424768,
+      "conservative_peak_rss_bytes": 695861248,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260811-0552",
+      "status": "passed",
+      "elapsed_ms": 11092,
+      "worker_peak_rss_bytes": 642990080,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 702824448,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260812-0647",
+      "status": "passed",
+      "elapsed_ms": 11335,
+      "worker_peak_rss_bytes": 697843712,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 757678080,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260813-0522",
+      "status": "passed",
+      "elapsed_ms": 12336,
+      "worker_peak_rss_bytes": 671219712,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 731054080,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260814-0502",
+      "status": "passed",
+      "elapsed_ms": 12110,
+      "worker_peak_rss_bytes": 705036288,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 764870656,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260815-0921",
+      "status": "passed",
+      "elapsed_ms": 12279,
+      "worker_peak_rss_bytes": 664846336,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 724680704,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260817-0659",
+      "status": "passed",
+      "elapsed_ms": 12299,
+      "worker_peak_rss_bytes": 762560512,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 822394880,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260818-0615",
+      "status": "passed",
+      "elapsed_ms": 12875,
+      "worker_peak_rss_bytes": 730710016,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 790544384,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260819-0818",
+      "status": "passed",
+      "elapsed_ms": 13171,
+      "worker_peak_rss_bytes": 754089984,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 813924352,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260820-0547",
+      "status": "passed",
+      "elapsed_ms": 13229,
+      "worker_peak_rss_bytes": 667418624,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 727252992,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260821-0704",
+      "status": "passed",
+      "elapsed_ms": 13377,
+      "worker_peak_rss_bytes": 662470656,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 722305024,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260822-1033",
+      "status": "passed",
+      "elapsed_ms": 14049,
+      "worker_peak_rss_bytes": 735723520,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 795557888,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260824-0636",
+      "status": "passed",
+      "elapsed_ms": 14335,
+      "worker_peak_rss_bytes": 718405632,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 778240000,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260824-1624",
+      "status": "passed",
+      "elapsed_ms": 14967,
+      "worker_peak_rss_bytes": 719257600,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 779091968,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260824-1624: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260825-0538",
+      "status": "passed",
+      "elapsed_ms": 15089,
+      "worker_peak_rss_bytes": 755793920,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 815628288,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260825-0538: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260826-0658",
+      "status": "passed",
+      "elapsed_ms": 15162,
+      "worker_peak_rss_bytes": 742965248,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 802799616,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260826-0658: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260827-0509",
+      "status": "passed",
+      "elapsed_ms": 14983,
+      "worker_peak_rss_bytes": 722255872,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 782090240,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260827-0509: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260827-0518",
+      "status": "passed",
+      "elapsed_ms": 15563,
+      "worker_peak_rss_bytes": 711622656,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 771457024,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260827-0518: 3 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260828-0620",
+      "status": "passed",
+      "elapsed_ms": 15478,
+      "worker_peak_rss_bytes": 665059328,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 724893696,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260828-0620: 3 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260829-0639",
+      "status": "passed",
+      "elapsed_ms": 15382,
+      "worker_peak_rss_bytes": 686424064,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 746258432,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260829-0639: 3 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260830-1127",
+      "status": "passed",
+      "elapsed_ms": 15812,
+      "worker_peak_rss_bytes": 694484992,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 754319360,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260830-1127: 2 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260831-0536",
+      "status": "passed",
+      "elapsed_ms": 16117,
+      "worker_peak_rss_bytes": 695615488,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 755449856,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260831-0536: 2 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260901-0603",
+      "status": "passed",
+      "elapsed_ms": 16024,
+      "worker_peak_rss_bytes": 720650240,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 780484608,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260901-0603: 3 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260902-0528",
+      "status": "passed",
+      "elapsed_ms": 15944,
+      "worker_peak_rss_bytes": 696696832,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 756531200,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260902-0528: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260903-0547",
+      "status": "passed",
+      "elapsed_ms": 16085,
+      "worker_peak_rss_bytes": 634568704,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 694403072,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260904-0441",
+      "status": "passed",
+      "elapsed_ms": 16376,
+      "worker_peak_rss_bytes": 723271680,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 783106048,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260904-0441: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260905-0704",
+      "status": "passed",
+      "elapsed_ms": 17035,
+      "worker_peak_rss_bytes": 684654592,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 744488960,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260905-0704: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260906-0700",
+      "status": "passed",
+      "elapsed_ms": 17263,
+      "worker_peak_rss_bytes": 680804352,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 740638720,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260906-0700: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260907-0701",
+      "status": "passed",
+      "elapsed_ms": 18034,
+      "worker_peak_rss_bytes": 741195776,
+      "controller_peak_rss_bytes": 59834368,
+      "conservative_peak_rss_bytes": 801030144,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260907-0701: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260908-0506",
+      "status": "passed",
+      "elapsed_ms": 17841,
+      "worker_peak_rss_bytes": 817496064,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 877363200,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260908-0506: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260909-0608",
+      "status": "passed",
+      "elapsed_ms": 18725,
+      "worker_peak_rss_bytes": 823263232,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 883130368,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260909-0608: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260910-0605",
+      "status": "passed",
+      "elapsed_ms": 18438,
+      "worker_peak_rss_bytes": 705888256,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 765755392,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260910-0605: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260911-0656",
+      "status": "passed",
+      "elapsed_ms": 18726,
+      "worker_peak_rss_bytes": 783040512,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 842907648,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260911-0656: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260912-0710",
+      "status": "passed",
+      "elapsed_ms": 18504,
+      "worker_peak_rss_bytes": 767410176,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 827277312,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260912-0710: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260913-1043",
+      "status": "passed",
+      "elapsed_ms": 19170,
+      "worker_peak_rss_bytes": 737476608,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 797343744,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260913-1043: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260914-0650",
+      "status": "passed",
+      "elapsed_ms": 19320,
+      "worker_peak_rss_bytes": 750845952,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 810713088,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260914-0650: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260915-0613",
+      "status": "passed",
+      "elapsed_ms": 20084,
+      "worker_peak_rss_bytes": 743882752,
+      "controller_peak_rss_bytes": 59867136,
+      "conservative_peak_rss_bytes": 803749888,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260915-0613: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260916-0616",
+      "status": "passed",
+      "elapsed_ms": 20017,
+      "worker_peak_rss_bytes": 821493760,
+      "controller_peak_rss_bytes": 59899904,
+      "conservative_peak_rss_bytes": 881393664,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260916-0616: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260917-0458",
+      "status": "passed",
+      "elapsed_ms": 19838,
+      "worker_peak_rss_bytes": 744554496,
+      "controller_peak_rss_bytes": 59899904,
+      "conservative_peak_rss_bytes": 804454400,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260917-0458: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260918-0646",
+      "status": "passed",
+      "elapsed_ms": 20547,
+      "worker_peak_rss_bytes": 750567424,
+      "controller_peak_rss_bytes": 59916288,
+      "conservative_peak_rss_bytes": 810483712,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260918-0646: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260919-0628",
+      "status": "passed",
+      "elapsed_ms": 20666,
+      "worker_peak_rss_bytes": 713637888,
+      "controller_peak_rss_bytes": 60030976,
+      "conservative_peak_rss_bytes": 773668864,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260919-0628: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260920-0545",
+      "status": "passed",
+      "elapsed_ms": 20929,
+      "worker_peak_rss_bytes": 783532032,
+      "controller_peak_rss_bytes": 60047360,
+      "conservative_peak_rss_bytes": 843579392,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260920-0545: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260921-0631",
+      "status": "passed",
+      "elapsed_ms": 21775,
+      "worker_peak_rss_bytes": 705445888,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 765870080,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260921-0631: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260922-0700",
+      "status": "passed",
+      "elapsed_ms": 22661,
+      "worker_peak_rss_bytes": 805961728,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 866385920,
+      "result": {
+        "imported": true,
+        "warnings": [
+          "20260922-0700: 1 unmatched good-job rows preserved as exceptions"
+        ]
+      }
+    },
+    {
+      "name": "import 20260923-0709",
+      "status": "passed",
+      "elapsed_ms": 21849,
+      "worker_peak_rss_bytes": 786006016,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 846430208,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260924-0617",
+      "status": "passed",
+      "elapsed_ms": 22265,
+      "worker_peak_rss_bytes": 784809984,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 845234176,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260925-0552",
+      "status": "passed",
+      "elapsed_ms": 21640,
+      "worker_peak_rss_bytes": 720535552,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 780959744,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260926-0533",
+      "status": "passed",
+      "elapsed_ms": 20947,
+      "worker_peak_rss_bytes": 739508224,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 799932416,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260927-0734",
+      "status": "passed",
+      "elapsed_ms": 21677,
+      "worker_peak_rss_bytes": 740098048,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 800522240,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260928-0552",
+      "status": "passed",
+      "elapsed_ms": 21013,
+      "worker_peak_rss_bytes": 654409728,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 714833920,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "prepare",
+      "status": "passed",
+      "elapsed_ms": 35137,
+      "worker_peak_rss_bytes": 550518784,
+      "controller_peak_rss_bytes": 60424192,
+      "conservative_peak_rss_bytes": 610942976,
+      "result": {
+        "prepared": true
+      }
+    },
+    {
+      "name": "existing 131 exact SQL/report comparison",
+      "status": "failed",
+      "elapsed_ms": 693,
+      "error": "Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node --max-old-space-size=256 /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-full-candidate-worker.js compare /var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a [REDACTED_OWNER_TOKEN] /Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb\n[Error: Out of Memory Error: could not allocate block of size 256.0 KiB (182.8 MiB/183.1 MiB used)\n\nPossible solutions:\n* Reducing the number of threads (SET threads=X)\n* Disabling insertion-order preservation (SET preserve_insertion_order=false)\n* Increasing the memory limit (SET memory_limit='...GB')\n\nSee also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads]\n"
+    },
+    {
+      "name": "prepare",
+      "status": "passed",
+      "elapsed_ms": 168,
+      "worker_peak_rss_bytes": 186286080,
+      "controller_peak_rss_bytes": 54296576,
+      "conservative_peak_rss_bytes": 240582656,
+      "result": {
+        "prepared": true
+      }
+    },
+    {
+      "name": "existing 131 exact SQL/report comparison",
+      "status": "passed",
+      "elapsed_ms": 114483,
+      "worker_peak_rss_bytes": 609189888,
+      "controller_peak_rss_bytes": 59146240,
+      "conservative_peak_rss_bytes": 668336128,
+      "result": {
+        "parity": {
+          "objects": [
+            {
+              "object": "snapshots",
+              "columns": 13,
+              "rows": 131,
+              "differences": 0
+            },
+            {
+              "object": "posting_observations",
+              "columns": 75,
+              "rows": 94069,
+              "differences": 0
+            },
+            {
+              "object": "snapshot_files",
+              "columns": 5,
+              "rows": 262,
+              "differences": 0
+            },
+            {
+              "object": "source_artifacts",
+              "columns": 4,
+              "rows": 655,
+              "differences": 0
+            },
+            {
+              "object": "raw_top_match_rows",
+              "columns": 8,
+              "rows": 94079,
+              "differences": 0
+            },
+            {
+              "object": "raw_good_job_rows",
+              "columns": 8,
+              "rows": 83474,
+              "differences": 0
+            },
+            {
+              "object": "good_job_exceptions",
+              "columns": 9,
+              "rows": 40,
+              "differences": 0
+            },
+            {
+              "object": "historical_content_metrics",
+              "columns": 36,
+              "rows": 131,
+              "differences": 0
+            },
+            {
+              "object": "historical_role_metrics",
+              "columns": 3,
+              "rows": 1310,
+              "differences": 0
+            },
+            {
+              "object": "snapshot_summary",
+              "columns": 12,
+              "rows": 131,
+              "differences": 0
+            },
+            {
+              "object": "posting_lifecycle",
+              "columns": 10,
+              "rows": 2973,
+              "differences": 0
+            },
+            {
+              "object": "daily_market_metrics",
+              "columns": 11,
+              "rows": 131,
+              "differences": 0
+            }
+          ],
+          "report": "passed",
+          "imported_at": "Type and non-null parity; independent import timestamps"
+        }
+      }
+    },
+    {
+      "name": "import 20260929-0613",
+      "status": "failed",
+      "elapsed_ms": 21292,
+      "error": "Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node --max-old-space-size=128 /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-storage-worker.js /private/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a [REDACTED_OWNER_TOKEN] /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package 20260929-0613\nOut of Memory Error: failed to allocate data of size 4.0 MiB (181.1 MiB/183.1 MiB used)\n\nPossible solutions:\n* Reducing the number of threads (SET threads=X)\n* Disabling insertion-order preservation (SET preserve_insertion_order=false)\n* Increasing the memory limit (SET memory_limit='...GB')\n\nSee also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads\n"
+    },
+    {
+      "name": "defer metrics for bulk build",
+      "status": "passed",
+      "elapsed_ms": 92,
+      "worker_peak_rss_bytes": 93241344,
+      "controller_peak_rss_bytes": 54181888,
+      "conservative_peak_rss_bytes": 147423232,
+      "result": {
+        "bulk_build_only": true,
+        "query_preparation_required": true
+      }
+    },
+    {
+      "name": "import 20260929-0613",
+      "status": "passed",
+      "elapsed_ms": 21370,
+      "worker_peak_rss_bytes": 710524928,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 769785856,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20260930-0644",
+      "status": "passed",
+      "elapsed_ms": 22054,
+      "worker_peak_rss_bytes": 667320320,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 726581248,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20261001-0554",
+      "status": "passed",
+      "elapsed_ms": 21361,
+      "worker_peak_rss_bytes": 642154496,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 701415424,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20261002-0513",
+      "status": "passed",
+      "elapsed_ms": 22102,
+      "worker_peak_rss_bytes": 658849792,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 718110720,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20261003-0644",
+      "status": "passed",
+      "elapsed_ms": 21864,
+      "worker_peak_rss_bytes": 739180544,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 798441472,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20261004-0521",
+      "status": "passed",
+      "elapsed_ms": 22224,
+      "worker_peak_rss_bytes": 648134656,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 707395584,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20261005-0723",
+      "status": "passed",
+      "elapsed_ms": 22681,
+      "worker_peak_rss_bytes": 626819072,
+      "controller_peak_rss_bytes": 59260928,
+      "conservative_peak_rss_bytes": 686080000,
+      "result": {
+        "imported": true,
+        "warnings": []
+      }
+    },
+    {
+      "name": "import 20261006-0524",
+      "status": "failed",
+      "elapsed_ms": 12092,
+      "error": "Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node --max-old-space-size=128 /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-storage-worker.js /private/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a [REDACTED_OWNER_TOKEN] /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package 20261006-0524\n20261006-0524 (audit integrity): Integrity check payload text references: Out of Memory Error: failed to allocate data of size 1.0 MiB (182.1 MiB/183.1 MiB used)\n\nPossible solutions:\n* Reducing the number of threads (SET threads=X)\n* Disabling insertion-order preservation (SET preserve_insertion_order=false)\n* Increasing the memory limit (SET memory_limit='...GB')\n\nSee also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads\n"
+    }
+  ],
+  "disk_peak": {
+    "logical_bytes": 1129209300,
+    "allocated_bytes": 1134927872
+  },
+  "memory_note": "Controller high-water mark plus largest sequential worker high-water mark. This is a measured test gate, not an OS RSS limit. Disk sampled every second and at phase boundaries.",
+  "conservative_peak_rss_bytes": 883130368,
+  "directory": "/private/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a",
+  "minimum_free_bytes": 119389712384,
+  "finished_at": "2026-10-19T15:53:07.967Z",
+  "final_disk": {
+    "logical_bytes": 1068445416,
+    "allocated_bytes": 1068457984,
+    "free_bytes": 119451586560
+  },
+  "resumed_at": "2026-10-19T15:50:22.123Z",
+  "prior_failure": "Error: Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node --max-old-space-size=128 /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-storage-worker.js /private/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a [REDACTED_OWNER_TOKEN] /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package 20260929-0613\nOut of Memory Error: failed to allocate data of size 4.0 MiB (181.1 MiB/183.1 MiB used)\n\nPossible solutions:\n* Reducing the number of threads (SET threads=X)\n* Disabling insertion-order preservation (SET preserve_insertion_order=false)\n* Increasing the memory limit (SET memory_limit='...GB')\n\nSee also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads\n\n    at genericNodeError (node:internal/errors:998:15)\n    at wrappedFn (node:internal/errors:543:14)\n    at ChildProcess.exithandler (node:child_process:417:12)\n    at ChildProcess.emit (node:events:509:20)\n    at maybeClose (node:internal/child_process:1108:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:305:5)",
+  "error": "Error: Command failed: /opt/homebrew/Cellar/node/26.3.1/bin/node --max-old-space-size=128 /Users/adampugh/GitHub/public-job-feed/src/scripts/job-history-storage-worker.js /private/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/job-history-bounded-BljI6a [REDACTED_OWNER_TOKEN] /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package 20261006-0524\n20261006-0524 (audit integrity): Integrity check payload text references: Out of Memory Error: failed to allocate data of size 1.0 MiB (182.1 MiB/183.1 MiB used)\n\nPossible solutions:\n* Reducing the number of threads (SET threads=X)\n* Disabling insertion-order preservation (SET preserve_insertion_order=false)\n* Increasing the memory limit (SET memory_limit='...GB')\n\nSee also https://duckdb.org/docs/stable/guides/performance/how_to_tune_workloads\n\n    at genericNodeError (node:internal/errors:998:15)\n    at wrappedFn (node:internal/errors:543:14)\n    at ChildProcess.exithandler (node:child_process:417:12)\n    at ChildProcess.emit (node:events:509:20)\n    at maybeClose (node:internal/child_process:1108:16)\n    at ChildProcess._handle.onexit (node:internal/child_process:305:5)"
+}

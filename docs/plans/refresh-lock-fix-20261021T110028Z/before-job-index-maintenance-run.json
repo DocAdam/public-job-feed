@@ -1,0 +1,11 @@
+{
+  "StartedAt": "2026-10-21T10:55:04.157Z",
+  "CompletedAt": "2026-10-21T10:55:22.978Z",
+  "Status": "failed",
+  "CatalogStatus": "",
+  "AddedBoardCount": 0,
+  "Steps": [],
+  "Warnings": [
+    "maintain-board-index.js exited with code 1"
+  ]
+}

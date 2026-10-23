@@ -1,0 +1,4235 @@
+{
+  "review_date": "2026-10-19",
+  "scope": "Read-only parsed CSV review; proposed content projection is exploratory, not an implemented schema",
+  "snapshots": 152,
+  "first": "20260602-1810",
+  "latest": "20261019-0616",
+  "pending_ids": [
+    "20260929-0613",
+    "20260930-0644",
+    "20261001-0554",
+    "20261002-0513",
+    "20261003-0644",
+    "20261004-0521",
+    "20261005-0723",
+    "20261006-0524",
+    "20261007-0557",
+    "20261008-0603",
+    "20261009-0509",
+    "20261010-0658",
+    "20261011-1112",
+    "20261012-0604",
+    "20261013-0543",
+    "20261014-0727",
+    "20261015-0530",
+    "20261016-0608",
+    "20261017-0657",
+    "20261018-2107",
+    "20261019-0616"
+  ],
+  "raw_top_rows": 111624,
+  "resolved_rows": 111614,
+  "raw_good_rows": 98896,
+  "duplicate_excess_rows": 10,
+  "unmatched_good_rows": 40,
+  "duplicate_good_links": 10,
+  "missing": [],
+  "invalid_identity_rows": 0,
+  "header_variants": {
+    "03_top_matches_full.csv": [
+      {
+        "headers": [
+          "SourceBatch",
+          "SourceATSCount",
+          "CrossATSDuplicate",
+          "CrossATSDuplicateATSList",
+          "Source",
+          "ATS",
+          "Company",
+          "CompanyKey",
+          "Title",
+          "ExportQualityFlag",
+          "ExportQualityIssues",
+          "PossibleDuplicate",
+          "DuplicateReason",
+          "JobKey",
+          "CompanyTitleLocationKey",
+          "CanonicalURLKey",
+          "DuplicateGroupKey",
+          "TitleReviewBucket",
+          "TitleReviewPriority",
+          "TitleReviewReason",
+          "TitleDomainSignal",
+          "TitleSenioritySignal",
+          "TitleLeadershipSignal",
+          "TitleICSignal",
+          "WriterFitVersion",
+          "WriterFitBaseScore",
+          "WriterFitScore",
+          "WriterFitTier",
+          "WriterFitReasons",
+          "WriterFitPositiveSignals",
+          "WriterFitNegativeSignals",
+          "WriterFitPenaltySignals",
+          "WriterFitDemotionReason",
+          "WriterFitGuardrailApplied",
+          "TitleMatchType",
+          "TitleMatchCategory",
+          "MatchedWatchlistTitle",
+          "TitleMatchScore",
+          "TitleConfidence",
+          "Location",
+          "RemoteStatus",
+          "RemoteSignal",
+          "RemoteConfidence",
+          "USRemoteEligible",
+          "LocationRisk",
+          "LocationReviewReason",
+          "SalaryDetected",
+          "SalaryMin",
+          "SalaryMax",
+          "SalaryCurrency",
+          "SalaryPeriod",
+          "SalaryText",
+          "Department",
+          "DatePosted",
+          "URL",
+          "Description",
+          "CatalogSlug",
+          "BoardURL",
+          "FetchURL",
+          "FetchedAt",
+          "RawJobId",
+          "RawJobURL",
+          "RawLocation",
+          "RawDepartment",
+          "DedupeSelected",
+          "DedupeSelectionReason",
+          "DedupeGroupSize"
+        ],
+        "snapshot_count": 152,
+        "first": "20260602-1810",
+        "last": "20261019-0616"
+      }
+    ],
+    "01_good_documentation_jobs.csv": [
+      {
+        "headers": [
+          "Title",
+          "Company",
+          "Location",
+          "Apply Link",
+          "Writer Fit Score",
+          "Fit Tier",
+          "Why It Matched",
+          "Work Arrangement",
+          "Salary",
+          "Posted Date",
+          "Last Checked",
+          "Report Run Date",
+          "Source"
+        ],
+        "snapshot_count": 2,
+        "first": "20260602-1810",
+        "last": "20260602-1812"
+      },
+      {
+        "headers": [
+          "Title",
+          "Company",
+          "Location",
+          "Apply Link",
+          "Writer Fit Score",
+          "Fit Tier",
+          "Why It Matched",
+          "Work Arrangement",
+          "Salary",
+          "Posted Date",
+          "Age (Days)",
+          "Last Checked",
+          "Source"
+        ],
+        "snapshot_count": 46,
+        "first": "20260602-2051",
+        "last": "20260714-1604"
+      },
+      {
+        "headers": [
+          "Title",
+          "Company",
+          "Location",
+          "Apply Link",
+          "Writer Fit Score",
+          "Fit Tier",
+          "Why It Matched",
+          "Role Type",
+          "Work Arrangement",
+          "Salary",
+          "Posted Date",
+          "Age (Days)",
+          "Last Checked",
+          "Source"
+        ],
+        "snapshot_count": 32,
+        "first": "20260714-1607",
+        "last": "20260808-0619"
+      },
+      {
+        "headers": [
+          "Title",
+          "Company",
+          "Location",
+          "Apply Link",
+          "Additional Apply Links",
+          "Writer Fit Score",
+          "Fit Tier",
+          "Why It Matched",
+          "Role Type",
+          "Work Arrangement",
+          "Salary",
+          "Posted Date",
+          "Age (Days)",
+          "Last Checked",
+          "Source"
+        ],
+        "snapshot_count": 72,
+        "first": "20260809-0543",
+        "last": "20261019-0616"
+      }
+    ]
+  },
+  "snapshot_rows": [
+    {
+      "id": "20260602-1810",
+      "raw_top": 116,
+      "resolved": 116,
+      "raw_good": 116,
+      "matched_unique_canonical": 116,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 116,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260602-1812",
+      "raw_top": 116,
+      "resolved": 116,
+      "raw_good": 116,
+      "matched_unique_canonical": 116,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260602-2051",
+      "raw_top": 116,
+      "resolved": 116,
+      "raw_good": 116,
+      "matched_unique_canonical": 116,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260602-2053",
+      "raw_top": 116,
+      "resolved": 116,
+      "raw_good": 116,
+      "matched_unique_canonical": 116,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260602-2054",
+      "raw_top": 116,
+      "resolved": 116,
+      "raw_good": 116,
+      "matched_unique_canonical": 116,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260603-1407",
+      "raw_top": 147,
+      "resolved": 147,
+      "raw_good": 147,
+      "matched_unique_canonical": 147,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 31,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260604-1335",
+      "raw_top": 164,
+      "resolved": 164,
+      "raw_good": 164,
+      "matched_unique_canonical": 164,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 17,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260605-0620",
+      "raw_top": 169,
+      "resolved": 169,
+      "raw_good": 157,
+      "matched_unique_canonical": 157,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 5,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260606-0636",
+      "raw_top": 178,
+      "resolved": 178,
+      "raw_good": 178,
+      "matched_unique_canonical": 178,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 9,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260606-1138",
+      "raw_top": 190,
+      "resolved": 190,
+      "raw_good": 178,
+      "matched_unique_canonical": 178,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 12,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260608-0653",
+      "raw_top": 197,
+      "resolved": 197,
+      "raw_good": 197,
+      "matched_unique_canonical": 197,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 7,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260610-0603",
+      "raw_top": 203,
+      "resolved": 203,
+      "raw_good": 203,
+      "matched_unique_canonical": 203,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 6,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260611-1007",
+      "raw_top": 208,
+      "resolved": 208,
+      "raw_good": 208,
+      "matched_unique_canonical": 208,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 5,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260612-0640",
+      "raw_top": 209,
+      "resolved": 209,
+      "raw_good": 182,
+      "matched_unique_canonical": 182,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260613-1003",
+      "raw_top": 216,
+      "resolved": 216,
+      "raw_good": 216,
+      "matched_unique_canonical": 216,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 7,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260615-0910",
+      "raw_top": 229,
+      "resolved": 229,
+      "raw_good": 200,
+      "matched_unique_canonical": 200,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 13,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260619-0755",
+      "raw_top": 299,
+      "resolved": 299,
+      "raw_good": 229,
+      "matched_unique_canonical": 229,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 70,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260621-0717",
+      "raw_top": 295,
+      "resolved": 295,
+      "raw_good": 225,
+      "matched_unique_canonical": 225,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 9,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 13
+    },
+    {
+      "id": "20260622-0914",
+      "raw_top": 380,
+      "resolved": 380,
+      "raw_good": 365,
+      "matched_unique_canonical": 365,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 72,
+      "reappeared": 13,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260622-1000",
+      "raw_top": 410,
+      "resolved": 410,
+      "raw_good": 393,
+      "matched_unique_canonical": 393,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 30,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260622-2242",
+      "raw_top": 410,
+      "resolved": 410,
+      "raw_good": 392,
+      "matched_unique_canonical": 392,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260623-0541",
+      "raw_top": 575,
+      "resolved": 575,
+      "raw_good": 575,
+      "matched_unique_canonical": 575,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 168,
+      "reappeared": 0,
+      "content_transition_candidates": 1,
+      "absent_vs_previous": 3
+    },
+    {
+      "id": "20260623-0542",
+      "raw_top": 575,
+      "resolved": 575,
+      "raw_good": 497,
+      "matched_unique_canonical": 497,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260623-0545",
+      "raw_top": 575,
+      "resolved": 575,
+      "raw_good": 556,
+      "matched_unique_canonical": 556,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260623-1815",
+      "raw_top": 575,
+      "resolved": 575,
+      "raw_good": 575,
+      "matched_unique_canonical": 575,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260624-0549",
+      "raw_top": 516,
+      "resolved": 516,
+      "raw_good": 511,
+      "matched_unique_canonical": 511,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 50,
+      "reappeared": 0,
+      "content_transition_candidates": 80,
+      "absent_vs_previous": 109
+    },
+    {
+      "id": "20260625-1009",
+      "raw_top": 533,
+      "resolved": 533,
+      "raw_good": 528,
+      "matched_unique_canonical": 528,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 31,
+      "reappeared": 1,
+      "content_transition_candidates": 36,
+      "absent_vs_previous": 15
+    },
+    {
+      "id": "20260626-0858",
+      "raw_top": 526,
+      "resolved": 526,
+      "raw_good": 518,
+      "matched_unique_canonical": 518,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 1,
+      "content_transition_candidates": 22,
+      "absent_vs_previous": 9
+    },
+    {
+      "id": "20260627-1149",
+      "raw_top": 518,
+      "resolved": 518,
+      "raw_good": 511,
+      "matched_unique_canonical": 511,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 32,
+      "absent_vs_previous": 8
+    },
+    {
+      "id": "20260629-0934",
+      "raw_top": 515,
+      "resolved": 515,
+      "raw_good": 508,
+      "matched_unique_canonical": 508,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 0,
+      "content_transition_candidates": 9,
+      "absent_vs_previous": 4
+    },
+    {
+      "id": "20260630-0718",
+      "raw_top": 512,
+      "resolved": 512,
+      "raw_good": 506,
+      "matched_unique_canonical": 506,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 3,
+      "reappeared": 0,
+      "content_transition_candidates": 24,
+      "absent_vs_previous": 6
+    },
+    {
+      "id": "20260701-0641",
+      "raw_top": 505,
+      "resolved": 505,
+      "raw_good": 499,
+      "matched_unique_canonical": 499,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 0,
+      "content_transition_candidates": 29,
+      "absent_vs_previous": 9
+    },
+    {
+      "id": "20260702-0937",
+      "raw_top": 493,
+      "resolved": 493,
+      "raw_good": 487,
+      "matched_unique_canonical": 487,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 0,
+      "content_transition_candidates": 21,
+      "absent_vs_previous": 14
+    },
+    {
+      "id": "20260703-0646",
+      "raw_top": 486,
+      "resolved": 486,
+      "raw_good": 480,
+      "matched_unique_canonical": 480,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 0,
+      "content_transition_candidates": 22,
+      "absent_vs_previous": 9
+    },
+    {
+      "id": "20260705-1622",
+      "raw_top": 485,
+      "resolved": 485,
+      "raw_good": 479,
+      "matched_unique_canonical": 479,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 0,
+      "content_transition_candidates": 9,
+      "absent_vs_previous": 3
+    },
+    {
+      "id": "20260706-1013",
+      "raw_top": 480,
+      "resolved": 480,
+      "raw_good": 474,
+      "matched_unique_canonical": 474,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 220,
+      "absent_vs_previous": 5
+    },
+    {
+      "id": "20260706-1029",
+      "raw_top": 480,
+      "resolved": 480,
+      "raw_good": 420,
+      "matched_unique_canonical": 420,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260706-1042",
+      "raw_top": 480,
+      "resolved": 480,
+      "raw_good": 414,
+      "matched_unique_canonical": 414,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260707-0601",
+      "raw_top": 466,
+      "resolved": 466,
+      "raw_good": 400,
+      "matched_unique_canonical": 400,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 15
+    },
+    {
+      "id": "20260708-0453",
+      "raw_top": 457,
+      "resolved": 457,
+      "raw_good": 391,
+      "matched_unique_canonical": 391,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 2,
+      "content_transition_candidates": 10,
+      "absent_vs_previous": 13
+    },
+    {
+      "id": "20260709-0613",
+      "raw_top": 445,
+      "resolved": 445,
+      "raw_good": 379,
+      "matched_unique_canonical": 379,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 0,
+      "content_transition_candidates": 1,
+      "absent_vs_previous": 14
+    },
+    {
+      "id": "20260710-1002",
+      "raw_top": 432,
+      "resolved": 432,
+      "raw_good": 366,
+      "matched_unique_canonical": 366,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 1,
+      "content_transition_candidates": 5,
+      "absent_vs_previous": 15
+    },
+    {
+      "id": "20260711-0751",
+      "raw_top": 431,
+      "resolved": 431,
+      "raw_good": 365,
+      "matched_unique_canonical": 365,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 0,
+      "content_transition_candidates": 1,
+      "absent_vs_previous": 2
+    },
+    {
+      "id": "20260712-0755",
+      "raw_top": 430,
+      "resolved": 430,
+      "raw_good": 364,
+      "matched_unique_canonical": 364,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 1
+    },
+    {
+      "id": "20260713-0837",
+      "raw_top": 425,
+      "resolved": 425,
+      "raw_good": 359,
+      "matched_unique_canonical": 359,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 0,
+      "content_transition_candidates": 3,
+      "absent_vs_previous": 6
+    },
+    {
+      "id": "20260714-0607",
+      "raw_top": 414,
+      "resolved": 414,
+      "raw_good": 348,
+      "matched_unique_canonical": 348,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20260714-1142",
+      "raw_top": 415,
+      "resolved": 415,
+      "raw_good": 348,
+      "matched_unique_canonical": 348,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 1,
+      "reappeared": 0,
+      "content_transition_candidates": 1,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260714-1604",
+      "raw_top": 415,
+      "resolved": 415,
+      "raw_good": 355,
+      "matched_unique_canonical": 355,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260714-1607",
+      "raw_top": 415,
+      "resolved": 415,
+      "raw_good": 355,
+      "matched_unique_canonical": 355,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260714-1813",
+      "raw_top": 457,
+      "resolved": 457,
+      "raw_good": 390,
+      "matched_unique_canonical": 390,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 44,
+      "reappeared": 0,
+      "content_transition_candidates": 34,
+      "absent_vs_previous": 2
+    },
+    {
+      "id": "20260715-0556",
+      "raw_top": 929,
+      "resolved": 919,
+      "raw_good": 858,
+      "matched_unique_canonical": 848,
+      "unmatched_good": 0,
+      "duplicate_excess": 10,
+      "first_seen": 454,
+      "reappeared": 8,
+      "content_transition_candidates": 7,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260715-0613",
+      "raw_top": 919,
+      "resolved": 919,
+      "raw_good": 848,
+      "matched_unique_canonical": 848,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 80,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260716-0631",
+      "raw_top": 902,
+      "resolved": 902,
+      "raw_good": 828,
+      "matched_unique_canonical": 828,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 11,
+      "reappeared": 0,
+      "content_transition_candidates": 14,
+      "absent_vs_previous": 28
+    },
+    {
+      "id": "20260717-0701",
+      "raw_top": 907,
+      "resolved": 907,
+      "raw_good": 830,
+      "matched_unique_canonical": 830,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 5,
+      "reappeared": 9,
+      "content_transition_candidates": 15,
+      "absent_vs_previous": 9
+    },
+    {
+      "id": "20260718-0525",
+      "raw_top": 925,
+      "resolved": 925,
+      "raw_good": 849,
+      "matched_unique_canonical": 849,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 32,
+      "reappeared": 0,
+      "content_transition_candidates": 7,
+      "absent_vs_previous": 14
+    },
+    {
+      "id": "20260719-0538",
+      "raw_top": 924,
+      "resolved": 924,
+      "raw_good": 848,
+      "matched_unique_canonical": 848,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 1,
+      "absent_vs_previous": 1
+    },
+    {
+      "id": "20260720-0539",
+      "raw_top": 934,
+      "resolved": 934,
+      "raw_good": 858,
+      "matched_unique_canonical": 858,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 13,
+      "reappeared": 0,
+      "content_transition_candidates": 2,
+      "absent_vs_previous": 3
+    },
+    {
+      "id": "20260720-0609",
+      "raw_top": 934,
+      "resolved": 934,
+      "raw_good": 838,
+      "matched_unique_canonical": 838,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260720-0610",
+      "raw_top": 934,
+      "resolved": 934,
+      "raw_good": 838,
+      "matched_unique_canonical": 838,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260721-0453",
+      "raw_top": 937,
+      "resolved": 937,
+      "raw_good": 824,
+      "matched_unique_canonical": 824,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 0,
+      "content_transition_candidates": 3,
+      "absent_vs_previous": 15
+    },
+    {
+      "id": "20260721-0938",
+      "raw_top": 933,
+      "resolved": 933,
+      "raw_good": 820,
+      "matched_unique_canonical": 820,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 2,
+      "reappeared": 0,
+      "content_transition_candidates": 3,
+      "absent_vs_previous": 6
+    },
+    {
+      "id": "20260722-0739",
+      "raw_top": 950,
+      "resolved": 950,
+      "raw_good": 830,
+      "matched_unique_canonical": 830,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 39,
+      "reappeared": 0,
+      "content_transition_candidates": 23,
+      "absent_vs_previous": 22
+    },
+    {
+      "id": "20260723-0702",
+      "raw_top": 955,
+      "resolved": 955,
+      "raw_good": 832,
+      "matched_unique_canonical": 832,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 27,
+      "reappeared": 4,
+      "content_transition_candidates": 26,
+      "absent_vs_previous": 26
+    },
+    {
+      "id": "20260724-0658",
+      "raw_top": 972,
+      "resolved": 972,
+      "raw_good": 850,
+      "matched_unique_canonical": 850,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 40,
+      "reappeared": 2,
+      "content_transition_candidates": 39,
+      "absent_vs_previous": 25
+    },
+    {
+      "id": "20260724-1707",
+      "raw_top": 972,
+      "resolved": 972,
+      "raw_good": 857,
+      "matched_unique_canonical": 857,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 54,
+      "reappeared": 1,
+      "content_transition_candidates": 116,
+      "absent_vs_previous": 55
+    },
+    {
+      "id": "20260725-0528",
+      "raw_top": 948,
+      "resolved": 948,
+      "raw_good": 861,
+      "matched_unique_canonical": 861,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 5,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 29
+    },
+    {
+      "id": "20260726-0646",
+      "raw_top": 953,
+      "resolved": 953,
+      "raw_good": 865,
+      "matched_unique_canonical": 865,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 12,
+      "reappeared": 2,
+      "content_transition_candidates": 119,
+      "absent_vs_previous": 9
+    },
+    {
+      "id": "20260727-0533",
+      "raw_top": 1000,
+      "resolved": 1000,
+      "raw_good": 888,
+      "matched_unique_canonical": 888,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 51,
+      "reappeared": 4,
+      "content_transition_candidates": 91,
+      "absent_vs_previous": 8
+    },
+    {
+      "id": "20260728-0606",
+      "raw_top": 986,
+      "resolved": 986,
+      "raw_good": 883,
+      "matched_unique_canonical": 883,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 31,
+      "reappeared": 4,
+      "content_transition_candidates": 36,
+      "absent_vs_previous": 49
+    },
+    {
+      "id": "20260729-0706",
+      "raw_top": 982,
+      "resolved": 982,
+      "raw_good": 879,
+      "matched_unique_canonical": 879,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 26,
+      "reappeared": 2,
+      "content_transition_candidates": 98,
+      "absent_vs_previous": 32
+    },
+    {
+      "id": "20260730-0723",
+      "raw_top": 963,
+      "resolved": 963,
+      "raw_good": 857,
+      "matched_unique_canonical": 857,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 21,
+      "reappeared": 1,
+      "content_transition_candidates": 95,
+      "absent_vs_previous": 41
+    },
+    {
+      "id": "20260731-0535",
+      "raw_top": 955,
+      "resolved": 955,
+      "raw_good": 848,
+      "matched_unique_canonical": 848,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 15,
+      "reappeared": 0,
+      "content_transition_candidates": 35,
+      "absent_vs_previous": 23
+    },
+    {
+      "id": "20260801-0555",
+      "raw_top": 937,
+      "resolved": 937,
+      "raw_good": 834,
+      "matched_unique_canonical": 834,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 25,
+      "reappeared": 0,
+      "content_transition_candidates": 84,
+      "absent_vs_previous": 43
+    },
+    {
+      "id": "20260802-0411",
+      "raw_top": 933,
+      "resolved": 933,
+      "raw_good": 840,
+      "matched_unique_canonical": 840,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 8,
+      "reappeared": 1,
+      "content_transition_candidates": 10,
+      "absent_vs_previous": 13
+    },
+    {
+      "id": "20260803-0702",
+      "raw_top": 942,
+      "resolved": 942,
+      "raw_good": 847,
+      "matched_unique_canonical": 847,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 17,
+      "reappeared": 3,
+      "content_transition_candidates": 92,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20260804-0704",
+      "raw_top": 910,
+      "resolved": 910,
+      "raw_good": 844,
+      "matched_unique_canonical": 844,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 15,
+      "reappeared": 13,
+      "content_transition_candidates": 70,
+      "absent_vs_previous": 60
+    },
+    {
+      "id": "20260805-0603",
+      "raw_top": 899,
+      "resolved": 899,
+      "raw_good": 833,
+      "matched_unique_canonical": 833,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 16,
+      "reappeared": 1,
+      "content_transition_candidates": 58,
+      "absent_vs_previous": 28
+    },
+    {
+      "id": "20260806-0517",
+      "raw_top": 883,
+      "resolved": 883,
+      "raw_good": 821,
+      "matched_unique_canonical": 821,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 1,
+      "content_transition_candidates": 23,
+      "absent_vs_previous": 35
+    },
+    {
+      "id": "20260807-0852",
+      "raw_top": 912,
+      "resolved": 912,
+      "raw_good": 847,
+      "matched_unique_canonical": 847,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 46,
+      "reappeared": 2,
+      "content_transition_candidates": 69,
+      "absent_vs_previous": 19
+    },
+    {
+      "id": "20260808-0619",
+      "raw_top": 922,
+      "resolved": 922,
+      "raw_good": 854,
+      "matched_unique_canonical": 854,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 25,
+      "reappeared": 3,
+      "content_transition_candidates": 55,
+      "absent_vs_previous": 18
+    },
+    {
+      "id": "20260809-0543",
+      "raw_top": 930,
+      "resolved": 930,
+      "raw_good": 823,
+      "matched_unique_canonical": 823,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 17,
+      "reappeared": 2,
+      "content_transition_candidates": 29,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20260810-0621",
+      "raw_top": 927,
+      "resolved": 927,
+      "raw_good": 823,
+      "matched_unique_canonical": 823,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 9,
+      "reappeared": 1,
+      "content_transition_candidates": 70,
+      "absent_vs_previous": 13
+    },
+    {
+      "id": "20260811-0552",
+      "raw_top": 932,
+      "resolved": 932,
+      "raw_good": 828,
+      "matched_unique_canonical": 828,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 26,
+      "reappeared": 1,
+      "content_transition_candidates": 59,
+      "absent_vs_previous": 22
+    },
+    {
+      "id": "20260812-0647",
+      "raw_top": 940,
+      "resolved": 940,
+      "raw_good": 827,
+      "matched_unique_canonical": 827,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 33,
+      "reappeared": 4,
+      "content_transition_candidates": 47,
+      "absent_vs_previous": 29
+    },
+    {
+      "id": "20260813-0522",
+      "raw_top": 934,
+      "resolved": 934,
+      "raw_good": 824,
+      "matched_unique_canonical": 824,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 20,
+      "reappeared": 3,
+      "content_transition_candidates": 52,
+      "absent_vs_previous": 29
+    },
+    {
+      "id": "20260814-0502",
+      "raw_top": 934,
+      "resolved": 934,
+      "raw_good": 822,
+      "matched_unique_canonical": 822,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 17,
+      "reappeared": 2,
+      "content_transition_candidates": 61,
+      "absent_vs_previous": 19
+    },
+    {
+      "id": "20260815-0921",
+      "raw_top": 928,
+      "resolved": 928,
+      "raw_good": 817,
+      "matched_unique_canonical": 817,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 60,
+      "reappeared": 1,
+      "content_transition_candidates": 32,
+      "absent_vs_previous": 67
+    },
+    {
+      "id": "20260817-0659",
+      "raw_top": 941,
+      "resolved": 941,
+      "raw_good": 834,
+      "matched_unique_canonical": 834,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 20,
+      "reappeared": 5,
+      "content_transition_candidates": 64,
+      "absent_vs_previous": 12
+    },
+    {
+      "id": "20260818-0615",
+      "raw_top": 946,
+      "resolved": 946,
+      "raw_good": 828,
+      "matched_unique_canonical": 828,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 19,
+      "reappeared": 0,
+      "content_transition_candidates": 41,
+      "absent_vs_previous": 14
+    },
+    {
+      "id": "20260819-0818",
+      "raw_top": 936,
+      "resolved": 936,
+      "raw_good": 826,
+      "matched_unique_canonical": 826,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 2,
+      "content_transition_candidates": 56,
+      "absent_vs_previous": 30
+    },
+    {
+      "id": "20260820-0547",
+      "raw_top": 927,
+      "resolved": 927,
+      "raw_good": 822,
+      "matched_unique_canonical": 822,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 14,
+      "reappeared": 2,
+      "content_transition_candidates": 48,
+      "absent_vs_previous": 25
+    },
+    {
+      "id": "20260821-0704",
+      "raw_top": 930,
+      "resolved": 930,
+      "raw_good": 827,
+      "matched_unique_canonical": 827,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 32,
+      "reappeared": 3,
+      "content_transition_candidates": 50,
+      "absent_vs_previous": 32
+    },
+    {
+      "id": "20260822-1033",
+      "raw_top": 962,
+      "resolved": 962,
+      "raw_good": 827,
+      "matched_unique_canonical": 827,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 58,
+      "reappeared": 2,
+      "content_transition_candidates": 40,
+      "absent_vs_previous": 28
+    },
+    {
+      "id": "20260824-0636",
+      "raw_top": 963,
+      "resolved": 963,
+      "raw_good": 826,
+      "matched_unique_canonical": 826,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 22,
+      "reappeared": 4,
+      "content_transition_candidates": 53,
+      "absent_vs_previous": 25
+    },
+    {
+      "id": "20260824-1624",
+      "raw_top": 964,
+      "resolved": 964,
+      "raw_good": 829,
+      "matched_unique_canonical": 828,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 45,
+      "reappeared": 7,
+      "content_transition_candidates": 90,
+      "absent_vs_previous": 51
+    },
+    {
+      "id": "20260825-0538",
+      "raw_top": 978,
+      "resolved": 978,
+      "raw_good": 832,
+      "matched_unique_canonical": 831,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 17,
+      "reappeared": 1,
+      "content_transition_candidates": 11,
+      "absent_vs_previous": 4
+    },
+    {
+      "id": "20260826-0658",
+      "raw_top": 965,
+      "resolved": 965,
+      "raw_good": 817,
+      "matched_unique_canonical": 816,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 15,
+      "reappeared": 2,
+      "content_transition_candidates": 94,
+      "absent_vs_previous": 30
+    },
+    {
+      "id": "20260827-0509",
+      "raw_top": 948,
+      "resolved": 948,
+      "raw_good": 800,
+      "matched_unique_canonical": 799,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 42,
+      "reappeared": 3,
+      "content_transition_candidates": 89,
+      "absent_vs_previous": 62
+    },
+    {
+      "id": "20260827-0518",
+      "raw_top": 948,
+      "resolved": 948,
+      "raw_good": 812,
+      "matched_unique_canonical": 809,
+      "unmatched_good": 3,
+      "duplicate_excess": 0,
+      "first_seen": 0,
+      "reappeared": 0,
+      "content_transition_candidates": 0,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260828-0620",
+      "raw_top": 958,
+      "resolved": 958,
+      "raw_good": 805,
+      "matched_unique_canonical": 802,
+      "unmatched_good": 3,
+      "duplicate_excess": 0,
+      "first_seen": 20,
+      "reappeared": 1,
+      "content_transition_candidates": 21,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20260829-0639",
+      "raw_top": 933,
+      "resolved": 933,
+      "raw_good": 791,
+      "matched_unique_canonical": 788,
+      "unmatched_good": 3,
+      "duplicate_excess": 0,
+      "first_seen": 19,
+      "reappeared": 0,
+      "content_transition_candidates": 83,
+      "absent_vs_previous": 44
+    },
+    {
+      "id": "20260830-1127",
+      "raw_top": 945,
+      "resolved": 945,
+      "raw_good": 804,
+      "matched_unique_canonical": 802,
+      "unmatched_good": 2,
+      "duplicate_excess": 0,
+      "first_seen": 16,
+      "reappeared": 2,
+      "content_transition_candidates": 81,
+      "absent_vs_previous": 6
+    },
+    {
+      "id": "20260831-0536",
+      "raw_top": 948,
+      "resolved": 948,
+      "raw_good": 810,
+      "matched_unique_canonical": 808,
+      "unmatched_good": 2,
+      "duplicate_excess": 0,
+      "first_seen": 12,
+      "reappeared": 2,
+      "content_transition_candidates": 15,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20260901-0603",
+      "raw_top": 903,
+      "resolved": 903,
+      "raw_good": 782,
+      "matched_unique_canonical": 779,
+      "unmatched_good": 3,
+      "duplicate_excess": 0,
+      "first_seen": 13,
+      "reappeared": 1,
+      "content_transition_candidates": 77,
+      "absent_vs_previous": 59
+    },
+    {
+      "id": "20260902-0528",
+      "raw_top": 894,
+      "resolved": 894,
+      "raw_good": 776,
+      "matched_unique_canonical": 775,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 19,
+      "reappeared": 4,
+      "content_transition_candidates": 69,
+      "absent_vs_previous": 32
+    },
+    {
+      "id": "20260903-0547",
+      "raw_top": 904,
+      "resolved": 904,
+      "raw_good": 770,
+      "matched_unique_canonical": 770,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 47,
+      "reappeared": 2,
+      "content_transition_candidates": 25,
+      "absent_vs_previous": 39
+    },
+    {
+      "id": "20260904-0441",
+      "raw_top": 910,
+      "resolved": 910,
+      "raw_good": 775,
+      "matched_unique_canonical": 774,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 25,
+      "reappeared": 3,
+      "content_transition_candidates": 56,
+      "absent_vs_previous": 22
+    },
+    {
+      "id": "20260905-0704",
+      "raw_top": 930,
+      "resolved": 930,
+      "raw_good": 787,
+      "matched_unique_canonical": 786,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 37,
+      "reappeared": 9,
+      "content_transition_candidates": 72,
+      "absent_vs_previous": 26
+    },
+    {
+      "id": "20260906-0700",
+      "raw_top": 934,
+      "resolved": 934,
+      "raw_good": 789,
+      "matched_unique_canonical": 788,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 3,
+      "reappeared": 1,
+      "content_transition_candidates": 6,
+      "absent_vs_previous": 0
+    },
+    {
+      "id": "20260907-0701",
+      "raw_top": 942,
+      "resolved": 942,
+      "raw_good": 800,
+      "matched_unique_canonical": 799,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 10,
+      "reappeared": 2,
+      "content_transition_candidates": 57,
+      "absent_vs_previous": 4
+    },
+    {
+      "id": "20260908-0506",
+      "raw_top": 930,
+      "resolved": 930,
+      "raw_good": 802,
+      "matched_unique_canonical": 801,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 12,
+      "reappeared": 0,
+      "content_transition_candidates": 5,
+      "absent_vs_previous": 24
+    },
+    {
+      "id": "20260909-0608",
+      "raw_top": 949,
+      "resolved": 949,
+      "raw_good": 800,
+      "matched_unique_canonical": 799,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 43,
+      "reappeared": 1,
+      "content_transition_candidates": 21,
+      "absent_vs_previous": 25
+    },
+    {
+      "id": "20260910-0605",
+      "raw_top": 912,
+      "resolved": 912,
+      "raw_good": 796,
+      "matched_unique_canonical": 795,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 28,
+      "reappeared": 1,
+      "content_transition_candidates": 26,
+      "absent_vs_previous": 66
+    },
+    {
+      "id": "20260911-0656",
+      "raw_top": 918,
+      "resolved": 918,
+      "raw_good": 794,
+      "matched_unique_canonical": 793,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 19,
+      "reappeared": 5,
+      "content_transition_candidates": 14,
+      "absent_vs_previous": 18
+    },
+    {
+      "id": "20260912-0710",
+      "raw_top": 917,
+      "resolved": 917,
+      "raw_good": 787,
+      "matched_unique_canonical": 786,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 9,
+      "reappeared": 1,
+      "content_transition_candidates": 6,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20260913-1043",
+      "raw_top": 926,
+      "resolved": 926,
+      "raw_good": 795,
+      "matched_unique_canonical": 794,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 11,
+      "reappeared": 0,
+      "content_transition_candidates": 21,
+      "absent_vs_previous": 2
+    },
+    {
+      "id": "20260914-0650",
+      "raw_top": 929,
+      "resolved": 929,
+      "raw_good": 800,
+      "matched_unique_canonical": 799,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 11,
+      "reappeared": 0,
+      "content_transition_candidates": 13,
+      "absent_vs_previous": 8
+    },
+    {
+      "id": "20260915-0613",
+      "raw_top": 949,
+      "resolved": 949,
+      "raw_good": 807,
+      "matched_unique_canonical": 806,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 52,
+      "reappeared": 3,
+      "content_transition_candidates": 29,
+      "absent_vs_previous": 35
+    },
+    {
+      "id": "20260916-0616",
+      "raw_top": 929,
+      "resolved": 929,
+      "raw_good": 796,
+      "matched_unique_canonical": 795,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 13,
+      "reappeared": 3,
+      "content_transition_candidates": 34,
+      "absent_vs_previous": 36
+    },
+    {
+      "id": "20260917-0458",
+      "raw_top": 922,
+      "resolved": 922,
+      "raw_good": 792,
+      "matched_unique_canonical": 791,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 25,
+      "reappeared": 3,
+      "content_transition_candidates": 25,
+      "absent_vs_previous": 35
+    },
+    {
+      "id": "20260918-0646",
+      "raw_top": 953,
+      "resolved": 953,
+      "raw_good": 784,
+      "matched_unique_canonical": 783,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 49,
+      "reappeared": 5,
+      "content_transition_candidates": 22,
+      "absent_vs_previous": 23
+    },
+    {
+      "id": "20260919-0628",
+      "raw_top": 940,
+      "resolved": 940,
+      "raw_good": 799,
+      "matched_unique_canonical": 798,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 86,
+      "reappeared": 16,
+      "content_transition_candidates": 96,
+      "absent_vs_previous": 115
+    },
+    {
+      "id": "20260920-0545",
+      "raw_top": 930,
+      "resolved": 930,
+      "raw_good": 790,
+      "matched_unique_canonical": 789,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 10,
+      "reappeared": 1,
+      "content_transition_candidates": 87,
+      "absent_vs_previous": 21
+    },
+    {
+      "id": "20260921-0631",
+      "raw_top": 949,
+      "resolved": 949,
+      "raw_good": 808,
+      "matched_unique_canonical": 807,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 22,
+      "reappeared": 2,
+      "content_transition_candidates": 101,
+      "absent_vs_previous": 5
+    },
+    {
+      "id": "20260922-0700",
+      "raw_top": 964,
+      "resolved": 964,
+      "raw_good": 808,
+      "matched_unique_canonical": 807,
+      "unmatched_good": 1,
+      "duplicate_excess": 0,
+      "first_seen": 46,
+      "reappeared": 6,
+      "content_transition_candidates": 34,
+      "absent_vs_previous": 37
+    },
+    {
+      "id": "20260923-0709",
+      "raw_top": 907,
+      "resolved": 907,
+      "raw_good": 780,
+      "matched_unique_canonical": 780,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 12,
+      "reappeared": 6,
+      "content_transition_candidates": 81,
+      "absent_vs_previous": 75
+    },
+    {
+      "id": "20260924-0617",
+      "raw_top": 908,
+      "resolved": 908,
+      "raw_good": 777,
+      "matched_unique_canonical": 777,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 19,
+      "reappeared": 12,
+      "content_transition_candidates": 85,
+      "absent_vs_previous": 30
+    },
+    {
+      "id": "20260925-0552",
+      "raw_top": 893,
+      "resolved": 893,
+      "raw_good": 762,
+      "matched_unique_canonical": 762,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 9,
+      "reappeared": 5,
+      "content_transition_candidates": 24,
+      "absent_vs_previous": 29
+    },
+    {
+      "id": "20260926-0533",
+      "raw_top": 846,
+      "resolved": 846,
+      "raw_good": 754,
+      "matched_unique_canonical": 754,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 23,
+      "reappeared": 2,
+      "content_transition_candidates": 77,
+      "absent_vs_previous": 72
+    },
+    {
+      "id": "20260927-0734",
+      "raw_top": 854,
+      "resolved": 854,
+      "raw_good": 762,
+      "matched_unique_canonical": 762,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 13,
+      "reappeared": 0,
+      "content_transition_candidates": 75,
+      "absent_vs_previous": 5
+    },
+    {
+      "id": "20260928-0552",
+      "raw_top": 853,
+      "resolved": 853,
+      "raw_good": 767,
+      "matched_unique_canonical": 767,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 5,
+      "reappeared": 3,
+      "content_transition_candidates": 29,
+      "absent_vs_previous": 9
+    },
+    {
+      "id": "20260929-0613",
+      "raw_top": 846,
+      "resolved": 846,
+      "raw_good": 757,
+      "matched_unique_canonical": 757,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 10,
+      "content_transition_candidates": 80,
+      "absent_vs_previous": 35
+    },
+    {
+      "id": "20260930-0644",
+      "raw_top": 861,
+      "resolved": 861,
+      "raw_good": 769,
+      "matched_unique_canonical": 769,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 46,
+      "reappeared": 7,
+      "content_transition_candidates": 55,
+      "absent_vs_previous": 38
+    },
+    {
+      "id": "20261001-0554",
+      "raw_top": 818,
+      "resolved": 818,
+      "raw_good": 748,
+      "matched_unique_canonical": 748,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 22,
+      "reappeared": 0,
+      "content_transition_candidates": 91,
+      "absent_vs_previous": 65
+    },
+    {
+      "id": "20261002-0513",
+      "raw_top": 818,
+      "resolved": 818,
+      "raw_good": 742,
+      "matched_unique_canonical": 742,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 10,
+      "reappeared": 0,
+      "content_transition_candidates": 23,
+      "absent_vs_previous": 10
+    },
+    {
+      "id": "20261003-0644",
+      "raw_top": 811,
+      "resolved": 811,
+      "raw_good": 733,
+      "matched_unique_canonical": 733,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 22,
+      "reappeared": 1,
+      "content_transition_candidates": 81,
+      "absent_vs_previous": 30
+    },
+    {
+      "id": "20261004-0521",
+      "raw_top": 820,
+      "resolved": 820,
+      "raw_good": 745,
+      "matched_unique_canonical": 745,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 2,
+      "content_transition_candidates": 77,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20261005-0723",
+      "raw_top": 833,
+      "resolved": 833,
+      "raw_good": 755,
+      "matched_unique_canonical": 755,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 3,
+      "content_transition_candidates": 25,
+      "absent_vs_previous": 8
+    },
+    {
+      "id": "20261006-0524",
+      "raw_top": 824,
+      "resolved": 824,
+      "raw_good": 745,
+      "matched_unique_canonical": 745,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 14,
+      "reappeared": 3,
+      "content_transition_candidates": 76,
+      "absent_vs_previous": 26
+    },
+    {
+      "id": "20261007-0557",
+      "raw_top": 824,
+      "resolved": 824,
+      "raw_good": 741,
+      "matched_unique_canonical": 741,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 34,
+      "reappeared": 2,
+      "content_transition_candidates": 72,
+      "absent_vs_previous": 36
+    },
+    {
+      "id": "20261008-0603",
+      "raw_top": 842,
+      "resolved": 842,
+      "raw_good": 746,
+      "matched_unique_canonical": 746,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 23,
+      "reappeared": 6,
+      "content_transition_candidates": 34,
+      "absent_vs_previous": 11
+    },
+    {
+      "id": "20261009-0509",
+      "raw_top": 833,
+      "resolved": 833,
+      "raw_good": 741,
+      "matched_unique_canonical": 741,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 0,
+      "content_transition_candidates": 68,
+      "absent_vs_previous": 27
+    },
+    {
+      "id": "20261010-0658",
+      "raw_top": 826,
+      "resolved": 826,
+      "raw_good": 743,
+      "matched_unique_canonical": 743,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 13,
+      "reappeared": 0,
+      "content_transition_candidates": 35,
+      "absent_vs_previous": 20
+    },
+    {
+      "id": "20261011-1112",
+      "raw_top": 834,
+      "resolved": 834,
+      "raw_good": 756,
+      "matched_unique_canonical": 756,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 18,
+      "reappeared": 4,
+      "content_transition_candidates": 74,
+      "absent_vs_previous": 14
+    },
+    {
+      "id": "20261012-0604",
+      "raw_top": 844,
+      "resolved": 844,
+      "raw_good": 765,
+      "matched_unique_canonical": 765,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 11,
+      "reappeared": 5,
+      "content_transition_candidates": 63,
+      "absent_vs_previous": 6
+    },
+    {
+      "id": "20261013-0543",
+      "raw_top": 832,
+      "resolved": 832,
+      "raw_good": 702,
+      "matched_unique_canonical": 702,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 10,
+      "reappeared": 6,
+      "content_transition_candidates": 53,
+      "absent_vs_previous": 28
+    },
+    {
+      "id": "20261014-0727",
+      "raw_top": 822,
+      "resolved": 822,
+      "raw_good": 691,
+      "matched_unique_canonical": 691,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 8,
+      "reappeared": 2,
+      "content_transition_candidates": 57,
+      "absent_vs_previous": 20
+    },
+    {
+      "id": "20261015-0530",
+      "raw_top": 840,
+      "resolved": 840,
+      "raw_good": 690,
+      "matched_unique_canonical": 690,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 42,
+      "reappeared": 2,
+      "content_transition_candidates": 83,
+      "absent_vs_previous": 26
+    },
+    {
+      "id": "20261016-0608",
+      "raw_top": 838,
+      "resolved": 838,
+      "raw_good": 688,
+      "matched_unique_canonical": 688,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 5,
+      "reappeared": 1,
+      "content_transition_candidates": 29,
+      "absent_vs_previous": 8
+    },
+    {
+      "id": "20261017-0657",
+      "raw_top": 831,
+      "resolved": 831,
+      "raw_good": 685,
+      "matched_unique_canonical": 685,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 15,
+      "reappeared": 2,
+      "content_transition_candidates": 72,
+      "absent_vs_previous": 24
+    },
+    {
+      "id": "20261018-2107",
+      "raw_top": 870,
+      "resolved": 870,
+      "raw_good": 737,
+      "matched_unique_canonical": 737,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 73,
+      "reappeared": 18,
+      "content_transition_candidates": 121,
+      "absent_vs_previous": 52
+    },
+    {
+      "id": "20261019-0616",
+      "raw_top": 878,
+      "resolved": 878,
+      "raw_good": 743,
+      "matched_unique_canonical": 743,
+      "unmatched_good": 0,
+      "duplicate_excess": 0,
+      "first_seen": 8,
+      "reappeared": 1,
+      "content_transition_candidates": 15,
+      "absent_vs_previous": 1
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "data/jobs/gsheet-package/20260602-1810/03_top_matches_full.csv",
+      "sha256": "53f3638e9db20e79c085f9a475ba1b25433aa144679a6a6c2680312093b1b79a",
+      "bytes": 794475
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-1810/01_good_documentation_jobs.csv",
+      "sha256": "07eea02b1b8b099c7f41d8c7a8c7d5b3c6da87ed8d76f473c5dfc9c6432ab2f6",
+      "bytes": 32234
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-1812/03_top_matches_full.csv",
+      "sha256": "53f3638e9db20e79c085f9a475ba1b25433aa144679a6a6c2680312093b1b79a",
+      "bytes": 794475
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-1812/01_good_documentation_jobs.csv",
+      "sha256": "b099803286731aa5d2b58c8cf8db079d96a3bb79b431a9ee3c8848487969d02a",
+      "bytes": 32234
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-2051/03_top_matches_full.csv",
+      "sha256": "53f3638e9db20e79c085f9a475ba1b25433aa144679a6a6c2680312093b1b79a",
+      "bytes": 794475
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-2051/01_good_documentation_jobs.csv",
+      "sha256": "3c5cf9c0b39474ebd43ecc0d01aee048e0ed02f54becd7ca010c979f8227f804",
+      "bytes": 27167
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-2053/03_top_matches_full.csv",
+      "sha256": "53f3638e9db20e79c085f9a475ba1b25433aa144679a6a6c2680312093b1b79a",
+      "bytes": 794475
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-2053/01_good_documentation_jobs.csv",
+      "sha256": "3c5cf9c0b39474ebd43ecc0d01aee048e0ed02f54becd7ca010c979f8227f804",
+      "bytes": 27167
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-2054/03_top_matches_full.csv",
+      "sha256": "53f3638e9db20e79c085f9a475ba1b25433aa144679a6a6c2680312093b1b79a",
+      "bytes": 794475
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260602-2054/01_good_documentation_jobs.csv",
+      "sha256": "3c5cf9c0b39474ebd43ecc0d01aee048e0ed02f54becd7ca010c979f8227f804",
+      "bytes": 27167
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260603-1407/03_top_matches_full.csv",
+      "sha256": "72fde62ddd7c7f01859c6aba32f181e380c22e4264dea6dfea44038afbd140f2",
+      "bytes": 1141004
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260603-1407/01_good_documentation_jobs.csv",
+      "sha256": "1f0d2a33290cb5f4624e88a7a5e9e7bb6f60a31c38358f6bacca5ea1900c104e",
+      "bytes": 34982
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260604-1335/03_top_matches_full.csv",
+      "sha256": "234c439fae7daf4733d98258d300ed46f1910e9ea95f834e50ce890a11c22390",
+      "bytes": 1302350
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260604-1335/01_good_documentation_jobs.csv",
+      "sha256": "c791b89c07dd6716f4be562784529611303b3bfee9a55475a4d756f25398c1f3",
+      "bytes": 38951
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260605-0620/03_top_matches_full.csv",
+      "sha256": "e3b728ccd1b4d31ca5d0462da4cfcd189b11297750c957175daa94d978b492d7",
+      "bytes": 1360783
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260605-0620/01_good_documentation_jobs.csv",
+      "sha256": "d6603ec674a1f83aef6096ff618efbac08353f02ec47d407e75070d834a9d0a6",
+      "bytes": 37480
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260606-0636/03_top_matches_full.csv",
+      "sha256": "991486b82a69c368304b2c40442f611504c86740090f3935c1c8d8d6d550a107",
+      "bytes": 1435331
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260606-0636/01_good_documentation_jobs.csv",
+      "sha256": "8db64e1e9ed1dd9300c41944119790cb7996e9464990e4a84eca7e4763ad219c",
+      "bytes": 42179
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260606-1138/03_top_matches_full.csv",
+      "sha256": "a75c86f8c09c3aea5ddedb01a33fc7331fffd29f0e4c639a892f0bc88c236010",
+      "bytes": 1539375
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260606-1138/01_good_documentation_jobs.csv",
+      "sha256": "ca61ae5e35f2df1a4f42d37b7a64ddf6b1a17bacedd7e7e1bb2cfb090822c411",
+      "bytes": 42387
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260608-0653/03_top_matches_full.csv",
+      "sha256": "b5378684eede4c0957068b585e78014d7696e52f680ea840a1302e0940eb06fc",
+      "bytes": 1586220
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260608-0653/01_good_documentation_jobs.csv",
+      "sha256": "9de3201d5a0050c5423c769d7cebcf6f6967802d006c0545471204a7fd256b03",
+      "bytes": 46627
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260610-0603/03_top_matches_full.csv",
+      "sha256": "942feab2f311356f9fb1d310f3741f6319718734d448ed411a12fde9d8c5af32",
+      "bytes": 1666320
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260610-0603/01_good_documentation_jobs.csv",
+      "sha256": "d332d6cb27a3fc16a69a87197d50d3e7532a4f274702d11ca81913b4ac997271",
+      "bytes": 48066
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260611-1007/03_top_matches_full.csv",
+      "sha256": "baf524a52f9a13abe70e9ddd8e16c3e98f7d039c7808ba805b50c6b882f74606",
+      "bytes": 1711008
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260611-1007/01_good_documentation_jobs.csv",
+      "sha256": "864627d52791d8efb4d1ce8dafe6930933929f3cf259d5798db93301e927d80c",
+      "bytes": 49196
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260612-0640/03_top_matches_full.csv",
+      "sha256": "65816386daf31d8ccb9138c106c9498d013f5e155332bd7f0279ab47f6e326be",
+      "bytes": 1723903
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260612-0640/01_good_documentation_jobs.csv",
+      "sha256": "65f45b6c002da3022b025f9f47cef5c259529755dc7c09681d728d49e2b81173",
+      "bytes": 43480
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260613-1003/03_top_matches_full.csv",
+      "sha256": "6b9594f7030a85a1b2d882385a435eccb09e4a5a015d017032a312f27cdcfde6",
+      "bytes": 1802557
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260613-1003/01_good_documentation_jobs.csv",
+      "sha256": "ff1482ee357b95a9e4af383e9f5dab41102d30e4fe442dffbb2c037a768c3624",
+      "bytes": 51099
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260615-0910/03_top_matches_full.csv",
+      "sha256": "97844333a21f22903e9e4af00e614a4afafb1035c9136ccc0b784bf72e454ac5",
+      "bytes": 1910633
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260615-0910/01_good_documentation_jobs.csv",
+      "sha256": "3e7489cfa6b11527026fc8e811988bca1df1296e7ee4ac7c3145685646691003",
+      "bytes": 47823
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260619-0755/03_top_matches_full.csv",
+      "sha256": "0251a608698daefa62cd379ff43daea0b740825554e9cf2568c1e4785ee5c8d8",
+      "bytes": 2363571
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260619-0755/01_good_documentation_jobs.csv",
+      "sha256": "6477098dba6479faa9fa510b6b2facf6fc32e3e32458a10c399d7fd72918ca7b",
+      "bytes": 54848
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260621-0717/03_top_matches_full.csv",
+      "sha256": "061915c4f11adb5db9ca07e8ac7e8f275736432dd4311985e5edcbe8dd2fa16e",
+      "bytes": 2362075
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260621-0717/01_good_documentation_jobs.csv",
+      "sha256": "cd50e73e2f2a2a61cc7d36e9993ed76890f02c4347850987acee05d4e4ba9c16",
+      "bytes": 53921
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260622-0914/03_top_matches_full.csv",
+      "sha256": "1ac987e726ee5ca16c5967e02c366213672a3f52545401d52f16c89c4243188d",
+      "bytes": 3154634
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260622-0914/01_good_documentation_jobs.csv",
+      "sha256": "43d79d548baa5d5bf7ca886be8faf468af383dd2f5ddd88f02cc1304b18610b0",
+      "bytes": 85400
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260622-1000/03_top_matches_full.csv",
+      "sha256": "1df5bacbb47068f2273fdc19f932e41d72ad14f1c219fd7c94cc5f200b62709d",
+      "bytes": 3507969
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260622-1000/01_good_documentation_jobs.csv",
+      "sha256": "43721092d6c789695e3769a7cf39be2f1dc11cf8311bc626a2844281ad858ec5",
+      "bytes": 91793
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260622-2242/03_top_matches_full.csv",
+      "sha256": "1df5bacbb47068f2273fdc19f932e41d72ad14f1c219fd7c94cc5f200b62709d",
+      "bytes": 3507969
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260622-2242/01_good_documentation_jobs.csv",
+      "sha256": "846cb91cc430306c6ca9695567fe378f17e2c5822bb99da667ca159269521465",
+      "bytes": 91552
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-0541/03_top_matches_full.csv",
+      "sha256": "82dc2bd289045ed1955c923f86621933bcb699f4f100715d222d26475ca146c9",
+      "bytes": 4072401
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-0541/01_good_documentation_jobs.csv",
+      "sha256": "0f23d5489a9adc5f2e71119f5a3254c285d7914f5bb2136d259470499ba5f3d1",
+      "bytes": 130048
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-0542/03_top_matches_full.csv",
+      "sha256": "82dc2bd289045ed1955c923f86621933bcb699f4f100715d222d26475ca146c9",
+      "bytes": 4072401
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-0542/01_good_documentation_jobs.csv",
+      "sha256": "99c07c2e0b126a76f72ff23415f1393de80c3fca4ab3780553a1aa443ba218f9",
+      "bytes": 113648
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-0545/03_top_matches_full.csv",
+      "sha256": "82dc2bd289045ed1955c923f86621933bcb699f4f100715d222d26475ca146c9",
+      "bytes": 4072401
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-0545/01_good_documentation_jobs.csv",
+      "sha256": "5f3b8166917e6b91b59350049412f7f7d8afd2557199d09ea412c7fb6d4920ee",
+      "bytes": 125846
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-1815/03_top_matches_full.csv",
+      "sha256": "82dc2bd289045ed1955c923f86621933bcb699f4f100715d222d26475ca146c9",
+      "bytes": 4072401
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260623-1815/01_good_documentation_jobs.csv",
+      "sha256": "0f23d5489a9adc5f2e71119f5a3254c285d7914f5bb2136d259470499ba5f3d1",
+      "bytes": 130048
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260624-0549/03_top_matches_full.csv",
+      "sha256": "8318f47fe12e4552a1130fe4425fc53d91f58a9e286edaf2f6c743507f1b1d2c",
+      "bytes": 3599268
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260624-0549/01_good_documentation_jobs.csv",
+      "sha256": "f0c5da9ad3145796accb45c88a71ebb99c79d2d77c1b00b6cea04857f431470f",
+      "bytes": 115080
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260625-1009/03_top_matches_full.csv",
+      "sha256": "2e0f570e2b91cbb7a1fddd89b346292372f9a7ee1cb90b91f06943122081f967",
+      "bytes": 3675573
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260625-1009/01_good_documentation_jobs.csv",
+      "sha256": "5d88c230021a8e46a094510bdd353afa3c937d99fa986f32d780b63f519bec78",
+      "bytes": 118833
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260626-0858/03_top_matches_full.csv",
+      "sha256": "3a6c39e52f108d54c019b405bd0628ddb8451bb63e78bc366233d970411f8aba",
+      "bytes": 3675885
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260626-0858/01_good_documentation_jobs.csv",
+      "sha256": "81b289f0e7d271f5aa62900faca2d7072d602a1448947f0010f05e320ce416e7",
+      "bytes": 116773
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260627-1149/03_top_matches_full.csv",
+      "sha256": "c4019567b22b1f08aefad650f1282214f2ecc29a8fa7ffe088cd8e3868501312",
+      "bytes": 3591817
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260627-1149/01_good_documentation_jobs.csv",
+      "sha256": "b9089f2f958d6448dc8957201646cdb14974845f79a1539189b3b22f5dc9c545",
+      "bytes": 115280
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260629-0934/03_top_matches_full.csv",
+      "sha256": "6e7ae4bd743d28fe65a125854560d4a6738ce564bbb0dc7bf79f6fa58fbf7344",
+      "bytes": 3582932
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260629-0934/01_good_documentation_jobs.csv",
+      "sha256": "180828c64f69279d3cd25a8543500ad08fe0332da71de168eab4b1e5e71e3b8c",
+      "bytes": 114667
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260630-0718/03_top_matches_full.csv",
+      "sha256": "18d5e5417c399f645df12eda6cd58118b94102b6a474da61c39b48c5e1da18f0",
+      "bytes": 3586750
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260630-0718/01_good_documentation_jobs.csv",
+      "sha256": "65bab86b79d135fe8d3166e64bd9abafff4c05f52854b7804b33e0bd27e19d14",
+      "bytes": 114175
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260701-0641/03_top_matches_full.csv",
+      "sha256": "890c3a3b65a390365f6e453dc5d8b64e54d7e3b2c71282370c84d7f5c3fd2809",
+      "bytes": 3528692
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260701-0641/01_good_documentation_jobs.csv",
+      "sha256": "697fd861f7ccf1eefbc3f55a711d3a5a02509be5c938430b935ba6b25e813e79",
+      "bytes": 112641
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260702-0937/03_top_matches_full.csv",
+      "sha256": "93520bb4960da9b3d251020ef1f85695521b0222cf30a35fa40c949461c54893",
+      "bytes": 3397881
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260702-0937/01_good_documentation_jobs.csv",
+      "sha256": "b512c1a5902929f8bafad0175c172630b9d9375495212a68cef8112111e8b97d",
+      "bytes": 109927
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260703-0646/03_top_matches_full.csv",
+      "sha256": "724e6044f15bcb65f6eb08e7dfd3174a71c5b3eda248c3fa77c4f3be018a889f",
+      "bytes": 3291950
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260703-0646/01_good_documentation_jobs.csv",
+      "sha256": "3abdcd9c33ce0849264379254d2ea9f3303a29fe59858b1c29004dabf0392444",
+      "bytes": 108097
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260705-1622/03_top_matches_full.csv",
+      "sha256": "78649319d7bcb051435e5bfd49799124f6b5772188d3e2ca0c3329dd6c939120",
+      "bytes": 3284994
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260705-1622/01_good_documentation_jobs.csv",
+      "sha256": "e24d5f9cdcb22947bcf5c6e5d8863ef36231aa1c2bc2a25f861dc39077aa2160",
+      "bytes": 107909
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260706-1013/03_top_matches_full.csv",
+      "sha256": "941d03636d7a5c1c53f10b0397cc4955c5dcc0c88637c6f289272560e289ec68",
+      "bytes": 3241366
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260706-1013/01_good_documentation_jobs.csv",
+      "sha256": "395abdea3c9b1a85b9ae945f2e51b8597439390050c917dc6a4a9c00667a5374",
+      "bytes": 106958
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260706-1029/03_top_matches_full.csv",
+      "sha256": "941d03636d7a5c1c53f10b0397cc4955c5dcc0c88637c6f289272560e289ec68",
+      "bytes": 3241366
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260706-1029/01_good_documentation_jobs.csv",
+      "sha256": "83d1d22e085df566c3e569a6802dda43f3ee8f602fe304ed566a27b56c4fdb66",
+      "bytes": 96116
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260706-1042/03_top_matches_full.csv",
+      "sha256": "e8be4d94c4d34070c6d0d57db6b723d8c2cc14460373fa3e82a95a73557420c3",
+      "bytes": 3241366
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260706-1042/01_good_documentation_jobs.csv",
+      "sha256": "2b8b5e35de8b1a89b6075c17bec77cd07f10bffd7bdf691db414bf167e2b3a23",
+      "bytes": 94750
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260707-0601/03_top_matches_full.csv",
+      "sha256": "906d9a3705708079c572f0f8d82e4c99d579917b371bd63d2a28d7c0408a4bd8",
+      "bytes": 3159255
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260707-0601/01_good_documentation_jobs.csv",
+      "sha256": "ad5279eaed574e17523fe9ccead1b845503b9bcdf6f5902a3c047d780a8b449f",
+      "bytes": 91579
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260708-0453/03_top_matches_full.csv",
+      "sha256": "7ad148f1141936072223b24ceb5cb628312a5f0646ddc069bdcc32532a4a0f6b",
+      "bytes": 3088867
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260708-0453/01_good_documentation_jobs.csv",
+      "sha256": "aa0260849d39279bcd2f4408b211b29e2053b581043e726af5fb74f8ca0906cc",
+      "bytes": 89491
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260709-0613/03_top_matches_full.csv",
+      "sha256": "49748fceff06c0116eb80ba025166faa7e77abf8c816676fdf77fd0cb2fb455a",
+      "bytes": 3013272
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260709-0613/01_good_documentation_jobs.csv",
+      "sha256": "2d4382b218e1a0ac3aa7288f627a45c811227ce37e213816d31ae78fd9769531",
+      "bytes": 86952
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260710-1002/03_top_matches_full.csv",
+      "sha256": "8b8de96a93808dc9939dcef5278c5b10c00935af61b8628dc1fb5d4e81af1784",
+      "bytes": 2927042
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260710-1002/01_good_documentation_jobs.csv",
+      "sha256": "227b3e590bf711aa3f9d1fc23dfa7850e809da63db7159e6508ef48bc561235a",
+      "bytes": 83850
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260711-0751/03_top_matches_full.csv",
+      "sha256": "bfca3cda5d7465a2046eff3b6342ec8ffdaa782324be14c054881465c750abd3",
+      "bytes": 2926883
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260711-0751/01_good_documentation_jobs.csv",
+      "sha256": "b76b2d3267d4e10b48e7eb2236a632b908f6de7b253a0350da1b50bf66bbe7b4",
+      "bytes": 83695
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260712-0755/03_top_matches_full.csv",
+      "sha256": "a71db718a51055bef1e90d3fb380472737b7f34509740068eb20b2b8e9efb890",
+      "bytes": 2920255
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260712-0755/01_good_documentation_jobs.csv",
+      "sha256": "e402197567271472f646275254cef971267aa2a5ff8be39248c1776b8339b402",
+      "bytes": 83461
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260713-0837/03_top_matches_full.csv",
+      "sha256": "17e671b96a5eaf64efd981f65678f5956293ae3b17ab8f5cc172f5aa78d77294",
+      "bytes": 2891822
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260713-0837/01_good_documentation_jobs.csv",
+      "sha256": "f83d6f9ead708619682f354be307112c5eb3e09d5204c6f462394a844e51884e",
+      "bytes": 82347
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-0607/03_top_matches_full.csv",
+      "sha256": "d7b5c435102142081337b1ad36d1e8590405258a084fec4990f948df33deaab1",
+      "bytes": 2832960
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-0607/01_good_documentation_jobs.csv",
+      "sha256": "a47fb42464a2592fcb7bcd66d799f1eae0153c24d42a5331bfb48a922dc4720f",
+      "bytes": 79804
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1142/03_top_matches_full.csv",
+      "sha256": "a01c5be1a0ff140c47930ccb569acdaccf961abef3513991791d1ae7c0435849",
+      "bytes": 2845441
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1142/01_good_documentation_jobs.csv",
+      "sha256": "3fe11442d8c67b88bdd75fbc7f577c8329fefc1100d12045829479d4e22dc643",
+      "bytes": 79817
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1604/03_top_matches_full.csv",
+      "sha256": "a5464bd0513704a522cdb1e080c8f2d67d2d2d4936f04de0485a0d3fe3ea0f27",
+      "bytes": 2845411
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1604/01_good_documentation_jobs.csv",
+      "sha256": "2d36e8380c783347dc6ec13f9410835458ecd249c54c56c69ab5010361bbc776",
+      "bytes": 81416
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1607/03_top_matches_full.csv",
+      "sha256": "a5464bd0513704a522cdb1e080c8f2d67d2d2d4936f04de0485a0d3fe3ea0f27",
+      "bytes": 2845411
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1607/01_good_documentation_jobs.csv",
+      "sha256": "0646e6cb62d9a9490d6a45f0264ad2da067f2f6dccf8cd099eea28a297d4f81d",
+      "bytes": 88214
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1813/03_top_matches_full.csv",
+      "sha256": "98ada41acc0785da504d58cc8b823b1abcd08f07cc0bcc34359df0b55f40f2ba",
+      "bytes": 3177152
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260714-1813/01_good_documentation_jobs.csv",
+      "sha256": "78afe2360728282668cc4c8a0646e3055693731c207241610ca1aec13bb3dfed",
+      "bytes": 97948
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260715-0556/03_top_matches_full.csv",
+      "sha256": "9765a7dc02928502a0d57669317370ccdfd954c740b51916159f8fa3d5b7aa3b",
+      "bytes": 4914112
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260715-0556/01_good_documentation_jobs.csv",
+      "sha256": "9a7bf9ddca384f5bea30d2357291fcc04ccd4a931783a5811d228f307d43bfe0",
+      "bytes": 226228
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260715-0613/03_top_matches_full.csv",
+      "sha256": "f1b1f8f0fcc43a8709ada2cb69102406f66efcc8ea13be4892c8510c0c12a39d",
+      "bytes": 4891687
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260715-0613/01_good_documentation_jobs.csv",
+      "sha256": "fd053a6032cdaa26e7cccfb50610af6ee7b9381fcb53c06f13cdb237baa2d24a",
+      "bytes": 222900
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260716-0631/03_top_matches_full.csv",
+      "sha256": "273e80911d35cf23fa3203ede23c0e65b1456f878eb20e8700412352dee48eb9",
+      "bytes": 4752985
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260716-0631/01_good_documentation_jobs.csv",
+      "sha256": "2905b7ee3a792fea7e237ba4792af3024c438c814a9e411433d3c6129316d732",
+      "bytes": 217205
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260717-0701/03_top_matches_full.csv",
+      "sha256": "289242172bd71cf56beef39c10115bbf1cf228a1fdaf0ea7bb63ad75745413bd",
+      "bytes": 4837995
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260717-0701/01_good_documentation_jobs.csv",
+      "sha256": "4f8f308dc22389adcf50d8b060c37a613602d0da60647d3fbf513f6c1bf747df",
+      "bytes": 218147
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260718-0525/03_top_matches_full.csv",
+      "sha256": "7923b7b7d0034c1246a64675927cc1d10610ebca2b1c7c0d164d7d064990338d",
+      "bytes": 4961461
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260718-0525/01_good_documentation_jobs.csv",
+      "sha256": "af98980379479855e05e56582ed4cfca6ed9bda4ffb4b5549279b4272153e748",
+      "bytes": 221906
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260719-0538/03_top_matches_full.csv",
+      "sha256": "61656439ae2332c8d3dd2e1741635da008335aec8ff97af18087ab402d9d3421",
+      "bytes": 4954167
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260719-0538/01_good_documentation_jobs.csv",
+      "sha256": "fdc6e7948d3858937f613bba4db94f318dbf80cd174e9f4251ff283154e11393",
+      "bytes": 221666
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260720-0539/03_top_matches_full.csv",
+      "sha256": "6afdd689b9968e0da54e204a34bebcc96ceac4cfe0b743033472d60f13ebdc22",
+      "bytes": 5017016
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260720-0539/01_good_documentation_jobs.csv",
+      "sha256": "d838e88a60518fcee1651c0fe6edffcfd1d6a04be985686776f992ea14f9e42c",
+      "bytes": 224253
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260720-0609/03_top_matches_full.csv",
+      "sha256": "6afdd689b9968e0da54e204a34bebcc96ceac4cfe0b743033472d60f13ebdc22",
+      "bytes": 5017016
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260720-0609/01_good_documentation_jobs.csv",
+      "sha256": "d3c48e3f04f6a3d1156bacebd05d222705ee77adc2a5578f36696e2737338a78",
+      "bytes": 220898
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260720-0610/03_top_matches_full.csv",
+      "sha256": "6afdd689b9968e0da54e204a34bebcc96ceac4cfe0b743033472d60f13ebdc22",
+      "bytes": 5017016
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260720-0610/01_good_documentation_jobs.csv",
+      "sha256": "0e4b61d2d133052769dca670da01c673ac9cdce0be990252a21aca3a7356ae84",
+      "bytes": 220886
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260721-0453/03_top_matches_full.csv",
+      "sha256": "a2cca44c8be4c8175e6c6ca9de0718818058bd5f9050b8cf34462f59da23413e",
+      "bytes": 5039000
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260721-0453/01_good_documentation_jobs.csv",
+      "sha256": "6bd3e94e490d53e3786a941a721e879e21ddd57c34244b90db17046649c5b2ba",
+      "bytes": 217189
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260721-0938/03_top_matches_full.csv",
+      "sha256": "556c9836a203f2488128214820b4ab3480f42e29fc6424c73ec8f3bcf2490e41",
+      "bytes": 5009563
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260721-0938/01_good_documentation_jobs.csv",
+      "sha256": "2354147fac8724195919f1e247378327ea7543b32cb785ace74d7d659820a5c5",
+      "bytes": 216333
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260722-0739/03_top_matches_full.csv",
+      "sha256": "40f16e229b821f096b30c2d83f0a3dbeab6deb89e68e073bf3a68f84c5a98e4b",
+      "bytes": 5007511
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260722-0739/01_good_documentation_jobs.csv",
+      "sha256": "995e7907a8ffbf8c39dfaa1451739597d15f00617935758354354dc2e6482a6f",
+      "bytes": 218381
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260723-0702/03_top_matches_full.csv",
+      "sha256": "c1ad83c5e3edb54732bb4fccc2443f8ab33330cd7189abcd186dfb3e9591c0ad",
+      "bytes": 5035096
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260723-0702/01_good_documentation_jobs.csv",
+      "sha256": "264eadfcda02c6ba1515e2590581d184b57cb8ec314a9a542e432321cf8cdaaf",
+      "bytes": 219159
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260724-0658/03_top_matches_full.csv",
+      "sha256": "d77c88c57cc81b3010b5cb9fe2d34ecd06c656d8040ecdf3adfd9a67f65d55e3",
+      "bytes": 5117496
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260724-0658/01_good_documentation_jobs.csv",
+      "sha256": "03170120db7e9ea06c062a529f855d41316c576afd4e60a28c1c057f010b5407",
+      "bytes": 223867
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260724-1707/03_top_matches_full.csv",
+      "sha256": "568ec544a7dde4da98124ea60d0d48afdc687d08d1e156ad2da7903310c6d83f",
+      "bytes": 5106066
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260724-1707/01_good_documentation_jobs.csv",
+      "sha256": "018e5690d169c07bf91895d1c8e194b10090300a1ce29b94451a0b624edda440",
+      "bytes": 225457
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260725-0528/03_top_matches_full.csv",
+      "sha256": "38bf29f807893507775aa1e7232e405b6db3fa4053393b88732b9b5d4ff2c1c0",
+      "bytes": 4948265
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260725-0528/01_good_documentation_jobs.csv",
+      "sha256": "38b906470903ddc3e92e5a9092f16af457a3e576c749a568983ff5da39a5f1bb",
+      "bytes": 226660
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260726-0646/03_top_matches_full.csv",
+      "sha256": "73450c960fcaaedb2831ae8962dd7364380912cc37a26ff55224a9ea925a6d66",
+      "bytes": 4999800
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260726-0646/01_good_documentation_jobs.csv",
+      "sha256": "2e5cd71b0bdbe5a921ae6de22b634b192d1ca3de070a4404257efffd47781e65",
+      "bytes": 227507
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260727-0533/03_top_matches_full.csv",
+      "sha256": "6ed9d8f0847c15564be2984d0be429661c0bba8bf91600f2a1578eba01bd8459",
+      "bytes": 5392491
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260727-0533/01_good_documentation_jobs.csv",
+      "sha256": "2acb11cc655429ff663039fc65887278dc69ba8c5c4d566d54a6b7da2608acb8",
+      "bytes": 233534
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260728-0606/03_top_matches_full.csv",
+      "sha256": "6b07aeffdb025fc39303022d29f82bdb1eacc5d60b8576496ecf1017197e5bb4",
+      "bytes": 5293847
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260728-0606/01_good_documentation_jobs.csv",
+      "sha256": "2bea77908262ed4e1a65dc0e4efd73c1d3a3b128affd43fdc807adc70ddf77bb",
+      "bytes": 232265
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260729-0706/03_top_matches_full.csv",
+      "sha256": "436f3b7ef120ba989b55ecbab4c600efdaeb933cee130b0788fa246fabbf420c",
+      "bytes": 5280170
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260729-0706/01_good_documentation_jobs.csv",
+      "sha256": "1428f02445e746970a3466b0f73b461aeb7de8501adc2914919caca4bc0b799b",
+      "bytes": 231230
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260730-0723/03_top_matches_full.csv",
+      "sha256": "0e8d6e7f74deb4765bb183fd5bf5305f605f6569fb11fca41443218fa5111afb",
+      "bytes": 5193521
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260730-0723/01_good_documentation_jobs.csv",
+      "sha256": "f2e27d0fe3aa51a5431891bfebb1c3576343f6a5fd87dae05ea42943ef16c68b",
+      "bytes": 225119
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260731-0535/03_top_matches_full.csv",
+      "sha256": "24db8bee86a236e7af127ec76ce357c4659ae91af33fb95d16395353784d7ddb",
+      "bytes": 5191442
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260731-0535/01_good_documentation_jobs.csv",
+      "sha256": "1dc961653a3fa41e2f4b1eadbdd4e3ce39c6a254ac66daf8cee902997ba6bba6",
+      "bytes": 222925
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260801-0555/03_top_matches_full.csv",
+      "sha256": "440837b4001f670e9c1014f9ec5136f8bda05da8f14b41934b2d0136f424ff5e",
+      "bytes": 5060945
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260801-0555/01_good_documentation_jobs.csv",
+      "sha256": "b0b13ec6829a24af128bde83022e65465ccd61989ee4d0f598aff0211007a3de",
+      "bytes": 218513
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260802-0411/03_top_matches_full.csv",
+      "sha256": "1dbee01924fffeaf046fac7d25c4f5105016e68cce958670111cfc5a99762bdd",
+      "bytes": 5030580
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260802-0411/01_good_documentation_jobs.csv",
+      "sha256": "528dd82cb62f0df4ade16292a753a956d0322e4eb5c333a008367c11156f6fef",
+      "bytes": 219999
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260803-0702/03_top_matches_full.csv",
+      "sha256": "31e37184e2b5bdeda4c1893674afa325bd4a0928fcbe2684a1d62baeccf5042d",
+      "bytes": 5076886
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260803-0702/01_good_documentation_jobs.csv",
+      "sha256": "465fd82da4f13062dd118ef689450302c86cf758203366c0079a15cb12ebea00",
+      "bytes": 222230
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260804-0704/03_top_matches_full.csv",
+      "sha256": "c4461230e8fca92304fb828cad306e1e64c3c6059fce8092c441a84911b4f787",
+      "bytes": 4916538
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260804-0704/01_good_documentation_jobs.csv",
+      "sha256": "fcf0a492227cb2c27beaace8c78a77e2a8e82edf7587134188e7ec617efc9743",
+      "bytes": 222073
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260805-0603/03_top_matches_full.csv",
+      "sha256": "d94e60c640e3cc56652d1bc25f596bd5ec31e4ccf9fbe0447cbdc49f23117459",
+      "bytes": 4788832
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260805-0603/01_good_documentation_jobs.csv",
+      "sha256": "490e1cb86cafbdc45a0e2418806e6bba003dac8df3a66a42ca29bd97ab3c885f",
+      "bytes": 218963
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260806-0517/03_top_matches_full.csv",
+      "sha256": "b622703444fe3e6cb9028a99fb18b33cff623a559f472dc8c2e7f14fcff50fa7",
+      "bytes": 4678483
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260806-0517/01_good_documentation_jobs.csv",
+      "sha256": "ca09994001d4fd2bc62553fadb52d09e026c19e9580d871c7def41e4d2b0e11a",
+      "bytes": 216198
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260807-0852/03_top_matches_full.csv",
+      "sha256": "2607c6770af5427ad83047bc8a62b5cbcbd2f9019a7f832122a5560d0fb47126",
+      "bytes": 4935474
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260807-0852/01_good_documentation_jobs.csv",
+      "sha256": "52e62f992efb48c097aacdddc05963b4e89cfd8ff6a0113dbbb9cad0dc5c852a",
+      "bytes": 223443
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260808-0619/03_top_matches_full.csv",
+      "sha256": "23cb05de2100dcac47142d9563dbea048d64b5aec69effdb8c9f3be56538f24e",
+      "bytes": 4972367
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260808-0619/01_good_documentation_jobs.csv",
+      "sha256": "732d9e337b36dd518c7138ce9cebfb4800bf0801aa69d4883a3b8d71ffc2e2d4",
+      "bytes": 225577
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260809-0543/03_top_matches_full.csv",
+      "sha256": "066b716867ed2a9bb6beac4b8055e4b7f609d2f6946ee5a858e42e7e30ecd794",
+      "bytes": 5063216
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260809-0543/01_good_documentation_jobs.csv",
+      "sha256": "e5bbf26c1a5dab11e2a641391abfdac8c3b28fa3324980b83163e5edbe71e138",
+      "bytes": 226423
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260810-0621/03_top_matches_full.csv",
+      "sha256": "1aefefcda3fcd5e622ced31e6052bdbdf35386c377fe8f530258a1c3e6b01280",
+      "bytes": 5049329
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260810-0621/01_good_documentation_jobs.csv",
+      "sha256": "ee13f6c0c17f93be69d5fd7ff24264c91b4a2f5b459722bf5deb2d7335dff96d",
+      "bytes": 226353
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260811-0552/03_top_matches_full.csv",
+      "sha256": "6508e577a2c8807bc24e7a22a3cfa2c2e8dc4af2431e9e63fe44c4d378b15fd7",
+      "bytes": 5009579
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260811-0552/01_good_documentation_jobs.csv",
+      "sha256": "5f1fcc624c7e218a7bd02d8fd9d3a452bd1fdc0e2f34446d7f201742a04f5f45",
+      "bytes": 228959
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260812-0647/03_top_matches_full.csv",
+      "sha256": "2c8fdea3ca3ae48a091750d35a5df82c025bc584207db3f8f58d33c32c2f50d4",
+      "bytes": 5046687
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260812-0647/01_good_documentation_jobs.csv",
+      "sha256": "97b489180bec5fc5d5582acb204570e9049b2fa81786b82233926425a38a6de5",
+      "bytes": 229507
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260813-0522/03_top_matches_full.csv",
+      "sha256": "010147e3554dc26a0bc06520caf3f24b4043615753c866e26f741348ee0f6fae",
+      "bytes": 5037498
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260813-0522/01_good_documentation_jobs.csv",
+      "sha256": "a70306bf0b2300333141ca9a98dc3aebd9a866dc274eb1a276ca7ace32c632af",
+      "bytes": 228644
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260814-0502/03_top_matches_full.csv",
+      "sha256": "b60c41c79ad4726513fb3b3ee00b928a196e99980c8ef404b70942afe99466ef",
+      "bytes": 5039461
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260814-0502/01_good_documentation_jobs.csv",
+      "sha256": "36246b94239fbc9df79a452cb0abd9cc37363a1e06042958491e196a21637da4",
+      "bytes": 228142
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260815-0921/03_top_matches_full.csv",
+      "sha256": "70b3b0c902f1dd54b5371cf020feccbac637a5771a810cd0da6c82606bf1c868",
+      "bytes": 4970046
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260815-0921/01_good_documentation_jobs.csv",
+      "sha256": "256f9b7b5c3f6d13c565994ee71eb38c8aa0ba0544752dccb0eabaa5a3a8ba62",
+      "bytes": 227597
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260817-0659/03_top_matches_full.csv",
+      "sha256": "38cebb3333a9977785c5629126efe61b53fcb475769dd78ffcb712871d4cd612",
+      "bytes": 5045088
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260817-0659/01_good_documentation_jobs.csv",
+      "sha256": "874156d8174be88def1cf1ae4b021e348bee9dd0c7ed871f160dcf5bc7fd9241",
+      "bytes": 232112
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260818-0615/03_top_matches_full.csv",
+      "sha256": "2fdb80a453b1f7a2fbde698e7e46d7596a6b657cfdc18f7b51f66bad142e47de",
+      "bytes": 5162611
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260818-0615/01_good_documentation_jobs.csv",
+      "sha256": "5fbb77e6ff501ec7acecd5599c826f1178ffefd7d7c10fa0dc8288ad806e9a7a",
+      "bytes": 231159
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260819-0818/03_top_matches_full.csv",
+      "sha256": "2826069fd11dcc0f90134223ee2fdfec70d56d6bba582c0693f1b6a92962c49e",
+      "bytes": 5083754
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260819-0818/01_good_documentation_jobs.csv",
+      "sha256": "8291b12785b321566b63ed0b9c8f71511d64fc32cc1ebdd3fd4555605ef19d39",
+      "bytes": 230521
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260820-0547/03_top_matches_full.csv",
+      "sha256": "337ea01cb3b82326c40440e73f980c9161a45aa70abe5703d4029a444eb91be5",
+      "bytes": 5048678
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260820-0547/01_good_documentation_jobs.csv",
+      "sha256": "eccfed33a002a84933c1f057e29a5ccaf7799fd493a6dbf282c7c2e9858eb85f",
+      "bytes": 229274
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260821-0704/03_top_matches_full.csv",
+      "sha256": "ec7bbfa3ae9622b74eb92cf1ac2f0772f9547405318022e3c4b90cc614e7b256",
+      "bytes": 5072403
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260821-0704/01_good_documentation_jobs.csv",
+      "sha256": "b04be7550c3ab0e6216be0a7f868cf3198d491b1bd4ca6a11785f3a28e33623b",
+      "bytes": 229854
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260822-1033/03_top_matches_full.csv",
+      "sha256": "79d9c07fa5571d09373791c3b7c61d28dc7d66f35e3de6fda80a95e191cc68c8",
+      "bytes": 5497596
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260822-1033/01_good_documentation_jobs.csv",
+      "sha256": "9796f4b47fab160483af330e9cf609824c9a9040f08e9b0c18e550fa5f0df452",
+      "bytes": 231941
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260824-0636/03_top_matches_full.csv",
+      "sha256": "82827c52f265f0e93e0f6c87fabdaa2e6320dde88b4330e43eb5c7317fcd816c",
+      "bytes": 5425714
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260824-0636/01_good_documentation_jobs.csv",
+      "sha256": "666bd107925e430fe1df8917bcd73c4e41f93514591204e26b9681c8024cc525",
+      "bytes": 232116
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260824-1624/03_top_matches_full.csv",
+      "sha256": "694415943c25c79301b6bd91f812b25a0046560994edf660a915b070d4953e70",
+      "bytes": 5418431
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260824-1624/01_good_documentation_jobs.csv",
+      "sha256": "3432ac2b71acabb8ae9b021df4bfcd1e570419db76348a0f54f1caf6bab61a32",
+      "bytes": 233249
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260825-0538/03_top_matches_full.csv",
+      "sha256": "17f5256bb459b3b7bd34748fbeb3ad34319d8e03644a52f58577ec58b972555d",
+      "bytes": 5523946
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260825-0538/01_good_documentation_jobs.csv",
+      "sha256": "ab965aae32dd62bc9e293c7e1dacf4b760226ebd9f9b651b100207f1890b1595",
+      "bytes": 235040
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260826-0658/03_top_matches_full.csv",
+      "sha256": "17e21404ccd1ef96891bf38a940940956a502b9c8568399eecb5c7c4babf7113",
+      "bytes": 5455700
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260826-0658/01_good_documentation_jobs.csv",
+      "sha256": "4839baae5fa51222700c8f0626ed7aba1557a9bf38ff84d0f202e1299153bbd6",
+      "bytes": 230226
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260827-0509/03_top_matches_full.csv",
+      "sha256": "4e404e0a4f752ec01d9c99f1655068ffa03bfa348df9d779195956e86a5fc8d5",
+      "bytes": 5394292
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260827-0509/01_good_documentation_jobs.csv",
+      "sha256": "b47c11acb25b5e19fcbaf99f0b8d968d8013c51c42b12e3b4afe3d46a17a1929",
+      "bytes": 225430
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260827-0518/03_top_matches_full.csv",
+      "sha256": "4e404e0a4f752ec01d9c99f1655068ffa03bfa348df9d779195956e86a5fc8d5",
+      "bytes": 5394292
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260827-0518/01_good_documentation_jobs.csv",
+      "sha256": "6f1a25a53880600031f550934b680d9dc97d26b8e80f8ee70ac5ed2fa9c30666",
+      "bytes": 228405
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260828-0620/03_top_matches_full.csv",
+      "sha256": "90cbf6f069736a7204a89337b44ac82be80911a930af8ccd37699fd3d084feb2",
+      "bytes": 5487671
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260828-0620/01_good_documentation_jobs.csv",
+      "sha256": "88c4d07dc4ae2f898785d3e8f1411b1fca8e509cabe43d4c94f412fbe50d9179",
+      "bytes": 227000
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260829-0639/03_top_matches_full.csv",
+      "sha256": "ca427ee135334163941079a055a825168aa3caa19d6e65a934d60bb7c78e79cb",
+      "bytes": 5322564
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260829-0639/01_good_documentation_jobs.csv",
+      "sha256": "71a6e3698962c84a3fa842c8b7ed617f98dba68f5e9a9d226b3e0a8cba248e31",
+      "bytes": 221303
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260830-1127/03_top_matches_full.csv",
+      "sha256": "5408de3b6beda9f7192a9869bcde6e144b6eea607ad1bb6a3c6081bd1033cdbb",
+      "bytes": 5401988
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260830-1127/01_good_documentation_jobs.csv",
+      "sha256": "c88ec095f43e23d7340f01ab91f4f487a98388d3172d1e0cd63d2aa2b98f8be3",
+      "bytes": 224430
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260831-0536/03_top_matches_full.csv",
+      "sha256": "0983c17c6833abd5aa0a89e3d1ba4908569904410bab19cf4bf763835ca6569c",
+      "bytes": 5355807
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260831-0536/01_good_documentation_jobs.csv",
+      "sha256": "cf0b6f1dad2bc96cc4250a29cf3ea9da9673e39cf3d4417d23fc42e217ec1f46",
+      "bytes": 224980
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260901-0603/03_top_matches_full.csv",
+      "sha256": "322a1562df6f216698304dc81586eaeb8c602e49e26d19f2957a4fe3831277f4",
+      "bytes": 5048218
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260901-0603/01_good_documentation_jobs.csv",
+      "sha256": "48d57ee33bc8043a53742ef9bdb9395db76de25e30e7b7beb61db41f948b3c0f",
+      "bytes": 216676
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260902-0528/03_top_matches_full.csv",
+      "sha256": "e6000f0b17e32a09f3c27a7bc8b041222edc4e715fea043c4f33f7d252d9ba7c",
+      "bytes": 4969351
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260902-0528/01_good_documentation_jobs.csv",
+      "sha256": "c81e125cc98e2662309ddbb668d0b27a530ddff1ae54b796b6a2463900383299",
+      "bytes": 214623
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260903-0547/03_top_matches_full.csv",
+      "sha256": "7b9aca66a89b010f92b0b71792d13a96a31be81e45a535c903b10848b31c835e",
+      "bytes": 4995480
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260903-0547/01_good_documentation_jobs.csv",
+      "sha256": "51213a143f39b0144850f792652944af21c82bcb15ce4e46176219dba83144cf",
+      "bytes": 214181
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260904-0441/03_top_matches_full.csv",
+      "sha256": "ccbfdf94f9b47cc1f5e6ad293625620589c340bc3b617decde1091067e0869d5",
+      "bytes": 5034795
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260904-0441/01_good_documentation_jobs.csv",
+      "sha256": "62acd7f38c0bda9273e965df89dcc0783abe2cc9efa9db8ba09f2ace4e7e4c94",
+      "bytes": 216276
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260905-0704/03_top_matches_full.csv",
+      "sha256": "f6844bddd91ac685a95fec0b2b6588d8617c1e26447ce2569d72c3b222996cc4",
+      "bytes": 5223759
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260905-0704/01_good_documentation_jobs.csv",
+      "sha256": "73b0dc0ec0458ea303315b2c3836cca8f637e3c7f2edaf6592627dfcc7f89d28",
+      "bytes": 220463
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260906-0700/03_top_matches_full.csv",
+      "sha256": "19732f991d862e5e23efa108e2d644078ce330abc754cedb62a9fcb21bcaa17a",
+      "bytes": 5238207
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260906-0700/01_good_documentation_jobs.csv",
+      "sha256": "c39268d41f47570ba4c383599eaaa6e4d8ab1bce33d79084ddec48386a876d17",
+      "bytes": 221175
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260907-0701/03_top_matches_full.csv",
+      "sha256": "ee28b9cd251d075add0fe4ad6fd8233590cfbf076a63e10290cd2e83ca960208",
+      "bytes": 5259475
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260907-0701/01_good_documentation_jobs.csv",
+      "sha256": "5d612bb25828b97cf53a86795b031c11c33192166b64acdfcf0792aaad6a925a",
+      "bytes": 224122
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260908-0506/03_top_matches_full.csv",
+      "sha256": "b59ec54b2ca6ef1c2cbc37361737c09d2733757727db1abc3d2f9920a2a1531b",
+      "bytes": 5165606
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260908-0506/01_good_documentation_jobs.csv",
+      "sha256": "1d415f0fb2c7f7eccce46bc40e9763875173342139b20671e9ab71139ed13eff",
+      "bytes": 223704
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260909-0608/03_top_matches_full.csv",
+      "sha256": "2e9ca79a62778764a435f67e126054b4339150017553afb3f0845b3967436ceb",
+      "bytes": 5262172
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260909-0608/01_good_documentation_jobs.csv",
+      "sha256": "7f4b725f8095e55d2b266b9e3b560f4ffb40bfa986d1efe5ef93ffbb12a46ec2",
+      "bytes": 224333
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260910-0605/03_top_matches_full.csv",
+      "sha256": "4d745d1b838fbe09c4b8cc0d8379eee5536bfcf475e365f9c4fee9a03274a1da",
+      "bytes": 5009096
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260910-0605/01_good_documentation_jobs.csv",
+      "sha256": "7d05cf30b10ab4d6898b00c9ad8a46feeb566d91323828f06f855185d2a27e4b",
+      "bytes": 221928
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260911-0656/03_top_matches_full.csv",
+      "sha256": "ec22e08312530bd19bff0121f50fc4dfc5f3f78481cd21156cf1194c6a55bb7b",
+      "bytes": 5020674
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260911-0656/01_good_documentation_jobs.csv",
+      "sha256": "495819a9bba892e3d34f87776b5c6edf139db19e511e0e5824dc77eb248ed1ab",
+      "bytes": 222230
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260912-0710/03_top_matches_full.csv",
+      "sha256": "f29c64ec5956f6c7bafdfc1eb461a70223b0f05ded2eb8f14f060bf7a593047c",
+      "bytes": 4983191
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260912-0710/01_good_documentation_jobs.csv",
+      "sha256": "a9e4155acf41d2b5fef25d2245bde3142087cb92d73641a92572401e4b9366b3",
+      "bytes": 220502
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260913-1043/03_top_matches_full.csv",
+      "sha256": "304caef908410b9158583cdd03c67a44f8dc42f04b902e78e4544a42ae1cad68",
+      "bytes": 5000568
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260913-1043/01_good_documentation_jobs.csv",
+      "sha256": "b18dd79a710b1722822255602f42c1ac3f48d8e7f53c42f3927bf0b279a4e047",
+      "bytes": 222653
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260914-0650/03_top_matches_full.csv",
+      "sha256": "3b402a26708cfee8ee0cf9290b373c83c86ee211dffa29dc83177fb5964ab83c",
+      "bytes": 4989652
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260914-0650/01_good_documentation_jobs.csv",
+      "sha256": "b42b2d7984c367cdf342f69747ab25f9ade4b686b0375301085b74e7ee8dc705",
+      "bytes": 224129
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260915-0613/03_top_matches_full.csv",
+      "sha256": "6e2a46f41b739c3273f8ad39ce6241a5a122ff44a0542c79ce77f452fdbc3fab",
+      "bytes": 5190622
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260915-0613/01_good_documentation_jobs.csv",
+      "sha256": "b4edbd1e37b14c690f83e6cea57eeaa9bd9d6d542392df3a40bed5b663cd3328",
+      "bytes": 226706
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260916-0616/03_top_matches_full.csv",
+      "sha256": "5c17afe2f3e2f691295d344126e51f294223d15a9b53088b1eb5c0286747515a",
+      "bytes": 5012678
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260916-0616/01_good_documentation_jobs.csv",
+      "sha256": "1e02c0780fcf6a41f636c091abde5709bb8bd035f1cefd0ce119cf08655d3a8e",
+      "bytes": 223313
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260917-0458/03_top_matches_full.csv",
+      "sha256": "a09bb4ab91ee3a964f385ba8636f3cf1ea2347b409fdc4f911f6364c0569ebc5",
+      "bytes": 4962831
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260917-0458/01_good_documentation_jobs.csv",
+      "sha256": "237b1e69f03788a739a906cac539bade9e2f310129663fa81a7f04564a1c90cb",
+      "bytes": 221891
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260918-0646/03_top_matches_full.csv",
+      "sha256": "ac3fa0a9b3495080e45ab2b7ac095640798fd0c9fb31c7ef24f732c20f5974b7",
+      "bytes": 5210733
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260918-0646/01_good_documentation_jobs.csv",
+      "sha256": "36c95463dc275071cf63075be6c6fa8a9dc1ac95972c48ce473528e6fd511952",
+      "bytes": 222394
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260919-0628/03_top_matches_full.csv",
+      "sha256": "ecd7798a207e7e63187eeb2b9d510287ca738955ea2e7b6775205d976b778ae9",
+      "bytes": 5097076
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260919-0628/01_good_documentation_jobs.csv",
+      "sha256": "2d586886aacd0d88756254b355704b0f6136fcd1a4392efe019c5dc56b3fafd0",
+      "bytes": 224947
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260920-0545/03_top_matches_full.csv",
+      "sha256": "6e2d618eebd92e70ec9d91c29adfda6e364a94fc448f15420e9bdd10978ec60b",
+      "bytes": 5101015
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260920-0545/01_good_documentation_jobs.csv",
+      "sha256": "e68808e8ba87ce9adc930df526a6fd8d727d178f3989fc46cad4962479cbc9b5",
+      "bytes": 222075
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260921-0631/03_top_matches_full.csv",
+      "sha256": "b97152be4c671afdb728566df4097d77f440cc4255fc75814df633cf9f8c88de",
+      "bytes": 5267056
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260921-0631/01_good_documentation_jobs.csv",
+      "sha256": "635fd0a8d1847846c48f669bef32b8aa9049eda94c66e382ba3d67f63a0bc2b4",
+      "bytes": 226792
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260922-0700/03_top_matches_full.csv",
+      "sha256": "234ccc0fb787143fcb6df7ca5c507581dd45ff721effac10556a6d4bf68e088e",
+      "bytes": 5414921
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260922-0700/01_good_documentation_jobs.csv",
+      "sha256": "bbd264670a870b11d0780da6c0e3fc647f2b8c4a51df0c1365beb2da1cc9486c",
+      "bytes": 228409
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260923-0709/03_top_matches_full.csv",
+      "sha256": "28ba9a12357fb844ff59662ff97f9c73fc69d77ea4bd93b1a4bf4aa097954439",
+      "bytes": 5100628
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260923-0709/01_good_documentation_jobs.csv",
+      "sha256": "375cbbdeb0f09defd740fab3c37b547e85f2a37b6f8029fe6e9d3c3cb3bb9073",
+      "bytes": 218788
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260924-0617/03_top_matches_full.csv",
+      "sha256": "9ec6ac299be52144c05833276246a439f9059814f16030bd5eb586fb560a2951",
+      "bytes": 5089771
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260924-0617/01_good_documentation_jobs.csv",
+      "sha256": "57282c7ba96dc111d24400e5cf96cf38d53f20eea615e5654a31e2fca48b9d82",
+      "bytes": 218755
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260925-0552/03_top_matches_full.csv",
+      "sha256": "85445083b549af91024fa7782be90796b1a6a4909b4df7963af1101244910620",
+      "bytes": 4914192
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260925-0552/01_good_documentation_jobs.csv",
+      "sha256": "fa6c1bbecf31ea9f1f36b06a1125a4fe9f1925adaefae87bf17954c75d0eb6a3",
+      "bytes": 214328
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260926-0533/03_top_matches_full.csv",
+      "sha256": "566676414df285f31d1a7cdd17f842df4748a4ccce0b35d5451df2d4ee25fff2",
+      "bytes": 4621012
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260926-0533/01_good_documentation_jobs.csv",
+      "sha256": "164ccf4f48373bf4bd8e4a1366cf8f52f610a2dbed153b20b5fde8cc7fa54246",
+      "bytes": 208883
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260927-0734/03_top_matches_full.csv",
+      "sha256": "86f664e7acb3460624fd6546a339d07b5af9d505ffa5e63a3ea3c125b160e7c6",
+      "bytes": 4673223
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260927-0734/01_good_documentation_jobs.csv",
+      "sha256": "4165bb99b4624c8aa4072cad25dc9ac15f6a4c18117f8612a0bf157dc75ffee9",
+      "bytes": 210974
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260928-0552/03_top_matches_full.csv",
+      "sha256": "4c305298c215dc40109c4ef3173d5421fccc11dadadbbe6a73c9cbdd9ded18ca",
+      "bytes": 4643020
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260928-0552/01_good_documentation_jobs.csv",
+      "sha256": "d44fbc6be61184cf5c58c387e893cd08ef5bb033062ff26ee3af5e0940518a28",
+      "bytes": 212022
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260929-0613/03_top_matches_full.csv",
+      "sha256": "86dec6fd980cd5fd7169bbad7922fa3a8fd940f75b74ce1f5abedffeaa241220",
+      "bytes": 4660180
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260929-0613/01_good_documentation_jobs.csv",
+      "sha256": "6759eb2f6e9277bb72cb77144b5097d0aaac6bb0908727c6ed234023ce854eb5",
+      "bytes": 209775
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260930-0644/03_top_matches_full.csv",
+      "sha256": "ac882087b8a9a26dbba1b95f33b79165d9f469538baf087a7559a9475f8d025a",
+      "bytes": 4689450
+    },
+    {
+      "path": "data/jobs/gsheet-package/20260930-0644/01_good_documentation_jobs.csv",
+      "sha256": "50556d84f43936bd3a7fa0e679fffbdd945893ff5e0bee347828d6d96fbb8121",
+      "bytes": 212173
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261001-0554/03_top_matches_full.csv",
+      "sha256": "fec29e2d017583a15d49685e513529325b4da8b251962d3ce94e8ddfa077fdf4",
+      "bytes": 4516129
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261001-0554/01_good_documentation_jobs.csv",
+      "sha256": "4784c10764c811172e26f6840decfaa08f02a979335e1053744c65f8636c3ff0",
+      "bytes": 205368
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261002-0513/03_top_matches_full.csv",
+      "sha256": "79c2ed5d0188a52f11fb6b12817e05277bd533aeaff86f1b93c055424456a569",
+      "bytes": 4510565
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261002-0513/01_good_documentation_jobs.csv",
+      "sha256": "7ae312f640333a2dc2c3baf088c4b5b44b5a4d6be588023635152dc40645c4f4",
+      "bytes": 204104
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261003-0644/03_top_matches_full.csv",
+      "sha256": "87097cbc077b87b38cb6d958bd8125c0bff1b21f9ebee96f07dfd0ac9a6f86e3",
+      "bytes": 4517265
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261003-0644/01_good_documentation_jobs.csv",
+      "sha256": "6364af44f925a8efc2a725c71f47f665eaded7292ce2eb7961fd86145973fbd2",
+      "bytes": 201532
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261004-0521/03_top_matches_full.csv",
+      "sha256": "259a47f19ee1f5be9cd7e555c94f84d02c1ef37e322c3eaeba79d82963116c82",
+      "bytes": 4583036
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261004-0521/01_good_documentation_jobs.csv",
+      "sha256": "ea0ab2da0f756d2605bf4db7eadece28799929fb82ca947be14178bc059c61d0",
+      "bytes": 204871
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261005-0723/03_top_matches_full.csv",
+      "sha256": "ab300945558b3d955ab6ed8d60da479064fb62e20a81ca6400b2378d8ee7c829",
+      "bytes": 4652969
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261005-0723/01_good_documentation_jobs.csv",
+      "sha256": "7c0164c16d0cf167c853f6065995cdc8ae4fcce7d4df59f21160197a998a5f72",
+      "bytes": 207877
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261006-0524/03_top_matches_full.csv",
+      "sha256": "bc360aa90916fd03764826035192f709900836a7c658450f9ef429d903c5ade2",
+      "bytes": 4669096
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261006-0524/01_good_documentation_jobs.csv",
+      "sha256": "e2458a77eb71defc41c18ac82ec408c55b06ce6af98b4d72e19c5059673665d3",
+      "bytes": 205455
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261007-0557/03_top_matches_full.csv",
+      "sha256": "53a158f1a32c765661797c272c531598e0f96227adb8a84e425b7f1720f9ac1b",
+      "bytes": 4691118
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261007-0557/01_good_documentation_jobs.csv",
+      "sha256": "30cc244b8e4763b0e78ca80d3c41fb3334e73c556f2b8150c35c9ab34618be0a",
+      "bytes": 205330
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261008-0603/03_top_matches_full.csv",
+      "sha256": "27b3c02dd8a717b6f89869be8037bba46931855ec24aa83b6f646be02c6e3ed0",
+      "bytes": 4762707
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261008-0603/01_good_documentation_jobs.csv",
+      "sha256": "0e400d61d40390d7fe9e3799e7f51342a4f1be67661123f62e648c4ffd638ea9",
+      "bytes": 206768
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261009-0509/03_top_matches_full.csv",
+      "sha256": "911497bdf08ea351ec87013b5cddbaa59e2532edc40cda842f1ef411546cd3df",
+      "bytes": 4664993
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261009-0509/01_good_documentation_jobs.csv",
+      "sha256": "0b53c96aecefe19fa95dad24aff75f4623f26fd167115a3b6bfaf44ec41e6a0c",
+      "bytes": 204915
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261010-0658/03_top_matches_full.csv",
+      "sha256": "04ce276b35ba26acb4986b58b480d9561d49b0eac09dcc5340918e2f67e6f9a5",
+      "bytes": 4631204
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261010-0658/01_good_documentation_jobs.csv",
+      "sha256": "751dd9c062dbb132aa3dddf07a83c79dbf381c1fcde808cd9814116de6aeebf5",
+      "bytes": 205240
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261011-1112/03_top_matches_full.csv",
+      "sha256": "b2e1637316ecdcced558ca00e317af4de5a1183d06e09a4feafd22c7cccdaed4",
+      "bytes": 4689051
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261011-1112/01_good_documentation_jobs.csv",
+      "sha256": "8ff1cba2ee9bc302044729e8a644d9d4a5d93a05dca0f0cfb3b027a75be62a2a",
+      "bytes": 208367
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261012-0604/03_top_matches_full.csv",
+      "sha256": "404f10331edd04ae17492aad0a074d1d33e9b039f301d7ec6bb8e12ace0e9eb4",
+      "bytes": 4710532
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261012-0604/01_good_documentation_jobs.csv",
+      "sha256": "46f9868ad8accde7efb483237c788b6cb92e102fc77c729109173a2898db611a",
+      "bytes": 210646
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261013-0543/03_top_matches_full.csv",
+      "sha256": "3e41a3a5e21a6759ca427fab0095d02e4601739a9538ed8857c5fee238568097",
+      "bytes": 4555449
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261013-0543/01_good_documentation_jobs.csv",
+      "sha256": "0b495401e3a24fa323adb8eb07f811f291266b5906bcdc907d6dce766bfdeeb2",
+      "bytes": 193190
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261014-0727/03_top_matches_full.csv",
+      "sha256": "2b3bdc5ec58e812c98892634f1132ca432ad7a035c522bac02c7f151a1a0d842",
+      "bytes": 4503390
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261014-0727/01_good_documentation_jobs.csv",
+      "sha256": "e57d3006b26b2557a288b29e37d92ca2e6973fb6bcb3d40673bcb65422527c5f",
+      "bytes": 190441
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261015-0530/03_top_matches_full.csv",
+      "sha256": "47e1dae7cb46d0419b3639783a8390e39d32d1b99cc26ad36e34f4a18484478b",
+      "bytes": 4680343
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261015-0530/01_good_documentation_jobs.csv",
+      "sha256": "25eaaa93d2148b31485d529cc89317213379b82ebe45efdb55d2bcfb1255f052",
+      "bytes": 192290
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261016-0608/03_top_matches_full.csv",
+      "sha256": "e4bb5afc4cf417dd31afb74aa4e1dbe12e9234c5657883bfac7bdcb233f8076e",
+      "bytes": 4673701
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261016-0608/01_good_documentation_jobs.csv",
+      "sha256": "45a6c93fe81fb0cc90ffa0144c783e2a0293762f4d913e9ce960052f6c14b150",
+      "bytes": 191576
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261017-0657/03_top_matches_full.csv",
+      "sha256": "7da60281a38104da13c77b9dc903c962b73519cddad53c0e81452e3fb06a70b6",
+      "bytes": 4665729
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261017-0657/01_good_documentation_jobs.csv",
+      "sha256": "6c4d8c0234d9a3f89aecfbe17314d79eeb28bb2aa488d3ad52312f2e27e39600",
+      "bytes": 191164
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261018-2107/03_top_matches_full.csv",
+      "sha256": "40168a1e353222ca8b935082d6c027a08e6a9f1c0ce6d97aceffb8a566ed0de1",
+      "bytes": 4786578
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261018-2107/01_good_documentation_jobs.csv",
+      "sha256": "29c37c49592ad7fd2a2b8fea5f5c220ac92d8febd26aae2a29f98f84267339e4",
+      "bytes": 206617
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261019-0616/03_top_matches_full.csv",
+      "sha256": "1aa6c7f9215a22d3f0eef722e0681df3de5a5c07f0264d4bba7463215c888e6f",
+      "bytes": 4908139
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261019-0616/01_good_documentation_jobs.csv",
+      "sha256": "de8885d5661605ac7cc8d15f9533f1d607dcd5e25e02aae4e3d21ef370eb4515",
+      "bytes": 208388
+    }
+  ],
+  "candidate_projection": [
+    "Company",
+    "Title",
+    "Location",
+    "Description",
+    "Department",
+    "DatePosted",
+    "SalaryMin",
+    "SalaryMax",
+    "SalaryCurrency",
+    "SalaryPeriod",
+    "SalaryText",
+    "RawLocation",
+    "RawDepartment"
+  ],
+  "canonical_keys": 3419,
+  "job_keys": 3361,
+  "colliding_job_keys": [
+    {
+      "job_key": "greenhouse:7734197003",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:344",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:216",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:682",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:45",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:113",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:94",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:87",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:148",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:89",
+      "canonical_count": 4
+    },
+    {
+      "job_key": "bamboohr:44",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:70",
+      "canonical_count": 3
+    },
+    {
+      "job_key": "bamboohr:296",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:55",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:335",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:118",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:65",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:51",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:80",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:20260220",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:20260161",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:regular",
+      "canonical_count": 9
+    },
+    {
+      "job_key": "workday:jr102714",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r9400",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:1439",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r003108",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r10489",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:0",
+      "canonical_count": 3
+    },
+    {
+      "job_key": "workday:r5045651",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r5044152",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r5041615",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:pensacolachristiancollegeinc",
+      "canonical_count": 3
+    },
+    {
+      "job_key": "workday:jr100303",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:jobreq53899",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:jr102398",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:7494",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:pr00006490",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:11854",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:1470",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:52978",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:153",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:309",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r256771",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:indiabangalore",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:2024944",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:p750643",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r256612",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:2024964",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "bamboohr:130",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:1316",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r2602712",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:749674wd",
+      "canonical_count": 3
+    },
+    {
+      "job_key": "icims:3293",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:dt19157",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "greenhouse:7928963003",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:753927wd",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:11482",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:19066",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:163013",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:req12451",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r65786",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:39428",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r0002636",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r11943",
+      "canonical_count": 3
+    },
+    {
+      "job_key": "workday:r11942",
+      "canonical_count": 3
+    },
+    {
+      "job_key": "workday:r12032",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:jr202600955",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:applicationdeadline",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r00030078",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:39596",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:163407",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r100801",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r084730",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r258236",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:r260908",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "icims:11674",
+      "canonical_count": 2
+    },
+    {
+      "job_key": "workday:p751517",
+      "canonical_count": 2
+    }
+  ],
+  "unique_exception_urls": [
+    "https://jobs.netapp.com/job/Morrisville-Technical-Writer-NC-27560/1416736300/?feedId=386800&tcsource=apply",
+    "https://posthog.com/careers/member-of-the-technical-writing-staff",
+    "https://posthog.com/careers/technical-content-writer"
+  ],
+  "reappearance_examples": [
+    {
+      "key": "https://job-boards.greenhouse.io/horizonindustrieslimited/jobs/5012458008",
+      "title": "Documentation Specialist(DISA)",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/hpiq/jobs/5841340004",
+      "title": "Senior Technical Program Manager, QA & Developer Experience",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/icapitalnetwork/jobs/8534763002",
+      "title": "UX Writer - Vice President",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/hevenaerotech/jobs/4204978009",
+      "title": "Technical Writer & Documentation Specialist",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/hevenaerotech/jobs/4205121009",
+      "title": "Technical Writer for Government Programs",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/hrtechx/jobs/5478609003",
+      "title": "Entry Level Content Writer at HRtechX",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/hrtechx/jobs/5718405003",
+      "title": "Senior Content Writer at HRtechX",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/heygen/jobs/5113387007",
+      "title": "Head of Developer Experience",
+      "last_seen": "20260619-0755",
+      "first_absent": "20260621-0717",
+      "reappeared": "20260622-0914"
+    }
+  ],
+  "change_examples": [
+    {
+      "key": "https://jobs.lever.co/agicap/84af91e5-e807-4895-840b-72dc21bbcff8",
+      "previous_snapshot": "20260622-2242",
+      "current_snapshot": "20260623-0541",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/perscholashires/jobs/4686413006",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/sphinxdefense/jobs/5222351008",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://jobs.ashbyhq.com/doppel/e5de5f12-2765-45fc-82a5-d1d4ec3c58a1",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://boards.greenhouse.io/figma/jobs/5839202004",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://jobs.ashbyhq.com/infisical/d52e9080-a575-493a-8792-dbba28c50d49",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://job-boards.greenhouse.io/arizeai/jobs/5990037004",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    },
+    {
+      "key": "https://www.ayahealthcare.com/corporate-careers/jobs/7921656",
+      "previous_snapshot": "20260623-1815",
+      "current_snapshot": "20260624-0549",
+      "changed_after_gap": false
+    }
+  ],
+  "long_running_examples": [
+    {
+      "key": "https://jobs.ashbyhq.com/blockstream/680e9db3-5516-4dc2-993b-0909f32596b3",
+      "title": "Marketing Content Manager",
+      "first": "20260602-1810",
+      "last": "20261019-0616",
+      "seen": 152,
+      "lastOrdinal": 151,
+      "hash": "93e65d643b0c9b7315fecf675bd6bde207ba812418e5a0981408eb2c4d3278db",
+      "versions": 1,
+      "reappearances": 0
+    },
+    {
+      "key": "https://jobs.ashbyhq.com/deepnote/eb00d9b0-0dfc-4ff7-9aa4-19cf22e9644c",
+      "title": "Technical Writer",
+      "first": "20260602-1810",
+      "last": "20261019-0616",
+      "seen": 152,
+      "lastOrdinal": 151,
+      "hash": "2883847297541f3d6fa04c5c3bedbf1c4d08c45aaf7fefa864ccaf4d56e77a35",
+      "versions": 1,
+      "reappearances": 0
+    },
+    {
+      "key": "https://jobs.ashbyhq.com/nuon/aab160fd-a9ff-47f3-96b5-6917fcd09275",
+      "title": "Content Distributor & Developer Relations",
+      "first": "20260602-1810",
+      "last": "20261019-0616",
+      "seen": 152,
+      "lastOrdinal": 151,
+      "hash": "225b35a45f8463fd7f1dcc3f4497aa56d9f8cf6a7734d5245fd2d3fd99b7f337",
+      "versions": 1,
+      "reappearances": 0
+    },
+    {
+      "key": "https://jobs.ashbyhq.com/hercules/ea2ed629-f8d0-44ee-9e0e-05d7f8065aaa",
+      "title": "SEO Content Writer",
+      "first": "20260602-1810",
+      "last": "20261019-0616",
+      "seen": 152,
+      "lastOrdinal": 151,
+      "hash": "ee47673b897265057cfb8283b9efb51ec99ab5f0faa11504b8d2137ea2214ace",
+      "versions": 2,
+      "reappearances": 0
+    },
+    {
+      "key": "https://jobs.ashbyhq.com/bio/0c137ae4-1d96-4823-b06f-b95a1e21ac40",
+      "title": "Science Content Writer",
+      "first": "20260602-1810",
+      "last": "20261019-0616",
+      "seen": 152,
+      "lastOrdinal": 151,
+      "hash": "6783b0cf7151f484868d19585cf2c31c078a0b6e935b3859dbe603569a97c5fc",
+      "versions": 1,
+      "reappearances": 0
+    }
+  ],
+  "storage_probe": {
+    "raw_payloads": 111624,
+    "distinct_exact_raw_payloads": 74696,
+    "raw_json_bytes": 786101621,
+    "distinct_raw_json_bytes": 582006702,
+    "distinct_description_strings": 3345,
+    "description_bytes": 494270118,
+    "distinct_description_bytes": 17202403,
+    "distinct_candidate_content_values": 8595,
+    "candidate_content_bytes": 540107440,
+    "distinct_candidate_content_bytes": 27266011,
+    "note": "Logical UTF-8 bytes only; no projected DuckDB file size or guaranteed disk savings."
+  },
+  "existing_database_source_hash_check": {
+    "checked": 262,
+    "mismatches": []
+  },
+  "current_database_review": {
+    "snapshots": 131,
+    "physical_tables": 9,
+    "views": 3,
+    "canonical_keys": 2973,
+    "job_keys": 2923,
+    "raw_good_rows": 83474,
+    "metric_audit_errors": []
+  },
+  "planning_protection_check": {
+    "protected_files_checked": 183,
+    "protected_file_mismatches": [],
+    "required_csv_files_checked": 304,
+    "required_csv_mismatches": []
+  },
+  "planning_document_checks": {
+    "git_diff_check": "passed",
+    "new_markdown_whitespace_and_local_links": "passed",
+    "implementation_tests": "not_run_no_implementation"
+  }
+}

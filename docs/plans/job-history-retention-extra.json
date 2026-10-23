@@ -1,0 +1,100 @@
+{
+  "outside_jobs_scan": {
+    "excluded": [
+      ".git",
+      "node_modules"
+    ],
+    "files": [
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/config/analysis/job-titles-normalized.csv",
+        "bytes": 8123,
+        "allocated_bytes": 8192
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/config/analysis/job-titles-summary.csv",
+        "bytes": 160,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/analysis/ats-breakdown.csv",
+        "bytes": 299,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/analysis/company-key-overlap.csv",
+        "bytes": 471157,
+        "allocated_bytes": 475136
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/analysis/malformed-rows.csv",
+        "bytes": 92,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/analysis/duplicate-catalog-values.csv",
+        "bytes": 117754,
+        "allocated_bytes": 118784
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/analysis/company-registry-candidates.csv",
+        "bytes": 3933908,
+        "allocated_bytes": 3936256
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/analysis/catalog-summary.csv",
+        "bytes": 242,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/normalized/ats-catalog-normalized.csv",
+        "bytes": 10608796,
+        "allocated_bytes": 10612736
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/crawl-sample-low-priority.csv",
+        "bytes": 33877,
+        "allocated_bytes": 36864
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/crawl-priority-breakdown.csv",
+        "bytes": 58,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/board-catalog.csv",
+        "bytes": 12014001,
+        "allocated_bytes": 12017664
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/crawl-summary.csv",
+        "bytes": 453,
+        "allocated_bytes": 4096
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/crawl-queue.csv",
+        "bytes": 13080488,
+        "allocated_bytes": 13082624
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/crawl-sample-high-priority.csv",
+        "bytes": 43339,
+        "allocated_bytes": 45056
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/crawl-sample-medium-priority.csv",
+        "bytes": 44045,
+        "allocated_bytes": 45056
+      },
+      {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/catalogs/crawl/catalog-queue-added.csv",
+        "bytes": 81,
+        "allocated_bytes": 4096
+      }
+    ]
+  },
+  "open_database_handles_check": {
+    "exit_code": 1,
+    "stdout": "",
+    "stderr": ""
+  }
+}

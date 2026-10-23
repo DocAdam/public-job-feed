@@ -1,0 +1,18 @@
+
+> public-job-feed@0.1.0 jobs:test-history-backup
+> node src/scripts/test-history-backup.js
+
+PASS missing drive: history passes, no mount folder or backup is created
+PASS wrong drive and same-device placeholder refuse backup
+AssertionError [ERR_ASSERTION]: syncDirectory is not a function
+
+'FAILED' !== 'PASS'
+
+    at main (/Users/adampugh/GitHub/public-job-feed/src/scripts/test-history-backup.js:57:49) {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 'FAILED',
+  expected: 'PASS',
+  operator: 'strictEqual',
+  diff: 'simple'
+}

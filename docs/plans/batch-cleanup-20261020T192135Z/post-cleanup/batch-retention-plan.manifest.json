@@ -1,0 +1,24 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-20T19:31:05.768Z",
+  "rawRetentionDays": 30,
+  "batchesRoot": "/Users/adampugh/GitHub/public-job-feed/data/jobs/batches",
+  "indexDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/index",
+  "inputFingerprint": "c43da08d3c80ea3c7322c57302beb7181084a8f354b68002a63aa8e88d186b8b",
+  "rowsHash": "0b31f27700730b2b3f443675d715f210434fffb1c838fe0804d6ef1fd2c5f28b",
+  "checks": {
+    "boardCount": 29551,
+    "rawFetchRows": 405131,
+    "candidateFetchRows": 0,
+    "matchedEvents": 405131,
+    "ledgerEvents": 590622,
+    "fullState": "PASS",
+    "protectedSubset": "PASS",
+    "ledgerCoverage": "PASS"
+  },
+  "totals": {
+    "batches": 1136,
+    "candidateCount": 0,
+    "candidateBytes": 0
+  }
+}

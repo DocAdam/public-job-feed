@@ -1,0 +1,219 @@
+{
+  "RunId": "bcc27d7f-f292-46ee-9e05-8e17c53cfbb1",
+  "PackageRun": "20261021-0636",
+  "GeneratedAt": "2026-10-21T13:23:15.277Z",
+  "Status": "PASS",
+  "Tests": [
+    {
+      "Name": "jobs:test-history-backup",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 20724
+    },
+    {
+      "Name": "jobs:test-catalog-maintenance",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 211
+    },
+    {
+      "Name": "jobs:test-batch-history",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 6084
+    },
+    {
+      "Name": "jobs:test-board-freshness",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 383
+    },
+    {
+      "Name": "jobs:test-ats-errors",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 134
+    },
+    {
+      "Name": "jobs:test-failure-investigation",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 249
+    },
+    {
+      "Name": "jobs:test-board-probe",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 246
+    },
+    {
+      "Name": "jobs:test-passive-launcher",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 131
+    },
+    {
+      "Name": "jobs:test-ats-alert",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 131
+    },
+    {
+      "Name": "jobs:test-title-category",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 130
+    },
+    {
+      "Name": "jobs:test-dedupe-select",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 130
+    },
+    {
+      "Name": "jobs:test-core-pipeline",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 132
+    },
+    {
+      "Name": "jobs:test-streaming-export-phase-1",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 280
+    },
+    {
+      "Name": "jobs:test-release",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 15804
+    },
+    {
+      "Name": "jobs:test-gsheet-grouping",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 148
+    },
+    {
+      "Name": "jobs:test-gsheet-package",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 255
+    },
+    {
+      "Name": "jobs:test-url-health",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 129
+    },
+    {
+      "Name": "jobs:test-gsheet-url-pruning",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 129
+    },
+    {
+      "Name": "jobs:test-scoring",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 136
+    },
+    {
+      "Name": "jobs:test-greenhouse-normalize",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 138
+    },
+    {
+      "Name": "jobs:test-job-finder-consumer",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 135
+    },
+    {
+      "Name": "jobs:compare-last-release",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 137
+    },
+    {
+      "Name": "jobs:test-trends",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 138
+    },
+    {
+      "Name": "jobs:test-us-remote-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 130
+    },
+    {
+      "Name": "jobs:test-international-remote-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 132
+    },
+    {
+      "Name": "jobs:test-all-remote-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 271
+    },
+    {
+      "Name": "jobs:test-substack-full-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 156
+    },
+    {
+      "Name": "jobs:test-content-metrics",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 157
+    },
+    {
+      "Name": "jobs:test-status-dashboard",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 148
+    },
+    {
+      "Name": "jobs:test-refresh-launcher",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 3205
+    },
+    {
+      "Name": "jobs:test-curated-submissions",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 143
+    },
+    {
+      "Name": "jobs:test-refresh-reports",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 345
+    },
+    {
+      "Name": "jobs:test-review-improvements",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 154
+    },
+    {
+      "Name": "jobs:test-history",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 4684
+    },
+    {
+      "Name": "jobs:test-history-content",
+      "ExitCode": 0,
+      "Signal": null,
+      "DurationMs": 777
+    }
+  ],
+  "CompletedAt": "2026-10-21T13:23:15.277Z"
+}

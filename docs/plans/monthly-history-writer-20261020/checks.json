@@ -1,0 +1,61 @@
+[
+  {
+    "name": "batch-history",
+    "command": [
+      "npm",
+      "run",
+      "jobs:test-batch-history"
+    ],
+    "exit_code": 0,
+    "seconds": 2.684
+  },
+  {
+    "name": "catalog-maintenance",
+    "command": [
+      "npm",
+      "run",
+      "jobs:test-catalog-maintenance"
+    ],
+    "exit_code": 0,
+    "seconds": 0.173
+  },
+  {
+    "name": "failure-investigation",
+    "command": [
+      "node",
+      "src/scripts/test-failure-investigation.js"
+    ],
+    "exit_code": 0,
+    "seconds": 0.155
+  },
+  {
+    "name": "board-freshness",
+    "command": [
+      "npm",
+      "run",
+      "jobs:test-board-freshness"
+    ],
+    "exit_code": 0,
+    "seconds": 0.425
+  },
+  {
+    "name": "jobs-history",
+    "command": [
+      "npm",
+      "run",
+      "jobs:test-history"
+    ],
+    "exit_code": 0,
+    "seconds": 5.489
+  },
+  {
+    "name": "history-content",
+    "command": [
+      "npm",
+      "run",
+      "jobs:test-history-content"
+    ],
+    "exit_code": 0,
+    "seconds": 0.875
+  }
+]

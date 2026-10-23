@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "completedAt": "2026-10-20T19:31:46.400Z",
+  "deletedBatches": 762,
+  "remainingBatches": 1136,
+  "checks": {
+    "boardCount": 29551,
+    "rawFetchRows": 405131,
+    "candidateFetchRows": 0,
+    "matchedEvents": 405131,
+    "ledgerEvents": 590622,
+    "fullState": "PASS",
+    "protectedSubset": "PASS",
+    "ledgerCoverage": "PASS"
+  },
+  "boardRowsUnchanged": true,
+  "protectedDataUnchanged": true
+}

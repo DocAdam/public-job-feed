@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "completed_at": "2026-10-21T12:44:34.721915+00:00",
+  "removed_folders": [
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/20261020-762-batches/restore-test",
+      "files": 117,
+      "bytes": 906049729
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/archives/1pugh-restore-test-20261020T190242Z",
+      "files": 117,
+      "bytes": 906049729
+    },
+    {
+      "path": "/Users/adampugh/GitHub/public-job-feed/docs/plans/history-backup-20261021T120102Z/restore-test",
+      "files": 3167,
+      "bytes": 4498014300
+    }
+  ],
+  "removed_file_count": 3401,
+  "removed_logical_bytes": 6310113758,
+  "former_allocated_bytes": 6328713216,
+  "free_bytes_before": 132337594368,
+  "free_bytes_immediately_after": 136859172864,
+  "free_bytes_after_validation": 136805990400,
+  "observed_net_free_increase_bytes": 4468396032,
+  "protected_records_checked": 3799,
+  "protected_changes": 0,
+  "limits": "Available space includes unrelated system activity; snapshots and shared blocks can defer gains. Directory modification/access times are not protected."
+}

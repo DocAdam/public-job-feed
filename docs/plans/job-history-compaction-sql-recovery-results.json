@@ -1,0 +1,665 @@
+{
+  "status": "prototype_functional_checks_passed_with_memory_gate_open",
+  "scope": "Temporary prototypes only; no full migration or production replacement",
+  "review_decision": "Defer full migration until compaction process memory is reduced and measured again",
+  "gates": {
+    "sql_read_contracts": "passed for saved sample and fixtures",
+    "compaction_and_updates": "passed for saved sample",
+    "recovery": "passed for listed process and file failures",
+    "bounded_import_benchmark": "passed with limited headroom",
+    "whole_compaction_test_memory": "not qualified for bounded operation; measured parent exceeds 768 MiB reference threshold",
+    "full_archive": "not run",
+    "production_writer_dispatch": "not implemented",
+    "production_cutover_and_code_rollback": "not run"
+  },
+  "sql": {
+    "status": "passed",
+    "fixtures": {
+      "objects": [
+        {
+          "object": "snapshots",
+          "columns": 13,
+          "rows": 4,
+          "differences": 0
+        },
+        {
+          "object": "posting_observations",
+          "columns": 65,
+          "rows": 3,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_files",
+          "columns": 5,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "source_artifacts",
+          "columns": 4,
+          "rows": 4,
+          "differences": 0
+        },
+        {
+          "object": "raw_top_match_rows",
+          "columns": 8,
+          "rows": 3,
+          "differences": 0
+        },
+        {
+          "object": "raw_good_job_rows",
+          "columns": 8,
+          "rows": 6,
+          "differences": 0
+        },
+        {
+          "object": "good_job_exceptions",
+          "columns": 9,
+          "rows": 3,
+          "differences": 0
+        },
+        {
+          "object": "historical_content_metrics",
+          "columns": 36,
+          "rows": 4,
+          "differences": 0
+        },
+        {
+          "object": "historical_role_metrics",
+          "columns": 3,
+          "rows": 40,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_summary",
+          "columns": 12,
+          "rows": 4,
+          "differences": 0
+        },
+        {
+          "object": "posting_lifecycle",
+          "columns": 10,
+          "rows": 1,
+          "differences": 0
+        },
+        {
+          "object": "daily_market_metrics",
+          "columns": 11,
+          "rows": 4,
+          "differences": 0
+        }
+      ],
+      "report": "passed",
+      "imported_at": "Type and non-null parity; independent import timestamps",
+      "late_baseline_refresh": "passed",
+      "no_op_twice": "passed",
+      "empty_snapshot": "passed",
+      "special_json_and_types": "passed"
+    },
+    "schema_order": "Incremental column order matches v1 after a late schema addition",
+    "saved": {
+      "sample_ids": [
+        "20260602-1810",
+        "20260602-2051",
+        "20260714-1607",
+        "20260715-0556",
+        "20260809-0543",
+        "20260827-0518",
+        "20260928-0552",
+        "20261019-0616"
+      ],
+      "objects": [
+        {
+          "object": "snapshots",
+          "columns": 13,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "posting_observations",
+          "columns": 75,
+          "rows": 5175,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_files",
+          "columns": 5,
+          "rows": 16,
+          "differences": 0
+        },
+        {
+          "object": "source_artifacts",
+          "columns": 4,
+          "rows": 40,
+          "differences": 0
+        },
+        {
+          "object": "raw_top_match_rows",
+          "columns": 8,
+          "rows": 5185,
+          "differences": 0
+        },
+        {
+          "object": "raw_good_job_rows",
+          "columns": 8,
+          "rows": 4590,
+          "differences": 0
+        },
+        {
+          "object": "good_job_exceptions",
+          "columns": 9,
+          "rows": 3,
+          "differences": 0
+        },
+        {
+          "object": "historical_content_metrics",
+          "columns": 36,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "historical_role_metrics",
+          "columns": 3,
+          "rows": 80,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_summary",
+          "columns": 12,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "posting_lifecycle",
+          "columns": 10,
+          "rows": 2402,
+          "differences": 0
+        },
+        {
+          "object": "daily_market_metrics",
+          "columns": 11,
+          "rows": 8,
+          "differences": 0
+        }
+      ],
+      "report": "passed",
+      "imported_at": "Type and non-null parity; independent import timestamps",
+      "reopen": "passed"
+    }
+  },
+  "compaction": {
+    "status": "passed",
+    "snapshots": 8,
+    "source_files": 56,
+    "first_seven": {
+      "before_bytes": 115093504,
+      "after_bytes": 66596864,
+      "backup_bytes": 115093504,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true
+    },
+    "after_eighth_append_bytes": 137375744,
+    "final_eight": {
+      "before_bytes": 137375744,
+      "after_bytes": 79704064,
+      "backup_bytes": 137375744,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true
+    },
+    "v1_control_bytes": 111423488,
+    "reduction_vs_v1_percent": 28.467448443186417,
+    "repeat": {
+      "before_bytes": 79704064,
+      "after_bytes": 78131200,
+      "backup_bytes": 79704064,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true
+    },
+    "rollback": {
+      "result": "previous_file_restored"
+    },
+    "parity": {
+      "objects": [
+        {
+          "object": "snapshots",
+          "columns": 13,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "posting_observations",
+          "columns": 75,
+          "rows": 5175,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_files",
+          "columns": 5,
+          "rows": 16,
+          "differences": 0
+        },
+        {
+          "object": "source_artifacts",
+          "columns": 4,
+          "rows": 40,
+          "differences": 0
+        },
+        {
+          "object": "raw_top_match_rows",
+          "columns": 8,
+          "rows": 5185,
+          "differences": 0
+        },
+        {
+          "object": "raw_good_job_rows",
+          "columns": 8,
+          "rows": 4590,
+          "differences": 0
+        },
+        {
+          "object": "good_job_exceptions",
+          "columns": 9,
+          "rows": 3,
+          "differences": 0
+        },
+        {
+          "object": "historical_content_metrics",
+          "columns": 36,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "historical_role_metrics",
+          "columns": 3,
+          "rows": 80,
+          "differences": 0
+        },
+        {
+          "object": "snapshot_summary",
+          "columns": 12,
+          "rows": 8,
+          "differences": 0
+        },
+        {
+          "object": "posting_lifecycle",
+          "columns": 10,
+          "rows": 2402,
+          "differences": 0
+        },
+        {
+          "object": "daily_market_metrics",
+          "columns": 11,
+          "rows": 8,
+          "differences": 0
+        }
+      ],
+      "report": "passed",
+      "imported_at": "Type and non-null parity; independent import timestamps"
+    },
+    "no_op_twice": "Exact logical fingerprints unchanged, including import timestamps",
+    "source_hashes": "unchanged",
+    "parent_peak_rss_bytes": 1563099136,
+    "import_worker_peak_rss_bytes": 600064000,
+    "limit": "Saved sample only; backup files are retained in the owned directory until test cleanup. No production promotion or full archive migration."
+  },
+  "recovery": {
+    "status": "passed",
+    "cases": [
+      "live_writer_and_recovery_rejected",
+      {
+        "point": "uncommitted",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "committed",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "before_copy",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "after_copy",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "prepared",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "old_renamed",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "promoted",
+        "signal": "SIGKILL"
+      },
+      {
+        "point": "complete",
+        "signal": "SIGKILL"
+      },
+      "explicit_file_rollback",
+      "rename_failure_restored",
+      "copy_failure_preserved",
+      "damaged_backup_refused",
+      {
+        "point": "committed",
+        "signal": "SIGKILL"
+      },
+      "rollback_with_pending_wal_refused",
+      "rollback_after_new_import_refused",
+      "malformed_lease_refused"
+    ],
+    "compaction": {
+      "before_bytes": 13381632,
+      "after_bytes": 13381632,
+      "backup_bytes": 13381632,
+      "compared_objects": 37,
+      "closed_candidate_and_promoted_reopen": "passed",
+      "backup_retained": true
+    },
+    "limits": "Process-kill tests, injected copy failure, and real rename failure. No power-loss or full-disk hardware simulation. Production code rollback is outside this temporary prototype."
+  },
+  "bounded_import": {
+    "limits": {
+      "packageBytes": 33554432,
+      "recordBytes": 4194304,
+      "batchBytes": 524288,
+      "batchRows": 32,
+      "readRows": 8,
+      "databaseMemory": "192MB"
+    },
+    "isolated_workers": [
+      {
+        "mode": "saved-isolated",
+        "snapshot_count": 8,
+        "counts": {
+          "raw_rows": "9775",
+          "observations": "5175",
+          "exceptions": "3",
+          "text_values": "2228",
+          "postings": "2402",
+          "content_versions": "2998"
+        },
+        "events": 8259,
+        "deepnote": {
+          "stream": "shortlist",
+          "subject_key": "https://jobs.ashbyhq.com/deepnote/eb00d9b0-0dfc-4ff7-9aa4-19cf22e9644c",
+          "snapshots_seen": "8",
+          "first_snapshot": "20260602-1810",
+          "last_snapshot": "20261019-0616",
+          "first_seen": "2026-06-02 23:10:49.456",
+          "last_seen": "2026-10-19 11:16:05.929",
+          "distinct_observed_dates": "8",
+          "distinct_content_versions": "1",
+          "left_censored": true,
+          "right_censored": true,
+          "time_uncertain": false,
+          "observed_span_hours": 3324.0879091666666,
+          "presence_period_count": 1,
+          "reappearance_count": 0,
+          "content_change_count": 0,
+          "schema_change_count": 0,
+          "evidence_note": "Presence in saved snapshots only; observed span is not confirmed days open."
+        },
+        "parity": null,
+        "build_and_audit_ms": 9814,
+        "closed_bytes": 133443584,
+        "stats": {
+          "imported": 8,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 524225,
+          "worker_peak_rss_bytes": 593870848,
+          "worker_count": 8
+        },
+        "peak_rss_bytes": 761921536,
+        "parent_peak_rss_bytes": 168067072,
+        "source_files_checked": 56,
+        "limits": {
+          "packageBytes": 33554432,
+          "recordBytes": 4194304,
+          "batchBytes": 524288,
+          "batchRows": 32,
+          "readRows": 8,
+          "databaseMemory": "192MB"
+        },
+        "memory_after_import": {
+          "rss": 86982656,
+          "heapTotal": 14565376,
+          "heapUsed": 9311408,
+          "external": 12229338,
+          "arrayBuffers": 9956962
+        },
+        "memory_after_events": {
+          "rss": 167542784,
+          "heapTotal": 13778944,
+          "heapUsed": 9471800,
+          "external": 2487600,
+          "arrayBuffers": 184977
+        },
+        "database_storage": [
+          {
+            "database_name": "prototype",
+            "database_size": "127.2 MiB",
+            "block_size": "262144",
+            "total_blocks": "509",
+            "used_blocks": "279",
+            "free_blocks": "230",
+            "wal_size": "0 bytes",
+            "memory_usage": "3.7 MiB",
+            "memory_limit": "183.1 MiB"
+          }
+        ]
+      },
+      {
+        "mode": "stress",
+        "snapshot_count": 8,
+        "raw_rows": 3200,
+        "unique_content_versions": 1600,
+        "changed_events": 1400,
+        "elapsed_ms": 3089,
+        "closed_bytes": 50606080,
+        "stats": {
+          "imported": 8,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 507840,
+          "worker_peak_rss_bytes": 311427072,
+          "worker_count": 8
+        },
+        "peak_rss_bytes": 531103744,
+        "parent_peak_rss_bytes": 219676672,
+        "limits": {
+          "packageBytes": 33554432,
+          "recordBytes": 4194304,
+          "batchBytes": 524288,
+          "batchRows": 32,
+          "readRows": 8,
+          "databaseMemory": "192MB"
+        }
+      },
+      {
+        "mode": "stress",
+        "snapshot_count": 32,
+        "raw_rows": 12800,
+        "unique_content_versions": 6400,
+        "changed_events": 6200,
+        "elapsed_ms": 17103,
+        "closed_bytes": 151531520,
+        "stats": {
+          "imported": 32,
+          "no_op": 0,
+          "max_batch_rows": 32,
+          "max_batch_bytes": 507900,
+          "worker_peak_rss_bytes": 426377216,
+          "worker_count": 32
+        },
+        "peak_rss_bytes": 789987328,
+        "parent_peak_rss_bytes": 363610112,
+        "limits": {
+          "packageBytes": 33554432,
+          "recordBytes": 4194304,
+          "batchBytes": 524288,
+          "batchRows": 32,
+          "readRows": 8,
+          "databaseMemory": "192MB"
+        }
+      }
+    ],
+    "status": "passed"
+  },
+  "validation": {
+    "focused_commands": [
+      {
+        "command": "node src/scripts/test-job-history-sql.js",
+        "status": "passed"
+      },
+      {
+        "command": "node --max-old-space-size=256 src/scripts/test-job-history-compaction.js",
+        "status": "passed for functionality; memory limitation recorded"
+      },
+      {
+        "command": "node src/scripts/test-job-history-recovery.js",
+        "status": "passed"
+      },
+      {
+        "command": "node src/scripts/test-job-history-bounded.js",
+        "status": "passed"
+      }
+    ],
+    "regressions": [
+      {
+        "command": "node src/scripts/test-job-history-storage.js",
+        "exit_code": 0,
+        "seconds": 0.51,
+        "log": "/tmp/history-regression-0.log"
+      },
+      {
+        "command": "node src/scripts/test-job-history-lifecycle.js",
+        "exit_code": 0,
+        "seconds": 0.84,
+        "log": "/tmp/history-regression-1.log"
+      },
+      {
+        "command": "npm run jobs:test-history",
+        "exit_code": 0,
+        "seconds": 2.67,
+        "log": "/tmp/history-regression-2.log"
+      },
+      {
+        "command": "npm run jobs:test-history-content",
+        "exit_code": 0,
+        "seconds": 0.56,
+        "log": "/tmp/history-regression-3.log"
+      },
+      {
+        "command": "npm run jobs:test-content-metrics",
+        "exit_code": 0,
+        "seconds": 0.18,
+        "log": "/tmp/history-regression-4.log"
+      },
+      {
+        "command": "npm run jobs:test-all-remote-report",
+        "exit_code": 0,
+        "seconds": 0.3,
+        "log": "/tmp/history-regression-5.log"
+      },
+      {
+        "command": "npm run jobs:test-us-remote-report",
+        "exit_code": 0,
+        "seconds": 0.15,
+        "log": "/tmp/history-regression-6.log"
+      },
+      {
+        "command": "npm run jobs:test-international-remote-report",
+        "exit_code": 0,
+        "seconds": 0.14,
+        "log": "/tmp/history-regression-7.log"
+      }
+    ],
+    "syntax": [
+      {
+        "file": "src/lib/jobs-history.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/lib/job-history-bounded-storage.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/lib/job-history-bounded-runner.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/lib/job-history-prototype-owner.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/lib/job-history-prototype-files.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/lib/job-history-sql-compatibility.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/scripts/test-job-history-sql.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/scripts/test-job-history-compaction.js",
+        "exit_code": 0
+      },
+      {
+        "file": "src/scripts/test-job-history-recovery.js",
+        "exit_code": 0
+      }
+    ],
+    "git_diff_check": "passed",
+    "untracked_code_whitespace": "passed",
+    "review_and_results_whitespace": "passed"
+  },
+  "protection": {
+    "existing_files": 44217,
+    "changed": [
+      "src/lib/job-history-bounded-storage.js",
+      "src/lib/jobs-history.js",
+      "src/lib/job-history-bounded-runner.js"
+    ],
+    "missing": [],
+    "unexpected_changes": [],
+    "source_files": 2924,
+    "history_files": 3,
+    "protected_source_changes": [],
+    "protected_new_files": [],
+    "new_files": [
+      "docs/plans/job-history-compaction-sql-recovery-results.json",
+      "docs/plans/job-history-compaction-sql-recovery-review.md",
+      "src/lib/job-history-prototype-files.js",
+      "src/lib/job-history-prototype-owner.js",
+      "src/lib/job-history-sql-compatibility.js",
+      "src/scripts/test-job-history-compaction.js",
+      "src/scripts/test-job-history-recovery.js",
+      "src/scripts/test-job-history-sql.js"
+    ],
+    "database_before_sha256": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+    "seconds": 61.1,
+    "final_protected_hash_check": "passed",
+    "database_after_sha256": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7"
+  },
+  "code_sha256": {
+    "src/lib/jobs-history.js": "766601c146fa5e28378a2e248821f2c85390fd6ffac9a6866e6d80326ac394c3",
+    "src/lib/job-history-bounded-storage.js": "2b761e5843056a8f022894f80e612f6a91f55a55d7838bce2f0ae0dcd48520b3",
+    "src/lib/job-history-bounded-runner.js": "11c236c07bb1a05f11b2a4ae6a27d4a235e1315bea862b59d75cf7f9dbdf499c",
+    "src/lib/job-history-prototype-owner.js": "ff2e3d65c96e42781245574af1ac1b999387face7f14d87cb522f2488274d238",
+    "src/lib/job-history-prototype-files.js": "0f1388dec649a09f583be57a337a6a4d60bba5f386cfebe15c6352954c682d4f",
+    "src/lib/job-history-sql-compatibility.js": "5cc979af635e544349c4f77573ff7f91798984343468e8eb5a8a8711d788d51a",
+    "src/scripts/test-job-history-sql.js": "fa3f2ad56a6231da2b476e098b3141197bb21abde4d074bad10b0c817264f3da",
+    "src/scripts/test-job-history-compaction.js": "0061296a8ee01e072ca9341f99d9126e75010f7ce9cc988d9fedbc3a23a53233",
+    "src/scripts/test-job-history-recovery.js": "c1ed0158c26958f09b62c40aa17f4cd0677f835a243b00ce3a79fecef0ef31a2"
+  }
+}

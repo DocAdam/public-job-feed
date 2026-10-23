@@ -1,0 +1,31 @@
+{
+  "verified_archive_files": 14875,
+  "verified_archive_directories": 762,
+  "verified_source_bytes": 52741474676,
+  "restored_batches": [
+    "maintain-due-ashby-20260913t090005",
+    "maintain-due-bamboohr-20260824t130846",
+    "maintain-due-greenhouse-20260816t210002",
+    "maintain-due-icims-20260918t155003",
+    "maintain-due-lever-20260913t090005",
+    "maintain-due-workday-20260824t183758"
+  ],
+  "restored_files": 117,
+  "restored_bytes": 906049729,
+  "all_archive_paths_and_hashes_match": true,
+  "restore_disk_hashes_and_metadata_match": true,
+  "gzip_trailer_checked": true,
+  "status": "PASS",
+  "source_batches": 762,
+  "archive_bytes": 5285897960,
+  "archive_sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+  "manifest_sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4",
+  "archive_name": "batches.tar.gz",
+  "seconds": 468.18,
+  "completed_at": "2026-10-20T12:28:29.161946+00:00",
+  "source_content_and_metadata_unchanged": true,
+  "restore_copies_kept": true,
+  "source_deletions": 0,
+  "independent_copy_created": false,
+  "protection_check": "PASS"
+}

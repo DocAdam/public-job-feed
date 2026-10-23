@@ -1,0 +1,26 @@
+Starting fresh plan and protected-file baseline
+Protected files checked 5000 / 25848
+Protected files checked 10000 / 25848
+Protected files checked 15000 / 25848
+Protected files checked 20000 / 25848
+Protected files checked 25000 / 25848
+PASS before
+Fresh plan passed for exactly 762 archived batches
+Fresh dry run passed. Starting approved removal with locked validation.
+PASS predelete
+Removed exactly 762 folders. Refreshing derived batch index.
+Batch index complete.
+Batches indexed: 1136
+OK batches: 1132
+Review batches: 4
+Current board state: 29551 boards from 590622 compact fetch events.
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/index
+Board results unchanged. Checking remaining inventory, ledger, and protected files.
+Protected files rechecked 5000 / 25848
+Protected files rechecked 10000 / 25848
+Protected files rechecked 15000 / 25848
+Protected files rechecked 20000 / 25848
+Protected files rechecked 25000 / 25848
+PASS after
+PASS: cleanup, index refresh, history preservation, and protected-file checks

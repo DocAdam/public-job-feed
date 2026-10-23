@@ -1,0 +1,261 @@
+
+> public-job-feed@0.1.0 jobs:test-all
+> node src/scripts/run-test-suite.js
+
+
+> public-job-feed@0.1.0 jobs:test-history-backup
+> node src/scripts/test-history-backup.js
+
+PASS missing drive: history passes, no mount folder or backup is created
+PASS wrong drive and same-device placeholder refuse backup
+PASS real v2 backup: full restored audit, exact report, stable no-op reuse
+PASS failure status and active writer preserve the last verified backup
+PASS low space, disconnect, corrupt copy and source change cannot replace a verified backup
+PASS stored checksum corruption and unexpected symlinks fail verification
+PASS local expiry keeps legacy/current backups and records; interrupted retirement resumes; current recovery passes
+PASS external retention preserves 14 latest, monthly and pinned backups; corruption blocks deletion; unknown/partial folders stay
+PASS whole-refresh exclusion and run-bound dashboard status
+Daily history backup tests passed. Only isolated fixtures were changed.
+
+> public-job-feed@0.1.0 jobs:test-catalog-maintenance
+> node src/scripts/test-catalog-maintenance.js
+
+Catalog maintenance tests passed.
+
+> public-job-feed@0.1.0 jobs:test-batch-history
+> node src/scripts/test-batch-history.js
+
+PASS removed batches, late arrivals, repeated rebuilds, empty input, and diagnostic preservation
+PASS conflicting IDs fail closed; object key order does not create a conflict
+PASS saved truncated-gzip stops publication without changing saved bytes
+PASS saved bad-json stops publication without changing saved bytes
+PASS saved wrong-month stops publication without changing saved bytes
+PASS saved duplicate-id stops publication without changing saved bytes
+PASS saved oversized-saved stops publication without changing saved bytes
+PASS saved invalid-utf8 stops publication without changing saved bytes
+PASS oversized incoming record leaves the original ledger and state intact
+PASS ordinary write failure cleans only its own staged files
+PASS process death at temp-opened, explicit recovery, and idempotent retry
+PASS process death at temp-chunk-written, explicit recovery, and idempotent retry
+PASS process death at staged, explicit recovery, and idempotent retry
+PASS process death at month-published, explicit recovery, and idempotent retry
+PASS process death at before-state-publish, explicit recovery, and idempotent retry
+PASS unknown lock and unknown staging paths require manual review
+PASS symlinked ledger or parent cannot modify an external target
+PASS real index entry point retains old events after fixture batch removal and two rebuilds
+{"status":"passed","groups":18,"scope":"Synthetic temporary folders; no production index, batch, CSV, or database writes"}
+PASS policy, exact state and ledger coverage; deterministic plan
+PASS fixture removal, reindex twice, all saved events retained
+PASS changed candidate bytes refuses deletion
+PASS new unindexed batch refuses deletion
+PASS missing batch refuses deletion
+PASS changed index refuses deletion
+PASS changed board job count refuses deletion
+PASS missing saved events refuses deletion
+PASS damaged ledger refuses deletion
+PASS active monthly writer refuses deletion
+PASS pending monthly recovery refuses deletion
+PASS symlink candidate file refuses deletion
+PASS unsafe indexed folder refuses deletion
+PASS duplicate indexed name refuses deletion
+PASS changed plan decisions, unknown names, unsafe paths, version and expiry
+PASS monthly lock stops index before it changes any output
+PASS saved diagnostics must match raw evidence
+PASS symlink batch folder and unknown owner refuse work
+PASS input change during planning refuses plan
+PASS real index owner blocks planning, retirement and collection; dead owner stays blocked
+PASS retirement lock spans validation and removal; index refuses before writes
+PASS collection and planner hold the same boundary; caught errors release it
+Batch retention safeguards: 22 test groups passed.
+Batch history tests passed.
+
+> public-job-feed@0.1.0 jobs:test-board-freshness
+> node src/scripts/test-board-freshness.js
+
+Board freshness consistency tests passed.
+
+> public-job-feed@0.1.0 jobs:test-ats-errors
+> node src/scripts/test-ats-error-classification.js
+
+ATS error-classification fixture tests passed.
+
+> public-job-feed@0.1.0 jobs:test-failure-investigation
+> node src/scripts/test-failure-investigation.js
+
+Failure investigation: 94 checks passed.
+
+> public-job-feed@0.1.0 jobs:test-board-probe
+> node src/scripts/test-board-probe.js
+
+Board probe: 93 checks passed. No live requests.
+
+> public-job-feed@0.1.0 jobs:test-passive-launcher
+> node src/scripts/test-passive-launcher.js
+
+Passive LaunchAgent smoke test passed.
+
+> public-job-feed@0.1.0 jobs:test-ats-alert
+> node src/scripts/test-ats-anomaly-alert.js
+
+ATS anomaly-alert tests passed.
+
+> public-job-feed@0.1.0 jobs:test-title-category
+> node src/scripts/test-title-category.js
+
+Title-category fixture tests passed.
+
+> public-job-feed@0.1.0 jobs:test-dedupe-select
+> node src/scripts/test-dedupe-select.js
+
+Dedupe selection tests passed.
+
+> public-job-feed@0.1.0 jobs:test-core-pipeline
+> node src/scripts/test-core-pipeline.js
+
+Core pipeline regression tests passed.
+
+> public-job-feed@0.1.0 jobs:test-streaming-export-phase-1
+> node src/scripts/test-streaming-export-phase-1.js
+
+Streaming export Phase 1 tests passed.
+
+> public-job-feed@0.1.0 jobs:test-release
+> node src/scripts/test-release.js
+
+Release validation: PASS
+Latest feed rows: 835741
+Good Documentation Jobs rows: 719
+Company Coverage rows: 40857
+
+> public-job-feed@0.1.0 jobs:test-gsheet-grouping
+> node src/scripts/test-gsheet-grouping.js
+
+Google Sheets multi-location grouping tests passed.
+
+> public-job-feed@0.1.0 jobs:test-gsheet-package
+> node src/scripts/test-gsheet-package.js
+
+Google Sheets package validation: WARN
+Package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+Good Documentation Jobs rows: 719
+Previous rows: 731
+Row change: -12
+Company Coverage rows: 40857
+Failures: 0
+Warnings: 2
+
+> public-job-feed@0.1.0 jobs:test-url-health
+> node src/scripts/test-job-url-health.js
+
+Job URL health regression: PASS
+
+> public-job-feed@0.1.0 jobs:test-gsheet-url-pruning
+> node src/scripts/test-gsheet-url-pruning.js
+
+Google Sheets safe URL pruning tests passed.
+
+> public-job-feed@0.1.0 jobs:test-scoring
+> node src/scripts/test-scoring.js
+
+Writer Fit regression: PASS
+PASS: Technical Writer -> A (85)
+PASS: Documentation Engineer -> A (85)
+PASS: Staff Technical Writer -> A (85)
+PASS: Technical Content Engineer -> A (85)
+PASS: UX Writer -> A (85)
+PASS: Content Writer -> A (85)
+PASS: Backend Software Engineer -> F (0)
+PASS: Solutions Architect -> F (10)
+PASS: Software Engineer -> F (0)
+PASS: Member of Technical Staff -> F (0)
+
+> public-job-feed@0.1.0 jobs:test-greenhouse-normalize
+> node src/scripts/test-greenhouse-normalize.js
+
+Greenhouse normalize regression: PASS
+PASS: prefers first_published over updated_at -> 2026-06-03 age 32
+PASS: falls back to published_at before updated_at -> 2026-06-10 age 25
+PASS: falls back to created_at before updated_at -> 2026-06-15 age 20
+PASS: uses updated_at as last fallback -> 2026-07-03 age 2
+
+> public-job-feed@0.1.0 jobs:test-job-finder-consumer
+> node src/scripts/test-job-finder-consumer.js
+
+Job Finder consumer export tests passed.
+
+> public-job-feed@0.1.0 jobs:compare-last-release
+> node src/scripts/compare-last-release.js
+
+Release comparison complete.
+Newest release: 20261021-0636
+Previous release: 20261020-0629
+Rows difference: +130
+
+> public-job-feed@0.1.0 jobs:test-trends
+> node src/scripts/test-trends.js
+
+Trend quality test: PASS
+Failures: 0
+Warnings: 0
+
+> public-job-feed@0.1.0 jobs:test-us-remote-report
+> node src/scripts/test-us-remote-daily-report.js
+
+US-remote daily report tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-international-remote-report
+> node src/scripts/test-international-remote-daily-report.js
+
+International-remote daily report tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-all-remote-report
+> node src/scripts/test-all-remote-daily-report.js
+
+Jobs snapshot tests: PASS
+All-remote daily report tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-substack-full-report
+> node src/scripts/test-substack-full-report.js
+
+Substack full report tests passed.
+
+> public-job-feed@0.1.0 jobs:test-content-metrics
+> node src/scripts/test-content-metrics.js
+
+Content metrics calculation and report fixture tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-status-dashboard
+> node src/scripts/test-status-dashboard.js
+
+Dashboard tests passed.
+
+> public-job-feed@0.1.0 jobs:test-refresh-launcher
+> node src/scripts/test-refresh-launcher.js
+
+Refresh launcher success and failure tests passed; no live refresh ran.
+
+> public-job-feed@0.1.0 jobs:test-curated-submissions
+> node src/scripts/test-curated-submissions.js
+
+Curated submission fixtures passed; no live requests or production writes.
+
+> public-job-feed@0.1.0 jobs:test-refresh-reports
+> node src/scripts/test-refresh-reports.js
+
+Report identity, UTC timestamp, and board coverage fixtures passed.
+
+> public-job-feed@0.1.0 jobs:test-review-improvements
+> node src/scripts/test-review-improvements.js
+
+Review improvement fixtures passed.
+Package exclusion fixture passed.
+
+> public-job-feed@0.1.0 jobs:test-history
+> node src/scripts/test-jobs-history.js
+
+PASS: discovery, integrity failures, URL membership, identity, types, schema union, empty snapshot, lifecycle, inclusion history, atomic rebuild, incremental update, idempotency, duplicate selection, raw preservation, exceptions, and corruption detection
+
+> public-job-feed@0.1.0 jobs:test-history-content
+> node src/scripts/test-history-content.js
+
+PASS: daily parity, topic denominators, exceptions, duplicate exports, baseline selection, churn, coverage, roles, deterministic report, zero denominators, dependent incremental refresh, deterministic publishing sections, weekly trends, coverage gaps, and existing-section preservation

@@ -1,0 +1,35 @@
+{
+  "reviewed_at": "2026-10-20T19:01:03.736228+00:00",
+  "recommendation": "DO_NOT_DELETE",
+  "original_archive_hash": "PASS",
+  "cloud_presence": "PASS_name_visible_online",
+  "cloud_download_integrity": "FAIL_zero_bytes",
+  "cloud_restore": "NOT_VERIFIED_empty_download",
+  "current_retention_checks": {
+    "boardCount": 29551,
+    "rawFetchRows": 590622,
+    "candidateFetchRows": 185491,
+    "matchedEvents": 590622,
+    "ledgerEvents": 590622,
+    "fullState": "PASS",
+    "protectedSubset": "PASS",
+    "ledgerCoverage": "PASS"
+  },
+  "fresh_dry_run": {
+    "GeneratedAt": "2026-10-20T18:59:28.302Z",
+    "Applied": false,
+    "CandidateCount": 762,
+    "DeletedCount": 0,
+    "Validation": "PASS",
+    "DeletedBatches": []
+  },
+  "archived_input_fingerprint_match": true,
+  "eligible_archived_batches": 762,
+  "candidate_logical_bytes": 52741474676,
+  "candidate_logical_GiB": 49.11932598426938,
+  "actual_recovered_bytes": 0,
+  "maintenance_lock_released": true,
+  "followup_status": "PAUSED_review_complete_backup_failed",
+  "cleanup_approved": false,
+  "source_deletions": 0
+}

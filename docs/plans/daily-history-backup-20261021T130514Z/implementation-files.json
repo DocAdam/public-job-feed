@@ -1,0 +1,66 @@
+[
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/lib/feed-refresh-lock.js",
+    "sha256": "53c014fdda7aaee2c467941026b932772eef2e3ef3d1d75b3be13d2eedb95153"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/lib/history-backup-files.js",
+    "sha256": "485dc54c7f67cbf366c83a6d5124d8a7b551233da04db6a21c33e48d1eb6cef4"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/lib/history-backup-retention.js",
+    "sha256": "99959d311eafb0cfe5b88968c0de85f59d4a0bcf92f8828bfd488bbdd6cd292b"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/lib/daily-history-backup.js",
+    "sha256": "601e41ff5f5de5f4e9af4fd04ec47afc3b3f3cd894b0185d58ca80ee61660901"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/lib/batch-maintenance.js",
+    "sha256": "3afb3dde573770fcd1cde03133119554f0931a93c9650dfcfe4b4567051946d6"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/scripts/refresh-run-lock.js",
+    "sha256": "322a52eb962cfc0f475a5e3a3b8ddfa1677c40b04e04a354ca570f0fcb7d7928"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/scripts/daily-history-backup.js",
+    "sha256": "8a2f75b8d46b4b4e3a8705073c04ff0bd6437bec168cd7764e5c08e6a210b06c"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/scripts/restore-history-backup.js",
+    "sha256": "137af6aed2412486f6b5c15323c4dea4399e43b2a1fee754fb64aea1589c79c0"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/scripts/test-history-backup.js",
+    "sha256": "a06121c8f59f6dbdb88d45bd7fa7dcfc4af994702d7cda41db738f3119a03d07"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/scripts/test-refresh-launcher.js",
+    "sha256": "7b62b601380de8a22185d02217e513ce831a64bf0ced124ba5588406e665158a"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/src/scripts/build-status-dashboard.js",
+    "sha256": "cdef2d30e81b1ee1abbdc5a831242361b9985d568968dbfc4518282b7bbf8b69"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/package.json",
+    "sha256": "1c9ad68c69c8bfd801d5fc8cd651d624181a227c43a56bc3c1f3f45a6aacb17b"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+    "sha256": "45a85a94956e49a9bcde2209295ca58097352b5ea0dbc4d89b76995743215a31"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/docs/daily-history-backups.md",
+    "sha256": "84211bc2927e915e379796125c775ac61e0de1e9f225d2ea1af9bf19c1f261c4"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/docs/refresh-job-feed-process.md",
+    "sha256": "57469d613960efcbfc2d664716e7793c7d4767c9df8e2315542990a764e04028"
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/docs/storage-lifecycle.md",
+    "sha256": "131b749ee64f03af213a265aa64b117f2dc4b9aec7975ca825c94cf421973449"
+  }
+]

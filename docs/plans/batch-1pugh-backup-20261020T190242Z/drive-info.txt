@@ -1,0 +1,38 @@
+   Device Identifier:         disk4s1
+   Device Node:               /dev/disk4s1
+   Whole:                     No
+   Part of Whole:             disk4
+
+   Volume Name:               1Pugh
+   Mounted:                   Yes
+   Mount Point:               /Volumes/1Pugh
+
+   Partition Type:            Windows_NTFS
+   File System Personality:   ExFAT
+   Type (Bundle):             exfat
+   Name (User Visible):       ExFAT
+
+   OS Can Be Installed:       No
+   Media Type:                Generic
+   Protocol:                  USB
+   SMART Status:              Not Supported
+   Volume UUID:               A56D5D1E-1F58-30E1-9A46-A83B1E5ABDD1
+   Partition Offset:          1048576 Bytes (2048 512-Byte-Device-Blocks)
+
+   Disk Size:                 1.0 TB (1000202043392 Bytes) (exactly 1953519616 512-Byte-Units)
+   Device Block Size:         512 Bytes
+
+   Volume Total Space:        1.0 TB (1000169668608 Bytes) (exactly 1953456384 512-Byte-Units)
+   Volume Used Space:         326.5 GB (326480822272 Bytes) (exactly 637657856 512-Byte-Units) (32.6%)
+   Volume Free Space:         673.7 GB (673688846336 Bytes) (exactly 1315798528 512-Byte-Units) (67.4%)
+   Allocation Block Size:     131072 Bytes
+
+   Media OS Use Only:         No
+   Media Read-Only:           No
+   Volume Read-Only:          No
+
+   Device Location:           External
+   Removable Media:           Fixed
+
+   Solid State:               Info not available
+

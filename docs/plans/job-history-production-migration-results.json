@@ -1,0 +1,1128 @@
+{
+  "status": "accepted",
+  "accepted_at": "2026-10-20T01:50:11.117Z",
+  "authorization_record": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/authorized-approval.json",
+  "reviewed_approval_record": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/approval.json",
+  "generation": "9819f508-ece7-430f-9016-aae7e46e5078",
+  "production_database": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb",
+  "backup": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb.operations/9819f508-ece7-430f-9016-aae7e46e5078/before.duckdb",
+  "final_proof": {
+    "status": "passed",
+    "at": "2026-10-20T01:50:54.216Z",
+    "generation": "9819f508-ece7-430f-9016-aae7e46e5078",
+    "hashes": {
+      "database": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd",
+      "backup": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+      "candidate": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd",
+      "control": "2278283cf4cbc6249f2b00ae0e2a3e213765ad75ff251d810365a218433c6863"
+    },
+    "source_entries": 2925,
+    "regular_source_files": 2924,
+    "source_links": 1,
+    "source_inventory_and_hashes_unchanged": true,
+    "linked_target_unchanged": true,
+    "code_files_unchanged": 223,
+    "companions": {
+      "readme": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/README.md",
+        "sha256": "90c68f87c0b0900d0d3660c834ae30599f4100b71ec585f1c6241b5f33567733"
+      },
+      "validation": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/validation.json",
+        "sha256": "46b11986a14565761b807c56d2195a608676badb200e56c58ea8ee9d3b945ad3"
+      },
+      "report": {
+        "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/jobs-history-report.md",
+        "sha256": "b5d7d517998608272939a1daeac691b21fd403821c144a13d5815971405419f5"
+      }
+    },
+    "backup_path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb.operations/9819f508-ece7-430f-9016-aae7e46e5078/before.duckdb",
+    "backup_bytes": 1922838528,
+    "database_bytes": 694169600,
+    "locks_and_wal_absent": true,
+    "rollback_required": false
+  },
+  "migration_checks": {
+    "status": "accepted",
+    "started_at": "2026-10-20T01:39:37.565Z",
+    "events": [
+      {
+        "at": "2026-10-20T01:39:40.703Z",
+        "name": "recheck reviewed migration inputs"
+      },
+      {
+        "at": "2026-10-20T01:43:39.726Z",
+        "name": "backup"
+      },
+      {
+        "at": "2026-10-20T01:43:42.597Z",
+        "name": "verify restoration copy"
+      },
+      {
+        "at": "2026-10-20T01:43:48.417Z",
+        "name": "verify two unchanged candidate updates"
+      },
+      {
+        "at": "2026-10-20T01:46:13.313Z",
+        "name": "backup and restoration verified",
+        "sha256": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7"
+      },
+      {
+        "at": "2026-10-20T01:46:15.909Z",
+        "name": "before_prepared"
+      },
+      {
+        "at": "2026-10-20T01:46:17.703Z",
+        "name": "prepared"
+      },
+      {
+        "at": "2026-10-20T01:46:17.747Z",
+        "name": "renamed"
+      },
+      {
+        "at": "2026-10-20T01:46:17.778Z",
+        "name": "replaced"
+      },
+      {
+        "at": "2026-10-20T01:46:53.660Z",
+        "name": "companion_readme"
+      },
+      {
+        "at": "2026-10-20T01:46:53.690Z",
+        "name": "companion_validation"
+      },
+      {
+        "at": "2026-10-20T01:46:53.723Z",
+        "name": "companion_report"
+      },
+      {
+        "at": "2026-10-20T01:46:53.746Z",
+        "name": "validate installed database before acceptance"
+      },
+      {
+        "at": "2026-10-20T01:47:29.269Z",
+        "name": "compare installed SQL and report with complete control"
+      },
+      {
+        "at": "2026-10-20T01:50:10.625Z",
+        "name": "all acceptance checks passed"
+      },
+      {
+        "at": "2026-10-20T01:50:11.103Z",
+        "name": "accepted"
+      }
+    ],
+    "checks": {
+      "backup": {
+        "format": "v1",
+        "observations": "94069",
+        "canonical_urls": "2973",
+        "job_keys": "2923",
+        "company_keys": "1451",
+        "raw_top_match_rows": "94079",
+        "raw_job_keys": "2923",
+        "good_job_exceptions": "40",
+        "raw_good_job_rows": "83474",
+        "duplicate_canonical_rows": "10",
+        "snapshots": "131",
+        "latest": {
+          "snapshot_id": "20260928-0552",
+          "observed_at": "2026-09-28 05:52:00",
+          "total_postings": "853",
+          "good_postings": "767",
+          "remote_postings": "180",
+          "hybrid_postings": "116",
+          "onsite_postings": "527",
+          "us_remote_eligible_count": "59",
+          "company_count": 556,
+          "catalog_slug_count": 558,
+          "ats_type_count": 7
+        },
+        "errors": [],
+        "warnings": [
+          "20260715-0556: 10 duplicate canonical rows resolved; raw rows preserved",
+          "20260824-1624: 1 unmatched good-job rows preserved as exceptions",
+          "20260825-0538: 1 unmatched good-job rows preserved as exceptions",
+          "20260826-0658: 1 unmatched good-job rows preserved as exceptions",
+          "20260827-0509: 1 unmatched good-job rows preserved as exceptions",
+          "20260827-0518: 3 unmatched good-job rows preserved as exceptions",
+          "20260828-0620: 3 unmatched good-job rows preserved as exceptions",
+          "20260829-0639: 3 unmatched good-job rows preserved as exceptions",
+          "20260830-1127: 2 unmatched good-job rows preserved as exceptions",
+          "20260831-0536: 2 unmatched good-job rows preserved as exceptions",
+          "20260901-0603: 3 unmatched good-job rows preserved as exceptions",
+          "20260902-0528: 1 unmatched good-job rows preserved as exceptions",
+          "20260904-0441: 1 unmatched good-job rows preserved as exceptions",
+          "20260905-0704: 1 unmatched good-job rows preserved as exceptions",
+          "20260906-0700: 1 unmatched good-job rows preserved as exceptions",
+          "20260907-0701: 1 unmatched good-job rows preserved as exceptions",
+          "20260908-0506: 1 unmatched good-job rows preserved as exceptions",
+          "20260909-0608: 1 unmatched good-job rows preserved as exceptions",
+          "20260910-0605: 1 unmatched good-job rows preserved as exceptions",
+          "20260911-0656: 1 unmatched good-job rows preserved as exceptions",
+          "20260912-0710: 1 unmatched good-job rows preserved as exceptions",
+          "20260913-1043: 1 unmatched good-job rows preserved as exceptions",
+          "20260914-0650: 1 unmatched good-job rows preserved as exceptions",
+          "20260915-0613: 1 unmatched good-job rows preserved as exceptions",
+          "20260916-0616: 1 unmatched good-job rows preserved as exceptions",
+          "20260917-0458: 1 unmatched good-job rows preserved as exceptions",
+          "20260918-0646: 1 unmatched good-job rows preserved as exceptions",
+          "20260919-0628: 1 unmatched good-job rows preserved as exceptions",
+          "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+          "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+          "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+          "01_good_documentation_jobs.csv: 4 header variants (union by name)"
+        ],
+        "header_variants": {
+          "01_good_documentation_jobs.csv": [
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Last Checked",
+                "Report Run Date",
+                "Source"
+              ],
+              "snapshots": 2,
+              "first": "20260602-1810",
+              "last": "20260602-1812"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 46,
+              "first": "20260602-2051",
+              "last": "20260714-1604"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 32,
+              "first": "20260714-1607",
+              "last": "20260808-0619"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Additional Apply Links",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 51,
+              "first": "20260809-0543",
+              "last": "20260928-0552"
+            }
+          ],
+          "03_top_matches_full.csv": [
+            {
+              "headers": [
+                "SourceBatch",
+                "SourceATSCount",
+                "CrossATSDuplicate",
+                "CrossATSDuplicateATSList",
+                "Source",
+                "ATS",
+                "Company",
+                "CompanyKey",
+                "Title",
+                "ExportQualityFlag",
+                "ExportQualityIssues",
+                "PossibleDuplicate",
+                "DuplicateReason",
+                "JobKey",
+                "CompanyTitleLocationKey",
+                "CanonicalURLKey",
+                "DuplicateGroupKey",
+                "TitleReviewBucket",
+                "TitleReviewPriority",
+                "TitleReviewReason",
+                "TitleDomainSignal",
+                "TitleSenioritySignal",
+                "TitleLeadershipSignal",
+                "TitleICSignal",
+                "WriterFitVersion",
+                "WriterFitBaseScore",
+                "WriterFitScore",
+                "WriterFitTier",
+                "WriterFitReasons",
+                "WriterFitPositiveSignals",
+                "WriterFitNegativeSignals",
+                "WriterFitPenaltySignals",
+                "WriterFitDemotionReason",
+                "WriterFitGuardrailApplied",
+                "TitleMatchType",
+                "TitleMatchCategory",
+                "MatchedWatchlistTitle",
+                "TitleMatchScore",
+                "TitleConfidence",
+                "Location",
+                "RemoteStatus",
+                "RemoteSignal",
+                "RemoteConfidence",
+                "USRemoteEligible",
+                "LocationRisk",
+                "LocationReviewReason",
+                "SalaryDetected",
+                "SalaryMin",
+                "SalaryMax",
+                "SalaryCurrency",
+                "SalaryPeriod",
+                "SalaryText",
+                "Department",
+                "DatePosted",
+                "URL",
+                "Description",
+                "CatalogSlug",
+                "BoardURL",
+                "FetchURL",
+                "FetchedAt",
+                "RawJobId",
+                "RawJobURL",
+                "RawLocation",
+                "RawDepartment",
+                "DedupeSelected",
+                "DedupeSelectionReason",
+                "DedupeGroupSize"
+              ],
+              "snapshots": 131,
+              "first": "20260602-1810",
+              "last": "20260928-0552"
+            }
+          ]
+        },
+        "pending_snapshots": [
+          "20260929-0613",
+          "20260930-0644",
+          "20261001-0554",
+          "20261002-0513",
+          "20261003-0644",
+          "20261004-0521",
+          "20261005-0723",
+          "20261006-0524",
+          "20261007-0557",
+          "20261008-0603",
+          "20261009-0509",
+          "20261010-0658",
+          "20261011-1112",
+          "20261012-0604",
+          "20261013-0543",
+          "20261014-0727",
+          "20261015-0530",
+          "20261016-0608",
+          "20261017-0657",
+          "20261018-2107",
+          "20261019-0616"
+        ]
+      },
+      "restoration_copy": {
+        "passed": true,
+        "sha256": "b584af978612407331b443287e93e6aa3c99b443dbef0e58c0bbe60db940b4b7",
+        "removed": true
+      },
+      "noop_updates": [
+        {
+          "imported": 0,
+          "sha256": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd"
+        },
+        {
+          "imported": 0,
+          "sha256": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd"
+        }
+      ],
+      "candidate_details": {
+        "july": [
+          {
+            "raw_top_match_row_count": 929,
+            "resolved_observation_count": 919,
+            "duplicate_canonical_row_count": 10
+          }
+        ],
+        "exceptions": [
+          {
+            "reason": "no_matching_top_match_url",
+            "n": "40"
+          }
+        ],
+        "lifecycle": [
+          {
+            "n": "18535"
+          }
+        ]
+      },
+      "companion_and_runtime_backup": {
+        "passed": true,
+        "code_files": 223
+      },
+      "installed_audit": {
+        "format": "v2",
+        "observations": "111614",
+        "canonical_urls": "3419",
+        "job_keys": "3361",
+        "company_keys": "1597",
+        "raw_top_match_rows": "111624",
+        "raw_job_keys": "3361",
+        "good_job_exceptions": "40",
+        "raw_good_job_rows": "98896",
+        "duplicate_canonical_rows": "10",
+        "snapshots": "152",
+        "latest": {
+          "snapshot_id": "20261019-0616",
+          "observed_at": "2026-10-19 06:16:00",
+          "total_postings": "878",
+          "good_postings": "743",
+          "remote_postings": "171",
+          "hybrid_postings": "130",
+          "onsite_postings": "543",
+          "us_remote_eligible_count": "50",
+          "company_count": 559,
+          "catalog_slug_count": 564,
+          "ats_type_count": 7
+        },
+        "errors": [],
+        "warnings": [
+          "20260715-0556: 10 duplicate canonical rows resolved; raw rows preserved",
+          "20260824-1624: 1 unmatched good-job rows preserved as exceptions",
+          "20260825-0538: 1 unmatched good-job rows preserved as exceptions",
+          "20260826-0658: 1 unmatched good-job rows preserved as exceptions",
+          "20260827-0509: 1 unmatched good-job rows preserved as exceptions",
+          "20260827-0518: 3 unmatched good-job rows preserved as exceptions",
+          "20260828-0620: 3 unmatched good-job rows preserved as exceptions",
+          "20260829-0639: 3 unmatched good-job rows preserved as exceptions",
+          "20260830-1127: 2 unmatched good-job rows preserved as exceptions",
+          "20260831-0536: 2 unmatched good-job rows preserved as exceptions",
+          "20260901-0603: 3 unmatched good-job rows preserved as exceptions",
+          "20260902-0528: 1 unmatched good-job rows preserved as exceptions",
+          "20260904-0441: 1 unmatched good-job rows preserved as exceptions",
+          "20260905-0704: 1 unmatched good-job rows preserved as exceptions",
+          "20260906-0700: 1 unmatched good-job rows preserved as exceptions",
+          "20260907-0701: 1 unmatched good-job rows preserved as exceptions",
+          "20260908-0506: 1 unmatched good-job rows preserved as exceptions",
+          "20260909-0608: 1 unmatched good-job rows preserved as exceptions",
+          "20260910-0605: 1 unmatched good-job rows preserved as exceptions",
+          "20260911-0656: 1 unmatched good-job rows preserved as exceptions",
+          "20260912-0710: 1 unmatched good-job rows preserved as exceptions",
+          "20260913-1043: 1 unmatched good-job rows preserved as exceptions",
+          "20260914-0650: 1 unmatched good-job rows preserved as exceptions",
+          "20260915-0613: 1 unmatched good-job rows preserved as exceptions",
+          "20260916-0616: 1 unmatched good-job rows preserved as exceptions",
+          "20260917-0458: 1 unmatched good-job rows preserved as exceptions",
+          "20260918-0646: 1 unmatched good-job rows preserved as exceptions",
+          "20260919-0628: 1 unmatched good-job rows preserved as exceptions",
+          "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+          "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+          "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+          "01_good_documentation_jobs.csv: 4 header variants (union by name)"
+        ],
+        "header_variants": {
+          "01_good_documentation_jobs.csv": [
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Last Checked",
+                "Report Run Date",
+                "Source"
+              ],
+              "snapshots": 2,
+              "first": "20260602-1810",
+              "last": "20260602-1812"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 46,
+              "first": "20260602-2051",
+              "last": "20260714-1604"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 32,
+              "first": "20260714-1607",
+              "last": "20260808-0619"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Additional Apply Links",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 72,
+              "first": "20260809-0543",
+              "last": "20261019-0616"
+            }
+          ],
+          "03_top_matches_full.csv": [
+            {
+              "headers": [
+                "SourceBatch",
+                "SourceATSCount",
+                "CrossATSDuplicate",
+                "CrossATSDuplicateATSList",
+                "Source",
+                "ATS",
+                "Company",
+                "CompanyKey",
+                "Title",
+                "ExportQualityFlag",
+                "ExportQualityIssues",
+                "PossibleDuplicate",
+                "DuplicateReason",
+                "JobKey",
+                "CompanyTitleLocationKey",
+                "CanonicalURLKey",
+                "DuplicateGroupKey",
+                "TitleReviewBucket",
+                "TitleReviewPriority",
+                "TitleReviewReason",
+                "TitleDomainSignal",
+                "TitleSenioritySignal",
+                "TitleLeadershipSignal",
+                "TitleICSignal",
+                "WriterFitVersion",
+                "WriterFitBaseScore",
+                "WriterFitScore",
+                "WriterFitTier",
+                "WriterFitReasons",
+                "WriterFitPositiveSignals",
+                "WriterFitNegativeSignals",
+                "WriterFitPenaltySignals",
+                "WriterFitDemotionReason",
+                "WriterFitGuardrailApplied",
+                "TitleMatchType",
+                "TitleMatchCategory",
+                "MatchedWatchlistTitle",
+                "TitleMatchScore",
+                "TitleConfidence",
+                "Location",
+                "RemoteStatus",
+                "RemoteSignal",
+                "RemoteConfidence",
+                "USRemoteEligible",
+                "LocationRisk",
+                "LocationReviewReason",
+                "SalaryDetected",
+                "SalaryMin",
+                "SalaryMax",
+                "SalaryCurrency",
+                "SalaryPeriod",
+                "SalaryText",
+                "Department",
+                "DatePosted",
+                "URL",
+                "Description",
+                "CatalogSlug",
+                "BoardURL",
+                "FetchURL",
+                "FetchedAt",
+                "RawJobId",
+                "RawJobURL",
+                "RawLocation",
+                "RawDepartment",
+                "DedupeSelected",
+                "DedupeSelectionReason",
+                "DedupeGroupSize"
+              ],
+              "snapshots": 152,
+              "first": "20260602-1810",
+              "last": "20261019-0616"
+            }
+          ]
+        },
+        "pending_snapshots": []
+      },
+      "installed_parity": {
+        "objects": [
+          {
+            "object": "snapshots",
+            "columns": 13,
+            "rows": 152,
+            "differences": 0
+          },
+          {
+            "object": "posting_observations",
+            "columns": 75,
+            "rows": 111614,
+            "differences": 0
+          },
+          {
+            "object": "snapshot_files",
+            "columns": 5,
+            "rows": 304,
+            "differences": 0
+          },
+          {
+            "object": "source_artifacts",
+            "columns": 4,
+            "rows": 760,
+            "differences": 0
+          },
+          {
+            "object": "raw_top_match_rows",
+            "columns": 8,
+            "rows": 111624,
+            "differences": 0
+          },
+          {
+            "object": "raw_good_job_rows",
+            "columns": 8,
+            "rows": 98896,
+            "differences": 0
+          },
+          {
+            "object": "good_job_exceptions",
+            "columns": 9,
+            "rows": 40,
+            "differences": 0
+          },
+          {
+            "object": "historical_content_metrics",
+            "columns": 36,
+            "rows": 152,
+            "differences": 0
+          },
+          {
+            "object": "historical_role_metrics",
+            "columns": 3,
+            "rows": 1520,
+            "differences": 0
+          },
+          {
+            "object": "snapshot_summary",
+            "columns": 12,
+            "rows": 152,
+            "differences": 0
+          },
+          {
+            "object": "posting_lifecycle",
+            "columns": 10,
+            "rows": 3419,
+            "differences": 0
+          },
+          {
+            "object": "daily_market_metrics",
+            "columns": 11,
+            "rows": 152,
+            "differences": 0
+          }
+        ],
+        "report": "passed",
+        "imported_at": "Type and non-null parity; independent import timestamps"
+      },
+      "installed_details": {
+        "july": [
+          {
+            "raw_top_match_row_count": 929,
+            "resolved_observation_count": 919,
+            "duplicate_canonical_row_count": 10
+          }
+        ],
+        "exceptions": [
+          {
+            "reason": "no_matching_top_match_url",
+            "n": "40"
+          }
+        ],
+        "lifecycle": [
+          {
+            "n": "18535"
+          }
+        ]
+      },
+      "saved_report": {
+        "passed": true
+      },
+      "source_preservation": {
+        "passed": true,
+        "files": 2925,
+        "includes_symlink_target": true
+      },
+      "companions": {
+        "passed": true,
+        "generation": "9819f508-ece7-430f-9016-aae7e46e5078"
+      }
+    },
+    "resources": {
+      "own_peak_rss_bytes": 114245632,
+      "largest_worker_peak_rss_bytes": 558006272,
+      "controller_reserve_bytes": 67108864,
+      "conservative_peak_rss_bytes": 739360768,
+      "disk": {
+        "working_bytes": 5605675008,
+        "free_bytes": 105349373952
+      }
+    },
+    "result": {
+      "generation": "9819f508-ece7-430f-9016-aae7e46e5078",
+      "backup": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb.operations/9819f508-ece7-430f-9016-aae7e46e5078/before.duckdb",
+      "format": "v2",
+      "disk": {
+        "working_bytes": 1931911168,
+        "free_bytes": 105349373952
+      }
+    },
+    "finished_at": "2026-10-20T01:50:11.117Z"
+  },
+  "resource_monitor": {
+    "samples": 621,
+    "peak_work_bytes": 8750776320,
+    "minimum_free_bytes": 104137678848,
+    "peak_live_process_tree_rss_bytes": 692994048,
+    "scope": "One-second samples; execution controller, migration process, and child workers. Disk includes review copies, active database, backup operations, and staging.",
+    "resource_failures": [],
+    "exit_code": 0,
+    "controller_peak_rss_bytes": 19185664
+  },
+  "regressions": [
+    {
+      "command": "node src/scripts/test-job-history-validation.js",
+      "exit_code": 0,
+      "elapsed_seconds": 3.52,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-1.log"
+    },
+    {
+      "command": "node --max-old-space-size=256 src/scripts/test-job-history-validation-memory.js",
+      "exit_code": 0,
+      "elapsed_seconds": 44.99,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-2.log"
+    },
+    {
+      "command": "node --max-old-space-size=256 src/scripts/test-job-history-compaction-memory.js",
+      "exit_code": 0,
+      "elapsed_seconds": 65.16,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-3.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-copy-comparison.js",
+      "exit_code": 0,
+      "elapsed_seconds": 0.22,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-4.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-file-worker.js",
+      "exit_code": 0,
+      "elapsed_seconds": 3.17,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-5.log"
+    },
+    {
+      "command": "node --max-old-space-size=256 src/scripts/test-job-history-compaction.js",
+      "exit_code": 0,
+      "elapsed_seconds": 49.12,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-6.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-recovery.js",
+      "exit_code": 0,
+      "elapsed_seconds": 8.39,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-7.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-sql.js",
+      "exit_code": 0,
+      "elapsed_seconds": 21.29,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-8.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-bounded.js",
+      "exit_code": 0,
+      "elapsed_seconds": 46.73,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-9.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-storage.js",
+      "exit_code": 0,
+      "elapsed_seconds": 0.5,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-10.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-lifecycle.js",
+      "exit_code": 0,
+      "elapsed_seconds": 0.93,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-11.log"
+    },
+    {
+      "command": "npm run jobs:test-history",
+      "exit_code": 0,
+      "elapsed_seconds": 4.94,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-12.log"
+    },
+    {
+      "command": "npm run jobs:test-history-content",
+      "exit_code": 0,
+      "elapsed_seconds": 0.83,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-13.log"
+    },
+    {
+      "command": "npm run jobs:test-content-metrics",
+      "exit_code": 0,
+      "elapsed_seconds": 0.17,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-14.log"
+    },
+    {
+      "command": "npm run jobs:test-all-remote-report",
+      "exit_code": 0,
+      "elapsed_seconds": 0.29,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-15.log"
+    },
+    {
+      "command": "npm run jobs:test-us-remote-report",
+      "exit_code": 0,
+      "elapsed_seconds": 0.14,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-16.log"
+    },
+    {
+      "command": "npm run jobs:test-international-remote-report",
+      "exit_code": 0,
+      "elapsed_seconds": 0.14,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-17.log"
+    },
+    {
+      "command": "node src/scripts/test-job-history-integration.js",
+      "exit_code": 0,
+      "elapsed_seconds": 66.26,
+      "log": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/regression-18.log"
+    }
+  ],
+  "integration_suite": {
+    "status": "passed",
+    "checks": [
+      {
+        "name": "build and format dispatch",
+        "result": "passed"
+      },
+      {
+        "name": "exact SQL and report",
+        "result": "passed"
+      },
+      {
+        "name": "two no-op updates preserve file",
+        "result": "passed"
+      },
+      {
+        "name": "reader and writer gate",
+        "result": "passed"
+      },
+      {
+        "name": "ordinary build cannot change format",
+        "result": "passed"
+      },
+      {
+        "name": "multi-snapshot failure leaves active file unchanged",
+        "result": "passed"
+      },
+      {
+        "name": "multi-snapshot success and metrics",
+        "result": "passed"
+      },
+      {
+        "name": "normal CLI audit report query",
+        "result": "passed"
+      },
+      {
+        "name": "checked backup migration and accepted rollback refusal",
+        "result": "passed"
+      },
+      {
+        "name": "eight failure boundaries and repeated recovery",
+        "result": "passed"
+      },
+      {
+        "name": "WAL refusal",
+        "result": "passed"
+      },
+      {
+        "name": "symlink refusal",
+        "result": "passed"
+      },
+      {
+        "name": "disk floor refusal",
+        "result": "passed"
+      },
+      {
+        "name": "hard-link refusal",
+        "result": "passed"
+      },
+      {
+        "name": "source mutation refusal",
+        "result": "passed"
+      },
+      {
+        "name": "complete post-acceptance recovery candidate",
+        "result": "passed"
+      },
+      {
+        "name": "approval code binding",
+        "result": "passed"
+      },
+      {
+        "name": "production compaction command",
+        "result": "passed"
+      },
+      {
+        "name": "unknown schema refusal",
+        "result": "passed"
+      },
+      {
+        "name": "external reader refusal",
+        "result": "passed"
+      },
+      {
+        "name": "public-view identity audit",
+        "result": "passed"
+      },
+      {
+        "name": "maintenance CLI approval and apply",
+        "result": "passed"
+      },
+      {
+        "name": "killed writer and dead-owner restart recovery",
+        "result": "passed"
+      },
+      {
+        "name": "interrupted restore retry",
+        "result": "passed"
+      }
+    ],
+    "peak_rss_bytes": 331464704
+  },
+  "syntax_and_whitespace": {
+    "syntax": [
+      {
+        "file": "src/scripts/test-job-history-sql.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/query-jobs-history.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/report-jobs-history.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/job-history-file-worker.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/jobs-history.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-sql-compatibility.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-bounded-storage.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/jobs-history-report.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/jobs-history.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-prototype-metrics.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-bounded-runner.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-access.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-runtime.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-migration.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/lib/job-history-parity.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/job-history-runtime-worker.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/manage-jobs-history.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/test-job-history-integration.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/test-job-history-integration-worker.js",
+        "exit_code": 0,
+        "output": ""
+      },
+      {
+        "file": "src/scripts/test-job-history-integration-full.js",
+        "exit_code": 0,
+        "output": ""
+      }
+    ],
+    "diff_check": {
+      "exit_code": 0,
+      "output": ""
+    }
+  },
+  "normal_command_checks": [
+    {
+      "command": [
+        "npm",
+        "run",
+        "jobs:history-audit",
+        "--",
+        "--database",
+        "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/candidate.duckdb",
+        "--root",
+        "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 37.25,
+      "stdout": "\n> public-job-feed@0.1.0 jobs:history-audit\n> node src/scripts/jobs-history.js audit --database /Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/candidate.duckdb --root /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package\n\n{\n  \"format\": \"v2\",\n  \"observations\": \"111614\",\n  \"canonical_urls\": \"3419\",\n  \"job_keys\": \"3361\",\n  \"company_keys\": \"1597\",\n  \"raw_top_match_rows\": \"111624\",\n  \"raw_job_keys\": \"3361\",\n  \"good_job_exceptions\": \"40\",\n  \"raw_good_job_rows\": \"98896\",\n  \"duplicate_canonical_rows\": \"10\",\n  \"snapshots\": \"152\",\n  \"latest\": {\n    \"snapshot_id\": \"20261019-0616\",\n    \"observed_at\": \"2026-10-19 06:16:00\",\n    \"total_postings\": \"878\",\n    \"good_postings\": \"743\",\n    \"remote_postings\": \"171\",\n    \"hybrid_postings\": \"130\",\n    \"onsite_postings\": \"543\",\n    \"us_remote_eligible_count\": \"50\",\n    \"company_count\": 559,\n    \"catalog_slug_count\": 564,\n    \"ats_type_count\": 7\n  },\n  \"errors\": [],\n  \"warnings\": [\n    \"20260715-0556: 10 duplicate canonical rows resolved; raw rows preserved\",\n    \"20260824-1624: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260825-0538: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260826-0658: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260827-0509: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260827-0518: 3 unmatched good-job rows preserved as exceptions\",\n    \"20260828-0620: 3 unmatched good-job rows preserved as exceptions\",\n    \"20260829-0639: 3 unmatched good-job rows preserved as exceptions\",\n    \"20260830-1127: 2 unmatched good-job rows preserved as exceptions\",\n    \"20260831-0536: 2 unmatched good-job rows preserved as exceptions\",\n    \"20260901-0603: 3 unmatched good-job rows preserved as exceptions\",\n    \"20260902-0528: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260904-0441: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260905-0704: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260906-0700: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260907-0701: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260908-0506: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260909-0608: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260910-0605: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260911-0656: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260912-0710: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260913-1043: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260914-0650: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260915-0613: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260916-0616: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260917-0458: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260918-0646: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260919-0628: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260920-0545: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260921-0631: 1 unmatched good-job rows preserved as exceptions\",\n    \"20260922-0700: 1 unmatched good-job rows preserved as exceptions\",\n    \"01_good_documentation_jobs.csv: 4 header variants (union by name)\"\n  ],\n  \"header_variants\": {\n    \"01_good_documentation_jobs.csv\": [\n      {\n        \"headers\": [\n          \"Title\",\n          \"Company\",\n          \"Location\",\n          \"Apply Link\",\n          \"Writer Fit Score\",\n          \"Fit Tier\",\n          \"Why It Matched\",\n          \"Work Arrangement\",\n          \"Salary\",\n          \"Posted Date\",\n          \"Last Checked\",\n          \"Report Run Date\",\n          \"Source\"\n        ],\n        \"snapshots\": 2,\n        \"first\": \"20260602-1810\",\n        \"last\": \"20260602-1812\"\n      },\n      {\n        \"headers\": [\n          \"Title\",\n          \"Company\",\n          \"Location\",\n          \"Apply Link\",\n          \"Writer Fit Score\",\n          \"Fit Tier\",\n          \"Why It Matched\",\n          \"Work Arrangement\",\n          \"Salary\",\n          \"Posted Date\",\n          \"Age (Days)\",\n          \"Last Checked\",\n          \"Source\"\n        ],\n        \"snapshots\": 46,\n        \"first\": \"20260602-2051\",\n        \"last\": \"20260714-1604\"\n      },\n      {\n        \"headers\": [\n          \"Title\",\n          \"Company\",\n          \"Location\",\n          \"Apply Link\",\n          \"Writer Fit Score\",\n          \"Fit Tier\",\n          \"Why It Matched\",\n          \"Role Type\",\n          \"Work Arrangement\",\n          \"Salary\",\n          \"Posted Date\",\n          \"Age (Days)\",\n          \"Last Checked\",\n          \"Source\"\n        ],\n        \"snapshots\": 32,\n        \"first\": \"20260714-1607\",\n        \"last\": \"20260808-0619\"\n      },\n      {\n        \"headers\": [\n          \"Title\",\n          \"Company\",\n          \"Location\",\n          \"Apply Link\",\n          \"Additional Apply Links\",\n          \"Writer Fit Score\",\n          \"Fit Tier\",\n          \"Why It Matched\",\n          \"Role Type\",\n          \"Work Arrangement\",\n          \"Salary\",\n          \"Posted Date\",\n          \"Age (Days)\",\n          \"Last Checked\",\n          \"Source\"\n        ],\n        \"snapshots\": 72,\n        \"first\": \"20260809-0543\",\n        \"last\": \"20261019-0616\"\n      }\n    ],\n    \"03_top_matches_full.csv\": [\n      {\n        \"headers\": [\n          \"SourceBatch\",\n          \"SourceATSCount\",\n          \"CrossATSDuplicate\",\n          \"CrossATSDuplicateATSList\",\n          \"Source\",\n          \"ATS\",\n          \"Company\",\n          \"CompanyKey\",\n          \"Title\",\n          \"ExportQualityFlag\",\n          \"ExportQualityIssues\",\n          \"PossibleDuplicate\",\n          \"DuplicateReason\",\n          \"JobKey\",\n          \"CompanyTitleLocationKey\",\n          \"CanonicalURLKey\",\n          \"DuplicateGroupKey\",\n          \"TitleReviewBucket\",\n          \"TitleReviewPriority\",\n          \"TitleReviewReason\",\n          \"TitleDomainSignal\",\n          \"TitleSenioritySignal\",\n          \"TitleLeadershipSignal\",\n          \"TitleICSignal\",\n          \"WriterFitVersion\",\n          \"WriterFitBaseScore\",\n          \"WriterFitScore\",\n          \"WriterFitTier\",\n          \"WriterFitReasons\",\n          \"WriterFitPositiveSignals\",\n          \"WriterFitNegativeSignals\",\n          \"WriterFitPenaltySignals\",\n          \"WriterFitDemotionReason\",\n          \"WriterFitGuardrailApplied\",\n          \"TitleMatchType\",\n          \"TitleMatchCategory\",\n          \"MatchedWatchlistTitle\",\n          \"TitleMatchScore\",\n          \"TitleConfidence\",\n          \"Location\",\n          \"RemoteStatus\",\n          \"RemoteSignal\",\n          \"RemoteConfidence\",\n          \"USRemoteEligible\",\n          \"LocationRisk\",\n          \"LocationReviewReason\",\n          \"SalaryDetected\",\n          \"SalaryMin\",\n          \"SalaryMax\",\n          \"SalaryCurrency\",\n          \"SalaryPeriod\",\n          \"SalaryText\",\n          \"Department\",\n          \"DatePosted\",\n          \"URL\",\n          \"Description\",\n          \"CatalogSlug\",\n          \"BoardURL\",\n          \"FetchURL\",\n          \"FetchedAt\",\n          \"RawJobId\",\n          \"RawJobURL\",\n          \"RawLocation\",\n          \"RawDepartment\",\n          \"DedupeSelected\",\n          \"DedupeSelectionReason\",\n          \"DedupeGroupSize\"\n        ],\n        \"snapshots\": 152,\n        \"first\": \"20260602-1810\",\n        \"last\": \"20261019-0616\"\n      }\n    ]\n  },\n  \"pending_snapshots\": [],\n  \"mode\": \"audit\"\n}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "npm",
+        "run",
+        "jobs:history-report",
+        "--",
+        "--database",
+        "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/candidate.duckdb",
+        "--output",
+        "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/candidate-report.md"
+      ],
+      "exit_code": 0,
+      "elapsed_seconds": 0.6,
+      "stdout": "\n> public-job-feed@0.1.0 jobs:history-report\n> node src/scripts/report-jobs-history.js --database /Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/candidate.duckdb --output /Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/candidate-report.md\n\n{\n  \"output\": \"/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/candidate-report.md\",\n  \"latest\": \"20261019-0616\",\n  \"weekly\": \"20261013-0543\",\n  \"monthly\": \"20260918-0646\",\n  \"signals\": [\n    {\n      \"type\": \"remote_share_change\",\n      \"metric\": \"remote_share\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 17.094017094017094,\n      \"current\": 16.823687752355315,\n      \"delta\": -0.27032934166177824,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"good_job_count_change\",\n      \"metric\": \"good_jobs\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 702,\n      \"current\": 743,\n      \"delta\": 41,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"us_remote_change\",\n      \"metric\": \"explicit_us_remote_jobs\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 34,\n      \"current\": 36,\n      \"delta\": 2,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"topic_share_change\",\n      \"metric\": \"ai_share\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 34.44283646888567,\n      \"current\": 35.390946502057616,\n      \"delta\": 0.9481100331719432,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"topic_share_change\",\n      \"metric\": \"api_share\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 12.735166425470332,\n      \"current\": 13.443072702331962,\n      \"delta\": 0.70790627686163,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"topic_share_change\",\n      \"metric\": \"docs_as_code_share\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 3.61794500723589,\n      \"current\": 3.7037037037037033,\n      \"delta\": 0.08575869646781342,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Technical Writing\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 231,\n      \"current\": 248,\n      \"delta\": 17,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Documentation Engineering\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 5,\n      \"current\": 6,\n      \"delta\": 1,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Content Writing\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 193,\n      \"current\": 202,\n      \"delta\": 9,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Content Design / UX Writing\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 40,\n      \"current\": 41,\n      \"delta\": 1,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Developer Relations\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 16,\n      \"current\": 17,\n      \"delta\": 1,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Knowledge Management\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 27,\n      \"current\": 29,\n      \"delta\": 2,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Technical Content\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 48,\n      \"current\": 49,\n      \"delta\": 1,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Management / Leadership\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 16,\n      \"current\": 21,\n      \"delta\": 5,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Adjacent Roles\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 118,\n      \"current\": 121,\n      \"delta\": 3,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Unknown\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 8,\n      \"current\": 9,\n      \"delta\": 1,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"weekly_churn\",\n      \"period\": \"7-day\",\n      \"baseline_snapshot_id\": \"20261013-0543\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"count\": 263,\n      \"rate\": 37.464387464387464,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"remote_share_change\",\n      \"metric\": \"remote_share\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 20.66326530612245,\n      \"current\": 16.823687752355315,\n      \"delta\": -3.8395775537671355,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"good_job_count_change\",\n      \"metric\": \"good_jobs\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 784,\n      \"current\": 743,\n      \"delta\": -41,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"us_remote_change\",\n      \"metric\": \"explicit_us_remote_jobs\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 45,\n      \"current\": 36,\n      \"delta\": -9,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"topic_share_change\",\n      \"metric\": \"ai_share\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 33.67875647668394,\n      \"current\": 35.390946502057616,\n      \"delta\": 1.7121900253736797,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"topic_share_change\",\n      \"metric\": \"api_share\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 11.528497409326425,\n      \"current\": 13.443072702331962,\n      \"delta\": 1.9145752930055373,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"topic_share_change\",\n      \"metric\": \"docs_as_code_share\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 2.5906735751295336,\n      \"current\": 3.7037037037037033,\n      \"delta\": 1.1130301285741697,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Technical Writing\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 262,\n      \"current\": 248,\n      \"delta\": -14,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Documentation Engineering\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 10,\n      \"current\": 6,\n      \"delta\": -4,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Content Writing\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 210,\n      \"current\": 202,\n      \"delta\": -8,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Content Design / UX Writing\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 33,\n      \"current\": 41,\n      \"delta\": 8,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Developer Relations\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 19,\n      \"current\": 17,\n      \"delta\": -2,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Knowledge Management\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 33,\n      \"current\": 29,\n      \"delta\": -4,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Technical Content\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 48,\n      \"current\": 49,\n      \"delta\": 1,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Management / Leadership\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 27,\n      \"current\": 21,\n      \"delta\": -6,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Adjacent Roles\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 138,\n      \"current\": 121,\n      \"delta\": -17,\n      \"coverage_warning\": false\n    },\n    {\n      \"type\": \"role_group_change\",\n      \"role\": \"Unknown\",\n      \"period\": \"30-day\",\n      \"baseline_snapshot_id\": \"20260918-0646\",\n      \"current_snapshot_id\": \"20261019-0616\",\n      \"baseline\": 4,\n      \"current\": 9,\n      \"delta\": 5,\n      \"coverage_warning\": false\n    }\n  ]\n}\n",
+      "stderr": ""
+    }
+  ],
+  "source_baseline": {
+    "path": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history-migrations/20261019-writer-review/execution-9819f508/baseline.json",
+    "sha256": "113e6518939e95f6bef85131b6c1fad0bfc4504c27178d8f2e624245f7c027c1"
+  },
+  "scope": "Approved production migration only. Runtime code, dependencies, source archive, schedules, Sheets, and publication were not changed."
+}

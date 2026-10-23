@@ -1,0 +1,53 @@
+{
+  "status": "PASS_EXTERNAL_BACKUP_AND_FULL_RESTORE",
+  "completed_at": "2026-10-21T12:10:49.245603+00:00",
+  "backup": "/Volumes/1Pugh/Public Job Feed Archives/history-backup-20261021T120102Z",
+  "restore_test": "/Users/adampugh/GitHub/public-job-feed/docs/plans/history-backup-20261021T120102Z/restore-test",
+  "volume_uuid": "A56D5D1E-1F58-30E1-9A46-A83B1E5ABDD1",
+  "database_sha256": "a3891cb3331c63d7b3e3394484649b4b5b34627d68b712fb9012190498b6ce2b",
+  "database_bytes": 939798528,
+  "generation": "7b0f654d-4b3c-4d7f-818b-182bda807b74",
+  "counts": {
+    "snapshots": "154",
+    "observations": "113342",
+    "raw_top_match_rows": "113352",
+    "raw_good_job_rows": "100346",
+    "canonical_urls": "3439",
+    "job_keys": "3383",
+    "good_job_exceptions": "40",
+    "duplicate_canonical_rows": "10"
+  },
+  "latest": {
+    "snapshot_id": "20261021-0636",
+    "observed_at": "2026-10-21 06:36:00",
+    "total_postings": "862",
+    "good_postings": "719",
+    "remote_postings": "169",
+    "hybrid_postings": "127",
+    "onsite_postings": "532",
+    "us_remote_eligible_count": "49",
+    "company_count": 545,
+    "catalog_slug_count": 550,
+    "ats_type_count": 7
+  },
+  "audit_errors": [],
+  "pending_snapshots": [],
+  "source_warning_count": 32,
+  "source_archive_files_verified": 2929,
+  "runtime_archive_files_verified": 237,
+  "live_and_restored_audits_match": true,
+  "restored_report_matches": true,
+  "lifecycle_query_passed": true,
+  "no_op_update_passed": true,
+  "protected_source_records_checked": 2965,
+  "source_changes": 0,
+  "deletions": 0,
+  "tests_passed": [
+    "jobs:test-history",
+    "jobs:test-history-content"
+  ],
+  "daily_launcher_changed": false,
+  "limits": "Restore used the backed-up program code with the existing installed Node dependencies. No clean-machine dependency install or production cutover was run.",
+  "backup_total_bytes": 1647651680,
+  "final_package_checksums_passed": 32
+}

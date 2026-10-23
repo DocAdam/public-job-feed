@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "files": 25848,
+  "deleted_batch_folders": 762,
+  "space_after": {
+    "available_bytes": 103246655488,
+    "free_bytes": 103246655488
+  }
+}

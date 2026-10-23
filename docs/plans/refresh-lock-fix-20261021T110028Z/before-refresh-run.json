@@ -1,0 +1,15 @@
+{
+  "RunId": "2f99d2a8-7b54-43b8-abb4-900131b3b398",
+  "StartedAt": "2026-10-21T10:55:04.017Z",
+  "Status": "FAILED",
+  "ProjectRoot": "/Users/adampugh/GitHub/public-job-feed",
+  "LauncherPath": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+  "LauncherSHA256": "de160d2cd3cd807f34104102b6e4248feba6c12056c136ef17707aaaecd6386c",
+  "GitRevision": "16e43cfbebed594d1f815e5135450e0d650a4915",
+  "WorkingTreeChanged": true,
+  "Arguments": [],
+  "ParentLauncher": "/Users/adampugh/Desktop/Refresh Job Feed.command",
+  "ExitCode": 1,
+  "LastStep": "Step 1: maintaining catalogs and board snapshots",
+  "CompletedAt": "2026-10-21T10:55:23.039Z"
+}

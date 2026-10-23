@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "report_matches_accepted_generation": true,
+  "lifecycle": [
+    {
+      "canonical_keys": "3439",
+      "first_seen": "2026-06-02 18:10:00",
+      "last_seen": "2026-10-21 06:36:00"
+    }
+  ],
+  "database_sha256": "a3891cb3331c63d7b3e3394484649b4b5b34627d68b712fb9012190498b6ce2b",
+  "database_unchanged": true,
+  "runtime_source": "Restored from the external runtime archive; installed dependencies supplied through NODE_PATH"
+}

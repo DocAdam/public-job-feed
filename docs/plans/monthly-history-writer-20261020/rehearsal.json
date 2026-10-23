@@ -1,0 +1,47 @@
+{
+  "status": "passed",
+  "generated_at": "2026-10-20T11:27:48.717Z",
+  "indexed_batches": 1898,
+  "kept_batches": 1132,
+  "simulated_removed_batches": 762,
+  "kept_log_rows": 405131,
+  "production_board_count": 29551,
+  "phases": [
+    {
+      "phase": "protected-subset-rebuild-1",
+      "boardCount": 29551,
+      "eventCount": 590622,
+      "addedEventCount": 0,
+      "months": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09",
+        "2026-10"
+      ],
+      "changedMonths": []
+    },
+    {
+      "phase": "protected-subset-rebuild-2",
+      "boardCount": 29551,
+      "eventCount": 590622,
+      "addedEventCount": 0,
+      "months": [
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09",
+        "2026-10"
+      ],
+      "changedMonths": []
+    }
+  ],
+  "synthetic_addition": {
+    "first_added": 1,
+    "retry_added": 0,
+    "final_event_count": 590623
+  },
+  "source_ledger_hashes_unchanged": true,
+  "peak_rss_bytes": 982253568,
+  "scope": "Production data read only; batch omission and synthetic addition exist only in temporary fixture; fixture removed in finally"
+}

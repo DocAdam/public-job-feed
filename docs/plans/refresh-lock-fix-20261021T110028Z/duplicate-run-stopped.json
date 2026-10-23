@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-21T11:05:51.396744+00:00",
+  "pid": 12225,
+  "run_id": "a2557e51-4909-42ef-9ed3-ec2ed9267aa0",
+  "reason": "Duplicate desktop refresh was waiting; no child work had started. Stopped to prevent output overlap.",
+  "active_lock_owner": {
+    "PID": 11200,
+    "StartedAt": "2026-10-21T11:00:41.885Z"
+  }
+}

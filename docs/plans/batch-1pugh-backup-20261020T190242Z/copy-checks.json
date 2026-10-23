@@ -1,0 +1,48 @@
+{
+  "completed_at": "2026-10-20T19:04:33.567149+00:00",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 2716,
+      "sha256": "5bd678fcdc27231232b1a89fc4353be32d80151a49994ad004608d70872bd7bc",
+      "status": "PASS"
+    },
+    {
+      "file": "SHA256SUMS",
+      "bytes": 492,
+      "sha256": "11f4e8c38d159d048ea9fc0a4a69cc2d7313f274221ed07c505abbe2db9381d1",
+      "status": "PASS"
+    },
+    {
+      "file": "archive_batches.py",
+      "bytes": 10918,
+      "sha256": "b9f1ff362f871b1b24a4ec0d07783d9e111efd13a76b127f26a17b6aa87fafc4",
+      "status": "PASS"
+    },
+    {
+      "file": "batches.tar.gz",
+      "bytes": 5285897960,
+      "sha256": "95c22f553d48dc5a05b33554acbaf90742f5fdfb294f16d73105c1b884079fb1",
+      "status": "PASS"
+    },
+    {
+      "file": "manifest.json",
+      "bytes": 7788936,
+      "sha256": "cc89fbcce70203db9d7d5949bd8722891bfef60331b297fc9058800d54677cd4",
+      "status": "PASS"
+    },
+    {
+      "file": "retention-plan.json",
+      "bytes": 524276,
+      "sha256": "cbc0f4902af83bd0e2ae810300f33709c5d8cc8626d2b287a68912dc4554b403",
+      "status": "PASS"
+    },
+    {
+      "file": "verification.json",
+      "bytes": 1127,
+      "sha256": "d3d6eb13018fca37025edc7912600c466f4ca37dc73744f9148728ad3afe7071",
+      "status": "PASS"
+    }
+  ],
+  "separate_device": true
+}

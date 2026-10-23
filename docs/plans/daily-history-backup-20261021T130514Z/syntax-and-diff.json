@@ -1,0 +1,67 @@
+[
+  {
+    "file": "src/lib/feed-refresh-lock.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/lib/history-backup-files.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/lib/history-backup-retention.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/lib/daily-history-backup.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/lib/batch-maintenance.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/scripts/refresh-run-lock.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/scripts/daily-history-backup.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/scripts/restore-history-backup.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/scripts/test-history-backup.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/scripts/test-refresh-launcher.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "file": "src/scripts/build-status-dashboard.js",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "check": "bash -n launchers/Refresh Job Feed.command",
+    "exitCode": 0,
+    "output": ""
+  },
+  {
+    "check": "git diff --check",
+    "exitCode": 0,
+    "output": ""
+  }
+]

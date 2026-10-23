@@ -1,0 +1,12 @@
+Snapshots for disk3s5 (2 found)
+|
++-- 1BB002D7-17BE-4769-9935-E9DCAF9B2E25
+|   Name:        com.apple.TimeMachine.2026-10-07-072627.local
+|   XID:         3739479
+|   Purgeable:   Yes
+|
++-- F06389F8-7162-43A6-9E5A-4CC288F4752F
+    Name:        com.apple.TimeMachine.2026-10-14-071622.local
+    XID:         4001229
+    Purgeable:   Yes
+    NOTE:        This snapshot limits the minimum size of APFS Container disk3

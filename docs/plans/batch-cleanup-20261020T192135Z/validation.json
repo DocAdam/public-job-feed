@@ -1,0 +1,43 @@
+{
+  "status": "PASS",
+  "completedAt": "2026-10-20T19:31:46.400Z",
+  "deletedBatches": 762,
+  "remainingBatches": 1136,
+  "checks": {
+    "boardCount": 29551,
+    "rawFetchRows": 405131,
+    "candidateFetchRows": 0,
+    "matchedEvents": 405131,
+    "ledgerEvents": 590622,
+    "fullState": "PASS",
+    "protectedSubset": "PASS",
+    "ledgerCoverage": "PASS"
+  },
+  "boardRowsUnchanged": true,
+  "protectedDataUnchanged": true,
+  "deleted_files": 14875,
+  "deleted_logical_bytes": 52741474676,
+  "deleted_logical_GiB": 49.11932598426938,
+  "former_allocated_bytes": 52787216384,
+  "free_bytes_before": 103248539648,
+  "free_bytes_after": 103246655488,
+  "observed_net_free_bytes_change": -1884160,
+  "physical_space_recovery_status": "NO_MEASURABLE_INCREASE",
+  "possible_reason": "Two purgeable Time Machine snapshots exist; retained snapshot blocks are a likely explanation, not a measured allocation by file.",
+  "snapshot_deletions": 0,
+  "protected_files_checked": 25848,
+  "backup_hash_checks": "PASS",
+  "fresh_plan": "PASS",
+  "dry_run": "PASS",
+  "locked_apply": "PASS",
+  "post_cleanup_plan": "PASS",
+  "history_retention_tests": "PASS",
+  "syntax_checks": "PASS",
+  "git_diff_check": "PASS",
+  "maintenance_lock_released": true,
+  "derived_index_files_updated": [
+    "data/jobs/index/batch-index.json",
+    "data/jobs/index/batch-index.csv",
+    "data/jobs/index/board-latest-fetch.json"
+  ]
+}

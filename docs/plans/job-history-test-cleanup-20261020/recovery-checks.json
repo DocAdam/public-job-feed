@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-20T11:13:47.998855+00:00",
+  "status": "passed",
+  "production_audit": "passed",
+  "isolated_restore_hash": "a5bebe470fe279a4d87ed817d3b6b63405ca65d146638eeffba46e0f471ac9cd",
+  "restored_audit_matches_production": true,
+  "report_latest": "20261019-0616",
+  "restoration_test_copy_removed": true,
+  "production_copy_never_replaced": true
+}

@@ -1,0 +1,13 @@
+{
+  "status": "STOPPED_AT_USER_REQUEST",
+  "checked_at": "2026-10-21T11:15:23.680887+00:00",
+  "remaining_owned_processes": "",
+  "remaining_locks": [],
+  "protected_files_checked": 1732,
+  "changed_protected_files": [],
+  "refresh_complete": false,
+  "full_test_suite_run": false,
+  "maintenance_complete": true,
+  "boards_attempted": 300,
+  "job_records_fetched": 37007
+}
