@@ -278,6 +278,12 @@ migration and recovery require a separate reviewed operation. Keep source
 packages and recovery records. Do not replace newer accepted history with an
 older backup that contains fewer snapshots.
 
+On October 23, 2026, the feed completed, but history failed on a saved package
+manifest hash mismatch. Backup did not run. The
+[dated checkpoint](docs/plans/history-checkpoint-2026-10-23.md) records the last
+accepted generation and the unresolved source failure. No repair is part of
+this commit cleanup.
+
 ### Storage and retention
 
 The project keeps current board inputs, compact fetch history, and a short window of raw batches for recovery. New batch runs use JSON as the machine-readable format; the large batch CSV is available only when explicitly requested for investigation.

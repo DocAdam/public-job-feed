@@ -70,6 +70,18 @@ The snapshot counts below belong to those records, not to the current database.
   `20261022-0622`. The backup report time was `2026-10-22T11:35:41.477Z`.
   P01 did not run a refresh or independently restore that external backup.
 
+## October 23 accepted-history checkpoint
+
+The [dated checkpoint](history-checkpoint-2026-10-23.md) records the last accepted
+155-snapshot generation and the later source hash failure. The October 23 feed
+completed, but history failed and backup did not run. The unchanged generated
+history companions remain evidence of the accepted generation, not a current
+source audit. No repair or new data removal is part of the commit cleanup.
+
+The retained operation records, synthetic fixtures, and 40 original logs are
+included in Git with their original paths. The logs are explicit historical
+exceptions to the general log ignore rule. Future run logs remain ignored.
+
 ## Duplicate logs removed by P01
 
 The three removed files below matched retained logs in the same operation

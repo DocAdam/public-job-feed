@@ -128,7 +128,8 @@ The October 23 feed completed, but history failed on a source hash mismatch for
 `20261022-0622/gsheet-package-manifest.json`. Backup was `NOT_RUN`. This is not
 a current successful history audit. Preserve the source file, accepted history,
 and failure evidence for a separate review. Do not rewrite saved hashes or
-rebuild history to bypass the failure.
+rebuild history to bypass the failure. See the
+[dated checkpoint](plans/history-checkpoint-2026-10-23.md).
 
 A full restore adds time and temporary disk use to each new backup. Use current
 run reports for measured results; the small isolated tests do not establish a
