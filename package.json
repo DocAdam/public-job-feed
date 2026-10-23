@@ -105,7 +105,11 @@
     "jobs:history-report": "node src/scripts/report-jobs-history.js",
     "jobs:test-history-content": "node src/scripts/test-history-content.js",
     "jobs:analyze-failures": "node src/scripts/analyze-board-failures.js",
-    "jobs:test-failure-investigation": "node src/scripts/test-failure-investigation.js"
+    "jobs:test-failure-investigation": "node src/scripts/test-failure-investigation.js",
+    "jobs:probe-board": "node src/scripts/probe-board.js",
+    "jobs:select-failure-probes": "node src/scripts/select-failure-probe-cohorts.js",
+    "jobs:test-board-probe": "node src/scripts/test-board-probe.js",
+    "jobs:report-failure-probes": "node src/scripts/report-failure-probes.js"
   },
   "engines": {
     "node": "26.x"
@@ -120,6 +124,7 @@
     "jobs:test-board-freshness",
     "jobs:test-ats-errors",
     "jobs:test-failure-investigation",
+    "jobs:test-board-probe",
     "jobs:test-passive-launcher",
     "jobs:test-ats-alert",
     "jobs:test-title-category",

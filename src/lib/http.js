@@ -22,7 +22,7 @@ async function fetchResponse(url, options = {}, json = true) {
     };
     if (!response.ok) fail(`HTTP ${response.status}`, 'http_failure');
     if (!json) return { text, status: response.status, diagnostics };
-    if (diagnostics.response_detail && /html|careers|challenge/.test(diagnostics.response_detail)) {
+    if (diagnostics.response_detail && /html|careers|challenge|homepage/.test(diagnostics.response_detail)) {
       fail('Expected JSON; received HTML', 'unexpected_content_type');
     }
     let data = null;

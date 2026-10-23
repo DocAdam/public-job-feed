@@ -239,6 +239,7 @@ README, then check references and links in the same group.
 | [Curated submissions](docs/curated-submissions.md) | Adding and verifying a direct employer listing. |
 | [Job-index maintenance](docs/job-index-maintenance.md) | Board freshness, retries, and scheduled maintenance. |
 | [Saved source failure review](docs/source-failure-review-2026-09-25.md) | September 25 evidence, sample records, and limits of offline diagnosis. |
+| [Bounded failure sampling](docs/failure-evidence-sampling.md) | Selected board probes, saved evidence, tests, and limits. |
 | [ATS behavior](docs/ats-api-behavior.md) | Supported ATS sources and known limitations. |
 | [Connect to public ATS job boards](docs/connect-public-ats-job-boards.md) | An overview and provider-specific guides for the project’s ATS connections. |
 | [Understand Public Job Feed data](docs/public-job-feed-data.md) | Data provenance, field groups, outputs, and safe use of the feed. |

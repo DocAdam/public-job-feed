@@ -14,10 +14,10 @@ function safeUrl(value) {
 function redactText(value) {
   return String(value || '')
     .replace(/<script\b[^>]*>[\s\S]*?(?:<\/script>|$)/gi, '[script omitted]')
-    .replace(/<input\b[^>]*>/gi, '[input omitted]')
+    .replace(/<(?:input|meta)\b[^>]*(?:>|$)/gi, '[input omitted]')
     .replace(/https?:\/\/[^\s<>"']+/gi, value => safeUrl(value))
     .replace(/\b(Bearer|Basic)\s+[a-z0-9._~+/=-]+/gi, '$1 [redacted]')
-    .replace(/(["']?[\w-]*(?:token|secret|password|passwd|authorization|cookie|credential|api.?key|session|csrf|signature)[\w-]*["']?\s*[:=]\s*)("[^"\n]*"|'[^'\n]*'|[^\s,;<>]+)/gi, '$1[redacted]');
+    .replace(/(["']?[\w-]{0,80}(?:token|secret|password|passwd|authorization|cookie|credential|api.?key|session|csrf|signature)[\w-]{0,80}["']?\s*[:=]\s*)("[^"\n]*"|'[^'\n]*'|[^\s,;<>]+)/gi, '$1[redacted]');
 }
 function preview(text) {
   try {
@@ -45,6 +45,7 @@ function responseEvidence(url, options, response, text) {
   let detail = '';
   if (response.status === 404 || response.status === 410) detail = 'endpoint_not_found';
   else if (isHtml && /captcha|cf-chl-|verify (?:that )?you are human|access denied/i.test(text)) detail = 'access_challenge';
+  else if (isHtml && response.redirected && new URL(finalUrl).hostname === 'www.bamboohr.com' && new URL(finalUrl).pathname === '/' && /BambooHR.*HR Software/i.test(title || '')) detail = 'redirected_to_vendor_homepage';
   else if (isHtml && response.redirected && /\/careers\/?$/.test(new URL(finalUrl).pathname)) detail = 'redirected_to_careers_page';
   else if (isHtml) detail = 'unexpected_html_response';
   const retryAfter = response.headers.get('retry-after') || '';
