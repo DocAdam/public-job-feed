@@ -2,16 +2,23 @@
 
 Public Job Feed is a regularly refreshed collection of direct employer job postings for technical writing, documentation, content design, developer education, and related work.
 
-[Browse Good Documentation Jobs](https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit?usp=sharing)
+[Browse Good Doc Jobs](https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit?usp=sharing)
 
 The Google Sheet is the reader-facing view. This repository is the pipeline that finds postings, checks them, and prepares the CSV files behind it.
 
 ### Names used in this guide
 
-- **Good Documentation Jobs** is the shared Google Sheet for readers.
+- **Good Doc Jobs** is the shared Google Sheet for readers. Older file and tab
+  names can still use `good_documentation_jobs`; keep those technical names.
 - **Public Job Feed** is the project and the generated job data behind that Sheet.
 - **Google Sheets package** is the local set of CSV files prepared for manual upload.
 - **First-party employer posting** is a job page on the employer's own career site.
+
+Good Doc Jobs is free to use and share. No signup or subscription is needed to
+use the sheet. Adam does not track how people use the sheet. This statement
+applies to the sheet, not to Substack or other services. Paid subscriptions to
+Working Notes provide optional support for Adam's work. Payment does not provide
+better jobs or earlier access to the feed.
 
 ## What you can expect
 
@@ -238,6 +245,25 @@ data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv
 
 The URL review only marks deterministic closures as safe to prune. This includes `404`/`410` responses, closed-job pages, known bad redirects, and an Ashby job URL that returns only its generic `Jobs` shell instead of a role page. Rate limits, access blocks, timeouts, and other ambiguous failures stay in the review report.
 
+### Substack writing
+
+Use [Substack publication](docs/substack-publication.md) with the current
+Working Notes project instructions and Library Voice Charter. The normal
+weekly post is **Writing and documentation jobs**, with the subtitle
+**Week of [Adam's edition date]**. Keep the supplied report's scope, order,
+groups, and links. A report file is writing input; it does not set the final
+title, subtitle, or support footer.
+
+**Five recent documentation jobs** is a separate series with a closer look at
+five recent employer postings. See the [five-job workflow](docs/weekly-top-five-substack.md).
+The publication guide also records **Everyone needs an editor**, shared rules
+for other articles, and a proposed four-week publishing schedule. That proposal
+does not create recurring tasks or a publishing commitment.
+
+Feed changes describe saved list membership. They do not establish
+posting dates, closures, hiring, or a market trend. Writing from saved inputs
+does not require a refresh. Review and publication remain separate steps.
+
 ### Saved job history
 
 The history database uses compact storage while it retains raw rows, resolved
@@ -305,7 +331,8 @@ README, then check references and links in the same group.
 | [Google Sheets package cleanup](docs/gsheet-csv-cleanup-plan.md) | Checking and safely pruning deterministic broken links. |
 | [Storage lifecycle](docs/storage-lifecycle.md) | Keeping current data, compact history, and safe batch retention boundaries. |
 | [Daily history and backup](docs/daily-history-backups.md) | History updates, 1Pugh checks, restore tests, and managed retention. |
-| [Weekly Top 5 workflow](docs/weekly-top-five-substack.md) | Preparing the editorial job-roundup draft. |
+| [Substack publication](docs/substack-publication.md) | Choosing the post type, sources, dates, metrics, and support copy. |
+| [Five recent documentation jobs](docs/weekly-top-five-substack.md) | Verifying and explaining five recent roles for the separate series. |
 
 ## Development notes
 

@@ -12,7 +12,7 @@ WEEKLY_REPORT="$TREND_DIR/weekly-substack-report.md"
 cd "$PROJECT_DIR"
 
 echo "========================================"
-echo "Prepare Weekly Top 5 Substack Post"
+echo "Prepare Five Recent Documentation Jobs"
 echo "========================================"
 echo
 echo "Regenerating the seven-day writing inputs from current timestamped packages..."
@@ -28,24 +28,20 @@ if [ ! -s "$WEEKLY_JOBS" ] || [ ! -s "$WEEKLY_REPORT" ]; then
   exit 1
 fi
 
-cat <<'PROMPT' | pbcopy
-Build this week's Top 5 documentation jobs Substack post.
+# Keep the guide as the single source for the copied drafting request.
+DRAFT_REQUEST="$(awk '
+  /^## Request to Give Codex$/ { section = 1; next }
+  section && /^```text$/ { copying = 1; next }
+  copying && /^```$/ { exit }
+  copying { print }
+' "$GUIDE")"
 
-Use:
-- data/jobs/trends/latest/weekly-new-jobs.csv as the initial candidate pool.
-- data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv to confirm each candidate is still in the current cleaned feed.
-- data/jobs/trends/latest/weekly-substack-report.md for the weekly feed count and factual market context.
-- /Users/adampugh/GitHub/writing-projects/substack-top-5-jobs-2026-07-20.md only as a previous-format reference. Do not carry its job facts into the new post.
-- The adam-substack-voice skill with the job-roundup profile.
+if [ -z "$DRAFT_REQUEST" ]; then
+  echo "The guide has no drafting request. Inspect: $GUIDE"
+  exit 1
+fi
 
-Research the official application pages. Choose exactly five live roles with meaningful documentation, developer education, content design, knowledge management, or closely related ownership. Prefer direct employer postings and exclude obvious scoring false positives, duplicate/location variants, stale listings, and aggregator copies when a direct employer posting is unavailable.
-
-For every selected job, verify the exact title, company, location or remote restrictions, published salary, posted date, application URL, concrete work, and the qualification or constraint that most changes whether someone should apply. Do not infer missing salary or location details.
-
-Draft a clear title, a two-sentence Substack subheading, five parallel job sections, one short comparison paragraph, and a source note. Give each job one compact prose paragraph after its metadata. Do not invent my experience, reaction, application history, interview history, or judgment. Mark any place where one sentence from me would materially improve the post with [ADAM NOTE].
-
-Save the finished draft as /Users/adampugh/GitHub/writing-projects/substack-top-5-jobs-YYYY-MM-DD.md using today's date. Run the job-roundup voice review and make the smallest useful revisions before handing it back to me.
-PROMPT
+printf '%s\n' "$DRAFT_REQUEST" | pbcopy
 
 echo
 echo "Ready."
