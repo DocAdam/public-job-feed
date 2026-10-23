@@ -11,6 +11,9 @@ const { getICIMSFetchUrl, parseICIMSJobs } = require("../lib/ats/icims");
 const { getWorkdayFetchUrl } = require("../lib/ats/workday");
 const { countCsvRows } = require("./test-release");
 const { getLatestLiveFetchByBoard, keepFreshBoardRow } = require("./merge-batches");
+const { fetchAtsGroups } = require("./maintain-board-index");
+const { withBatchRun } = require("../lib/batch-run");
+const { LOCK_NAME, withBatchMaintenance } = require("../lib/batch-maintenance");
 
 function response(status, body, headers = {}) {
   return {
@@ -221,10 +224,63 @@ function testMergeFreshnessFiltering() {
   );
 }
 
+async function testSerialBatchCollection(tempDir) {
+  const groups = new Map([["ashby", [{ BoardKey: "ashby:one" }]], ["lever", [{ BoardKey: "lever:two" }]]]);
+  const entries = new Map();
+  const options = { outputRoot: path.join(tempDir, "serial-batches"), deadlineAt: Date.now() + 60000 };
+  const events = [];
+  const result = await fetchAtsGroups(groups, entries, options, async (ats, records, entryByKey, passedOptions) => {
+    assert.strictEqual(records, groups.get(ats));
+    assert.strictEqual(entryByKey, entries);
+    assert.strictEqual(passedOptions, options);
+    return withBatchRun(path.join(options.outputRoot, ats), async phase => {
+      events.push(`start:${ats}`);
+      await phase("fetching");
+      assert.equal(JSON.parse(await fs.readFile(path.join(options.outputRoot, LOCK_NAME), "utf8")).operation, "collect");
+      events.push(`end:${ats}`);
+      return ats;
+    });
+  });
+  assert.deepEqual(result, ["ashby", "lever"]);
+  assert.deepEqual(events, ["start:ashby", "end:ashby", "start:lever", "end:lever"]);
+  for (const ats of groups.keys()) {
+    const dir = path.join(options.outputRoot, ats);
+    const markers = (await fs.readdir(dir)).filter(name => name.startsWith("batch-run-"));
+    assert.equal(markers.length, 1);
+    assert.equal(JSON.parse(await fs.readFile(path.join(dir, markers[0]), "utf8")).status, "complete");
+  }
+  await assert.rejects(fs.stat(path.join(options.outputRoot, LOCK_NAME)), { code: "ENOENT" });
+  assert.deepEqual(await fetchAtsGroups(new Map(), entries, options), []);
+
+  const failedRoot = path.join(tempDir, "failed-batches");
+  const attempted = [];
+  await assert.rejects(fetchAtsGroups(groups, entries, options, ats => {
+    attempted.push(ats);
+    return withBatchRun(path.join(failedRoot, ats), async () => { throw new Error("test collection failure"); });
+  }), /test collection failure/);
+  assert.deepEqual(attempted, ["ashby"]);
+  const failedMarkers = await fs.readdir(path.join(failedRoot, "ashby"));
+  assert.equal(failedMarkers.length, 1);
+  assert.equal(JSON.parse(await fs.readFile(path.join(failedRoot, "ashby", failedMarkers[0]), "utf8")).status, "failed");
+  await assert.rejects(fs.stat(path.join(failedRoot, LOCK_NAME)), { code: "ENOENT" });
+
+  const lockedRoot = path.join(tempDir, "locked-batches");
+  await withBatchMaintenance(lockedRoot, "index", async owner => {
+    let actionStarted = false;
+    await assert.rejects(fetchAtsGroups(groups, entries, options, ats =>
+      withBatchRun(path.join(lockedRoot, ats), async () => { actionStarted = true; })
+    ), /Batch maintenance lock exists/);
+    assert.equal(actionStarted, false);
+    assert.deepEqual(await fs.readdir(lockedRoot), [LOCK_NAME]);
+    assert.equal(JSON.parse(await fs.readFile(path.join(lockedRoot, LOCK_NAME), "utf8")).nonce, owner.nonce);
+  });
+}
+
 async function main() {
   const tempDir = await fs.mkdtemp(path.join(os.tmpdir(), "public-job-feed-catalog-test-"));
   try {
     await testCatalogFallbacks(tempDir);
+    await testSerialBatchCollection(tempDir);
     testKeyDiffAndState();
     testCorrectnessFixtures();
     testMergeFreshnessFiltering();

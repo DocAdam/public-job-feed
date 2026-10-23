@@ -2,6 +2,7 @@ const fs = require("fs/promises");
 const path = require("path");
 const { rowsToCsv } = require("../lib/csv");
 const { ensureDir, fromRoot, readJsonFile, writeJsonFile } = require("../lib/files");
+const { withBatchMaintenance, assertHistoryIdle } = require("../lib/batch-maintenance");
 const { writeDerivedBatchHistory } = require("../lib/batch-history");
 
 const batchesRoot = fromRoot("data", "jobs", "batches");
@@ -175,11 +176,13 @@ async function getBatchNames() {
       .map((entry) => entry.name)
       .sort((a, b) => a.localeCompare(b));
   } catch (error) {
-    return [];
+    if (error.code === "ENOENT") return [];
+    throw error;
   }
 }
 
-async function main() {
+async function indexBatches() {
+  await assertHistoryIdle(outputDir);
   const indexedAt = new Date().toISOString();
   const batchNames = await getBatchNames();
 
@@ -223,7 +226,15 @@ async function main() {
   console.log(outputDir);
 }
 
-main().catch((error) => {
+async function main({ onLocked = async () => {} } = {}) {
+  return withBatchMaintenance(batchesRoot, "index", async () => {
+    await onLocked();
+    return indexBatches();
+  });
+}
+
+if (require.main === module) main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+module.exports = { main };

@@ -244,13 +244,19 @@ older backup that contains fewer snapshots.
 
 The project keeps current board inputs, compact fetch history, and a short window of raw batches for recovery. New batch runs use JSON as the machine-readable format; the large batch CSV is available only when explicitly requested for investigation.
 
-Batch retirement is a separate maintenance task, never part of the normal refresh. Review the plan first, then use the guarded command only when you intend to retire validated, superseded batches:
+Raw-batch retirement is a separate approved maintenance task. It is never part
+of the normal refresh. First create a fresh plan and run its non-deleting check:
 
 ```sh
-npm run jobs:retire-batches -- --apply
+npm run jobs:plan-batch-retention -- --output-dir /absolute/path/to/review
+npm run jobs:retire-batches -- --plan-dir /absolute/path/to/review --output-dir /absolute/path/to/review
 ```
 
-For the retention rules, recovery behavior, and full-slice workflow, see [Storage lifecycle](docs/storage-lifecycle.md).
+The second command is a dry run. Review the exact candidates and decide whether
+a verified raw-payload archive is required. Only after approval, add `--apply`
+to that retirement command. Plans expire after 24 hours; changed inputs require
+a new plan. See [Storage lifecycle](docs/storage-lifecycle.md) for the checks,
+locks, recovery limits, and full-slice workflow.
 
 ### Completed review records
 

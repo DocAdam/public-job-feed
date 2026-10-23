@@ -632,6 +632,9 @@ async function main() {
   const safeDelayMs = Number.isFinite(delayMs) && delayMs >= 0 ? delayMs : 250;
   const safeConcurrency = Math.min(requestedConcurrency, 10);
   const batchName = getArgValue("--batch-name", getDefaultBatchName(ats, priority, safeOffset, safeLimit));
+  if (!batchName || [".", ".."].includes(batchName) || /[\\/]/.test(batchName)) {
+    throw new Error("Batch name must be a single folder name");
+  }
   const batchesRoot = resolveOutputRoot(getArgValue("--output-root", ""));
   const batchDir = path.join(batchesRoot, batchName);
   const outputPaths = getOutputPaths(batchDir);

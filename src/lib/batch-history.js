@@ -1,9 +1,4 @@
-const fs = require("fs/promises");
-const nodeFs = require("fs");
-const path = require("path");
-const zlib = require("zlib");
-const { pipeline } = require("stream/promises");
-const { ensureDir, writeJsonObjectFile } = require("./files");
+const { writeFetchHistory, recoverFetchHistory, mergeEvent } = require("./batch-history-ledger");
 
 const schemaVersion = 1;
 
@@ -80,25 +75,19 @@ function toHistoryEvent(row) {
   };
 }
 
-async function writeGzipJsonLines(filePath, rows) {
-  await ensureDir(path.dirname(filePath));
-  const tempPath = path.join(path.dirname(filePath), `.${path.basename(filePath)}.${process.pid}.${Date.now()}.tmp`);
-  const body = rows.map((row) => `${JSON.stringify(row)}\n`).join("");
-
-  try {
-    await pipeline(
-      require("stream").Readable.from([body]),
-      zlib.createGzip({ level: zlib.constants.Z_BEST_COMPRESSION }),
-      nodeFs.createWriteStream(tempPath)
-    );
-    await fs.rename(tempPath, filePath);
-  } catch (error) {
-    await fs.rm(tempPath, { force: true });
-    throw error;
+function validateHistoryEvent(event, month) {
+  if (!event || typeof event !== "object" || Array.isArray(event)) throw new Error("Invalid history event");
+  for (const key of ["EventId", "SourceBatch", "BoardKey", "ATS", "CatalogSlug", "Status", "FetchedAt"]) {
+    if (typeof event[key] !== "string") throw new Error("Invalid history identity: " + key);
+  }
+  const expected = toHistoryEvent(event);
+  if (!event.BoardKey || !event.FetchedAt || event.BoardKey !== expected.BoardKey ||
+      event.EventId !== expected.EventId || getHistoryMonth(event.FetchedAt) !== month) {
+    throw new Error("Invalid history event identity or month: " + event.EventId);
   }
 }
 
-async function writeDerivedBatchHistory({ outputDir, generatedAt, sourceBatchCount, fetchLogRows }) {
+async function writeDerivedBatchHistory({ outputDir, generatedAt, sourceBatchCount, fetchLogRows, onHistoryPhase }) {
   const latest = getLatestLiveFetchByBoard(fetchLogRows);
   const boardRows = Array.from(latest.values(), toBoardStateRow).sort((left, right) =>
     left.BoardKey.localeCompare(right.BoardKey)
@@ -110,7 +99,6 @@ async function writeDerivedBatchHistory({ outputDir, generatedAt, sourceBatchCou
     BoardCount: boardRows.length,
     Boards: boardRows,
   };
-  await writeJsonObjectFile(path.join(outputDir, "board-latest-fetch.json"), state);
 
   const byMonth = new Map();
   for (const row of fetchLogRows) {
@@ -118,20 +106,13 @@ async function writeDerivedBatchHistory({ outputDir, generatedAt, sourceBatchCou
     if (!event.BoardKey || !event.FetchedAt) continue;
     const month = getHistoryMonth(event.FetchedAt);
     if (!byMonth.has(month)) byMonth.set(month, new Map());
-    byMonth.get(month).set(event.EventId, event);
+    mergeEvent(byMonth.get(month), event);
   }
 
-  const historyRoot = path.join(outputDir, "history", "fetch-events");
-  for (const [month, events] of byMonth) {
-    const rows = Array.from(events.values()).sort((left, right) => left.EventId.localeCompare(right.EventId));
-    await writeGzipJsonLines(path.join(historyRoot, `${month}.jsonl.gz`), rows);
-  }
-
-  return {
-    boardCount: boardRows.length,
-    eventCount: Array.from(byMonth.values()).reduce((sum, events) => sum + events.size, 0),
-    months: Array.from(byMonth.keys()).sort(),
-  };
+  const history = await writeFetchHistory({
+    outputDir, byMonth, state, validate: validateHistoryEvent, onPhase: onHistoryPhase,
+  });
+  return { boardCount: boardRows.length, ...history };
 }
 
 function isUsableBoardState(value, sourceBatchCount) {
@@ -151,4 +132,9 @@ module.exports = {
   isUsableBoardState,
   parseDateTime,
   writeDerivedBatchHistory,
+  recoverFetchHistory,
+  toHistoryEvent,
+  toBoardStateRow,
+  getHistoryMonth,
+  validateHistoryEvent,
 };

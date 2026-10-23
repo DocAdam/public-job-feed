@@ -155,6 +155,15 @@ async function fetchAtsGroup(ats, records, entryByKey, options) {
   });
 }
 
+async function fetchAtsGroups(selectedByAts, entryByKey, options, fetchGroup = fetchAtsGroup) {
+  const results = [];
+  // Each group takes the same exclusive batch lock. Keep the shared deadline.
+  for (const [ats, records] of selectedByAts) {
+    results.push(await fetchGroup(ats, records, entryByKey, options));
+  }
+  return results;
+}
+
 async function main() {
   const dryRun = parseBoolean(getArgValue("--dry-run", "true"), true);
   const scope = String(getArgValue("--scope", "due")).replace(/[^a-z0-9_-]+/gi, "-").toLowerCase();
@@ -208,18 +217,14 @@ async function main() {
   const titleRecords = await readJobTitles(jobTitlesPath);
   const deadlineAt = Date.now() + budgetMinutes * 60 * 1000;
   await ensureDir(outputRoot);
-  const results = await Promise.all(
-    Array.from(selectedByAts.entries()).map(([ats, records]) =>
-      fetchAtsGroup(ats, records, entryByKey, {
-        outputRoot,
-        runId,
-        scope,
-        titleRecords,
-        deadlineAt,
-        includePublicFeedCsv,
-      })
-    )
-  );
+  const results = await fetchAtsGroups(selectedByAts, entryByKey, {
+    outputRoot,
+    runId,
+    scope,
+    titleRecords,
+    deadlineAt,
+    includePublicFeedCsv,
+  });
   const fetchLogs = results.flatMap((result) => result.fetchLogRows);
   const jobRows = results.flatMap((result) => result.jobRows);
   updateBoardState(state, fetchLogs, jobRows, new Date().toISOString());
@@ -242,4 +247,4 @@ if (require.main === module) {
   });
 }
 
-module.exports = { main, fetchAtsGroup };
+module.exports = { main, fetchAtsGroup, fetchAtsGroups };

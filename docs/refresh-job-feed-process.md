@@ -32,6 +32,10 @@ for the required checks to finish. Invalid catalog data uses the previous
 source; an unapproved row-count decline above 20% also triggers this fallback.
 A required maintenance failure stops the refresh before the release build.
 
+Within board maintenance, ATS groups run one at a time because each group
+uses the same exclusive batch lock. Requests within each group keep their
+configured concurrency. All groups share the same time limit.
+
 ## Writer Fit v3 scoring
 
 The score is a ranking aid. Location and remote status do not add score points.

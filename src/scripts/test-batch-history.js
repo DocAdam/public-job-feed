@@ -36,6 +36,8 @@ async function main() {
       .toString("utf8");
     assert.equal(july.trim().split("\n").length, 3);
     assert.deepEqual(july.trim().split("\n").map(JSON.parse).find(row => row.Status === "failed").Diagnostic, rows[1].Diagnostic);
+    await require("./test-batch-history-recovery").main();
+    await require("./test-batch-retention").main();
     console.log("Batch history tests passed.");
   } finally {
     await fs.rm(tempDir, { recursive: true, force: true });
