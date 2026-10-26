@@ -1,0 +1,11 @@
+{
+  "startedAt": "2026-10-25T22:26:48.446Z",
+  "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+  "mainSheetId": 55693553,
+  "pivotSheetId": 1606926353,
+  "tableId": "810055407",
+  "requestFile": "plan/publication-request.json",
+  "rows": 732,
+  "range": "A1:P733",
+  "sourceHash": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963"
+}

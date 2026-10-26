@@ -1,0 +1,10 @@
+{
+  "at": "2026-10-25T22:26:22.286Z",
+  "dataDifferences": [],
+  "tableEqual": true,
+  "pivotEqual": true,
+  "csvHash": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+  "rows": 733,
+  "columns": 16,
+  "requests": 7
+}

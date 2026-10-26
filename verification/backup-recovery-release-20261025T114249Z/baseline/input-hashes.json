@@ -1,0 +1,26 @@
+[
+  {
+    "path": "data/jobs/public/public-job-feed-latest.json",
+    "bytes": 4017995774,
+    "mtimeNs": 1792853575280711898,
+    "sha256": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930"
+  },
+  {
+    "path": "data/jobs/public/public-job-feed-latest.csv",
+    "bytes": 2942285684,
+    "mtimeNs": 1792853546919141357,
+    "sha256": "ab04fce7a2dab1f32df804209e0c28b53f588315fef14f83f19d394cf7c0591e"
+  },
+  {
+    "path": "data/jobs/public/public-job-feed-deduped-top.json",
+    "bytes": 5845933,
+    "mtimeNs": 1792853586264273987,
+    "sha256": "96e96ed7d2a259c579d13968686367632923ae02a7f818ff39e4a00cd3078a42"
+  },
+  {
+    "path": "data/jobs/history/jobs-history.duckdb",
+    "bytes": 971255808,
+    "mtimeNs": 1792854136462936114,
+    "sha256": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42"
+  }
+]

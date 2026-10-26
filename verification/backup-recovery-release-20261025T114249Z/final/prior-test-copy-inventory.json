@@ -1,0 +1,54 @@
+[
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/current-canonical-fixed-input.json",
+    "bytes": 4017995774
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/public/public-job-feed-latest.json",
+    "bytes": 3887317961
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/public/public-job-feed-latest.csv",
+    "bytes": 2884268230
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/merged/public-feed-release/public-job-feed-merged.json",
+    "bytes": 3887317961
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/merged/public-feed-release/public-job-feed-merged.csv",
+    "bytes": 2884268230
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/history/jobs-history.duckdb.operations/9819f508-ece7-430f-9016-aae7e46e5078/before.duckdb",
+    "bytes": 1922838528
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/public/slices/public-job-feed-firehose.json",
+    "bytes": 2433590656
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/public/slices/public-job-feed-firehose.csv",
+    "bytes": 2074469789
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/public/slices/deduped/public-job-feed-deduped-firehose.csv",
+    "bytes": 1854237974
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/public/slices/deduped/public-job-feed-deduped-firehose.json",
+    "bytes": 2196053817
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/gsheet-package/latest/06_full_firehose.csv",
+    "bytes": 2884268230
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/archives/20261020-762-batches/batches.tar.gz",
+    "bytes": 5285897960
+  },
+  {
+    "path": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/data/jobs/history-migrations/20261019-writer-review/v1-control.duckdb",
+    "bytes": 2273849344
+  }
+]

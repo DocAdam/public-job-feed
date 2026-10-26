@@ -1,0 +1,8 @@
+
+> public-job-feed@0.1.0 jobs:test-release
+> node src/scripts/test-release.js
+
+Release validation: PASS
+Latest feed rows: 836867
+Good Documentation Jobs rows: 715
+Company Coverage rows: 40857

@@ -1,0 +1,18 @@
+{
+  "checkedAt": "2026-10-25T18:57:53.206Z",
+  "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+  "databaseHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+  "files": 3329,
+  "fingerprint": "bedfbc8a68e8936074c7c1e8a9a8d5ce59f4392a1845fb58c56691149b9904ab",
+  "restoreBytes": 4608705398,
+  "reserveBytes": 34359738368,
+  "requiredLocalBytes": 38968443766,
+  "localFreeBytes": 40749920256,
+  "localShortfallBytes": 0,
+  "temporaryRestoreBase": "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T",
+  "externalFreeBytes": 648909815808,
+  "requiredExternalBytes": 5682447222,
+  "externalShortfallBytes": 0,
+  "driveUUID": "A56D5D1E-1F58-30E1-9A46-A83B1E5ABDD1",
+  "sufficient": true
+}

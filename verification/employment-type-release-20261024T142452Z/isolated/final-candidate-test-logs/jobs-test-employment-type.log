@@ -1,0 +1,14 @@
+
+> public-job-feed@0.1.0 jobs:test-employment-type
+> node src/scripts/test-employment-type.js
+
+PASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.
+PASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.
+PASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.
+PASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.
+PASS: core compatibility dedupe, conflict population, public label validation.
+PASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.
+PASS: all controlled terms, search-response observation date, and source URL.
+PASS: an explicit schedule alternative remains valid with a compatible structured value.
+PASS: observed Variable Compensation defect, explicit variable schedules, retained rejected evidence, and idempotent correction.
+PASS: singular/plural variable hours and shifts, compatible hours categories, and export of older normalized records without changing source evidence.

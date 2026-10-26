@@ -1,0 +1,1 @@
+PASS: current package finalized before import; complete CSV schema; restored backup has current dashboard; final live status leaves sources unchanged; manual sync/rebuild and competing writes refused; next-day import and backup pass; strict source checks retained.

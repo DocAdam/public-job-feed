@@ -1,0 +1,15 @@
+
+> public-job-feed@0.1.0 jobs:test-scoring
+> node src/scripts/test-scoring.js
+
+Writer Fit regression: PASS
+PASS: Technical Writer -> A (85)
+PASS: Documentation Engineer -> A (85)
+PASS: Staff Technical Writer -> A (85)
+PASS: Technical Content Engineer -> A (85)
+PASS: UX Writer -> A (85)
+PASS: Content Writer -> A (85)
+PASS: Backend Software Engineer -> F (0)
+PASS: Solutions Architect -> F (10)
+PASS: Software Engineer -> F (0)
+PASS: Member of Technical Staff -> F (0)

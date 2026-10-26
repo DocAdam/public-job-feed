@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-substack-full-report
+> node src/scripts/test-substack-full-report.js
+
+Substack full report tests passed.

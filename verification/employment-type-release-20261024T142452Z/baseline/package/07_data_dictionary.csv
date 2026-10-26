@@ -1,0 +1,74 @@
+Field,Category,Description,SharingNote
+SourceBatch,Core,Batch folder that produced this row.,Safe for internal review; decide final public presentation in Google Sheets.
+SourceATSCount,Core,Distinct ATS sources involved in this row's duplicate key group.,Safe for internal review; decide final public presentation in Google Sheets.
+CrossATSDuplicate,Quality/Dedupe,True when the duplicate group contains more than one ATS.,Safe for internal review; decide final public presentation in Google Sheets.
+CrossATSDuplicateATSList,Quality/Dedupe,Pipe-separated ATS list for cross-ATS duplicate groups.,Safe for internal review; decide final public presentation in Google Sheets.
+Source,Core,Fetcher or API source label.,Safe for internal review; decide final public presentation in Google Sheets.
+ATS,Core,Applicant tracking system source.,Safe for internal review; decide final public presentation in Google Sheets.
+Company,Core,Normalized display company name.,Safe for internal review; decide final public presentation in Google Sheets.
+CompanyKey,Quality/Dedupe,Compact normalized company key used for grouping.,Safe for internal review; decide final public presentation in Google Sheets.
+Title,Title Review,Job title from the ATS posting.,Safe for internal review; decide final public presentation in Google Sheets.
+ExportQualityFlag,Quality/Dedupe,"Export quality status: OK, REVIEW, or BAD_ROW.",Safe for internal review; decide final public presentation in Google Sheets.
+ExportQualityIssues,Quality/Dedupe,Pipe-separated quality issues for review.,Safe for internal review; decide final public presentation in Google Sheets.
+PossibleDuplicate,Quality/Dedupe,True when another row shares a likely duplicate key.,Safe for internal review; decide final public presentation in Google Sheets.
+DuplicateReason,Quality/Dedupe,Reason a row was flagged as a possible duplicate.,Safe for internal review; decide final public presentation in Google Sheets.
+JobKey,Quality/Dedupe,"Primary job key, preferring ATS and raw job id.",Safe for internal review; decide final public presentation in Google Sheets.
+CompanyTitleLocationKey,Location,"Fallback duplicate key based on company, title, and location.",Safe for internal review; decide final public presentation in Google Sheets.
+CanonicalURLKey,Quality/Dedupe,Job URL normalized without query string or fragment.,Safe for internal review; decide final public presentation in Google Sheets.
+DuplicateGroupKey,Quality/Dedupe,Duplicate grouping key used by dedupe diagnostics.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleReviewBucket,Title Review,"Excel-review title bucket, not final scoring.",Safe for internal review; decide final public presentation in Google Sheets.
+TitleReviewPriority,Title Review,Numeric title review priority; lower is stronger.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleReviewReason,Title Review,Human-readable title bucket reason.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleDomainSignal,Title Review,Domain terms found in the title.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleSenioritySignal,Title Review,Seniority terms found in the title.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleLeadershipSignal,Title Review,True when title includes leadership terms.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleICSignal,Title Review,True when title includes individual-contributor role terms.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitVersion,Writer Fit,Writer Fit scoring version used for this row.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitBaseScore,Writer Fit,"Writer Fit score before v3 penalties, title-match floors, and A/B guardrails.",Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitScore,Writer Fit,Transparent writer-fit score for spreadsheet filtering. Remote/location fields are filters only.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitTier,Writer Fit,Writer-fit tier A through F.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitReasons,Writer Fit,Pipe-separated score reasons.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitPositiveSignals,Writer Fit,Positive writer-fit signals.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitNegativeSignals,Writer Fit,Negative writer-fit signals.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitPenaltySignals,Writer Fit,Writer Fit v3 penalty reasons applied to obvious non-writer roles.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitDemotionReason,Writer Fit,Reason a high base score was capped or demoted.,Safe for internal review; decide final public presentation in Google Sheets.
+WriterFitGuardrailApplied,Writer Fit,True when A/B tier was capped because strong writer/docs evidence was missing.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleMatchType,Title Review,"Strict watchlist match type: exact, contains, token, or none.",Safe for internal review; decide final public presentation in Google Sheets.
+TitleMatchCategory,Title Review,Watchlist category for the matched title.,Safe for internal review; decide final public presentation in Google Sheets.
+MatchedWatchlistTitle,Core,Watchlist title that matched.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleMatchScore,Title Review,Strict title match score.,Safe for internal review; decide final public presentation in Google Sheets.
+TitleConfidence,Title Review,Strict title match confidence.,Safe for internal review; decide final public presentation in Google Sheets.
+Location,Location,Normalized job location.,Safe for internal review; decide final public presentation in Google Sheets.
+RemoteStatus,Location,"Heuristic remote status: Remote, Hybrid, Onsite, or Unknown.",Safe for internal review; decide final public presentation in Google Sheets.
+RemoteSignal,Location,Remote/location text signal found by heuristics.,Safe for internal review; decide final public presentation in Google Sheets.
+RemoteConfidence,Location,Confidence for remote status heuristic.,Safe for internal review; decide final public presentation in Google Sheets.
+USRemoteEligible,Location,"Heuristic US remote eligibility: true, false, or unknown.",Safe for internal review; decide final public presentation in Google Sheets.
+LocationRisk,Location,Heuristic location risk for review.,Safe for internal review; decide final public presentation in Google Sheets.
+LocationReviewReason,Location,Human-readable location heuristic reason.,Safe for internal review; decide final public presentation in Google Sheets.
+SalaryDetected,Salary,True when salary detection found a range.,Safe for internal review; decide final public presentation in Google Sheets.
+SalaryMin,Salary,Detected minimum salary.,Safe for internal review; decide final public presentation in Google Sheets.
+SalaryMax,Salary,Detected maximum salary.,Safe for internal review; decide final public presentation in Google Sheets.
+SalaryCurrency,Salary,Detected salary currency.,Safe for internal review; decide final public presentation in Google Sheets.
+SalaryPeriod,Salary,Detected salary period.,Safe for internal review; decide final public presentation in Google Sheets.
+SalaryText,Salary,Raw detected salary text.,Safe for internal review; decide final public presentation in Google Sheets.
+Department,Core,Department/team from the ATS posting.,Safe for internal review; decide final public presentation in Google Sheets.
+DatePosted,Core,Posting date if available.,Safe for internal review; decide final public presentation in Google Sheets.
+URL,Source,Primary job URL.,Safe for internal review; decide final public presentation in Google Sheets.
+ApplyURL,Source,Direct application URL when a curated employer posting exposes one; otherwise use URL.,Safe for internal review; decide final public presentation in Google Sheets.
+Description,Core,Raw or lightly normalized job description.,Useful but can make Sheets heavy; consider hiding after import.
+CatalogSlug,Source,Catalog slug used for board fetching.,Safe for internal review; decide final public presentation in Google Sheets.
+BoardURL,Source,Likely public board URL.,Safe for internal review; decide final public presentation in Google Sheets.
+FetchURL,Source,Endpoint or URL attempted by the fetcher.,Safe for internal review; decide final public presentation in Google Sheets.
+FetchedAt,Source,Timestamp when the job was fetched.,Safe for internal review; decide final public presentation in Google Sheets.
+RawJobId,Raw ATS,Raw ATS job id.,Safe for internal review; decide final public presentation in Google Sheets.
+RawJobURL,Raw ATS,Raw ATS job URL.,Safe for internal review; decide final public presentation in Google Sheets.
+RawLocation,Location,Raw ATS location value.,Safe for internal review; decide final public presentation in Google Sheets.
+RawDepartment,Raw ATS,Raw ATS department value.,Safe for internal review; decide final public presentation in Google Sheets.
+DedupeSelected,Dedupe,True for selected representative rows in deduped exports.,Safe for internal review; decide final public presentation in Google Sheets.
+DedupeSelectionReason,Dedupe,Reason the representative row was selected.,Safe for internal review; decide final public presentation in Google Sheets.
+DedupeGroupSize,Dedupe,Number of rows in the dedupe group.,Safe for internal review; decide final public presentation in Google Sheets.
+Posted Date,Freshness,Date supplied by the ATS if available. In simple public exports this is formatted YYYY-MM-DD.,Public-friendly display field for Google Sheets.
+Age (Days),Freshness,Integer number of days between Posted Date and the report generation date.,Blank when Posted Date is unavailable.
+Last Checked,Freshness,When the system last saw the job in the ATS. In simple public exports this is formatted YYYY-MM-DD HH:MM UTC.,"A recently checked job is more likely to still be open, but users should always click through to verify."
+Report Run Date,Freshness,Package/report generation time. Stored in 00_start_here.csv rather than repeated on every simple job row.,Use this to understand when the Google Sheets package was generated.
+Additional Apply Links,Display consolidation,Other application URLs for an exact company/title role grouped across multiple locations in the simple public export.,The primary Apply Link remains a plain URL. This field is populated only for grouped multi-location listings.

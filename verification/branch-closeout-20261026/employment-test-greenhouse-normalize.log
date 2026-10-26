@@ -1,0 +1,5 @@
+Greenhouse normalize regression: PASS
+PASS: prefers first_published over updated_at -> 2026-06-03 age 32
+PASS: falls back to published_at before updated_at -> 2026-06-10 age 25
+PASS: falls back to created_at before updated_at -> 2026-06-15 age 20
+PASS: uses updated_at as last fallback -> 2026-07-03 age 2

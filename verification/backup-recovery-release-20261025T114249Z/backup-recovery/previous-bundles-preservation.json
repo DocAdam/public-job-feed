@@ -1,0 +1,5 @@
+{
+  "checked": 16286,
+  "differences": [],
+  "limit": "Metadata comparison; the backup creator wrote only its new candidate. No full rehash of every old payload was done."
+}

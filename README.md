@@ -64,6 +64,22 @@ Location, remote status, and salary are detected from public posting text. They 
 
 The project does not make application decisions, track applicant outcomes, or modify Job Finder records.
 
+## Employment Type
+
+**Published on October 25, 2026.** Package `20261025-0724` has 732 public rows and 16 columns. The main table and pivot source use `A1:P733`. Read-back of all 11,728 cells matched the source CSV. Parser, feed, history, full backup restore and final backup acceptance checks passed. See the [release report](docs/features/employment-type-release-verification-20261025.md) and [Sheet publication report](verification/sheet-publication-20261025-0724-20261025T221638Z/final/publication-report.md).
+
+The October 26 remote-view update passed read-back for all 125 source rows whose Work Arrangement is `Remote`. The view uses no Location or country filter. The source posting can still have country restrictions. The main table stayed unchanged. A browser check found that the fixed column widths clip long text. See the [remote-view check](verification/remote-only-view-20261026103340Z/README.md).
+
+New packages append `Employment Type` after `Source`. It gives the stated schedule and employment terms. Examples are `Full-time`, `Contract`, `Part-time; Contract`, and `Full-time; Internship`. `Not stated` means that neither dimension has supported evidence. `Needs review` means that evidence conflicts.
+
+Role Type and Work Arrangement keep their existing meanings. Full-time does not mean Permanent. Use a text-contains filter for Contract or Internship to include combined labels.
+
+The implementation uses fields already received by each source and explicit title or description statements. Workday and iCIMS detail-only values can remain unknown. It adds no network requests. New collection can restore structured information that older normalized batches lost.
+
+Before an approved Sheet import, read the new package's `public-schema.json` and `EMPLOYMENT_TYPE_IMPORT.md`. Update the main table, filter, and pivot source range from the actual headers and row count. The local pipeline does not publish to Sheets.
+
+See the [field contract, source limits, tests, and isolated preview commands](docs/features/employment-type.md) and the [verification report](docs/features/employment-type-verification.md).
+
 ## For maintainers
 
 The normal macOS workflow is:

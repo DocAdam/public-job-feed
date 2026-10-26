@@ -1,0 +1,39 @@
+{
+  "kind": "Observed normalized canonical record excerpt; not an original raw ATS response",
+  "record": {
+    "ATS": "ashby",
+    "Company": "Mebe",
+    "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+    "URL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+    "SourceBatch": "maintain-due-ashby-20261023t210006",
+    "FetchedAt": "2026-10-23T21:00:20.208Z",
+    "display": "Needs review",
+    "EmploymentSchedule": "Not stated",
+    "EmploymentTerms": [],
+    "EmploymentTypeStatus": "conflict",
+    "EmploymentTypeEvidence": [
+      {
+        "Dimension": "schedule",
+        "Value": "Variable",
+        "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+        "SourceField": "Title",
+        "SourceKind": "title",
+        "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+        "ObservedAt": "2026-10-23T21:00:20.208Z"
+      },
+      {
+        "Dimension": "schedule",
+        "Value": "Part-time",
+        "RawValue": "This is a Part Time Variable Hour role.",
+        "SourceField": "Description",
+        "SourceKind": "description",
+        "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+        "ObservedAt": "2026-10-23T21:00:20.208Z"
+      }
+    ]
+  },
+  "provenanceKind": "canonical excerpt derived from older saved source text",
+  "productionRunId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+  "packageId": "20261024-0954",
+  "extractedAt": "2026-10-24T15:27:44.020884+00:00"
+}

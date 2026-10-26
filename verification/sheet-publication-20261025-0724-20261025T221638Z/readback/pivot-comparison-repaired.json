@@ -1,0 +1,20 @@
+{
+  "source": {
+    "sheetId": 55693553,
+    "startRowIndex": 0,
+    "endRowIndex": 733,
+    "startColumnIndex": 0,
+    "endColumnIndex": 16
+  },
+  "policyUnchanged": true,
+  "expectedResults": 69,
+  "actualResults": 69,
+  "missing": [
+    "[\"REMOTE\",\"Documentation Specialist(DISA)\",\"Horizonindustrieslimited\",\"https://job-boards.greenhouse.io/horizonindustrieslimited/jobs/5422448008\"]"
+  ],
+  "extra": [
+    "[\"Remote\",\"Documentation Specialist(DISA)\",\"Horizonindustrieslimited\",\"https://job-boards.greenhouse.io/horizonindustrieslimited/jobs/5422448008\"]"
+  ],
+  "duplicates": 0,
+  "errors": []
+}

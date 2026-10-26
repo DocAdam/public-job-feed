@@ -1,0 +1,200 @@
+[
+  {
+    "requirement": "Exact dated source CSV, hash, schema and labels",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/baseline/source-validation.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "732 data rows, 16 unique headers, Employment Type in P, source hash equals the requested and retained hash."
+  },
+  {
+    "requirement": "Inspect and save live values, native table, pivot and formatting before writing",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/baseline/recovery-state.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Complete bounded affected values and metadata retained. Main tab ID 55693553; pivot tab ID 1606926353; native table ID 810055407."
+  },
+  {
+    "requirement": "Resolve native controls before publication",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/baseline/native-definitions-initial.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Raw batch API returned actual native tables and their columns. No native table was replaced by banding or a plain filter."
+  },
+  {
+    "requirement": "Reject unexpected concurrent data changes before writing",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/plan/concurrency-preflight.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "No value differences across A1:P1000; table and pivot definitions unchanged; source hash checked again."
+  },
+  {
+    "requirement": "Write source values and related ranges together",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/publication/atomic-response.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "One batch wrote exact typed source values, updated the existing native table, changed pivot source, and applied column P text formatting."
+  },
+  {
+    "requirement": "Read back every source cell",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/full-final-comparison.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "11728 cells compared, zero differences. Only documented numeric/date/blank normalization. Final source row is in row 733."
+  },
+  {
+    "requirement": "No trailing job values",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/final-live-2.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "A1:P1000 ends at row 733. No old job values remain below the dataset."
+  },
+  {
+    "requirement": "Native table range and original column definitions",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/native-definitions-and-sharing-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Existing table ID 810055407 is A1:P733. Original 15 column definitions remain unchanged; P is Employment Type, TEXT."
+  },
+  {
+    "requirement": "Employment Type values and coverage",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/links-types-and-coverage-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "All 732 labels match. Schedule 202, terms 48, neither 492, conflicts 0. Schedule and terms overlap."
+  },
+  {
+    "requirement": "Contract text filter includes combined labels",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/filter-checks-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Native hiddenByFilter metadata confirmed exactly 17 matching data rows, including four combined labels. The native table stayed present."
+  },
+  {
+    "requirement": "Internship text filter includes combined labels",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/filter-checks-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Native hiddenByFilter metadata confirmed exactly 15 matching data rows, including four combined labels."
+  },
+  {
+    "requirement": "Restore original main filter state",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/filters-restored.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Both temporary explicit-range basic filters were removed. The main tab again has no basic filter, matching its original state. Native table controls remain."
+  },
+  {
+    "requirement": "Actual pivot source range",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/final-live-3.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "remote_jobs_pivot!A1 holds the existing pivot with source main tab A1:P733."
+  },
+  {
+    "requirement": "Preserve pivot filters, grouping and sorting",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/pivot-comparison-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Full saved definition restored with only source changed. All 43 location values, grouping offsets and ascending sort rules match. All 68 retained groups preserve their order."
+  },
+  {
+    "requirement": "Compare all pivot results with the existing policy",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/pivot-comparison-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "69 expected/live groups; no missing, extra, duplicate or error results. Location case grouping matches the pre-update pivot. Thirteen included combined-location rows remain whole."
+  },
+  {
+    "requirement": "Report existing remote policy limits without changing them",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/plan/expected-remote.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "The fixed location list excludes 67 of 125 source rows marked Remote. It includes 11 rows with other work-arrangement labels. This is the existing policy, not a country-eligibility rule."
+  },
+  {
+    "requirement": "Primary, additional and pivot application links remain usable",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/links-types-and-coverage-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "732 primary links, 50 additional URLs and 69 pivot links have exact destinations. Date and number types match their source roles."
+  },
+  {
+    "requirement": "Required formatting retained",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/native-definitions-and-sharing-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Original 15 widths, table colors, tab/grid properties and frozen row preserved. Only P was sized to 230 px and typed as text. Date display remains yyyy-mm-dd."
+  },
+  {
+    "requirement": "Native visual inspection",
+    "status": "NOT VERIFIED",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/visual-status.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "CUA could not access a Chrome window. The installed artifact renderer failed under Node 26 and bundled Node 24. Best-effort live API formatting checks passed; native clipping was not visually inspected."
+  },
+  {
+    "requirement": "Sheet identities, unrelated structures and sharing preserved",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/readback/native-definitions-and-sharing-final.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Same two tab IDs/titles and grid sizes. Remote basic filter and sharing permissions unchanged. No tabs deleted or recreated."
+  },
+  {
+    "requirement": "Publication repairs verified without changing source facts",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/publication/pivot-repair-response.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Source-only pivot update reset grouping; full saved pivot definition repaired it. Literal-cell update cleared URL link metadata; link-only repair restored exact destinations. Failed read-backs remain recorded."
+  },
+  {
+    "requirement": "No refresh, rebuild, source changes, commit, push or other-service publication",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/sheet-publication-20261025-0724-20261025T221638Z/final/source-and-scope-check.json",
+    "packageId": "20261025-0724",
+    "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "detail": "Only authorized live Sheet content/structure edits and local verification records. Source CSV hash unchanged; feed run unchanged."
+  }
+]

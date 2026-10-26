@@ -1,0 +1,19 @@
+{
+  "checkedAt": "2026-10-25T19:09:59.952329+00:00",
+  "linksChecked": 82,
+  "missingLinks": [],
+  "runtimeFilesChecked": 289,
+  "runtimeChanges": [],
+  "originalFailedReportUnchanged": true,
+  "feedRunUnchanged": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+  "currentGeneration": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+  "acceptedBackupMatchesGeneration": true,
+  "sourceIsExpectedSymlink": true,
+  "externalCopySize": 4017995774,
+  "externalReceiptMatches": true,
+  "originalFullSHA256VerifiedBeforeReplacement": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+  "locks": [],
+  "backupOnlyAttemptsThisApproval": 1,
+  "additionalExistingFileRelocations": 0,
+  "liveSheetWrites": 0
+}

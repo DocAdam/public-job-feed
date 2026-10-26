@@ -1,0 +1,39 @@
+{
+  "result": "PASS \u2014 published and functionally verified",
+  "verifiedAt": "2026-10-25T22:38:09.016Z",
+  "verifiedAtLocal": "2026-10-25T17:38:09.016000-05:00",
+  "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit",
+  "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+  "packageId": "20261025-0724",
+  "csvSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+  "rows": 732,
+  "columns": 16,
+  "mainSheetId": 55693553,
+  "pivotSheetId": 1606926353,
+  "tableId": "810055407",
+  "tableRange": "01_good_documentation_jobs!A1:P733",
+  "pivotAnchor": "remote_jobs_pivot!A1",
+  "pivotSource": "01_good_documentation_jobs!A1:P733",
+  "pivotOutput": "remote_jobs_pivot!A1:D70",
+  "pivotResults": 69,
+  "excludedRemoteRows": 67,
+  "nonRemoteRowsIncludedByExistingLocationPolicy": 11,
+  "coverage": {
+    "denominator": 732,
+    "statedSchedule": 202,
+    "statedTerms": 48,
+    "neither": 492,
+    "conflicts": 0
+  },
+  "mainCellDifferences": 0,
+  "pivotMissingOrExtra": 0,
+  "mainFilterRestored": true,
+  "nativeVisualCheck": "NOT VERIFIED; browser and local renderer unavailable",
+  "recoveryActions": [
+    "Restored the complete saved pivot definition after a source-only field update reset its grouping.",
+    "Restored URL link metadata after the literal-value batch cleared it.",
+    "Replaced a rejected tableId basic-filter shortcut with an explicit-range filter, inspected actual row visibility, and removed both test filters."
+  ],
+  "sharingUnchanged": true,
+  "sourceCSVUnchanged": true
+}

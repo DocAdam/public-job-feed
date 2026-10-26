@@ -1,0 +1,5 @@
+{
+  "exitCode": 0,
+  "stdout": "PASS outside write denied; fetch blocked before transmission\n",
+  "stderr": ""
+}

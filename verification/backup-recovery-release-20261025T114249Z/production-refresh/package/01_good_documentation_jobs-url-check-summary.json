@@ -1,0 +1,23 @@
+{
+  "InputPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+  "UrlColumn": "Apply Link",
+  "CheckedAt": "2026-10-25T12:26:13.346Z",
+  "TotalRows": 761,
+  "GoodRows": 720,
+  "BadRows": 41,
+  "PrunableBadRows": 29,
+  "AmbiguousBadRows": 12,
+  "MissingUrlRows": 0,
+  "InvalidUrlRows": 0,
+  "TimedOutRows": 0,
+  "FetchErrorRows": 0,
+  "ReviewCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-review.csv",
+  "FailuresCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-failures.csv",
+  "SummaryMarkdown": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-check-summary.md",
+  "Applied": true,
+  "ApplyMode": "safe",
+  "PrunedRows": 29,
+  "KeptRows": 732,
+  "KeptAmbiguousFailureRows": 12,
+  "BackupCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-before-url-prune.csv"
+}

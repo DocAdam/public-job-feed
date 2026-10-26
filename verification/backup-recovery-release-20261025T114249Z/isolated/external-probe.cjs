@@ -1,0 +1,2 @@
+const fs=require('node:fs/promises'),p=require('node:path');
+(async()=>{const d=process.argv[2];await fs.mkdir(d);await fs.mkdir(p.join(d,'payload'));await fs.writeFile(p.join(d,'payload','000000.gz'),'isolated creation probe');await fs.writeFile(p.join(d,'manifest.json'),'{}');console.log(JSON.stringify({directory:d,root:await fs.readdir(d),payload:await fs.readdir(p.join(d,'payload'))}));})().catch(e=>{console.error(e);process.exitCode=1});

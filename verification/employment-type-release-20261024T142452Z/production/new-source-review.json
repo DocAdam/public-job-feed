@@ -1,0 +1,863 @@
+{
+  "batches": [
+    "maintain-due-ashby-20261024t143124",
+    "maintain-due-bamboohr-20261024t143124",
+    "maintain-due-greenhouse-20261024t143124",
+    "maintain-due-icims-20261024t143124",
+    "maintain-due-lever-20261024t143124",
+    "maintain-due-workday-20261024t143124"
+  ],
+  "byATS": {
+    "ashby": {
+      "rows": 6820,
+      "errors": 0,
+      "structuredRows": 6820,
+      "fieldCounts": {
+        "employmentType": 6820
+      },
+      "byLabel": {
+        "Full-time": 6581,
+        "Internship; Apprenticeship": 5,
+        "Internship": 60,
+        "Full-time; Internship": 31,
+        "Full-time; Contract": 6,
+        "Part-time": 15,
+        "Full-time; Contract; Fixed-term": 2,
+        "Contract": 92,
+        "Needs review": 1,
+        "Contract; Temporary": 1,
+        "Part-time; Seasonal": 2,
+        "Part-time; Internship": 1,
+        "Contract; Freelance": 9,
+        "Full-time; Freelance": 1,
+        "Part-time; Contract": 7,
+        "Full-time; Permanent": 6
+      },
+      "examples": {
+        "other-structured": {
+          "Company": "Lancedb",
+          "Title": "Senior Product Manager",
+          "URL": "https://jobs.ashbyhq.com/lancedb/7fe25cf2-3bb8-4d05-8715-b22d72c22bd7",
+          "FetchedAt": "2026-10-24T14:31:25.170Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "FullTime",
+              "SourceField": "employmentType",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/lancedb",
+              "ObservedAt": "2026-10-24T14:31:25.170Z"
+            }
+          ]
+        },
+        "writing-structured": {
+          "Company": "Lancedb",
+          "Title": "Documentation Engineer",
+          "URL": "https://jobs.ashbyhq.com/lancedb/ec98cf2b-3d82-432b-a4e3-806b97baf81c",
+          "FetchedAt": "2026-10-24T14:31:25.170Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "FullTime",
+              "SourceField": "employmentType",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/lancedb",
+              "ObservedAt": "2026-10-24T14:31:25.170Z"
+            }
+          ]
+        },
+        "conflict": {
+          "Company": "Crusoe",
+          "Title": "Senior Variable Compensation Manager",
+          "URL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+          "FetchedAt": "2026-10-24T14:31:27.355Z",
+          "label": "Needs review",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "conflict",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "FullTime",
+              "SourceField": "employmentType",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/crusoe",
+              "ObservedAt": "2026-10-24T14:31:27.355Z"
+            },
+            {
+              "Dimension": "schedule",
+              "Value": "Variable",
+              "RawValue": "Senior Variable Compensation Manager",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+              "ObservedAt": "2026-10-24T14:31:27.355Z"
+            }
+          ]
+        }
+      }
+    },
+    "bamboohr": {
+      "rows": 608,
+      "errors": 0,
+      "structuredRows": 608,
+      "fieldCounts": {
+        "employmentStatusLabel": 643
+      },
+      "byLabel": {
+        "Full-time": 367,
+        "Contract": 63,
+        "Part-time": 9,
+        "Not stated": 81,
+        "Internship": 21,
+        "Part-time; Contract; Freelance": 1,
+        "Full-time; Contract": 3,
+        "Temporary": 2,
+        "Part-time; Contract": 1,
+        "Freelance": 2,
+        "Contract; Freelance": 1,
+        "Full-time; Permanent": 32,
+        "Part-time; Freelance": 17,
+        "Full-time; Internship": 1,
+        "Part-time; Temporary": 1,
+        "Fixed-term": 1,
+        "Seasonal": 5
+      },
+      "examples": {
+        "other-structured": {
+          "Company": "Optimum7",
+          "Title": "Performance Marketing Specialist(Google Ads & Meta Ads)",
+          "URL": "https://optimum7.bamboohr.com/careers/274",
+          "FetchedAt": "2026-10-24T14:31:44.385Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full-Time",
+              "SourceField": "employmentStatusLabel",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://optimum7.bamboohr.com/careers/list",
+              "ObservedAt": "2026-10-24T14:31:44.385Z"
+            }
+          ]
+        },
+        "writing-structured": {
+          "Company": "Optimum7",
+          "Title": "Content Writer and Editorial Strategist Zen Media",
+          "URL": "https://optimum7.bamboohr.com/careers/296",
+          "FetchedAt": "2026-10-24T14:31:44.385Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full-Time",
+              "SourceField": "employmentStatusLabel",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://optimum7.bamboohr.com/careers/list",
+              "ObservedAt": "2026-10-24T14:31:44.385Z"
+            }
+          ]
+        },
+        "other-not-stated": {
+          "Company": "Mypassion4life",
+          "Title": "Learning Experience Designer (Volunteer)",
+          "URL": "https://mypassion4life.bamboohr.com/careers/24",
+          "FetchedAt": "2026-10-24T14:31:45.165Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Volunteer",
+              "SourceField": "employmentStatusLabel",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://mypassion4life.bamboohr.com/careers/list",
+              "ObservedAt": "2026-10-24T14:31:45.165Z"
+            }
+          ]
+        },
+        "other-text": {
+          "Company": "Mypassion4life",
+          "Title": "Internship - Marketing Assistant",
+          "URL": "https://mypassion4life.bamboohr.com/careers/56",
+          "FetchedAt": "2026-10-24T14:31:45.165Z",
+          "label": "Internship",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Internship"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Volunteer",
+              "SourceField": "employmentStatusLabel",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://mypassion4life.bamboohr.com/careers/list",
+              "ObservedAt": "2026-10-24T14:31:45.165Z"
+            },
+            {
+              "Dimension": "terms",
+              "Value": "Internship",
+              "RawValue": "Internship - Marketing Assistant",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://mypassion4life.bamboohr.com/careers/56",
+              "ObservedAt": "2026-10-24T14:31:45.165Z"
+            }
+          ]
+        },
+        "writing-not-stated": {
+          "Company": "Vamonosit",
+          "Title": "Microsoft 365 Technical Writer/Communications Specialist",
+          "URL": "https://vamonosit.bamboohr.com/careers/87",
+          "FetchedAt": "2026-10-24T14:31:47.081Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Full-Time plus Holidays",
+              "SourceField": "employmentStatusLabel",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://vamonosit.bamboohr.com/careers/list",
+              "ObservedAt": "2026-10-24T14:31:47.081Z"
+            }
+          ]
+        },
+        "writing-text": {
+          "Company": "Onramplab",
+          "Title": "Freelance Writer / Consultant (Subject: Your Side Hustle)",
+          "URL": "https://onramplab.bamboohr.com/careers/47",
+          "FetchedAt": "2026-10-24T14:31:49.707Z",
+          "label": "Freelance",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Freelance"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Freelancer",
+              "SourceField": "employmentStatusLabel",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://onramplab.bamboohr.com/careers/list",
+              "ObservedAt": "2026-10-24T14:31:49.707Z"
+            },
+            {
+              "Dimension": "terms",
+              "Value": "Freelance",
+              "RawValue": "Freelance Writer / Consultant (Subject: Your Side Hustle)",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://onramplab.bamboohr.com/careers/47",
+              "ObservedAt": "2026-10-24T14:31:49.707Z"
+            }
+          ]
+        }
+      }
+    },
+    "greenhouse": {
+      "rows": 10585,
+      "errors": 0,
+      "structuredRows": 2400,
+      "fieldCounts": {
+        "metadata.Employment Type": 2168,
+        "metadata.Time Type": 501
+      },
+      "byLabel": {
+        "Not stated": 9016,
+        "Full-time": 1059,
+        "Contract; Fixed-term": 2,
+        "Contract": 160,
+        "Internship": 180,
+        "Fixed-term": 18,
+        "Regular": 5,
+        "Part-time": 30,
+        "Temporary": 26,
+        "Full-time; Internship": 10,
+        "Freelance": 44,
+        "Part-time; Freelance": 4,
+        "Permanent": 1,
+        "Full-time; Freelance": 1,
+        "Full-time; Permanent": 4,
+        "Contract; Temporary": 3,
+        "Full-time; Temporary": 5,
+        "Part-time; Contract": 3,
+        "Full-time; Contract": 2,
+        "Part-time; Temporary": 2,
+        "Full-time; Fixed-term": 1,
+        "Full-time; Seasonal": 1,
+        "Part-time; Internship": 1,
+        "Apprenticeship": 7
+      },
+      "examples": {
+        "other-not-stated": {
+          "Company": "Airbnb",
+          "Title": "Associate Legal Counsel, Japan",
+          "URL": "https://careers.airbnb.com/positions/7789554?gh_jid=7789554",
+          "FetchedAt": "2026-10-24T14:32:04.798Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": []
+        },
+        "other-text": {
+          "Company": "Airbnb",
+          "Title": "Customer Service Partner Operations Manager, Mandarin Speaking (Manila Based)",
+          "URL": "https://careers.airbnb.com/positions/8172735?gh_jid=8172735",
+          "FetchedAt": "2026-10-24T14:32:04.798Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Location: This role is a full time position and can be based in Singapore, Tokyo, Seoul, or Manila.",
+              "SourceField": "Description",
+              "SourceKind": "description",
+              "SourceURL": "https://careers.airbnb.com/positions/8172735?gh_jid=8172735",
+              "ObservedAt": "2026-10-24T14:32:04.798Z"
+            }
+          ]
+        },
+        "writing-not-stated": {
+          "Company": "Airbnb",
+          "Title": "Senior Manager, Content & Knowledge Architecture",
+          "URL": "https://careers.airbnb.com/positions/8290025?gh_jid=8290025",
+          "FetchedAt": "2026-10-24T14:32:04.798Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": []
+        },
+        "writing-text": {
+          "Company": "Skyryse",
+          "Title": "Lead Technical Writer",
+          "URL": "https://job-boards.greenhouse.io/skyryse/jobs/8247314",
+          "FetchedAt": "2026-10-24T14:32:04.799Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "This is a full time opportunity based in El Segundo, CA.",
+              "SourceField": "Description",
+              "SourceKind": "description",
+              "SourceURL": "https://job-boards.greenhouse.io/skyryse/jobs/8247314",
+              "ObservedAt": "2026-10-24T14:32:04.799Z"
+            }
+          ]
+        },
+        "other-structured": {
+          "Company": "C3iot",
+          "Title": "AI Product Manager - MBA Intern (Summer 2027)",
+          "URL": "https://c3.ai/job-description/8860563002?gh_jid=8860563002",
+          "FetchedAt": "2026-10-24T14:32:05.321Z",
+          "label": "Internship",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Internship"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "terms",
+              "Value": "Internship",
+              "RawValue": "Intern",
+              "SourceField": "metadata.Employment Type",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://boards-api.greenhouse.io/v1/boards/c3iot/jobs?content=true",
+              "ObservedAt": "2026-10-24T14:32:05.321Z"
+            },
+            {
+              "Dimension": "terms",
+              "Value": "Internship",
+              "RawValue": "AI Product Manager - MBA Intern (Summer 2027)",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://c3.ai/job-description/8860563002?gh_jid=8860563002",
+              "ObservedAt": "2026-10-24T14:32:05.321Z"
+            }
+          ]
+        },
+        "writing-structured": {
+          "Company": "C3iot",
+          "Title": "Senior Technical Writer",
+          "URL": "https://c3.ai/job-description/8864125002?gh_jid=8864125002",
+          "FetchedAt": "2026-10-24T14:32:05.321Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full-Time",
+              "SourceField": "metadata.Employment Type",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://boards-api.greenhouse.io/v1/boards/c3iot/jobs?content=true",
+              "ObservedAt": "2026-10-24T14:32:05.321Z"
+            }
+          ]
+        }
+      }
+    },
+    "icims": {
+      "rows": 1328,
+      "errors": 0,
+      "structuredRows": 0,
+      "fieldCounts": {},
+      "byLabel": {
+        "Full-time": 1,
+        "Not stated": 1310,
+        "Temporary": 8,
+        "Part-time": 3,
+        "Internship": 6
+      },
+      "examples": {
+        "other-text": {
+          "Company": "Integralfed",
+          "Title": "Data Engineer – AI & Machine Learning",
+          "URL": "https://careers-integralfed.icims.com/jobs/5462/data-engineer-%e2%80%93-ai-%26-machine-learning/job",
+          "FetchedAt": "2026-10-24T14:32:38.952Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full-Time",
+              "SourceField": "Description",
+              "SourceKind": "description",
+              "SourceURL": "https://careers-integralfed.icims.com/jobs/5462/data-engineer-%e2%80%93-ai-%26-machine-learning/job",
+              "ObservedAt": "2026-10-24T14:32:38.952Z"
+            }
+          ]
+        },
+        "other-not-stated": {
+          "Company": "Integralfed",
+          "Title": "Director of Finance",
+          "URL": "https://careers-integralfed.icims.com/jobs/5461/director-of-finance/job",
+          "FetchedAt": "2026-10-24T14:32:38.952Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": []
+        },
+        "writing-not-stated": {
+          "Company": "Integralfed",
+          "Title": "Proposal Writer",
+          "URL": "https://careers-integralfed.icims.com/jobs/5450/proposal-writer/job",
+          "FetchedAt": "2026-10-24T14:32:38.952Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": []
+        }
+      }
+    },
+    "lever": {
+      "rows": 11271,
+      "errors": 0,
+      "structuredRows": 11058,
+      "fieldCounts": {
+        "categories.commitment": 11214
+      },
+      "byLabel": {
+        "Full-time": 7978,
+        "Part-time; Internship": 1,
+        "Not stated": 1596,
+        "Contract": 887,
+        "Full-time; Internship": 9,
+        "Full-time; Regular": 101,
+        "Regular": 190,
+        "Internship": 91,
+        "Freelance": 9,
+        "Full-time; Contract": 28,
+        "Needs review": 3,
+        "Full-time or Part-time": 16,
+        "Part-time": 156,
+        "Full-time; Temporary": 6,
+        "Contract; Temporary": 2,
+        "Temporary": 5,
+        "Temporary; Internship": 1,
+        "Full-time; Permanent": 85,
+        "Contract; Internship": 1,
+        "Fixed-term": 3,
+        "Part-time; Internship; Regular": 1,
+        "Contract; Freelance": 55,
+        "Full-time; Apprenticeship": 1,
+        "Temporary; Fixed-term": 4,
+        "Internship; Apprenticeship": 1,
+        "Part-time; Temporary": 1,
+        "Full-time; Seasonal": 1,
+        "Part-time; Seasonal": 12,
+        "Full-time; Contract; Fixed-term": 1,
+        "Seasonal": 26
+      },
+      "examples": {
+        "other-structured": {
+          "Company": "Resilinc",
+          "Title": "Director / Senior Director, Professional Services",
+          "URL": "https://jobs.lever.co/resilinc/064d1f35-0faf-4552-9b7f-03cf439f09b0",
+          "FetchedAt": "2026-10-24T14:32:59.952Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full Time",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/resilinc?mode=json",
+              "ObservedAt": "2026-10-24T14:32:59.952Z"
+            }
+          ]
+        },
+        "writing-structured": {
+          "Company": "Resilinc",
+          "Title": "Senior Digital Learning & AI Content Developer",
+          "URL": "https://jobs.lever.co/resilinc/03fce20a-3042-4ead-9d3e-3ba214ea16a2",
+          "FetchedAt": "2026-10-24T14:32:59.952Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full Time",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/resilinc?mode=json",
+              "ObservedAt": "2026-10-24T14:32:59.952Z"
+            }
+          ]
+        },
+        "other-not-stated": {
+          "Company": "Telesat",
+          "Title": "Advanced Product and Solutions Lead",
+          "URL": "https://jobs.lever.co/telesat/6c4d1c85-b413-4892-b1ab-45457fb867a0",
+          "FetchedAt": "2026-10-24T14:32:59.952Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Full Time Hire - (FTE with Benefits)",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/telesat?mode=json",
+              "ObservedAt": "2026-10-24T14:32:59.952Z"
+            }
+          ]
+        },
+        "other-text": {
+          "Company": "Telesat",
+          "Title": "Bilingual Technical Recruiter (French & English) 12 month contract",
+          "URL": "https://jobs.lever.co/telesat/b4935c82-0210-4a1c-8dcd-11b916e0218c",
+          "FetchedAt": "2026-10-24T14:32:59.952Z",
+          "label": "Contract",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Contract"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Temp Employee - FTE hours plus benefits with end date",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/telesat?mode=json",
+              "ObservedAt": "2026-10-24T14:32:59.952Z"
+            },
+            {
+              "Dimension": "terms",
+              "Value": "Contract",
+              "RawValue": "Bilingual Technical Recruiter (French & English) 12 month contract",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://jobs.lever.co/telesat/b4935c82-0210-4a1c-8dcd-11b916e0218c",
+              "ObservedAt": "2026-10-24T14:32:59.952Z"
+            }
+          ]
+        },
+        "writing-not-stated": {
+          "Company": "Telesat",
+          "Title": "Technical Writer, User Terminal (UT) Engineering",
+          "URL": "https://jobs.lever.co/telesat/60993d0c-4fdd-41e2-a505-87afccfc233b",
+          "FetchedAt": "2026-10-24T14:32:59.952Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Full Time Hire - (FTE with Benefits)",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/telesat?mode=json",
+              "ObservedAt": "2026-10-24T14:32:59.952Z"
+            }
+          ]
+        },
+        "writing-text": {
+          "Company": "Brafton",
+          "Title": "Freelance SEO Content Writer - Dutch",
+          "URL": "https://jobs.lever.co/brafton/fa87d744-1cf6-4d1d-91b9-494933891079",
+          "FetchedAt": "2026-10-24T14:33:09.407Z",
+          "label": "Freelance",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Freelance"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "unknown",
+              "Value": "",
+              "RawValue": "Freelancer",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/brafton?mode=json",
+              "ObservedAt": "2026-10-24T14:33:09.407Z"
+            },
+            {
+              "Dimension": "terms",
+              "Value": "Freelance",
+              "RawValue": "Freelance SEO Content Writer - Dutch",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://jobs.lever.co/brafton/fa87d744-1cf6-4d1d-91b9-494933891079",
+              "ObservedAt": "2026-10-24T14:33:09.407Z"
+            }
+          ]
+        },
+        "conflict": {
+          "Company": "Getwingapp",
+          "Title": "AirBnb Assistant Full Time",
+          "URL": "https://jobs.lever.co/getwingapp/a6a1acab-9587-4bc4-8376-54dbab775020",
+          "FetchedAt": "2026-10-24T14:33:14.431Z",
+          "label": "Needs review",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "conflict",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Part-time",
+              "RawValue": "Part Time",
+              "SourceField": "categories.commitment",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://api.lever.co/v0/postings/getwingapp?mode=json",
+              "ObservedAt": "2026-10-24T14:33:14.431Z"
+            },
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "AirBnb Assistant Full Time",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://jobs.lever.co/getwingapp/a6a1acab-9587-4bc4-8376-54dbab775020",
+              "ObservedAt": "2026-10-24T14:33:14.431Z"
+            }
+          ]
+        }
+      }
+    },
+    "workday": {
+      "rows": 4951,
+      "errors": 0,
+      "structuredRows": 4610,
+      "fieldCounts": {
+        "timeType": 4610
+      },
+      "byLabel": {
+        "Full-time": 4023,
+        "Full-time; Internship": 121,
+        "Part-time": 348,
+        "Part-time; Fixed-term": 1,
+        "Full-time; Temporary": 9,
+        "Part-time; Internship": 54,
+        "Full-time; Apprenticeship": 3,
+        "Full-time; Contract; Fixed-term": 1,
+        "Full-time; Contract": 20,
+        "Not stated": 313,
+        "Internship": 7,
+        "Contract": 7,
+        "Full-time; Seasonal": 1,
+        "Part-time; Temporary": 17,
+        "Part-time; Seasonal": 4,
+        "Temporary": 3,
+        "Full-time; Contract; Internship": 1,
+        "Full-time; Fixed-term": 16,
+        "Freelance": 2
+      },
+      "examples": {
+        "other-structured": {
+          "Company": "Itw",
+          "Title": "Service Technician II",
+          "URL": "https://itw.wd5.myworkdayjobs.com/external/job/Indianapolis---46239/Service-Technician-II_JR9575",
+          "FetchedAt": "2026-10-24T14:33:54.138Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full time",
+              "SourceField": "timeType",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://itw.wd5.myworkdayjobs.com/wday/cxs/itw/external/jobs",
+              "ObservedAt": "2026-10-24T14:33:54.138Z"
+            }
+          ]
+        },
+        "writing-structured": {
+          "Company": "Itw",
+          "Title": "Technical Writer II",
+          "URL": "https://itw.wd5.myworkdayjobs.com/external/job/Troy---701-S-Ridge-Ave/Technical-Writer-II_JR10593",
+          "FetchedAt": "2026-10-24T14:33:54.138Z",
+          "label": "Full-time",
+          "EmploymentSchedule": "Full-time",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "schedule",
+              "Value": "Full-time",
+              "RawValue": "Full time",
+              "SourceField": "timeType",
+              "SourceKind": "structured_field",
+              "SourceURL": "https://itw.wd5.myworkdayjobs.com/wday/cxs/itw/external/jobs",
+              "ObservedAt": "2026-10-24T14:33:54.138Z"
+            }
+          ]
+        },
+        "other-not-stated": {
+          "Company": "Talentmanagementsolution",
+          "Title": "Learning & Development Trainer",
+          "URL": "https://talentmanagementsolution.wd3.myworkdayjobs.com/perseus-careers1/job/Remote---USA/Learning---Development-Trainer_R54995",
+          "FetchedAt": "2026-10-24T14:34:48.309Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": []
+        },
+        "other-text": {
+          "Company": "Talentmanagementsolution",
+          "Title": "Software Developer Intern",
+          "URL": "https://talentmanagementsolution.wd3.myworkdayjobs.com/perseus-careers1/job/Markham-Ontario---CAN/Software-Developer-Intern_R54263",
+          "FetchedAt": "2026-10-24T14:34:48.309Z",
+          "label": "Internship",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Internship"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "terms",
+              "Value": "Internship",
+              "RawValue": "Software Developer Intern",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://talentmanagementsolution.wd3.myworkdayjobs.com/perseus-careers1/job/Markham-Ontario---CAN/Software-Developer-Intern_R54263",
+              "ObservedAt": "2026-10-24T14:34:48.309Z"
+            }
+          ]
+        },
+        "writing-not-stated": {
+          "Company": "Earlywarning",
+          "Title": "Senior Technical Writer",
+          "URL": "https://earlywarning.wd5.myworkdayjobs.com/earlywarningcareers/job/Scottsdale/Senior-Technical-Writer_REQ2026895",
+          "FetchedAt": "2026-10-24T14:35:42.298Z",
+          "label": "Not stated",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [],
+          "EmploymentTypeStatus": "not_stated",
+          "EmploymentTypeEvidence": []
+        },
+        "writing-text": {
+          "Company": "Ghc",
+          "Title": "Contractor Interior Design Content Developer",
+          "URL": "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Interior-Design-Content-Developer_JR249501",
+          "FetchedAt": "2026-10-24T14:36:04.431Z",
+          "label": "Contract",
+          "EmploymentSchedule": "Not stated",
+          "EmploymentTerms": [
+            "Contract"
+          ],
+          "EmploymentTypeStatus": "stated",
+          "EmploymentTypeEvidence": [
+            {
+              "Dimension": "terms",
+              "Value": "Contract",
+              "RawValue": "Contractor Interior Design Content Developer",
+              "SourceField": "Title",
+              "SourceKind": "title",
+              "SourceURL": "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Interior-Design-Content-Developer_JR249501",
+              "ObservedAt": "2026-10-24T14:36:04.431Z"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "limit": "New normalized batch records. Successful raw ATS response bodies are not archived. No extra source request was made."
+}

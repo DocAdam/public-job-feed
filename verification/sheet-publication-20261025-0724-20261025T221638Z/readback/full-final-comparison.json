@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-10-25T22:38:09.016Z",
+  "dataRows": 732,
+  "columns": 16,
+  "cellsCompared": 11728,
+  "mainDifferences": [],
+  "tailRows": 0,
+  "lastRowMatches": true,
+  "pivotPolicyUnchanged": true,
+  "pivotResults": 69,
+  "pivotMissing": [],
+  "pivotExtra": [],
+  "sourceCsvHash": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963"
+}

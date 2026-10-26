@@ -1,0 +1,49 @@
+{
+  "mode": "READ_ONLY",
+  "packageId": "20261024-0954",
+  "columns": [
+    {
+      "column_name": "employment_schedule",
+      "data_type": "VARCHAR"
+    },
+    {
+      "column_name": "employment_terms",
+      "data_type": "VARCHAR"
+    },
+    {
+      "column_name": "employment_type_evidence",
+      "data_type": "VARCHAR"
+    },
+    {
+      "column_name": "employment_type_status",
+      "data_type": "VARCHAR"
+    }
+  ],
+  "snapshot": [
+    {
+      "snapshot_id": "20261024-0954",
+      "observed_at": "2026-10-24 09:54:00",
+      "top_match_count": 831,
+      "good_job_count": 715,
+      "inclusion_rate": 0.8604091456077015,
+      "company_count": 535,
+      "catalog_slug_count": 539,
+      "ats_type_count": 7,
+      "imported_at": "2026-10-24 09:59:59.393692",
+      "raw_top_match_row_count": 831,
+      "resolved_observation_count": 831,
+      "duplicate_canonical_row_count": 0,
+      "unmatched_good_job_count": 0
+    }
+  ],
+  "observations": [
+    {
+      "records": "831",
+      "missing_status": "0",
+      "invalid_evidence": "0"
+    }
+  ],
+  "databaseSHA256FromAudit": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+  "auditStatus": "passed",
+  "auditErrors": []
+}

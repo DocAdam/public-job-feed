@@ -1,0 +1,7 @@
+
+> public-job-feed@0.1.0 jobs:test-trends
+> node src/scripts/test-trends.js
+
+Trend quality test: PASS
+Failures: 0
+Warnings: 0

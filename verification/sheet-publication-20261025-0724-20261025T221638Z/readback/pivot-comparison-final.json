@@ -1,0 +1,30 @@
+{
+  "source": {
+    "sheetId": 55693553,
+    "startRowIndex": 0,
+    "endRowIndex": 733,
+    "startColumnIndex": 0,
+    "endColumnIndex": 16
+  },
+  "policyUnchanged": true,
+  "expectedResults": 69,
+  "actualResults": 69,
+  "missing": [],
+  "extra": [],
+  "duplicateGroups": 0,
+  "errors": [],
+  "sourceNormalization": "Only the Location group key is compared case-insensitively. Sheets uses one displayed Remote heading for source values Remote and REMOTE. Main-table cell comparisons remain exact.",
+  "baselineEvidenceForCaseGrouping": [
+    [
+      "Remote",
+      "Documentation Specialist(DISA)",
+      "Horizonindustrieslimited",
+      "https://job-boards.greenhouse.io/horizonindustrieslimited/jobs/5422448008"
+    ]
+  ],
+  "unchangedGroupOrderPreserved": true,
+  "commonGroupsChecked": 68,
+  "combinedLocationRows": 13,
+  "remoteRowsExcluded": 67,
+  "includedNonRemoteRows": 11
+}

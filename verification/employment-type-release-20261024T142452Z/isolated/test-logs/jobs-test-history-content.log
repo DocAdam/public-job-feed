@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-history-content
+> node src/scripts/test-history-content.js
+
+PASS: daily parity, topic denominators, exceptions, duplicate exports, baseline selection, churn, coverage, roles, deterministic report, zero denominators, dependent incremental refresh, deterministic publishing sections, weekly trends, coverage gaps, and existing-section preservation

@@ -1,0 +1,36 @@
+{
+  "input": "data/jobs/public/public-job-feed-deduped-top.json",
+  "inputSHA256": "5fae34c444889fd6646b9b85284c0f1a420126f440077c5951c1b7b9d7748fcb",
+  "rows": 831,
+  "node": "v26.3.1",
+  "repetitions": 9,
+  "warmupRepetitions": 1,
+  "copyOnlyMs": [
+    0.2657919999999905,
+    0.15625,
+    0.15637500000002547,
+    0.16954199999997854,
+    0.1652080000000069,
+    0.16279200000002447,
+    0.15516700000000583,
+    0.1997920000000022,
+    0.18433300000003783
+  ],
+  "extractionAndCopyMs": [
+    58.498166999999995,
+    57.478999999999985,
+    55.600584,
+    57.795416999999986,
+    56.86154099999999,
+    55.56650000000002,
+    57.486334000000056,
+    56.82670800000005,
+    57.72149999999999
+  ],
+  "medianCopyOnlyMs": 0.1652080000000069,
+  "medianExtractionAndCopyMs": 57.478999999999985,
+  "medianDeltaMs": 57.31379199999998,
+  "processedRows": 16620,
+  "requests": 0,
+  "limit": "In-memory saved shortlist, one machine, warm cache. This compares extraction plus a copy with a copy-only baseline. It does not measure the full feed, collection, or a daily refresh."
+}

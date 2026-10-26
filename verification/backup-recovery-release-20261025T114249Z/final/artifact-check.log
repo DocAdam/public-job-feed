@@ -1,0 +1,14 @@
+Read new batch maintain-due-ashby-20261025t120242 6902
+Read new batch maintain-due-bamboohr-20261025t120242 614
+Read new batch maintain-due-greenhouse-20261025t120242 13965
+Read new batch maintain-due-icims-20261025t120242 1465
+Read new batch maintain-due-lever-20261025t120242 10147
+Read new batch maintain-due-workday-20261025t120242 2097
+Canonical records checked 200000
+Canonical records checked 400000
+Canonical records checked 600000
+Canonical records checked 800000
+Saved artifact verification 20261025-0724 732 [
+  'Corrected parser is materialized throughout the actual canonical feed',
+  'New accepted backup covers the production history generation'
+]

@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-job-finder-consumer
+> node src/scripts/test-job-finder-consumer.js
+
+Job Finder consumer export tests passed.

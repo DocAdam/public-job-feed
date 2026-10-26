@@ -1,0 +1,43 @@
+{
+  "discoveredAt": "2026-10-24T14:47:09.926088+00:00",
+  "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+  "requirement": "Do not treat an occupational keyword as an employment schedule",
+  "status": "FAIL in the running production code; isolated correction passes its targeted test",
+  "observedCase": {
+    "kind": "Observed normalized batch excerpt; not an original raw API response",
+    "record": {
+      "Company": "Crusoe",
+      "Title": "Senior Variable Compensation Manager",
+      "URL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+      "FetchedAt": "2026-10-24T14:31:27.355Z",
+      "label": "Needs review",
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "conflict",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Full-time",
+          "RawValue": "FullTime",
+          "SourceField": "employmentType",
+          "SourceKind": "structured_field",
+          "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/crusoe",
+          "ObservedAt": "2026-10-24T14:31:27.355Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "Senior Variable Compensation Manager",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+          "ObservedAt": "2026-10-24T14:31:27.355Z"
+        }
+      ]
+    }
+  },
+  "fix": "Require hours, schedule, or time after Variable in free text. Preserve prior unsupported matches as unknown evidence with RejectedValue and ReviewReason. Keep structured and labeled Variable values.",
+  "productionCodeChangedDuringRun": false,
+  "candidateFile": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project/src/lib/employment-type.js",
+  "candidateSHA256": "97215eb737f2fd4009bd1c590154294ea0a32eb76ae0920dc4a714517025b204"
+}

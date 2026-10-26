@@ -1,0 +1,171 @@
+{
+  "requests": [
+    {
+      "updateCells": {
+        "range": {
+          "sheetId": 1606926353,
+          "startRowIndex": 0,
+          "endRowIndex": 1,
+          "startColumnIndex": 0,
+          "endColumnIndex": 1
+        },
+        "rows": [
+          {
+            "values": [
+              {
+                "pivotTable": {
+                  "source": {
+                    "sheetId": 55693553,
+                    "startRowIndex": 0,
+                    "endRowIndex": 733,
+                    "startColumnIndex": 0,
+                    "endColumnIndex": 16
+                  },
+                  "rows": [
+                    {
+                      "sourceColumnOffset": 2,
+                      "valueMetadata": [
+                        {
+                          "value": {
+                            "stringValue": "Remote"
+                          }
+                        },
+                        {
+                          "value": {
+                            "stringValue": ""
+                          }
+                        }
+                      ],
+                      "sortOrder": "ASCENDING"
+                    },
+                    {
+                      "sourceColumnOffset": 0,
+                      "valueMetadata": [
+                        {
+                          "value": {
+                            "stringValue": "Staff Content Designer"
+                          }
+                        }
+                      ],
+                      "sortOrder": "ASCENDING"
+                    },
+                    {
+                      "sourceColumnOffset": 1,
+                      "sortOrder": "ASCENDING"
+                    },
+                    {
+                      "sourceColumnOffset": 3,
+                      "sortOrder": "ASCENDING"
+                    }
+                  ],
+                  "criteria": {
+                    "2": {
+                      "visibleValues": [
+                        "Alexandria HQ (remote)",
+                        "Any Location / Remote",
+                        "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote",
+                        "Canada - Remote BC",
+                        "Italy remote",
+                        "Malaysia | India (Remote) | Malta | Poland | Remote — Romania | Indonesia | Estonia | Limassol | Portugal | South Africa",
+                        "Missouri-Remote",
+                        "Multiple locations (2 postings): Remote (Canada); Remote (United States)",
+                        "Multiple locations (5 postings): 2 Locations; 3 Locations; Remote - Germany; Remote - Ireland; Remote - Italy",
+                        "Netherlands remote",
+                        "New York, New York, United States; Remote - United States",
+                        "Pittsburgh, PA; Remote",
+                        "Remote",
+                        "REMOTE",
+                        "Remote - CAN",
+                        "Remote - Lithuania | Remote - North Macedonia | Remote - Canada | Remote - Israel | Remote | Remote - Croatia | Remote - Argentina | Remote - Italy | Remote - Sweden | Remote - Luxembourg | Remote - Portugal | Remote - Latvia | Remote - Hong Kong | Remote - Romania | Remote - Egypt | Remote - Denmark | Remote - Colombia | Remote - Costa Rica | Remote - Germany | Remote - Australia | Remote - Norway | Remote - Cyprus | Remote - Philippines | Remote - New Zealand | Remote - Poland | Remote - Hungary | Remote - Moldova | Remote - Estonia | Remote - Chile | Remote - Brazil | Remote - Malaysia | Remote - Kazakhstan | Remote - Slovakia | Remote - Vietnam | Remote - Netherlands | Remote - Japan | Remote - France | Remote - United Kingdom | Remote - Turkey | Remote - Bulgaria | Remote - Uruguay | Remote - Iceland | Remote - South Korea | Remote - South Africa | Remote - Czech Republic | Remote - Greece | Remote - Taiwan | Remote - Finland | Remote - Slovenia | Remote - Albania | Remote - Austria | Remote - Belgium | Remote - Malta | Remote - Mexico | Remote - Georgia | Remote - Ireland | Remote - Serbia | Remote - Spain | Remote - Singapore",
+                        "Remote - Mexico",
+                        "Remote - U.S.",
+                        "Remote - US",
+                        "Remote (Any State)",
+                        "Remote (Canada) | Remote (US)",
+                        "Remote (India - Bangalore ONLY)",
+                        "Remote (India)",
+                        "Remote (Mexico - Mexico City ONLY)",
+                        "Remote (US)",
+                        "Remote (USA)",
+                        "Remote | Boston | USEAST | New York. New York | Canada",
+                        "Remote Location",
+                        "Remote UK",
+                        "Remote US",
+                        "Remote Worker Home Office (MA)",
+                        "Remote, or Hybrid SF, NYC, BOS or CHI",
+                        "Remote, US",
+                        "Remote, USA",
+                        "Remote/Nationwide, USA",
+                        "San Francisco | Remote - North America",
+                        "San Francisco | Remote | New York",
+                        "San Francisco | Singapore | Remote (Asia) | Remote (North America)",
+                        "South Africa remote",
+                        "Spain remote",
+                        "United States - Remote",
+                        "US-Remote",
+                        "Washington, DC - Remote"
+                      ]
+                    }
+                  },
+                  "filterSpecs": [
+                    {
+                      "columnOffsetIndex": 2,
+                      "filterCriteria": {
+                        "visibleValues": [
+                          "Alexandria HQ (remote)",
+                          "Any Location / Remote",
+                          "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote",
+                          "Canada - Remote BC",
+                          "Italy remote",
+                          "Malaysia | India (Remote) | Malta | Poland | Remote — Romania | Indonesia | Estonia | Limassol | Portugal | South Africa",
+                          "Missouri-Remote",
+                          "Multiple locations (2 postings): Remote (Canada); Remote (United States)",
+                          "Multiple locations (5 postings): 2 Locations; 3 Locations; Remote - Germany; Remote - Ireland; Remote - Italy",
+                          "Netherlands remote",
+                          "New York, New York, United States; Remote - United States",
+                          "Pittsburgh, PA; Remote",
+                          "Remote",
+                          "REMOTE",
+                          "Remote - CAN",
+                          "Remote - Lithuania | Remote - North Macedonia | Remote - Canada | Remote - Israel | Remote | Remote - Croatia | Remote - Argentina | Remote - Italy | Remote - Sweden | Remote - Luxembourg | Remote - Portugal | Remote - Latvia | Remote - Hong Kong | Remote - Romania | Remote - Egypt | Remote - Denmark | Remote - Colombia | Remote - Costa Rica | Remote - Germany | Remote - Australia | Remote - Norway | Remote - Cyprus | Remote - Philippines | Remote - New Zealand | Remote - Poland | Remote - Hungary | Remote - Moldova | Remote - Estonia | Remote - Chile | Remote - Brazil | Remote - Malaysia | Remote - Kazakhstan | Remote - Slovakia | Remote - Vietnam | Remote - Netherlands | Remote - Japan | Remote - France | Remote - United Kingdom | Remote - Turkey | Remote - Bulgaria | Remote - Uruguay | Remote - Iceland | Remote - South Korea | Remote - South Africa | Remote - Czech Republic | Remote - Greece | Remote - Taiwan | Remote - Finland | Remote - Slovenia | Remote - Albania | Remote - Austria | Remote - Belgium | Remote - Malta | Remote - Mexico | Remote - Georgia | Remote - Ireland | Remote - Serbia | Remote - Spain | Remote - Singapore",
+                          "Remote - Mexico",
+                          "Remote - U.S.",
+                          "Remote - US",
+                          "Remote (Any State)",
+                          "Remote (Canada) | Remote (US)",
+                          "Remote (India - Bangalore ONLY)",
+                          "Remote (India)",
+                          "Remote (Mexico - Mexico City ONLY)",
+                          "Remote (US)",
+                          "Remote (USA)",
+                          "Remote | Boston | USEAST | New York. New York | Canada",
+                          "Remote Location",
+                          "Remote UK",
+                          "Remote US",
+                          "Remote Worker Home Office (MA)",
+                          "Remote, or Hybrid SF, NYC, BOS or CHI",
+                          "Remote, US",
+                          "Remote, USA",
+                          "Remote/Nationwide, USA",
+                          "San Francisco | Remote - North America",
+                          "San Francisco | Remote | New York",
+                          "San Francisco | Singapore | Remote (Asia) | Remote (North America)",
+                          "South Africa remote",
+                          "Spain remote",
+                          "United States - Remote",
+                          "US-Remote",
+                          "Washington, DC - Remote"
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ],
+        "fields": "pivotTable"
+      }
+    }
+  ]
+}

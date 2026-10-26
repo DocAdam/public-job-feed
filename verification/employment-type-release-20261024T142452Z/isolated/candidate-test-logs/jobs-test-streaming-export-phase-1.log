@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-streaming-export-phase-1
+> node src/scripts/test-streaming-export-phase-1.js
+
+Streaming export Phase 1 tests passed.

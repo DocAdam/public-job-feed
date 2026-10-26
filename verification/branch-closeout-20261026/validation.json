@@ -1,0 +1,79 @@
+{
+  "status": "PASS",
+  "derived": true,
+  "date": "2026-10-26",
+  "branch": "failure-evidence-sampling-v1",
+  "previousHead": "96067095fd634c6f5e0d9d2f381423997a743b11",
+  "employmentCommit": "d5cf771b922d20f34527d816900a3ea7fd8f8bae",
+  "backupCommit": "d419fa1fce3f0db7599b4b2dea4f7f4909db8ba1",
+  "employmentTree": "63c584a06bbf95e014f0935a2686556d1b07cfae",
+  "backupTree": "6d0f8c3536ecb1da15ab7437a0447550837bc2e0",
+  "focusedTests": [
+    {
+      "test": [
+        "src/scripts/test-employment-type.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.13,
+      "log": "employment-test-employment-type.log"
+    },
+    {
+      "test": [
+        "src/scripts/test-employment-integration.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 4.659,
+      "log": "employment-test-employment-integration.log"
+    },
+    {
+      "test": [
+        "src/scripts/test-greenhouse-normalize.js",
+        "--report-dir",
+        "/Users/adampugh/GitHub/public-job-feed/.git/commit-preparation/20261026T104706Z/greenhouse-reports"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 0.074,
+      "log": "employment-test-greenhouse-normalize.log"
+    },
+    {
+      "test": [
+        "src/scripts/test-history-backup.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 47.445,
+      "log": "backup-test-history-backup.log"
+    },
+    {
+      "test": [
+        "src/scripts/test-history-package-finalization.js"
+      ],
+      "exitCode": 0,
+      "durationSeconds": 25.116,
+      "log": "backup-test-history-package-finalization.log"
+    }
+  ],
+  "productionReportsChecked": 229,
+  "productionReportBytesAndMtimesChanged": 0,
+  "frozenProductionFilesChecked": 289,
+  "frozenProductionFilesChanged": 0,
+  "documentationLinks": {
+    "documents": 9,
+    "links": 136,
+    "missing": [],
+    "localOnly": [
+      "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs.csv",
+      "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv"
+    ]
+  },
+  "newDependencies": false,
+  "feedRefresh": false,
+  "liveSheetWrite": false,
+  "push": false,
+  "deletedOrMovedFiles": 0,
+  "evidencePolicy": "../README.md",
+  "limits": [
+    "No live Sheet recheck during Git closeout. Publication and remote-view results are saved dated evidence.",
+    "No full-suite rerun during closeout. The prior 38-command run is retained. Five focused commands ran against exact staged trees.",
+    "CSV fixture CRLF bytes and saved historical whitespace are retained."
+  ]
+}

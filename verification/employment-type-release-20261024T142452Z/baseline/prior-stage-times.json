@@ -1,0 +1,46 @@
+{
+  "stages": [
+    {
+      "stage": "Step 1",
+      "seconds": 859
+    },
+    {
+      "stage": "Step 2",
+      "seconds": 856
+    },
+    {
+      "stage": "Step 3",
+      "seconds": 65
+    },
+    {
+      "stage": "Step 4",
+      "seconds": 20
+    },
+    {
+      "stage": "Step 5",
+      "seconds": 48
+    },
+    {
+      "stage": "Step 6",
+      "seconds": 1
+    },
+    {
+      "stage": "Step 7",
+      "seconds": 67
+    },
+    {
+      "stage": "Package finalization",
+      "seconds": 0
+    },
+    {
+      "stage": "History and backup check",
+      "seconds": 768
+    },
+    {
+      "stage": "Step 8",
+      "seconds": 1
+    }
+  ],
+  "source": "baseline/reports/refresh-job-feed-status.md",
+  "limit": "Prior run used different due boards and source results. Differences do not measure feature overhead."
+}

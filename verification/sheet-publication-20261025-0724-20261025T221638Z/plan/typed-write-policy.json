@@ -1,0 +1,40 @@
+{
+  "numericColumns": [
+    "F",
+    "M"
+  ],
+  "dateColumn": "L",
+  "dateEpoch": "1899-12-30",
+  "dateFormat": "yyyy-mm-dd",
+  "otherValues": "literal stringValue, never formulaValue",
+  "primaryLinks": "Explicit URI equals the source Apply Link",
+  "additionalLinks": "Text runs link each source URL",
+  "oldTableRange": {
+    "sheetId": 55693553,
+    "startRowIndex": 0,
+    "endRowIndex": 715,
+    "startColumnIndex": 0,
+    "endColumnIndex": 15
+  },
+  "newRange": {
+    "sheetId": 55693553,
+    "startRowIndex": 0,
+    "endRowIndex": 733,
+    "startColumnIndex": 0,
+    "endColumnIndex": 16
+  },
+  "sourceRows": 732,
+  "oldDataRows": 714,
+  "clearTrailingRows": false,
+  "reason": "The previous dataset is shorter than the new dataset, and no values exist below row 733.",
+  "requests": [
+    "updateCells",
+    "updateTable",
+    "copyPaste",
+    "repeatCell",
+    "repeatCell",
+    "updateCells",
+    "updateDimensionProperties"
+  ],
+  "columnPWidth": 230
+}

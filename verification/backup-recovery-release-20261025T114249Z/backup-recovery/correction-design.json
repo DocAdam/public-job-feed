@@ -1,0 +1,19 @@
+{
+  "result": "Implemented candidate; testing in progress",
+  "observedFailure": "3304 extra 4096-byte AppleDouble files in the October 24 pending bundle",
+  "exactProducer": "NOT VERIFIED. Small Node creation tests on the same external drive produced no sidecars, with or without COPYFILE_DISABLE.",
+  "creationPrevention": "No reliable prevention established; no creation environment workaround is claimed.",
+  "correction": {
+    "optIn": "manifest.metadataPolicy = appledouble-provenance-v1",
+    "encoding": "Exactly 4096 bytes; SHA256 after masking only provenance bytes [152,163) must equal efc62f9e2737a641e8b5a2af7d7c1315bb577b8a8b06cd1359fb52a285e5239c. All table bytes, padding, zero Finder data and the observed blank resource-fork representation are fixed.",
+    "targets": "A sidecar must name an expected manifest, proof, payload file, or payload directory in the same directory.",
+    "retention": "No metadata or xattrs are removed. Required files and payload hashes are checked independently. Metadata paths, sizes, hashes and targets are returned by verification.",
+    "compatibility": "Backup format and restore payloads remain unchanged. Missing metadataPolicy retains strict legacy behavior. Unknown policies fail. New metadata-bearing bundles need the updated verifier, which is included in their saved runtime."
+  },
+  "backupOnly": "jobs:history-backup calls the shared backup creator under the refresh lock and history lease. It audits but does not import or retain. Its report is separate from daily-history-backup.",
+  "evidence": [
+    "isolated/external-probe-result.json",
+    "isolated/external-probe-control.json",
+    "baseline/observed-sidecar.json"
+  ]
+}

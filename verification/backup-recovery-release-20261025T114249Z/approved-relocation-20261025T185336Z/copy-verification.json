@@ -1,0 +1,27 @@
+{
+  "copiedAt": "2026-10-25T18:54:54.084531+00:00",
+  "source": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/current-canonical-fixed-input.json",
+  "destination": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/retained-prior-inputs/current-canonical-fixed-input.json",
+  "bytes": 4017995774,
+  "sourceSHA256": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+  "destinationSHA256": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+  "sourceDates": {
+    "size": "4017995774",
+    "mtimeNs": "1792853575280711898",
+    "atimeNs": "1792855341055128392",
+    "birthtimeNs": "1792853546919618027",
+    "ctimeNs": "1792855339838590584",
+    "ino": "32664829",
+    "dev": "16777233"
+  },
+  "destinationDates": {
+    "size": "4017995774",
+    "mtimeNs": "1792853575280000000",
+    "atimeNs": "1792855340000000000",
+    "birthtimeNs": "1792954418860000000",
+    "ctimeNs": "1792853575280000000",
+    "ino": "1202189",
+    "dev": "16777237"
+  },
+  "localReplaced": false
+}

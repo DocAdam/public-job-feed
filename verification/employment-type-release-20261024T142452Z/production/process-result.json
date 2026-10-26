@@ -1,0 +1,26 @@
+{
+  "startedAt": "2026-10-24T14:31:24.116953+00:00",
+  "launcher": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+  "cwd": "/Users/adampugh/GitHub/public-job-feed",
+  "attempt": 1,
+  "driverPID": 79848,
+  "launcherPID": 79852,
+  "exitCode": 0,
+  "completedAt": "2026-10-24T15:11:12.446575+00:00",
+  "elapsedSeconds": 2388.3176697919844,
+  "recordedRun": {
+    "RunId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "StartedAt": "2026-10-24T14:31:24.248Z",
+    "Status": "COMPLETE",
+    "ProjectRoot": "/Users/adampugh/GitHub/public-job-feed",
+    "LauncherPath": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+    "LauncherSHA256": "c8bc35baccefbaf9f1187dd52890de1d9faadb94851234137d29804f02039026",
+    "GitRevision": "96067095fd634c6f5e0d9d2f381423997a743b11",
+    "WorkingTreeChanged": true,
+    "Arguments": [],
+    "ParentLauncher": null,
+    "ExitCode": 0,
+    "LastStep": "Step 8: refreshing status dashboard",
+    "CompletedAt": "2026-10-24T15:11:12.105Z"
+  }
+}

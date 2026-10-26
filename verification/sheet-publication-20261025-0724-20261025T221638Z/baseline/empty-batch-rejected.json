@@ -1,0 +1,26 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Parameters failed connector schema validation: requests [minItems]: Array has 0 items but requires at least 1"
+    }
+  ],
+  "structuredContent": {
+    "error": "Parameters failed connector schema validation: requests [minItems]: Array has 0 items but requires at least 1",
+    "error_code": "INVALID_ARGUMENT",
+    "error_data": {
+      "reason": "INVALID_PARAMETERS",
+      "clamp_errors": [
+        {
+          "path": [
+            "requests"
+          ],
+          "message": "Array has 0 items but requires at least 1",
+          "keyword": "minItems"
+        }
+      ],
+      "clamp_rewrites": []
+    }
+  },
+  "isError": true
+}

@@ -1,0 +1,22 @@
+{
+  "preservedReports": {
+    "checked": 224,
+    "differences": []
+  },
+  "oldBatchesAndDatedPackages": {
+    "checked": 28443,
+    "differences": [],
+    "limit": "Metadata and link targets; full hashes of all historical source-batch bytes were not recomputed."
+  },
+  "previousExternalBundles": {
+    "checked": 16286,
+    "differences": [],
+    "limit": "Metadata comparison. The earlier failed candidate and existing accepted bundles were not edited."
+  },
+  "frozenCode": {
+    "checked": 289,
+    "differences": []
+  },
+  "locks": [],
+  "at": "2026-10-25T12:48:15.734644+00:00"
+}

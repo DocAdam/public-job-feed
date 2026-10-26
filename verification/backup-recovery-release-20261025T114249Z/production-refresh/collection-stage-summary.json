@@ -1,0 +1,10 @@
+{
+  "board-freshness-report.json": {
+    "GeneratedAt": "2026-10-25T12:09:08.935Z"
+  },
+  "job-index-maintenance-run.json": {
+    "StartedAt": "2026-10-25T12:02:42.641Z",
+    "CompletedAt": "2026-10-25T12:09:10.353Z",
+    "Status": "complete"
+  }
+}

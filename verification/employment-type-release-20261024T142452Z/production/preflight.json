@@ -1,0 +1,10 @@
+{
+  "checkedAt": "2026-10-24T14:31:24.089369+00:00",
+  "isolatedSuiteRunId": "isolated-d2a7304a-df81-46bc-8848-9e32623931e7",
+  "isolatedTests": 38,
+  "codeUnchangedSinceSnapshot": true,
+  "conflictingLocks": [],
+  "head": "96067095fd634c6f5e0d9d2f381423997a743b11",
+  "launcherSHA256": "c8bc35baccefbaf9f1187dd52890de1d9faadb94851234137d29804f02039026",
+  "networkCallsBlockedBeforeRequest": 1
+}

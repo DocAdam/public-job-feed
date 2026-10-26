@@ -1,0 +1,12 @@
+PASS missing drive: history passes, no mount folder or backup is created
+PASS wrong drive and same-device placeholder refuse backup
+PASS real v2 backup: full restored audit, exact report, stable no-op reuse
+PASS failure status and active writer preserve the last verified backup
+PASS exact AppleDouble profile, opt-in policy, required payload, checksums, unknown files, invalid metadata, paths, symlinks and incomplete proof
+PASS backup-only full restore; interruption and final rejection preserve candidates and prior state; only accepted verification updates state
+PASS low space, disconnect, corrupt copy and source change cannot replace a verified backup
+PASS stored checksum corruption and unexpected symlinks fail verification
+PASS local expiry keeps legacy/current backups and records; interrupted retirement resumes; current recovery passes
+PASS external retention preserves 14 latest, monthly and pinned backups; corruption blocks deletion; unknown/partial folders stay
+PASS whole-refresh exclusion and run-bound dashboard status
+Daily history backup tests passed. Only isolated fixtures were changed.

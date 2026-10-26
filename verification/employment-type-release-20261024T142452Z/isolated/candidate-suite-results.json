@@ -1,0 +1,353 @@
+{
+  "RunId": "candidate-84dd5a60-f1b2-4ec2-8c4f-a079e6268f79",
+  "PackageRun": "20261024-0739",
+  "Snapshot": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+  "NetworkPolicy": "OS deny network; Node calls fail before a request; writes confined to isolated directory",
+  "GeneratedAt": "2026-10-24T14:58:56.576Z",
+  "Status": "PASS",
+  "Tests": [
+    {
+      "Name": "jobs:test-employment-type",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-employment-type.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 194
+    },
+    {
+      "Name": "jobs:test-employment-integration",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-employment-integration.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 4169
+    },
+    {
+      "Name": "jobs:test-history-backup",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-history-backup.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 21786
+    },
+    {
+      "Name": "jobs:test-history-finalization",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-history-finalization.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 11798
+    },
+    {
+      "Name": "jobs:test-catalog-maintenance",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-catalog-maintenance.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 223
+    },
+    {
+      "Name": "jobs:test-batch-history",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-batch-history.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 6242
+    },
+    {
+      "Name": "jobs:test-board-freshness",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-board-freshness.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 424
+    },
+    {
+      "Name": "jobs:test-ats-errors",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-ats-errors.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 151
+    },
+    {
+      "Name": "jobs:test-failure-investigation",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-failure-investigation.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 267
+    },
+    {
+      "Name": "jobs:test-board-probe",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-board-probe.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 265
+    },
+    {
+      "Name": "jobs:test-passive-launcher",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-passive-launcher.log",
+      "SourcePopulation": "current read-only repository launcher configuration",
+      "DurationMs": 147
+    },
+    {
+      "Name": "jobs:test-ats-alert",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-ats-alert.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 142
+    },
+    {
+      "Name": "jobs:test-title-category",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-title-category.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 145
+    },
+    {
+      "Name": "jobs:test-dedupe-select",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-dedupe-select.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 147
+    },
+    {
+      "Name": "jobs:test-core-pipeline",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-core-pipeline.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 150
+    },
+    {
+      "Name": "jobs:test-streaming-export-phase-1",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-streaming-export-phase-1.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 317
+    },
+    {
+      "Name": "jobs:test-release",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-release.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 16816
+    },
+    {
+      "Name": "jobs:test-gsheet-grouping",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-gsheet-grouping.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 162
+    },
+    {
+      "Name": "jobs:test-gsheet-package",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-gsheet-package.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 260
+    },
+    {
+      "Name": "jobs:test-url-health",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-url-health.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 144
+    },
+    {
+      "Name": "jobs:test-gsheet-url-pruning",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-gsheet-url-pruning.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 144
+    },
+    {
+      "Name": "jobs:test-scoring",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-scoring.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 153
+    },
+    {
+      "Name": "jobs:test-greenhouse-normalize",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-greenhouse-normalize.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 151
+    },
+    {
+      "Name": "jobs:test-job-finder-consumer",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-job-finder-consumer.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 149
+    },
+    {
+      "Name": "jobs:compare-last-release",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-compare-last-release.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 149
+    },
+    {
+      "Name": "jobs:test-trends",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-trends.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 150
+    },
+    {
+      "Name": "jobs:test-us-remote-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-us-remote-report.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 146
+    },
+    {
+      "Name": "jobs:test-international-remote-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-international-remote-report.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 145
+    },
+    {
+      "Name": "jobs:test-all-remote-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-all-remote-report.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 293
+    },
+    {
+      "Name": "jobs:test-substack-full-report",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-substack-full-report.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 172
+    },
+    {
+      "Name": "jobs:test-content-metrics",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-content-metrics.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 174
+    },
+    {
+      "Name": "jobs:test-status-dashboard",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-status-dashboard.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 158
+    },
+    {
+      "Name": "jobs:test-refresh-launcher",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-refresh-launcher.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 3395
+    },
+    {
+      "Name": "jobs:test-curated-submissions",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-curated-submissions.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 172
+    },
+    {
+      "Name": "jobs:test-refresh-reports",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-refresh-reports.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 376
+    },
+    {
+      "Name": "jobs:test-review-improvements",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-review-improvements.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 176
+    },
+    {
+      "Name": "jobs:test-history",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-history.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 5037
+    },
+    {
+      "Name": "jobs:test-history-content",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/candidate-test-logs/jobs-test-history-content.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 831
+    }
+  ],
+  "CompletedAt": "2026-10-24T14:58:56.576Z"
+}

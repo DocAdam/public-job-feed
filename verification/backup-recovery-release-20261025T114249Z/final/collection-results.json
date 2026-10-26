@@ -1,0 +1,79 @@
+{
+  "counts": {
+    "success": 297,
+    "empty": 1,
+    "failed": 2
+  },
+  "nonSuccessOrEmpty": [
+    {
+      "ATS": "lever",
+      "Company": "Mainspringenergy",
+      "CompanyKey": "mainspringenergy",
+      "CatalogSlug": "mainspringenergy",
+      "BoardURL": "https://jobs.lever.co/mainspringenergy",
+      "FetchURL": "https://api.lever.co/v0/postings/mainspringenergy?mode=%5Bredacted%5D",
+      "FetchEndpoint": "https://api.lever.co/v0/postings/mainspringenergy?mode=%5Bredacted%5D",
+      "Status": "failed",
+      "HttpStatus": "",
+      "JobCount": 0,
+      "Error": "This operation was aborted",
+      "Diagnostic": {
+        "board_key": "lever|mainspringenergy",
+        "ats": "lever",
+        "catalog_url": "https://jobs.lever.co/mainspringenergy",
+        "request_url": "https://api.lever.co/v0/postings/mainspringenergy?mode=%5Bredacted%5D",
+        "request_method": "GET",
+        "http_status": null,
+        "content_type": "",
+        "redirect_chain": [],
+        "redirect_chain_complete": false,
+        "final_url": "",
+        "response_length": null,
+        "response_prefix": "",
+        "request_payload_shape": null,
+        "error_class": "transport_failure",
+        "attempted_at": "2026-10-25T12:04:37.419Z",
+        "last_success_at": null,
+        "successful_snapshot_count": null,
+        "history_scope": "not joined; use failure analysis"
+      },
+      "ErrorClass": "TIMEOUT",
+      "FetchedAt": "2026-10-25T12:04:37.419Z"
+    },
+    {
+      "ATS": "lever",
+      "Company": "Hive",
+      "CompanyKey": "hive",
+      "CatalogSlug": "hive",
+      "BoardURL": "https://jobs.lever.co/hive",
+      "FetchURL": "https://api.lever.co/v0/postings/hive?mode=%5Bredacted%5D",
+      "FetchEndpoint": "https://api.lever.co/v0/postings/hive?mode=%5Bredacted%5D",
+      "Status": "failed",
+      "HttpStatus": "",
+      "JobCount": 0,
+      "Error": "This operation was aborted",
+      "Diagnostic": {
+        "board_key": "lever|hive",
+        "ats": "lever",
+        "catalog_url": "https://jobs.lever.co/hive",
+        "request_url": "https://api.lever.co/v0/postings/hive?mode=%5Bredacted%5D",
+        "request_method": "GET",
+        "http_status": null,
+        "content_type": "",
+        "redirect_chain": [],
+        "redirect_chain_complete": false,
+        "final_url": "",
+        "response_length": null,
+        "response_prefix": "",
+        "request_payload_shape": null,
+        "error_class": "transport_failure",
+        "attempted_at": "2026-10-25T12:04:45.737Z",
+        "last_success_at": null,
+        "successful_snapshot_count": null,
+        "history_scope": "not joined; use failure analysis"
+      },
+      "ErrorClass": "TIMEOUT",
+      "FetchedAt": "2026-10-25T12:04:45.737Z"
+    }
+  ]
+}

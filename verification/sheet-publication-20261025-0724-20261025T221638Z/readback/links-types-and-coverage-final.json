@@ -1,0 +1,18 @@
+{
+  "primaryChecked": 732,
+  "primaryBad": [],
+  "additionalURLsChecked": 50,
+  "additionalBad": [],
+  "remoteChecked": 69,
+  "remoteBad": [],
+  "dateErrors": [],
+  "numberErrors": [],
+  "labelErrors": [],
+  "labelCoverage": {
+    "denominator": 732,
+    "statedSchedule": 202,
+    "statedTerms": 48,
+    "neither": 492,
+    "conflicts": 0
+  }
+}

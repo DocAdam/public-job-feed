@@ -1,0 +1,92 @@
+[
+  {
+    "command": "npm run jobs:test-employment-type",
+    "exitCode": 0,
+    "durationMs": 183.43,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-employment-type\n> node src/scripts/test-employment-type.js\n\nPASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.\nPASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.\nPASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.\nPASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.\nPASS: core compatibility dedupe, conflict population, public label validation.\nPASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.\n"
+  },
+  {
+    "command": "npm run jobs:test-employment-integration",
+    "exitCode": 0,
+    "durationMs": 4054.04,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-employment-integration\n> node src/scripts/test-employment-integration.js\n\nPASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.\nPASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.\nPASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.\nPASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.\nPASS: core compatibility dedupe, conflict population, public label validation.\nPASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.\nPASS: actual merge, daily slices, 15 shortlist records, public/formula CSV, new-schema rejection, old package loading, legacy and v2 history, streaming conflict protection, scoring regression. All writes used temporary paths; collection was disabled.\n"
+  },
+  {
+    "command": "npm run jobs:test-dedupe-select",
+    "exitCode": 0,
+    "durationMs": 135.55,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-dedupe-select\n> node src/scripts/test-dedupe-select.js\n\nDedupe selection tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-gsheet-grouping",
+    "exitCode": 0,
+    "durationMs": 145.3,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-gsheet-grouping\n> node src/scripts/test-gsheet-grouping.js\n\nGoogle Sheets multi-location grouping tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-core-pipeline",
+    "exitCode": 0,
+    "durationMs": 142.15,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-core-pipeline\n> node src/scripts/test-core-pipeline.js\n\nCore pipeline regression tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-streaming-export-phase-1",
+    "exitCode": 0,
+    "durationMs": 281.78,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-streaming-export-phase-1\n> node src/scripts/test-streaming-export-phase-1.js\n\nStreaming export Phase 1 tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-greenhouse-normalize",
+    "exitCode": 0,
+    "durationMs": 139.32,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-greenhouse-normalize\n> node src/scripts/test-greenhouse-normalize.js\n\nGreenhouse normalize regression: PASS\nPASS: prefers first_published over updated_at -> 2026-06-03 age 32\nPASS: falls back to published_at before updated_at -> 2026-06-10 age 25\nPASS: falls back to created_at before updated_at -> 2026-06-15 age 20\nPASS: uses updated_at as last fallback -> 2026-07-03 age 2\n"
+  },
+  {
+    "command": "npm run jobs:test-history",
+    "exitCode": 0,
+    "durationMs": 4743.44,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-history\n> node src/scripts/test-jobs-history.js\n\nPASS: discovery, integrity failures, URL membership, identity, types, schema union, empty snapshot, lifecycle, inclusion history, atomic rebuild, incremental update, idempotency, duplicate selection, raw preservation, exceptions, and corruption detection\n"
+  },
+  {
+    "command": "npm run jobs:test-history-content",
+    "exitCode": 0,
+    "durationMs": 790.6,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-history-content\n> node src/scripts/test-history-content.js\n\nPASS: daily parity, topic denominators, exceptions, duplicate exports, baseline selection, churn, coverage, roles, deterministic report, zero denominators, dependent incremental refresh, deterministic publishing sections, weekly trends, coverage gaps, and existing-section preservation\n"
+  },
+  {
+    "command": "npm run jobs:test-gsheet-url-pruning",
+    "exitCode": 0,
+    "durationMs": 135.27,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-gsheet-url-pruning\n> node src/scripts/test-gsheet-url-pruning.js\n\nGoogle Sheets safe URL pruning tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-url-health",
+    "exitCode": 0,
+    "durationMs": 128.15,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-url-health\n> node src/scripts/test-job-url-health.js\n\nJob URL health regression: PASS\n"
+  },
+  {
+    "command": "npm run jobs:test-curated-submissions",
+    "exitCode": 0,
+    "durationMs": 143.94,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-curated-submissions\n> node src/scripts/test-curated-submissions.js\n\nCurated submission fixtures passed; no live requests or production writes.\n"
+  },
+  {
+    "command": "npm run jobs:test-refresh-reports",
+    "exitCode": 1,
+    "durationMs": 196.04,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-refresh-reports\n> node src/scripts/test-refresh-reports.js\n\nAssertionError [ERR_ASSERTION]: missing manifest\n\n'PASS' !== 'FAIL'\n\n    at main (/Users/adampugh/GitHub/public-job-feed/src/scripts/test-refresh-reports.js:50:14) {\n  generatedMessage: false,\n  code: 'ERR_ASSERTION',\n  actual: 'PASS',\n  expected: 'FAIL',\n  operator: 'strictEqual',\n  diff: 'simple'\n}\n"
+  },
+  {
+    "command": "npm run jobs:test-title-category",
+    "exitCode": 0,
+    "durationMs": 130.82,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-title-category\n> node src/scripts/test-title-category.js\n\nTitle-category fixture tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-job-finder-consumer",
+    "exitCode": 0,
+    "durationMs": 133.95,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-job-finder-consumer\n> node src/scripts/test-job-finder-consumer.js\n\nJob Finder consumer export tests passed.\n"
+  }
+]

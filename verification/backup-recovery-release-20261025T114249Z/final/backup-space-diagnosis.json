@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-25T12:40:34.827244+00:00",
+  "productionRunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+  "packageId": "20261025-0724",
+  "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+  "databaseHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+  "historySnapshots": "159",
+  "observedFailure": "Insufficient space for backup and full restore test",
+  "localFreeBytes": 36786442240,
+  "estimatedRestoreBytes": 4608703976,
+  "estimateBasis": "Prior exact 3306-member manifest plus new dated package and database-size delta. Exact current inputs measured separately before any retry.",
+  "requiredReserveBytes": 34359738368,
+  "estimatedRequiredBytes": 38968442344,
+  "estimatedShortfallBytes": 2182000104,
+  "retryRun": false,
+  "sourceOrExistingBackupRemoved": false
+}

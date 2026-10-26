@@ -1,0 +1,34 @@
+ M README.md
+ M data/jobs/history/README.md
+ M data/jobs/history/validation.json
+ M "launchers/Clean Broken Links.command"
+ M package.json
+ M src/adapters/exports/csv-builder.js
+ M src/adapters/exports/export-dedupe.js
+ M src/adapters/exports/stream-record-writers.js
+ M src/adapters/storage/export-run-store-worker.js
+ M src/core/deduplication/job-dedupe.js
+ M src/core/models/job-record.js
+ M src/core/pipeline/engine.js
+ M src/lib/csv.js
+ M src/lib/dedupe-select.js
+ M src/lib/job-export.js
+ M src/lib/jobs-normalize.js
+ M src/lib/simple-public-export.js
+ M src/scripts/build-gsheet-package.js
+ M src/scripts/build-public-release.js
+ M src/scripts/check-gsheet-url-health.js
+ M src/scripts/export-public-slices-streaming-dry-run.js
+ M src/scripts/export-public-slices.js
+ M src/scripts/test-greenhouse-normalize.js
+ M src/scripts/test-gsheet-package.js
+?? docs/features/
+?? previews/
+?? src/lib/employment-type-report.js
+?? src/lib/employment-type.js
+?? src/scripts/benchmark-employment-type.js
+?? src/scripts/fixtures/employment-type/
+?? src/scripts/preview-employment-type.js
+?? src/scripts/test-employment-integration.js
+?? src/scripts/test-employment-type.js
+?? verification/

@@ -1,0 +1,16 @@
+{
+  "runId": "9c29cf20-a701-4b92-806e-aa1aee8a2eea",
+  "startedAt": "2026-10-25T18:59:00.709926+00:00",
+  "command": [
+    "npm",
+    "run",
+    "jobs:history-backup"
+  ],
+  "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+  "databaseHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+  "packageId": "20261025-0724",
+  "spaceCheck": "space-after-relocation.json",
+  "frozenFilesChecked": 289,
+  "frozenFilesChanged": [],
+  "attemptsAuthorized": 1
+}

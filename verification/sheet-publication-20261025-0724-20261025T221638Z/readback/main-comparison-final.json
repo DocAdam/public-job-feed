@@ -1,0 +1,31 @@
+{
+  "cellsCompared": 11728,
+  "dataRows": 732,
+  "columns": 16,
+  "mismatches": [],
+  "tailRows": 0,
+  "lastRowMatches": true,
+  "lastRow": [
+    "Lead Information Security Engineer - (Java Full Stack Developer)",
+    "Svb",
+    "Bangalore, India",
+    "https://svb.wd5.myworkdayjobs.com/firstcitizensindia/job/Bangalore-India/Lead-Information-Security-Engineer---IAM_24631-1",
+    "",
+    "",
+    "F",
+    "Matched watchlist title: Information Experience Developer",
+    "Adjacent / Transferable",
+    "Onsite",
+    "",
+    "",
+    "",
+    "2026-10-24 09:26 UTC",
+    "workday",
+    "Not stated"
+  ],
+  "normalizations": [
+    "F and M numeric values are compared with their source decimal strings.",
+    "L date serials use epoch 1899-12-30 and are compared to source ISO dates.",
+    "Absent cells compare as empty strings."
+  ]
+}

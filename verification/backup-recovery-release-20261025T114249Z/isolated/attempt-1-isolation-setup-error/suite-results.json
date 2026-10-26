@@ -1,0 +1,29 @@
+{
+  "RunId": "isolated-e99de4ea-27b2-41ae-902b-77be9fb39b01",
+  "PackageRun": "20261024-0954",
+  "Snapshot": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project",
+  "NetworkPolicy": "OS deny network; Node calls fail before a request; writes confined to isolated directory",
+  "GeneratedAt": "2026-10-25T11:48:51.666Z",
+  "Status": "FAIL",
+  "Tests": [
+    {
+      "Name": "jobs:test-employment-type",
+      "ExitCode": 0,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/test-logs/jobs-test-employment-type.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 228
+    },
+    {
+      "Name": "jobs:test-employment-integration",
+      "ExitCode": 1,
+      "Signal": null,
+      "WorkingDirectory": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project",
+      "Evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/test-logs/jobs-test-employment-integration.log",
+      "SourcePopulation": "isolated fixed data copy or offline fixtures, as defined by this test",
+      "DurationMs": 319
+    }
+  ],
+  "FailedTest": "jobs:test-employment-integration"
+}

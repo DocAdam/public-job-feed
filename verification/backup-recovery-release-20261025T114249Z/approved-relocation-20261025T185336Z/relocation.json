@@ -1,0 +1,44 @@
+{
+  "status": "PASS",
+  "source": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/current-canonical-fixed-input.json",
+  "destination": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/retained-prior-inputs/current-canonical-fixed-input.json",
+  "bytes": 4017995774,
+  "sha256": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+  "verifiedBy": "Complete streaming SHA-256 of source and copied destination before replacing the local file. Source rechecked immediately before replacement.",
+  "originalDates": {
+    "size": "4017995774",
+    "mtimeNs": "1792853575280711898",
+    "atimeNs": "1792855341055128392",
+    "birthtimeNs": "1792853546919618027",
+    "ctimeNs": "1792855339838590584",
+    "ino": "32664829",
+    "dev": "16777233"
+  },
+  "externalDates": {
+    "size": "4017995774",
+    "mtimeNs": "1792853575280000000",
+    "atimeNs": "1792855340000000000",
+    "birthtimeNs": "1792853546000000000",
+    "ino": "1202189",
+    "dev": "16777237"
+  },
+  "timestampLossNs": {
+    "birthtimeNs": 919618027,
+    "mtimeNs": 711898,
+    "atimeNs": 1055128392
+  },
+  "dateLimit": "The destination driver rounded the explicitly restored creation date to one second, modification date to 10 ms, and access date to 2 s for this file. Exact original nanosecond values remain in this record. ctime is an observation of the old file metadata state, not a transferable content date.",
+  "externalCopyMustBePreserved": true,
+  "rollback": [
+    "Require enough local space for a new 4017995774-byte file. Keep the external copy.",
+    "Copy destination to a new sibling temporary regular file beside source; do not copy through the existing symbolic link.",
+    "Verify the complete size and SHA-256 against this record. Restore original creation, modification and access timestamps from originalDates on the local filesystem.",
+    "Confirm source is still the expected symbolic link, then atomically replace that link with the verified local regular file.",
+    "Keep the external copy and this record after rollback."
+  ],
+  "approvedScope": "Only the named prior snapshot is relocated. No other existing file may be moved or deleted.",
+  "replacedAt": "2026-10-25T18:57:20.411880+00:00",
+  "localIsSymlink": true,
+  "linkTarget": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/retained-prior-inputs/current-canonical-fixed-input.json",
+  "externalReceipt": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/retained-prior-inputs/current-canonical-fixed-input.relocation.json"
+}

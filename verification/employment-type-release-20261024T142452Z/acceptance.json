@@ -1,0 +1,326 @@
+[
+  {
+    "requirement": "Baseline instructions, Git state, code and lock checks",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/preflight.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "No conflicting lock; code matched the baseline before the single launch."
+  },
+  {
+    "requirement": "Preserve current reports before normal overwrite",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/baseline/report-preservation-check.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "222 reports retained with the same contents and modification dates; differences zero."
+  },
+  {
+    "requirement": "Earlier Greenhouse reports preserved before their original overwrite",
+    "status": "FAIL",
+    "evidence": "verification/employment-type-release-20261024T142452Z/baseline/source/docs/features/employment-type-verification.md",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Earlier reports had already been replaced before this task. Their previous timestamps are not recoverable."
+  },
+  {
+    "requirement": "All remaining normal-suite commands run in isolation",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/isolated/suite-results.json",
+    "runId": "isolated-d2a7304a-df81-46bc-8848-9e32623931e7",
+    "packageId": "20261024-0739",
+    "inputHash": "6c246f3b17ed6a2bbf922be74fb948f2ffedfc81bb2d150c68b7592faeeb1633",
+    "limit": "38/38 pass. Fixed copy of saved data. Launcher path smoke test read original configuration under the same write/network restrictions."
+  },
+  {
+    "requirement": "Final correction passes the complete suite",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/isolated/release-final-suite-results.json",
+    "runId": "release-final-eb762ab5-7c52-44cc-bd07-d7357e2cd582",
+    "packageId": "20261024-0739",
+    "inputHash": "6c246f3b17ed6a2bbf922be74fb948f2ffedfc81bb2d150c68b7592faeeb1633",
+    "limit": "38/38 pass; parser, export, test and fixture bytes matched the applied source."
+  },
+  {
+    "requirement": "Final correction passes the current full-corpus projection",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/isolated/current-corpus-candidate-projection.json",
+    "runId": "release-final-eb762ab5-7c52-44cc-bd07-d7357e2cd582",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "836867 current records; 153 changed, zero invalid contracts or source-provenance differences; zero strong-match changes. No production file was rewritten."
+  },
+  {
+    "requirement": "No network requests during isolated checks",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/isolated/offline.sb",
+    "runId": "release-final-eb762ab5-7c52-44cc-bd07-d7357e2cd582",
+    "packageId": "20261024-0739",
+    "inputHash": "6c246f3b17ed6a2bbf922be74fb948f2ffedfc81bb2d150c68b7592faeeb1633",
+    "limit": "OS denied network access. One initial HTTPS call was blocked before transmission. Node guard and containment self-test retained."
+  },
+  {
+    "requirement": "Exactly one normal production refresh",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/process-result.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "One launch marker; normal launcher exited 0. No retry or second refresh."
+  },
+  {
+    "requirement": "Distinct package from this refresh",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Package 20261024-0954 belongs to this run."
+  },
+  {
+    "requirement": "Public column is appended; evidence is internal",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Original 15 headers are unchanged. Employment Type is column P. No internal evidence is public."
+  },
+  {
+    "requirement": "Public labels validate",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "715 rows: schedule 146, terms 46, neither 532, conflicts 0. Schedule and terms overlap."
+  },
+  {
+    "requirement": "Schema, final coverage, and import range agree",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Schema and final coverage agree with 715 rows and range A1:P716."
+  },
+  {
+    "requirement": "Manifest sizes and formats agree",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "No manifest size or format differences in dated and latest copies."
+  },
+  {
+    "requirement": "Latest and dated copies agree",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Public CSV, schema, coverage, and import instructions have equal hashes."
+  },
+  {
+    "requirement": "Current URL check and safe prune completed",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "744 rows checked; 29 deterministic failures removed; 12 ambiguous checks retained; final 715."
+  },
+  {
+    "requirement": "Production suite belongs to this run",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "38 commands passed for run 455b725d-9dc4-48c2-bb7a-8e0b24bea81c. These tests preceded the parser fix."
+  },
+  {
+    "requirement": "Current refresh and package validation pass",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Refresh validation passed with no failures. Package test WARN: 30 rows last checked more than 7 days ago; 5 of these more than 14 days ago."
+  },
+  {
+    "requirement": "Detailed CSV contains valid JSON arrays",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "All 831 detailed rows have valid evidence arrays."
+  },
+  {
+    "requirement": "Shortlist evidence survives detailed CSV",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "No evidence differences between shortlist and detailed CSV."
+  },
+  {
+    "requirement": "Canonical employment contract and observation dates validate",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "836867 records passed shape/date checks; 35565 new observations and 801302 retained. Semantic defects are listed separately."
+  },
+  {
+    "requirement": "Free text Variable values require an explicit schedule",
+    "status": "FAIL",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "FAIL in actual production output: 128 records have unqualified Variable text evidence. These are not all confirmed occupational false positives."
+  },
+  {
+    "requirement": "Variable hours or shifts do not contradict stated full-time or part-time hours",
+    "status": "FAIL",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "FAIL in actual production output: 55 records have Variable and one known hours category marked as a conflict. This population overlaps the preceding check."
+  },
+  {
+    "requirement": "New normalized batch evidence survives merge",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "All 35563 collected batch records matched their canonical employment contracts."
+  },
+  {
+    "requirement": "Controlled selection reproduces actual shortlist",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Same-input selection reproduced 831 records from 998 strong-match candidates."
+  },
+  {
+    "requirement": "Final public labels trace to current grouped shortlist",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "No differences between public labels and grouped shortlist evidence."
+  },
+  {
+    "requirement": "Employment fields do not change scores or identity keys on the same inputs",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "998 strong-match candidates: no score or identity-key changes."
+  },
+  {
+    "requirement": "History result belongs to this run and package",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/artifact-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Current report has run 455b725d-9dc4-48c2-bb7a-8e0b24bea81c; History PASS and Backup FAILED. Prior LastVerified is not current success."
+  },
+  {
+    "requirement": "History current package audited and stored",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/isolated/history-readonly-verification.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Read-only query: 831 observations, no missing status, no invalid evidence JSON. Audit passed for package 20261024-0954."
+  },
+  {
+    "requirement": "Backup for this run accepted",
+    "status": "FAIL",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/reports/daily-history-backup.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "History PASS; Backup FAILED: Unexpected backup files. Prior LastVerified is not a backup for this run."
+  },
+  {
+    "requirement": "Backup failure diagnosed without bypassing validation",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/backup-failure-diagnosis.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "3304 extra AppleDouble-header sidecars, no missing payload members. Synthetic isolated fixture reproduces strict rejection. No external repair or retry."
+  },
+  {
+    "requirement": "Corrected parser observed in a new production release",
+    "status": "NOT VERIFIED",
+    "evidence": "verification/employment-type-release-20261024T142452Z/isolated/applied-parser-fix.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Fix was applied only after the approved run. Existing canonical output and imported package remain unchanged."
+  },
+  {
+    "requirement": "Source fields that need additional Workday or iCIMS detail requests",
+    "status": "NOT VERIFIED",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/new-source-review.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Outside this release; no additional detail requests were added."
+  },
+  {
+    "requirement": "Raw successful ATS response bodies independently inspected",
+    "status": "NOT VERIFIED",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/new-source-review.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Normal collector does not retain successful response bodies. Actual trace starts at normalized batch evidence."
+  },
+  {
+    "requirement": "All older source batches and dated packages preserved",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/protected-history-and-batches.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "No existing batch or dated-package metadata or link target changed or disappeared. Full byte hashes of all 69 GB of old batches were not computed."
+  },
+  {
+    "requirement": "Live Sheet unchanged",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/production/process-result.json",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "No import, table resize, filter, pivot, or Sheet API write was performed."
+  },
+  {
+    "requirement": "No commit, push, PR, dependency, schedule or Job Finder-record change",
+    "status": "PASS",
+    "evidence": "verification/employment-type-release-20261024T142452Z/baseline/git-status.txt",
+    "runId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+    "packageId": "20261024-0954",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Only feature source, tests, documentation and approved normal-workflow outputs changed. Local consumer export belongs to this repository."
+  }
+]

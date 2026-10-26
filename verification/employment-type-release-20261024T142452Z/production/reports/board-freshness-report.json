@@ -1,0 +1,941 @@
+{
+  "GeneratedAt": "2026-10-24T14:38:12.436Z",
+  "StateGeneratedAt": "2026-10-24T14:36:06.833Z",
+  "FailureBreakdown": [
+    {
+      "ATS": "workday",
+      "ErrorClass": "ENDPOINT_REJECTED",
+      "Boards": 6807,
+      "Due": 458,
+      "LastAttemptOlder7Days": 448,
+      "LastSuccessOlder7Days": 47,
+      "LastSuccessUnknown": 6760,
+      "Samples": [
+        {
+          "BoardKey": "workday|21cf|wd1|domestic",
+          "LastAttemptAt": "2026-10-17T16:58:05.912Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 422"
+        },
+        {
+          "BoardKey": "workday|8451llc|wd1|external8451",
+          "LastAttemptAt": "2026-10-17T16:58:07.115Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 422"
+        },
+        {
+          "BoardKey": "workday|abeilleassurances|wd3|aema_groupe",
+          "LastAttemptAt": "2026-10-17T16:58:12.668Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 422"
+        },
+        {
+          "BoardKey": "workday|abeilleassurances|wd3|external",
+          "LastAttemptAt": "2026-10-17T16:58:14.033Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 422"
+        },
+        {
+          "BoardKey": "workday|academicpartnerships|wd5|academicpartnerships",
+          "LastAttemptAt": "2026-10-17T16:58:15.021Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 422"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "ErrorClass": "BOARD_NOT_FOUND",
+      "Boards": 5444,
+      "Due": 1817,
+      "LastAttemptOlder7Days": 1748,
+      "LastSuccessOlder7Days": 185,
+      "LastSuccessUnknown": 5259,
+      "Samples": [
+        {
+          "BoardKey": "icims|121restaurants",
+          "LastAttemptAt": "2026-10-17T15:27:18.984Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "icims|1stheritage-attainfinance",
+          "LastAttemptAt": "2026-10-17T15:27:19.983Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "icims|1stheritage-curo",
+          "LastAttemptAt": "2026-10-17T15:27:21.039Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "icims|22squared",
+          "LastAttemptAt": "2026-10-17T15:27:22.080Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "icims|24hrcares",
+          "LastAttemptAt": "2026-10-17T15:27:23.146Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        }
+      ]
+    },
+    {
+      "ATS": "greenhouse",
+      "ErrorClass": "BOARD_NOT_FOUND",
+      "Boards": 3209,
+      "Due": 794,
+      "LastAttemptOlder7Days": 793,
+      "LastSuccessOlder7Days": 456,
+      "LastSuccessUnknown": 2753,
+      "Samples": [
+        {
+          "BoardKey": "greenhouse|0x",
+          "LastAttemptAt": "2026-10-18T21:01:26.059Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "greenhouse|100x",
+          "LastAttemptAt": "2026-10-18T21:02:55.595Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "greenhouse|1047games",
+          "LastAttemptAt": "2026-10-18T21:02:55.595Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "greenhouse|10pearls",
+          "LastAttemptAt": "2026-10-18T21:02:55.610Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "greenhouse|10up",
+          "LastAttemptAt": "2026-10-18T21:02:55.917Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        }
+      ]
+    },
+    {
+      "ATS": "bamboohr",
+      "ErrorClass": "UNEXPECTED_HTML_RESPONSE",
+      "Boards": 2568,
+      "Due": 1407,
+      "LastAttemptOlder7Days": 1406,
+      "LastSuccessOlder7Days": 201,
+      "LastSuccessUnknown": 2367,
+      "Samples": [
+        {
+          "BoardKey": "bamboohr|10strawberrystreet",
+          "LastAttemptAt": "2026-10-17T12:09:56.078Z",
+          "LastSuccessAt": "",
+          "LastError": "Expected JSON; received HTML"
+        },
+        {
+          "BoardKey": "bamboohr|120water",
+          "LastAttemptAt": "2026-10-17T12:09:56.256Z",
+          "LastSuccessAt": "",
+          "LastError": "Expected JSON; received HTML"
+        },
+        {
+          "BoardKey": "bamboohr|2025canadagames",
+          "LastAttemptAt": "2026-10-17T12:09:56.696Z",
+          "LastSuccessAt": "",
+          "LastError": "Expected JSON; received HTML"
+        },
+        {
+          "BoardKey": "bamboohr|2050partners",
+          "LastAttemptAt": "2026-10-17T12:09:56.883Z",
+          "LastSuccessAt": "",
+          "LastError": "Expected JSON; received HTML"
+        },
+        {
+          "BoardKey": "bamboohr|211la",
+          "LastAttemptAt": "2026-10-17T12:09:57.319Z",
+          "LastSuccessAt": "",
+          "LastError": "Expected JSON; received HTML"
+        }
+      ]
+    },
+    {
+      "ATS": "lever",
+      "ErrorClass": "BOARD_NOT_FOUND",
+      "Boards": 2445,
+      "Due": 192,
+      "LastAttemptOlder7Days": 190,
+      "LastSuccessOlder7Days": 140,
+      "LastSuccessUnknown": 2304,
+      "Samples": [
+        {
+          "BoardKey": "lever|10up-2",
+          "LastAttemptAt": "2026-10-22T09:19:38.013Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "lever|174powerglobal",
+          "LastAttemptAt": "2026-10-19T21:02:43.706Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "lever|1776",
+          "LastAttemptAt": "2026-10-22T09:19:38.051Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "lever|18c",
+          "LastAttemptAt": "2026-10-22T09:19:38.365Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "lever|1910genetics",
+          "LastAttemptAt": "2026-10-19T21:02:43.784Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        }
+      ]
+    },
+    {
+      "ATS": "ashby",
+      "ErrorClass": "BOARD_NOT_FOUND",
+      "Boards": 756,
+      "Due": 2,
+      "LastAttemptOlder7Days": 2,
+      "LastSuccessOlder7Days": 180,
+      "LastSuccessUnknown": 574,
+      "Samples": [
+        {
+          "BoardKey": "ashby|01c",
+          "LastAttemptAt": "2026-10-24T09:00:22.166Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "ashby|11x",
+          "LastAttemptAt": "2026-10-24T09:00:22.499Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "ashby|18c78c4427514cebaa7039bbf8a8c249",
+          "LastAttemptAt": "2026-10-24T09:00:22.529Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "ashby|accelevents",
+          "LastAttemptAt": "2026-10-18T21:01:42.423Z",
+          "LastSuccessAt": "2026-07-15T04:17:20.376Z",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "ashby|ace-1-media",
+          "LastAttemptAt": "2026-10-17T11:42:45.834Z",
+          "LastSuccessAt": "2026-10-03T09:01:10.161Z",
+          "LastError": "HTTP 404"
+        }
+      ]
+    },
+    {
+      "ATS": "workday",
+      "ErrorClass": "ACCESS_BLOCKED",
+      "Boards": 252,
+      "Due": 22,
+      "LastAttemptOlder7Days": 11,
+      "LastSuccessOlder7Days": 28,
+      "LastSuccessUnknown": 223,
+      "Samples": [
+        {
+          "BoardKey": "workday|adobe|wd5|external_university",
+          "LastAttemptAt": "2026-10-17T14:25:16.440Z",
+          "LastSuccessAt": "2026-07-25T09:00:19.928Z",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "workday|aero|wd5|urr",
+          "LastAttemptAt": "2026-10-17T16:58:46.429Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "workday|aett|wd3|stax",
+          "LastAttemptAt": "2026-10-17T16:58:47.566Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "workday|aimcodevco|wd5|aimco",
+          "LastAttemptAt": "2026-10-17T16:58:51.471Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "workday|albemarle|wd5|albcollegerecruiting",
+          "LastAttemptAt": "2026-10-17T16:58:56.999Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        }
+      ]
+    },
+    {
+      "ATS": "bamboohr",
+      "ErrorClass": "ACCESS_BLOCKED",
+      "Boards": 212,
+      "Due": 113,
+      "LastAttemptOlder7Days": 113,
+      "LastSuccessOlder7Days": 118,
+      "LastSuccessUnknown": 93,
+      "Samples": [
+        {
+          "BoardKey": "bamboohr|10tengaming",
+          "LastAttemptAt": "2026-10-17T12:10:39.847Z",
+          "LastSuccessAt": "2026-09-18T09:06:55.374Z",
+          "LastError": "HTTP 401"
+        },
+        {
+          "BoardKey": "bamboohr|17triggers",
+          "LastAttemptAt": "2026-10-21T21:07:18.868Z",
+          "LastSuccessAt": "2026-09-25T09:03:50.704Z",
+          "LastError": "HTTP 401"
+        },
+        {
+          "BoardKey": "bamboohr|24hourcrafts",
+          "LastAttemptAt": "2026-10-17T12:09:57.507Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 401"
+        },
+        {
+          "BoardKey": "bamboohr|3rddegreescreening",
+          "LastAttemptAt": "2026-10-17T12:10:01.668Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 401"
+        },
+        {
+          "BoardKey": "bamboohr|3tgstaffingsolutions",
+          "LastAttemptAt": "2026-10-17T12:10:02.281Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 401"
+        }
+      ]
+    },
+    {
+      "ATS": "workday",
+      "ErrorClass": "BOARD_NOT_FOUND",
+      "Boards": 121,
+      "Due": 3,
+      "LastAttemptOlder7Days": 2,
+      "LastSuccessOlder7Days": 7,
+      "LastSuccessUnknown": 114,
+      "Samples": [
+        {
+          "BoardKey": "workday|4flow|wd3|4flow_campus",
+          "LastAttemptAt": "2026-10-17T16:58:04.468Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "workday|abcsupply|wd1|lwsupplycareers",
+          "LastAttemptAt": "2026-10-17T16:58:10.739Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "workday|abcsupply|wd1|tcicareers",
+          "LastAttemptAt": "2026-10-17T16:58:11.741Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "workday|adobe|wd5|adobe_careers",
+          "LastAttemptAt": "2026-10-17T16:58:41.903Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        },
+        {
+          "BoardKey": "workday|ag|wd3|external",
+          "LastAttemptAt": "2026-10-17T16:58:48.983Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 404"
+        }
+      ]
+    },
+    {
+      "ATS": "workday",
+      "ErrorClass": "UPSTREAM_SERVER_ERROR",
+      "Boards": 79,
+      "Due": 0,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 2,
+      "LastSuccessUnknown": 77,
+      "Samples": [
+        {
+          "BoardKey": "workday|7eleven|wd3|7eleven",
+          "LastAttemptAt": "2026-10-17T16:57:53.323Z",
+          "LastSuccessAt": "2026-07-14T20:53:03.617Z",
+          "LastError": "HTTP 500"
+        },
+        {
+          "BoardKey": "workday|aaamidatlantic|wd5|aaamidatlantic",
+          "LastAttemptAt": "2026-10-17T16:58:08.126Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 500"
+        },
+        {
+          "BoardKey": "workday|aaamidatlantic|wd5|external_career_ase",
+          "LastAttemptAt": "2026-10-17T16:58:09.519Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 500"
+        },
+        {
+          "BoardKey": "workday|acehardware|wd1|ahhs_external",
+          "LastAttemptAt": "2026-10-17T16:58:18.535Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 500"
+        },
+        {
+          "BoardKey": "workday|acehardware|wd1|aih_external",
+          "LastAttemptAt": "2026-10-17T16:58:19.999Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 500"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "ErrorClass": "UPSTREAM_SERVER_ERROR",
+      "Boards": 73,
+      "Due": 10,
+      "LastAttemptOlder7Days": 10,
+      "LastSuccessOlder7Days": 61,
+      "LastSuccessUnknown": 6,
+      "Samples": [
+        {
+          "BoardKey": "icims|americansystems",
+          "LastAttemptAt": "2026-10-24T09:09:29.986Z",
+          "LastSuccessAt": "2026-10-22T21:12:41.731Z",
+          "LastError": "HTTP 503"
+        },
+        {
+          "BoardKey": "icims|ammechanical",
+          "LastAttemptAt": "2026-10-17T13:15:49.762Z",
+          "LastSuccessAt": "2026-08-19T21:02:20.674Z",
+          "LastError": "HTTP 503"
+        },
+        {
+          "BoardKey": "icims|ampsdb",
+          "LastAttemptAt": "2026-10-17T13:15:50.789Z",
+          "LastSuccessAt": "2026-08-19T21:02:23.349Z",
+          "LastError": "HTTP 503"
+        },
+        {
+          "BoardKey": "icims|aquafinswimschool",
+          "LastAttemptAt": "2026-10-24T09:18:18.522Z",
+          "LastSuccessAt": "2026-10-17T12:10:11.080Z",
+          "LastError": "HTTP 503"
+        },
+        {
+          "BoardKey": "icims|arcocanada",
+          "LastAttemptAt": "2026-10-17T13:15:51.793Z",
+          "LastSuccessAt": "2026-08-19T21:05:07.552Z",
+          "LastError": "HTTP 503"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "ErrorClass": "ACCESS_BLOCKED",
+      "Boards": 66,
+      "Due": 10,
+      "LastAttemptOlder7Days": 10,
+      "LastSuccessOlder7Days": 0,
+      "LastSuccessUnknown": 66,
+      "Samples": [
+        {
+          "BoardKey": "icims|bergaila",
+          "LastAttemptAt": "2026-10-17T15:36:12.409Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "icims|blueridgedentalgroup-lightwavedental",
+          "LastAttemptAt": "2026-10-17T15:36:48.127Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "icims|careers-bergaila",
+          "LastAttemptAt": "2026-10-17T15:44:50.342Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "icims|careers-blueridgedentalgroup-lightwavedental",
+          "LastAttemptAt": "2026-10-17T15:45:03.481Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        },
+        {
+          "BoardKey": "icims|careers-carolinas-lightwavedental",
+          "LastAttemptAt": "2026-10-17T15:48:38.119Z",
+          "LastSuccessAt": "",
+          "LastError": "HTTP 403"
+        }
+      ]
+    },
+    {
+      "ATS": "lever",
+      "ErrorClass": "TIMEOUT",
+      "Boards": 8,
+      "Due": 0,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 0,
+      "LastSuccessUnknown": 7,
+      "Samples": [
+        {
+          "BoardKey": "lever|barecremation",
+          "LastAttemptAt": "2026-10-22T09:20:25.037Z",
+          "LastSuccessAt": "",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "lever|ethos",
+          "LastAttemptAt": "2026-10-20T09:02:12.882Z",
+          "LastSuccessAt": "",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "lever|mediafly",
+          "LastAttemptAt": "2026-10-18T21:01:43.753Z",
+          "LastSuccessAt": "",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "lever|merit",
+          "LastAttemptAt": "2026-10-20T09:02:47.784Z",
+          "LastSuccessAt": "",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "lever|merkle",
+          "LastAttemptAt": "2026-10-20T09:02:48.120Z",
+          "LastSuccessAt": "",
+          "LastError": "This operation was aborted"
+        }
+      ]
+    },
+    {
+      "ATS": "workday",
+      "ErrorClass": "TIMEOUT",
+      "Boards": 7,
+      "Due": 7,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 6,
+      "LastSuccessUnknown": 0,
+      "Samples": [
+        {
+          "BoardKey": "workday|barings|wd1|barings",
+          "LastAttemptAt": "2026-10-18T21:04:17.880Z",
+          "LastSuccessAt": "2026-10-17T12:36:57.211Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "workday|cisco|wd5|cisco_careers",
+          "LastAttemptAt": "2026-10-20T09:02:39.023Z",
+          "LastSuccessAt": "2026-10-18T21:05:55.224Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "workday|luminegrp|wd3|vas-x",
+          "LastAttemptAt": "2026-10-19T09:01:28.615Z",
+          "LastSuccessAt": "2026-10-13T09:07:46.957Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "workday|maine|wd5|judicial",
+          "LastAttemptAt": "2026-10-19T09:02:48.569Z",
+          "LastSuccessAt": "2026-10-13T09:08:21.591Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "workday|mgmresorts|wd5|mgmcareers",
+          "LastAttemptAt": "2026-10-19T09:06:10.515Z",
+          "LastSuccessAt": "2026-10-13T09:10:06.995Z",
+          "LastError": "This operation was aborted"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "ErrorClass": "TIMEOUT",
+      "Boards": 4,
+      "Due": 2,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 4,
+      "LastSuccessUnknown": 0,
+      "Samples": [
+        {
+          "BoardKey": "icims|careers-redlobster",
+          "LastAttemptAt": "2026-10-19T09:02:47.780Z",
+          "LastSuccessAt": "2026-10-13T09:05:32.994Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "icims|careers-reimerhvac",
+          "LastAttemptAt": "2026-10-24T09:11:32.641Z",
+          "LastSuccessAt": "2026-10-17T12:06:08.846Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "icims|careers-restano",
+          "LastAttemptAt": "2026-10-24T09:12:14.642Z",
+          "LastSuccessAt": "2026-10-17T12:06:17.369Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "icims|careers-seniorlifepa",
+          "LastAttemptAt": "2026-10-19T09:06:11.104Z",
+          "LastSuccessAt": "2026-10-13T09:07:19.239Z",
+          "LastError": "This operation was aborted"
+        }
+      ]
+    },
+    {
+      "ATS": "bamboohr",
+      "ErrorClass": "TIMEOUT",
+      "Boards": 2,
+      "Due": 0,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 2,
+      "LastSuccessUnknown": 0,
+      "Samples": [
+        {
+          "BoardKey": "bamboohr|clc2022",
+          "LastAttemptAt": "2026-10-18T21:01:45.214Z",
+          "LastSuccessAt": "2026-09-18T09:07:59.361Z",
+          "LastError": "This operation was aborted"
+        },
+        {
+          "BoardKey": "bamboohr|ycbm",
+          "LastAttemptAt": "2026-10-18T21:01:45.121Z",
+          "LastSuccessAt": "2026-09-14T09:07:26.738Z",
+          "LastError": "This operation was aborted"
+        }
+      ]
+    },
+    {
+      "ATS": "greenhouse",
+      "ErrorClass": "TIMEOUT",
+      "Boards": 1,
+      "Due": 0,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 0,
+      "LastSuccessUnknown": 1,
+      "Samples": [
+        {
+          "BoardKey": "greenhouse|reaktor",
+          "LastAttemptAt": "2026-10-18T21:01:45.718Z",
+          "LastSuccessAt": "",
+          "LastError": "This operation was aborted"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "ErrorClass": "NETWORK_ERROR",
+      "Boards": 1,
+      "Due": 0,
+      "LastAttemptOlder7Days": 0,
+      "LastSuccessOlder7Days": 0,
+      "LastSuccessUnknown": 1,
+      "Samples": [
+        {
+          "BoardKey": "icims|site",
+          "LastAttemptAt": "2026-10-17T15:01:40.941Z",
+          "LastSuccessAt": "",
+          "LastError": "fetch failed"
+        }
+      ]
+    }
+  ],
+  "CatalogPipelineStatus": "complete",
+  "CatalogPipelineCompletedAt": "2026-10-24T12:09:47.051Z",
+  "CatalogRefreshStatus": "complete",
+  "Overall": {
+    "ATS": "all",
+    "ActiveBoards": 50170,
+    "FetchEligibleBoards": 50170,
+    "AttemptedBoards": 50170,
+    "NeverAttemptedBoards": 0,
+    "Checked24Hours": 6434,
+    "Checked7Days": 40028,
+    "Checked30Days": 50170,
+    "SuccessfulSnapshots7Days": 22715,
+    "SuccessfulSnapshot7DayPercent": 45.28,
+    "FailedBoardPercent": 43.96,
+    "DueBoards": 12787,
+    "GoodMatchBoards": 474,
+    "JobsFoundBoards": 22194,
+    "EmptyBoards": 5447,
+    "FailedBoards": 22055,
+    "RetryDelayedFailedBoards": 17218,
+    "DueFailedBoards": 4837,
+    "NotAttemptedStatusBoards": 0,
+    "OtherStatusBoards": 0,
+    "AttemptCoveragePercent": 100,
+    "Fresh7DayPercent": 79.78
+  },
+  "ByATS": [
+    {
+      "ATS": "ashby",
+      "ActiveBoards": 3161,
+      "FetchEligibleBoards": 3161,
+      "AttemptedBoards": 3161,
+      "NeverAttemptedBoards": 0,
+      "Checked24Hours": 1002,
+      "Checked7Days": 3091,
+      "Checked30Days": 3161,
+      "SuccessfulSnapshots7Days": 2337,
+      "SuccessfulSnapshot7DayPercent": 73.93,
+      "FailedBoardPercent": 23.92,
+      "DueBoards": 391,
+      "GoodMatchBoards": 40,
+      "JobsFoundBoards": 2140,
+      "EmptyBoards": 225,
+      "FailedBoards": 756,
+      "RetryDelayedFailedBoards": 754,
+      "DueFailedBoards": 2,
+      "NotAttemptedStatusBoards": 0,
+      "OtherStatusBoards": 0,
+      "AttemptCoveragePercent": 100,
+      "Fresh7DayPercent": 97.79
+    },
+    {
+      "ATS": "bamboohr",
+      "ActiveBoards": 11316,
+      "FetchEligibleBoards": 11316,
+      "AttemptedBoards": 11316,
+      "NeverAttemptedBoards": 0,
+      "Checked24Hours": 1844,
+      "Checked7Days": 8478,
+      "Checked30Days": 11316,
+      "SuccessfulSnapshots7Days": 7215,
+      "SuccessfulSnapshot7DayPercent": 63.76,
+      "FailedBoardPercent": 24.58,
+      "DueBoards": 2993,
+      "GoodMatchBoards": 27,
+      "JobsFoundBoards": 6252,
+      "EmptyBoards": 2255,
+      "FailedBoards": 2782,
+      "RetryDelayedFailedBoards": 1262,
+      "DueFailedBoards": 1520,
+      "NotAttemptedStatusBoards": 0,
+      "OtherStatusBoards": 0,
+      "AttemptCoveragePercent": 100,
+      "Fresh7DayPercent": 74.92
+    },
+    {
+      "ATS": "greenhouse",
+      "ActiveBoards": 8333,
+      "FetchEligibleBoards": 8333,
+      "AttemptedBoards": 8333,
+      "NeverAttemptedBoards": 0,
+      "Checked24Hours": 1474,
+      "Checked7Days": 7380,
+      "Checked30Days": 8333,
+      "SuccessfulSnapshots7Days": 4963,
+      "SuccessfulSnapshot7DayPercent": 59.56,
+      "FailedBoardPercent": 38.52,
+      "DueBoards": 1430,
+      "GoodMatchBoards": 156,
+      "JobsFoundBoards": 4288,
+      "EmptyBoards": 679,
+      "FailedBoards": 3210,
+      "RetryDelayedFailedBoards": 2416,
+      "DueFailedBoards": 794,
+      "NotAttemptedStatusBoards": 0,
+      "OtherStatusBoards": 0,
+      "AttemptCoveragePercent": 100,
+      "Fresh7DayPercent": 88.56
+    },
+    {
+      "ATS": "icims",
+      "ActiveBoards": 10108,
+      "FetchEligibleBoards": 10108,
+      "AttemptedBoards": 10108,
+      "NeverAttemptedBoards": 0,
+      "Checked24Hours": 520,
+      "Checked7Days": 7200,
+      "Checked30Days": 10108,
+      "SuccessfulSnapshots7Days": 3386,
+      "SuccessfulSnapshot7DayPercent": 33.5,
+      "FailedBoardPercent": 55.28,
+      "DueBoards": 3746,
+      "GoodMatchBoards": 107,
+      "JobsFoundBoards": 3261,
+      "EmptyBoards": 1152,
+      "FailedBoards": 5588,
+      "RetryDelayedFailedBoards": 3749,
+      "DueFailedBoards": 1839,
+      "NotAttemptedStatusBoards": 0,
+      "OtherStatusBoards": 0,
+      "AttemptCoveragePercent": 100,
+      "Fresh7DayPercent": 71.23
+    },
+    {
+      "ATS": "lever",
+      "ActiveBoards": 4368,
+      "FetchEligibleBoards": 4368,
+      "AttemptedBoards": 4368,
+      "NeverAttemptedBoards": 0,
+      "Checked24Hours": 1054,
+      "Checked7Days": 3914,
+      "Checked30Days": 4368,
+      "SuccessfulSnapshots7Days": 1652,
+      "SuccessfulSnapshot7DayPercent": 37.82,
+      "FailedBoardPercent": 56.16,
+      "DueBoards": 553,
+      "GoodMatchBoards": 40,
+      "JobsFoundBoards": 1476,
+      "EmptyBoards": 399,
+      "FailedBoards": 2453,
+      "RetryDelayedFailedBoards": 2261,
+      "DueFailedBoards": 192,
+      "NotAttemptedStatusBoards": 0,
+      "OtherStatusBoards": 0,
+      "AttemptCoveragePercent": 100,
+      "Fresh7DayPercent": 89.61
+    },
+    {
+      "ATS": "workday",
+      "ActiveBoards": 12884,
+      "FetchEligibleBoards": 12884,
+      "AttemptedBoards": 12884,
+      "NeverAttemptedBoards": 0,
+      "Checked24Hours": 540,
+      "Checked7Days": 9965,
+      "Checked30Days": 12884,
+      "SuccessfulSnapshots7Days": 3162,
+      "SuccessfulSnapshot7DayPercent": 24.54,
+      "FailedBoardPercent": 56.4,
+      "DueBoards": 3674,
+      "GoodMatchBoards": 104,
+      "JobsFoundBoards": 4777,
+      "EmptyBoards": 737,
+      "FailedBoards": 7266,
+      "RetryDelayedFailedBoards": 6776,
+      "DueFailedBoards": 490,
+      "NotAttemptedStatusBoards": 0,
+      "OtherStatusBoards": 0,
+      "AttemptCoveragePercent": 100,
+      "Fresh7DayPercent": 77.34
+    }
+  ],
+  "CatalogSources": [
+    {
+      "ATS": "ashby",
+      "URL": "https://raw.githubusercontent.com/Feashliaa/job-board-aggregator/refs/heads/main/data/ashby_companies.json",
+      "RawFile": "ashby_companies.json",
+      "Status": "not_modified",
+      "Usable": true,
+      "RowCount": 3161,
+      "PreviousRowCount": 3161,
+      "SHA256": "ab69fdbe0a8cb52253272f96f462024ba26506757663b20b4d277cfd31e3e395",
+      "ETag": "W/\"e6a88d267df0c5c10c9ef6d9a0cc4157337ff47e5686d1c14f20712c74c86e22\"",
+      "LastModified": "",
+      "LastAttemptAt": "2026-10-24T12:09:45.430Z",
+      "LastSuccessfulAt": "2026-07-14T20:51:06.469Z",
+      "Error": ""
+    },
+    {
+      "ATS": "bamboohr",
+      "URL": "https://raw.githubusercontent.com/Feashliaa/job-board-aggregator/refs/heads/main/data/bamboohr_companies.json",
+      "RawFile": "bamboohr_companies.json",
+      "Status": "not_modified",
+      "Usable": true,
+      "RowCount": 11316,
+      "PreviousRowCount": 11316,
+      "SHA256": "2a9d0030023643acba2ee4fb30191425ac59df94ee956b927ac1e6d0d4b39509",
+      "ETag": "W/\"98c4b06ef3cc5db2b0f441108c9cbadd8f64bec21a52bcb3b345ca1780e39246\"",
+      "LastModified": "",
+      "LastAttemptAt": "2026-10-24T12:09:45.430Z",
+      "LastSuccessfulAt": "2026-07-14T20:51:06.469Z",
+      "Error": ""
+    },
+    {
+      "ATS": "greenhouse",
+      "URL": "https://raw.githubusercontent.com/Feashliaa/job-board-aggregator/refs/heads/main/data/greenhouse_companies.json",
+      "RawFile": "greenhouse_companies.json",
+      "Status": "not_modified",
+      "Usable": true,
+      "RowCount": 8333,
+      "PreviousRowCount": 8333,
+      "SHA256": "9afb51b25f3c2195245c76866542aea6dd3c52ee369259e86e3f02c898290e02",
+      "ETag": "W/\"e99712a57245ecaa1587a3a0907499ea1e17927847a3f4733094d2ed4acf33fe\"",
+      "LastModified": "",
+      "LastAttemptAt": "2026-10-24T12:09:45.430Z",
+      "LastSuccessfulAt": "2026-07-14T20:51:06.469Z",
+      "Error": ""
+    },
+    {
+      "ATS": "icims",
+      "URL": "https://raw.githubusercontent.com/Feashliaa/job-board-aggregator/refs/heads/main/data/icims_companies.json",
+      "RawFile": "icims_companies.json",
+      "Status": "not_modified",
+      "Usable": true,
+      "RowCount": 10108,
+      "PreviousRowCount": 10108,
+      "SHA256": "6958667d39b21b5284b349dc8d75608178a9bd8ce153863e780406b8b2312ca7",
+      "ETag": "W/\"eaec7ba836dbc7d01e4a1b99e286bee2f021ee62eee67f93f85589a2c30db89c\"",
+      "LastModified": "",
+      "LastAttemptAt": "2026-10-24T12:09:45.430Z",
+      "LastSuccessfulAt": "2026-07-14T20:51:06.469Z",
+      "Error": ""
+    },
+    {
+      "ATS": "lever",
+      "URL": "https://raw.githubusercontent.com/Feashliaa/job-board-aggregator/refs/heads/main/data/lever_companies.json",
+      "RawFile": "lever_companies.json",
+      "Status": "not_modified",
+      "Usable": true,
+      "RowCount": 4368,
+      "PreviousRowCount": 4368,
+      "SHA256": "8297accbe4b827f66cc612a5d20a09b2fc21b9ab3b308d711dfebab83f32b2dd",
+      "ETag": "W/\"56379cc98488bf597dd822c1b2c9a71cfb300194bdd51ed09cf101cd8ad6b1c9\"",
+      "LastModified": "",
+      "LastAttemptAt": "2026-10-24T12:09:45.430Z",
+      "LastSuccessfulAt": "2026-07-14T20:51:06.469Z",
+      "Error": ""
+    },
+    {
+      "ATS": "workday",
+      "URL": "https://raw.githubusercontent.com/Feashliaa/job-board-aggregator/refs/heads/main/data/workday_companies.json",
+      "RawFile": "workday_companies.json",
+      "Status": "not_modified",
+      "Usable": true,
+      "RowCount": 12884,
+      "PreviousRowCount": 12884,
+      "SHA256": "ceb08a0caea58473f70419854fc7a335d95f15d30be4048951bc21ed4ccaa6ab",
+      "ETag": "W/\"147cbcc97fdea433b88d9debd0ebb88d482c37cff1030aa124b2c24269df0510\"",
+      "LastModified": "",
+      "LastAttemptAt": "2026-10-24T12:09:45.430Z",
+      "LastSuccessfulAt": "2026-07-14T20:51:06.469Z",
+      "Error": ""
+    }
+  ],
+  "CatalogBoardCount": 50170,
+  "CatalogFetchEligibleBoardCount": 50170,
+  "ConsistencyStatus": "PASS",
+  "ConsistencyIssues": []
+}

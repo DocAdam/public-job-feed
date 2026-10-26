@@ -1,0 +1,17 @@
+{
+  "checkedAt": "2026-10-25T22:41:30.272250+00:00",
+  "sourceSHA256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+  "sourceUnchanged": true,
+  "feedRunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+  "feedStatus": "COMPLETE",
+  "head": "96067095fd634c6f5e0d9d2f381423997a743b11",
+  "liveSheetEdited": true,
+  "targetTabs": [
+    55693553,
+    1606926353
+  ],
+  "sharingWrites": 0,
+  "refreshRunsThisTask": 0,
+  "packageRebuildsThisTask": 0,
+  "commitsPushesOrOtherPublications": 0
+}

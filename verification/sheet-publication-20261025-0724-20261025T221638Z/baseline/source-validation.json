@@ -1,0 +1,255 @@
+{
+  "package": "20261025-0724",
+  "csv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+  "bytes": 211031,
+  "sha256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963",
+  "dataRows": 732,
+  "columns": 16,
+  "headers": [
+    "Title",
+    "Company",
+    "Location",
+    "Apply Link",
+    "Additional Apply Links",
+    "Writer Fit Score",
+    "Fit Tier",
+    "Why It Matched",
+    "Role Type",
+    "Work Arrangement",
+    "Salary",
+    "Posted Date",
+    "Age (Days)",
+    "Last Checked",
+    "Source",
+    "Employment Type"
+  ],
+  "schema": {
+    "schemaVersion": 2,
+    "publicHeaders": [
+      "Title",
+      "Company",
+      "Location",
+      "Apply Link",
+      "Additional Apply Links",
+      "Writer Fit Score",
+      "Fit Tier",
+      "Why It Matched",
+      "Role Type",
+      "Work Arrangement",
+      "Salary",
+      "Posted Date",
+      "Age (Days)",
+      "Last Checked",
+      "Source",
+      "Employment Type"
+    ],
+    "formulaFileName": "",
+    "rowCount": 732,
+    "tableRange": "A1:P733"
+  },
+  "coverage": {
+    "detailed": {
+      "denominator": 811,
+      "statedSchedule": 239,
+      "statedTerms": 52,
+      "neither": 531,
+      "conflicts": 0,
+      "byATS": {
+        "greenhouse": {
+          "denominator": 293,
+          "byLabel": {
+            "Not stated": 235,
+            "Contract": 2,
+            "Full-time": 46,
+            "Internship": 4,
+            "Freelance": 2,
+            "Regular": 3,
+            "Full-time; Contract": 1
+          }
+        },
+        "ashby": {
+          "denominator": 74,
+          "byLabel": {
+            "Contract": 2,
+            "Full-time": 50,
+            "Internship": 1,
+            "Full-time; Internship": 1,
+            "Part-time": 1,
+            "Not stated": 18,
+            "Contract; Freelance": 1
+          }
+        },
+        "icims": {
+          "denominator": 99,
+          "byLabel": {
+            "Not stated": 94,
+            "Part-time": 2,
+            "Internship": 2,
+            "Full-time": 1
+          }
+        },
+        "workday": {
+          "denominator": 205,
+          "byLabel": {
+            "Contract": 7,
+            "Part-time": 2,
+            "Not stated": 147,
+            "Full-time": 44,
+            "Internship": 2,
+            "Full-time; Internship": 3
+          }
+        },
+        "lever": {
+          "denominator": 97,
+          "byLabel": {
+            "Full-time": 67,
+            "Regular": 4,
+            "Freelance": 4,
+            "Not stated": 19,
+            "Full-time; Regular": 1,
+            "Full-time; Contract": 1,
+            "Contract": 1
+          }
+        },
+        "bamboohr": {
+          "denominator": 42,
+          "byLabel": {
+            "Full-time": 14,
+            "Full-time; Permanent": 1,
+            "Not stated": 17,
+            "Part-time; Freelance": 2,
+            "Internship": 4,
+            "Contract; Freelance": 1,
+            "Contract": 1,
+            "Part-time; Contract; Freelance": 1,
+            "Part-time": 1
+          }
+        },
+        "direct-employer": {
+          "denominator": 1,
+          "byLabel": {
+            "Not stated": 1
+          }
+        }
+      },
+      "byLabel": {
+        "Not stated": 531,
+        "Contract": 13,
+        "Full-time": 222,
+        "Part-time": 6,
+        "Regular": 7,
+        "Internship": 13,
+        "Freelance": 6,
+        "Full-time; Internship": 4,
+        "Full-time; Regular": 1,
+        "Full-time; Permanent": 1,
+        "Part-time; Freelance": 2,
+        "Contract; Freelance": 2,
+        "Full-time; Contract": 2,
+        "Part-time; Contract; Freelance": 1
+      }
+    },
+    "public": {
+      "denominator": 732,
+      "statedSchedule": 202,
+      "statedTerms": 48,
+      "neither": 492,
+      "conflicts": 0,
+      "byATS": {
+        "lever": {
+          "denominator": 70,
+          "byLabel": {
+            "Full-time": 43,
+            "Full-time; Regular": 1,
+            "Regular": 4,
+            "Freelance": 4,
+            "Contract": 1,
+            "Not stated": 16,
+            "Full-time; Contract": 1
+          }
+        },
+        "greenhouse": {
+          "denominator": 261,
+          "byLabel": {
+            "Regular": 2,
+            "Not stated": 210,
+            "Full-time": 42,
+            "Freelance": 2,
+            "Internship": 3,
+            "Contract": 2
+          }
+        },
+        "ashby": {
+          "denominator": 68,
+          "byLabel": {
+            "Full-time": 46,
+            "Internship": 1,
+            "Not stated": 16,
+            "Contract; Freelance": 1,
+            "Full-time; Internship": 1,
+            "Contract": 2,
+            "Part-time": 1
+          }
+        },
+        "direct-employer": {
+          "denominator": 1,
+          "byLabel": {
+            "Not stated": 1
+          }
+        },
+        "workday": {
+          "denominator": 198,
+          "byLabel": {
+            "Not stated": 144,
+            "Full-time": 40,
+            "Contract": 7,
+            "Full-time; Internship": 3,
+            "Part-time": 2,
+            "Internship": 2
+          }
+        },
+        "icims": {
+          "denominator": 93,
+          "byLabel": {
+            "Not stated": 89,
+            "Part-time": 2,
+            "Internship": 1,
+            "Full-time": 1
+          }
+        },
+        "bamboohr": {
+          "denominator": 41,
+          "byLabel": {
+            "Contract": 1,
+            "Full-time": 14,
+            "Part-time; Contract; Freelance": 1,
+            "Internship": 4,
+            "Full-time; Permanent": 1,
+            "Not stated": 16,
+            "Part-time; Freelance": 2,
+            "Contract; Freelance": 1,
+            "Part-time": 1
+          }
+        }
+      },
+      "byLabel": {
+        "Full-time": 186,
+        "Regular": 6,
+        "Not stated": 492,
+        "Internship": 11,
+        "Full-time; Regular": 1,
+        "Freelance": 6,
+        "Contract; Freelance": 2,
+        "Contract": 13,
+        "Full-time; Internship": 4,
+        "Full-time; Contract": 1,
+        "Part-time": 6,
+        "Part-time; Contract; Freelance": 1,
+        "Full-time; Permanent": 1,
+        "Part-time; Freelance": 2
+      }
+    },
+    "tableRange": "A1:P733",
+    "publicAfterURLPruning": true
+  }
+}

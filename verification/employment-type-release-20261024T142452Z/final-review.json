@@ -1,0 +1,75 @@
+{
+  "checkedAt": "2026-10-24T15:45:28.586617+00:00",
+  "linksChecked": 58,
+  "missingLinks": [],
+  "sourceHashes": [
+    {
+      "path": "src/lib/employment-type.js",
+      "same": true
+    },
+    {
+      "path": "src/lib/job-export.js",
+      "same": true
+    },
+    {
+      "path": "src/scripts/test-employment-type.js",
+      "same": true
+    },
+    {
+      "path": "src/scripts/fixtures/employment-type/variable-compensation-normalized-20261024.json",
+      "same": true
+    },
+    {
+      "path": "src/scripts/fixtures/employment-type/variable-hours-normalized-20261024.json",
+      "same": true
+    }
+  ],
+  "outputHashes": [
+    {
+      "path": "data/jobs/public/public-job-feed-latest.json",
+      "same": true
+    },
+    {
+      "path": "data/jobs/public/public-job-feed-latest.csv",
+      "same": true
+    },
+    {
+      "path": "data/jobs/history/jobs-history.duckdb",
+      "same": true
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs.csv",
+      "same": true
+    },
+    {
+      "path": "data/jobs/gsheet-package/20261024-0954/03_top_matches_full.csv",
+      "same": true
+    }
+  ],
+  "syntax": [
+    {
+      "path": "src/lib/employment-type.js",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "path": "src/lib/job-export.js",
+      "exitCode": 0,
+      "error": ""
+    },
+    {
+      "path": "src/scripts/test-employment-type.js",
+      "exitCode": 0,
+      "error": ""
+    }
+  ],
+  "finalSuite": {
+    "RunId": "release-final-eb762ab5-7c52-44cc-bd07-d7357e2cd582",
+    "Status": "PASS",
+    "tests": 38
+  },
+  "excludedRuntimeSourceAndDependencyFiles": 14,
+  "lockFiles": [],
+  "gitDiffCheck": "PASS",
+  "activeRefreshOrBackupProcesses": []
+}

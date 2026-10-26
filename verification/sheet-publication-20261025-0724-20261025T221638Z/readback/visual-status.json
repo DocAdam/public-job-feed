@@ -1,0 +1,13 @@
+{
+  "nativeBrowser": "NOT VERIFIED: CUA browser inventory empty and Chrome window access failed",
+  "exportSaved": "readback/live-final.xlsx",
+  "artifactRender": "FAILED in both installed Node 26.3.1 and bundled Node 24.19.0: Mono/WASM assertion while importing the export. No live file was modified by these attempts.",
+  "apiFormatting": {
+    "columnPWidth": 230,
+    "columnType": "TEXT",
+    "numberFormat": "@",
+    "original15WidthsUnchanged": true,
+    "tableHeaderAndBandColorsUnchanged": true
+  },
+  "limit": "Native visual layout and clipping are not established by API metadata alone."
+}

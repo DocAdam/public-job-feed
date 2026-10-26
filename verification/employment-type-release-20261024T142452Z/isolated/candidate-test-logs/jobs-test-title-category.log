@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-title-category
+> node src/scripts/test-title-category.js
+
+Title-category fixture tests passed.

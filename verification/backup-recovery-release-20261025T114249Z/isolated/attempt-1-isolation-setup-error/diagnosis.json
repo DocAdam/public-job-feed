@@ -1,0 +1,5 @@
+{
+  "cause": "The new isolated project omitted the repository test directory. Employment integration stopped with ENOENT before running its pipeline.",
+  "correction": "Copy the unchanged test directory into the isolated project. No production source correction was required.",
+  "productionWrites": false
+}

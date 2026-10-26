@@ -1,0 +1,5 @@
+{
+  "exitCode": 0,
+  "stdout": "PASS: occupational Variable text is excluded; explicit variable schedules remain; older bad evidence is retained and rejected with its original provenance; correction is idempotent.\n",
+  "stderr": ""
+}

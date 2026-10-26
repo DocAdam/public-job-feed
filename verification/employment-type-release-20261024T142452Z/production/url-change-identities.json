@@ -1,0 +1,29 @@
+[
+  {
+    "company": "Iheartmedia",
+    "title": "News Writer/Editor",
+    "oldURL": "https://iheartmedia.wd5.myworkdayjobs.com/external_ihm/job/Los-Angeles-CA-Burbank---Olive/News-Writer-Editor_Req39504",
+    "newURL": "https://iheartmedia.wd5.myworkdayjobs.com/ihm_parttime_site/job/Los-Angeles-CA-Burbank---Olive/News-Writer-Editor_Req39504-1",
+    "oldJobKey": "workday:req39504",
+    "newJobKey": "workday:req39504",
+    "sameJobKey": true
+  },
+  {
+    "company": "Astrazeneca",
+    "title": "Director, EDO - Information Architecture Commercial IT",
+    "oldURL": "https://astrazeneca.wd3.myworkdayjobs.com/broadbean_external/job/Spain---Barcelona/Senior-Information-Architect---Commercial-IT_R-249060-2",
+    "newURL": "https://astrazeneca.wd3.myworkdayjobs.com/careers/job/Spain---Barcelona/Senior-Information-Architect---Commercial-IT_R-249060",
+    "oldJobKey": "workday:r249060",
+    "newJobKey": "workday:r249060",
+    "sameJobKey": true
+  },
+  {
+    "company": "Astrazeneca",
+    "title": "Manager, Regulatory & Technical Writing, Process Sciences, Analytics and Technology, Cell and Gene Therapy",
+    "oldURL": "https://astrazeneca.wd3.myworkdayjobs.com/broadbean_external/job/US--Tarzana--CA/Manager--Regulatory---Technical-Writing--Process-Sciences--Analytics-and-Technology--Cell-and-Gene-Therapy_R-261509",
+    "newURL": "https://astrazeneca.wd3.myworkdayjobs.com/careers/job/US--Tarzana--CA/Manager--Regulatory---Technical-Writing--Process-Sciences--Analytics-and-Technology--Cell-and-Gene-Therapy_R-261509-1",
+    "oldJobKey": "workday:r261509",
+    "newJobKey": "workday:r261509",
+    "sameJobKey": true
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "phase": "Verification complete to authorization boundary; overall NEEDS REVIEW",
+  "productionRun": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+  "package": "20261024-0954",
+  "productionLaunches": 1,
+  "productionExitCode": 0,
+  "history": "PASS",
+  "backup": "FAILED",
+  "finalIsolatedSuite": "release-final-eb762ab5-7c52-44cc-bd07-d7357e2cd582",
+  "finalIsolatedTests": "38/38 PASS",
+  "correctionAppliedAfterRun": true,
+  "productionCorrectionQualification": "NOT VERIFIED",
+  "liveSheetChanged": false,
+  "remaining": [
+    "Reviewed backup recovery and approved retry",
+    "New approved production release to qualify corrected parser"
+  ]
+}

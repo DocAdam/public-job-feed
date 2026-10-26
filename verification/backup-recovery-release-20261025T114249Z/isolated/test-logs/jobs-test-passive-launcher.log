@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-passive-launcher
+> node src/scripts/test-passive-launcher.js
+
+Passive LaunchAgent smoke test passed.

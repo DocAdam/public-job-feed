@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>Label</key>
+  <string>com.public-job-feed.maintain-index</string>
+  <key>ProgramArguments</key>
+  <array>
+    <string>/bin/zsh</string>
+    <string>-lc</string>
+    <string>export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"; npm run jobs:maintain-index -- --dry-run false --budget-minutes 90 --catalog-max-age-hours 24 --due-limit 3000 --catalog-delta-limit 500 --include-known-good false --ashby-limit 500 --greenhouse-limit 1000 --lever-limit 500 --bamboohr-limit 1000 --workday-limit 250 --icims-limit 250</string>
+  </array>
+  <key>WorkingDirectory</key>
+  <string>/Users/adampugh/GitHub/public-job-feed</string>
+  <key>StartCalendarInterval</key>
+  <array>
+    <dict><key>Hour</key><integer>4</integer><key>Minute</key><integer>0</integer></dict>
+    <dict><key>Hour</key><integer>16</integer><key>Minute</key><integer>0</integer></dict>
+  </array>
+  <key>StandardOutPath</key>
+  <string>/Users/adampugh/GitHub/public-job-feed/data/jobs/logs/passive-maintenance.log</string>
+  <key>StandardErrorPath</key>
+  <string>/Users/adampugh/GitHub/public-job-feed/data/jobs/logs/passive-maintenance-error.log</string>
+  <key>ProcessType</key>
+  <string>Background</string>
+  <key>LowPriorityIO</key>
+  <true/>
+</dict>
+</plist>

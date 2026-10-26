@@ -1,0 +1,8 @@
+
+> public-job-feed@0.1.0 jobs:compare-last-release
+> node src/scripts/compare-last-release.js
+
+Release comparison complete.
+Newest release: 20261024-0954
+Previous release: 20261024-0739
+Rows difference: -36

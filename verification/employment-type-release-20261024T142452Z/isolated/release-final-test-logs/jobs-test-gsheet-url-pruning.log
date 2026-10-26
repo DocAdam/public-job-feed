@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-gsheet-url-pruning
+> node src/scripts/test-gsheet-url-pruning.js
+
+Google Sheets safe URL pruning tests passed.

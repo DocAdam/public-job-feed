@@ -1,0 +1,4 @@
+(version 1)
+(allow default)
+(deny network*)
+(deny file-write* (require-all (require-not (subpath "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/approved-relocation-20261025T185336Z")) (require-not (subpath "/dev"))))

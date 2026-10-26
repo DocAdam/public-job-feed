@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "result": "READY FOR SHEET IMPORT",
+  "runId": "9c29cf20-a701-4b92-806e-aa1aee8a2eea",
+  "packageId": "20261025-0724",
+  "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+  "databaseHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+  "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T185937999Z-a1787b94-2fc5-4331-9870-5cbeb0c4fe81",
+  "completeRestore": true,
+  "restoredAuditErrors": [],
+  "reportComparison": true,
+  "finalBundleAcceptance": "PASS",
+  "files": 3329,
+  "metadataFiles": 0,
+  "oldFailurePreserved": true,
+  "originalFailureReport": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/daily-history-backup.json",
+  "newResult": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/approved-relocation-20261025T185336Z/backup-attempt-1-result.json",
+  "relocation": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/approved-relocation-20261025T185336Z/relocation.json",
+  "spaceCheck": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/approved-relocation-20261025T185336Z/space-after-relocation.json",
+  "limits": [
+    "Exact metadata producer remains unknown.",
+    "Successful raw ATS bodies were not retained.",
+    "Migration of an existing rejected normalized item was covered in isolated tests; the actual matched legacy batches had no employment fields.",
+    "Historical Greenhouse report-preservation failure remains recorded.",
+    "External snapshot dates have lower precision; exact original timestamps are retained in relocation.json."
+  ],
+  "feedRefreshesThisFollowup": 0,
+  "backupOnlyAttemptsThisFollowup": 1,
+  "additionalExistingFilesRelocatedOrDeleted": 0,
+  "liveSheetChanged": false,
+  "commitPushOrPublication": false
+}

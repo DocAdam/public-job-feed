@@ -1,0 +1,77 @@
+2026-10-25T11:49:09.627Z START jobs:test-employment-type
+2026-10-25T11:49:09.811Z END jobs:test-employment-type 0
+2026-10-25T11:49:09.812Z START jobs:test-employment-integration
+2026-10-25T11:49:14.284Z END jobs:test-employment-integration 0
+2026-10-25T11:49:14.285Z START jobs:test-history-backup
+2026-10-25T11:49:46.900Z END jobs:test-history-backup 0
+2026-10-25T11:49:46.900Z START jobs:test-history-finalization
+2026-10-25T11:49:58.985Z END jobs:test-history-finalization 0
+2026-10-25T11:49:58.986Z START jobs:test-catalog-maintenance
+2026-10-25T11:49:59.224Z END jobs:test-catalog-maintenance 0
+2026-10-25T11:49:59.225Z START jobs:test-batch-history
+2026-10-25T11:50:05.552Z END jobs:test-batch-history 0
+2026-10-25T11:50:05.552Z START jobs:test-board-freshness
+2026-10-25T11:50:05.973Z END jobs:test-board-freshness 0
+2026-10-25T11:50:05.973Z START jobs:test-ats-errors
+2026-10-25T11:50:06.124Z END jobs:test-ats-errors 0
+2026-10-25T11:50:06.125Z START jobs:test-failure-investigation
+2026-10-25T11:50:06.399Z END jobs:test-failure-investigation 0
+2026-10-25T11:50:06.399Z START jobs:test-board-probe
+2026-10-25T11:50:06.669Z END jobs:test-board-probe 0
+2026-10-25T11:50:06.670Z START jobs:test-passive-launcher [read-only original launcher configuration]
+2026-10-25T11:50:06.825Z END jobs:test-passive-launcher 0
+2026-10-25T11:50:06.826Z START jobs:test-ats-alert
+2026-10-25T11:50:06.973Z END jobs:test-ats-alert 0
+2026-10-25T11:50:06.974Z START jobs:test-title-category
+2026-10-25T11:50:07.122Z END jobs:test-title-category 0
+2026-10-25T11:50:07.122Z START jobs:test-dedupe-select
+2026-10-25T11:50:07.272Z END jobs:test-dedupe-select 0
+2026-10-25T11:50:07.272Z START jobs:test-core-pipeline
+2026-10-25T11:50:07.425Z END jobs:test-core-pipeline 0
+2026-10-25T11:50:07.426Z START jobs:test-streaming-export-phase-1
+2026-10-25T11:50:07.744Z END jobs:test-streaming-export-phase-1 0
+2026-10-25T11:50:07.745Z START jobs:test-release
+2026-10-25T11:50:24.550Z END jobs:test-release 0
+2026-10-25T11:50:24.551Z START jobs:test-gsheet-grouping
+2026-10-25T11:50:24.714Z END jobs:test-gsheet-grouping 0
+2026-10-25T11:50:24.714Z START jobs:test-gsheet-package
+2026-10-25T11:50:24.974Z END jobs:test-gsheet-package 0
+2026-10-25T11:50:24.974Z START jobs:test-url-health
+2026-10-25T11:50:25.116Z END jobs:test-url-health 0
+2026-10-25T11:50:25.116Z START jobs:test-gsheet-url-pruning
+2026-10-25T11:50:25.260Z END jobs:test-gsheet-url-pruning 0
+2026-10-25T11:50:25.260Z START jobs:test-scoring
+2026-10-25T11:50:25.407Z END jobs:test-scoring 0
+2026-10-25T11:50:25.407Z START jobs:test-greenhouse-normalize
+2026-10-25T11:50:25.557Z END jobs:test-greenhouse-normalize 0
+2026-10-25T11:50:25.558Z START jobs:test-job-finder-consumer
+2026-10-25T11:50:25.703Z END jobs:test-job-finder-consumer 0
+2026-10-25T11:50:25.704Z START jobs:compare-last-release
+2026-10-25T11:50:25.855Z END jobs:compare-last-release 0
+2026-10-25T11:50:25.855Z START jobs:test-trends
+2026-10-25T11:50:26.001Z END jobs:test-trends 0
+2026-10-25T11:50:26.001Z START jobs:test-us-remote-report
+2026-10-25T11:50:26.143Z END jobs:test-us-remote-report 0
+2026-10-25T11:50:26.143Z START jobs:test-international-remote-report
+2026-10-25T11:50:26.289Z END jobs:test-international-remote-report 0
+2026-10-25T11:50:26.289Z START jobs:test-all-remote-report
+2026-10-25T11:50:26.577Z END jobs:test-all-remote-report 0
+2026-10-25T11:50:26.577Z START jobs:test-substack-full-report
+2026-10-25T11:50:26.742Z END jobs:test-substack-full-report 0
+2026-10-25T11:50:26.742Z START jobs:test-content-metrics
+2026-10-25T11:50:26.912Z END jobs:test-content-metrics 0
+2026-10-25T11:50:26.912Z START jobs:test-status-dashboard
+2026-10-25T11:50:27.067Z END jobs:test-status-dashboard 0
+2026-10-25T11:50:27.068Z START jobs:test-refresh-launcher
+2026-10-25T11:50:30.510Z END jobs:test-refresh-launcher 0
+2026-10-25T11:50:30.510Z START jobs:test-curated-submissions
+2026-10-25T11:50:30.673Z END jobs:test-curated-submissions 0
+2026-10-25T11:50:30.673Z START jobs:test-refresh-reports
+2026-10-25T11:50:31.043Z END jobs:test-refresh-reports 0
+2026-10-25T11:50:31.044Z START jobs:test-review-improvements
+2026-10-25T11:50:31.214Z END jobs:test-review-improvements 0
+2026-10-25T11:50:31.214Z START jobs:test-history
+2026-10-25T11:50:36.329Z END jobs:test-history 0
+2026-10-25T11:50:36.330Z START jobs:test-history-content
+2026-10-25T11:50:37.151Z END jobs:test-history-content 0
+{"Status":"PASS","Tests":38,"RunId":"isolated-c88544ba-746a-46ec-94c7-926c08242254"}

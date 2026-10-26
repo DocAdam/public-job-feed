@@ -1,0 +1,2 @@
+GeneratedAt,ATSCount,TotalBatches,TotalBoardsAttempted,TotalBoardsSucceeded,TotalBoardsFailed,TotalBoardsEmpty,TotalBoardsSkipped,TotalJobsFetched,PublicFeedRows,CatalogRows,ScaleNowCount,SampleMoreCount,KeepBestEffortCount,CatalogOnlyForNowCount,ReviewFetcherCount
+2026-10-24T12:37:49.685Z,6,1202,425034,280995,105944,38095,0,9764126,836901,40857,3,0,3,0,0

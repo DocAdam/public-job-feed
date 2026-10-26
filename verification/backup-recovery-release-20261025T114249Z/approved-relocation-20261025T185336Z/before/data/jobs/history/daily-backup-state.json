@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "operations": [
+    {
+      "id": "c4fe469c-5f61-46ea-8717-2f5e363fb804",
+      "oldHash": "a3891cb3331c63d7b3e3394484649b4b5b34627d68b712fb9012190498b6ce2b",
+      "newHash": "7370ade23f897fb6fe9fb120081254d2ef3ddb070cfc593e6a1f8bd0cf13de7d",
+      "manifestHash": "95278abf061faa4a27f565714b87ca373329b70f0b3a3310471461f0b4a88b47",
+      "createdAt": "2026-10-22T11:27:02.120Z",
+      "state": "owned"
+    },
+    {
+      "id": "a96222a8-98be-4e16-b0d6-2826841f7235",
+      "oldHash": "7370ade23f897fb6fe9fb120081254d2ef3ddb070cfc593e6a1f8bd0cf13de7d",
+      "newHash": "99a5f6929cda8d982321c31fc074223702db86a55c5993c56db5e85a3c1b6975",
+      "manifestHash": "4a10113008f061060740af2789f4c4c2ef12c729fb93938faac70c07143d2a8e",
+      "createdAt": "2026-10-23T14:15:48.732Z",
+      "state": "retired",
+      "retiredAt": "2026-10-25T12:27:42.943Z"
+    },
+    {
+      "id": "f8b70e1d-0bcb-432f-b0e3-94ee9bcfc96f",
+      "oldHash": "99a5f6929cda8d982321c31fc074223702db86a55c5993c56db5e85a3c1b6975",
+      "newHash": "795772d293e6701c587f888f1e31ba9fd0fcb3956cdafc1143a6e6b592c2034d",
+      "manifestHash": "e2420dc9aed9464feb8f47b17ce42c71db1a2f84fb43f2491eaa522d495cc1bb",
+      "createdAt": "2026-10-24T12:45:12.844Z",
+      "state": "owned"
+    },
+    {
+      "id": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+      "oldHash": "795772d293e6701c587f888f1e31ba9fd0fcb3956cdafc1143a6e6b592c2034d",
+      "newHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+      "manifestHash": "016bece9e9be1f69837551c5a4d3cfb00f308414ea50359f3df177bdd0950afd",
+      "createdAt": "2026-10-24T15:01:33.428Z",
+      "state": "owned"
+    },
+    {
+      "id": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+      "oldHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+      "newHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+      "manifestHash": "44a495fe51c3061dbd41e66e89b0265a8e4ee331f70e551dfe1aeb89daeaa68b",
+      "createdAt": "2026-10-25T12:32:27.818Z",
+      "state": "owned"
+    }
+  ],
+  "lastVerified": {
+    "status": "PASS",
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+    "verifiedAt": "2026-10-25T12:00:24.029Z",
+    "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "snapshot": "20261024-0954",
+    "metadata": {
+      "policy": "appledouble-provenance-v1",
+      "count": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  }
+}

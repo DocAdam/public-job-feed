@@ -1,0 +1,12 @@
+
+> public-job-feed@0.1.0 jobs:test-gsheet-package
+> node src/scripts/test-gsheet-package.js
+
+Google Sheets package validation: WARN
+Package: /Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project/data/jobs/gsheet-package/latest
+Good Documentation Jobs rows: 715
+Previous rows: 714
+Row change: 1
+Company Coverage rows: 40857
+Failures: 0
+Warnings: 2

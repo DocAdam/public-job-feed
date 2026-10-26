@@ -1,0 +1,12 @@
+{
+  "src/lib/history-backup-metadata.js": "ac38abc238d795f93358fcaf1dfd5f84529c51f1873b9f02cc66f27fd8be5770",
+  "src/lib/history-backup-files.js": "f1d2a925f94527288b45f44e12bc886ee9144f1a03fafe3b642198ed1882ce71",
+  "src/lib/daily-history-backup.js": "4163c0683918bf0ebfa650676da8be5836aacfe322d0aa5ea77c1d32e4b668cd",
+  "src/scripts/daily-history-backup.js": "62655c51820b0747cf73135ceef981a37493e8dacfd336a6e8c19f0a54e61823",
+  "src/scripts/test-history-backup.js": "a576af30cc846227a040b1c3ca93cf750d032664240641368e2cd786a84888fc",
+  "src/scripts/test-history-backup-metadata.js": "4cbfe6f751952298cbfb499586840a5fed52535cbca095f6c6e3d19939043c93",
+  "src/scripts/fixtures/history-backup/observed-appledouble-provenance.json": "9acd24f30bf59a361b7c4d3d2bc389b3739a12340f994127f6e93278e29570da",
+  "package.json": "75951be0de912e7d0f1d724316c56ff61d75999f7585619c74e107b8ab186daa",
+  "src/lib/employment-type.js": "da347877995e1cdf8252747a4647d6b1ce96a65e3cda05a0129e505c463921cf",
+  "src/lib/job-export.js": "98377b94dc6ad67a80c9aaf1faf05483298784939509a138628b3af77442e9b8"
+}

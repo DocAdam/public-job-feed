@@ -1,0 +1,18 @@
+{
+  "exitCode": 0,
+  "stdout": "{\"directory\":\"/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z\",\"root\":[\"manifest.json\",\"payload\"],\"payload\":[\"000000.gz\"]}\n",
+  "stderr": "",
+  "COPYFILE_DISABLE": "1",
+  "files": [
+    {
+      "path": "manifest.json",
+      "bytes": 2,
+      "sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+    },
+    {
+      "path": "payload/000000.gz",
+      "bytes": 23,
+      "sha256": "f14da05510008aa8afb7589eec39ef150dd9a60971473882bccea8d8b65e37ce"
+    }
+  ]
+}

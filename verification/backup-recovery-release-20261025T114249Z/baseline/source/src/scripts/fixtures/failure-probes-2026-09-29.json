@@ -1,0 +1,147 @@
+{
+  "derived": true,
+  "provenance": "Selected fields from the 2026-09-29 failure-probe report. Workday board URLs are reconstructed from live API endpoints; no independent source URL was available.",
+  "run_ids": [
+    "2026-09-29T21-33-02-579Z-7ac66cb0",
+    "2026-09-29T21-34-39-161Z-e4bd342d",
+    "2026-09-29T21-34-47-321Z-a822c72f"
+  ],
+  "workday": [
+    {
+      "board_key": "workday|mywdhr|wd1|hudsonsbay_careers",
+      "input_url": "https://mywdhr.wd1.myworkdayjobs.com/hudsonsbay_careers",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd1",
+      "expected_tenant": "mywdhr",
+      "expected_site": "hudsonsbay_careers",
+      "expected_endpoint": "https://mywdhr.wd1.myworkdayjobs.com/wday/cxs/mywdhr/hudsonsbay_careers/jobs"
+    },
+    {
+      "board_key": "workday|indivior|wd3|indivior",
+      "input_url": "https://indivior.wd3.myworkdayjobs.com/indivior",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd3",
+      "expected_tenant": "indivior",
+      "expected_site": "indivior",
+      "expected_endpoint": "https://indivior.wd3.myworkdayjobs.com/wday/cxs/indivior/indivior/jobs"
+    },
+    {
+      "board_key": "workday|chaptershealth|wd5|securjobs",
+      "input_url": "https://chaptershealth.wd5.myworkdayjobs.com/securjobs",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd5",
+      "expected_tenant": "chaptershealth",
+      "expected_site": "securjobs",
+      "expected_endpoint": "https://chaptershealth.wd5.myworkdayjobs.com/wday/cxs/chaptershealth/securjobs/jobs"
+    },
+    {
+      "board_key": "workday|merit|wd503|merit",
+      "input_url": "https://merit.wd503.myworkdayjobs.com/merit",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd503",
+      "expected_tenant": "merit",
+      "expected_site": "merit",
+      "expected_endpoint": "https://merit.wd503.myworkdayjobs.com/wday/cxs/merit/merit/jobs"
+    },
+    {
+      "board_key": "workday|burkert|wd502|burkert-career",
+      "input_url": "https://burkert.wd502.myworkdayjobs.com/burkert-career",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd502",
+      "expected_tenant": "burkert",
+      "expected_site": "burkert-career",
+      "expected_endpoint": "https://burkert.wd502.myworkdayjobs.com/wday/cxs/burkert/burkert-career/jobs"
+    },
+    {
+      "board_key": "workday|tdecu|wd1|tdecu",
+      "input_url": "https://tdecu.wd1.myworkdayjobs.com/tdecu",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd1",
+      "expected_tenant": "tdecu",
+      "expected_site": "tdecu",
+      "expected_endpoint": "https://tdecu.wd1.myworkdayjobs.com/wday/cxs/tdecu/tdecu/jobs"
+    },
+    {
+      "board_key": "workday|cc|wd3|chanelcareers",
+      "input_url": "https://cc.wd3.myworkdayjobs.com/chanelcareers",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd3",
+      "expected_tenant": "cc",
+      "expected_site": "chanelcareers",
+      "expected_endpoint": "https://cc.wd3.myworkdayjobs.com/wday/cxs/cc/chanelcareers/jobs"
+    },
+    {
+      "board_key": "workday|usfca|wd5|usf_full-time_faculty",
+      "input_url": "https://usfca.wd5.myworkdayjobs.com/usf_full-time_faculty",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd5",
+      "expected_tenant": "usfca",
+      "expected_site": "usf_full-time_faculty",
+      "expected_endpoint": "https://usfca.wd5.myworkdayjobs.com/wday/cxs/usfca/usf_full-time_faculty/jobs"
+    },
+    {
+      "board_key": "workday|heinz|wd1|kraftheinz_careers_bc",
+      "input_url": "https://heinz.wd1.myworkdayjobs.com/kraftheinz_careers_bc",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd1",
+      "expected_tenant": "heinz",
+      "expected_site": "kraftheinz_careers_bc",
+      "expected_endpoint": "https://heinz.wd1.myworkdayjobs.com/wday/cxs/heinz/kraftheinz_careers_bc/jobs"
+    },
+    {
+      "board_key": "workday|wsc|wd1|wsc",
+      "input_url": "https://wsc.wd1.myworkdayjobs.com/wsc",
+      "source_basis": "reconstructed from the probed endpoint; raw catalog has no URL",
+      "expected_hostname_shard": "wd1",
+      "expected_tenant": "wsc",
+      "expected_site": "wsc",
+      "expected_endpoint": "https://wsc.wd1.myworkdayjobs.com/wday/cxs/wsc/wsc/jobs"
+    }
+  ],
+  "icims": [
+    {
+      "board_key": "icims|ketteringhealth",
+      "input_url": "https://careers-ketteringhealth.icims.com/jobs/search?ss=%5Bredacted%5D&searchRelation=%5Bredacted%5D&in_iframe=%5Bredacted%5D&pr=%5Bredacted%5D",
+      "expected_hostname": "careers-ketteringhealth.icims.com",
+      "http_status": 200,
+      "parsed_job_count": 20
+    },
+    {
+      "board_key": "icims|newmillennium",
+      "input_url": "https://careers-newmillennium.icims.com/jobs/search?ss=%5Bredacted%5D&searchRelation=%5Bredacted%5D&in_iframe=%5Bredacted%5D&pr=%5Bredacted%5D",
+      "expected_hostname": "careers-newmillennium.icims.com",
+      "http_status": 200,
+      "parsed_job_count": 48
+    },
+    {
+      "board_key": "icims|publiclabel-careers",
+      "input_url": "https://careers-publiclabel-careers.icims.com/jobs/search?ss=%5Bredacted%5D&searchRelation=%5Bredacted%5D&in_iframe=%5Bredacted%5D&pr=%5Bredacted%5D",
+      "expected_hostname": "careers-publiclabel-careers.icims.com",
+      "http_status": 404,
+      "parsed_job_count": 0
+    },
+    {
+      "board_key": "icims|crcid-lightwavedental",
+      "input_url": "https://careers-crcid-lightwavedental.icims.com/jobs/search?ss=%5Bredacted%5D&searchRelation=%5Bredacted%5D&in_iframe=%5Bredacted%5D&pr=%5Bredacted%5D",
+      "expected_hostname": "careers-crcid-lightwavedental.icims.com",
+      "http_status": 403,
+      "parsed_job_count": 0
+    }
+  ],
+  "bamboohr": {
+    "board_key": "bamboohr|problemsolutions",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "final_url": "https://www.bamboohr.com/",
+    "redirected": true,
+    "html_title": "BambooHR: The Complete HR Software for People, Payroll &#x26; Benefits",
+    "response_prefix": "<!DOCTYPE html>\n<html>\n  <head>\n    <title>BambooHR: The Complete HR Software for People, Payroll &#x26; Benefits</title>\n    <link rel=\"canonical\" href=\"https://www.bamboohr.com/\">\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [input omitted]\n    [script omitted]\n    [script omitted]\n    [script omitted]\n    <link rel=\"stylesheet\" href=\"/styles/styles.css\">\n    <link rel=\"icon\" href=\"data:,\">\n    [script omitted]\n  </head>\n  <body>\n    <header></header>\n    <main>\n      <div>\n        <div class=\"spacer spacer-md\"></div>\n        <div class=\"columns spacing-none hero-section awards-badges accent-text-green heading-accent-color-1 hero-heading-wide\">\n          <div>\n            <div data-align=\"center\">\n              <p><span class=\"icon icon-rating-capterra-white\"></span></p>\n              <h1 id=\"from-hr-platform-to-hr-partner-with-bamboo-ai\">From HR platform to HR partner<br><u>with Bamboo AI™</u></h1>\n              <p>Meet the intelligence layer built into BambooHR® that handles work for you so you can <strong>put your people first.</strong></p>\n            </div>\n          </div>\n        </div>\n        <div class=\"spacer 16\"></div>\n        <div class=\"option-selector hero-tiles content-width-lg\">\n          <div>\n            <div>Hiring &#x26; Onboarding</div>\n            <div>hiring-onboarding</div>\n          </div>\n          <div>\n            <div>HR Data &#x26; Reporting</div>\n            <div>hr-data-reporting</div>\n          </div>\n          <div>\n            <div>Payroll &#x26; Time</div>\n            <div>payroll-time</div>\n          </div>\n          <div>\n            <div>Benefits Administration</div>\n            <div>benefits-administration</div>\n   ",
+    "redirect_chain": [
+      {
+        "url": "https://problemsolutions.bamboohr.com/careers/list",
+        "http_status": 302,
+        "location": "https://www.bamboohr.com/"
+      }
+    ]
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "GeneratedAt": "2026-10-24T13:21:36.144Z",
+  "Status": "PASS",
+  "Results": [
+    {
+      "Name": "prefers first_published over updated_at",
+      "Status": "PASS",
+      "DatePosted": "2026-06-03T12:00:00.000Z",
+      "PostedDate": "2026-06-03",
+      "AgeDays": 32,
+      "ExpectedDatePosted": "2026-06-03T12:00:00.000Z",
+      "ExpectedPostedDate": "2026-06-03",
+      "ExpectedAgeDays": 32
+    },
+    {
+      "Name": "falls back to published_at before updated_at",
+      "Status": "PASS",
+      "DatePosted": "2026-06-10T09:00:00.000Z",
+      "PostedDate": "2026-06-10",
+      "AgeDays": 25,
+      "ExpectedDatePosted": "2026-06-10T09:00:00.000Z",
+      "ExpectedPostedDate": "2026-06-10",
+      "ExpectedAgeDays": 25
+    },
+    {
+      "Name": "falls back to created_at before updated_at",
+      "Status": "PASS",
+      "DatePosted": "2026-06-15T09:00:00.000Z",
+      "PostedDate": "2026-06-15",
+      "AgeDays": 20,
+      "ExpectedDatePosted": "2026-06-15T09:00:00.000Z",
+      "ExpectedPostedDate": "2026-06-15",
+      "ExpectedAgeDays": 20
+    },
+    {
+      "Name": "uses updated_at as last fallback",
+      "Status": "PASS",
+      "DatePosted": "2026-07-03T12:00:00.000Z",
+      "PostedDate": "2026-07-03",
+      "AgeDays": 2,
+      "ExpectedDatePosted": "2026-07-03T12:00:00.000Z",
+      "ExpectedPostedDate": "2026-07-03",
+      "ExpectedAgeDays": 2
+    }
+  ],
+  "Failures": []
+}

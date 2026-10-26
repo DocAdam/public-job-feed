@@ -1,0 +1,5 @@
+2026-10-25T11:48:51.118Z START jobs:test-employment-type
+2026-10-25T11:48:51.346Z END jobs:test-employment-type 0
+2026-10-25T11:48:51.347Z START jobs:test-employment-integration
+2026-10-25T11:48:51.666Z END jobs:test-employment-integration 1
+{"Status":"FAIL","Tests":2,"FailedTest":"jobs:test-employment-integration","RunId":"isolated-e99de4ea-27b2-41ae-902b-77be9fb39b01"}

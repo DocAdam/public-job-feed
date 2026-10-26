@@ -1,0 +1,171 @@
+{
+  "detailed": {
+    "denominator": 795,
+    "statedSchedule": 38,
+    "statedTerms": 40,
+    "neither": 719,
+    "conflicts": 0,
+    "byATS": {
+      "greenhouse": {
+        "denominator": 286,
+        "byLabel": {
+          "Not stated": 269,
+          "Contract": 2,
+          "Full-time": 7,
+          "Internship": 4,
+          "Freelance": 4
+        }
+      },
+      "ashby": {
+        "denominator": 70,
+        "byLabel": {
+          "Not stated": 65,
+          "Full-time": 2,
+          "Internship": 1,
+          "Full-time; Internship": 1,
+          "Freelance": 1
+        }
+      },
+      "icims": {
+        "denominator": 98,
+        "byLabel": {
+          "Not stated": 93,
+          "Part-time": 2,
+          "Internship": 2,
+          "Full-time": 1
+        }
+      },
+      "workday": {
+        "denominator": 201,
+        "byLabel": {
+          "Contract": 7,
+          "Part-time": 2,
+          "Not stated": 186,
+          "Full-time": 1,
+          "Internship": 5
+        }
+      },
+      "lever": {
+        "denominator": 97,
+        "byLabel": {
+          "Not stated": 73,
+          "Full-time": 20,
+          "Freelance": 3,
+          "Contract": 1
+        }
+      },
+      "bamboohr": {
+        "denominator": 42,
+        "byLabel": {
+          "Not stated": 32,
+          "Freelance": 3,
+          "Internship": 4,
+          "Contract": 1,
+          "Part-time; Freelance": 1,
+          "Part-time": 1
+        }
+      },
+      "direct-employer": {
+        "denominator": 1,
+        "byLabel": {
+          "Not stated": 1
+        }
+      }
+    },
+    "byLabel": {
+      "Not stated": 719,
+      "Contract": 11,
+      "Part-time": 5,
+      "Full-time": 31,
+      "Internship": 16,
+      "Full-time; Internship": 1,
+      "Freelance": 11,
+      "Part-time; Freelance": 1
+    }
+  },
+  "public": {
+    "denominator": 744,
+    "statedSchedule": 29,
+    "statedTerms": 38,
+    "neither": 679,
+    "conflicts": 0,
+    "byATS": {
+      "lever": {
+        "denominator": 77,
+        "byLabel": {
+          "Not stated": 62,
+          "Freelance": 3,
+          "Contract": 1,
+          "Full-time": 11
+        }
+      },
+      "ashby": {
+        "denominator": 66,
+        "byLabel": {
+          "Not stated": 61,
+          "Full-time": 2,
+          "Internship": 1,
+          "Freelance": 1,
+          "Full-time; Internship": 1
+        }
+      },
+      "greenhouse": {
+        "denominator": 270,
+        "byLabel": {
+          "Not stated": 255,
+          "Full-time": 7,
+          "Freelance": 3,
+          "Internship": 3,
+          "Contract": 2
+        }
+      },
+      "direct-employer": {
+        "denominator": 1,
+        "byLabel": {
+          "Not stated": 1
+        }
+      },
+      "workday": {
+        "denominator": 194,
+        "byLabel": {
+          "Not stated": 179,
+          "Full-time": 1,
+          "Contract": 7,
+          "Internship": 5,
+          "Part-time": 2
+        }
+      },
+      "icims": {
+        "denominator": 95,
+        "byLabel": {
+          "Not stated": 90,
+          "Part-time": 2,
+          "Internship": 2,
+          "Full-time": 1
+        }
+      },
+      "bamboohr": {
+        "denominator": 41,
+        "byLabel": {
+          "Contract": 1,
+          "Not stated": 31,
+          "Part-time; Freelance": 1,
+          "Internship": 4,
+          "Freelance": 3,
+          "Part-time": 1
+        }
+      }
+    },
+    "byLabel": {
+      "Not stated": 679,
+      "Full-time": 22,
+      "Internship": 15,
+      "Freelance": 10,
+      "Contract": 11,
+      "Full-time; Internship": 1,
+      "Part-time": 5,
+      "Part-time; Freelance": 1
+    }
+  },
+  "tableRange": "A1:P745"
+}

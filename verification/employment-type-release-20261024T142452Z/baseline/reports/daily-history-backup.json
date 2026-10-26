@@ -1,0 +1,20 @@
+{
+  "RunId": "5d4d1517-8a37-4794-ad2b-4fd728768371",
+  "GeneratedAt": "2026-10-24T12:54:30.880Z",
+  "History": "PASS",
+  "Backup": "PASS",
+  "LastVerified": {
+    "status": "PASS",
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261024T124709153Z-4996d4f1-daf5-4f8e-9a09-b7b250927503",
+    "verifiedAt": "2026-10-24T12:53:23.514Z",
+    "databaseHash": "795772d293e6701c587f888f1e31ba9fd0fcb3956cdafc1143a6e6b592c2034d",
+    "snapshot": "20261024-0739"
+  },
+  "Warnings": [],
+  "Imported": 1,
+  "LatestSnapshot": "20261024-0739",
+  "Retention": {
+    "localRetired": [],
+    "externalRetired": []
+  }
+}

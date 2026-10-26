@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-core-pipeline
+> node src/scripts/test-core-pipeline.js
+
+Core pipeline regression tests passed.

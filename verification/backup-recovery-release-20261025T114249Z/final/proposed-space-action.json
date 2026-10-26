@@ -1,0 +1,17 @@
+{
+  "status": "PROPOSED ONLY; no existing verification snapshot moved",
+  "reason": "Current backup is blocked by local full-restore headroom. Current exact shortfall is recorded in exact-backup-space.json.",
+  "source": "/Users/adampugh/GitHub/public-job-feed/verification/employment-type-release-20261024T142452Z/isolated/current-canonical-fixed-input.json",
+  "bytes": 4017995774,
+  "sha256": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+  "destination": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/retained-prior-inputs/current-canonical-fixed-input.json",
+  "actions": [
+    "Copy this one prior test snapshot to the verified drive in the separate verification folder. Preserve its dates.",
+    "Verify size and SHA256 before changing the original path.",
+    "Replace the original local test-snapshot file with a symbolic link to the retained identical copy. Preserve access through the original path while the drive is connected.",
+    "Check actual local free space again. APFS sharing means logical file size does not guarantee released space.",
+    "If the normal reserve and full-restore checks pass, run one backup-only attempt for generation 2b1dae2f-4112-493d-8252-e1a14d0832d1. Do not rerun collection or the full refresh."
+  ],
+  "approvalReason": "This is an older fixed-input snapshot. AGENTS.md treats saved snapshots as read-only unless the task runs their documented workflow. The current task did not authorize relocating earlier snapshots.",
+  "rollback": "Copy the retained identical file back to a new local file, verify its hash, then replace the link. Do not delete the retained drive copy."
+}

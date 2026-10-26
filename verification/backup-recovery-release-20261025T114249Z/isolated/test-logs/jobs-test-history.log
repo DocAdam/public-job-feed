@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-history
+> node src/scripts/test-jobs-history.js
+
+PASS: discovery, integrity failures, URL membership, identity, types, schema union, empty snapshot, lifecycle, inclusion history, atomic rebuild, incremental update, idempotency, duplicate selection, raw preservation, exceptions, and corruption detection

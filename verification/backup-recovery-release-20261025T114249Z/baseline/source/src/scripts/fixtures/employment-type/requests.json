@@ -1,0 +1,332 @@
+[
+  {
+    "name": "01-ashby-page",
+    "url": "https://jobs.ashbyhq.com/backmarket/9cbdc249-81a5-476d-a365-4f457efc4a8c",
+    "checkedAt": "2026-10-23T14:36:47.498159+00:00",
+    "result": "200\thttps://jobs.ashbyhq.com/backmarket/9cbdc249-81a5-476d-a365-4f457efc4a8c",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 44189,
+    "sha256": "1c46551d3eb327850f9086882cf92bbe168cb213af709d08c71d9c8b8a342419"
+  },
+  {
+    "name": "01-ashby-api",
+    "url": "https://api.ashbyhq.com/posting-api/job-board/backmarket",
+    "checkedAt": "2026-10-23T14:36:47.390414+00:00",
+    "result": "200\thttps://api.ashbyhq.com/posting-api/job-board/backmarket",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 462367,
+    "sha256": "f929c91e290e34e3fdfbd98b00a4f33882036852b152d32b279f3bb284f5a789"
+  },
+  {
+    "name": "02-ashby-page",
+    "url": "https://jobs.ashbyhq.com/modal/f3b0e8e8-d7f5-441c-9a83-d7711543f541",
+    "checkedAt": "2026-10-23T14:36:47.336144+00:00",
+    "result": "200\thttps://jobs.ashbyhq.com/modal/f3b0e8e8-d7f5-441c-9a83-d7711543f541",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 30725,
+    "sha256": "a37020e9020b853f31ac4715e69fbbadd4d9edca9355bdf1adf594e7ed55bf3b"
+  },
+  {
+    "name": "02-ashby-api",
+    "url": "https://api.ashbyhq.com/posting-api/job-board/modal",
+    "checkedAt": "2026-10-23T14:36:47.369023+00:00",
+    "result": "200\thttps://api.ashbyhq.com/posting-api/job-board/modal",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 396465,
+    "sha256": "30720092fd4294fac77433dbf11af40155ffb6f469c0ef8b9bc6ca882eed093b"
+  },
+  {
+    "name": "03-ashby-page",
+    "url": "https://jobs.ashbyhq.com/flosports/97d13972-1334-49b5-8172-9645e90dfa9f",
+    "checkedAt": "2026-10-23T14:36:47.567710+00:00",
+    "result": "200\thttps://jobs.ashbyhq.com/flosports/97d13972-1334-49b5-8172-9645e90dfa9f",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 48891,
+    "sha256": "57facf276cbbd6e56fa8e6ff5e23ff1ce1b5de2f99ae4e619c4466c57ed9e238"
+  },
+  {
+    "name": "03-ashby-api",
+    "url": "https://api.ashbyhq.com/posting-api/job-board/flosports",
+    "checkedAt": "2026-10-23T14:36:47.365874+00:00",
+    "result": "200\thttps://api.ashbyhq.com/posting-api/job-board/flosports",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 312103,
+    "sha256": "ae60cb86ea603e8b245f8ed75c262712075a97d53dc066549372820ed9a5b7fd"
+  },
+  {
+    "name": "04-greenhouse-page",
+    "url": "https://job-boards.greenhouse.io/fueledcareers/jobs/5162182008",
+    "checkedAt": "2026-10-23T14:36:47.694209+00:00",
+    "result": "200\thttps://job-boards.greenhouse.io/fueledcareers/jobs/5162182008",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 84115,
+    "sha256": "472b51c572115bbcc8d15d2c7c3e257ca7cadcb031322a9e94d6ad7673e080d6"
+  },
+  {
+    "name": "04-greenhouse-api",
+    "url": "https://boards-api.greenhouse.io/v1/boards/fueledcareers/jobs/5162182008",
+    "checkedAt": "2026-10-23T14:36:47.600242+00:00",
+    "result": "200\thttps://boards-api.greenhouse.io/v1/boards/fueledcareers/jobs/5162182008",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 7178,
+    "sha256": "73718fbce1e996c1349f3e002ef5bc95ade631c7713476bce7f39905a712838f"
+  },
+  {
+    "name": "05-greenhouse-page",
+    "url": "https://sendbird.com/careers?gh_jid=8497886002",
+    "checkedAt": "2026-10-23T14:36:47.982048+00:00",
+    "result": "200\thttps://delight.ai/careers?gh_jid=8497886002",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 188355,
+    "sha256": "50a95ad297b5e21ed234842c3829e5de38122da1e1cd5c2819b7cf93edabc086"
+  },
+  {
+    "name": "05-greenhouse-api",
+    "url": "https://boards-api.greenhouse.io/v1/boards/sendbird/jobs/8497886002",
+    "checkedAt": "2026-10-23T14:36:47.597186+00:00",
+    "result": "200\thttps://boards-api.greenhouse.io/v1/boards/sendbird/jobs/8497886002",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 14092,
+    "sha256": "e39f8931b83deb5e6f7655e788a23e4c5d2640a7ac33c695e2d15a2d2e07284c"
+  },
+  {
+    "name": "06-greenhouse-page",
+    "url": "https://job-boards.greenhouse.io/amperesand/jobs/4443021009",
+    "checkedAt": "2026-10-23T14:36:47.854042+00:00",
+    "result": "200\thttps://job-boards.greenhouse.io/amperesand/jobs/4443021009",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 116649,
+    "sha256": "4c7856a8caa91dfb15186901803e8145d1bbd9e5fa29f681b18f1ef86fe4dc96"
+  },
+  {
+    "name": "06-greenhouse-api",
+    "url": "https://boards-api.greenhouse.io/v1/boards/amperesand/jobs/4443021009",
+    "checkedAt": "2026-10-23T14:36:47.785887+00:00",
+    "result": "200\thttps://boards-api.greenhouse.io/v1/boards/amperesand/jobs/4443021009",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 33772,
+    "sha256": "e2067bf0a30f1724b152d29be3cb3dd264b074dd107775bbb6a2b36591aae20f"
+  },
+  {
+    "name": "07-lever-page",
+    "url": "https://jobs.lever.co/penumbrainc/ab146fff-5d18-46f9-be5b-dfbf22d739ff",
+    "checkedAt": "2026-10-23T14:36:47.985959+00:00",
+    "result": "200\thttps://jobs.lever.co/penumbrainc/ab146fff-5d18-46f9-be5b-dfbf22d739ff",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 725326,
+    "sha256": "5348d6b0946e6546f9d413a4d927862aa939f7a84cd10a06d1b7381531947e53"
+  },
+  {
+    "name": "07-lever-api",
+    "url": "https://api.lever.co/v0/postings/penumbrainc/ab146fff-5d18-46f9-be5b-dfbf22d739ff?mode=json",
+    "checkedAt": "2026-10-23T14:36:48.057427+00:00",
+    "result": "200\thttps://api.lever.co/v0/postings/penumbrainc/ab146fff-5d18-46f9-be5b-dfbf22d739ff?mode=json",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 16057,
+    "sha256": "f57bef91e553ae493b970638fe7966852b872bf72f6c2764134bcef52eff361b"
+  },
+  {
+    "name": "08-lever-page",
+    "url": "https://jobs.lever.co/motifsystems/fbd5a1ae-e27d-4464-831f-4070fb0366e6",
+    "checkedAt": "2026-10-23T14:36:48.270333+00:00",
+    "result": "200\thttps://jobs.lever.co/motifsystems/fbd5a1ae-e27d-4464-831f-4070fb0366e6",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 719112,
+    "sha256": "20c112764e57e5c51054b937a82109f7e06f5dafbf0c37917433be394e959c88"
+  },
+  {
+    "name": "08-lever-api",
+    "url": "https://api.lever.co/v0/postings/motifsystems/fbd5a1ae-e27d-4464-831f-4070fb0366e6?mode=json",
+    "checkedAt": "2026-10-23T14:36:48.129294+00:00",
+    "result": "200\thttps://api.lever.co/v0/postings/motifsystems/fbd5a1ae-e27d-4464-831f-4070fb0366e6?mode=json",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 4079,
+    "sha256": "a09aaeafcf0dbe44ba98633f4bedc9c1af4bbaf61119ff94776fd2750a533360"
+  },
+  {
+    "name": "09-lever-page",
+    "url": "https://jobs.lever.co/hevodata/8334030a-d6e3-46cc-96a4-f16c5412ed74",
+    "checkedAt": "2026-10-23T14:36:48.178849+00:00",
+    "result": "200\thttps://jobs.lever.co/hevodata/8334030a-d6e3-46cc-96a4-f16c5412ed74",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 720261,
+    "sha256": "26d23fc16d0f8d783030dcba003f8a2e05f4ee20b0ebadbdbc719bf3806b11b3"
+  },
+  {
+    "name": "09-lever-api",
+    "url": "https://api.lever.co/v0/postings/hevodata/8334030a-d6e3-46cc-96a4-f16c5412ed74?mode=json",
+    "checkedAt": "2026-10-23T14:36:48.387942+00:00",
+    "result": "200\thttps://api.lever.co/v0/postings/hevodata/8334030a-d6e3-46cc-96a4-f16c5412ed74?mode=json",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 14683,
+    "sha256": "6d6df0f3b9cf6091da04d8fa0b94810492848b1fcbd115ada8718daf37b16c6c"
+  },
+  {
+    "name": "10-workday-page",
+    "url": "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Architecture-Content-Developer_JR249502",
+    "checkedAt": "2026-10-23T14:36:49.866153+00:00",
+    "result": "200\thttps://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Architecture-Content-Developer_JR249502",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 18339,
+    "sha256": "2c4e1031918eaaf518de1f89f6be225c4953e9bb0da2f1fa489fef2181ffa15c"
+  },
+  {
+    "name": "10-workday-api",
+    "url": "https://ghc.wd1.myworkdayjobs.com/wday/cxs/ghc/kaplan_careers/job/RemoteNationwide-USA/Contractor-Architecture-Content-Developer_JR249502",
+    "checkedAt": "2026-10-23T14:36:49.014259+00:00",
+    "result": "200\thttps://ghc.wd1.myworkdayjobs.com/wday/cxs/ghc/kaplan_careers/job/RemoteNationwide-USA/Contractor-Architecture-Content-Developer_JR249502",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 8044,
+    "sha256": "fe8ec495e1eff27ee387b4608a850e0fa3b42f53466398da329bc71ae8f84f77"
+  },
+  {
+    "name": "11-workday-page",
+    "url": "https://harriscomputer.wd3.myworkdayjobs.com/altera/job/Louisiana-United-States/Associate-Technical-Writer_R0044842",
+    "checkedAt": "2026-10-23T14:36:49.858718+00:00",
+    "result": "200\thttps://harriscomputer.wd3.myworkdayjobs.com/altera/job/Louisiana-United-States/Associate-Technical-Writer_R0044842",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 15463,
+    "sha256": "6b0550ebb1c3452932381541665f8730459fdb8561317f13097d88cb0baece4b"
+  },
+  {
+    "name": "11-workday-api",
+    "url": "https://harriscomputer.wd3.myworkdayjobs.com/wday/cxs/harriscomputer/altera/job/Louisiana-United-States/Associate-Technical-Writer_R0044842",
+    "checkedAt": "2026-10-23T14:36:48.867805+00:00",
+    "result": "200\thttps://harriscomputer.wd3.myworkdayjobs.com/wday/cxs/harriscomputer/altera/job/Louisiana-United-States/Associate-Technical-Writer_R0044842",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 3973,
+    "sha256": "7cf0428552318d1338748601c269b63c52fdc635381cb8ba0da115e6ede63266"
+  },
+  {
+    "name": "12-workday-page",
+    "url": "https://itw.wd5.myworkdayjobs.com/external/job/MTS-Headquarters/Summer-2027-Technical-Writing-Intern_JR10355",
+    "checkedAt": "2026-10-23T14:36:49.045364+00:00",
+    "result": "200\thttps://itw.wd5.myworkdayjobs.com/external/job/MTS-Headquarters/Summer-2027-Technical-Writing-Intern_JR10355",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 22139,
+    "sha256": "f2bf721e39892ccf29606a54d410848708d1289f6e4dd5d1e9e6d32bc1c2fc9c"
+  },
+  {
+    "name": "12-workday-api",
+    "url": "https://itw.wd5.myworkdayjobs.com/wday/cxs/itw/external/job/MTS-Headquarters/Summer-2027-Technical-Writing-Intern_JR10355",
+    "checkedAt": "2026-10-23T14:36:48.828292+00:00",
+    "result": "200\thttps://itw.wd5.myworkdayjobs.com/wday/cxs/itw/external/job/MTS-Headquarters/Summer-2027-Technical-Writing-Intern_JR10355",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 14919,
+    "sha256": "819767a32195498aa9ad0dcc6b66c5f6b4969bf27c3cc0e1de7561aee3de74d9"
+  },
+  {
+    "name": "13-bamboohr-page",
+    "url": "https://christianpost.bamboohr.com/careers/94",
+    "checkedAt": "2026-10-23T14:36:49.516016+00:00",
+    "result": "200\thttps://christianpost.bamboohr.com/careers/94",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 101921,
+    "sha256": "b3f45c4b9cd3f1f327dd32288b68f29df66e5f2c76d60a7e4ccfa70429307b27"
+  },
+  {
+    "name": "13-bamboohr-api",
+    "url": "https://christianpost.bamboohr.com/careers/list",
+    "checkedAt": "2026-10-23T14:36:49.266819+00:00",
+    "result": "200\thttps://christianpost.bamboohr.com/careers/list",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 2460,
+    "sha256": "2704e2124b2e578da160e32afdb9b3ade6006bc5699d31f52ee5a2261d552c56"
+  },
+  {
+    "name": "14-bamboohr-page",
+    "url": "https://anga.bamboohr.com/careers/24",
+    "checkedAt": "2026-10-23T14:36:49.580045+00:00",
+    "result": "200\thttps://anga.bamboohr.com/careers/24",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 101852,
+    "sha256": "80fc2e0d1611af7819fd26b42913e5a1ee3985e764d2b48420a0067103aed6d8"
+  },
+  {
+    "name": "14-bamboohr-api",
+    "url": "https://anga.bamboohr.com/careers/list",
+    "checkedAt": "2026-10-23T14:36:49.401160+00:00",
+    "result": "200\thttps://anga.bamboohr.com/careers/list",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 1058,
+    "sha256": "45e3a30bc9355a4736f007700210a41fcd3373347bc51c88028d55c9a16266e6"
+  },
+  {
+    "name": "15-bamboohr-page",
+    "url": "https://geospectrum.bamboohr.com/careers/258",
+    "checkedAt": "2026-10-23T14:36:49.870058+00:00",
+    "result": "200\thttps://geospectrum.bamboohr.com/careers/258",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 101902,
+    "sha256": "43d7b7201f0755877d78d990925c2e8f0bdc7b84a0646465c3d0dca401be3ec1"
+  },
+  {
+    "name": "15-bamboohr-api",
+    "url": "https://geospectrum.bamboohr.com/careers/list",
+    "checkedAt": "2026-10-23T14:36:49.798745+00:00",
+    "result": "200\thttps://geospectrum.bamboohr.com/careers/list",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 12556,
+    "sha256": "470721a366ed59d9bd66fda19c66c632d6a56ef80268da4fcaa1795b1d631d14"
+  },
+  {
+    "name": "16-icims-page",
+    "url": "https://careers-audacy.icims.com/jobs/7988/editor-writer-wins-%28part-time%29/job",
+    "checkedAt": "2026-10-23T14:36:49.923305+00:00",
+    "result": "200\thttps://careers-audacy.icims.com/jobs/7988/editor-writer-wins-%28part-time%29/job",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 144646,
+    "sha256": "5c37efc3eafd7cd0f70629623535bf89e7272d78c173806e2d23e501dd6a8ff8"
+  },
+  {
+    "name": "17-icims-page",
+    "url": "https://careers-decisionpointcorp.icims.com/jobs/3236/api-documentation-specialist/job",
+    "checkedAt": "2026-10-23T14:36:49.958814+00:00",
+    "result": "200\thttps://careers-decisionpointcorp.icims.com/jobs/3236/api-documentation-specialist/job",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 45534,
+    "sha256": "c881f0a73af13554154967387b9ad634886726442bac0bacfab37c7f2fd4374b"
+  },
+  {
+    "name": "18-icims-page",
+    "url": "https://careers-eastpennmanufacturing.icims.com/jobs/31328/ci-technical-writer/job",
+    "checkedAt": "2026-10-23T14:36:50.218060+00:00",
+    "result": "200\thttps://careers-eastpennmanufacturing.icims.com/jobs/31328/ci-technical-writer/job",
+    "error": "",
+    "exitCode": 0,
+    "bytes": 4723,
+    "sha256": "4ec40b9deeae832816124e5c20d9ea15a19c948e53651d4c7dc625827bf69b94"
+  }
+]

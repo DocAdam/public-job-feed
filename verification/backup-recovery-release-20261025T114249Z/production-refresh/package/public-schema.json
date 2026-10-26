@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 2,
+  "publicHeaders": [
+    "Title",
+    "Company",
+    "Location",
+    "Apply Link",
+    "Additional Apply Links",
+    "Writer Fit Score",
+    "Fit Tier",
+    "Why It Matched",
+    "Role Type",
+    "Work Arrangement",
+    "Salary",
+    "Posted Date",
+    "Age (Days)",
+    "Last Checked",
+    "Source",
+    "Employment Type"
+  ],
+  "formulaFileName": "",
+  "rowCount": 732,
+  "tableRange": "A1:P733"
+}

@@ -1,0 +1,6 @@
+{
+  "exitCode": 0,
+  "stdout": "PASS: the unchanged strict bundle verifier rejects an observed AppleDouble sidecar in an isolated synthetic fixture. No live backup was retried or changed.\n",
+  "stderr": "",
+  "scope": "Synthetic checksum/inventory fixture only; no real database restore or backup recovery"
+}

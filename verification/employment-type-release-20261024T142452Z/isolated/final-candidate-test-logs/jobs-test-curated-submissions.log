@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-curated-submissions
+> node src/scripts/test-curated-submissions.js
+
+Curated submission fixtures passed; no live requests or production writes.

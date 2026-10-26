@@ -1,0 +1,25 @@
+{
+  "RunId": "9c29cf20-a701-4b92-806e-aa1aee8a2eea",
+  "Mode": "BACKUP_ONLY",
+  "GeneratedAt": "2026-10-25T19:07:34.707Z",
+  "History": "PASS",
+  "Backup": "PASS",
+  "LastVerified": {
+    "status": "PASS",
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T185937999Z-a1787b94-2fc5-4331-9870-5cbeb0c4fe81",
+    "verifiedAt": "2026-10-25T19:07:33.425Z",
+    "databaseHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "snapshot": "20261025-0724",
+    "metadata": {
+      "policy": "appledouble-provenance-v1",
+      "count": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "Warnings": [],
+  "Imported": 0,
+  "LatestSnapshot": "20261025-0724",
+  "Generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+  "DatabaseHash": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014"
+}

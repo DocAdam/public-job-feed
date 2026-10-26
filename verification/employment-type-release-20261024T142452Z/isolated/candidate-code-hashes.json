@@ -1,0 +1,6 @@
+{
+  "src/lib/employment-type.js": "97215eb737f2fd4009bd1c590154294ea0a32eb76ae0920dc4a714517025b204",
+  "src/scripts/test-employment-type.js": "249b50a49c6b1e674a768ed6a6c7669eed67a0ab33b47520335d9ec297777ab9",
+  "src/scripts/fixtures/employment-type/variable-compensation-normalized-20261024.json": "01efdcb923923b84905552b0aa07a768399db55dc6728750e7a30db86ab74ac9",
+  "src/scripts/fixtures/employment-type/README.md": "e9ab9ba2e6ce1677dce399795a04959bac6e12ab8a90ab45d04426465a625e6a"
+}

@@ -1,0 +1,7 @@
+ATS,ScaleRecommendation,Reason,SuggestedNextBatchLimit,SuggestedDelayMs,SuggestedNextAction
+ashby,SCALE_NOW,Supported public API has solid success rate and meaningful job volume.,500,250,Run another controlled ashby HIGH batch with resume enabled.
+greenhouse,SCALE_NOW,Supported public API has solid success rate and meaningful job volume.,500,250,Run another controlled greenhouse HIGH batch with resume enabled.
+lever,SCALE_NOW,Supported public API has solid success rate and meaningful job volume.,500,250,Run another controlled lever HIGH batch with resume enabled.
+workday,KEEP_BEST_EFFORT,"Fetcher can produce jobs, but this ATS remains best-effort or inconsistent.",50,500,Keep workday batches small and review logs after each run.
+bamboohr,KEEP_BEST_EFFORT,"Fetcher can produce jobs, but this ATS remains best-effort or inconsistent.",50,500,Keep bamboohr batches small and review logs after each run.
+icims,KEEP_BEST_EFFORT,"Fetcher can produce jobs, but this ATS remains best-effort or inconsistent.",50,500,Keep icims batches small and review logs after each run.

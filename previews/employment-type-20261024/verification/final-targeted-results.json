@@ -1,0 +1,38 @@
+[
+  {
+    "command": "npm run jobs:test-employment-type",
+    "exitCode": 0,
+    "durationMs": 166.17,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-employment-type\n> node src/scripts/test-employment-type.js\n\nPASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.\nPASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.\nPASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.\nPASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.\nPASS: core compatibility dedupe, conflict population, public label validation.\nPASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.\nPASS: all controlled terms, search-response observation date, and source URL.\nPASS: an explicit schedule alternative remains valid with a compatible structured value.\n"
+  },
+  {
+    "command": "npm run jobs:test-employment-integration",
+    "exitCode": 0,
+    "durationMs": 4172.81,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-employment-integration\n> node src/scripts/test-employment-integration.js\n\nPASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.\nPASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.\nPASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.\nPASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.\nPASS: core compatibility dedupe, conflict population, public label validation.\nPASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.\nPASS: all controlled terms, search-response observation date, and source URL.\nPASS: an explicit schedule alternative remains valid with a compatible structured value.\nPASS: actual merge, daily slices, 15 shortlist records, public/formula CSV, new-schema rejection, old package loading, legacy and v2 history, URL-prune and actual launcher-sync metadata/formula synchronization, streaming conflict protection, scoring regression. All writes used temporary paths; collection was disabled.\n"
+  },
+  {
+    "command": "npm run jobs:test-gsheet-url-pruning",
+    "exitCode": 0,
+    "durationMs": 133.5,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-gsheet-url-pruning\n> node src/scripts/test-gsheet-url-pruning.js\n\nGoogle Sheets safe URL pruning tests passed.\n"
+  },
+  {
+    "command": "npm run jobs:test-refresh-launcher",
+    "exitCode": 0,
+    "durationMs": 3104.09,
+    "output": "\n> public-job-feed@0.1.0 jobs:test-refresh-launcher\n> node src/scripts/test-refresh-launcher.js\n\nRefresh launcher success and failure tests passed; no live refresh ran.\n"
+  },
+  {
+    "command": "node src/scripts/test-gsheet-package.js --package-dir previews/employment-type-20261024/20261024-0840 --report-dir previews/employment-type-20261024/pruned-validation",
+    "exitCode": 0,
+    "durationMs": 62.91,
+    "output": "Google Sheets package validation: WARN\nPackage: /Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840\nGood Documentation Jobs rows: 714\nPrevious rows: 744\nRow change: -30\nCompany Coverage rows: 0\nFailures: 0\nWarnings: 3\n"
+  },
+  {
+    "command": "bash -n launchers/Clean Broken Links.command",
+    "exitCode": 0,
+    "durationMs": 2.89,
+    "output": ""
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "appliedAt": "2026-10-24T15:27:44.023275+00:00",
+  "productionHadFinished": true,
+  "files": [
+    {
+      "path": "src/lib/employment-type.js",
+      "beforeSHA256": "98a16ce450fe6c2f2a70724c57ff4e30358f3246d6b9be11b303881b6a69dc37",
+      "afterSHA256": "da347877995e1cdf8252747a4647d6b1ce96a65e3cda05a0129e505c463921cf"
+    },
+    {
+      "path": "src/lib/job-export.js",
+      "beforeSHA256": "42c739b0d684d00568ea41187d270d924966b953140ff796fb75b750ca94160f",
+      "afterSHA256": "98377b94dc6ad67a80c9aaf1faf05483298784939509a138628b3af77442e9b8"
+    },
+    {
+      "path": "src/scripts/test-employment-type.js",
+      "beforeSHA256": "c0ca10b2592677931584dd81a206fa7a173b5691e6f30fd0c071802737555294",
+      "afterSHA256": "b3ac53b5292adc711110b9a1ff834941c3707bdf20638ce31955f27603fcf08b"
+    },
+    {
+      "path": "src/scripts/fixtures/employment-type/README.md",
+      "beforeSHA256": "59cf1bf1608682bbb0cae18759b2a187581cbcafb6d5b17c3a9f1121a8ef1e2d",
+      "afterSHA256": "3ea5bf3bb9ff9fc59b7006179c63a00b0f1409dfb21a2369d15207e5ed133838"
+    },
+    {
+      "path": "src/scripts/fixtures/employment-type/variable-compensation-normalized-20261024.json",
+      "beforeSHA256": null,
+      "afterSHA256": "c39391d93e962810a36d24bad15ddb09ed02236bfad09b472880cefec68b735e"
+    },
+    {
+      "path": "src/scripts/fixtures/employment-type/variable-hours-normalized-20261024.json",
+      "beforeSHA256": null,
+      "afterSHA256": "8028ee299c86485a381b2002d12538bd69c61f3af69ad228fcb3160b52ed1280"
+    }
+  ],
+  "productionArtifactsChangedByFix": false
+}

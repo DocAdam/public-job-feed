@@ -1,0 +1,27 @@
+{
+  "nativeTableId": "810055407",
+  "actualTableRange": {
+    "sheetId": 55693553,
+    "startRowIndex": 0,
+    "endRowIndex": 733,
+    "startColumnIndex": 0,
+    "endColumnIndex": 16
+  },
+  "columnP": {
+    "columnIndex": 15,
+    "columnName": "Employment Type",
+    "columnType": "TEXT"
+  },
+  "original15ColumnDefinitionsUnchanged": true,
+  "tableColorsUnchanged": true,
+  "original15WidthsUnchanged": true,
+  "columnPWidth": 230,
+  "columnQWidthUnchanged": true,
+  "frozenRowCount": 1,
+  "gridSizesUnchanged": true,
+  "mainFilterRestored": true,
+  "remoteBasicFilterUnchanged": true,
+  "sharingUnchanged": true,
+  "sheetIdsAndTitlesUnchanged": true,
+  "sourceCsvHash": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963"
+}

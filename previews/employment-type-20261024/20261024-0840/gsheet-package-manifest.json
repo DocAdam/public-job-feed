@@ -1,0 +1,83 @@
+[
+  {
+    "FileName": "public-schema.json",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/public-schema.json",
+    "Exists": true,
+    "SizeBytes": 459,
+    "RecommendedPrimary": false,
+    "RecommendedUse": "Employment type reference",
+    "Purpose": "Public schema, coverage, or Sheet import instructions."
+  },
+  {
+    "FileName": "employment-type-coverage.json",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/employment-type-coverage.json",
+    "Exists": true,
+    "SizeBytes": 3738,
+    "RecommendedPrimary": false,
+    "RecommendedUse": "Employment type reference",
+    "Purpose": "Public schema, coverage, or Sheet import instructions."
+  },
+  {
+    "FileName": "EMPLOYMENT_TYPE_IMPORT.md",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/EMPLOYMENT_TYPE_IMPORT.md",
+    "Exists": true,
+    "SizeBytes": 1351,
+    "RecommendedPrimary": false,
+    "RecommendedUse": "Employment type reference",
+    "Purpose": "Public schema, coverage, or Sheet import instructions."
+  },
+  {
+    "FileName": "public-package-exclusions.csv",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/public-package-exclusions.csv",
+    "Exists": true,
+    "SizeBytes": 7857,
+    "RecommendedPrimary": false,
+    "RecommendedSecondary": false,
+    "RecommendedUse": "Internal eligibility audit",
+    "Purpose": "Exact-URL exclusions from public package rows.",
+    "Notes": "Raw source records and scores are preserved."
+  },
+  {
+    "FileName": "00_start_here.csv",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/00_start_here.csv",
+    "Exists": true,
+    "SizeBytes": 563,
+    "RecommendedSheetTabName": "Start Here",
+    "RecommendedPrimary": false,
+    "RecommendedSecondary": false,
+    "RecommendedUse": "Package orientation",
+    "Purpose": "One-row orientation file for the recommended upload path.",
+    "Notes": "Freshness is based on Last Checked and Report Run Date. Always click Apply Link to confirm the job is still open."
+  },
+  {
+    "FileName": "01_good_documentation_jobs.csv",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/01_good_documentation_jobs.csv",
+    "Exists": true,
+    "SizeBytes": 206319,
+    "RecommendedSheetTabName": "Top Matches",
+    "RecommendedPrimary": true,
+    "RecommendedSecondary": false,
+    "RecommendedUse": "Simple public Sheet with freshness fields",
+    "Purpose": "Minimal public-facing Top Matches export, sorted by newest jobs first and then highest Writer Fit Score.",
+    "Notes": "Recommended public Google Sheet upload. Apply Link is a plain URL that Google Sheets usually auto-links. Known country-specific posting campaigns may be grouped for readability; full detail remains in Top Matches Full."
+  },
+  {
+    "FileName": "good_documentation_jobs_formula.csv",
+    "SourcePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-deduped-top.json",
+    "OutputPath": "/Users/adampugh/GitHub/public-job-feed/previews/employment-type-20261024/20261024-0840/good_documentation_jobs_formula.csv",
+    "Exists": true,
+    "SizeBytes": 226306,
+    "RecommendedSheetTabName": "Top Matches Formula",
+    "RecommendedPrimary": false,
+    "RecommendedSecondary": false,
+    "RecommendedUse": "Optional Google Sheets formula version",
+    "Purpose": "Minimal public-facing Top Matches export with HYPERLINK formulas, sorted like the plain URL file.",
+    "Notes": "Use only if you want the Apply column prefilled with Google Sheets HYPERLINK formulas."
+  }
+]

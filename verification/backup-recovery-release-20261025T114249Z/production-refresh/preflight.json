@@ -1,0 +1,30 @@
+{
+  "at": "2026-10-25T12:02:42.351979+00:00",
+  "recoveryRunId": "68c5ece2-eff1-4828-8e83-b485b12c958a",
+  "recoveryBackup": {
+    "status": "PASS",
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+    "verifiedAt": "2026-10-25T12:00:24.029Z",
+    "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "snapshot": "20261024-0954",
+    "metadata": {
+      "policy": "appledouble-provenance-v1",
+      "count": 0,
+      "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    }
+  },
+  "historyGeneration": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+  "locks": [],
+  "suiteRunId": "isolated-c88544ba-746a-46ec-94c7-926c08242254",
+  "launcherSha256": "c8bc35baccefbaf9f1187dd52890de1d9faadb94851234137d29804f02039026",
+  "gitHead": "96067095fd634c6f5e0d9d2f381423997a743b11",
+  "disk": {
+    "working_bytes": 6456528896,
+    "free_bytes": 44960579584
+  },
+  "command": [
+    "/bin/bash",
+    "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command"
+  ]
+}

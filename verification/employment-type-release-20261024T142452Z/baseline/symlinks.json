@@ -1,0 +1,14 @@
+[
+  {
+    "path": "data/jobs/merged/public-feed-release/public-job-feed-merged.json",
+    "target": "../../public/public-job-feed-latest.json"
+  },
+  {
+    "path": "data/jobs/merged/public-feed-release/public-job-feed-merged.csv",
+    "target": "../../public/public-job-feed-latest.csv"
+  },
+  {
+    "path": "data/jobs/gsheet-package/latest/06_full_firehose.csv",
+    "target": "../../public/public-job-feed-latest.csv"
+  }
+]

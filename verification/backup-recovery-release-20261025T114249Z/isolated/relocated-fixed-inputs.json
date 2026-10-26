@@ -1,0 +1,35 @@
+{
+  "reason": "Preserve local restore headroom after the completed suite. Only newly created copies owned by this test workflow were moved. No production or prior verification file was moved.",
+  "completedAt": "2026-10-25T12:15:53.791244+00:00",
+  "suiteRunId": "isolated-c88544ba-746a-46ec-94c7-926c08242254",
+  "restoreForRerun": "Copy retainedTestInput back to oldTestPath and verify SHA256 before rerunning saved-corpus tests.",
+  "files": [
+    {
+      "oldTestPath": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project/data/jobs/public/public-job-feed-latest.csv",
+      "retainedTestInput": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/fixed-inputs/public-job-feed-latest.csv",
+      "sha256": "ab04fce7a2dab1f32df804209e0c28b53f588315fef14f83f19d394cf7c0591e",
+      "bytes": 2942285684,
+      "productionPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.csv",
+      "productionFileMoved": false
+    },
+    {
+      "oldTestPath": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project/data/jobs/history/jobs-history.duckdb",
+      "retainedTestInput": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/fixed-inputs/jobs-history.duckdb",
+      "sha256": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+      "bytes": 971255808,
+      "productionPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb",
+      "productionFileMoved": false
+    },
+    {
+      "oldTestPaths": [
+        "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/baseline/canonical.json",
+        "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/project/data/jobs/public/public-job-feed-latest.json"
+      ],
+      "retainedTestInput": "/Volumes/1Pugh/Public Job Feed Archives/.verification-backup-recovery-release-20261025T114249Z/fixed-inputs/public-job-feed-latest.json",
+      "sha256": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+      "bytes": 4017995774,
+      "productionFileMoved": false
+    }
+  ],
+  "canonicalRelocationCompletedAt": "2026-10-25T12:37:54.367786+00:00"
+}

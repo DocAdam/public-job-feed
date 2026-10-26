@@ -1,0 +1,131 @@
+{
+  "tests": [
+    {
+      "term": "Contract",
+      "condition": {
+        "type": "TEXT_CONTAINS",
+        "values": [
+          {
+            "userEnteredValue": "Contract"
+          }
+        ]
+      },
+      "actualVisibleRows": [
+        93,
+        111,
+        245,
+        297,
+        320,
+        330,
+        372,
+        418,
+        459,
+        462,
+        523,
+        524,
+        525,
+        526,
+        527,
+        603,
+        606
+      ],
+      "expectedVisibleRows": [
+        93,
+        111,
+        245,
+        297,
+        320,
+        330,
+        372,
+        418,
+        459,
+        462,
+        523,
+        524,
+        525,
+        526,
+        527,
+        603,
+        606
+      ],
+      "combinedRows": [
+        93,
+        297,
+        462,
+        603
+      ],
+      "visibleRowsMatch": true,
+      "combinedRowsVisible": true,
+      "nativeTablePresent": true,
+      "nativeTableRange": {
+        "sheetId": 55693553,
+        "startRowIndex": 0,
+        "endRowIndex": 733,
+        "startColumnIndex": 0,
+        "endColumnIndex": 16
+      }
+    },
+    {
+      "term": "Internship",
+      "condition": {
+        "type": "TEXT_CONTAINS",
+        "values": [
+          {
+            "userEnteredValue": "Internship"
+          }
+        ]
+      },
+      "actualVisibleRows": [
+        35,
+        68,
+        69,
+        133,
+        176,
+        467,
+        475,
+        501,
+        511,
+        545,
+        548,
+        567,
+        647,
+        648,
+        727
+      ],
+      "expectedVisibleRows": [
+        35,
+        68,
+        69,
+        133,
+        176,
+        467,
+        475,
+        501,
+        511,
+        545,
+        548,
+        567,
+        647,
+        648,
+        727
+      ],
+      "combinedRows": [
+        176,
+        467,
+        545,
+        548
+      ],
+      "visibleRowsMatch": true,
+      "combinedRowsVisible": true,
+      "nativeTablePresent": true,
+      "nativeTableRange": {
+        "sheetId": 55693553,
+        "startRowIndex": 0,
+        "endRowIndex": 733,
+        "startColumnIndex": 0,
+        "endColumnIndex": 16
+      }
+    }
+  ],
+  "restoredOriginalFilter": true
+}

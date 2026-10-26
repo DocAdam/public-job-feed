@@ -1,0 +1,9 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "tool call error: tool call failed for `codex_apps/google_drive.batch_update_spreadsheet`\n\nCaused by:\n    Mcp error: -32603: Internal error"
+    }
+  ],
+  "isError": true
+}

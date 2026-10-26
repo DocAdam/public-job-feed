@@ -1,0 +1,2186 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "Action completed."
+    }
+  ],
+  "structuredContent": {
+    "spreadsheetId": "1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g",
+    "spreadsheetUrl": "https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit",
+    "properties": {
+      "title": "good documentation jobs",
+      "locale": "en_US",
+      "timeZone": "Etc/GMT"
+    },
+    "sheets": [
+      {
+        "properties": {
+          "sheetId": 55693553,
+          "title": "01_good_documentation_jobs",
+          "index": 0,
+          "sheetType": "GRID",
+          "gridProperties": {
+            "rowCount": 1000,
+            "columnCount": 26,
+            "frozenRowCount": 1
+          }
+        },
+        "data": [
+          {
+            "rowData": [
+              {
+                "values": [
+                  {
+                    "formattedValue": "Title",
+                    "userEnteredValue": {
+                      "stringValue": "Title"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Title"
+                    }
+                  },
+                  {
+                    "formattedValue": "Company",
+                    "userEnteredValue": {
+                      "stringValue": "Company"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Company"
+                    }
+                  },
+                  {
+                    "formattedValue": "Location",
+                    "userEnteredValue": {
+                      "stringValue": "Location"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Location"
+                    }
+                  },
+                  {
+                    "formattedValue": "Apply Link",
+                    "userEnteredValue": {
+                      "stringValue": "Apply Link"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Apply Link"
+                    }
+                  },
+                  {
+                    "formattedValue": "Additional Apply Links",
+                    "userEnteredValue": {
+                      "stringValue": "Additional Apply Links"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Additional Apply Links"
+                    }
+                  },
+                  {
+                    "formattedValue": "Writer Fit Score",
+                    "userEnteredValue": {
+                      "stringValue": "Writer Fit Score"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Writer Fit Score"
+                    }
+                  },
+                  {
+                    "formattedValue": "Fit Tier",
+                    "userEnteredValue": {
+                      "stringValue": "Fit Tier"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Fit Tier"
+                    }
+                  },
+                  {
+                    "formattedValue": "Why It Matched",
+                    "userEnteredValue": {
+                      "stringValue": "Why It Matched"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Why It Matched"
+                    }
+                  },
+                  {
+                    "formattedValue": "Role Type",
+                    "userEnteredValue": {
+                      "stringValue": "Role Type"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Role Type"
+                    }
+                  },
+                  {
+                    "formattedValue": "Work Arrangement",
+                    "userEnteredValue": {
+                      "stringValue": "Work Arrangement"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Work Arrangement"
+                    }
+                  },
+                  {
+                    "formattedValue": "Salary",
+                    "userEnteredValue": {
+                      "stringValue": "Salary"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Salary"
+                    }
+                  },
+                  {
+                    "formattedValue": "Posted Date",
+                    "userEnteredValue": {
+                      "stringValue": "Posted Date"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Posted Date"
+                    }
+                  },
+                  {
+                    "formattedValue": "Age (Days)",
+                    "userEnteredValue": {
+                      "stringValue": "Age (Days)"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Age (Days)"
+                    }
+                  },
+                  {
+                    "formattedValue": "Last Checked",
+                    "userEnteredValue": {
+                      "stringValue": "Last Checked"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Last Checked"
+                    }
+                  },
+                  {
+                    "formattedValue": "Source",
+                    "userEnteredValue": {
+                      "stringValue": "Source"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Source"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Content Marketer and Technical Writer",
+                    "userEnteredValue": {
+                      "stringValue": "Content Marketer and Technical Writer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Content Marketer and Technical Writer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Jobgether",
+                    "userEnteredValue": {
+                      "stringValue": "Jobgether"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Jobgether"
+                    }
+                  },
+                  {
+                    "formattedValue": "India",
+                    "userEnteredValue": {
+                      "stringValue": "India"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "India"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://jobs.lever.co/jobgether/3fc556bd-04cb-4a2b-a70e-54759beb282a",
+                    "userEnteredValue": {
+                      "stringValue": "https://jobs.lever.co/jobgether/3fc556bd-04cb-4a2b-a70e-54759beb282a"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://jobs.lever.co/jobgether/3fc556bd-04cb-4a2b-a70e-54759beb282a"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://jobs.lever.co/jobgether/3fc556bd-04cb-4a2b-a70e-54759beb282a"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://jobs.lever.co/jobgether/3fc556bd-04cb-4a2b-a70e-54759beb282a"
+                  },
+                  {},
+                  {
+                    "formattedValue": "85",
+                    "userEnteredValue": {
+                      "numberValue": 85
+                    },
+                    "effectiveValue": {
+                      "numberValue": 85
+                    }
+                  },
+                  {
+                    "formattedValue": "A",
+                    "userEnteredValue": {
+                      "stringValue": "A"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "A"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Technical Writer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Technical Writer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Technical Writer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Technical Writing",
+                    "userEnteredValue": {
+                      "stringValue": "Technical Writing"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Technical Writing"
+                    }
+                  },
+                  {
+                    "formattedValue": "Remote",
+                    "userEnteredValue": {
+                      "stringValue": "Remote"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Remote"
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-23",
+                    "userEnteredValue": {
+                      "numberValue": 46318
+                    },
+                    "effectiveValue": {
+                      "numberValue": 46318
+                    },
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {
+                    "formattedValue": "1",
+                    "userEnteredValue": {
+                      "numberValue": 1
+                    },
+                    "effectiveValue": {
+                      "numberValue": 1
+                    }
+                  },
+                  {
+                    "formattedValue": "2026-10-24 12:11 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-24 12:11 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-24 12:11 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "lever",
+                    "userEnteredValue": {
+                      "stringValue": "lever"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "lever"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Enterprise Systems Senior Technical Developer",
+                    "userEnteredValue": {
+                      "stringValue": "Enterprise Systems Senior Technical Developer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Enterprise Systems Senior Technical Developer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Pariveda",
+                    "userEnteredValue": {
+                      "stringValue": "Pariveda"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Pariveda"
+                    }
+                  },
+                  {
+                    "formattedValue": "Dallas",
+                    "userEnteredValue": {
+                      "stringValue": "Dallas"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Dallas"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://jobs.ashbyhq.com/pariveda/f359ab7d-0120-4393-af3c-b45713c895e4",
+                    "userEnteredValue": {
+                      "stringValue": "https://jobs.ashbyhq.com/pariveda/f359ab7d-0120-4393-af3c-b45713c895e4"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://jobs.ashbyhq.com/pariveda/f359ab7d-0120-4393-af3c-b45713c895e4"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://jobs.ashbyhq.com/pariveda/f359ab7d-0120-4393-af3c-b45713c895e4"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://jobs.ashbyhq.com/pariveda/f359ab7d-0120-4393-af3c-b45713c895e4"
+                  },
+                  {},
+                  {
+                    "formattedValue": "85",
+                    "userEnteredValue": {
+                      "numberValue": 85
+                    },
+                    "effectiveValue": {
+                      "numberValue": 85
+                    }
+                  },
+                  {
+                    "formattedValue": "A",
+                    "userEnteredValue": {
+                      "stringValue": "A"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "A"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Technical Content Developer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Technical Content Developer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Technical Content Developer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Adjacent / Transferable",
+                    "userEnteredValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    }
+                  },
+                  {
+                    "formattedValue": "Hybrid",
+                    "userEnteredValue": {
+                      "stringValue": "Hybrid"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Hybrid"
+                    }
+                  },
+                  {
+                    "formattedValue": "$104,500- $115,900",
+                    "userEnteredValue": {
+                      "stringValue": "$104,500- $115,900"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "$104,500- $115,900"
+                    }
+                  },
+                  {
+                    "formattedValue": "2026-10-23",
+                    "userEnteredValue": {
+                      "numberValue": 46318
+                    },
+                    "effectiveValue": {
+                      "numberValue": 46318
+                    },
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {
+                    "formattedValue": "1",
+                    "userEnteredValue": {
+                      "numberValue": 1
+                    },
+                    "effectiveValue": {
+                      "numberValue": 1
+                    }
+                  },
+                  {
+                    "formattedValue": "2026-10-24 12:09 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-24 12:09 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-24 12:09 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "ashby",
+                    "userEnteredValue": {
+                      "stringValue": "ashby"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "ashby"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Senior Content Designer UK",
+                    "userEnteredValue": {
+                      "stringValue": "Senior Content Designer UK"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Senior Content Designer UK"
+                    }
+                  },
+                  {
+                    "formattedValue": "Vmlenterprisesolutions",
+                    "userEnteredValue": {
+                      "stringValue": "Vmlenterprisesolutions"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Vmlenterprisesolutions"
+                    }
+                  },
+                  {
+                    "formattedValue": "London, United Kingdom",
+                    "userEnteredValue": {
+                      "stringValue": "London, United Kingdom"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "London, United Kingdom"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8893982002",
+                    "userEnteredValue": {
+                      "stringValue": "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8893982002"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8893982002"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8893982002"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://job-boards.greenhouse.io/vmlenterprisesolutions/jobs/8893982002"
+                  },
+                  {},
+                  {
+                    "formattedValue": "85",
+                    "userEnteredValue": {
+                      "numberValue": 85
+                    },
+                    "effectiveValue": {
+                      "numberValue": 85
+                    }
+                  },
+                  {
+                    "formattedValue": "A",
+                    "userEnteredValue": {
+                      "stringValue": "A"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "A"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Senior Content Designer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Senior Content Designer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Senior Content Designer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Content Design / UX Writing",
+                    "userEnteredValue": {
+                      "stringValue": "Content Design / UX Writing"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Content Design / UX Writing"
+                    }
+                  },
+                  {
+                    "formattedValue": "Hybrid",
+                    "userEnteredValue": {
+                      "stringValue": "Hybrid"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Hybrid"
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-23",
+                    "userEnteredValue": {
+                      "numberValue": 46318
+                    },
+                    "effectiveValue": {
+                      "numberValue": 46318
+                    },
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {
+                    "formattedValue": "1",
+                    "userEnteredValue": {
+                      "numberValue": 1
+                    },
+                    "effectiveValue": {
+                      "numberValue": 1
+                    }
+                  },
+                  {
+                    "formattedValue": "2026-10-24 09:07 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-24 09:07 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-24 09:07 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "greenhouse",
+                    "userEnteredValue": {
+                      "stringValue": "greenhouse"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "greenhouse"
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "startRow": 709,
+            "rowData": [
+              {
+                "values": [
+                  {
+                    "formattedValue": "Senior Enterprise Applications & Integrations Developer, Information Systems",
+                    "userEnteredValue": {
+                      "stringValue": "Senior Enterprise Applications & Integrations Developer, Information Systems"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Senior Enterprise Applications & Integrations Developer, Information Systems"
+                    }
+                  },
+                  {
+                    "formattedValue": "Wfu",
+                    "userEnteredValue": {
+                      "stringValue": "Wfu"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Wfu"
+                    }
+                  },
+                  {
+                    "formattedValue": "Winston Salem, NC",
+                    "userEnteredValue": {
+                      "stringValue": "Winston Salem, NC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Winston Salem, NC"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://wfu.wd1.myworkdayjobs.com/staff_career_website_live/job/Winston-Salem-NC/Enterprise-Applications---Integrations-Developer--Information-Systems_R0009008",
+                    "userEnteredValue": {
+                      "stringValue": "https://wfu.wd1.myworkdayjobs.com/staff_career_website_live/job/Winston-Salem-NC/Enterprise-Applications---Integrations-Developer--Information-Systems_R0009008"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://wfu.wd1.myworkdayjobs.com/staff_career_website_live/job/Winston-Salem-NC/Enterprise-Applications---Integrations-Developer--Information-Systems_R0009008"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://wfu.wd1.myworkdayjobs.com/staff_career_website_live/job/Winston-Salem-NC/Enterprise-Applications---Integrations-Developer--Information-Systems_R0009008"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://wfu.wd1.myworkdayjobs.com/staff_career_website_live/job/Winston-Salem-NC/Enterprise-Applications---Integrations-Developer--Information-Systems_R0009008"
+                  },
+                  {},
+                  {
+                    "formattedValue": "20",
+                    "userEnteredValue": {
+                      "numberValue": 20
+                    },
+                    "effectiveValue": {
+                      "numberValue": 20
+                    }
+                  },
+                  {
+                    "formattedValue": "D",
+                    "userEnteredValue": {
+                      "stringValue": "D"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "D"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Information Experience Developer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Information Experience Developer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Information Experience Developer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Adjacent / Transferable",
+                    "userEnteredValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    }
+                  },
+                  {
+                    "formattedValue": "Onsite",
+                    "userEnteredValue": {
+                      "stringValue": "Onsite"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Onsite"
+                    }
+                  },
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-17 12:19 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-17 12:19 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-17 12:19 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "workday",
+                    "userEnteredValue": {
+                      "stringValue": "workday"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "workday"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Engineering Data & Document Specialist",
+                    "userEnteredValue": {
+                      "stringValue": "Engineering Data & Document Specialist"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Engineering Data & Document Specialist"
+                    }
+                  },
+                  {
+                    "formattedValue": "Masco",
+                    "userEnteredValue": {
+                      "stringValue": "Masco"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Masco"
+                    }
+                  },
+                  {
+                    "formattedValue": "US - Indiana - Indianapolis",
+                    "userEnteredValue": {
+                      "stringValue": "US - Indiana - Indianapolis"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "US - Indiana - Indianapolis"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://masco.wd1.myworkdayjobs.com/deltafaucet/job/US---Indiana---Indianapolis/Engineering-Data---Document-Specialist_REQ54145-2",
+                    "userEnteredValue": {
+                      "stringValue": "https://masco.wd1.myworkdayjobs.com/deltafaucet/job/US---Indiana---Indianapolis/Engineering-Data---Document-Specialist_REQ54145-2"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://masco.wd1.myworkdayjobs.com/deltafaucet/job/US---Indiana---Indianapolis/Engineering-Data---Document-Specialist_REQ54145-2"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://masco.wd1.myworkdayjobs.com/deltafaucet/job/US---Indiana---Indianapolis/Engineering-Data---Document-Specialist_REQ54145-2"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://masco.wd1.myworkdayjobs.com/deltafaucet/job/US---Indiana---Indianapolis/Engineering-Data---Document-Specialist_REQ54145-2"
+                  },
+                  {},
+                  {
+                    "formattedValue": "15",
+                    "userEnteredValue": {
+                      "numberValue": 15
+                    },
+                    "effectiveValue": {
+                      "numberValue": 15
+                    }
+                  },
+                  {
+                    "formattedValue": "F",
+                    "userEnteredValue": {
+                      "stringValue": "F"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "F"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Document Specialist",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Document Specialist"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Document Specialist"
+                    }
+                  },
+                  {
+                    "formattedValue": "Adjacent / Transferable",
+                    "userEnteredValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    }
+                  },
+                  {
+                    "formattedValue": "Onsite",
+                    "userEnteredValue": {
+                      "stringValue": "Onsite"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Onsite"
+                    }
+                  },
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-19 09:05 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-19 09:05 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-19 09:05 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "workday",
+                    "userEnteredValue": {
+                      "stringValue": "workday"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "workday"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Software Developer III for Information Services",
+                    "userEnteredValue": {
+                      "stringValue": "Software Developer III for Information Services"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Software Developer III for Information Services"
+                    }
+                  },
+                  {
+                    "formattedValue": "Liberty",
+                    "userEnteredValue": {
+                      "stringValue": "Liberty"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Liberty"
+                    }
+                  },
+                  {
+                    "formattedValue": "Remote Location",
+                    "userEnteredValue": {
+                      "stringValue": "Remote Location"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Remote Location"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://liberty.wd5.myworkdayjobs.com/lu_job_board_staff/job/Remote-Location/Software-Developer-III-for-Information-Services_R0013065",
+                    "userEnteredValue": {
+                      "stringValue": "https://liberty.wd5.myworkdayjobs.com/lu_job_board_staff/job/Remote-Location/Software-Developer-III-for-Information-Services_R0013065"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://liberty.wd5.myworkdayjobs.com/lu_job_board_staff/job/Remote-Location/Software-Developer-III-for-Information-Services_R0013065"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://liberty.wd5.myworkdayjobs.com/lu_job_board_staff/job/Remote-Location/Software-Developer-III-for-Information-Services_R0013065"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://liberty.wd5.myworkdayjobs.com/lu_job_board_staff/job/Remote-Location/Software-Developer-III-for-Information-Services_R0013065"
+                  },
+                  {},
+                  {},
+                  {
+                    "formattedValue": "F",
+                    "userEnteredValue": {
+                      "stringValue": "F"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "F"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Information Experience Developer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Information Experience Developer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Information Experience Developer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Adjacent / Transferable",
+                    "userEnteredValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    }
+                  },
+                  {
+                    "formattedValue": "Remote",
+                    "userEnteredValue": {
+                      "stringValue": "Remote"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Remote"
+                    }
+                  },
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-19 09:00 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-19 09:00 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-19 09:00 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "workday",
+                    "userEnteredValue": {
+                      "stringValue": "workday"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "workday"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Senior Architect / AI Context Engineer",
+                    "userEnteredValue": {
+                      "stringValue": "Senior Architect / AI Context Engineer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Senior Architect / AI Context Engineer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Material",
+                    "userEnteredValue": {
+                      "stringValue": "Material"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Material"
+                    }
+                  },
+                  {
+                    "formattedValue": "3 Locations",
+                    "userEnteredValue": {
+                      "stringValue": "3 Locations"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "3 Locations"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://material.wd1.myworkdayjobs.com/material_external_career_site/job/New-York/Senior-Architect---AI-Context-Engineer_JR101766",
+                    "userEnteredValue": {
+                      "stringValue": "https://material.wd1.myworkdayjobs.com/material_external_career_site/job/New-York/Senior-Architect---AI-Context-Engineer_JR101766"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://material.wd1.myworkdayjobs.com/material_external_career_site/job/New-York/Senior-Architect---AI-Context-Engineer_JR101766"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://material.wd1.myworkdayjobs.com/material_external_career_site/job/New-York/Senior-Architect---AI-Context-Engineer_JR101766"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://material.wd1.myworkdayjobs.com/material_external_career_site/job/New-York/Senior-Architect---AI-Context-Engineer_JR101766"
+                  },
+                  {},
+                  {},
+                  {
+                    "formattedValue": "F",
+                    "userEnteredValue": {
+                      "stringValue": "F"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "F"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Text Engineer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Text Engineer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Text Engineer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Adjacent / Transferable",
+                    "userEnteredValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    }
+                  },
+                  {
+                    "formattedValue": "Onsite",
+                    "userEnteredValue": {
+                      "stringValue": "Onsite"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Onsite"
+                    }
+                  },
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-20 09:24 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-20 09:24 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-20 09:24 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "workday",
+                    "userEnteredValue": {
+                      "stringValue": "workday"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "workday"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Senior Clinical Content Manager",
+                    "userEnteredValue": {
+                      "stringValue": "Senior Clinical Content Manager"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Senior Clinical Content Manager"
+                    }
+                  },
+                  {
+                    "formattedValue": "Springernature",
+                    "userEnteredValue": {
+                      "stringValue": "Springernature"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Springernature"
+                    }
+                  },
+                  {
+                    "formattedValue": "London",
+                    "userEnteredValue": {
+                      "stringValue": "London"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "London"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://springernature.wd3.myworkdayjobs.com/springernaturecareers/job/London/Senior-Clinical-Content-Manager_JR107352",
+                    "userEnteredValue": {
+                      "stringValue": "https://springernature.wd3.myworkdayjobs.com/springernaturecareers/job/London/Senior-Clinical-Content-Manager_JR107352"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://springernature.wd3.myworkdayjobs.com/springernaturecareers/job/London/Senior-Clinical-Content-Manager_JR107352"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://springernature.wd3.myworkdayjobs.com/springernaturecareers/job/London/Senior-Clinical-Content-Manager_JR107352"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://springernature.wd3.myworkdayjobs.com/springernaturecareers/job/London/Senior-Clinical-Content-Manager_JR107352"
+                  },
+                  {},
+                  {},
+                  {
+                    "formattedValue": "F",
+                    "userEnteredValue": {
+                      "stringValue": "F"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "F"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Content Manager",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Content Manager"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Content Manager"
+                    }
+                  },
+                  {
+                    "formattedValue": "Content Writing",
+                    "userEnteredValue": {
+                      "stringValue": "Content Writing"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Content Writing"
+                    }
+                  },
+                  {
+                    "formattedValue": "Onsite",
+                    "userEnteredValue": {
+                      "stringValue": "Onsite"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Onsite"
+                    }
+                  },
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-24 09:25 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-24 09:25 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-24 09:25 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "workday",
+                    "userEnteredValue": {
+                      "stringValue": "workday"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "workday"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Lead Information Security Engineer - (Java Full Stack Developer)",
+                    "userEnteredValue": {
+                      "stringValue": "Lead Information Security Engineer - (Java Full Stack Developer)"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Lead Information Security Engineer - (Java Full Stack Developer)"
+                    }
+                  },
+                  {
+                    "formattedValue": "Svb",
+                    "userEnteredValue": {
+                      "stringValue": "Svb"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Svb"
+                    }
+                  },
+                  {
+                    "formattedValue": "Bangalore, India",
+                    "userEnteredValue": {
+                      "stringValue": "Bangalore, India"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Bangalore, India"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://svb.wd5.myworkdayjobs.com/firstcitizensindia/job/Bangalore-India/Lead-Information-Security-Engineer---IAM_24631-1",
+                    "userEnteredValue": {
+                      "stringValue": "https://svb.wd5.myworkdayjobs.com/firstcitizensindia/job/Bangalore-India/Lead-Information-Security-Engineer---IAM_24631-1"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "https://svb.wd5.myworkdayjobs.com/firstcitizensindia/job/Bangalore-India/Lead-Information-Security-Engineer---IAM_24631-1"
+                    },
+                    "userEnteredFormat": {
+                      "textFormat": {
+                        "link": {
+                          "uri": "https://svb.wd5.myworkdayjobs.com/firstcitizensindia/job/Bangalore-India/Lead-Information-Security-Engineer---IAM_24631-1"
+                        }
+                      }
+                    },
+                    "hyperlink": "https://svb.wd5.myworkdayjobs.com/firstcitizensindia/job/Bangalore-India/Lead-Information-Security-Engineer---IAM_24631-1"
+                  },
+                  {},
+                  {},
+                  {
+                    "formattedValue": "F",
+                    "userEnteredValue": {
+                      "stringValue": "F"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "F"
+                    }
+                  },
+                  {
+                    "formattedValue": "Matched watchlist title: Information Experience Developer",
+                    "userEnteredValue": {
+                      "stringValue": "Matched watchlist title: Information Experience Developer"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Matched watchlist title: Information Experience Developer"
+                    }
+                  },
+                  {
+                    "formattedValue": "Adjacent / Transferable",
+                    "userEnteredValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Adjacent / Transferable"
+                    }
+                  },
+                  {
+                    "formattedValue": "Onsite",
+                    "userEnteredValue": {
+                      "stringValue": "Onsite"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "Onsite"
+                    }
+                  },
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  },
+                  {},
+                  {
+                    "formattedValue": "2026-10-24 09:26 UTC",
+                    "userEnteredValue": {
+                      "stringValue": "2026-10-24 09:26 UTC"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "2026-10-24 09:26 UTC"
+                    }
+                  },
+                  {
+                    "formattedValue": "workday",
+                    "userEnteredValue": {
+                      "stringValue": "workday"
+                    },
+                    "effectiveValue": {
+                      "stringValue": "workday"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {},
+                  {
+                    "userEnteredFormat": {
+                      "numberFormat": {
+                        "type": "DATE",
+                        "pattern": "yyyy-mm-dd"
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "properties": {
+          "sheetId": 1606926353,
+          "title": "remote_jobs_pivot",
+          "index": 1,
+          "sheetType": "GRID",
+          "gridProperties": {
+            "rowCount": 1999,
+            "columnCount": 186
+          }
+        },
+        "data": [
+          {
+            "rowData": [
+              {
+                "values": [
+                  {
+                    "formattedValue": "Location",
+                    "effectiveValue": {
+                      "stringValue": "Location"
+                    },
+                    "pivotTable": {
+                      "source": {
+                        "sheetId": 55693553,
+                        "startRowIndex": 0,
+                        "endRowIndex": 715,
+                        "startColumnIndex": 0,
+                        "endColumnIndex": 15
+                      },
+                      "rows": [
+                        {
+                          "sourceColumnOffset": 2,
+                          "valueMetadata": [
+                            {
+                              "value": {
+                                "stringValue": "Remote"
+                              }
+                            },
+                            {
+                              "value": {
+                                "stringValue": ""
+                              }
+                            }
+                          ],
+                          "sortOrder": "ASCENDING"
+                        },
+                        {
+                          "sourceColumnOffset": 0,
+                          "valueMetadata": [
+                            {
+                              "value": {
+                                "stringValue": "Staff Content Designer"
+                              }
+                            }
+                          ],
+                          "sortOrder": "ASCENDING"
+                        },
+                        {
+                          "sourceColumnOffset": 1,
+                          "sortOrder": "ASCENDING"
+                        },
+                        {
+                          "sourceColumnOffset": 3,
+                          "sortOrder": "ASCENDING"
+                        }
+                      ],
+                      "criteria": {
+                        "2": {
+                          "visibleValues": [
+                            "Alexandria HQ (remote)",
+                            "Any Location / Remote",
+                            "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote",
+                            "Canada - Remote BC",
+                            "Italy remote",
+                            "Malaysia | India (Remote) | Malta | Poland | Remote — Romania | Indonesia | Estonia | Limassol | Portugal | South Africa",
+                            "Missouri-Remote",
+                            "Multiple locations (2 postings): Remote (Canada); Remote (United States)",
+                            "Multiple locations (5 postings): 2 Locations; 3 Locations; Remote - Germany; Remote - Ireland; Remote - Italy",
+                            "Netherlands remote",
+                            "New York, New York, United States; Remote - United States",
+                            "Pittsburgh, PA; Remote",
+                            "Remote",
+                            "REMOTE",
+                            "Remote - CAN",
+                            "Remote - Lithuania | Remote - North Macedonia | Remote - Canada | Remote - Israel | Remote | Remote - Croatia | Remote - Argentina | Remote - Italy | Remote - Sweden | Remote - Luxembourg | Remote - Portugal | Remote - Latvia | Remote - Hong Kong | Remote - Romania | Remote - Egypt | Remote - Denmark | Remote - Colombia | Remote - Costa Rica | Remote - Germany | Remote - Australia | Remote - Norway | Remote - Cyprus | Remote - Philippines | Remote - New Zealand | Remote - Poland | Remote - Hungary | Remote - Moldova | Remote - Estonia | Remote - Chile | Remote - Brazil | Remote - Malaysia | Remote - Kazakhstan | Remote - Slovakia | Remote - Vietnam | Remote - Netherlands | Remote - Japan | Remote - France | Remote - United Kingdom | Remote - Turkey | Remote - Bulgaria | Remote - Uruguay | Remote - Iceland | Remote - South Korea | Remote - South Africa | Remote - Czech Republic | Remote - Greece | Remote - Taiwan | Remote - Finland | Remote - Slovenia | Remote - Albania | Remote - Austria | Remote - Belgium | Remote - Malta | Remote - Mexico | Remote - Georgia | Remote - Ireland | Remote - Serbia | Remote - Spain | Remote - Singapore",
+                            "Remote - Mexico",
+                            "Remote - U.S.",
+                            "Remote - US",
+                            "Remote (Any State)",
+                            "Remote (Canada) | Remote (US)",
+                            "Remote (India - Bangalore ONLY)",
+                            "Remote (India)",
+                            "Remote (Mexico - Mexico City ONLY)",
+                            "Remote (US)",
+                            "Remote (USA)",
+                            "Remote | Boston | USEAST | New York. New York | Canada",
+                            "Remote Location",
+                            "Remote UK",
+                            "Remote US",
+                            "Remote Worker Home Office (MA)",
+                            "Remote, or Hybrid SF, NYC, BOS or CHI",
+                            "Remote, US",
+                            "Remote, USA",
+                            "Remote/Nationwide, USA",
+                            "San Francisco | Remote - North America",
+                            "San Francisco | Remote | New York",
+                            "San Francisco | Singapore | Remote (Asia) | Remote (North America)",
+                            "South Africa remote",
+                            "Spain remote",
+                            "United States - Remote",
+                            "US-Remote",
+                            "Washington, DC - Remote"
+                          ]
+                        }
+                      },
+                      "filterSpecs": [
+                        {
+                          "columnOffsetIndex": 2,
+                          "filterCriteria": {
+                            "visibleValues": [
+                              "Alexandria HQ (remote)",
+                              "Any Location / Remote",
+                              "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote",
+                              "Canada - Remote BC",
+                              "Italy remote",
+                              "Malaysia | India (Remote) | Malta | Poland | Remote — Romania | Indonesia | Estonia | Limassol | Portugal | South Africa",
+                              "Missouri-Remote",
+                              "Multiple locations (2 postings): Remote (Canada); Remote (United States)",
+                              "Multiple locations (5 postings): 2 Locations; 3 Locations; Remote - Germany; Remote - Ireland; Remote - Italy",
+                              "Netherlands remote",
+                              "New York, New York, United States; Remote - United States",
+                              "Pittsburgh, PA; Remote",
+                              "Remote",
+                              "REMOTE",
+                              "Remote - CAN",
+                              "Remote - Lithuania | Remote - North Macedonia | Remote - Canada | Remote - Israel | Remote | Remote - Croatia | Remote - Argentina | Remote - Italy | Remote - Sweden | Remote - Luxembourg | Remote - Portugal | Remote - Latvia | Remote - Hong Kong | Remote - Romania | Remote - Egypt | Remote - Denmark | Remote - Colombia | Remote - Costa Rica | Remote - Germany | Remote - Australia | Remote - Norway | Remote - Cyprus | Remote - Philippines | Remote - New Zealand | Remote - Poland | Remote - Hungary | Remote - Moldova | Remote - Estonia | Remote - Chile | Remote - Brazil | Remote - Malaysia | Remote - Kazakhstan | Remote - Slovakia | Remote - Vietnam | Remote - Netherlands | Remote - Japan | Remote - France | Remote - United Kingdom | Remote - Turkey | Remote - Bulgaria | Remote - Uruguay | Remote - Iceland | Remote - South Korea | Remote - South Africa | Remote - Czech Republic | Remote - Greece | Remote - Taiwan | Remote - Finland | Remote - Slovenia | Remote - Albania | Remote - Austria | Remote - Belgium | Remote - Malta | Remote - Mexico | Remote - Georgia | Remote - Ireland | Remote - Serbia | Remote - Spain | Remote - Singapore",
+                              "Remote - Mexico",
+                              "Remote - U.S.",
+                              "Remote - US",
+                              "Remote (Any State)",
+                              "Remote (Canada) | Remote (US)",
+                              "Remote (India - Bangalore ONLY)",
+                              "Remote (India)",
+                              "Remote (Mexico - Mexico City ONLY)",
+                              "Remote (US)",
+                              "Remote (USA)",
+                              "Remote | Boston | USEAST | New York. New York | Canada",
+                              "Remote Location",
+                              "Remote UK",
+                              "Remote US",
+                              "Remote Worker Home Office (MA)",
+                              "Remote, or Hybrid SF, NYC, BOS or CHI",
+                              "Remote, US",
+                              "Remote, USA",
+                              "Remote/Nationwide, USA",
+                              "San Francisco | Remote - North America",
+                              "San Francisco | Remote | New York",
+                              "San Francisco | Singapore | Remote (Asia) | Remote (North America)",
+                              "South Africa remote",
+                              "Spain remote",
+                              "United States - Remote",
+                              "US-Remote",
+                              "Washington, DC - Remote"
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "formattedValue": "Title",
+                    "effectiveValue": {
+                      "stringValue": "Title"
+                    }
+                  },
+                  {
+                    "formattedValue": "Company",
+                    "effectiveValue": {
+                      "stringValue": "Company"
+                    }
+                  },
+                  {
+                    "formattedValue": "Apply Link",
+                    "effectiveValue": {
+                      "stringValue": "Apply Link"
+                    }
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Alexandria HQ (remote)",
+                    "effectiveValue": {
+                      "stringValue": "Alexandria HQ (remote)"
+                    }
+                  },
+                  {
+                    "formattedValue": "Digital and Interactive Content Developer (Active NOAA CAC Preferred)",
+                    "effectiveValue": {
+                      "stringValue": "Digital and Interactive Content Developer (Active NOAA CAC Preferred)"
+                    }
+                  },
+                  {
+                    "formattedValue": "Element84",
+                    "effectiveValue": {
+                      "stringValue": "Element84"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://jobs.ashbyhq.com/element84/9ee02ec2-a0c6-40e4-9707-385041cbf924",
+                    "effectiveValue": {
+                      "stringValue": "https://jobs.ashbyhq.com/element84/9ee02ec2-a0c6-40e4-9707-385041cbf924"
+                    },
+                    "hyperlink": "https://jobs.ashbyhq.com/element84/9ee02ec2-a0c6-40e4-9707-385041cbf924"
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote",
+                    "effectiveValue": {
+                      "stringValue": "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote"
+                    }
+                  },
+                  {
+                    "formattedValue": "Manager II, Developer Advocacy",
+                    "effectiveValue": {
+                      "stringValue": "Manager II, Developer Advocacy"
+                    }
+                  },
+                  {
+                    "formattedValue": "Datadog",
+                    "effectiveValue": {
+                      "stringValue": "Datadog"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://careers.datadoghq.com/detail/8282140/?gh_jid=8282140",
+                    "effectiveValue": {
+                      "stringValue": "https://careers.datadoghq.com/detail/8282140/?gh_jid=8282140"
+                    },
+                    "hyperlink": "https://careers.datadoghq.com/detail/8282140/?gh_jid=8282140"
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Canada - Remote BC",
+                    "effectiveValue": {
+                      "stringValue": "Canada - Remote BC"
+                    }
+                  },
+                  {
+                    "formattedValue": "Sr. Technical Editor (Remote, CAN)",
+                    "effectiveValue": {
+                      "stringValue": "Sr. Technical Editor (Remote, CAN)"
+                    }
+                  },
+                  {
+                    "formattedValue": "Crowdstrike",
+                    "effectiveValue": {
+                      "stringValue": "Crowdstrike"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers/job/Canada---Remote-BC/Sr-Content-Writer--Remote-_R29599-1",
+                    "effectiveValue": {
+                      "stringValue": "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers/job/Canada---Remote-BC/Sr-Content-Writer--Remote-_R29599-1"
+                    },
+                    "hyperlink": "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers/job/Canada---Remote-BC/Sr-Content-Writer--Remote-_R29599-1"
+                  }
+                ]
+              },
+              {
+                "values": [
+                  {
+                    "formattedValue": "Italy remote",
+                    "effectiveValue": {
+                      "stringValue": "Italy remote"
+                    }
+                  },
+                  {
+                    "formattedValue": "Freelance SEO Content Writer - Italian",
+                    "effectiveValue": {
+                      "stringValue": "Freelance SEO Content Writer - Italian"
+                    }
+                  },
+                  {
+                    "formattedValue": "Brafton",
+                    "effectiveValue": {
+                      "stringValue": "Brafton"
+                    }
+                  },
+                  {
+                    "formattedValue": "https://jobs.lever.co/brafton/85f2542d-b3f7-4fe3-8363-54056e4786ab",
+                    "effectiveValue": {
+                      "stringValue": "https://jobs.lever.co/brafton/85f2542d-b3f7-4fe3-8363-54056e4786ab"
+                    },
+                    "hyperlink": "https://jobs.lever.co/brafton/85f2542d-b3f7-4fe3-8363-54056e4786ab"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "isError": false
+}

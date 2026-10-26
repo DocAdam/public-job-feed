@@ -1,0 +1,5 @@
+{
+  "exitCode": 0,
+  "stdout": "PASS: isolated write allowed, outside write denied, fetch blocked before a request\n",
+  "stderr": ""
+}

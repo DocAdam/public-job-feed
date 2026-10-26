@@ -1,0 +1,47 @@
+{
+  "absolute_url": "https://job-boards.greenhouse.io/fueledcareers/jobs/5162182008",
+  "data_compliance": [
+    {
+      "type": "gdpr",
+      "requires_consent": false,
+      "requires_processing_consent": false,
+      "requires_retention_consent": false,
+      "retention_period": null,
+      "demographic_data_consent_applies": false
+    }
+  ],
+  "internal_job_id": 4447739008,
+  "location": {
+    "name": "Remote"
+  },
+  "metadata": null,
+  "id": 5162182008,
+  "updated_at": "2026-10-13T10:03:45-04:00",
+  "requisition_id": "294",
+  "title": "Contract Senior Content Designer ",
+  "company_name": "Fueled",
+  "first_published": "2026-03-25T16:29:26-04:00",
+  "language": "en",
+  "application_deadline": null,
+  "content": "&lt;p&gt;&lt;strong&gt;Location:&lt;/strong&gt; Remote – Americas (Open to applicants located in North American aligned time zones)&lt;/p&gt;\n&lt;p&gt;Fueled is a leading digital strategy, design, and engineering agency. We are a 300+ person team that has designed and built hundreds of digital products and experiences for brands like Google, Apple, The New York Times, ESPN, Victoria’s Secret, MGM Resorts, Albertsons, and CLEAR.&lt;/p&gt;\n&lt;p&gt;As a &lt;strong&gt;Senior Content Designer&lt;/strong&gt; at Fueled, you’ll bring clarity to complex product experiences through thoughtful, strategic content design. You’ll partner closely with design, product, and engineering teams to shape content systems that scale by moving beyond copy to define structure, meaning, and user understanding across digital products.&lt;/p&gt;\n&lt;p&gt;Intentionally remote, our team thrives in a culture that values flexibility, creativity, and cutting-edge technology. Together, we’re shaping the future of digital experiences.&lt;/p&gt;\n&lt;h3&gt;&lt;strong&gt;What you will do:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Lead content design across client engagements, shaping clear, user-centered experiences through content strategy, UX writing, and information architecture.&lt;/li&gt;\n&lt;li&gt;Translate ambiguous product and business goals into structured content models, messaging frameworks, and scalable content systems.&lt;/li&gt;\n&lt;li&gt;Write and adapt content to meet client needs, balancing brand voice, user experience, and business objectives.&lt;/li&gt;\n&lt;li&gt;Collaborate with product designers, engineers, and stakeholders to integrate content seamlessly into the product development process.&lt;/li&gt;\n&lt;li&gt;Define and deliver key content artifacts (e.g., audits, taxonomies, content models, voice and tone guidelines) while facilitating workshops to align teams on strategy and direction.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;What you will achieve:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;Deliver content systems and experiences that improve clarity, usability, and overall product effectiveness.&lt;/li&gt;\n&lt;li&gt;Create scalable content foundations that support long-term product growth and consistency across platforms.&lt;/li&gt;\n&lt;li&gt;Help teams move from ambiguity to clarity by structuring content in ways that enable confident design and engineering decisions.&lt;/li&gt;\n&lt;li&gt;Strengthen collaboration across disciplines by integrating content design into product thinking from the start.&lt;/li&gt;\n&lt;li&gt;Raise the bar for content design craft across projects, contributing to thoughtful, strategic, and user-centered outcomes.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;About you:&lt;/strong&gt;&lt;/h3&gt;\n&lt;ul&gt;\n&lt;li&gt;You have 4+ years in content design, UX writing, or content strategy, ideally within an agency environment.&lt;/li&gt;\n&lt;li&gt;You thrive in fast-paced, multi-client settings and are comfortable navigating ambiguity.&lt;/li&gt;\n&lt;li&gt;You bring a strategic approach to content, with experience in content modeling, IA, and structured content.&lt;/li&gt;\n&lt;li&gt;You are experienced working with CMS platforms, shaping how content is structured and managed.&lt;/li&gt;\n&lt;li&gt;You are a strong collaborator and communicator, able to align teams and clearly articulate content decisions to clients and stakeholders.&lt;/li&gt;\n&lt;/ul&gt;\n&lt;h3&gt;&lt;strong&gt;Contractor Fee&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;Compensation is determined based on a variety of factors, including relevant experience, projects, geographic location, and business needs.&lt;/p&gt;\n&lt;h3 style=&quot;text-align: center;&quot;&gt;&lt;strong&gt;Join our Contractor Pool&lt;/strong&gt;&lt;/h3&gt;\n&lt;p&gt;This role is designed as a contract position, offering you the opportunity to experience our team and culture while showcasing your contributions. When the fit and business needs align, some contractors are invited to explore a transition into full-time roles.&lt;/p&gt;\n&lt;p&gt;If you are passionate about Fueled’s mission and think you have what it takes to be successful in this role, please apply. We’d appreciate the opportunity to review your application. Everyone gets a response.&lt;/p&gt;\n&lt;p&gt;Upon meeting the necessary criteria, you’ll join the Fueled contractor network, granting you access to project invitations tailored to your expertise and availability when they arise.&lt;/p&gt;\n&lt;p&gt;Any data provided will be processed in accordance with applicable law and our &lt;a href=&quot;https://fueled.com/privacy-policy/&quot;&gt;privacy policy.&lt;/a&gt; Curious about what to expect during our talent process? Check it out &lt;a href=&quot;https://www.notion.so/What-to-Expect-from-the-Interview-Process-at-Fueled-1d84dccd9d8b80f8a0b0d40b244f4caf?pvs=21&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;\n&lt;p&gt;We don&#39;t want you to miss any communication from us! To ensure you receive updates on your application, please add&amp;nbsp;&lt;a href=&quot;mailto:jobs@fueled.com&quot;&gt;jobs@fueled.com&lt;/a&gt;&amp;nbsp;to your contacts list!&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;\n&lt;p&gt;&amp;nbsp;&lt;/p&gt;",
+  "departments": [
+    {
+      "id": 4078015008,
+      "name": "Content SDO",
+      "child_ids": [],
+      "parent_id": 4012004008
+    }
+  ],
+  "offices": [
+    {
+      "id": 4011483008,
+      "name": "Remote",
+      "location": null,
+      "child_ids": [],
+      "parent_id": null
+    }
+  ],
+  "ai_disclaimer": null,
+  "include_ai_disclaimer": false,
+  "ai_opt_out_request_url": "http://app8.greenhouse.io/ai_opt_out_request/job_post/5162182008/ai_opt_out"
+}

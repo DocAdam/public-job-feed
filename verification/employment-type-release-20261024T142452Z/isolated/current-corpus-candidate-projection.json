@@ -1,0 +1,399 @@
+{
+  "input": "current-canonical-fixed-input.json",
+  "rows": 836867,
+  "changed": 153,
+  "changedStrongMatches": 0,
+  "errors": 0,
+  "provenanceDifferences": 0,
+  "byATS": {
+    "ashby": 4,
+    "bamboohr": 1,
+    "greenhouse": 2,
+    "icims": 70,
+    "lever": 1,
+    "workday": 75
+  },
+  "examples": [
+    {
+      "ATS": "ashby",
+      "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+      "URL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+      "FetchedAt": "2026-10-23T21:00:20.208Z",
+      "before": "Needs review",
+      "after": "Part-time",
+      "strong": false,
+      "EmploymentSchedule": "Part-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+          "ObservedAt": "2026-10-23T21:00:20.208Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Part-time",
+          "RawValue": "This is a Part Time Variable Hour role.",
+          "SourceField": "Description",
+          "SourceKind": "description",
+          "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+          "ObservedAt": "2026-10-23T21:00:20.208Z"
+        }
+      ]
+    },
+    {
+      "ATS": "ashby",
+      "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+      "URL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+      "FetchedAt": "2026-10-23T21:00:20.208Z",
+      "before": "Needs review",
+      "after": "Part-time",
+      "strong": false,
+      "EmploymentSchedule": "Part-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+          "ObservedAt": "2026-10-23T21:00:20.208Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Part-time",
+          "RawValue": "This is a Part Time Variable Hour role.",
+          "SourceField": "Description",
+          "SourceKind": "description",
+          "SourceURL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+          "ObservedAt": "2026-10-23T21:00:20.208Z"
+        }
+      ]
+    },
+    {
+      "ATS": "ashby",
+      "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+      "URL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+      "FetchedAt": "2026-10-23T21:00:20.208Z",
+      "before": "Needs review",
+      "after": "Part-time",
+      "strong": false,
+      "EmploymentSchedule": "Part-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+          "ObservedAt": "2026-10-23T21:00:20.208Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Part-time",
+          "RawValue": "This is a Part Time Variable Hour role.",
+          "SourceField": "Description",
+          "SourceKind": "description",
+          "SourceURL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+          "ObservedAt": "2026-10-23T21:00:20.208Z"
+        }
+      ]
+    },
+    {
+      "ATS": "ashby",
+      "Title": "Senior Variable Compensation Manager",
+      "URL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+      "FetchedAt": "2026-10-24T14:31:27.355Z",
+      "before": "Needs review",
+      "after": "Full-time",
+      "strong": false,
+      "EmploymentSchedule": "Full-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Full-time",
+          "RawValue": "FullTime",
+          "SourceField": "employmentType",
+          "SourceKind": "structured_field",
+          "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/crusoe",
+          "ObservedAt": "2026-10-24T14:31:27.355Z"
+        },
+        {
+          "Dimension": "unknown",
+          "Value": "",
+          "RawValue": "Senior Variable Compensation Manager",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+          "ObservedAt": "2026-10-24T14:31:27.355Z",
+          "RejectedValue": "Variable",
+          "ReviewReason": "Text does not explicitly state a variable work schedule."
+        }
+      ]
+    },
+    {
+      "ATS": "bamboohr",
+      "Title": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+      "URL": "https://saalt.bamboohr.com/careers/83",
+      "FetchedAt": "2026-10-21T09:05:09.326Z",
+      "before": "Needs review",
+      "after": "Part-time; Temporary",
+      "strong": false,
+      "EmploymentSchedule": "Part-time",
+      "EmploymentTerms": [
+        "Temporary"
+      ],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Part-time",
+          "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://saalt.bamboohr.com/careers/83",
+          "ObservedAt": "2026-10-21T09:05:09.326Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://saalt.bamboohr.com/careers/83",
+          "ObservedAt": "2026-10-21T09:05:09.326Z"
+        },
+        {
+          "Dimension": "terms",
+          "Value": "Temporary",
+          "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://saalt.bamboohr.com/careers/83",
+          "ObservedAt": "2026-10-21T09:05:09.326Z"
+        }
+      ]
+    },
+    {
+      "ATS": "greenhouse",
+      "Title": "Implementation Specialist (Variable Ops experience required)",
+      "URL": "https://job-boards.greenhouse.io/tekion/jobs/7650076003",
+      "FetchedAt": "2026-08-02T21:02:02.590Z",
+      "before": "Variable",
+      "after": "Not stated",
+      "strong": false,
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "unknown",
+          "Value": "",
+          "RawValue": "Implementation Specialist (Variable Ops experience required)",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://job-boards.greenhouse.io/tekion/jobs/7650076003",
+          "ObservedAt": "2026-08-02T21:02:02.590Z",
+          "RejectedValue": "Variable",
+          "ReviewReason": "Text does not explicitly state a variable work schedule."
+        }
+      ]
+    },
+    {
+      "ATS": "greenhouse",
+      "Title": "Asbestos Abatement Worker Trainer",
+      "URL": "https://job-boards.greenhouse.io/apexcompanies/jobs/5455692008",
+      "FetchedAt": "2026-10-22T09:08:14.921Z",
+      "before": "Needs review",
+      "after": "Part-time",
+      "strong": false,
+      "EmploymentSchedule": "Part-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Part-time",
+          "RawValue": "This is a part-time, variable position offering the opportunity to share your industry expertise, support workforce development, and help ensure asbestos abatement professionals are equipped to perform their work safely and in compliance with applicable regulations.",
+          "SourceField": "Description",
+          "SourceKind": "description",
+          "SourceURL": "https://job-boards.greenhouse.io/apexcompanies/jobs/5455692008",
+          "ObservedAt": "2026-10-22T09:08:14.921Z"
+        },
+        {
+          "Dimension": "unknown",
+          "Value": "",
+          "RawValue": "This is a part-time, variable position offering the opportunity to share your industry expertise, support workforce development, and help ensure asbestos abatement professionals are equipped to perform their work safely and in compliance with applicable regulations.",
+          "SourceField": "Description",
+          "SourceKind": "description",
+          "SourceURL": "https://job-boards.greenhouse.io/apexcompanies/jobs/5455692008",
+          "ObservedAt": "2026-10-22T09:08:14.921Z",
+          "RejectedValue": "Variable",
+          "ReviewReason": "Text does not explicitly state a variable work schedule."
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "Title": "Nurse's Aide, Part Time, Variable Shifts, Infant/Toddler",
+      "URL": "https://careers-blythedale.icims.com/jobs/1547/nurse%27s-aide%2c-part-time%2c-variable-shifts%2c-infant-toddler/job",
+      "FetchedAt": "2026-10-17T12:36:52.103Z",
+      "before": "Needs review",
+      "after": "Part-time",
+      "strong": false,
+      "EmploymentSchedule": "Part-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Part-time",
+          "RawValue": "Nurse's Aide, Part Time, Variable Shifts, Infant/Toddler",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-blythedale.icims.com/jobs/1547/nurse%27s-aide%2c-part-time%2c-variable-shifts%2c-infant-toddler/job",
+          "ObservedAt": "2026-10-17T12:36:52.103Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "Nurse's Aide, Part Time, Variable Shifts, Infant/Toddler",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-blythedale.icims.com/jobs/1547/nurse%27s-aide%2c-part-time%2c-variable-shifts%2c-infant-toddler/job",
+          "ObservedAt": "2026-10-17T12:36:52.103Z"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "Title": "Food Service Worker PT Variable",
+      "URL": "https://careers-ahmchealth.icims.com/jobs/28963/food-service-worker-pt-variable/job",
+      "FetchedAt": "2026-10-17T12:39:19.385Z",
+      "before": "Variable",
+      "after": "Not stated",
+      "strong": false,
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "unknown",
+          "Value": "",
+          "RawValue": "Food Service Worker PT Variable",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-ahmchealth.icims.com/jobs/28963/food-service-worker-pt-variable/job",
+          "ObservedAt": "2026-10-17T12:39:19.385Z",
+          "RejectedValue": "Variable",
+          "ReviewReason": "Text does not explicitly state a variable work schedule."
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "Title": "Clinical Laboratory Scientist Temporary Full Time - Variable Shift",
+      "URL": "https://careers-ahmchealth.icims.com/jobs/28955/clinical-laboratory-scientist-temporary-full-time---variable-shift/job",
+      "FetchedAt": "2026-10-17T12:39:19.385Z",
+      "before": "Needs review",
+      "after": "Full-time",
+      "strong": false,
+      "EmploymentSchedule": "Full-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Full-time",
+          "RawValue": "Clinical Laboratory Scientist Temporary Full Time - Variable Shift",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-ahmchealth.icims.com/jobs/28955/clinical-laboratory-scientist-temporary-full-time---variable-shift/job",
+          "ObservedAt": "2026-10-17T12:39:19.385Z"
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Variable",
+          "RawValue": "Clinical Laboratory Scientist Temporary Full Time - Variable Shift",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-ahmchealth.icims.com/jobs/28955/clinical-laboratory-scientist-temporary-full-time---variable-shift/job",
+          "ObservedAt": "2026-10-17T12:39:19.385Z"
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "Title": "Certified Nurse Assistant-ER Overflow FT Nights Variable",
+      "URL": "https://careers-ahmchealth.icims.com/jobs/28930/certified-nurse-assistant-er-overflow-ft-nights-variable/job",
+      "FetchedAt": "2026-10-17T12:39:19.385Z",
+      "before": "Variable",
+      "after": "Not stated",
+      "strong": false,
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "unknown",
+          "Value": "",
+          "RawValue": "Certified Nurse Assistant-ER Overflow FT Nights Variable",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-ahmchealth.icims.com/jobs/28930/certified-nurse-assistant-er-overflow-ft-nights-variable/job",
+          "ObservedAt": "2026-10-17T12:39:19.385Z",
+          "RejectedValue": "Variable",
+          "ReviewReason": "Text does not explicitly state a variable work schedule."
+        }
+      ]
+    },
+    {
+      "ATS": "icims",
+      "Title": "Technician, ER (FT, Variable) Monterey Park Hospital",
+      "URL": "https://careers-ahmchealth.icims.com/jobs/28917/technician%2c-er-%28ft%2c-variable%29-monterey-park-hospital/job",
+      "FetchedAt": "2026-10-17T12:39:19.385Z",
+      "before": "Needs review",
+      "after": "Full-time",
+      "strong": false,
+      "EmploymentSchedule": "Full-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "unknown",
+          "Value": "",
+          "RawValue": "Technician, ER (FT, Variable) Monterey Park Hospital",
+          "SourceField": "Title",
+          "SourceKind": "title",
+          "SourceURL": "https://careers-ahmchealth.icims.com/jobs/28917/technician%2c-er-%28ft%2c-variable%29-monterey-park-hospital/job",
+          "ObservedAt": "2026-10-17T12:39:19.385Z",
+          "RejectedValue": "Variable",
+          "ReviewReason": "Text does not explicitly state a variable work schedule."
+        },
+        {
+          "Dimension": "schedule",
+          "Value": "Full-time",
+          "RawValue": "This is a full-time, 12-hour, variable-shift position.",
+          "SourceField": "Description",
+          "SourceKind": "description",
+          "SourceURL": "https://careers-ahmchealth.icims.com/jobs/28917/technician%2c-er-%28ft%2c-variable%29-monterey-park-hospital/job",
+          "ObservedAt": "2026-10-17T12:39:19.385Z"
+        }
+      ]
+    }
+  ],
+  "limit": "Offline projection on a fixed copy. This does not rewrite a batch, feed, package, history database, or backup."
+}

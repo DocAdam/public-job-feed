@@ -1,0 +1,7 @@
+{
+  "src/lib/employment-type.js": "da347877995e1cdf8252747a4647d6b1ce96a65e3cda05a0129e505c463921cf",
+  "src/lib/job-export.js": "98377b94dc6ad67a80c9aaf1faf05483298784939509a138628b3af77442e9b8",
+  "src/scripts/test-employment-type.js": "b3ac53b5292adc711110b9a1ff834941c3707bdf20638ce31955f27603fcf08b",
+  "src/scripts/fixtures/employment-type/variable-compensation-normalized-20261024.json": "c39391d93e962810a36d24bad15ddb09ed02236bfad09b472880cefec68b735e",
+  "src/scripts/fixtures/employment-type/variable-hours-normalized-20261024.json": "8028ee299c86485a381b2002d12538bd69c61f3af69ad228fcb3160b52ed1280"
+}

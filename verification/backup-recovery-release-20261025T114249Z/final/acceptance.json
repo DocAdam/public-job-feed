@@ -1,0 +1,402 @@
+[
+  {
+    "requirement": "Preserve the baseline and current reports",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/baseline/reports.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "224 current reports retained with equal contents and original modification dates."
+  },
+  {
+    "requirement": "Earlier Greenhouse reports preserved before their original overwrite",
+    "status": "FAIL",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/baseline/source/docs/features/employment-type-verification.md",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Historical failure from the implementation task. Missing prior contents and dates were not invented."
+  },
+  {
+    "requirement": "Strict handling of the demonstrated metadata format",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/focused-backup.log",
+    "runId": "isolated-c88544ba-746a-46ec-94c7-926c08242254",
+    "packageId": "20261024-0954",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Exact observed profile tested. New manifests opt in. Older manifests keep the strict file rule. No arbitrary ._ files qualify."
+  },
+  {
+    "requirement": "Backup safety and failure regression cases",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/focused-backup.log",
+    "runId": "isolated-c88544ba-746a-46ec-94c7-926c08242254",
+    "packageId": "20261024-0954",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Normal and old bundles, missing/changed payloads, unrelated files, invalid metadata, unknown attributes/policy, paths, symlinks, incomplete proof, interruption, rejection, full restore, and state update after promotion passed."
+  },
+  {
+    "requirement": "Complete final candidate suite",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/suite-results.json",
+    "runId": "isolated-c88544ba-746a-46ec-94c7-926c08242254",
+    "packageId": "20261024-0954",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "38/38 commands passed with network denied and writes confined to the isolated folder. Initial missing-test-folder setup failure is retained separately."
+  },
+  {
+    "requirement": "Real recovery backup and complete restore",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/backup-recovery/VERIFIED.json",
+    "runId": "68c5ece2-eff1-4828-8e83-b485b12c958a",
+    "packageId": "20261024-0954",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "3306 payloads restored and hashed. Restored audit and exact report comparison passed. Candidate accepted afterward."
+  },
+  {
+    "requirement": "Recovery covers the accepted pre-refresh generation",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/backup-recovery/accepted-verification.json",
+    "runId": "68c5ece2-eff1-4828-8e83-b485b12c958a",
+    "packageId": "20261024-0954",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "Generation 66646ce5-b440-47c2-a8a8-75c003da4c28; package 20261024-0954; not evidence for the later generation."
+  },
+  {
+    "requirement": "Old bundles preserved during recovery",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/backup-recovery/previous-bundles-preservation.json",
+    "runId": "68c5ece2-eff1-4828-8e83-b485b12c958a",
+    "packageId": "20261024-0954",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "inputHash": "f90f9586231477ef87570c9687853693badbc970126e6fd88b779d1448228930",
+    "limit": "16286 original entries have unchanged size, modification date and mode. No old bundle was repaired."
+  },
+  {
+    "requirement": "Exactly one new normal production refresh",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/process-result.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Run complete, exit 0; 2028.128 seconds. One launch marker. No second refresh."
+  },
+  {
+    "requirement": "Tested source unchanged during production",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/code-freeze-check.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "289 runtime and launcher files plus package controls checked; differences zero."
+  },
+  {
+    "requirement": "Distinct package from this refresh",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Package 20261025-0724 belongs to this run."
+  },
+  {
+    "requirement": "Public column is appended; evidence is internal",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Original 15 columns retained; Employment Type is P. Internal evidence is absent."
+  },
+  {
+    "requirement": "Public labels validate",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "732 rows; schedule 202, terms 48, neither 492, conflicts 0. Schedule and terms overlap."
+  },
+  {
+    "requirement": "Schema, final coverage, and import range agree",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Final CSV, schema, coverage, and instructions agree on 732 rows and A1:P733."
+  },
+  {
+    "requirement": "Manifest sizes and formats agree",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "No size or format differences in dated and latest manifests."
+  },
+  {
+    "requirement": "Latest and dated copies agree",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "CSV, schema, coverage and instructions have equal hashes."
+  },
+  {
+    "requirement": "Current URL check and safe prune completed",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "761 checked, 29 deterministic failures removed, 12 ambiguous failures retained; final 732."
+  },
+  {
+    "requirement": "Production suite belongs to this run",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "All 38 production commands passed for this run and package."
+  },
+  {
+    "requirement": "Current refresh and package validation pass",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Refresh PASS. Package WARN with no failures: 24 rows older than 7 days, including 5 older than 14 days."
+  },
+  {
+    "requirement": "Detailed CSV contains valid JSON arrays",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "847 detailed rows have valid employment arrays."
+  },
+  {
+    "requirement": "Shortlist evidence survives detailed CSV",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "No differences between shortlist and detailed CSV."
+  },
+  {
+    "requirement": "Corrected parser is materialized throughout the actual canonical feed",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "All 836592 actual records are stable under the corrected parser. Legacy source comparison resolves the old canonical projection difference; see the separate review."
+  },
+  {
+    "requirement": "Canonical employment contract and observation dates validate",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "836592 records; zero contract or evidence-date errors. 35192 new observations and 801400 retained."
+  },
+  {
+    "requirement": "Genuine schedule contradictions remain Needs review",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "343 genuine full-time/part-time contradictions; all retain Needs review."
+  },
+  {
+    "requirement": "Free text Variable values require an explicit schedule",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Zero unsupported Variable schedule values."
+  },
+  {
+    "requirement": "Variable hours or shifts do not contradict stated full-time or part-time hours",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "42 compatible variability records; zero false conflicts."
+  },
+  {
+    "requirement": "New normalized batch evidence survives merge",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "All 35190 collected records match their merged employment contracts."
+  },
+  {
+    "requirement": "Controlled selection reproduces actual shortlist",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "1017 strong-match candidates reproduce 847 selected rows."
+  },
+  {
+    "requirement": "Final public labels trace to current grouped shortlist",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "No label differences."
+  },
+  {
+    "requirement": "Employment fields do not change scores or identity keys on the same inputs",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "1017 candidates; zero score or identity-key differences."
+  },
+  {
+    "requirement": "History result belongs to this run and package",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Current generation accepted; History PASS, Backup FAILED."
+  },
+  {
+    "requirement": "New accepted backup covers the production history generation",
+    "status": "FAIL",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "FAIL. The new generation has no accepted backup. The space guard stopped before candidate creation. The recovery backup covers the earlier generation only."
+  },
+  {
+    "requirement": "Retained legacy source text, URLs, dates and rejected earlier annotations remain available",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "137 same observations match their original batch contracts with unchanged source text, URLs and dates. The audit retains 116 rejected earlier annotations."
+  },
+  {
+    "requirement": "Current history contents verified independently",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/final/history-readonly-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "READ_ONLY query confirmed 847 observations, zero missing statuses and zero invalid JSON evidence."
+  },
+  {
+    "requirement": "Previous packages, batches, reports and external bundles retained",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/final/preservation-and-code.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "224 report hashes/dates match. 28443 old batch/package entries and 16286 old external entries have no differences. Historical batch bytes were not all rehashed."
+  },
+  {
+    "requirement": "Exact metadata-file producer established",
+    "status": "NOT VERIFIED",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/backup-recovery/correction-design.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Small creation tests did not reproduce the files. The correction handles the observed format; it does not claim to remove its cause."
+  },
+  {
+    "requirement": "Successful raw API bodies independently inspected",
+    "status": "NOT VERIFIED",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Successful raw bodies are not archived. Trace starts at normalized batch evidence. No added detail request."
+  },
+  {
+    "requirement": "Current rejected-evidence migration observed from a normalized batch",
+    "status": "NOT VERIFIED",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/final/retained-parser-evidence-review.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Current matched legacy batches have no employment fields. Migration of an existing invalid normalized item passed in isolated tests; current canonical has zero RejectedValue entries."
+  },
+  {
+    "requirement": "Live Sheet unchanged",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/production-refresh/process-result.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "No Sheet import, resize, filter, pivot or API write occurred."
+  },
+  {
+    "requirement": "No commit, push, PR, dependencies, schedule or Job Finder record change",
+    "status": "PASS",
+    "evidence": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/final/preservation-and-code.json",
+    "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "packageId": "20261025-0724",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "inputHash": "f6c0ec3b741cc237b7c3e0fdb6247e1e479c0dca41419cc85f376d03eeefa868",
+    "limit": "Existing work retained. The normal local consumer export belongs to this repository; its title-policy input was read only."
+  }
+]

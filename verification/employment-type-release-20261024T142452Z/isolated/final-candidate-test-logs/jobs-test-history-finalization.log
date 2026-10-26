@@ -1,0 +1,5 @@
+
+> public-job-feed@0.1.0 jobs:test-history-finalization
+> node src/scripts/test-history-package-finalization.js
+
+PASS: current package finalized before import; complete CSV schema; restored backup has current dashboard; final live status leaves sources unchanged; manual sync/rebuild and competing writes refused; next-day import and backup pass; strict source checks retained.

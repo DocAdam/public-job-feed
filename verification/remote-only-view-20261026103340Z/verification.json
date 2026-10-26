@@ -1,0 +1,1166 @@
+{
+  "status": "PASS",
+  "rule": "Work Arrangement = Remote; all countries, no Location restriction",
+  "mainRows": 732,
+  "remoteRows": 125,
+  "outputRows": 125,
+  "missing": [],
+  "extra": [],
+  "duplicateOutputRows": 0,
+  "mainUnchanged": true,
+  "mainStructureUnchanged": true,
+  "remoteFilterUnchanged": true,
+  "groupingUnchanged": true,
+  "pivotSource": {
+    "sheetId": 55693553,
+    "startRowIndex": 0,
+    "endRowIndex": 733,
+    "startColumnIndex": 0,
+    "endColumnIndex": 16
+  },
+  "pivotFilters": [
+    {
+      "columnOffsetIndex": 9,
+      "filterCriteria": {
+        "visibleValues": [
+          "Remote"
+        ]
+      }
+    }
+  ],
+  "hyperlinksChecked": 125,
+  "incorrectHyperlinks": 0,
+  "previousRemoteResults": 69,
+  "previouslyExcludedRemoteRowsNowIncluded": 67,
+  "previousNonRemoteResultsRemoved": 11,
+  "actualTuples": [
+    {
+      "sheetRow": 2,
+      "tuple": [
+        "Alexandria HQ (remote)",
+        "Digital and Interactive Content Developer (Active NOAA CAC Preferred)",
+        "Element84",
+        "https://jobs.ashbyhq.com/element84/9ee02ec2-a0c6-40e4-9707-385041cbf924"
+      ]
+    },
+    {
+      "sheetRow": 3,
+      "tuple": [
+        "Amsterdam",
+        "Content Writer, Global",
+        "Adyen",
+        "https://job-boards.greenhouse.io/adyen/jobs/8242353"
+      ]
+    },
+    {
+      "sheetRow": 4,
+      "tuple": [
+        "Amsterdam",
+        "Senior Content Writer, Global",
+        "Adyen",
+        "https://job-boards.greenhouse.io/adyen/jobs/7992449"
+      ]
+    },
+    {
+      "sheetRow": 5,
+      "tuple": [
+        "Amsterdam",
+        "Senior Technical Product Manager - Internal Developer Platform",
+        "Adyen",
+        "https://job-boards.greenhouse.io/adyen/jobs/8179443"
+      ]
+    },
+    {
+      "sheetRow": 6,
+      "tuple": [
+        "Belgrade, Serbia; Berlin, Germany; Limassol, Cyprus; Madrid, Spain; Munich, Germany; Paphos, Cyprus; Prague, Czech Republic; Warsaw, Poland; Yerevan, Armenia",
+        "Technical Product Marketing Manager (.NET Developer Tools)",
+        "Jetbrains",
+        "https://job-boards.eu.greenhouse.io/jetbrains/jobs/4956003101"
+      ]
+    },
+    {
+      "sheetRow": 7,
+      "tuple": [
+        "California, USA, Remote; New York, USA, Remote; Washington, USA, Remote",
+        "Manager II, Developer Advocacy",
+        "Datadog",
+        "https://careers.datadoghq.com/detail/8282140/?gh_jid=8282140"
+      ]
+    },
+    {
+      "sheetRow": 8,
+      "tuple": [
+        "Canada - Remote BC",
+        "Sr. Technical Editor (Remote, CAN)",
+        "Crowdstrike",
+        "https://crowdstrike.wd5.myworkdayjobs.com/crowdstrikecareers/job/Canada---Remote-BC/Sr-Content-Writer--Remote-_R29599-1"
+      ]
+    },
+    {
+      "sheetRow": 9,
+      "tuple": [
+        "Canada (Remote)",
+        "Staff Technical Writer | Remote | Canada",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228460004"
+      ]
+    },
+    {
+      "sheetRow": 10,
+      "tuple": [
+        "Columbus, Ohio",
+        "Content Writer (US)",
+        "Getwingapp",
+        "https://jobs.lever.co/getwingapp/3a620870-47f7-4a7e-beca-9a4611e755e6"
+      ]
+    },
+    {
+      "sheetRow": 11,
+      "tuple": [
+        "Copenhagen, Denmark",
+        "Content Manager - Samlino.dk",
+        "Samlino",
+        "https://job-boards.greenhouse.io/samlino/jobs/6221507003"
+      ]
+    },
+    {
+      "sheetRow": 12,
+      "tuple": [
+        "Copenhagen, Denmark",
+        "Content Writer - Samlino.dk",
+        "Samlino",
+        "https://job-boards.greenhouse.io/samlino/jobs/6221512003"
+      ]
+    },
+    {
+      "sheetRow": 13,
+      "tuple": [
+        "Dallas, Texas; Georgia; San Francisco, California",
+        "Technical Content Lead",
+        "Okta",
+        "https://www.okta.com/company/careers/opportunity/8281837?gh_jid=8281837"
+      ]
+    },
+    {
+      "sheetRow": 14,
+      "tuple": [
+        "Edinburgh",
+        "Senior Content Designer",
+        "Scottlogic",
+        "https://jobs.lever.co/scottlogic/de7d6944-2005-41b3-bd83-6091ad76c42a"
+      ]
+    },
+    {
+      "sheetRow": 15,
+      "tuple": [
+        "European Union",
+        "Content Manager",
+        "Playson",
+        "https://jobs.ashbyhq.com/playson/385709f2-c2ba-430e-ae77-9e01a6738a65"
+      ]
+    },
+    {
+      "sheetRow": 16,
+      "tuple": [
+        "France",
+        "Partner Technical Solution Engineer - Connectivité, IA & API (H/F)",
+        "Pennylane",
+        "https://jobs.ashbyhq.com/pennylane/c32b07bf-96ff-42b5-87e0-9b210dd705ab"
+      ]
+    },
+    {
+      "sheetRow": 17,
+      "tuple": [
+        "Fraternal",
+        "Content Writer",
+        "Togetherwork",
+        "https://togetherwork.com/application/?gh_jid=8882049002"
+      ]
+    },
+    {
+      "sheetRow": 18,
+      "tuple": [
+        "Germany (Remote)",
+        "Staff Technical Writer | Remote | Germany",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228473004"
+      ]
+    },
+    {
+      "sheetRow": 19,
+      "tuple": [
+        "Global",
+        "Future Opportunities: Technical Content Specialist",
+        "Scalemath",
+        "https://jobs.ashbyhq.com/scalemath/d34fb25c-e70e-48d7-adf7-2986b23dbef8"
+      ]
+    },
+    {
+      "sheetRow": 20,
+      "tuple": [
+        "Halifax, Nova Scotia",
+        "Remote Content Writer - Eastern Canada",
+        "Brafton",
+        "https://jobs.lever.co/brafton/24c006c2-c0cd-4b34-8870-2efa5bb10716"
+      ]
+    },
+    {
+      "sheetRow": 21,
+      "tuple": [
+        "Hamburg, Germany",
+        "Amazon Content Manager (Seller & Vendor Central) (w/m/d)",
+        "Oliver",
+        "https://job-boards.greenhouse.io/oliver/jobs/8222740"
+      ]
+    },
+    {
+      "sheetRow": 22,
+      "tuple": [
+        "Home based - EMEA",
+        "Information Systems - Open Source Technical Architect",
+        "Canonical",
+        "https://job-boards.greenhouse.io/canonical/jobs/4551832"
+      ]
+    },
+    {
+      "sheetRow": 23,
+      "tuple": [
+        "Home based - Worldwide",
+        "Technical Author (multiple roles and seniority levels)",
+        "Canonical",
+        "https://job-boards.greenhouse.io/canonical/jobs/3798310"
+      ]
+    },
+    {
+      "sheetRow": 24,
+      "tuple": [
+        "Houston, Texas, United States",
+        "Technical Writer",
+        "Onenergy",
+        "https://job-boards.greenhouse.io/onenergy/jobs/4454955009"
+      ]
+    },
+    {
+      "sheetRow": 25,
+      "tuple": [
+        "India",
+        "Content Marketer and Technical Writer",
+        "Jobgether",
+        "https://jobs.lever.co/jobgether/3fc556bd-04cb-4a2b-a70e-54759beb282a"
+      ]
+    },
+    {
+      "sheetRow": 26,
+      "tuple": [
+        "India",
+        "Senior Digital Learning & AI Content Developer",
+        "Resilinc",
+        "https://jobs.lever.co/resilinc/03fce20a-3042-4ead-9d3e-3ba214ea16a2"
+      ]
+    },
+    {
+      "sheetRow": 27,
+      "tuple": [
+        "India",
+        "Sr Staff Data & Information Architect",
+        "Jobgether",
+        "https://jobs.lever.co/jobgether/127ffc09-a971-4fcc-8b9c-54ca0d87446e"
+      ]
+    },
+    {
+      "sheetRow": 28,
+      "tuple": [
+        "Italy remote",
+        "Freelance SEO Content Writer - Italian",
+        "Brafton",
+        "https://jobs.lever.co/brafton/85f2542d-b3f7-4fe3-8363-54056e4786ab"
+      ]
+    },
+    {
+      "sheetRow": 29,
+      "tuple": [
+        "Japan",
+        "Content Editor and Writer",
+        "Omniscient",
+        "https://jobs.ashbyhq.com/omniscient/32f92ffe-f9d3-462e-8a71-20b7f7abc6e6"
+      ]
+    },
+    {
+      "sheetRow": 30,
+      "tuple": [
+        "London, United Kingdom",
+        "Email Content Manager at CFO Insights",
+        "Cfoinsights",
+        "https://job-boards.greenhouse.io/cfoinsights/jobs/5809722003"
+      ]
+    },
+    {
+      "sheetRow": 31,
+      "tuple": [
+        "London, United Kingdom",
+        "Email Content Manager at HRtechX",
+        "Hrtechx",
+        "https://job-boards.greenhouse.io/hrtechx/jobs/5809723003"
+      ]
+    },
+    {
+      "sheetRow": 32,
+      "tuple": [
+        "London, United Kingdom",
+        "Email Content Manager at Private Equity Insights",
+        "Privateequityinsights",
+        "https://job-boards.greenhouse.io/privateequityinsights/jobs/5809726003"
+      ]
+    },
+    {
+      "sheetRow": 33,
+      "tuple": [
+        "London, United Kingdom",
+        "Email Content Manager at Retail Insights",
+        "Retailinsights",
+        "https://job-boards.greenhouse.io/retailinsights/jobs/5809727003"
+      ]
+    },
+    {
+      "sheetRow": 34,
+      "tuple": [
+        "London, United Kingdom",
+        "Email Content Manager at SetSales",
+        "Setsales",
+        "https://job-boards.greenhouse.io/setsales/jobs/5809728003"
+      ]
+    },
+    {
+      "sheetRow": 35,
+      "tuple": [
+        "London, United Kingdom",
+        "Email Content Manager at United Media",
+        "Unitedmedia",
+        "https://job-boards.greenhouse.io/unitedmedia/jobs/5809729003"
+      ]
+    },
+    {
+      "sheetRow": 36,
+      "tuple": [
+        "London, United Kingdom",
+        "Senior Content Writer at CFO insights",
+        "Cfoinsights",
+        "https://job-boards.greenhouse.io/cfoinsights/jobs/5718404003"
+      ]
+    },
+    {
+      "sheetRow": 37,
+      "tuple": [
+        "London, United Kingdom",
+        "Senior Content Writer at HRtechX",
+        "Hrtechx",
+        "https://job-boards.greenhouse.io/hrtechx/jobs/5718405003"
+      ]
+    },
+    {
+      "sheetRow": 38,
+      "tuple": [
+        "London, United Kingdom",
+        "Senior Content Writer at Private Equity Insights",
+        "Privateequityinsights",
+        "https://job-boards.greenhouse.io/privateequityinsights/jobs/5718409003"
+      ]
+    },
+    {
+      "sheetRow": 39,
+      "tuple": [
+        "London, United Kingdom",
+        "Senior Content Writer at Retail Insights",
+        "Retailinsights",
+        "https://job-boards.greenhouse.io/retailinsights/jobs/5718410003"
+      ]
+    },
+    {
+      "sheetRow": 40,
+      "tuple": [
+        "London, United Kingdom",
+        "Senior Content Writer at SetSales",
+        "Setsales",
+        "https://job-boards.greenhouse.io/setsales/jobs/5718411003"
+      ]
+    },
+    {
+      "sheetRow": 41,
+      "tuple": [
+        "London, United Kingdom",
+        "Senior Content Writer at United Media",
+        "Unitedmedia",
+        "https://job-boards.greenhouse.io/unitedmedia/jobs/5718412003"
+      ]
+    },
+    {
+      "sheetRow": 42,
+      "tuple": [
+        "Los Angeles, CA",
+        "Technical Documentation Specialist",
+        "Parallel",
+        "https://boards.greenhouse.io/parallel/jobs/5228103007?gh_jid=5228103007"
+      ]
+    },
+    {
+      "sheetRow": 43,
+      "tuple": [
+        "Melbourne",
+        "Technical Implementation Analyst (Front End Web Developer)",
+        "Juvare",
+        "https://job-boards.greenhouse.io/juvare/jobs/4745751005"
+      ]
+    },
+    {
+      "sheetRow": 44,
+      "tuple": [
+        "Mexico - Mexico City | Parugauy - Asuncion | Bolivia - Santa Cruz de la Sierra | Jamaica - Kingston | Guatemala- Guatemala City | Manila | Mexico - Monterrey | Egypt - Cairo | Philippines - Davao City | South Africa - Johannesburg | Columbia - Bogotá | Belize - Belize City | Columbia - Medellín | Chile - Santiago | Uruguay - Montevideo | Peru - Lima | Dominican Republic - Santo Domingo | Argentina - Buenos Aires | Panama - Panama City | Honduras - Tegucigalpa | South Africa - Cape Town",
+        "Senior Content Manager",
+        "Hirehangar",
+        "https://jobs.ashbyhq.com/hirehangar/6a938ad2-d2b8-4350-830d-35ffc83e58a2"
+      ]
+    },
+    {
+      "sheetRow": 45,
+      "tuple": [
+        "Mexico City, Mexico",
+        "Content Writer (Mexico)",
+        "Getwingapp",
+        "https://jobs.lever.co/getwingapp/5710cf5c-d983-4084-b554-b80aec5c9233"
+      ]
+    },
+    {
+      "sheetRow": 46,
+      "tuple": [
+        "Missouri-Remote",
+        "Sr AI Context Engineer",
+        "Geha",
+        "https://geha.wd5.myworkdayjobs.com/gehacareers/job/Missouri-Remote/Sr-AI-Context-Engineer_R-005302"
+      ]
+    },
+    {
+      "sheetRow": 47,
+      "tuple": [
+        "Multiple locations (2 postings): McLean, Virginia; United States",
+        "Lead AI Developer Tooling Engineer",
+        "Appian",
+        "https://job-boards.greenhouse.io/appian/jobs/8205014"
+      ]
+    },
+    {
+      "sheetRow": 48,
+      "tuple": [
+        "Multiple locations (2 postings): Spain - Barcelona; United Kingdom - London",
+        "Content Writer",
+        "Veeva",
+        "https://jobs.lever.co/veeva/a4bfdad9-02b7-4d96-81ba-a3972e139000"
+      ]
+    },
+    {
+      "sheetRow": 49,
+      "tuple": [
+        "Multiple locations (3 postings): California - Pleasanton; Massachusetts - Boston; North Carolina - Raleigh",
+        "Technical Curriculum Developer - AI Agents - Remote",
+        "Veeva",
+        "https://jobs.lever.co/veeva/383df24e-e549-4889-b5d8-1163eed92bef"
+      ]
+    },
+    {
+      "sheetRow": 50,
+      "tuple": [
+        "Multiple locations (5 postings): 2 Locations; 3 Locations; Remote - Germany; Remote - Ireland; Remote - Italy",
+        "Staff Content Manager",
+        "Clio",
+        "https://clio.wd3.myworkdayjobs.com/cliocareersite/job/Remote---Germany/Staff-Content-Manager_REQ-5445"
+      ]
+    },
+    {
+      "sheetRow": 51,
+      "tuple": [
+        "Multiple locations (5 postings): France; Germany; Spain; Switzerland; UK",
+        "Technical Writer",
+        "Jobgether",
+        "https://jobs.lever.co/jobgether/5abe7832-d7cb-487c-8857-f54d48720fb7"
+      ]
+    },
+    {
+      "sheetRow": 52,
+      "tuple": [
+        "Munich",
+        "Systems Technical Writer",
+        "Helsing",
+        "https://helsing.ai/jobs/4876451101?gh_jid=4876451101"
+      ]
+    },
+    {
+      "sheetRow": 53,
+      "tuple": [
+        "Netherlands remote",
+        "Freelance SEO Content Writer - Dutch",
+        "Brafton",
+        "https://jobs.lever.co/brafton/fa87d744-1cf6-4d1d-91b9-494933891079"
+      ]
+    },
+    {
+      "sheetRow": 54,
+      "tuple": [
+        "New Delhi, India",
+        "Content Writer (India)",
+        "Getwingapp",
+        "https://jobs.lever.co/getwingapp/d0550194-e0f1-4cc9-b253-36de69c90837"
+      ]
+    },
+    {
+      "sheetRow": 55,
+      "tuple": [
+        "New York, New York, United States; Remote - United States",
+        "Senior Product Manager, Developer Experience",
+        "Alphasense",
+        "https://job-boards.greenhouse.io/alphasense/jobs/8784167002"
+      ]
+    },
+    {
+      "sheetRow": 56,
+      "tuple": [
+        "Ottawa, ON",
+        "Senior Technical Writer, Support Documentation",
+        "Fullscript",
+        "https://jobs.lever.co/fullscript/da672c0a-c946-4a6c-a4ed-97aa7ca9bca0"
+      ]
+    },
+    {
+      "sheetRow": 57,
+      "tuple": [
+        "Pittsburgh, PA; Remote",
+        "Senior Proposal Writer / Proposal Architect – Aerospace",
+        "Voyagertechnologiesinc",
+        "https://job-boards.greenhouse.io/voyagertechnologiesinc/jobs/4431087009"
+      ]
+    },
+    {
+      "sheetRow": 58,
+      "tuple": [
+        "Poland - Warsaw",
+        "Kondor+ Technical Consultant / Developer",
+        "Capco",
+        "https://job-boards.greenhouse.io/capco/jobs/8245993"
+      ]
+    },
+    {
+      "sheetRow": 59,
+      "tuple": [
+        "Remote",
+        "Content Designer | LATAM",
+        "Fueledcareers",
+        "https://job-boards.greenhouse.io/fueledcareers/jobs/5424791008"
+      ]
+    },
+    {
+      "sheetRow": 60,
+      "tuple": [
+        "Remote",
+        "Content Manager",
+        "Terakeet",
+        "https://careers.terakeet.com/openings/?gh_jid=7622815002"
+      ]
+    },
+    {
+      "sheetRow": 61,
+      "tuple": [
+        "Remote",
+        "Content Writer - Crypto/Blockchain",
+        "Merklescience",
+        "https://jobs.lever.co/merklescience/36186ffe-4880-4c21-bd93-f154948eb9be"
+      ]
+    },
+    {
+      "sheetRow": 62,
+      "tuple": [
+        "Remote",
+        "Contract Senior Content Designer",
+        "Fueledcareers",
+        "https://job-boards.greenhouse.io/fueledcareers/jobs/5162182008"
+      ]
+    },
+    {
+      "sheetRow": 63,
+      "tuple": [
+        "Remote",
+        "Developer, Lead",
+        "Pingwind",
+        "https://jobs.lever.co/pingwind/5c69f523-46fa-45b2-bfb8-05d42a33acaa"
+      ]
+    },
+    {
+      "sheetRow": 64,
+      "tuple": [
+        "Remote",
+        "Documentation Engineer II",
+        "Storyblok",
+        "https://www.storyblok.com/job?gh_jid=4962120101"
+      ]
+    },
+    {
+      "sheetRow": 65,
+      "tuple": [
+        "Remote",
+        "Documentation Specialist(DISA)",
+        "Horizonindustrieslimited",
+        "https://job-boards.greenhouse.io/horizonindustrieslimited/jobs/5422448008"
+      ]
+    },
+    {
+      "sheetRow": 66,
+      "tuple": [
+        "Remote",
+        "Marketing Content Manager",
+        "Blockstream",
+        "https://jobs.ashbyhq.com/blockstream/680e9db3-5516-4dc2-993b-0909f32596b3"
+      ]
+    },
+    {
+      "sheetRow": 67,
+      "tuple": [
+        "Remote",
+        "Member of Technical Staff, Backend Engineer, API",
+        "Runway Ml",
+        "https://jobs.ashbyhq.com/runway-ml/8489a08a-f0cf-4418-968c-c7c803d538bc"
+      ]
+    },
+    {
+      "sheetRow": 68,
+      "tuple": [
+        "Remote",
+        "Science Content Writer",
+        "Bio",
+        "https://jobs.ashbyhq.com/bio/0c137ae4-1d96-4823-b06f-b95a1e21ac40"
+      ]
+    },
+    {
+      "sheetRow": 69,
+      "tuple": [
+        "Remote",
+        "Sr. UX Writer",
+        "Jellyvision",
+        "https://www.jellyvision.com/about-us/careers/apply/?gh_jid=8795706002"
+      ]
+    },
+    {
+      "sheetRow": 70,
+      "tuple": [
+        "Remote",
+        "Technical Writer",
+        "Allencontrolsystems",
+        "https://job-boards.greenhouse.io/allencontrolsystems/jobs/5126176008"
+      ]
+    },
+    {
+      "sheetRow": 71,
+      "tuple": [
+        "Remote",
+        "Technical Writer",
+        "Deepnote",
+        "https://jobs.ashbyhq.com/deepnote/eb00d9b0-0dfc-4ff7-9aa4-19cf22e9644c"
+      ]
+    },
+    {
+      "sheetRow": 72,
+      "tuple": [
+        "Remote",
+        "Technical Writer (ATO)",
+        "Pingwind",
+        "https://jobs.lever.co/pingwind/97c00dcd-8f42-4ec8-a762-b44bfd883a26"
+      ]
+    },
+    {
+      "sheetRow": 73,
+      "tuple": [
+        "Remote",
+        "Technical Writer / Knowledge Management Specialist",
+        "Ddcdine",
+        "https://ddcdine.wd501.myworkdayjobs.com/ddc_careers/job/Remote/Technical-Writer---Knowledge-Management-Specialist_JR100303-1"
+      ]
+    },
+    {
+      "sheetRow": 74,
+      "tuple": [
+        "Remote",
+        "Technical Writer Expression of Interest Form",
+        "Gitlabcrm",
+        "https://job-boards.greenhouse.io/gitlabcrm/jobs/8099105002"
+      ]
+    },
+    {
+      "sheetRow": 75,
+      "tuple": [
+        "Remote",
+        "Technical Writer II",
+        "Shinvestmentsllc",
+        "https://senecaholdings.com/jobs/?gh_jid=4724483005"
+      ]
+    },
+    {
+      "sheetRow": 76,
+      "tuple": [
+        "Remote",
+        "Writer/Editor",
+        "Publicmedia",
+        "https://publicmedia.wd1.myworkdayjobs.com/private/job/Remote/Writer-Editor_R000958"
+      ]
+    },
+    {
+      "sheetRow": 77,
+      "tuple": [
+        "Remote - CAN",
+        "Software Developer (Technical Support)",
+        "Talentmanagementsolution",
+        "https://talentmanagementsolution.wd3.myworkdayjobs.com/perseus-careers1/job/Remote---CAN/Software-Developer--Technical-Support-_R52096"
+      ]
+    },
+    {
+      "sheetRow": 78,
+      "tuple": [
+        "Remote - Lithuania | Remote - North Macedonia | Remote - Canada | Remote - Israel | Remote | Remote - Croatia | Remote - Argentina | Remote - Italy | Remote - Sweden | Remote - Luxembourg | Remote - Portugal | Remote - Latvia | Remote - Hong Kong | Remote - Romania | Remote - Egypt | Remote - Denmark | Remote - Colombia | Remote - Costa Rica | Remote - Germany | Remote - Australia | Remote - Norway | Remote - Cyprus | Remote - Philippines | Remote - New Zealand | Remote - Poland | Remote - Hungary | Remote - Moldova | Remote - Estonia | Remote - Chile | Remote - Brazil | Remote - Malaysia | Remote - Kazakhstan | Remote - Slovakia | Remote - Vietnam | Remote - Netherlands | Remote - Japan | Remote - France | Remote - United Kingdom | Remote - Turkey | Remote - Bulgaria | Remote - Uruguay | Remote - Iceland | Remote - South Korea | Remote - South Africa | Remote - Czech Republic | Remote - Greece | Remote - Taiwan | Remote - Finland | Remote - Slovenia | Remote - Albania | Remote - Austria | Remote - Belgium | Remote - Malta | Remote - Mexico | Remote - Georgia | Remote - Ireland | Remote - Serbia | Remote - Spain | Remote - Singapore",
+        "YouTube Technical Content Creator",
+        "Searchapi",
+        "https://jobs.ashbyhq.com/searchapi/16de8d18-20be-430e-8abf-5a49604c3d53"
+      ]
+    },
+    {
+      "sheetRow": 79,
+      "tuple": [
+        "Remote - U.S.",
+        "Information Security Architect",
+        "Airship",
+        "https://job-boards.eu.greenhouse.io/airship/jobs/4929188101"
+      ]
+    },
+    {
+      "sheetRow": 80,
+      "tuple": [
+        "Remote - US",
+        "Prompting and Context Engineer",
+        "1mind",
+        "https://jobs.ashbyhq.com/1mind/74c26a72-8ec2-4269-b1d4-568d32cb0648"
+      ]
+    },
+    {
+      "sheetRow": 81,
+      "tuple": [
+        "Remote - US",
+        "SEO & AI Search Content Manager",
+        "Stepmobile",
+        "https://step.com/careers/8721992002?gh_jid=8721992002"
+      ]
+    },
+    {
+      "sheetRow": 82,
+      "tuple": [
+        "Remote - US",
+        "Sr. Developer Relations Manager",
+        "Backblaze",
+        "https://job-boards.greenhouse.io/backblaze/jobs/5424129008"
+      ]
+    },
+    {
+      "sheetRow": 83,
+      "tuple": [
+        "Remote - US",
+        "Thermal Systems Technical Documentation Engineer",
+        "Li Thermal Works",
+        "https://job-boards.greenhouse.io/li-thermal-works/jobs/4304603009"
+      ]
+    },
+    {
+      "sheetRow": 84,
+      "tuple": [
+        "Remote (Any State)",
+        "Senior Salesforce Developer / Technical Architect",
+        "Caci",
+        "https://caci.wd1.myworkdayjobs.com/external/job/Remote-Any-State/Senior-Salesforce-Developer---Technical-Architect_332528"
+      ]
+    },
+    {
+      "sheetRow": 85,
+      "tuple": [
+        "Remote (India - Bangalore ONLY)",
+        "Senior Technical Content Development Engineer (India)",
+        "Karat",
+        "https://job-boards.greenhouse.io/karat/jobs/8747047002"
+      ]
+    },
+    {
+      "sheetRow": 86,
+      "tuple": [
+        "Remote (India - Bangalore ONLY)",
+        "Technical Content Development Engineer (India)",
+        "Karat",
+        "https://job-boards.greenhouse.io/karat/jobs/8672663002"
+      ]
+    },
+    {
+      "sheetRow": 87,
+      "tuple": [
+        "Remote (Mexico - Mexico City ONLY)",
+        "Senior Technical Content Analytics Manager (Mexico)",
+        "Karat",
+        "https://job-boards.greenhouse.io/karat/jobs/8746981002"
+      ]
+    },
+    {
+      "sheetRow": 88,
+      "tuple": [
+        "Remote (USA)",
+        "Senior Social Media & Content Manager",
+        "Fieldguide",
+        "https://jobs.ashbyhq.com/fieldguide/2fa34198-0a6c-4f30-8bd2-c511af38844a"
+      ]
+    },
+    {
+      "sheetRow": 89,
+      "tuple": [
+        "Remote | Boston | USEAST | New York. New York | Canada",
+        "Technical Writer",
+        "Camunda",
+        "https://jobs.ashbyhq.com/camunda/9ce12e95-88cd-4da4-8f61-f9cb198b1cc8"
+      ]
+    },
+    {
+      "sheetRow": 90,
+      "tuple": [
+        "Remote Location",
+        "Software Developer III for Information Services",
+        "Liberty",
+        "https://liberty.wd5.myworkdayjobs.com/lu_job_board_staff/job/Remote-Location/Software-Developer-III-for-Information-Services_R0013065"
+      ]
+    },
+    {
+      "sheetRow": 91,
+      "tuple": [
+        "Remote UK",
+        "Content Designer II",
+        "Affirm",
+        "https://job-boards.greenhouse.io/affirm/jobs/8008481003"
+      ]
+    },
+    {
+      "sheetRow": 92,
+      "tuple": [
+        "Remote US",
+        "Writer/Content Designer, Conversion and Growth",
+        "Ethoslife",
+        "https://job-boards.greenhouse.io/ethoslife/jobs/8724221002"
+      ]
+    },
+    {
+      "sheetRow": 93,
+      "tuple": [
+        "Remote, USA",
+        "Senior Technical Content Engineer",
+        "Ptc",
+        "https://ptc.wd1.myworkdayjobs.com/ptc/job/Remote-USA/Senior-Technical-Content-Engineer_JR112862"
+      ]
+    },
+    {
+      "sheetRow": 94,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Content Writer - Military (U.S. Air Force)",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Content-Writer---Military--US-Air-Force-_JR252486"
+      ]
+    },
+    {
+      "sheetRow": 95,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Contractor Architecture Content Developer",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Architecture-Content-Developer_JR249502"
+      ]
+    },
+    {
+      "sheetRow": 96,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Contractor Engineering Content Developer",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Engineering-Content-Developer_JR249503"
+      ]
+    },
+    {
+      "sheetRow": 97,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Contractor Engineering Content Developer - PE Civil Construction",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Engineering-Content-Developer---PE-Civil-Construction_JR249505"
+      ]
+    },
+    {
+      "sheetRow": 98,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Contractor Engineering Content Developer - PE Mechanical HVAC",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Engineering-Content-Developer---PE-Mechanical-HVAC_JR249506"
+      ]
+    },
+    {
+      "sheetRow": 99,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Contractor Interior Design Content Developer",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Contractor-Interior-Design-Content-Developer_JR249501"
+      ]
+    },
+    {
+      "sheetRow": 100,
+      "tuple": [
+        "Remote/Nationwide, USA",
+        "Part-time Engineering or Architecture Subject Matter Expert, AI Content Developer",
+        "Ghc",
+        "https://ghc.wd1.myworkdayjobs.com/kaplan_careers/job/RemoteNationwide-USA/Part-time-Engineering-or-Architecture-Subject-Matter-Expert--AI-Content-Developer_JR256643"
+      ]
+    },
+    {
+      "sheetRow": 101,
+      "tuple": [
+        "Republic of Ireland (Remote)",
+        "Staff Technical Writer | Remote | Ireland",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228481004"
+      ]
+    },
+    {
+      "sheetRow": 102,
+      "tuple": [
+        "San Francisco",
+        "Member of Technical Staff, Developer Relations",
+        "Inferact",
+        "https://jobs.ashbyhq.com/inferact/e1a91db5-1cd4-4688-863b-33ab88b40a4d"
+      ]
+    },
+    {
+      "sheetRow": 103,
+      "tuple": [
+        "San Francisco",
+        "Short Form Content Manager",
+        "Owner",
+        "https://jobs.ashbyhq.com/owner/198497d4-167b-4213-b48f-8ef2aba3a682"
+      ]
+    },
+    {
+      "sheetRow": 104,
+      "tuple": [
+        "San Francisco | Remote | New York",
+        "Manager, CX Knowledge & Enablement",
+        "Harvey",
+        "https://jobs.ashbyhq.com/harvey/4855ba0b-f458-4067-8586-201b8b502cdd"
+      ]
+    },
+    {
+      "sheetRow": 105,
+      "tuple": [
+        "San Jose, CR",
+        "Content Designer II (Remote Eligible - Costa Rica)",
+        "Smartsheet",
+        "https://job-boards.greenhouse.io/smartsheet/jobs/8273999"
+      ]
+    },
+    {
+      "sheetRow": 106,
+      "tuple": [
+        "South Africa remote",
+        "Remote Content Writer - South Africa",
+        "Brafton",
+        "https://jobs.lever.co/brafton/23dcc597-24a6-49f2-88c7-8ddece88704c"
+      ]
+    },
+    {
+      "sheetRow": 107,
+      "tuple": [
+        "Spain (Remote)",
+        "Staff Technical Writer | Remote | Spain",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228482004"
+      ]
+    },
+    {
+      "sheetRow": 108,
+      "tuple": [
+        "Spain remote",
+        "Freelance SEO Content Writer - Spanish",
+        "Brafton",
+        "https://jobs.lever.co/brafton/bf0edd13-5f6b-4ba5-8325-358f85f285c1"
+      ]
+    },
+    {
+      "sheetRow": 109,
+      "tuple": [
+        "Sweden (Remote)",
+        "Staff Technical Writer | Remote | Sweden",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228487004"
+      ]
+    },
+    {
+      "sheetRow": 110,
+      "tuple": [
+        "U.S. (Remote)",
+        "Content Engineer, Developer Relations",
+        "Harnessinc",
+        "https://www.harness.io/company/jobs/apply?gh_jid=5198641007&gh_jid=5198641007"
+      ]
+    },
+    {
+      "sheetRow": 111,
+      "tuple": [
+        "United Kingdom (Remote)",
+        "Staff Technical Writer | Remote | UK",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228461004"
+      ]
+    },
+    {
+      "sheetRow": 112,
+      "tuple": [
+        "United States",
+        "Content Designer",
+        "Mntn",
+        "https://job-boards.greenhouse.io/mntn/jobs/8248156"
+      ]
+    },
+    {
+      "sheetRow": 113,
+      "tuple": [
+        "United States",
+        "Lead ServiceNow Developer",
+        "Lightfeatheriollc",
+        "https://job-boards.greenhouse.io/lightfeatheriollc/jobs/5462851008"
+      ]
+    },
+    {
+      "sheetRow": 114,
+      "tuple": [
+        "United States",
+        "Principal Technical Writer - Customer Onboarding",
+        "Elastic",
+        "https://jobs.elastic.co/jobs?gh_jid=8186927&gh_jid=8186927"
+      ]
+    },
+    {
+      "sheetRow": 115,
+      "tuple": [
+        "United States",
+        "Principal Technical Writer - Customer Onboarding",
+        "Referralsuseonly",
+        "https://job-boards.greenhouse.io/referralsuseonly/jobs/8190565"
+      ]
+    },
+    {
+      "sheetRow": 116,
+      "tuple": [
+        "United States",
+        "Senior Manager, Technical Program Management (Data, Reliability & Developer Experience)",
+        "Airbnb",
+        "https://careers.airbnb.com/positions/8231975?gh_jid=8231975"
+      ]
+    },
+    {
+      "sheetRow": 117,
+      "tuple": [
+        "United States",
+        "Staff UX Writer, AI",
+        "Airbnb",
+        "https://careers.airbnb.com/positions/8240421?gh_jid=8240421"
+      ]
+    },
+    {
+      "sheetRow": 118,
+      "tuple": [
+        "United States - Remote",
+        "Technical Content Manager",
+        "Openloophealth",
+        "https://jobs.ashbyhq.com/openloophealth/0f97bb79-82f4-45ab-ba1c-5c946217334f"
+      ]
+    },
+    {
+      "sheetRow": 119,
+      "tuple": [
+        "United States - Remote",
+        "Technical Content Marketing Manager",
+        "Socure",
+        "https://jobs.ashbyhq.com/socure/f8038aea-368e-4128-beba-c146d5a49d9d"
+      ]
+    },
+    {
+      "sheetRow": 120,
+      "tuple": [
+        "United States (Remote)",
+        "Staff Technical Writer | Remote | USA",
+        "Grafanalabs",
+        "https://job-boards.greenhouse.io/grafanalabs/jobs/6228459004"
+      ]
+    },
+    {
+      "sheetRow": 121,
+      "tuple": [
+        "US",
+        "Clinical Documentation Manager",
+        "Jobgether",
+        "https://jobs.lever.co/jobgether/0d9b9001-7042-40ea-9997-4118b026dd8f"
+      ]
+    },
+    {
+      "sheetRow": 122,
+      "tuple": [
+        "US-NH-Lebanon",
+        "Registered Nurse (RN) - Clinical Documentation Specialist, Remote",
+        "Dartmouth Hitchcock",
+        "https://careers-dartmouth-hitchcock.icims.com/jobs/42631/registered-nurse-%28rn%29---clinical-documentation-specialist%2c-remote/job"
+      ]
+    },
+    {
+      "sheetRow": 123,
+      "tuple": [
+        "US-Remote",
+        "Information Security Architect - AI",
+        "Cotiviti",
+        "https://careers-cotiviti.icims.com/jobs/20688/information-security-architect---ai/job"
+      ]
+    },
+    {
+      "sheetRow": 124,
+      "tuple": [
+        "USA | Chile | UK | Uruguay | Switzerland | Brazil | Canada | Mexico | Argentina | Europe",
+        "Technical Content Engineer",
+        "Nango",
+        "https://jobs.ashbyhq.com/nango/748e3ffc-10bf-4189-8585-21d21ede74bb"
+      ]
+    },
+    {
+      "sheetRow": 125,
+      "tuple": [
+        "Washington, DC - Remote",
+        "Technical Writer",
+        "Virtru",
+        "https://job-boards.greenhouse.io/virtru/jobs/4724504005"
+      ]
+    },
+    {
+      "sheetRow": 126,
+      "tuple": [
+        "Worldwide | Rome | Prague | Warsaw | Lisbon | Madrid",
+        "Technical Writer - PostgreSQL (Remote)",
+        "Percona",
+        "https://jobs.ashbyhq.com/percona/60e9cd47-cebb-47d2-b1c1-811f3fb4889e"
+      ]
+    }
+  ],
+  "visualStatus": "Native browser inspected initial visible rows. Existing fixed widths clip long text; no layout changes made.",
+  "countryEligibility": "Remote classification does not establish eligibility in every country."
+}
+

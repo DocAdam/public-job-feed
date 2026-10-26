@@ -1,0 +1,1625 @@
+========================================
+Public Job Feed Refresh
+========================================
+
+Project:
+/Users/adampugh/GitHub/public-job-feed
+
+This launcher refreshes catalogs and due boards in parallel, then builds a current snapshot.
+
+
+> public-job-feed@0.1.0 jobs:maintain-index
+> node src/scripts/refresh-job-index.js --dry-run false --budget-minutes 45 --catalog-max-age-hours 24 --due-limit 300 --catalog-delta-limit 250 --include-known-good true
+
+Starting catalog refresh and due-board maintenance in parallel...
+Catalog refresh skipped: catalog pipeline is younger than 24 hours.
+Board state: 50170 active; 50170 fetch eligible.
+Maintenance scope due: 300 boards selected.
+
+Maintenance ashby: 74 boards
+Worker 1: ashby: Lancedb (lancedb)
+Worker 2: ashby: Backmarket (backmarket)
+Worker 3: ashby: N8n (n8n)
+Worker 1: success: 13 jobs
+Progress: 1/74 complete, success 1, failed 0, empty 0, skipped 0, jobs fetched 13
+Worker 2: success: 33 jobs
+Progress: 2/74 complete, success 2, failed 0, empty 0, skipped 0, jobs fetched 46
+Worker 3: success: 41 jobs
+Progress: 3/74 complete, success 3, failed 0, empty 0, skipped 0, jobs fetched 87
+Worker 1: ashby: Illumio (illumio)
+Worker 2: ashby: Apex Technology Inc (apex-technology-inc)
+Worker 3: ashby: Higgsfieldai (higgsfieldai)
+Worker 1: success: 64 jobs
+Progress: 4/74 complete, success 4, failed 0, empty 0, skipped 0, jobs fetched 151
+Worker 2: success: 135 jobs
+Progress: 5/74 complete, success 5, failed 0, empty 0, skipped 0, jobs fetched 286
+Worker 3: success: 96 jobs
+Progress: 6/74 complete, success 6, failed 0, empty 0, skipped 0, jobs fetched 382
+Worker 1: ashby: Hinge Health (hinge-health)
+Worker 1: success: 75 jobs
+Progress: 7/74 complete, success 7, failed 0, empty 0, skipped 0, jobs fetched 457
+Worker 2: ashby: Lovable (lovable)
+Worker 3: ashby: Playson (playson)
+Worker 3: success: 21 jobs
+Progress: 8/74 complete, success 8, failed 0, empty 0, skipped 0, jobs fetched 478
+Worker 2: success: 81 jobs
+Progress: 9/74 complete, success 9, failed 0, empty 0, skipped 0, jobs fetched 559
+Worker 1: ashby: Percona (percona)
+Worker 1: success: 16 jobs
+Progress: 10/74 complete, success 10, failed 0, empty 0, skipped 0, jobs fetched 575
+Worker 3: ashby: Wealthsimple (wealthsimple)
+Worker 2: ashby: Bio (bio)
+Worker 3: success: 43 jobs
+Progress: 11/74 complete, success 11, failed 0, empty 0, skipped 0, jobs fetched 618
+Worker 2: success: 11 jobs
+Progress: 12/74 complete, success 12, failed 0, empty 0, skipped 0, jobs fetched 629
+Worker 1: ashby: Nango (nango)
+Worker 1: success: 7 jobs
+Progress: 13/74 complete, success 13, failed 0, empty 0, skipped 0, jobs fetched 636
+Worker 3: ashby: Perplexity (perplexity)
+Worker 2: ashby: Blockstream (blockstream)
+Worker 2: success: 46 jobs
+Progress: 14/74 complete, success 14, failed 0, empty 0, skipped 0, jobs fetched 682
+Worker 3: success: 131 jobs
+Progress: 15/74 complete, success 15, failed 0, empty 0, skipped 0, jobs fetched 813
+Worker 1: ashby: Camunda (camunda)
+Worker 1: success: 42 jobs
+Progress: 16/74 complete, success 16, failed 0, empty 0, skipped 0, jobs fetched 855
+Worker 2: ashby: Crusoe (crusoe)
+Worker 3: ashby: Deepnote (deepnote)
+Worker 3: success: 3 jobs
+Progress: 17/74 complete, success 17, failed 0, empty 0, skipped 0, jobs fetched 858
+Worker 2: success: 349 jobs
+Progress: 18/74 complete, success 18, failed 0, empty 0, skipped 0, jobs fetched 1207
+Worker 1: ashby: Hercules (hercules)
+Worker 3: ashby: Tensorwave (tensorwave)
+Worker 1: success: 24 jobs
+Progress: 19/74 complete, success 19, failed 0, empty 0, skipped 0, jobs fetched 1231
+Worker 3: success: 61 jobs
+Progress: 20/74 complete, success 20, failed 0, empty 0, skipped 0, jobs fetched 1292
+Worker 2: ashby: Openai (openai)
+Worker 1: ashby: Scalemath (scalemath)
+Worker 3: ashby: Bjakcareer (bjakcareer)
+Worker 1: success: 4 jobs
+Progress: 21/74 complete, success 21, failed 0, empty 0, skipped 0, jobs fetched 1296
+Worker 2: success: 796 jobs
+Progress: 22/74 complete, success 22, failed 0, empty 0, skipped 0, jobs fetched 2092
+Worker 1: ashby: Ontologize (ontologize)
+Worker 1: success: 4 jobs
+Progress: 23/74 complete, success 23, failed 0, empty 0, skipped 0, jobs fetched 2096
+Worker 3: success: 3069 jobs
+Progress: 24/74 complete, success 24, failed 0, empty 0, skipped 0, jobs fetched 5165
+Worker 2: ashby: Modal (modal)
+Worker 1: ashby: Searchapi (searchapi)
+Worker 1: success: 12 jobs
+Progress: 25/74 complete, success 25, failed 0, empty 0, skipped 0, jobs fetched 5177
+Worker 2: success: 43 jobs
+Progress: 26/74 complete, success 26, failed 0, empty 0, skipped 0, jobs fetched 5220
+Worker 3: ashby: Socure (socure)
+Worker 3: success: 83 jobs
+Progress: 27/74 complete, success 27, failed 0, empty 0, skipped 0, jobs fetched 5303
+Worker 1: ashby: Flosports (flosports)
+Worker 2: ashby: Element84 (element84)
+Worker 2: success: 2 jobs
+Progress: 28/74 complete, success 28, failed 0, empty 0, skipped 0, jobs fetched 5305
+Worker 1: success: 21 jobs
+Progress: 29/74 complete, success 29, failed 0, empty 0, skipped 0, jobs fetched 5326
+Worker 3: ashby: Kong (kong)
+Worker 3: success: 91 jobs
+Progress: 30/74 complete, success 30, failed 0, empty 0, skipped 0, jobs fetched 5417
+Worker 2: ashby: Xona Space (xona-space)
+Worker 1: ashby: Mapbox (mapbox)
+Worker 1: success: 30 jobs
+Progress: 31/74 complete, success 31, failed 0, empty 0, skipped 0, jobs fetched 5447
+Worker 2: success: 54 jobs
+Progress: 32/74 complete, success 32, failed 0, empty 0, skipped 0, jobs fetched 5501
+Worker 3: ashby: Vultr (vultr)
+Worker 3: success: 56 jobs
+Progress: 33/74 complete, success 33, failed 0, empty 0, skipped 0, jobs fetched 5557
+Worker 1: ashby: Hud (hud)
+Worker 2: ashby: Omniscient (omniscient)
+Worker 1: success: 30 jobs
+Progress: 34/74 complete, success 34, failed 0, empty 0, skipped 0, jobs fetched 5587
+Worker 2: success: 18 jobs
+Progress: 35/74 complete, success 35, failed 0, empty 0, skipped 0, jobs fetched 5605
+Worker 3: ashby: Owner (owner)
+Worker 3: success: 50 jobs
+Progress: 36/74 complete, success 36, failed 0, empty 0, skipped 0, jobs fetched 5655
+Worker 1: ashby: Harvey (harvey)
+Worker 2: ashby: Duffel (duffel)
+Worker 2: success: 10 jobs
+Progress: 37/74 complete, success 37, failed 0, empty 0, skipped 0, jobs fetched 5665
+Worker 1: success: 358 jobs
+Progress: 38/74 complete, success 38, failed 0, empty 0, skipped 0, jobs fetched 6023
+Worker 3: ashby: 1password (1password)
+Worker 2: ashby: Pariveda (pariveda)
+Worker 3: success: 90 jobs
+Progress: 39/74 complete, success 39, failed 0, empty 0, skipped 0, jobs fetched 6113
+Worker 2: success: 26 jobs
+Progress: 40/74 complete, success 40, failed 0, empty 0, skipped 0, jobs fetched 6139
+Worker 1: ashby: Tavahealth (tavahealth)
+Worker 3: ashby: Tavily (tavily)
+Worker 1: success: 4 jobs
+Progress: 41/74 complete, success 41, failed 0, empty 0, skipped 0, jobs fetched 6143
+Worker 2: ashby: Taxo (taxo)
+Worker 3: success: 18 jobs
+Progress: 42/74 complete, success 42, failed 0, empty 0, skipped 0, jobs fetched 6161
+Worker 2: success: 8 jobs
+Progress: 43/74 complete, success 43, failed 0, empty 0, skipped 0, jobs fetched 6169
+Worker 1: ashby: Tdv (tdv)
+Worker 1: success: 1 jobs
+Progress: 44/74 complete, success 44, failed 0, empty 0, skipped 0, jobs fetched 6170
+Worker 3: ashby: Teal Health (teal-health)
+Worker 2: ashby: Teamdynamix (teamdynamix)
+Worker 2: success: 6 jobs
+Progress: 45/74 complete, success 45, failed 0, empty 0, skipped 0, jobs fetched 6176
+Worker 3: success: 4 jobs
+Progress: 46/74 complete, success 46, failed 0, empty 0, skipped 0, jobs fetched 6180
+Worker 1: ashby: Teameigen (teameigen)
+Worker 1: success: 2 jobs
+Progress: 47/74 complete, success 47, failed 0, empty 0, skipped 0, jobs fetched 6182
+Worker 2: ashby: Tebi (tebi)
+Worker 3: ashby: Technitask (technitask)
+Worker 2: success: 19 jobs
+Progress: 48/74 complete, success 48, failed 0, empty 0, skipped 0, jobs fetched 6201
+Worker 3: success: 7 jobs
+Progress: 49/74 complete, success 49, failed 0, empty 0, skipped 0, jobs fetched 6208
+Worker 1: ashby: Teero (teero)
+Worker 1: success: 4 jobs
+Progress: 50/74 complete, success 50, failed 0, empty 0, skipped 0, jobs fetched 6212
+Worker 2: ashby: Teleskope (teleskope)
+Worker 3: ashby: Telli (telli)
+Worker 2: success: 2 jobs
+Progress: 51/74 complete, success 51, failed 0, empty 0, skipped 0, jobs fetched 6214
+Worker 3: success: 16 jobs
+Progress: 52/74 complete, success 52, failed 0, empty 0, skipped 0, jobs fetched 6230
+Worker 1: ashby: Tellos (tellos)
+Worker 1: success: 33 jobs
+Progress: 53/74 complete, success 53, failed 0, empty 0, skipped 0, jobs fetched 6263
+Worker 2: ashby: Tem (tem)
+Worker 2: success: 18 jobs
+Progress: 54/74 complete, success 54, failed 0, empty 0, skipped 0, jobs fetched 6281
+Worker 3: ashby: Tempo Io (tempo-io)
+Worker 3: success: 18 jobs
+Progress: 55/74 complete, success 55, failed 0, empty 0, skipped 0, jobs fetched 6299
+Worker 1: ashby: Tempo Xyz (tempo-xyz)
+Worker 1: success: 13 jobs
+Progress: 56/74 complete, success 56, failed 0, empty 0, skipped 0, jobs fetched 6312
+Worker 2: ashby: Tenex (tenex)
+Worker 2: success: 43 jobs
+Progress: 57/74 complete, success 57, failed 0, empty 0, skipped 0, jobs fetched 6355
+Worker 3: ashby: Tenexlabs (tenexlabs)
+Worker 3: success: 22 jobs
+Progress: 58/74 complete, success 58, failed 0, empty 0, skipped 0, jobs fetched 6377
+Worker 1: ashby: Tennr (tennr)
+Worker 1: success: 28 jobs
+Progress: 59/74 complete, success 59, failed 0, empty 0, skipped 0, jobs fetched 6405
+Worker 2: ashby: Tenor (tenor)
+Worker 3: ashby: Tensec (tensec)
+Worker 2: success: 1 jobs
+Progress: 60/74 complete, success 60, failed 0, empty 0, skipped 0, jobs fetched 6406
+Worker 3: success: 12 jobs
+Progress: 61/74 complete, success 61, failed 0, empty 0, skipped 0, jobs fetched 6418
+Worker 1: ashby: Terac (terac)
+Worker 1: success: 67 jobs
+Progress: 62/74 complete, success 62, failed 0, empty 0, skipped 0, jobs fetched 6485
+Worker 2: ashby: Teraswitch (teraswitch)
+Worker 3: ashby: Terminal Industries (terminal-industries)
+Worker 3: success: 1 jobs
+Progress: 63/74 complete, success 63, failed 0, empty 0, skipped 0, jobs fetched 6486
+Worker 2: success: 5 jobs
+Progress: 64/74 complete, success 64, failed 0, empty 0, skipped 0, jobs fetched 6491
+Worker 1: ashby: Tern (tern)
+Worker 1: success: 8 jobs
+Progress: 65/74 complete, success 65, failed 0, empty 0, skipped 0, jobs fetched 6499
+Worker 3: ashby: Ternary (ternary)
+Worker 2: ashby: Terraai (terraai)
+Worker 2: success: 8 jobs
+Progress: 66/74 complete, success 66, failed 0, empty 0, skipped 0, jobs fetched 6507
+Worker 1: ashby: Terranova (terranova)
+Worker 3: success: 1 jobs
+Progress: 67/74 complete, success 67, failed 0, empty 0, skipped 0, jobs fetched 6508
+Worker 1: success: 11 jobs
+Progress: 68/74 complete, success 68, failed 0, empty 0, skipped 0, jobs fetched 6519
+Worker 2: ashby: Tessera Labs (tessera-labs)
+Worker 3: ashby: Texture (texture)
+Worker 2: success: 26 jobs
+Progress: 69/74 complete, success 69, failed 0, empty 0, skipped 0, jobs fetched 6545
+Worker 1: ashby: Teya (teya)
+Worker 3: success: 7 jobs
+Progress: 70/74 complete, success 70, failed 0, empty 0, skipped 0, jobs fetched 6552
+Worker 1: success: 114 jobs
+Progress: 71/74 complete, success 71, failed 0, empty 0, skipped 0, jobs fetched 6666
+Worker 2: ashby: Teza Technologies (teza-technologies)
+Worker 3: ashby: Thatgamecompany (thatgamecompany)
+Worker 2: success: 10 jobs
+Progress: 72/74 complete, success 72, failed 0, empty 0, skipped 0, jobs fetched 6676
+Worker 3: success: 38 jobs
+Progress: 73/74 complete, success 73, failed 0, empty 0, skipped 0, jobs fetched 6714
+Worker 1: ashby: The Exploration Company (the-exploration-company)
+Worker 1: success: 106 jobs
+Progress: 74/74 complete, success 74, failed 0, empty 0, skipped 0, jobs fetched 6820
+
+Maintenance bamboohr: 50 boards
+Worker 1: bamboohr: Optimum7 (optimum7)
+Worker 2: bamboohr: Carriersedge (carriersedge)
+Worker 1: success: 11 jobs
+Progress: 1/50 complete, success 1, failed 0, empty 0, skipped 0, jobs fetched 11
+Worker 2: success: 1 jobs
+Progress: 2/50 complete, success 2, failed 0, empty 0, skipped 0, jobs fetched 12
+Worker 1: bamboohr: Mypassion4life (mypassion4life)
+Worker 2: bamboohr: Phoenixteam (phoenixteam)
+Worker 1: success: 24 jobs
+Progress: 3/50 complete, success 3, failed 0, empty 0, skipped 0, jobs fetched 36
+Worker 2: success: 23 jobs
+Progress: 4/50 complete, success 4, failed 0, empty 0, skipped 0, jobs fetched 59
+Worker 1: bamboohr: Tecss (tecss)
+Worker 2: bamboohr: Christianpost (christianpost)
+Worker 2: success: 7 jobs
+Progress: 5/50 complete, success 5, failed 0, empty 0, skipped 0, jobs fetched 66
+Worker 2: bamboohr: Ltcsolutionsllc (ltcsolutionsllc)
+Worker 1: success: 6 jobs
+Progress: 6/50 complete, success 6, failed 0, empty 0, skipped 0, jobs fetched 72
+Worker 1: bamboohr: Vamonosit (vamonosit)
+Worker 2: success: 20 jobs
+Progress: 7/50 complete, success 7, failed 0, empty 0, skipped 0, jobs fetched 92
+Worker 2: bamboohr: Anga (anga)
+Worker 1: success: 13 jobs
+Progress: 8/50 complete, success 8, failed 0, empty 0, skipped 0, jobs fetched 105
+Worker 2: success: 3 jobs
+Progress: 9/50 complete, success 9, failed 0, empty 0, skipped 0, jobs fetched 108
+Worker 1: bamboohr: Cmtservicesinc (cmtservicesinc)
+Worker 2: bamboohr: Constructdigital (constructdigital)
+Worker 1: success: 58 jobs
+Progress: 10/50 complete, success 10, failed 0, empty 0, skipped 0, jobs fetched 166
+Worker 1: bamboohr: Grouper (grouper)
+Worker 2: success: 5 jobs
+Progress: 11/50 complete, success 11, failed 0, empty 0, skipped 0, jobs fetched 171
+Worker 2: bamboohr: Heirloom (heirloom)
+Worker 1: success: 35 jobs
+Progress: 12/50 complete, success 12, failed 0, empty 0, skipped 0, jobs fetched 206
+Worker 2: success: 11 jobs
+Progress: 13/50 complete, success 13, failed 0, empty 0, skipped 0, jobs fetched 217
+Worker 1: bamboohr: Onramplab (onramplab)
+Worker 2: bamboohr: Rangeforce (rangeforce)
+Worker 1: success: 4 jobs
+Progress: 14/50 complete, success 14, failed 0, empty 0, skipped 0, jobs fetched 221
+Worker 2: success: 1 jobs
+Progress: 15/50 complete, success 15, failed 0, empty 0, skipped 0, jobs fetched 222
+Worker 1: bamboohr: Geospectrum (geospectrum)
+Worker 2: bamboohr: Rxlogix (rxlogix)
+Worker 1: success: 35 jobs
+Progress: 16/50 complete, success 16, failed 0, empty 0, skipped 0, jobs fetched 257
+Worker 2: success: 16 jobs
+Progress: 17/50 complete, success 17, failed 0, empty 0, skipped 0, jobs fetched 273
+Worker 1: bamboohr: Sigmaworld (sigmaworld)
+Worker 2: bamboohr: Sortitt (sortitt)
+Worker 2: success: 35 jobs
+Progress: 18/50 complete, success 18, failed 0, empty 0, skipped 0, jobs fetched 308
+Worker 1: success: 52 jobs
+Progress: 19/50 complete, success 19, failed 0, empty 0, skipped 0, jobs fetched 360
+Worker 2: bamboohr: Traxtech (traxtech)
+Worker 1: bamboohr: Bljworldwide (bljworldwide)
+Worker 2: success: 23 jobs
+Progress: 20/50 complete, success 20, failed 0, empty 0, skipped 0, jobs fetched 383
+Worker 1: success: 13 jobs
+Progress: 21/50 complete, success 21, failed 0, empty 0, skipped 0, jobs fetched 396
+Worker 2: bamboohr: Vozy (vozy)
+Worker 1: bamboohr: Lanciaconsult (lanciaconsult)
+Worker 2: success: 8 jobs
+Progress: 22/50 complete, success 22, failed 0, empty 0, skipped 0, jobs fetched 404
+Worker 2: bamboohr: Seoplus (seoplus)
+Worker 1: success: 10 jobs
+Progress: 23/50 complete, success 23, failed 0, empty 0, skipped 0, jobs fetched 414
+Worker 2: success: 1 jobs
+Progress: 24/50 complete, success 24, failed 0, empty 0, skipped 0, jobs fetched 415
+Worker 1: bamboohr: Precisionpipelineco (precisionpipelineco)
+Worker 2: bamboohr: Manaosoftware (manaosoftware)
+Worker 1: success: 16 jobs
+Progress: 25/50 complete, success 25, failed 0, empty 0, skipped 0, jobs fetched 431
+Worker 2: success: 7 jobs
+Progress: 26/50 complete, success 26, failed 0, empty 0, skipped 0, jobs fetched 438
+Worker 1: bamboohr: Velocityrestorations (velocityrestorations)
+Worker 2: bamboohr: Epicpharmacy (epicpharmacy)
+Worker 1: success: 15 jobs
+Progress: 27/50 complete, success 27, failed 0, empty 0, skipped 0, jobs fetched 453
+Worker 2: success: 2 jobs
+Progress: 28/50 complete, success 28, failed 0, empty 0, skipped 0, jobs fetched 455
+Worker 1: bamboohr: Epicsmvi (epicsmvi)
+Worker 2: bamboohr: Epochconcepts (epochconcepts)
+Worker 1: success: 4 jobs
+Progress: 29/50 complete, success 29, failed 0, empty 0, skipped 0, jobs fetched 459
+Worker 2: success: 1 jobs
+Progress: 30/50 complete, success 30, failed 0, empty 0, skipped 0, jobs fetched 460
+Worker 1: bamboohr: Eposnowgroup (eposnowgroup)
+Worker 2: bamboohr: Epsgroupinc (epsgroupinc)
+Worker 2: success: 5 jobs
+Progress: 31/50 complete, success 31, failed 0, empty 0, skipped 0, jobs fetched 465
+Worker 1: success: 28 jobs
+Progress: 32/50 complete, success 32, failed 0, empty 0, skipped 0, jobs fetched 493
+Worker 2: bamboohr: Epsilonassociates (epsilonassociates)
+Worker 1: bamboohr: Eptec (eptec)
+Worker 2: success: 6 jobs
+Progress: 33/50 complete, success 33, failed 0, empty 0, skipped 0, jobs fetched 499
+Worker 1: success: 24 jobs
+Progress: 34/50 complete, success 34, failed 0, empty 0, skipped 0, jobs fetched 523
+Worker 2: bamboohr: Equalityohio (equalityohio)
+Worker 1: bamboohr: Equiposoventix (equiposoventix)
+Worker 2: empty: 0 jobs
+Progress: 35/50 complete, success 34, failed 0, empty 1, skipped 0, jobs fetched 523
+Worker 1: success: 9 jobs
+Progress: 36/50 complete, success 35, failed 0, empty 1, skipped 0, jobs fetched 532
+Worker 2: bamboohr: Eranovum (eranovum)
+Worker 1: bamboohr: Ereztech (ereztech)
+Worker 1: success: 2 jobs
+Progress: 37/50 complete, success 36, failed 0, empty 1, skipped 0, jobs fetched 534
+Worker 2: success: 3 jobs
+Progress: 38/50 complete, success 37, failed 0, empty 1, skipped 0, jobs fetched 537
+Worker 1: bamboohr: Erling (erling)
+Worker 2: bamboohr: Eskasonihealthcentre (eskasonihealthcentre)
+Worker 1: success: 7 jobs
+Progress: 39/50 complete, success 38, failed 0, empty 1, skipped 0, jobs fetched 544
+Worker 2: success: 7 jobs
+Progress: 40/50 complete, success 39, failed 0, empty 1, skipped 0, jobs fetched 551
+Worker 1: bamboohr: Eskasonischoolboard (eskasonischoolboard)
+Worker 2: bamboohr: Esm (esm)
+Worker 1: success: 6 jobs
+Progress: 41/50 complete, success 40, failed 0, empty 1, skipped 0, jobs fetched 557
+Worker 2: success: 2 jobs
+Progress: 42/50 complete, success 41, failed 0, empty 1, skipped 0, jobs fetched 559
+Worker 1: bamboohr: Esoppartners (esoppartners)
+Worker 2: bamboohr: Espositoelectric (espositoelectric)
+Worker 1: success: 5 jobs
+Progress: 43/50 complete, success 42, failed 0, empty 1, skipped 0, jobs fetched 564
+Worker 2: success: 6 jobs
+Progress: 44/50 complete, success 43, failed 0, empty 1, skipped 0, jobs fetched 570
+Worker 1: bamboohr: Esprigas (esprigas)
+Worker 2: bamboohr: Essexvt (essexvt)
+Worker 1: success: 2 jobs
+Progress: 45/50 complete, success 44, failed 0, empty 1, skipped 0, jobs fetched 572
+Worker 2: success: 6 jobs
+Progress: 46/50 complete, success 45, failed 0, empty 1, skipped 0, jobs fetched 578
+Worker 1: bamboohr: Essiejusticegroup (essiejusticegroup)
+Worker 2: bamboohr: Establishmentlabs (establishmentlabs)
+Worker 1: success: 6 jobs
+Progress: 47/50 complete, success 46, failed 0, empty 1, skipped 0, jobs fetched 584
+Worker 2: success: 14 jobs
+Progress: 48/50 complete, success 47, failed 0, empty 1, skipped 0, jobs fetched 598
+Worker 1: bamboohr: Estateguru (estateguru)
+Worker 2: bamboohr: Estatelandscape (estatelandscape)
+Worker 2: success: 5 jobs
+Progress: 49/50 complete, success 48, failed 0, empty 1, skipped 0, jobs fetched 603
+Worker 1: success: 5 jobs
+Progress: 50/50 complete, success 49, failed 0, empty 1, skipped 0, jobs fetched 608
+
+Maintenance greenhouse: 73 boards
+Worker 1: greenhouse: Airbnb (airbnb)
+Worker 2: greenhouse: Capco (capco)
+Worker 3: greenhouse: Skyryse (skyryse)
+Worker 3: success: 19 jobs
+Progress: 1/73 complete, success 1, failed 0, empty 0, skipped 0, jobs fetched 19
+Worker 3: greenhouse: C3iot (c3iot)
+Worker 1: success: 191 jobs
+Progress: 2/73 complete, success 2, failed 0, empty 0, skipped 0, jobs fetched 210
+Worker 3: success: 92 jobs
+Progress: 3/73 complete, success 3, failed 0, empty 0, skipped 0, jobs fetched 302
+Worker 1: greenhouse: Capitaltg (capitaltg)
+Worker 1: success: 16 jobs
+Progress: 4/73 complete, success 4, failed 0, empty 0, skipped 0, jobs fetched 318
+Worker 3: greenhouse: Orkes (orkes)
+Worker 2: success: 726 jobs
+Progress: 5/73 complete, success 5, failed 0, empty 0, skipped 0, jobs fetched 1044
+Worker 1: greenhouse: Privateequityinsights (privateequityinsights)
+Worker 3: success: 19 jobs
+Progress: 6/73 complete, success 6, failed 0, empty 0, skipped 0, jobs fetched 1063
+Worker 2: greenhouse: Retailinsights (retailinsights)
+Worker 3: greenhouse: Sambanovasystems (sambanovasystems)
+Worker 3: success: 60 jobs
+Progress: 7/73 complete, success 7, failed 0, empty 0, skipped 0, jobs fetched 1123
+Worker 2: success: 250 jobs
+Progress: 8/73 complete, success 8, failed 0, empty 0, skipped 0, jobs fetched 1373
+Worker 3: greenhouse: Samlino (samlino)
+Worker 3: success: 8 jobs
+Progress: 9/73 complete, success 9, failed 0, empty 0, skipped 0, jobs fetched 1381
+Worker 2: greenhouse: Proof (proof)
+Worker 2: success: 131 jobs
+Progress: 10/73 complete, success 10, failed 0, empty 0, skipped 0, jobs fetched 1512
+Worker 1: success: 1181 jobs
+Progress: 11/73 complete, success 11, failed 0, empty 0, skipped 0, jobs fetched 2693
+Worker 3: greenhouse: Airship (airship)
+Worker 2: greenhouse: Axs (axs)
+Worker 3: success: 9 jobs
+Progress: 12/73 complete, success 12, failed 0, empty 0, skipped 0, jobs fetched 2702
+Worker 2: success: 32 jobs
+Progress: 13/73 complete, success 13, failed 0, empty 0, skipped 0, jobs fetched 2734
+Worker 1: greenhouse: Elastic (elastic)
+Worker 3: greenhouse: Aegworldwide (aegworldwide)
+Worker 2: greenhouse: Agoda (agoda)
+Worker 3: success: 148 jobs
+Progress: 14/73 complete, success 14, failed 0, empty 0, skipped 0, jobs fetched 2882
+Worker 3: greenhouse: Dlhcorporation (dlhcorporation)
+Worker 2: success: 316 jobs
+Progress: 15/73 complete, success 15, failed 0, empty 0, skipped 0, jobs fetched 3198
+Worker 3: success: 28 jobs
+Progress: 16/73 complete, success 16, failed 0, empty 0, skipped 0, jobs fetched 3226
+Worker 1: success: 402 jobs
+Progress: 17/73 complete, success 17, failed 0, empty 0, skipped 0, jobs fetched 3628
+Worker 2: greenhouse: Verisign (verisign)
+Worker 3: greenhouse: Fastly (fastly)
+Worker 2: success: 13 jobs
+Progress: 18/73 complete, success 18, failed 0, empty 0, skipped 0, jobs fetched 3641
+Worker 3: success: 53 jobs
+Progress: 19/73 complete, success 19, failed 0, empty 0, skipped 0, jobs fetched 3694
+Worker 1: greenhouse: Zafinlabsamericasinc (zafinlabsamericasinc)
+Worker 2: greenhouse: Cloudflare (cloudflare)
+Worker 1: success: 29 jobs
+Progress: 20/73 complete, success 20, failed 0, empty 0, skipped 0, jobs fetched 3723
+Worker 3: greenhouse: Zone5technologies (zone5technologies)
+Worker 1: greenhouse: Feverup (feverup)
+Worker 3: success: 77 jobs
+Progress: 21/73 complete, success 21, failed 0, empty 0, skipped 0, jobs fetched 3800
+Worker 3: greenhouse: Decimainternational (decimainternational)
+Worker 3: success: 33 jobs
+Progress: 22/73 complete, success 22, failed 0, empty 0, skipped 0, jobs fetched 3833
+Worker 3: greenhouse: Oliverseapac (oliverseapac)
+Worker 2: success: 454 jobs
+Progress: 23/73 complete, success 23, failed 0, empty 0, skipped 0, jobs fetched 4287
+Worker 3: success: 49 jobs
+Progress: 24/73 complete, success 24, failed 0, empty 0, skipped 0, jobs fetched 4336
+Worker 1: success: 576 jobs
+Progress: 25/73 complete, success 25, failed 0, empty 0, skipped 0, jobs fetched 4912
+Worker 2: greenhouse: Smartsheet (smartsheet)
+Worker 3: greenhouse: Onenergy (onenergy)
+Worker 3: success: 42 jobs
+Progress: 26/73 complete, success 26, failed 0, empty 0, skipped 0, jobs fetched 4954
+Worker 2: success: 89 jobs
+Progress: 27/73 complete, success 27, failed 0, empty 0, skipped 0, jobs fetched 5043
+Worker 1: greenhouse: Togetherwork (togetherwork)
+Worker 1: success: 22 jobs
+Progress: 28/73 complete, success 28, failed 0, empty 0, skipped 0, jobs fetched 5065
+Worker 3: greenhouse: Commvault (commvault)
+Worker 2: greenhouse: Fuseglobalpartners (fuseglobalpartners)
+Worker 3: success: 55 jobs
+Progress: 29/73 complete, success 29, failed 0, empty 0, skipped 0, jobs fetched 5120
+Worker 2: success: 22 jobs
+Progress: 30/73 complete, success 30, failed 0, empty 0, skipped 0, jobs fetched 5142
+Worker 1: greenhouse: Oura (oura)
+Worker 1: success: 86 jobs
+Progress: 31/73 complete, success 31, failed 0, empty 0, skipped 0, jobs fetched 5228
+Worker 3: greenhouse: Robinhood (robinhood)
+Worker 2: greenhouse: Sumup (sumup)
+Worker 1: greenhouse: Divergent (divergent)
+Worker 3: success: 157 jobs
+Progress: 32/73 complete, success 32, failed 0, empty 0, skipped 0, jobs fetched 5385
+Worker 2: success: 349 jobs
+Progress: 33/73 complete, success 33, failed 0, empty 0, skipped 0, jobs fetched 5734
+Worker 3: greenhouse: Flyzipline (flyzipline)
+Worker 1: success: 130 jobs
+Progress: 34/73 complete, success 34, failed 0, empty 0, skipped 0, jobs fetched 5864
+Worker 2: greenhouse: Monks (monks)
+Worker 1: greenhouse: Attentive (attentive)
+Worker 1: success: 29 jobs
+Progress: 35/73 complete, success 35, failed 0, empty 0, skipped 0, jobs fetched 5893
+Worker 3: success: 349 jobs
+Progress: 36/73 complete, success 36, failed 0, empty 0, skipped 0, jobs fetched 6242
+Worker 1: greenhouse: Alphasense (alphasense)
+Worker 3: greenhouse: Jellyvision (jellyvision)
+Worker 2: success: 355 jobs
+Progress: 37/73 complete, success 37, failed 0, empty 0, skipped 0, jobs fetched 6597
+Worker 3: success: 4 jobs
+Progress: 38/73 complete, success 38, failed 0, empty 0, skipped 0, jobs fetched 6601
+Worker 1: success: 212 jobs
+Progress: 39/73 complete, success 39, failed 0, empty 0, skipped 0, jobs fetched 6813
+Worker 2: greenhouse: Amtechsoftware (amtechsoftware)
+Worker 3: greenhouse: Klaviyo (klaviyo)
+Worker 2: success: 19 jobs
+Progress: 40/73 complete, success 40, failed 0, empty 0, skipped 0, jobs fetched 6832
+Worker 1: greenhouse: Darkwolfsolutions (darkwolfsolutions)
+Worker 3: success: 160 jobs
+Progress: 41/73 complete, success 41, failed 0, empty 0, skipped 0, jobs fetched 6992
+Worker 2: greenhouse: Dkatalislabs (dkatalislabs)
+Worker 1: success: 71 jobs
+Progress: 42/73 complete, success 42, failed 0, empty 0, skipped 0, jobs fetched 7063
+Worker 2: success: 14 jobs
+Progress: 43/73 complete, success 43, failed 0, empty 0, skipped 0, jobs fetched 7077
+Worker 3: greenhouse: Appian (appian)
+Worker 1: greenhouse: Tailscale (tailscale)
+Worker 2: greenhouse: Horizonindustrieslimited (horizonindustrieslimited)
+Worker 1: success: 57 jobs
+Progress: 44/73 complete, success 44, failed 0, empty 0, skipped 0, jobs fetched 7134
+Worker 2: success: 36 jobs
+Progress: 45/73 complete, success 45, failed 0, empty 0, skipped 0, jobs fetched 7170
+Worker 3: success: 165 jobs
+Progress: 46/73 complete, success 46, failed 0, empty 0, skipped 0, jobs fetched 7335
+Worker 1: greenhouse: Insurify (insurify)
+Worker 2: greenhouse: Jetbrains (jetbrains)
+Worker 1: success: 13 jobs
+Progress: 47/73 complete, success 47, failed 0, empty 0, skipped 0, jobs fetched 7348
+Worker 2: success: 47 jobs
+Progress: 48/73 complete, success 48, failed 0, empty 0, skipped 0, jobs fetched 7395
+Worker 3: greenhouse: Roblox (roblox)
+Worker 1: greenhouse: Duolingo (duolingo)
+Worker 2: greenhouse: Scopely (scopely)
+Worker 1: success: 60 jobs
+Progress: 49/73 complete, success 49, failed 0, empty 0, skipped 0, jobs fetched 7455
+Worker 3: success: 269 jobs
+Progress: 50/73 complete, success 50, failed 0, empty 0, skipped 0, jobs fetched 7724
+Worker 1: greenhouse: Kyowakirinusa90 (kyowakirinusa90)
+Worker 2: success: 181 jobs
+Progress: 51/73 complete, success 51, failed 0, empty 0, skipped 0, jobs fetched 7905
+Worker 1: success: 25 jobs
+Progress: 52/73 complete, success 52, failed 0, empty 0, skipped 0, jobs fetched 7930
+Worker 3: greenhouse: Lightfeatheriollc (lightfeatheriollc)
+Worker 3: success: 14 jobs
+Progress: 53/73 complete, success 53, failed 0, empty 0, skipped 0, jobs fetched 7944
+Worker 2: greenhouse: Referralsuseonly (referralsuseonly)
+Worker 1: greenhouse: Mirumpharmaceuticals (mirumpharmaceuticals)
+Worker 3: greenhouse: Shinvestmentsllc (shinvestmentsllc)
+Worker 1: success: 71 jobs
+Progress: 54/73 complete, success 54, failed 0, empty 0, skipped 0, jobs fetched 8015
+Worker 2: success: 116 jobs
+Progress: 55/73 complete, success 55, failed 0, empty 0, skipped 0, jobs fetched 8131
+Worker 3: success: 80 jobs
+Progress: 56/73 complete, success 56, failed 0, empty 0, skipped 0, jobs fetched 8211
+Worker 1: greenhouse: Equipmentsharecom (equipmentsharecom)
+Worker 2: greenhouse: Parallel (parallel)
+Worker 2: success: 18 jobs
+Progress: 57/73 complete, success 57, failed 0, empty 0, skipped 0, jobs fetched 8229
+Worker 3: greenhouse: Thenewyorktimes (thenewyorktimes)
+Worker 2: greenhouse: Gusto (gusto)
+Worker 3: success: 146 jobs
+Progress: 58/73 complete, success 58, failed 0, empty 0, skipped 0, jobs fetched 8375
+Worker 2: success: 101 jobs
+Progress: 59/73 complete, success 59, failed 0, empty 0, skipped 0, jobs fetched 8476
+Worker 3: greenhouse: Hoodhp (hoodhp)
+Worker 3: success: 84 jobs
+Progress: 60/73 complete, success 60, failed 0, empty 0, skipped 0, jobs fetched 8560
+Worker 2: greenhouse: Parloa (parloa)
+Worker 2: success: 51 jobs
+Progress: 61/73 complete, success 61, failed 0, empty 0, skipped 0, jobs fetched 8611
+Worker 3: greenhouse: Karat (karat)
+Worker 3: success: 14 jobs
+Progress: 62/73 complete, success 62, failed 0, empty 0, skipped 0, jobs fetched 8625
+Worker 2: greenhouse: Karya (karya)
+Worker 2: success: 19 jobs
+Progress: 63/73 complete, success 63, failed 0, empty 0, skipped 0, jobs fetched 8644
+Worker 1: success: 1082 jobs
+Progress: 64/73 complete, success 64, failed 0, empty 0, skipped 0, jobs fetched 9726
+Worker 3: greenhouse: Moniepoint (moniepoint)
+Worker 2: greenhouse: Anaplan (anaplan)
+Worker 1: greenhouse: Voyagertechnologiesinc (voyagertechnologiesinc)
+Worker 3: success: 142 jobs
+Progress: 65/73 complete, success 65, failed 0, empty 0, skipped 0, jobs fetched 9868
+Worker 2: success: 142 jobs
+Progress: 66/73 complete, success 66, failed 0, empty 0, skipped 0, jobs fetched 10010
+Worker 1: success: 177 jobs
+Progress: 67/73 complete, success 67, failed 0, empty 0, skipped 0, jobs fetched 10187
+Worker 3: greenhouse: Celonis (celonis)
+Worker 2: greenhouse: Pubmatic (pubmatic)
+Worker 1: greenhouse: Virtru (virtru)
+Worker 2: success: 85 jobs
+Progress: 68/73 complete, success 68, failed 0, empty 0, skipped 0, jobs fetched 10272
+Worker 1: success: 9 jobs
+Progress: 69/73 complete, success 69, failed 0, empty 0, skipped 0, jobs fetched 10281
+Worker 3: success: 218 jobs
+Progress: 70/73 complete, success 70, failed 0, empty 0, skipped 0, jobs fetched 10499
+Worker 2: greenhouse: Highnote (highnote)
+Worker 1: greenhouse: Echodynecorp (echodynecorp)
+Worker 2: success: 5 jobs
+Progress: 71/73 complete, success 71, failed 0, empty 0, skipped 0, jobs fetched 10504
+Worker 1: success: 54 jobs
+Progress: 72/73 complete, success 72, failed 0, empty 0, skipped 0, jobs fetched 10558
+Worker 3: greenhouse: Gruns (gruns)
+Worker 3: success: 27 jobs
+Progress: 73/73 complete, success 73, failed 0, empty 0, skipped 0, jobs fetched 10585
+
+Maintenance icims: 10 boards
+Worker 1: icims: Integralfed (integralfed)
+Worker 1: success: 62 jobs
+Progress: 1/10 complete, success 1, failed 0, empty 0, skipped 0, jobs fetched 62
+Worker 1: icims: Careers Dminc (careers-dminc)
+Worker 1: success: 73 jobs
+Progress: 2/10 complete, success 2, failed 0, empty 0, skipped 0, jobs fetched 135
+Worker 1: icims: Careers Eastwestbank (careers-eastwestbank)
+Worker 1: success: 225 jobs
+Progress: 3/10 complete, success 3, failed 0, empty 0, skipped 0, jobs fetched 360
+Worker 1: icims: Careers Fedwriters (careers-fedwriters)
+Worker 1: success: 65 jobs
+Progress: 4/10 complete, success 4, failed 0, empty 0, skipped 0, jobs fetched 425
+Worker 1: icims: Careers Plansys (careers-plansys)
+Worker 1: success: 130 jobs
+Progress: 5/10 complete, success 5, failed 0, empty 0, skipped 0, jobs fetched 555
+Worker 1: icims: Careers Prosphere (careers-prosphere)
+Worker 1: success: 130 jobs
+Progress: 6/10 complete, success 6, failed 0, empty 0, skipped 0, jobs fetched 685
+Worker 1: icims: Careers Scires (careers-scires)
+Worker 1: success: 251 jobs
+Progress: 7/10 complete, success 7, failed 0, empty 0, skipped 0, jobs fetched 936
+Worker 1: icims: Careers Sev1tech (careers-sev1tech)
+Worker 1: success: 36 jobs
+Progress: 8/10 complete, success 8, failed 0, empty 0, skipped 0, jobs fetched 972
+Worker 1: icims: Bluehawk (bluehawk)
+Worker 1: success: 47 jobs
+Progress: 9/10 complete, success 9, failed 0, empty 0, skipped 0, jobs fetched 1019
+Worker 1: icims: Careers Airmethods (careers-airmethods)
+Worker 1: success: 309 jobs
+Progress: 10/10 complete, success 10, failed 0, empty 0, skipped 0, jobs fetched 1328
+
+Maintenance lever: 73 boards
+Worker 1: lever: Resilinc (resilinc)
+Worker 2: lever: Telesat (telesat)
+Worker 3: lever: Wealthfront (wealthfront)
+Worker 1: success: 11 jobs
+Progress: 1/73 complete, success 1, failed 0, empty 0, skipped 0, jobs fetched 11
+Worker 2: success: 53 jobs
+Progress: 2/73 complete, success 2, failed 0, empty 0, skipped 0, jobs fetched 64
+Worker 1: lever: Hevodata (hevodata)
+Worker 2: lever: Agile Defense (agile-defense)
+Worker 1: success: 53 jobs
+Progress: 3/73 complete, success 3, failed 0, empty 0, skipped 0, jobs fetched 117
+Worker 2: success: 166 jobs
+Progress: 4/73 complete, success 4, failed 0, empty 0, skipped 0, jobs fetched 283
+Worker 1: lever: Mainspringenergy (mainspringenergy)
+Worker 1: success: 87 jobs
+Progress: 5/73 complete, success 5, failed 0, empty 0, skipped 0, jobs fetched 370
+Worker 2: lever: Shieldai (shieldai)
+Worker 1: lever: Cred (cred)
+Worker 1: success: 8 jobs
+Progress: 6/73 complete, success 6, failed 0, empty 0, skipped 0, jobs fetched 378
+Worker 1: lever: Crosscountry Consulting (crosscountry-consulting)
+Worker 1: success: 95 jobs
+Progress: 7/73 complete, success 7, failed 0, empty 0, skipped 0, jobs fetched 473
+Worker 1: lever: Launchsquad (launchsquad)
+Worker 1: success: 6 jobs
+Progress: 8/73 complete, success 8, failed 0, empty 0, skipped 0, jobs fetched 479
+Worker 1: lever: Scottlogic (scottlogic)
+Worker 1: success: 43 jobs
+Progress: 9/73 complete, success 9, failed 0, empty 0, skipped 0, jobs fetched 522
+Worker 1: lever: Brafton (brafton)
+Worker 1: success: 18 jobs
+Progress: 10/73 complete, success 10, failed 0, empty 0, skipped 0, jobs fetched 540
+Worker 1: lever: Cimgroup (cimgroup)
+Worker 1: success: 46 jobs
+Progress: 11/73 complete, success 11, failed 0, empty 0, skipped 0, jobs fetched 586
+Worker 1: lever: Educative (educative)
+Worker 1: success: 12 jobs
+Progress: 12/73 complete, success 12, failed 0, empty 0, skipped 0, jobs fetched 598
+Worker 1: lever: Getwingapp (getwingapp)
+Worker 2: success: 668 jobs
+Progress: 13/73 complete, success 13, failed 0, empty 0, skipped 0, jobs fetched 1266
+Worker 3: success: 22 jobs
+Progress: 14/73 complete, success 14, failed 0, empty 0, skipped 0, jobs fetched 1288
+Worker 1: success: 374 jobs
+Progress: 15/73 complete, success 15, failed 0, empty 0, skipped 0, jobs fetched 1662
+Worker 2: lever: Jetsupport (jetsupport)
+Worker 3: lever: Kwanso (kwanso)
+Worker 2: success: 17 jobs
+Progress: 16/73 complete, success 16, failed 0, empty 0, skipped 0, jobs fetched 1679
+Worker 3: success: 11 jobs
+Progress: 17/73 complete, success 17, failed 0, empty 0, skipped 0, jobs fetched 1690
+Worker 1: lever: Latitudeinc (latitudeinc)
+Worker 2: lever: Omnidesigntech (omnidesigntech)
+Worker 3: lever: Fwgsolutions (fwgsolutions)
+Worker 1: success: 314 jobs
+Progress: 18/73 complete, success 18, failed 0, empty 0, skipped 0, jobs fetched 2004
+Worker 3: success: 32 jobs
+Progress: 19/73 complete, success 19, failed 0, empty 0, skipped 0, jobs fetched 2036
+Worker 1: lever: Wattpad (wattpad)
+Worker 1: success: 16 jobs
+Progress: 20/73 complete, success 20, failed 0, empty 0, skipped 0, jobs fetched 2052
+Worker 3: lever: Hive (hive)
+Worker 3: success: 74 jobs
+Progress: 21/73 complete, success 21, failed 0, empty 0, skipped 0, jobs fetched 2126
+Worker 1: lever: Merklescience (merklescience)
+Worker 3: lever: Ajax (ajax)
+Worker 2: success: 56 jobs
+Progress: 22/73 complete, success 22, failed 0, empty 0, skipped 0, jobs fetched 2182
+Worker 2: lever: Bhvr (bhvr)
+Worker 2: success: 26 jobs
+Progress: 23/73 complete, success 23, failed 0, empty 0, skipped 0, jobs fetched 2208
+Worker 1: success: 21 jobs
+Progress: 24/73 complete, success 24, failed 0, empty 0, skipped 0, jobs fetched 2229
+Worker 3: success: 191 jobs
+Progress: 25/73 complete, success 25, failed 0, empty 0, skipped 0, jobs fetched 2420
+Worker 2: lever: Penumbrainc (penumbrainc)
+Worker 1: lever: Mactores (mactores)
+Worker 3: lever: Significanceinc (significanceinc)
+Worker 1: success: 30 jobs
+Progress: 26/73 complete, success 26, failed 0, empty 0, skipped 0, jobs fetched 2450
+Worker 2: success: 77 jobs
+Progress: 27/73 complete, success 27, failed 0, empty 0, skipped 0, jobs fetched 2527
+Worker 3: success: 29 jobs
+Progress: 28/73 complete, success 28, failed 0, empty 0, skipped 0, jobs fetched 2556
+Worker 1: lever: Veeva (veeva)
+Worker 2: lever: Palantir (palantir)
+Worker 3: lever: Arsiem (arsiem)
+Worker 2: success: 309 jobs
+Progress: 29/73 complete, success 29, failed 0, empty 0, skipped 0, jobs fetched 2865
+Worker 2: lever: Pingwind (pingwind)
+Worker 2: success: 99 jobs
+Progress: 30/73 complete, success 30, failed 0, empty 0, skipped 0, jobs fetched 2964
+Worker 2: lever: Crestoperations (crestoperations)
+Worker 2: success: 119 jobs
+Progress: 31/73 complete, success 31, failed 0, empty 0, skipped 0, jobs fetched 3083
+Worker 2: lever: Dexcarehealth (dexcarehealth)
+Worker 2: success: 5 jobs
+Progress: 32/73 complete, success 32, failed 0, empty 0, skipped 0, jobs fetched 3088
+Worker 2: lever: Fullscript (fullscript)
+Worker 3: success: 63 jobs
+Progress: 33/73 complete, success 33, failed 0, empty 0, skipped 0, jobs fetched 3151
+Worker 3: lever: Jobgether (jobgether)
+Worker 2: success: 17 jobs
+Progress: 34/73 complete, success 34, failed 0, empty 0, skipped 0, jobs fetched 3168
+Worker 2: lever: Cgsfederal (cgsfederal)
+Worker 1: success: 918 jobs
+Progress: 35/73 complete, success 35, failed 0, empty 0, skipped 0, jobs fetched 4086
+Worker 1: lever: Dodmg (dodmg)
+Worker 1: success: 26 jobs
+Progress: 36/73 complete, success 36, failed 0, empty 0, skipped 0, jobs fetched 4112
+Worker 1: lever: Motifsystems (motifsystems)
+Worker 1: success: 4 jobs
+Progress: 37/73 complete, success 37, failed 0, empty 0, skipped 0, jobs fetched 4116
+Worker 1: lever: Pigment (pigment)
+Worker 1: success: 135 jobs
+Progress: 38/73 complete, success 38, failed 0, empty 0, skipped 0, jobs fetched 4251
+Worker 1: lever: Zilliz (zilliz)
+Worker 1: success: 11 jobs
+Progress: 39/73 complete, success 39, failed 0, empty 0, skipped 0, jobs fetched 4262
+Worker 1: lever: Bluecatnetworks (bluecatnetworks)
+Worker 1: success: 25 jobs
+Progress: 40/73 complete, success 40, failed 0, empty 0, skipped 0, jobs fetched 4287
+Worker 1: lever: Bis (bis)
+Worker 1: success: 5 jobs
+Progress: 41/73 complete, success 41, failed 0, empty 0, skipped 0, jobs fetched 4292
+Worker 1: lever: Payjoy (payjoy)
+Worker 1: success: 89 jobs
+Progress: 42/73 complete, success 42, failed 0, empty 0, skipped 0, jobs fetched 4381
+Worker 3: success: 4147 jobs
+Progress: 43/73 complete, success 43, failed 0, empty 0, skipped 0, jobs fetched 8528
+Worker 1: lever: Buckmason (buckmason)
+Worker 2: success: 1429 jobs
+Progress: 44/73 complete, success 44, failed 0, empty 0, skipped 0, jobs fetched 9957
+Worker 3: lever: Lyrahealth (lyrahealth)
+Worker 1: success: 250 jobs
+Progress: 45/73 complete, success 45, failed 0, empty 0, skipped 0, jobs fetched 10207
+Worker 2: lever: Crypto (crypto)
+Worker 1: lever: Visby (visby)
+Worker 2: success: 90 jobs
+Progress: 46/73 complete, success 46, failed 0, empty 0, skipped 0, jobs fetched 10297
+Worker 1: success: 2 jobs
+Progress: 47/73 complete, success 47, failed 0, empty 0, skipped 0, jobs fetched 10299
+Worker 2: lever: Avalerehealth (avalerehealth)
+Worker 1: lever: Bioagilytix (bioagilytix)
+Worker 1: success: 11 jobs
+Progress: 48/73 complete, success 48, failed 0, empty 0, skipped 0, jobs fetched 10310
+Worker 2: success: 49 jobs
+Progress: 49/73 complete, success 49, failed 0, empty 0, skipped 0, jobs fetched 10359
+Worker 1: lever: Knix (knix)
+Worker 1: success: 47 jobs
+Progress: 50/73 complete, success 50, failed 0, empty 0, skipped 0, jobs fetched 10406
+Worker 2: lever: Kolibrigames (kolibrigames)
+Worker 1: lever: Lovepop (lovepop)
+Worker 3: success: 473 jobs
+Progress: 51/73 complete, success 51, failed 0, empty 0, skipped 0, jobs fetched 10879
+Worker 1: success: 10 jobs
+Progress: 52/73 complete, success 52, failed 0, empty 0, skipped 0, jobs fetched 10889
+Worker 3: lever: Lunaphysicaltherapy (lunaphysicaltherapy)
+Worker 1: lever: Ppmontana (ppmontana)
+Worker 3: success: 94 jobs
+Progress: 53/73 complete, success 53, failed 0, empty 0, skipped 0, jobs fetched 10983
+Worker 1: success: 4 jobs
+Progress: 54/73 complete, success 54, failed 0, empty 0, skipped 0, jobs fetched 10987
+Worker 3: lever: Stradaeducation (stradaeducation)
+Worker 1: lever: Fullyvested (fullyvested)
+Worker 3: success: 2 jobs
+Progress: 55/73 complete, success 55, failed 0, empty 0, skipped 0, jobs fetched 10989
+Worker 1: success: 3 jobs
+Progress: 56/73 complete, success 56, failed 0, empty 0, skipped 0, jobs fetched 10992
+Worker 3: lever: Mothernewyork (mothernewyork)
+Worker 1: lever: Stardog (stardog)
+Worker 3: success: 1 jobs
+Progress: 57/73 complete, success 57, failed 0, empty 0, skipped 0, jobs fetched 10993
+Worker 1: success: 1 jobs
+Progress: 58/73 complete, success 58, failed 0, empty 0, skipped 0, jobs fetched 10994
+Worker 3: lever: Crowdriff (crowdriff)
+Worker 1: lever: Skyslope (skyslope)
+Worker 3: success: 2 jobs
+Progress: 59/73 complete, success 59, failed 0, empty 0, skipped 0, jobs fetched 10996
+Worker 3: lever: Disqo (disqo)
+Worker 3: success: 5 jobs
+Progress: 60/73 complete, success 60, failed 0, empty 0, skipped 0, jobs fetched 11001
+Worker 1: success: 1 jobs
+Progress: 61/73 complete, success 61, failed 0, empty 0, skipped 0, jobs fetched 11002
+Worker 3: lever: Distru (distru)
+Worker 1: lever: Fiscalnote (fiscalnote)
+Worker 3: success: 4 jobs
+Progress: 62/73 complete, success 62, failed 0, empty 0, skipped 0, jobs fetched 11006
+Worker 1: success: 7 jobs
+Progress: 63/73 complete, success 63, failed 0, empty 0, skipped 0, jobs fetched 11013
+Worker 3: lever: Fitzmark (fitzmark)
+Worker 1: lever: Foth (foth)
+Worker 3: success: 23 jobs
+Progress: 64/73 complete, success 64, failed 0, empty 0, skipped 0, jobs fetched 11036
+Worker 3: lever: Freedompay (freedompay)
+Worker 3: success: 27 jobs
+Progress: 65/73 complete, success 65, failed 0, empty 0, skipped 0, jobs fetched 11063
+Worker 3: lever: Gate (gate)
+Worker 3: success: 24 jobs
+Progress: 66/73 complete, success 66, failed 0, empty 0, skipped 0, jobs fetched 11087
+Worker 3: lever: Incompasshealth (incompasshealth)
+Worker 1: success: 73 jobs
+Progress: 67/73 complete, success 67, failed 0, empty 0, skipped 0, jobs fetched 11160
+Worker 3: success: 33 jobs
+Progress: 68/73 complete, success 68, failed 0, empty 0, skipped 0, jobs fetched 11193
+Worker 1: lever: Kasada (kasada)
+Worker 3: lever: Kippsocal (kippsocal)
+Worker 1: empty: 0 jobs
+Progress: 69/73 complete, success 68, failed 0, empty 1, skipped 0, jobs fetched 11193
+Worker 3: success: 30 jobs
+Progress: 70/73 complete, success 69, failed 0, empty 1, skipped 0, jobs fetched 11223
+Worker 1: lever: Kitware (kitware)
+Worker 3: lever: Last Energy (last-energy)
+Worker 1: success: 19 jobs
+Progress: 71/73 complete, success 70, failed 0, empty 1, skipped 0, jobs fetched 11242
+Worker 3: success: 24 jobs
+Progress: 72/73 complete, success 71, failed 0, empty 1, skipped 0, jobs fetched 11266
+Worker 2: success: 5 jobs
+Progress: 73/73 complete, success 72, failed 0, empty 1, skipped 0, jobs fetched 11271
+
+Maintenance workday: 20 boards
+Worker 1: workday: Itw (itw|wd5|external)
+Worker 1: success: 790 jobs
+Progress: 1/20 complete, success 1, failed 0, empty 0, skipped 0, jobs fetched 790
+Worker 1: workday: Cai (cai|wd5|computer_aid)
+Worker 1: success: 178 jobs
+Progress: 2/20 complete, success 2, failed 0, empty 0, skipped 0, jobs fetched 968
+Worker 1: workday: Astrazeneca (astrazeneca|wd3|broadbean_external)
+Worker 1: success: 211 jobs
+Progress: 3/20 complete, success 3, failed 0, empty 0, skipped 0, jobs fetched 1179
+Worker 1: workday: Rhe (rhe|wd3|r1111)
+Worker 1: success: 963 jobs
+Progress: 4/20 complete, success 4, failed 0, empty 0, skipped 0, jobs fetched 2142
+Worker 1: workday: Dowjones (dowjones|wd1|dow_jones_career)
+Worker 1: success: 251 jobs
+Progress: 5/20 complete, success 5, failed 0, empty 0, skipped 0, jobs fetched 2393
+Worker 1: workday: Talentmanagementsolution (talentmanagementsolution|wd3|perseus-careers1)
+Worker 1: success: 32 jobs
+Progress: 6/20 complete, success 6, failed 0, empty 0, skipped 0, jobs fetched 2425
+Worker 1: workday: Mywdhr (mywdhr|wd1|saks_offfifth_careers)
+Worker 1: success: 518 jobs
+Progress: 7/20 complete, success 7, failed 0, empty 0, skipped 0, jobs fetched 2943
+Worker 1: workday: Broadcom (broadcom|wd1|external_career)
+Worker 1: success: 367 jobs
+Progress: 8/20 complete, success 8, failed 0, empty 0, skipped 0, jobs fetched 3310
+Worker 1: workday: Roche (roche|wd3|roche-ext)
+Worker 1: success: 1265 jobs
+Progress: 9/20 complete, success 9, failed 0, empty 0, skipped 0, jobs fetched 4575
+Worker 1: workday: Earlywarning (earlywarning|wd5|earlywarningcareers)
+Worker 1: success: 40 jobs
+Progress: 10/20 complete, success 10, failed 0, empty 0, skipped 0, jobs fetched 4615
+Worker 1: workday: Iheartmedia (iheartmedia|wd5|external_ihm)
+Worker 1: success: 40 jobs
+Progress: 11/20 complete, success 11, failed 0, empty 0, skipped 0, jobs fetched 4655
+Worker 1: workday: Dairynet (dairynet|wd1|dpccareers)
+Worker 1: success: 24 jobs
+Progress: 12/20 complete, success 12, failed 0, empty 0, skipped 0, jobs fetched 4679
+Worker 1: workday: Elringklinger (elringklinger|wd3|external)
+Worker 1: success: 40 jobs
+Progress: 13/20 complete, success 13, failed 0, empty 0, skipped 0, jobs fetched 4719
+Worker 1: workday: Publicmedia (publicmedia|wd1|private)
+Worker 1: success: 3 jobs
+Progress: 14/20 complete, success 14, failed 0, empty 0, skipped 0, jobs fetched 4722
+Worker 1: workday: Acronis (acronis|wd502|acronis_careers)
+Worker 1: success: 35 jobs
+Progress: 15/20 complete, success 15, failed 0, empty 0, skipped 0, jobs fetched 4757
+Worker 1: workday: Rakuten (rakuten|wd1|rakutensymphonyjapan)
+Worker 1: success: 23 jobs
+Progress: 16/20 complete, success 16, failed 0, empty 0, skipped 0, jobs fetched 4780
+Worker 1: workday: Pensacolachristian (pensacolachristian|wd1|abs)
+Worker 1: success: 23 jobs
+Progress: 17/20 complete, success 17, failed 0, empty 0, skipped 0, jobs fetched 4803
+Worker 1: workday: Tamus (tamus|wd1|tamus_external)
+Worker 1: success: 25 jobs
+Progress: 18/20 complete, success 18, failed 0, empty 0, skipped 0, jobs fetched 4828
+Worker 1: workday: Ddcdine (ddcdine|wd501|ddc_careers)
+Worker 1: success: 90 jobs
+Progress: 19/20 complete, success 19, failed 0, empty 0, skipped 0, jobs fetched 4918
+Worker 1: workday: Ghc (ghc|wd1|kaplan_careers)
+Worker 1: success: 33 jobs
+Progress: 20/20 complete, success 20, failed 0, empty 0, skipped 0, jobs fetched 4951
+Maintenance complete: 300 boards attempted; 35563 jobs fetched.
+Batch index complete.
+Batches indexed: 1212
+OK batches: 1208
+Review batches: 4
+Current board state: 29551 boards from 610825 compact fetch events.
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/index
+Board freshness report: 50170/50170 attempted; 40028 checked in 7 days; 12787 due.
+ATS anomaly alert: WARN; 2 alert(s).
+
+> public-job-feed@0.1.0 jobs:public-release
+> node src/scripts/build-public-release.js --profile daily
+
+
+> public-job-feed@0.1.0 jobs:check-local-files
+> node src/scripts/check-local-file-availability.js
+
+Local file availability check passed.
+No dataless/offloaded files found in required build inputs.
+
+> public-job-feed@0.1.0 jobs:index-batches
+> node src/scripts/index-batches.js
+
+Batch index complete.
+Batches indexed: 1212
+OK batches: 1208
+Review batches: 4
+Current board state: 29551 boards from 610825 compact fetch events.
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/index
+Using derived board state: 29551 current board records.
+Freshness prefilter: reading 826/1208 batches that can contribute current rows.
+Approved curated submissions included: 2
+Batch merge complete.
+ATS: all
+Batches merged: 1208
+Boards with latest success/empty fetch: 29551
+Superseded older board rows removed: 8962767
+Rows merged: 836867
+Possible duplicates: 320903
+Duplicate groups: 163324
+ATS included: direct-employer|ashby|greenhouse|lever|workday|bamboohr|icims
+Public latest folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/public
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/merged/public-feed-release
+Reading latest public feed: /Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json
+Export profile: daily
+Rows loaded: 836867
+Skipping full slice row outputs in daily profile.
+Skipping demoted-high-score row output in daily profile: 4 rows
+Writing top: 998 rows
+Writing deduped-top: 831 rows
+Writing latest copy deduped-top: 831 rows
+Public slice export complete.
+Input rows: 836867
+firehose: 836867
+writer-focus: 51870
+strong-matches: 998
+remote-us-likely: 28128
+remote-writer-focus: 2565
+salary-detected: 84431
+review-needed: 585531
+top: 998
+demoted-high-score: 4
+deduped-top: 831 (167 removed)
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/public/slices
+ATS health report complete.
+ATS represented: 6
+Batches indexed: 1208
+Boards attempted: 425334
+Public feed rows: 836865
+Scale recommendations:
+- ashby: SCALE_NOW
+- greenhouse: SCALE_NOW
+- lever: SCALE_NOW
+- workday: KEEP_BEST_EFFORT
+- bamboohr: KEEP_BEST_EFFORT
+- icims: KEEP_BEST_EFFORT
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports
+Crawl coverage report complete.
+Catalog accounted for: 100%
+Remaining supported crawl rows: 0
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports
+
+Public release complete.
+Profile: daily
+Release archive skipped. Latest files were updated in:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/public
+Use --archive-release true only when you intentionally need a full timestamped public snapshot.
+Total rows: 836867
+Writer focus: 51870
+Strong matches / top: 998
+Remote US likely: 28128
+Remote writer focus: 2565
+Salary detected: 84431
+Review needed: 585531
+Demoted high-score: 4
+Deduped firehose: 0
+Deduped writer focus: 0
+Deduped strong/top: 831
+Deduped remote writer focus: 0
+Files created: 1
+- /Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-summary.md
+
+> public-job-feed@0.1.0 jobs:export-job-finder
+> node src/scripts/export-job-finder-consumer.js
+
+Reading public feed: /Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json
+Using personal title policy: /Users/adampugh/GitHub/job-finder/job-titles.md
+Scanned 50000 rows...
+Scanned 100000 rows...
+Scanned 150000 rows...
+Scanned 200000 rows...
+Scanned 250000 rows...
+Scanned 300000 rows...
+Scanned 350000 rows...
+Scanned 400000 rows...
+Scanned 450000 rows...
+Scanned 500000 rows...
+Scanned 550000 rows...
+Scanned 600000 rows...
+Scanned 650000 rows...
+Scanned 700000 rows...
+Scanned 750000 rows...
+Scanned 800000 rows...
+Job Finder consumer slice written: /Users/adampugh/GitHub/public-job-feed/data/jobs/consumers/job-finder/latest.json
+{
+  "scannedRows": 836867,
+  "titleMatches": 566,
+  "excludedWorkArrangement": 440,
+  "eligibleBeforeDedupe": 126,
+  "jobs": 80,
+  "duplicatesRemoved": 46
+}
+
+> public-job-feed@0.1.0 jobs:gsheet-package
+> node src/scripts/build-gsheet-package.js --profile daily
+
+
+> public-job-feed@0.1.0 jobs:crawl-coverage
+> node src/scripts/report-crawl-coverage.js
+
+Crawl coverage report complete.
+Catalog accounted for: 100%
+Remaining supported crawl rows: 0
+Output folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports
+Google Sheets handoff package complete.
+Profile: daily
+Package folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+Latest folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+Legacy latest-clean/top-matches-only packages skipped. Use --legacy-packages true to rebuild them.
+Latest full firehose included: true
+Latest full firehose mode: link
+Files copied/created: 15
+Missing optional files: 0
+Total package size bytes: 10443443
+
+Cleaning broken links in the newest Google Sheets package...
+
+========================================
+Clean Broken Links
+========================================
+
+Newest timestamped package:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+
+Latest package:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+
+This launcher checks and safely prunes deterministic broken links in the timestamped package.
+Timeouts and fetch errors are kept for review.
+The latest package is then synced from that same cleaned snapshot.
+
+
+----------------------------------------
+Timestamped package
+----------------------------------------
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+
+
+> public-job-feed@0.1.0 jobs:test-gsheet-package
+> node src/scripts/test-gsheet-package.js --package-dir /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+
+Google Sheets package validation: WARN
+Package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+Good Documentation Jobs rows: 744
+Previous rows: 714
+Row change: 30
+Company Coverage rows: 40857
+Failures: 0
+Warnings: 2
+
+> public-job-feed@0.1.0 jobs:gsheet-check-urls
+> node src/scripts/check-gsheet-url-health.js --package-dir /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954 --apply-safe
+
+Checked 1/744Checked 2/744Checked 3/744Checked 4/744Checked 5/744Checked 6/744Checked 7/744Checked 8/744Checked 9/744Checked 10/744Checked 11/744Checked 12/744Checked 13/744Checked 14/744Checked 15/744Checked 16/744Checked 17/744Checked 18/744Checked 19/744Checked 20/744Checked 21/744Checked 22/744Checked 23/744Checked 24/744Checked 25/744Checked 26/744Checked 27/744Checked 28/744Checked 29/744Checked 30/744Checked 31/744Checked 32/744Checked 33/744Checked 34/744Checked 35/744Checked 36/744Checked 37/744Checked 38/744Checked 39/744Checked 40/744Checked 41/744Checked 42/744Checked 43/744Checked 44/744Checked 45/744Checked 46/744Checked 47/744Checked 48/744Checked 49/744Checked 50/744Checked 51/744Checked 52/744Checked 53/744Checked 54/744Checked 55/744Checked 56/744Checked 57/744Checked 58/744Checked 59/744Checked 60/744Checked 61/744Checked 62/744Checked 63/744Checked 64/744Checked 65/744Checked 66/744Checked 67/744Checked 68/744Checked 69/744Checked 70/744Checked 71/744Checked 72/744Checked 73/744Checked 74/744Checked 75/744Checked 76/744Checked 77/744Checked 78/744Checked 79/744Checked 80/744Checked 81/744Checked 82/744Checked 83/744Checked 84/744Checked 85/744Checked 86/744Checked 87/744Checked 88/744Checked 89/744Checked 90/744Checked 91/744Checked 92/744Checked 93/744Checked 94/744Checked 95/744Checked 96/744Checked 97/744Checked 98/744Checked 99/744Checked 100/744Checked 101/744Checked 102/744Checked 103/744Checked 104/744Checked 105/744Checked 106/744Checked 107/744Checked 108/744Checked 109/744Checked 110/744Checked 111/744Checked 112/744Checked 113/744Checked 114/744Checked 115/744Checked 116/744Checked 117/744Checked 118/744Checked 119/744Checked 120/744Checked 121/744Checked 122/744Checked 123/744Checked 124/744Checked 125/744Checked 126/744Checked 127/744Checked 128/744Checked 129/744Checked 130/744Checked 131/744Checked 132/744Checked 133/744Checked 134/744Checked 135/744Checked 136/744Checked 137/744Checked 138/744Checked 139/744Checked 140/744Checked 141/744Checked 142/744Checked 143/744Checked 144/744Checked 145/744Checked 146/744Checked 147/744Checked 148/744Checked 149/744Checked 150/744Checked 151/744Checked 152/744Checked 153/744Checked 154/744Checked 155/744Checked 156/744Checked 157/744Checked 158/744Checked 159/744Checked 160/744Checked 161/744Checked 162/744Checked 163/744Checked 164/744Checked 165/744Checked 166/744Checked 167/744Checked 168/744Checked 169/744Checked 170/744Checked 171/744Checked 172/744Checked 173/744Checked 174/744Checked 175/744Checked 176/744Checked 177/744Checked 178/744Checked 179/744Checked 180/744Checked 181/744Checked 182/744Checked 183/744Checked 184/744Checked 185/744Checked 186/744Checked 187/744Checked 188/744Checked 189/744Checked 190/744Checked 191/744Checked 192/744Checked 193/744Checked 194/744Checked 195/744Checked 196/744Checked 197/744Checked 198/744Checked 199/744Checked 200/744Checked 201/744Checked 202/744Checked 203/744Checked 204/744Checked 205/744Checked 206/744Checked 207/744Checked 208/744Checked 209/744Checked 210/744Checked 211/744Checked 212/744Checked 213/744Checked 214/744Checked 215/744Checked 216/744Checked 217/744Checked 218/744Checked 219/744Checked 220/744Checked 221/744Checked 222/744Checked 223/744Checked 224/744Checked 225/744Checked 226/744Checked 227/744Checked 228/744Checked 229/744Checked 230/744Checked 231/744Checked 232/744Checked 233/744Checked 234/744Checked 235/744Checked 236/744Checked 237/744Checked 238/744Checked 239/744Checked 240/744Checked 241/744Checked 242/744Checked 243/744Checked 244/744Checked 245/744Checked 246/744Checked 247/744Checked 248/744Checked 249/744Checked 250/744Checked 251/744Checked 252/744Checked 253/744Checked 254/744Checked 255/744Checked 256/744Checked 257/744Checked 258/744Checked 259/744Checked 260/744Checked 261/744Checked 262/744Checked 263/744Checked 264/744Checked 265/744Checked 266/744Checked 267/744Checked 268/744Checked 269/744Checked 270/744Checked 271/744Checked 272/744Checked 273/744Checked 274/744Checked 275/744Checked 276/744Checked 277/744Checked 278/744Checked 279/744Checked 280/744Checked 281/744Checked 282/744Checked 283/744Checked 284/744Checked 285/744Checked 286/744Checked 287/744Checked 288/744Checked 289/744Checked 290/744Checked 291/744Checked 292/744Checked 293/744Checked 294/744Checked 295/744Checked 296/744Checked 297/744Checked 298/744Checked 299/744Checked 300/744Checked 301/744Checked 302/744Checked 303/744Checked 304/744Checked 305/744Checked 306/744Checked 307/744Checked 308/744Checked 309/744Checked 310/744Checked 311/744Checked 312/744Checked 313/744Checked 314/744Checked 315/744Checked 316/744Checked 317/744Checked 318/744Checked 319/744Checked 320/744Checked 321/744Checked 322/744Checked 323/744Checked 324/744Checked 325/744Checked 326/744Checked 327/744Checked 328/744Checked 329/744Checked 330/744Checked 331/744Checked 332/744Checked 333/744Checked 334/744Checked 335/744Checked 336/744Checked 337/744Checked 338/744Checked 339/744Checked 340/744Checked 341/744Checked 342/744Checked 343/744Checked 344/744Checked 345/744Checked 346/744Checked 347/744Checked 348/744Checked 349/744Checked 350/744Checked 351/744Checked 352/744Checked 353/744Checked 354/744Checked 355/744Checked 356/744Checked 357/744Checked 358/744Checked 359/744Checked 360/744Checked 361/744Checked 362/744Checked 363/744Checked 364/744Checked 365/744Checked 366/744Checked 367/744Checked 368/744Checked 369/744Checked 370/744Checked 371/744Checked 372/744Checked 373/744Checked 374/744Checked 375/744Checked 376/744Checked 377/744Checked 378/744Checked 379/744Checked 380/744Checked 381/744Checked 382/744Checked 383/744Checked 384/744Checked 385/744Checked 386/744Checked 387/744Checked 388/744Checked 389/744Checked 390/744Checked 391/744Checked 392/744Checked 393/744Checked 394/744Checked 395/744Checked 396/744Checked 397/744Checked 398/744Checked 399/744Checked 400/744Checked 401/744Checked 402/744Checked 403/744Checked 404/744Checked 405/744Checked 406/744Checked 407/744Checked 408/744Checked 409/744Checked 410/744Checked 411/744Checked 412/744Checked 413/744Checked 414/744Checked 415/744Checked 416/744Checked 417/744Checked 418/744Checked 419/744Checked 420/744Checked 421/744Checked 422/744Checked 423/744Checked 424/744Checked 425/744Checked 426/744Checked 427/744Checked 428/744Checked 429/744Checked 430/744Checked 431/744Checked 432/744Checked 433/744Checked 434/744Checked 435/744Checked 436/744Checked 437/744Checked 438/744Checked 439/744Checked 440/744Checked 441/744Checked 442/744Checked 443/744Checked 444/744Checked 445/744Checked 446/744Checked 447/744Checked 448/744Checked 449/744Checked 450/744Checked 451/744Checked 452/744Checked 453/744Checked 454/744Checked 455/744Checked 456/744Checked 457/744Checked 458/744Checked 459/744Checked 460/744Checked 461/744Checked 462/744Checked 463/744Checked 464/744Checked 465/744Checked 466/744Checked 467/744Checked 468/744Checked 469/744Checked 470/744Checked 471/744Checked 472/744Checked 473/744Checked 474/744Checked 475/744Checked 476/744Checked 477/744Checked 478/744Checked 479/744Checked 480/744Checked 481/744Checked 482/744Checked 483/744Checked 484/744Checked 485/744Checked 486/744Checked 487/744Checked 488/744Checked 489/744Checked 490/744Checked 491/744Checked 492/744Checked 493/744Checked 494/744Checked 495/744Checked 496/744Checked 497/744Checked 498/744Checked 499/744Checked 500/744Checked 501/744Checked 502/744Checked 503/744Checked 504/744Checked 505/744Checked 506/744Checked 507/744Checked 508/744Checked 509/744Checked 510/744Checked 511/744Checked 512/744Checked 513/744Checked 514/744Checked 515/744Checked 516/744Checked 517/744Checked 518/744Checked 519/744Checked 520/744Checked 521/744Checked 522/744Checked 523/744Checked 524/744Checked 525/744Checked 526/744Checked 527/744Checked 528/744Checked 529/744Checked 530/744Checked 531/744Checked 532/744Checked 533/744Checked 534/744Checked 535/744Checked 536/744Checked 537/744Checked 538/744Checked 539/744Checked 540/744Checked 541/744Checked 542/744Checked 543/744Checked 544/744Checked 545/744Checked 546/744Checked 547/744Checked 548/744Checked 549/744Checked 550/744Checked 551/744Checked 552/744Checked 553/744Checked 554/744Checked 555/744Checked 556/744Checked 557/744Checked 558/744Checked 559/744Checked 560/744Checked 561/744Checked 562/744Checked 563/744Checked 564/744Checked 565/744Checked 566/744Checked 567/744Checked 568/744Checked 569/744Checked 570/744Checked 571/744Checked 572/744Checked 573/744Checked 574/744Checked 575/744Checked 576/744Checked 577/744Checked 578/744Checked 579/744Checked 580/744Checked 581/744Checked 582/744Checked 583/744Checked 584/744Checked 585/744Checked 586/744Checked 587/744Checked 588/744Checked 589/744Checked 590/744Checked 591/744Checked 592/744Checked 593/744Checked 594/744Checked 595/744Checked 596/744Checked 597/744Checked 598/744Checked 599/744Checked 600/744Checked 601/744Checked 602/744Checked 603/744Checked 604/744Checked 605/744Checked 606/744Checked 607/744Checked 608/744Checked 609/744Checked 610/744Checked 611/744Checked 612/744Checked 613/744Checked 614/744Checked 615/744Checked 616/744Checked 617/744Checked 618/744Checked 619/744Checked 620/744Checked 621/744Checked 622/744Checked 623/744Checked 624/744Checked 625/744Checked 626/744Checked 627/744Checked 628/744Checked 629/744Checked 630/744Checked 631/744Checked 632/744Checked 633/744Checked 634/744Checked 635/744Checked 636/744Checked 637/744Checked 638/744Checked 639/744Checked 640/744Checked 641/744Checked 642/744Checked 643/744Checked 644/744Checked 645/744Checked 646/744Checked 647/744Checked 648/744Checked 649/744Checked 650/744Checked 651/744Checked 652/744Checked 653/744Checked 654/744Checked 655/744Checked 656/744Checked 657/744Checked 658/744Checked 659/744Checked 660/744Checked 661/744Checked 662/744Checked 663/744Checked 664/744Checked 665/744Checked 666/744Checked 667/744Checked 668/744Checked 669/744Checked 670/744Checked 671/744Checked 672/744Checked 673/744Checked 674/744Checked 675/744Checked 676/744Checked 677/744Checked 678/744Checked 679/744Checked 680/744Checked 681/744Checked 682/744Checked 683/744Checked 684/744Checked 685/744Checked 686/744Checked 687/744Checked 688/744Checked 689/744Checked 690/744Checked 691/744Checked 692/744Checked 693/744Checked 694/744Checked 695/744Checked 696/744Checked 697/744Checked 698/744Checked 699/744Checked 700/744Checked 701/744Checked 702/744Checked 703/744Checked 704/744Checked 705/744Checked 706/744Checked 707/744Checked 708/744Checked 709/744Checked 710/744Checked 711/744Checked 712/744Checked 713/744Checked 714/744Checked 715/744Checked 716/744Checked 717/744Checked 718/744Checked 719/744Checked 720/744Checked 721/744Checked 722/744Checked 723/744Checked 724/744Checked 725/744Checked 726/744Checked 727/744Checked 728/744Checked 729/744Checked 730/744Checked 731/744Checked 732/744Checked 733/744Checked 734/744Checked 735/744Checked 736/744Checked 737/744Checked 738/744Checked 739/744Checked 740/744Checked 741/744Checked 742/744Checked 743/744Checked 744/744
+Google Sheets URL check complete.
+Input: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs.csv
+Rows checked: 744
+Good rows: 703
+Bad rows: 41
+Failures CSV: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs-url-failures.csv
+Review CSV: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs-url-review.csv
+Pruned rows: 29
+Kept ambiguous failed rows: 12
+Backup CSV: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs-before-url-prune.csv
+Updated 00_start_here.csv count: yes
+
+> public-job-feed@0.1.0 jobs:test-gsheet-package
+> node src/scripts/test-gsheet-package.js --package-dir /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+
+Google Sheets package validation: WARN
+Package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+Good Documentation Jobs rows: 715
+Previous rows: 714
+Row change: 1
+Company Coverage rows: 40857
+Failures: 0
+Warnings: 2
+
+Regenerating trend reports from timestamped packages...
+
+
+> public-job-feed@0.1.0 jobs:trends
+> node src/scripts/report-job-trends.js
+
+Job trend report complete.
+Current snapshot: 20261024-0954
+Previous snapshot: 20261024-0739
+Snapshots counted: 158
+Current jobs: 715
+Trend range mode: weekly
+Trend range label: This Week
+Trend range: 20261018-2107 to 20261024-0954
+Trend snapshots included: 8
+Range first-seen jobs: 161
+Range dropped jobs: 117
+Range net change: -22
+New jobs: 4
+Removed jobs: 3
+Continuing jobs: 711
+Trend folder: /Users/adampugh/GitHub/public-job-feed/data/jobs/trends/20261024-0954
+Latest trend folder: /Users/adampugh/GitHub/public-job-feed/data/jobs/trends/latest
+
+----------------------------------------
+Syncing latest package
+----------------------------------------
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+
+
+> public-job-feed@0.1.0 jobs:test-gsheet-package
+> node src/scripts/test-gsheet-package.js --package-dir /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+
+Google Sheets package validation: WARN
+Package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+Good Documentation Jobs rows: 715
+Previous rows: 714
+Row change: 1
+Company Coverage rows: 40857
+Failures: 0
+Warnings: 2
+
+> public-job-feed@0.1.0 jobs:unknown-categories
+> node src/scripts/report-unknown-title-categories.js
+
+Unknown title-category analysis: 8/715 (1.12%).
+
+Broken-link cleanup complete.
+
+Timestamped package:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954
+
+Latest package:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+
+Timestamped URL failures review:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs-url-failures.csv
+
+Latest trend folder:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/trends/latest
+
+Package validation:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/test-gsheet-package-results.md
+
+Status file:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/clean-broken-links-status.md
+
+
+Done.
+
+> public-job-feed@0.1.0 jobs:review-package-evidence
+> node src/scripts/review-package-evidence.js
+
+Evidence review: 40 retained rows; live checks false.
+
+Running validation tests before opening the Google Sheets package...
+
+
+> public-job-feed@0.1.0 jobs:report-us-remote
+> node src/scripts/report-us-remote-daily.js
+
+Confirmed US-remote daily report complete.
+Current package: 20261024-0954
+Previous package: 20261024-0739
+Current jobs: 31
+Added: 0
+Removed: 0
+Report: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/us-remote-daily-report.md
+
+> public-job-feed@0.1.0 jobs:report-international-remote
+> node src/scripts/report-international-remote-daily.js
+
+Explicit international-remote daily report complete.
+Current package: 20261024-0954
+Previous package: 20261024-0739
+Current jobs: 52
+Added: 0
+Removed: 0
+Report: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/international-remote-daily-report.md
+
+> public-job-feed@0.1.0 jobs:report-all-remote
+> node src/scripts/report-all-remote-daily.js
+
+Daily Jobs Review complete.
+Current package: 20261024-0954
+Full current package rows: 715
+Lines: 385
+Report: /Users/adampugh/GitHub/public-job-feed/data/jobs/reports/all-remote-daily-report.md
+
+> public-job-feed@0.1.0 jobs:test-all
+> node src/scripts/run-test-suite.js
+
+
+> public-job-feed@0.1.0 jobs:test-employment-type
+> node src/scripts/test-employment-type.js
+
+PASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.
+PASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.
+PASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.
+PASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.
+PASS: core compatibility dedupe, conflict population, public label validation.
+PASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.
+PASS: all controlled terms, search-response observation date, and source URL.
+PASS: an explicit schedule alternative remains valid with a compatible structured value.
+
+> public-job-feed@0.1.0 jobs:test-employment-integration
+> node src/scripts/test-employment-integration.js
+
+PASS: 18-case evidence index, checksums, structured extraction, normalization, canonical projection, CSV evidence, old records.
+PASS: all 18 board-level cases, explicit text, alternatives, conflicts, HTML, dates, and negative contexts.
+PASS: employment variants, same-posting conflict evidence, bridge protection, location links, formula parity, stable identity keys.
+PASS: separated hours/terms, title alternatives, occupational language, applicant questions, array metadata.
+PASS: core compatibility dedupe, conflict population, public label validation.
+PASS: original title punctuation, nonbreaking hyphen, evidence consistency, no pay/location inference.
+PASS: all controlled terms, search-response observation date, and source URL.
+PASS: an explicit schedule alternative remains valid with a compatible structured value.
+PASS: actual merge, daily slices, 15 shortlist records, public/formula CSV, new-schema rejection, old package loading, legacy and v2 history, URL-prune and actual launcher-sync metadata/formula synchronization, streaming conflict protection, scoring regression. All writes used temporary paths; collection was disabled.
+
+> public-job-feed@0.1.0 jobs:test-history-backup
+> node src/scripts/test-history-backup.js
+
+PASS missing drive: history passes, no mount folder or backup is created
+PASS wrong drive and same-device placeholder refuse backup
+PASS real v2 backup: full restored audit, exact report, stable no-op reuse
+PASS failure status and active writer preserve the last verified backup
+PASS low space, disconnect, corrupt copy and source change cannot replace a verified backup
+PASS stored checksum corruption and unexpected symlinks fail verification
+PASS local expiry keeps legacy/current backups and records; interrupted retirement resumes; current recovery passes
+PASS external retention preserves 14 latest, monthly and pinned backups; corruption blocks deletion; unknown/partial folders stay
+PASS whole-refresh exclusion and run-bound dashboard status
+Daily history backup tests passed. Only isolated fixtures were changed.
+
+> public-job-feed@0.1.0 jobs:test-history-finalization
+> node src/scripts/test-history-package-finalization.js
+
+PASS: current package finalized before import; complete CSV schema; restored backup has current dashboard; final live status leaves sources unchanged; manual sync/rebuild and competing writes refused; next-day import and backup pass; strict source checks retained.
+
+> public-job-feed@0.1.0 jobs:test-catalog-maintenance
+> node src/scripts/test-catalog-maintenance.js
+
+Catalog maintenance tests passed.
+
+> public-job-feed@0.1.0 jobs:test-batch-history
+> node src/scripts/test-batch-history.js
+
+PASS removed batches, late arrivals, repeated rebuilds, empty input, and diagnostic preservation
+PASS conflicting IDs fail closed; object key order does not create a conflict
+PASS saved truncated-gzip stops publication without changing saved bytes
+PASS saved bad-json stops publication without changing saved bytes
+PASS saved wrong-month stops publication without changing saved bytes
+PASS saved duplicate-id stops publication without changing saved bytes
+PASS saved oversized-saved stops publication without changing saved bytes
+PASS saved invalid-utf8 stops publication without changing saved bytes
+PASS oversized incoming record leaves the original ledger and state intact
+PASS ordinary write failure cleans only its own staged files
+PASS process death at temp-opened, explicit recovery, and idempotent retry
+PASS process death at temp-chunk-written, explicit recovery, and idempotent retry
+PASS process death at staged, explicit recovery, and idempotent retry
+PASS process death at month-published, explicit recovery, and idempotent retry
+PASS process death at before-state-publish, explicit recovery, and idempotent retry
+PASS unknown lock and unknown staging paths require manual review
+PASS symlinked ledger or parent cannot modify an external target
+PASS real index entry point retains old events after fixture batch removal and two rebuilds
+{"status":"passed","groups":18,"scope":"Synthetic temporary folders; no production index, batch, CSV, or database writes"}
+PASS policy, exact state and ledger coverage; deterministic plan
+PASS fixture removal, reindex twice, all saved events retained
+PASS changed candidate bytes refuses deletion
+PASS new unindexed batch refuses deletion
+PASS missing batch refuses deletion
+PASS changed index refuses deletion
+PASS changed board job count refuses deletion
+PASS missing saved events refuses deletion
+PASS damaged ledger refuses deletion
+PASS active monthly writer refuses deletion
+PASS pending monthly recovery refuses deletion
+PASS symlink candidate file refuses deletion
+PASS unsafe indexed folder refuses deletion
+PASS duplicate indexed name refuses deletion
+PASS changed plan decisions, unknown names, unsafe paths, version and expiry
+PASS monthly lock stops index before it changes any output
+PASS saved diagnostics must match raw evidence
+PASS symlink batch folder and unknown owner refuse work
+PASS input change during planning refuses plan
+PASS real index owner blocks planning, retirement and collection; dead owner stays blocked
+PASS retirement lock spans validation and removal; index refuses before writes
+PASS collection and planner hold the same boundary; caught errors release it
+Batch retention safeguards: 22 test groups passed.
+Batch history tests passed.
+
+> public-job-feed@0.1.0 jobs:test-board-freshness
+> node src/scripts/test-board-freshness.js
+
+Board freshness consistency tests passed.
+
+> public-job-feed@0.1.0 jobs:test-ats-errors
+> node src/scripts/test-ats-error-classification.js
+
+ATS error-classification fixture tests passed.
+
+> public-job-feed@0.1.0 jobs:test-failure-investigation
+> node src/scripts/test-failure-investigation.js
+
+Failure investigation: 94 checks passed.
+
+> public-job-feed@0.1.0 jobs:test-board-probe
+> node src/scripts/test-board-probe.js
+
+Board probe: 93 checks passed. No live requests.
+
+> public-job-feed@0.1.0 jobs:test-passive-launcher
+> node src/scripts/test-passive-launcher.js
+
+Passive LaunchAgent smoke test passed.
+
+> public-job-feed@0.1.0 jobs:test-ats-alert
+> node src/scripts/test-ats-anomaly-alert.js
+
+ATS anomaly-alert tests passed.
+
+> public-job-feed@0.1.0 jobs:test-title-category
+> node src/scripts/test-title-category.js
+
+Title-category fixture tests passed.
+
+> public-job-feed@0.1.0 jobs:test-dedupe-select
+> node src/scripts/test-dedupe-select.js
+
+Dedupe selection tests passed.
+
+> public-job-feed@0.1.0 jobs:test-core-pipeline
+> node src/scripts/test-core-pipeline.js
+
+Core pipeline regression tests passed.
+
+> public-job-feed@0.1.0 jobs:test-streaming-export-phase-1
+> node src/scripts/test-streaming-export-phase-1.js
+
+Streaming export Phase 1 tests passed.
+
+> public-job-feed@0.1.0 jobs:test-release
+> node src/scripts/test-release.js
+
+Release validation: PASS
+Latest feed rows: 836867
+Good Documentation Jobs rows: 715
+Company Coverage rows: 40857
+
+> public-job-feed@0.1.0 jobs:test-gsheet-grouping
+> node src/scripts/test-gsheet-grouping.js
+
+Google Sheets multi-location grouping tests passed.
+
+> public-job-feed@0.1.0 jobs:test-gsheet-package
+> node src/scripts/test-gsheet-package.js
+
+Google Sheets package validation: WARN
+Package: /Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+Good Documentation Jobs rows: 715
+Previous rows: 714
+Row change: 1
+Company Coverage rows: 40857
+Failures: 0
+Warnings: 2
+
+> public-job-feed@0.1.0 jobs:test-url-health
+> node src/scripts/test-job-url-health.js
+
+Job URL health regression: PASS
+
+> public-job-feed@0.1.0 jobs:test-gsheet-url-pruning
+> node src/scripts/test-gsheet-url-pruning.js
+
+Google Sheets safe URL pruning tests passed.
+
+> public-job-feed@0.1.0 jobs:test-scoring
+> node src/scripts/test-scoring.js
+
+Writer Fit regression: PASS
+PASS: Technical Writer -> A (85)
+PASS: Documentation Engineer -> A (85)
+PASS: Staff Technical Writer -> A (85)
+PASS: Technical Content Engineer -> A (85)
+PASS: UX Writer -> A (85)
+PASS: Content Writer -> A (85)
+PASS: Backend Software Engineer -> F (0)
+PASS: Solutions Architect -> F (10)
+PASS: Software Engineer -> F (0)
+PASS: Member of Technical Staff -> F (0)
+
+> public-job-feed@0.1.0 jobs:test-greenhouse-normalize
+> node src/scripts/test-greenhouse-normalize.js
+
+Greenhouse normalize regression: PASS
+PASS: prefers first_published over updated_at -> 2026-06-03 age 32
+PASS: falls back to published_at before updated_at -> 2026-06-10 age 25
+PASS: falls back to created_at before updated_at -> 2026-06-15 age 20
+PASS: uses updated_at as last fallback -> 2026-07-03 age 2
+
+> public-job-feed@0.1.0 jobs:test-job-finder-consumer
+> node src/scripts/test-job-finder-consumer.js
+
+Job Finder consumer export tests passed.
+
+> public-job-feed@0.1.0 jobs:compare-last-release
+> node src/scripts/compare-last-release.js
+
+Release comparison complete.
+Newest release: 20261024-0954
+Previous release: 20261024-0739
+Rows difference: -36
+
+> public-job-feed@0.1.0 jobs:test-trends
+> node src/scripts/test-trends.js
+
+Trend quality test: PASS
+Failures: 0
+Warnings: 0
+
+> public-job-feed@0.1.0 jobs:test-us-remote-report
+> node src/scripts/test-us-remote-daily-report.js
+
+US-remote daily report tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-international-remote-report
+> node src/scripts/test-international-remote-daily-report.js
+
+International-remote daily report tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-all-remote-report
+> node src/scripts/test-all-remote-daily-report.js
+
+Jobs snapshot tests: PASS
+All-remote daily report tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-substack-full-report
+> node src/scripts/test-substack-full-report.js
+
+Substack full report tests passed.
+
+> public-job-feed@0.1.0 jobs:test-content-metrics
+> node src/scripts/test-content-metrics.js
+
+Content metrics calculation and report fixture tests: PASS
+
+> public-job-feed@0.1.0 jobs:test-status-dashboard
+> node src/scripts/test-status-dashboard.js
+
+Dashboard tests passed.
+
+> public-job-feed@0.1.0 jobs:test-refresh-launcher
+> node src/scripts/test-refresh-launcher.js
+
+Refresh launcher success and failure tests passed; no live refresh ran.
+
+> public-job-feed@0.1.0 jobs:test-curated-submissions
+> node src/scripts/test-curated-submissions.js
+
+Curated submission fixtures passed; no live requests or production writes.
+
+> public-job-feed@0.1.0 jobs:test-refresh-reports
+> node src/scripts/test-refresh-reports.js
+
+Report identity, UTC timestamp, and board coverage fixtures passed.
+
+> public-job-feed@0.1.0 jobs:test-review-improvements
+> node src/scripts/test-review-improvements.js
+
+Review improvement fixtures passed.
+Package exclusion fixture passed.
+
+> public-job-feed@0.1.0 jobs:test-history
+> node src/scripts/test-jobs-history.js
+
+PASS: discovery, integrity failures, URL membership, identity, types, schema union, empty snapshot, lifecycle, inclusion history, atomic rebuild, incremental update, idempotency, duplicate selection, raw preservation, exceptions, and corruption detection
+
+> public-job-feed@0.1.0 jobs:test-history-content
+> node src/scripts/test-history-content.js
+
+PASS: daily parity, topic denominators, exceptions, duplicate exports, baseline selection, churn, coverage, roles, deterministic report, zero denominators, dependent incremental refresh, deterministic publishing sections, weekly trends, coverage gaps, and existing-section preservation
+
+> public-job-feed@0.1.0 jobs:validate-refresh-output
+> node src/scripts/validate-refresh-output.js
+
+Refresh output validation: PASS
+
+> public-job-feed@0.1.0 jobs:status
+> node src/scripts/build-status-dashboard.js --sync-package
+
+Project status dashboard complete.
+Output files:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/project-status-dashboard.md
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/project-status-dashboard.json
+Reported output paths: PASS
+
+> public-job-feed@0.1.0 jobs:history-daily
+> node src/scripts/daily-history-backup.js
+
+History: PASS; 1Pugh backup: FAILED
+Latest history snapshot: 20261024-0954
+Last verified backup: 2026-10-24T12:53:23.514Z; snapshot: 20261024-0739
+Warning: Unexpected backup files
+
+> public-job-feed@0.1.0 jobs:status
+> node src/scripts/build-status-dashboard.js
+
+Project status dashboard complete.
+Output files:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/project-status-dashboard.md
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/project-status-dashboard.json
+Reported output paths: PASS
+
+Refresh complete.
+
+Google Sheets package:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest
+
+Job Finder consumer slice:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/consumers/job-finder/latest.json
+
+URL failures review:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs-url-failures.csv
+
+Refresh status file:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/refresh-job-feed-status.md
+
+Status dashboard:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/project-status-dashboard.md
+
+Board freshness report:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/board-freshness-report.md
+
+ATS anomaly report:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/ats-anomaly-alert.md
+
+Unknown title-category report:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/unknown-title-category-analysis.md
+
+Confirmed US-remote daily report:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/us-remote-daily-report.md
+
+Explicit international-remote daily report:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/international-remote-daily-report.md
+
+Combined all-remote daily report:
+/Users/adampugh/GitHub/public-job-feed/data/jobs/reports/all-remote-daily-report.md
+
+
+Done.

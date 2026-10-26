@@ -1,0 +1,262 @@
+#!/bin/bash
+set -e
+
+export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
+
+PROJECT_DIR="/Users/adampugh/GitHub/public-job-feed"
+GSHEET_DIR="$PROJECT_DIR/data/jobs/gsheet-package/latest"
+STATUS_DASHBOARD="$PROJECT_DIR/data/jobs/reports/project-status-dashboard.md"
+FRESHNESS_REPORT="$PROJECT_DIR/data/jobs/reports/board-freshness-report.md"
+ATS_ALERT_REPORT="$PROJECT_DIR/data/jobs/reports/ats-anomaly-alert.md"
+UNKNOWN_CATEGORY_REPORT="$PROJECT_DIR/data/jobs/reports/unknown-title-category-analysis.md"
+US_REMOTE_REPORT="$PROJECT_DIR/data/jobs/reports/us-remote-daily-report.md"
+INTERNATIONAL_REMOTE_REPORT="$PROJECT_DIR/data/jobs/reports/international-remote-daily-report.md"
+ALL_REMOTE_REPORT="$PROJECT_DIR/data/jobs/reports/all-remote-daily-report.md"
+URL_FAILURES="$GSHEET_DIR/01_good_documentation_jobs-url-failures.csv"
+REFRESH_STATUS="$PROJECT_DIR/data/jobs/reports/refresh-job-feed-status.md"
+JOB_FINDER_SLICE="$PROJECT_DIR/data/jobs/consumers/job-finder/latest.json"
+
+cd "$PROJECT_DIR"
+
+FEED_REFRESH_TOKEN="$(node src/scripts/refresh-run-lock.js acquire "$$")"
+export FEED_REFRESH_TOKEN
+# Keep the complete refresh, history update, and backup under one owner.
+trap 'node src/scripts/refresh-run-lock.js release "$FEED_REFRESH_TOKEN"' EXIT
+
+echo "========================================"
+echo "Public Job Feed Refresh"
+echo "========================================"
+echo
+echo "Project:"
+echo "$PROJECT_DIR"
+echo
+echo "This launcher refreshes catalogs and due boards in parallel, then builds a current snapshot."
+echo
+
+mkdir -p "$PROJECT_DIR/data/jobs/reports"
+
+FEED_RUN_ID="$(node src/scripts/record-refresh-run.js start --launcher "$0" -- "$@")"
+export FEED_RUN_ID
+CURRENT_STEP="Starting"
+refresh_exit() {
+  local code=$?
+  if [ "$code" -ne 0 ]; then
+    node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status FAILED --exit-code "$code" --step "$CURRENT_STEP" || true
+    printf '\nFailed: %s (exit %s)\n' "$CURRENT_STEP" "$code" >> "$REFRESH_STATUS"
+    npm run jobs:status || true
+  fi
+  node src/scripts/refresh-run-lock.js release "$FEED_REFRESH_TOKEN" || true
+}
+trap refresh_exit EXIT
+
+STEP_STARTED_AT=0
+
+step_start() {
+  local label="$1"
+  CURRENT_STEP="$label"
+  STEP_STARTED_AT="$(date +%s)"
+  echo "- $label: started $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$REFRESH_STATUS"
+}
+
+step_complete() {
+  local label="$1"
+  local finished_at
+  local elapsed_seconds
+
+  finished_at="$(date +%s)"
+  elapsed_seconds=$((finished_at - STEP_STARTED_AT))
+  echo "- $label complete (${elapsed_seconds}s)" >> "$REFRESH_STATUS"
+}
+
+{
+  echo "# Refresh Job Feed Status"
+  echo
+  echo "Started: $(date -u '+%Y-%m-%d %H:%M UTC')"
+  echo
+  echo "- Run ID: $FEED_RUN_ID"
+  echo "- Launcher: $0"
+  echo "- Run evidence: $PROJECT_DIR/data/jobs/reports/refresh-runs/$FEED_RUN_ID.json"
+  echo "- Project: $PROJECT_DIR"
+  echo "- Google Sheets package: $GSHEET_DIR"
+  echo
+} > "$REFRESH_STATUS"
+
+step_start "Step 1: maintaining catalogs and board snapshots"
+npm run jobs:maintain-index -- --dry-run false --budget-minutes 45 --catalog-max-age-hours 24 --due-limit 300 --catalog-delta-limit 250 --include-known-good true
+step_complete "Step 1"
+
+step_start "Step 2: rebuilding daily public release"
+npm run jobs:public-release -- --profile daily
+step_complete "Step 2"
+
+step_start "Step 3: exporting Job Finder consumer slice"
+npm run jobs:export-job-finder
+step_complete "Step 3"
+
+step_start "Step 4: rebuilding daily Google Sheets package"
+npm run jobs:gsheet-package -- --profile daily
+step_complete "Step 4"
+
+echo
+echo "Cleaning broken links in the newest Google Sheets package..."
+echo
+
+step_start "Step 5: checking and safe-pruning broken links"
+if ! CLEAN_BROKEN_LINKS_OPEN=false CLEAN_BROKEN_LINKS_PAUSE=false "$PROJECT_DIR/launchers/Clean Broken Links.command"; then
+  echo "- Step 5 failed" >> "$REFRESH_STATUS"
+  echo
+  echo "========================================"
+  echo "BROKEN-LINK CLEANUP FAILED"
+  echo "========================================"
+  echo
+  echo "The Google Sheets package was rebuilt, but it was not opened automatically because broken-link cleanup failed."
+  echo
+  echo "Status file:"
+  echo "$REFRESH_STATUS"
+  echo
+  echo "Cleanup status file:"
+  echo "$PROJECT_DIR/data/jobs/reports/clean-broken-links-status.md"
+  echo
+  echo "Status dashboard:"
+  echo "$STATUS_DASHBOARD"
+  echo
+
+  npm run jobs:status || true
+
+  echo
+  if [ -t 0 ]; then
+    read -n 1 -s -r -p "Press any key to close..."
+    echo
+  else
+    echo "Done."
+  fi
+  exit 1
+fi
+npm run jobs:review-package-evidence
+step_complete "Step 5"
+URL_FAILURES="$(node src/lib/refresh-output-paths.js)"
+LATEST_TIMESTAMPED_DIR="$(dirname "$URL_FAILURES")"
+echo "  - Cleaned timestamped package: $LATEST_TIMESTAMPED_DIR" >> "$REFRESH_STATUS"
+echo "  - URL failures: $URL_FAILURES" >> "$REFRESH_STATUS"
+
+echo
+echo "Running validation tests before opening the Google Sheets package..."
+echo
+
+step_start "Step 6: generating remote daily reports"
+npm run jobs:report-us-remote
+npm run jobs:report-international-remote
+npm run jobs:report-all-remote
+step_complete "Step 6"
+echo "  - Confirmed US-remote daily report: $US_REMOTE_REPORT" >> "$REFRESH_STATUS"
+echo "  - Explicit international-remote daily report: $INTERNATIONAL_REMOTE_REPORT" >> "$REFRESH_STATUS"
+echo "  - Combined all-remote daily report: $ALL_REMOTE_REPORT" >> "$REFRESH_STATUS"
+
+step_start "Step 7: running validation tests"
+if ! npm run jobs:test-all; then
+  echo "- Step 7 failed" >> "$REFRESH_STATUS"
+  echo
+  echo "========================================"
+  echo "VALIDATION FAILED"
+  echo "========================================"
+  echo
+  echo "The Google Sheets package was rebuilt, but it was not opened automatically because validation failed."
+  echo
+  echo "Inspect test reports:"
+  echo "$PROJECT_DIR/data/jobs/reports/test-release-results.md"
+  echo "$PROJECT_DIR/data/jobs/reports/test-scoring-results.md"
+  echo "$PROJECT_DIR/data/jobs/reports/release-comparison.md"
+  echo "$PROJECT_DIR/data/jobs/reports/test-trends-results.md"
+  echo
+  echo "URL failures review:"
+  echo "$URL_FAILURES"
+  echo
+  echo "Status file:"
+  echo "$REFRESH_STATUS"
+  echo
+  echo "Status dashboard:"
+  echo "$STATUS_DASHBOARD"
+  echo
+
+  npm run jobs:status || true
+
+  echo
+  if [ -t 0 ]; then
+    read -n 1 -s -r -p "Press any key to close..."
+    echo
+  else
+    echo "Done."
+  fi
+  exit 1
+fi
+npm run jobs:validate-refresh-output
+step_complete "Step 7"
+
+step_start "Package: finalizing the dashboard before history"
+npm run jobs:status -- --sync-package
+node src/lib/refresh-output-paths.js --check-all
+step_complete "Package finalization"
+
+step_start "History: updating and verifying the 1Pugh backup"
+if ! npm run jobs:history-daily; then
+  echo "Warning: the history/backup command could not finish. The feed checks passed; backup status is not verified." | tee -a "$REFRESH_STATUS"
+fi
+step_complete "History and backup check"
+
+step_start "Step 8: refreshing status dashboard"
+node src/scripts/record-refresh-run.js finish --run-id "$FEED_RUN_ID" --status COMPLETE --exit-code 0 --step "$CURRENT_STEP"
+npm run jobs:status
+node src/lib/refresh-output-paths.js --check-all
+step_complete "Step 8"
+echo "Completed: $(date -u '+%Y-%m-%d %H:%M UTC')" >> "$REFRESH_STATUS"
+
+echo
+echo "Refresh complete."
+echo
+echo "Google Sheets package:"
+echo "$GSHEET_DIR"
+echo
+echo "Job Finder consumer slice:"
+echo "$JOB_FINDER_SLICE"
+echo
+echo "URL failures review:"
+echo "$URL_FAILURES"
+echo
+echo "Refresh status file:"
+echo "$REFRESH_STATUS"
+echo
+echo "Status dashboard:"
+echo "$STATUS_DASHBOARD"
+echo
+echo "Board freshness report:"
+echo "$FRESHNESS_REPORT"
+echo
+echo "ATS anomaly report:"
+echo "$ATS_ALERT_REPORT"
+echo
+echo "Unknown title-category report:"
+echo "$UNKNOWN_CATEGORY_REPORT"
+echo
+echo "Confirmed US-remote daily report:"
+echo "$US_REMOTE_REPORT"
+echo
+echo "Explicit international-remote daily report:"
+echo "$INTERNATIONAL_REMOTE_REPORT"
+echo
+echo "Combined all-remote daily report:"
+echo "$ALL_REMOTE_REPORT"
+echo
+
+# Release the owner before the terminal waits for a key after completed work.
+node src/scripts/refresh-run-lock.js release "$FEED_REFRESH_TOKEN"
+trap - EXIT
+unset FEED_REFRESH_TOKEN
+open "$GSHEET_DIR" || true
+
+echo
+if [ -t 0 ]; then
+  read -n 1 -s -r -p "Press any key to close..."
+  echo
+else
+  echo "Done."
+fi

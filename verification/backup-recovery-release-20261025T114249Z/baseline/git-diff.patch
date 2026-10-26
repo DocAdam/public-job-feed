@@ -1,0 +1,1250 @@
+diff --git a/README.md b/README.md
+index 973e274..b067e59 100644
+--- a/README.md
++++ b/README.md
+@@ -64,6 +64,20 @@ Location, remote status, and salary are detected from public posting text. They
+ 
+ The project does not make application decisions, track applicant outcomes, or modify Job Finder records.
+ 
++## Employment Type
++
++Current release check: **needs review**. Package `20261024-0954` passed feed and history checks, but its backup failed. The parser correction passes isolated tests and still needs production verification. See the [October 24 release report](docs/features/employment-type-release-verification-20261024.md). The live Sheet is unchanged.
++
++New packages append `Employment Type` after `Source`. It gives the stated schedule and employment terms. Examples are `Full-time`, `Contract`, `Part-time; Contract`, and `Full-time; Internship`. `Not stated` means that neither dimension has supported evidence. `Needs review` means that evidence conflicts.
++
++Role Type and Work Arrangement keep their existing meanings. Full-time does not mean Permanent. Use a text-contains filter for Contract or Internship to include combined labels.
++
++The implementation uses fields already received by each source and explicit title or description statements. Workday and iCIMS detail-only values can remain unknown. It adds no network requests. New collection can restore structured information that older normalized batches lost.
++
++Before an approved Sheet import, read the new package's `public-schema.json` and `EMPLOYMENT_TYPE_IMPORT.md`. Update the main table, filter, and pivot source range from the actual headers and row count. This change does not publish to Sheets.
++
++See the [field contract, source limits, tests, and isolated preview commands](docs/features/employment-type.md) and the [verification report](docs/features/employment-type-verification.md).
++
+ ## For maintainers
+ 
+ The normal macOS workflow is:
+diff --git a/data/jobs/history/README.md b/data/jobs/history/README.md
+index a73e60d..1ba9e5f 100644
+--- a/data/jobs/history/README.md
++++ b/data/jobs/history/README.md
+@@ -1,13 +1,13 @@
+ # Saved job history
+ 
+-Generation: a96222a8-98be-4e16-b0d6-2826841f7235
++Generation: 66646ce5-b440-47c2-a8a8-75c003da4c28
+ 
+-Format: v2. Snapshots: 156.
++Format: v2. Snapshots: 158.
+ 
+ The dated CSV packages remain the source of truth. Raw rows, resolved observations, good-job membership, and exceptions are separate.
+ 
+ Use jobs:history-update, jobs:history-audit, and jobs:history-report. Updates use a staged copy and the shared history lock. Pending operations require explicit recovery.
+ 
+-Backup and recovery details: /Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb.operations/a96222a8-98be-4e16-b0d6-2826841f7235
++Backup and recovery details: /Users/adampugh/GitHub/public-job-feed/data/jobs/history/jobs-history.duckdb.operations/66646ce5-b440-47c2-a8a8-75c003da4c28
+ 
+ Source warnings are retained in validation.json. Structural errors block acceptance. Reappearance does not prove an employer repost.
+diff --git a/data/jobs/history/validation.json b/data/jobs/history/validation.json
+index 39f1fc2..3b029e7 100644
+--- a/data/jobs/history/validation.json
++++ b/data/jobs/history/validation.json
+@@ -1,30 +1,30 @@
+ {
+   "status": "passed",
+-  "generation": "a96222a8-98be-4e16-b0d6-2826841f7235",
+-  "database_sha256": "99a5f6929cda8d982321c31fc074223702db86a55c5993c56db5e85a3c1b6975",
+-  "source_manifest_hash": "a05473e794757be675a4ade97cd852e30149527e9447c314fba38e3145516ab7",
++  "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
++  "database_sha256": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
++  "source_manifest_hash": "21abc09505d9b3f707f0f64aaa37a1ea733286d2dba33e43c3016ac64168d9b2",
+   "format": "v2",
+-  "observations": "115011",
+-  "canonical_urls": "3491",
+-  "job_keys": "3435",
+-  "company_keys": "1616",
+-  "raw_top_match_rows": "115021",
+-  "raw_job_keys": "3435",
++  "observations": "116673",
++  "canonical_urls": "3505",
++  "job_keys": "3450",
++  "company_keys": "1623",
++  "raw_top_match_rows": "116683",
++  "raw_job_keys": "3450",
+   "good_job_exceptions": "40",
+-  "raw_good_job_rows": "101773",
++  "raw_good_job_rows": "103202",
+   "duplicate_canonical_rows": "10",
+-  "snapshots": "156",
++  "snapshots": "158",
+   "latest": {
+-    "snapshot_id": "20261023-0624",
+-    "observed_at": "2026-10-23 06:24:00",
+-    "total_postings": "833",
+-    "good_postings": "714",
+-    "remote_postings": "151",
++    "snapshot_id": "20261024-0954",
++    "observed_at": "2026-10-24 09:54:00",
++    "total_postings": "831",
++    "good_postings": "715",
++    "remote_postings": "147",
+     "hybrid_postings": "126",
+-    "onsite_postings": "525",
+-    "us_remote_eligible_count": "46",
+-    "company_count": 534,
+-    "catalog_slug_count": 538,
++    "onsite_postings": "526",
++    "us_remote_eligible_count": "43",
++    "company_count": 535,
++    "catalog_slug_count": 539,
+     "ats_type_count": 7
+   },
+   "errors": [],
+@@ -60,7 +60,8 @@
+     "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+     "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+     "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+-    "01_good_documentation_jobs.csv: 4 header variants (union by name)"
++    "01_good_documentation_jobs.csv: 5 header variants (union by name)",
++    "03_top_matches_full.csv: 2 header variants (union by name)"
+   ],
+   "header_variants": {
+     "01_good_documentation_jobs.csv": [
+@@ -143,9 +144,32 @@
+           "Last Checked",
+           "Source"
+         ],
+-        "snapshots": 76,
++        "snapshots": 77,
+         "first": "20260809-0543",
+-        "last": "20261023-0624"
++        "last": "20261024-0739"
++      },
++      {
++        "headers": [
++          "Title",
++          "Company",
++          "Location",
++          "Apply Link",
++          "Additional Apply Links",
++          "Writer Fit Score",
++          "Fit Tier",
++          "Why It Matched",
++          "Role Type",
++          "Work Arrangement",
++          "Salary",
++          "Posted Date",
++          "Age (Days)",
++          "Last Checked",
++          "Source",
++          "Employment Type"
++        ],
++        "snapshots": 1,
++        "first": "20261024-0954",
++        "last": "20261024-0954"
+       }
+     ],
+     "03_top_matches_full.csv": [
+@@ -219,9 +243,87 @@
+           "DedupeSelectionReason",
+           "DedupeGroupSize"
+         ],
+-        "snapshots": 156,
++        "snapshots": 157,
+         "first": "20260602-1810",
+-        "last": "20261023-0624"
++        "last": "20261024-0739"
++      },
++      {
++        "headers": [
++          "SourceBatch",
++          "SourceATSCount",
++          "CrossATSDuplicate",
++          "CrossATSDuplicateATSList",
++          "Source",
++          "ATS",
++          "Company",
++          "CompanyKey",
++          "Title",
++          "ExportQualityFlag",
++          "ExportQualityIssues",
++          "PossibleDuplicate",
++          "DuplicateReason",
++          "JobKey",
++          "CompanyTitleLocationKey",
++          "CanonicalURLKey",
++          "DuplicateGroupKey",
++          "TitleReviewBucket",
++          "TitleReviewPriority",
++          "TitleReviewReason",
++          "TitleDomainSignal",
++          "TitleSenioritySignal",
++          "TitleLeadershipSignal",
++          "TitleICSignal",
++          "WriterFitVersion",
++          "WriterFitBaseScore",
++          "WriterFitScore",
++          "WriterFitTier",
++          "WriterFitReasons",
++          "WriterFitPositiveSignals",
++          "WriterFitNegativeSignals",
++          "WriterFitPenaltySignals",
++          "WriterFitDemotionReason",
++          "WriterFitGuardrailApplied",
++          "TitleMatchType",
++          "TitleMatchCategory",
++          "MatchedWatchlistTitle",
++          "TitleMatchScore",
++          "TitleConfidence",
++          "Location",
++          "RemoteStatus",
++          "RemoteSignal",
++          "RemoteConfidence",
++          "USRemoteEligible",
++          "LocationRisk",
++          "LocationReviewReason",
++          "SalaryDetected",
++          "SalaryMin",
++          "SalaryMax",
++          "SalaryCurrency",
++          "SalaryPeriod",
++          "SalaryText",
++          "Department",
++          "DatePosted",
++          "URL",
++          "Description",
++          "CatalogSlug",
++          "BoardURL",
++          "FetchURL",
++          "FetchedAt",
++          "RawJobId",
++          "RawJobURL",
++          "RawLocation",
++          "RawDepartment",
++          "EmploymentSchedule",
++          "EmploymentTerms",
++          "EmploymentTypeStatus",
++          "EmploymentTypeEvidence",
++          "DedupeSelected",
++          "DedupeSelectionReason",
++          "DedupeGroupSize"
++        ],
++        "snapshots": 1,
++        "first": "20261024-0954",
++        "last": "20261024-0954"
+       }
+     ]
+   },
+diff --git a/launchers/Clean Broken Links.command b/launchers/Clean Broken Links.command
+index 6a70919..a7b0b22 100755
+--- a/launchers/Clean Broken Links.command	
++++ b/launchers/Clean Broken Links.command	
+@@ -59,6 +59,18 @@ sync_latest_package() {
+   step_start "Syncing latest upload files from the cleaned timestamped package"
+   cp "$LATEST_TIMESTAMPED_DIR/00_start_here.csv" "$LATEST_DIR/00_start_here.csv"
+   cp "$LATEST_TIMESTAMPED_DIR/01_good_documentation_jobs.csv" "$LATEST_DIR/01_good_documentation_jobs.csv"
++  # Keep the new public schema, coverage, formula rows, and Sheet range current.
++  # Older packages without a schema marker retain their existing behavior.
++  node - "$LATEST_DIR/01_good_documentation_jobs.csv" <<'NODE'
++const fs = require("node:fs/promises");
++const { parseCsvRecords } = require("./src/lib/csv");
++const { updateAfterPublicPrune } = require("./src/lib/employment-type-report");
++(async () => {
++  const input = process.argv[2];
++  const parsed = parseCsvRecords(await fs.readFile(input, "utf8"));
++  await updateAfterPublicPrune(input, parsed.headers, parsed.rows);
++})().catch(error => { console.error(error); process.exitCode = 1; });
++NODE
+   rm -f "$LATEST_DIR/01_good_documentation_jobs-url-review.csv"
+   rm -f "$LATEST_DIR/01_good_documentation_jobs-url-failures.csv"
+   rm -f "$LATEST_DIR/01_good_documentation_jobs-url-check-summary.json"
+diff --git a/package.json b/package.json
+index b90b9a1..f317e03 100644
+--- a/package.json
++++ b/package.json
+@@ -114,7 +114,10 @@
+     "jobs:probe-board": "node src/scripts/probe-board.js",
+     "jobs:select-failure-probes": "node src/scripts/select-failure-probe-cohorts.js",
+     "jobs:test-board-probe": "node src/scripts/test-board-probe.js",
+-    "jobs:report-failure-probes": "node src/scripts/report-failure-probes.js"
++    "jobs:report-failure-probes": "node src/scripts/report-failure-probes.js",
++    "jobs:test-employment-type": "node src/scripts/test-employment-type.js",
++    "jobs:test-employment-integration": "node src/scripts/test-employment-integration.js",
++    "jobs:employment-preview": "node src/scripts/preview-employment-type.js"
+   },
+   "engines": {
+     "node": "26.x"
+@@ -124,6 +127,8 @@
+     "better-sqlite3": "^12.11.1"
+   },
+   "testSuites": [
++    "jobs:test-employment-type",
++    "jobs:test-employment-integration",
+     "jobs:test-history-backup",
+     "jobs:test-history-finalization",
+     "jobs:test-catalog-maintenance",
+diff --git a/src/adapters/exports/csv-builder.js b/src/adapters/exports/csv-builder.js
+index 7562f5b..8fa600c 100644
+--- a/src/adapters/exports/csv-builder.js
++++ b/src/adapters/exports/csv-builder.js
+@@ -1,3 +1,4 @@
++const { serializeEmploymentValue } = require("../../lib/csv");
+ /**
+  * CSV export adapter for canonical job records
+  *
+@@ -18,7 +19,7 @@ function escapeCsvValue(value) {
+ }
+ 
+ function formatRow(headers, record) {
+-  return headers.map((header) => escapeCsvValue(record[header])).join(",");
++  return headers.map((header) => escapeCsvValue(serializeEmploymentValue(header, record[header]))).join(",");
+ }
+ 
+ /**
+diff --git a/src/adapters/exports/export-dedupe.js b/src/adapters/exports/export-dedupe.js
+index ce2705c..edfe127 100644
+--- a/src/adapters/exports/export-dedupe.js
++++ b/src/adapters/exports/export-dedupe.js
+@@ -1,260 +1,2 @@
+-const atsPriority = {
+-  ashby: 1,
+-  greenhouse: 2,
+-  lever: 3,
+-  bamboohr: 4,
+-  workday: 5,
+-  icims: 6,
+-};
+-
+-const tierPriority = {
+-  A: 1,
+-  B: 2,
+-  C: 3,
+-  D: 4,
+-  F: 5,
+-};
+-
+-const qualityPriority = {
+-  OK: 1,
+-  REVIEW: 2,
+-  BAD_ROW: 3,
+-};
+-
+-const remotePriority = {
+-  Remote: 1,
+-  Hybrid: 2,
+-  Onsite: 3,
+-  Unknown: 4,
+-};
+-
+-function cleanText(value) {
+-  if (value === null || value === undefined) {
+-    return "";
+-  }
+-
+-  return String(value).trim();
+-}
+-
+-function isTrue(value) {
+-  return value === true || cleanText(value).toUpperCase() === "TRUE";
+-}
+-
+-function normalizeBooleanRank(value) {
+-  const text = cleanText(value).toLowerCase();
+-  if (value === true || text === "true") return 1;
+-  if (text === "unknown" || text === "") return 2;
+-  return 3;
+-}
+-
+-function parseDateTime(value) {
+-  const timestamp = Date.parse(cleanText(value));
+-  return Number.isFinite(timestamp) ? timestamp : 0;
+-}
+-
+-function compareText(a, b) {
+-  const left = cleanText(a).toLowerCase();
+-  const right = cleanText(b).toLowerCase();
+-
+-  if (left < right) return -1;
+-  if (left > right) return 1;
+-  return 0;
+-}
+-
+-function companyLabelPenalty(value) {
+-  return /^(careers?|jobs?)\b/i.test(cleanText(value)) ? 1 : 0;
+-}
+-
+-function compareRows(a, b) {
+-  const scoreDiff = (Number(b.WriterFitScore) || 0) - (Number(a.WriterFitScore) || 0);
+-  if (scoreDiff !== 0) return scoreDiff;
+-
+-  const tierDiff = (tierPriority[a.WriterFitTier] || 99) - (tierPriority[b.WriterFitTier] || 99);
+-  if (tierDiff !== 0) return tierDiff;
+-
+-  const qualityDiff = (qualityPriority[a.ExportQualityFlag] || 99) - (qualityPriority[b.ExportQualityFlag] || 99);
+-  if (qualityDiff !== 0) return qualityDiff;
+-
+-  const usRemoteDiff = normalizeBooleanRank(a.USRemoteEligible) - normalizeBooleanRank(b.USRemoteEligible);
+-  if (usRemoteDiff !== 0) return usRemoteDiff;
+-
+-  const remoteDiff = (remotePriority[a.RemoteStatus] || 99) - (remotePriority[b.RemoteStatus] || 99);
+-  if (remoteDiff !== 0) return remoteDiff;
+-
+-  const salaryDiff = Number(isTrue(b.SalaryDetected)) - Number(isTrue(a.SalaryDetected));
+-  if (salaryDiff !== 0) return salaryDiff;
+-
+-  const atsDiff = (atsPriority[cleanText(a.ATS).toLowerCase()] || 99) - (atsPriority[cleanText(b.ATS).toLowerCase()] || 99);
+-  if (atsDiff !== 0) return atsDiff;
+-
+-  const dateDiff = parseDateTime(b.DatePosted) - parseDateTime(a.DatePosted);
+-  if (dateDiff !== 0) return dateDiff;
+-
+-  const companyLabelDiff = companyLabelPenalty(a.Company) - companyLabelPenalty(b.Company);
+-  if (companyLabelDiff !== 0) return companyLabelDiff;
+-
+-  const companyDiff = compareText(a.Company, b.Company);
+-  if (companyDiff !== 0) return companyDiff;
+-
+-  return compareText(a.Title, b.Title);
+-}
+-
+-function getDedupeKeys(row, index) {
+-  const duplicateGroupKey = cleanText(row.DuplicateGroupKey);
+-  const canonicalUrlKey = cleanText(row.CanonicalURLKey);
+-  const strongKeys = [
+-    duplicateGroupKey ? `duplicate:${duplicateGroupKey}` : "",
+-    canonicalUrlKey ? `canonical:${canonicalUrlKey}` : "",
+-  ].filter(Boolean);
+-
+-  if (strongKeys.length > 0) return strongKeys;
+-
+-  const fallback =
+-    cleanText(row.CompanyTitleLocationKey) ||
+-    cleanText(row.JobKey) ||
+-    cleanText(row.URL) ||
+-    `row-${index}`;
+-  return [`fallback:${fallback}`];
+-}
+-
+-function groupRows(rows) {
+-  const parents = rows.map((_, index) => index);
+-  const keyOwners = new Map();
+-
+-  function find(index) {
+-    if (parents[index] !== index) parents[index] = find(parents[index]);
+-    return parents[index];
+-  }
+-
+-  function union(left, right) {
+-    const leftRoot = find(left);
+-    const rightRoot = find(right);
+-    if (leftRoot !== rightRoot) parents[rightRoot] = leftRoot;
+-  }
+-
+-  rows.forEach((row, index) => {
+-    for (const key of getDedupeKeys(row, index)) {
+-      if (keyOwners.has(key)) union(index, keyOwners.get(key));
+-      else keyOwners.set(key, index);
+-    }
+-  });
+-
+-  const groups = new Map();
+-
+-  rows.forEach((row, index) => {
+-    const key = find(index);
+-    if (!groups.has(key)) {
+-      groups.set(key, []);
+-    }
+-
+-    groups.get(key).push({ row, index });
+-  });
+-
+-  return groups;
+-}
+-
+-function buildSelectionReason(selected, groupSize) {
+-  if (groupSize <= 1) {
+-    return "Unique row; no duplicate alternatives in this slice.";
+-  }
+-
+-  return [
+-    `Selected from ${groupSize} rows`,
+-    `WriterFitScore ${cleanText(selected.WriterFitScore) || 0}`,
+-    `tier ${cleanText(selected.WriterFitTier) || "unknown"}`,
+-    `quality ${cleanText(selected.ExportQualityFlag) || "unknown"}`,
+-    `ATS ${cleanText(selected.ATS) || "unknown"}`,
+-  ].join(" | ");
+-}
+-
+-function summarizeRejectedRows(rows) {
+-  return rows
+-    .map((row) =>
+-      [
+-        cleanText(row.ATS) || "unknown ATS",
+-        cleanText(row.Company) || "unknown company",
+-        cleanText(row.Title) || "unknown title",
+-        cleanText(row.WriterFitScore) || "0",
+-        cleanText(row.WriterFitTier) || "unknown tier",
+-        cleanText(row.URL),
+-      ]
+-        .filter(Boolean)
+-        .join(" / ")
+-    )
+-    .join(" || ");
+-}
+-
+-function selectDedupedRows(rows, sliceName) {
+-  const groups = groupRows(rows);
+-  const selectedRows = [];
+-  const decisions = [];
+-  let duplicateGroupsResolved = 0;
+-  let removedDuplicateRows = 0;
+-
+-  for (const [groupKey, entries] of groups.entries()) {
+-    const sortedEntries = [...entries].sort((a, b) => {
+-      const rowDiff = compareRows(a.row, b.row);
+-      if (rowDiff !== 0) return rowDiff;
+-      return a.index - b.index;
+-    });
+-    const selectedEntry = sortedEntries[0];
+-    const selected = selectedEntry.row;
+-    const groupSize = entries.length;
+-    const selectionReason = buildSelectionReason(selected, groupSize);
+-    const selectedOutputRow = {
+-      ...selected,
+-      DedupeSelected: true,
+-      DedupeSelectionReason: selectionReason,
+-      DedupeGroupSize: groupSize,
+-    };
+-
+-    selectedRows.push(selectedOutputRow);
+-
+-    if (groupSize > 1) {
+-      duplicateGroupsResolved += 1;
+-      removedDuplicateRows += groupSize - 1;
+-
+-      const rejectedRows = sortedEntries.slice(1).map((entry) => ({
+-        ...entry.row,
+-        DedupeSelected: false,
+-        DedupeSelectionReason: `Rejected in favor of ${cleanText(selected.ATS)} ${cleanText(selected.URL)}`,
+-        DedupeGroupSize: groupSize,
+-      }));
+-
+-      decisions.push({
+-        SliceName: sliceName,
+-        DuplicateGroupKey: groupKey,
+-        DedupeGroupSize: groupSize,
+-        SelectedCompany: selected.Company,
+-        SelectedTitle: selected.Title,
+-        SelectedATS: selected.ATS,
+-        SelectedURL: selected.URL,
+-        SelectedWriterFitScore: selected.WriterFitScore,
+-        SelectedWriterFitTier: selected.WriterFitTier,
+-        SelectionReason: selectionReason,
+-        RejectedRowsSummary: summarizeRejectedRows(rejectedRows),
+-      });
+-    }
+-  }
+-
+-  return {
+-    rows: selectedRows,
+-    decisions,
+-    summary: {
+-      SliceName: sliceName,
+-      InputRows: rows.length,
+-      OutputRows: selectedRows.length,
+-      RemovedDuplicateRows: removedDuplicateRows,
+-      DuplicateGroupsResolved: duplicateGroupsResolved,
+-    },
+-  };
+-}
+-
+-module.exports = {
+-  buildSelectionReason,
+-  compareRows,
+-  getDedupeKeys,
+-  groupRows,
+-  selectDedupedRows,
+-  summarizeRejectedRows,
+-};
++// Shared selection rules for legacy and streaming exports.
++module.exports = require("../../lib/dedupe-select");
+diff --git a/src/adapters/exports/stream-record-writers.js b/src/adapters/exports/stream-record-writers.js
+index 6fc6a1a..1d8ea09 100644
+--- a/src/adapters/exports/stream-record-writers.js
++++ b/src/adapters/exports/stream-record-writers.js
+@@ -1,7 +1,7 @@
+ const fs = require("fs/promises");
+ const nodeFs = require("fs");
+ const path = require("path");
+-const { escapeCsvValue } = require("../../lib/csv");
++const { escapeCsvValue, serializeEmploymentValue } = require("../../lib/csv");
+ const { ensureDir, stringifyJsonLine } = require("../../lib/files");
+ 
+ function writeChunk(stream, chunk) {
+@@ -29,7 +29,7 @@ async function writeRecords(filePath, rows, format, headers) {
+     let index = 0;
+     for (const row of rows) {
+       const text = format === "csv"
+-        ? `${headers.map((header) => escapeCsvValue(row[header])).join(",")}\n`
++        ? `${headers.map((header) => escapeCsvValue(serializeEmploymentValue(header, row[header]))).join(",")}\n`
+         : `${index > 0 ? ",\n" : ""}${stringifyJsonLine(row)}`;
+       await writeChunk(stream, text);
+       index += 1;
+diff --git a/src/adapters/storage/export-run-store-worker.js b/src/adapters/storage/export-run-store-worker.js
+index 1157633..b94a548 100644
+--- a/src/adapters/storage/export-run-store-worker.js
++++ b/src/adapters/storage/export-run-store-worker.js
+@@ -1,3 +1,4 @@
++const { employmentVariant, mergeEmploymentEvidence, ensureEmploymentType } = require("../../lib/employment-type");
+ const { parentPort } = require("worker_threads");
+ const Database = require("better-sqlite3");
+ const {
+@@ -252,6 +253,8 @@ function resolveDedupe() {
+       "SELECT COALESCE(MAX(row_id), 0) AS maxId, COUNT(*) AS count FROM dedupe_memberships WHERE slice_name = ?"
+     ).get(sliceName);
+     const parent = new Int32Array(maxId + 1);
++    const variants = new Map();
++    for (const item of db.prepare("SELECT m.row_id, r.row_json FROM dedupe_memberships m JOIN rows r ON r.id=m.row_id WHERE m.slice_name=?").iterate(sliceName)) variants.set(item.row_id, employmentVariant(JSON.parse(item.row_json)));
+     const size = new Int32Array(maxId + 1);
+     const membershipSequence = new Int32Array(maxId + 1);
+     const maximumSequence = new Int32Array(maxId + 1);
+@@ -282,7 +285,11 @@ function resolveDedupe() {
+       } else {
+         const left = find(anchor);
+         const right = find(entry.row_id);
+-        if (left !== right) parent[right] = left;
++        const strong = key.startsWith("canonical");
++        if (left !== right && (strong || variants.get(left) === variants.get(right))) {
++          parent[right] = left;
++          if (variants.get(left) !== variants.get(right)) variants.set(left, `mixed:${left}`);
++        }
+       }
+     }
+     for (let rowId = 1; rowId <= maxId; rowId += 1) {
+@@ -302,9 +309,10 @@ function resolveDedupe() {
+ 
+     let currentComponent = null;
+     let selected;
++    let employmentRows = [];
+     let selectedWrites = 0;
+     const persistSelected = (candidate) => {
+-      const output = { ...candidate.row, DedupeSelected: true, DedupeSelectionReason: buildSelectionReason(candidate.row, candidate.groupSize), DedupeGroupSize: candidate.groupSize };
++      const output = { ...candidate.row, ...mergeEmploymentEvidence(employmentRows), DedupeSelected: true, DedupeSelectionReason: buildSelectionReason(candidate.row, candidate.groupSize), DedupeGroupSize: candidate.groupSize };
+       insertSelected.run(sliceName, candidate.rowId, candidate.membershipSequence, candidate.groupSize, JSON.stringify(output));
+       selectedWrites += 1;
+       if (selectedWrites % 10000 === 0) {
+@@ -324,9 +332,11 @@ function resolveDedupe() {
+       if (currentComponent !== null && entry.component_id !== currentComponent) {
+         persistSelected(selected);
+         selected = undefined;
++        employmentRows = [];
+       }
+       currentComponent = entry.component_id;
+       const candidate = { row: JSON.parse(entry.row_json), rowId: entry.row_id, membershipSequence: entry.membership_sequence, groupSize: entry.group_size };
++      employmentRows.push(ensureEmploymentType(candidate.row));
+       if (!selected || compareRows(candidate.row, selected.row) < 0) selected = candidate;
+     }
+     if (selected) {
+diff --git a/src/core/deduplication/job-dedupe.js b/src/core/deduplication/job-dedupe.js
+index 49a2379..47cbca1 100644
+--- a/src/core/deduplication/job-dedupe.js
++++ b/src/core/deduplication/job-dedupe.js
+@@ -1,3 +1,4 @@
++const { employmentVariant, mergeEmploymentEvidence } = require("../../lib/employment-type");
+ /**
+  * Core job deduplication engine
+  *
+@@ -28,18 +29,13 @@ function generateJobKey(job) {
+ }
+ 
+ function groupJobsByDedupeKey(jobs) {
++  const { groupRows } = require("../../lib/dedupe-select");
++  const wrapped = jobs.map(job => ({ ...job, DuplicateGroupKey: generateJobKey(job), CanonicalURLKey: job.CanonicalURLKey || job.URL || "" }));
+   const groups = new Map();
+-
+-  for (const job of jobs) {
+-    const key = generateJobKey(job);
+-
+-    if (!groups.has(key)) {
+-      groups.set(key, []);
+-    }
+-
+-    groups.get(key).push(job);
++  for (const [index, entries] of groupRows(wrapped)) {
++    const first = jobs[entries[0].index];
++    groups.set(`${generateJobKey(first)}|${employmentVariant(first)}|${index}`, entries.map(entry => jobs[entry.index]));
+   }
+-
+   return groups;
+ }
+ 
+@@ -52,7 +48,7 @@ function selectCanonicalJob(group) {
+     return scoreB - scoreA;
+   });
+ 
+-  return sorted[0] || null;
++  return sorted[0] ? { ...sorted[0], ...mergeEmploymentEvidence(group) } : null;
+ }
+ 
+ function getCompanyKeyMap(jobs) {
+diff --git a/src/core/models/job-record.js b/src/core/models/job-record.js
+index 87ead2d..7bc4dc2 100644
+--- a/src/core/models/job-record.js
++++ b/src/core/models/job-record.js
+@@ -26,6 +26,10 @@ const defaultEmptyRecord = {
+   DatePosted: "",
+   Salary: "",
+   Department: "",
++  EmploymentSchedule: "Not stated",
++  EmploymentTerms: [],
++  EmploymentTypeStatus: "not_stated",
++  EmploymentTypeEvidence: [],
+ 
+   SalaryDetected: false,
+   SalaryMin: "",
+@@ -70,7 +74,7 @@ const defaultEmptyRecord = {
+ };
+ 
+ function createEmptyCanonicalRecord() {
+-  return { ...defaultEmptyRecord };
++  return { ...defaultEmptyRecord, EmploymentTerms: [], EmploymentTypeEvidence: [] };
+ }
+ 
+ module.exports = {
+diff --git a/src/core/pipeline/engine.js b/src/core/pipeline/engine.js
+index fad9a6c..343cf80 100644
+--- a/src/core/pipeline/engine.js
++++ b/src/core/pipeline/engine.js
+@@ -1,3 +1,4 @@
++const { ensureEmploymentType } = require("../../lib/employment-type");
+ /**
+  * Core job feed pipeline engine
+  *
+@@ -47,6 +48,8 @@ function enrichJobRecord(rawJob, context, options = {}) {
+   enriched.Salary = rawJob.Salary || rawJob.Compensation || "";
+   enriched.Department = rawJob.Department || "";
+ 
++  Object.assign(enriched, ensureEmploymentType({ ...rawJob, ATS: enriched.ATS, FetchedAt: rawJob.FetchedAt || context.fetchedAt || "" }));
++
+   // Run salary detection
+   const salaryResult = detectSalary(rawJob);
+   Object.assign(enriched, salaryResult);
+diff --git a/src/lib/csv.js b/src/lib/csv.js
+index dab6eeb..831e30c 100644
+--- a/src/lib/csv.js
++++ b/src/lib/csv.js
+@@ -2,6 +2,11 @@ const nodeFs = require("fs");
+ const fs = require("fs/promises");
+ const path = require("path");
+ 
++// Keep CSV serialization independent of extraction. Old packages need no new fields.
++function serializeEmploymentValue(column, value) {
++  return ["EmploymentTerms", "EmploymentTypeEvidence"].includes(column) && Array.isArray(value) ? JSON.stringify(value) : value;
++}
++
+ function escapeCsvValue(value) {
+   if (value === null || value === undefined) {
+     return "";
+@@ -20,7 +25,7 @@ function escapeCsvValue(value) {
+ function rowsToCsv(headers, rows) {
+   const lines = [
+     headers.map(escapeCsvValue).join(","),
+-    ...rows.map((row) => headers.map((header) => escapeCsvValue(row[header])).join(",")),
++    ...rows.map((row) => headers.map((header) => escapeCsvValue(serializeEmploymentValue(header, row[header]))).join(",")),
+   ];
+ 
+   return `${lines.join("\n")}\n`;
+@@ -138,7 +143,7 @@ async function writeLargeCsvFile(filePath, rows, columns, getValue = (row, colum
+     await writeStreamChunk(stream, `${columns.map(escapeCsvValue).join(",")}\n`);
+ 
+     for (const row of rows) {
+-      await writeStreamChunk(stream, `${columns.map((column) => escapeCsvValue(getValue(row, column))).join(",")}\n`);
++      await writeStreamChunk(stream, `${columns.map((column) => escapeCsvValue(serializeEmploymentValue(column, getValue(row, column)))).join(",")}\n`);
+     }
+ 
+     await closeStream(stream);
+@@ -151,6 +156,7 @@ async function writeLargeCsvFile(filePath, rows, columns, getValue = (row, colum
+ }
+ 
+ module.exports = {
++  serializeEmploymentValue,
+   escapeCsvValue,
+   parseCsvRecords,
+   rowsToCsv,
+diff --git a/src/lib/dedupe-select.js b/src/lib/dedupe-select.js
+index ce2705c..16c7dc7 100644
+--- a/src/lib/dedupe-select.js
++++ b/src/lib/dedupe-select.js
+@@ -1,3 +1,4 @@
++const { ensureEmploymentType, employmentVariant, mergeEmploymentEvidence } = require("./employment-type");
+ const atsPriority = {
+   ashby: 1,
+   greenhouse: 2,
+@@ -100,41 +101,42 @@ function compareRows(a, b) {
+ }
+ 
+ function getDedupeKeys(row, index) {
+-  const duplicateGroupKey = cleanText(row.DuplicateGroupKey);
+-  const canonicalUrlKey = cleanText(row.CanonicalURLKey);
+-  const strongKeys = [
+-    duplicateGroupKey ? `duplicate:${duplicateGroupKey}` : "",
+-    canonicalUrlKey ? `canonical:${canonicalUrlKey}` : "",
+-  ].filter(Boolean);
+-
+-  if (strongKeys.length > 0) return strongKeys;
+-
+-  const fallback =
+-    cleanText(row.CompanyTitleLocationKey) ||
+-    cleanText(row.JobKey) ||
+-    cleanText(row.URL) ||
+-    `row-${index}`;
+-  return [`fallback:${fallback}`];
++  const fields = ensureEmploymentType(row);
++  const suffix = fields.EmploymentTypeStatus === "not_stated" ? "" : `|employment:${employmentVariant(row)}`;
++  const duplicate = cleanText(row.DuplicateGroupKey);
++  const canonical = cleanText(row.CanonicalURLKey);
++  const posting = row.ATS && row.RawJobId ? `canonical-posting:${row.ATS}:${row.CompanyKey || row.CatalogSlug || row.Company || ""}:${row.RawJobId}` : "";
++  const keys = [duplicate ? `duplicate:${duplicate}${suffix}` : "", canonical ? `canonical:${canonical}` : "", posting].filter(Boolean);
++  if (keys.length) return keys;
++  const fallback = cleanText(row.CompanyTitleLocationKey) || cleanText(row.JobKey) || cleanText(row.URL) || `row-${index}`;
++  return [`fallback:${fallback}${suffix}`];
+ }
+ 
+ function groupRows(rows) {
+   const parents = rows.map((_, index) => index);
+   const keyOwners = new Map();
++  const variants = rows.map(employmentVariant);
+ 
+   function find(index) {
+     if (parents[index] !== index) parents[index] = find(parents[index]);
+     return parents[index];
+   }
+ 
+-  function union(left, right) {
++  function union(left, right, strong) {
+     const leftRoot = find(left);
+     const rightRoot = find(right);
+-    if (leftRoot !== rightRoot) parents[rightRoot] = leftRoot;
++    if (leftRoot === rightRoot) return;
++    if (!strong && variants[leftRoot] !== variants[rightRoot]) return;
++    parents[rightRoot] = leftRoot;
++    if (variants[leftRoot] !== variants[rightRoot]) variants[leftRoot] = `mixed:${leftRoot}`;
+   }
+ 
+-  rows.forEach((row, index) => {
++  // Resolve posting identity before heuristic keys. A conflicting identity group
++  // must not bridge separate employment variants through a company/title key.
++  for (const strong of [true, false]) rows.forEach((row, index) => {
+     for (const key of getDedupeKeys(row, index)) {
+-      if (keyOwners.has(key)) union(index, keyOwners.get(key));
++      if (key.startsWith("canonical") !== strong) continue;
++      if (keyOwners.has(key)) union(index, keyOwners.get(key), strong);
+       else keyOwners.set(key, index);
+     }
+   });
+@@ -203,6 +205,7 @@ function selectDedupedRows(rows, sliceName) {
+     const selectionReason = buildSelectionReason(selected, groupSize);
+     const selectedOutputRow = {
+       ...selected,
++      ...mergeEmploymentEvidence(entries.map(entry => entry.row)),
+       DedupeSelected: true,
+       DedupeSelectionReason: selectionReason,
+       DedupeGroupSize: groupSize,
+diff --git a/src/lib/job-export.js b/src/lib/job-export.js
+index 51e94dc..90494a4 100644
+--- a/src/lib/job-export.js
++++ b/src/lib/job-export.js
+@@ -1,3 +1,4 @@
++const { EMPLOYMENT_FIELDS, ensureEmploymentType, validateEmploymentType } = require("./employment-type");
+ const { addExportValidationFields, getQualitySummaryRows } = require("./export-validation");
+ const { addDedupeFields, getDuplicateSummary } = require("./job-dedupe");
+ const { normalizeTitle } = require("./job-titles");
+@@ -73,6 +74,7 @@ const jobHeaders = [
+   "RawJobURL",
+   "RawLocation",
+   "RawDepartment",
++  ...EMPLOYMENT_FIELDS,
+ ];
+ 
+ const summaryHeaders = [
+@@ -237,6 +239,7 @@ const publicFeedHeaders = [
+   "RawJobURL",
+   "RawLocation",
+   "RawDepartment",
++  ...EMPLOYMENT_FIELDS,
+ ];
+ 
+ const remoteSummaryHeaders = [
+@@ -303,6 +306,7 @@ function formatCsvValue(row, column) {
+     return row[column] ? "TRUE" : "FALSE";
+   }
+ 
++  if (["EmploymentTerms", "EmploymentTypeEvidence"].includes(column) && Array.isArray(row[column])) return JSON.stringify(row[column]);
+   return row[column];
+ }
+ 
+@@ -596,7 +600,15 @@ function createSummary(fetchLogRows, jobRows, titleDiagnosticsRows, unmatchedTit
+ 
+ function buildJobExportArtifacts(rawJobRows, fetchLogRows, titleRecords, generatedAt, options = {}) {
+   const includePublicFeedRows = options.includePublicFeedRows !== false;
+-  const jobRows = addWriterFitFields(addExportValidationFields(addDedupeFields(rawJobRows)));
++  const employmentRows = rawJobRows.map(row => {
++    const shapeErrors = validateEmploymentType(row, { checkConsistency: false });
++    if (shapeErrors.length) throw new Error(`Employment contract: ${shapeErrors.join("; ")}`);
++    const normalized = { ...row, ...ensureEmploymentType(row) };
++    const errors = validateEmploymentType(normalized);
++    if (errors.length) throw new Error(`Employment contract: ${errors.join("; ")}`);
++    return normalized;
++  });
++  const jobRows = addWriterFitFields(addExportValidationFields(addDedupeFields(employmentRows)));
+   const titleDiagnosticsRows = createTitleDiagnostics(jobRows, titleRecords);
+   const unmatchedTitleRows = createUnmatchedTitleRows(titleDiagnosticsRows);
+   const bucketSummaryRows = createBucketSummaryRows(jobRows);
+diff --git a/src/lib/jobs-normalize.js b/src/lib/jobs-normalize.js
+index da36eec..569b74f 100644
+--- a/src/lib/jobs-normalize.js
++++ b/src/lib/jobs-normalize.js
+@@ -1,3 +1,4 @@
++const { extractEmploymentType } = require("./employment-type");
+ const { matchTitle } = require("./title-match");
+ const { getTitleReview } = require("./title-review");
+ const { detectSalary } = require("./salary-detect");
+@@ -147,6 +148,7 @@ function normalizeGenericAtsJob(job, context, titleRecords, fields) {
+   const salaryDetection = detectSalary(baseJob);
+ 
+   return {
++    ...extractEmploymentType(job, { Title: title, Description: description, URL: fields.url }, context),
+     Source: "public-job-feed",
+     ATS: context.ats,
+     Company: context.company,
+@@ -212,6 +214,7 @@ function normalizeAshbyJob(job, context, titleRecords) {
+ 
+   return {
+     Source: "Ashby posting API",
++    ...extractEmploymentType(job, { Title: title, Description: description, URL: job.jobUrl || job.applyUrl }, { ...context, ats: "ashby" }),
+     ATS: "ashby",
+     Company: context.company,
+     CompanyKey: context.companyKey,
+@@ -303,6 +306,7 @@ function normalizeGreenhouseJob(job, context, titleRecords) {
+ 
+   return {
+     Source: "public-job-feed",
++    ...extractEmploymentType(job, { Title: title, Description: description, URL: job.absolute_url }, { ...context, ats: "greenhouse" }),
+     ATS: "greenhouse",
+     Company: context.company,
+     CompanyKey: context.companyKey,
+@@ -403,6 +407,7 @@ function normalizeLeverJob(job, context, titleRecords) {
+ 
+   return {
+     Source: "public-job-feed",
++    ...extractEmploymentType(job, { Title: title, Description: description, URL: job.hostedUrl }, { ...context, ats: "lever" }),
+     ATS: "lever",
+     Company: context.company,
+     CompanyKey: context.companyKey,
+diff --git a/src/lib/simple-public-export.js b/src/lib/simple-public-export.js
+index bfa5388..0e1e7b9 100644
+--- a/src/lib/simple-public-export.js
++++ b/src/lib/simple-public-export.js
+@@ -1,3 +1,4 @@
++const { displayEmploymentType } = require("./employment-type");
+ const { categorizeTitle } = require("./title-category");
+ const { getPublicJobUrl } = require("./public-job-url-overrides");
+ 
+@@ -17,6 +18,7 @@ const SIMPLE_PUBLIC_HEADERS = [
+   "Age (Days)",
+   "Last Checked",
+   "Source",
++  "Employment Type",
+ ];
+ 
+ const SIMPLE_FORMULA_HEADERS = [
+@@ -35,6 +37,7 @@ const SIMPLE_FORMULA_HEADERS = [
+   "Age (Days)",
+   "Last Checked",
+   "Source",
++  "Employment Type",
+ ];
+ 
+ const START_HERE_HEADERS = [
+@@ -197,6 +200,7 @@ function buildSimplePublicRow(row, reportRunDate) {
+     "Age (Days)": getAgeDays(row.DatePosted, reportRunDate),
+     "Last Checked": formatUtcDateTime(row.FetchedAt),
+     Source: row.ATS || "",
++    "Employment Type": displayEmploymentType(row),
+   };
+ }
+ 
+@@ -219,6 +223,7 @@ function buildSimpleFormulaRow(row, reportRunDate) {
+     "Age (Days)": simpleRow["Age (Days)"],
+     "Last Checked": simpleRow["Last Checked"],
+     Source: simpleRow.Source,
++    "Employment Type": simpleRow["Employment Type"],
+     // Not written as a formula-export column. It lets multi-location grouping
+     // retain raw alternate URLs while the visible Apply column stays a formula.
+     "Apply Link": simpleRow["Apply Link"],
+diff --git a/src/scripts/build-gsheet-package.js b/src/scripts/build-gsheet-package.js
+index abc156b..845d0c2 100644
+--- a/src/scripts/build-gsheet-package.js
++++ b/src/scripts/build-gsheet-package.js
+@@ -1,3 +1,4 @@
++const { employmentCoverage, sheetRange, employmentImportNotes } = require("../lib/employment-type-report");
+ const { packageEligibility } = require("../lib/public-package-eligibility");
+ const fs = require("fs/promises");
+ const path = require("path");
+@@ -211,7 +212,7 @@ function getApplyValue(row) {
+ }
+ 
+ function getPublicSheetGroupingKey(row) {
+-  return [row.Company, row.Title].map(normalizedText).join("|");
++  return [row.Company, row.Title, row["Employment Type"] || "Not stated"].map(normalizedText).join("|");
+ }
+ 
+ function compareRepresentativeRows(left, right) {
+@@ -307,7 +308,7 @@ function groupPublicSheetCountryPostings(rows) {
+   const groups = new Map();
+ 
+   for (const row of rows) {
+-    const key = getPublicSheetGroupingKey(row);
++    const key = row["Employment Type"] === "Needs review" ? `review:${groups.size}` : getPublicSheetGroupingKey(row);
+     if (!groups.has(key)) {
+       groups.set(key, []);
+     }
+@@ -680,6 +681,11 @@ async function loadCoveragePercent() {
+ 
+ async function updateDataDictionaryFreshnessNotes() {
+   const rows = [
++    { Field: "Employment Type", Category: "Employment", Description: "Stated schedule, then employment terms. Not stated means no supported value. Needs review means conflicting evidence.", SharingNote: "Public column P. Use text contains Contract or Internship for combined labels. See EMPLOYMENT_TYPE_IMPORT.md for the actual table range." },
++    { Field: "EmploymentSchedule", Category: "Employment", Description: "Full-time, Part-time, Full-time or Part-time, Variable, or Not stated.", SharingNote: "Detailed export. Full-time does not establish Permanent." },
++    { Field: "EmploymentTerms", Category: "Employment", Description: "Ordered employment terms. JSON array; compact JSON string in CSV.", SharingNote: "Detailed export." },
++    { Field: "EmploymentTypeStatus", Category: "Employment", Description: "stated, not_stated, or conflict.", SharingNote: "Detailed export." },
++    { Field: "EmploymentTypeEvidence", Category: "Employment", Description: "Source values, fields or passages, URLs, and original observation dates. Compact JSON in CSV.", SharingNote: "Internal evidence. Excluded from the simple public CSV." },
+     {
+       Field: "Posted Date",
+       Category: "Freshness",
+@@ -839,6 +845,21 @@ async function buildSimpleTopFiles(outputDir, generatedAt, topMatchesResult, opt
+     )
+     : [];
+ 
++  const schema = { schemaVersion: 2, publicHeaders: SIMPLE_PUBLIC_HEADERS, formulaFileName: options.formulaFileName || "", rowCount: simpleRows.length, tableRange: sheetRange(SIMPLE_PUBLIC_HEADERS, simpleRows.length) };
++  await writeJsonFile(path.join(outputDir, "public-schema.json"), schema);
++  await writeJsonFile(path.join(outputDir, "employment-type-coverage.json"), {
++    detailed: employmentCoverage(eligibility.included),
++    public: employmentCoverage(simpleRows, true),
++    tableRange: schema.tableRange,
++  });
++  await writeTextFile(path.join(outputDir, "EMPLOYMENT_TYPE_IMPORT.md"), employmentImportNotes(simpleRows.length));
++
++  for (const fileName of ["public-schema.json", "employment-type-coverage.json", "EMPLOYMENT_TYPE_IMPORT.md"]) {
++    manifestRows.push({ FileName: fileName, SourcePath: sourcePath, OutputPath: path.join(outputDir, fileName), Exists: true,
++      SizeBytes: (await fs.stat(path.join(outputDir, fileName))).size, RecommendedPrimary: false,
++      RecommendedUse: "Employment type reference", Purpose: "Public schema, coverage, or Sheet import instructions." });
++  }
++
+   manifestRows.push(await writeGeneratedCsvFile(
+     outputDir, "public-package-exclusions.csv", sourcePath,
+     ["Title", "Company", "URL", "ReviewedAt", "Reason"], eligibility.excluded,
+@@ -918,6 +939,7 @@ function buildPackageReadme(generatedAt, manifestRows) {
+     "# Google Sheets Handoff Package",
+     "",
+     `Generated: ${generatedAt}`,
++    "See EMPLOYMENT_TYPE_IMPORT.md for Employment Type and the actual table and pivot source range.",
+     "",
+     "This folder is a local handoff package for manually uploading selected CSVs to Google Sheets. It does not upload anything, publish anything, or replace the source exports.",
+     "",
+@@ -979,6 +1001,7 @@ function buildTopMatchesReadme(generatedAt) {
+     "# Top Matches Package",
+     "",
+     `Generated: ${generatedAt}`,
++    "See EMPLOYMENT_TYPE_IMPORT.md for Employment Type and the actual table and pivot source range.",
+     "",
+     "`top_matches_simple.csv` is the recommended upload file for the Google Sheets / Substack workflow.",
+     "",
+@@ -1000,6 +1023,8 @@ function buildTopMatchesReadme(generatedAt) {
+     "",
+     "`top_matches_simple.csv` keeps Apply Link as a plain URL. Google Sheets usually auto-links URLs, or you can use Insert > Link if needed. `top_matches_simple_with_formula.csv` is also included if you want a prebuilt `Apply` hyperlink formula column.",
+     "",
++    "See `EMPLOYMENT_TYPE_IMPORT.md` for Employment Type labels and the actual table and pivot source range.",
++    "",
+     "## Recommended Google Sheets Filters",
+     "",
+     "- `ExportQualityFlag` = `OK`",
+@@ -1024,9 +1049,12 @@ function buildCleanPackageReadme(generatedAt, manifestRows) {
+     "# Clean Google Sheets Handoff Package",
+     "",
+     `Generated: ${generatedAt}`,
++    "See EMPLOYMENT_TYPE_IMPORT.md for Employment Type and the actual table and pivot source range.",
+     "",
+     "This is the clean package for manual Google Sheets upload. It prioritizes Good Documentation Jobs, preserves the public remote-jobs view, and intentionally keeps Company Coverage and the full firehose internal by default.",
+     "",
++    "See `EMPLOYMENT_TYPE_IMPORT.md` for Employment Type labels and the actual table and pivot source range.",
++    "",
+     "## Recommended Google Sheets Tab Order",
+     "",
+     "1. `01_good_documentation_jobs`",
+diff --git a/src/scripts/build-public-release.js b/src/scripts/build-public-release.js
+index 63a589b..9dacd03 100644
+--- a/src/scripts/build-public-release.js
++++ b/src/scripts/build-public-release.js
+@@ -171,6 +171,11 @@ function getDedupeCount(dedupeSummaryRows, sliceName) {
+ 
+ function getDataDictionaryRows(headers) {
+   const descriptions = {
++    "Employment Type": "Stated schedule and employment terms. Schedule comes first. Not stated means no supported value. Needs review means a conflict.",
++    EmploymentSchedule: "Full-time, Part-time, Full-time or Part-time, Variable, or Not stated. Full-time does not establish Permanent.",
++    EmploymentTerms: "Ordered terms array: Contract, Temporary, Freelance, Internship, Permanent, Regular, Fixed-term, Apprenticeship, Seasonal. CSV uses compact JSON.",
++    EmploymentTypeStatus: "stated, not_stated, or conflict. Unknown source labels remain evidence.",
++    EmploymentTypeEvidence: "Source field or passage, raw and normalized values, source URL, and original observation date. CSV uses compact JSON. Internal only.",
+     SourceBatch: "Batch folder that produced this row.",
+     SourceATSCount: "Distinct ATS sources involved in this row's duplicate key group.",
+     CrossATSDuplicate: "True when the duplicate group contains more than one ATS.",
+@@ -424,6 +429,7 @@ async function writeInternalDocs(releaseTimestamp) {
+     "DedupeSelected",
+     "DedupeSelectionReason",
+     "DedupeGroupSize",
++    "Employment Type",
+   ]);
+ 
+   await removeReviewerReadme();
+diff --git a/src/scripts/check-gsheet-url-health.js b/src/scripts/check-gsheet-url-health.js
+index a34c32f..9bad7a4 100644
+--- a/src/scripts/check-gsheet-url-health.js
++++ b/src/scripts/check-gsheet-url-health.js
+@@ -1,3 +1,4 @@
++const { updateAfterPublicPrune } = require("../lib/employment-type-report");
+ const fs = require("fs/promises");
+ const path = require("path");
+ const { parseCsvRecords, rowsToCsv } = require("../lib/csv");
+@@ -270,6 +271,7 @@ async function applyPrune(inputPath, headers, reviewRows, outputs, options) {
+   await fs.copyFile(inputPath, outputs.backupCsv);
+   await fs.writeFile(inputPath, rowsToCsv(headers, keepRows), "utf8");
+   const updatedStartHere = await updateStartHereCount(inputPath, keepRows.length);
++  const updatedEmploymentMetadata = await updateAfterPublicPrune(inputPath, headers, keepRows);
+ 
+   return {
+     applyMode: safeMode ? "safe" : "all-failures",
+@@ -280,6 +282,7 @@ async function applyPrune(inputPath, headers, reviewRows, outputs, options) {
+       : 0,
+     backupCsv: outputs.backupCsv,
+     updatedStartHere,
++    updatedEmploymentMetadata,
+   };
+ }
+ 
+@@ -380,6 +383,7 @@ if (require.main === module) {
+ }
+ 
+ module.exports = {
++  applyPrune,
+   isPrunableFailure,
+   shouldKeepReviewRow,
+ };
+diff --git a/src/scripts/export-public-slices-streaming-dry-run.js b/src/scripts/export-public-slices-streaming-dry-run.js
+index e52feb5..1246c00 100644
+--- a/src/scripts/export-public-slices-streaming-dry-run.js
++++ b/src/scripts/export-public-slices-streaming-dry-run.js
+@@ -1,3 +1,4 @@
++const { ensureEmploymentType } = require("../lib/employment-type");
+ const fs = require("fs/promises");
+ const path = require("path");
+ const { getDedupeKeys } = require("../adapters/exports/export-dedupe");
+@@ -105,6 +106,7 @@ async function main() {
+   try {
+     store = await ExportRunStore.open({ dbPath: path.join(runDir, "run-store.sqlite") });
+     for await (const { lineNumber, row } of iterateStrictLineJsonArrayFile(options.inputPath)) {
++      Object.assign(row, ensureEmploymentType(row));
+       rowsRead += 1;
+       if (rowsRead === 1) firstHeaders = Object.keys(row);
+       const rawSlices = getRawSliceNames(row, options.writeFullSlices);
+diff --git a/src/scripts/export-public-slices.js b/src/scripts/export-public-slices.js
+index 57b4ba9..b6521df 100644
+--- a/src/scripts/export-public-slices.js
++++ b/src/scripts/export-public-slices.js
+@@ -1,3 +1,4 @@
++const { EMPLOYMENT_FIELDS, ensureEmploymentType } = require("../lib/employment-type");
+ const fs = require("fs/promises");
+ const path = require("path");
+ const { rowsToCsv, writeLargeCsvFile } = require("../lib/csv");
+@@ -344,9 +345,9 @@ async function main() {
+ 
+   console.log(`Reading latest public feed: ${inputPath}`);
+   console.log(`Export profile: ${options.profile}`);
+-  const rows = await readLargeJsonArrayFile(inputPath);
++  const rows = (await readLargeJsonArrayFile(inputPath)).map(row => ({ ...row, ...ensureEmploymentType(row) }));
+   console.log(`Rows loaded: ${rows.length}`);
+-  const headers = Object.keys(rows[0] || {});
++  const headers = [...new Set([...Object.keys(rows[0] || {}), ...EMPLOYMENT_FIELDS])];
+   const dedupedHeaders = [...headers, "DedupeSelected", "DedupeSelectionReason", "DedupeGroupSize"];
+   const generatedAt = new Date().toISOString();
+   const slices = getSlices(rows);
+diff --git a/src/scripts/test-greenhouse-normalize.js b/src/scripts/test-greenhouse-normalize.js
+index 6fc8efc..5452161 100644
+--- a/src/scripts/test-greenhouse-normalize.js
++++ b/src/scripts/test-greenhouse-normalize.js
+@@ -4,7 +4,8 @@ const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
+ const { normalizeGreenhouseJob } = require("../lib/jobs-normalize");
+ const { buildSimplePublicRow } = require("../lib/simple-public-export");
+ 
+-const reportsDir = fromRoot("data", "jobs", "reports");
++const reportIndex = process.argv.indexOf("--report-dir");
++const reportsDir = reportIndex >= 0 ? path.resolve(process.argv[reportIndex + 1]) : fromRoot("data", "jobs", "reports");
+ const reportRunDate = "2026-07-05T21:22:00.000Z";
+ 
+ const context = {
+diff --git a/src/scripts/test-gsheet-package.js b/src/scripts/test-gsheet-package.js
+index 919a5d1..f61ee95 100644
+--- a/src/scripts/test-gsheet-package.js
++++ b/src/scripts/test-gsheet-package.js
+@@ -1,3 +1,5 @@
++const { SIMPLE_PUBLIC_HEADERS } = require("../lib/simple-public-export");
++const { validatePublicEmploymentLabel } = require("../lib/employment-type");
+ const fs = require("fs/promises");
+ const path = require("path");
+ const { nullableNumber } = require("../lib/number");
+@@ -7,7 +9,7 @@ const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
+ const { packageIdentity, packageHash, previousPackage } = require("../lib/package-status");
+ 
+ const packageRoot = fromRoot("data", "jobs", "gsheet-package");
+-const reportsDir = fromRoot("data", "jobs", "reports");
++const reportsDir = path.resolve(getArgValue("--report-dir", fromRoot("data", "jobs", "reports")));
+ const defaultPackageDir = path.join(packageRoot, "latest");
+ const jobCsvName = "01_good_documentation_jobs.csv";
+ const companyCoverageCsvName = "02_company_coverage.csv";
+@@ -102,7 +104,7 @@ async function readCsvIfExists(filePath) {
+ }
+ 
+ async function getPreviousPackageDir(packageDir, explicitPrevious) {
+-  return previousPackage(packageDir, packageRoot, explicitPrevious ? path.resolve(fromRoot(), explicitPrevious) : "");
++  return previousPackage(packageDir, path.dirname(packageDir), explicitPrevious ? path.resolve(fromRoot(), explicitPrevious) : "");
+ }
+ 
+ function addFailure(result, message) {
+@@ -554,7 +556,7 @@ async function main() {
+   await ensureDir(reportsDir);
+   await validateManifest(result, packageDir);
+   if (path.basename(packageDir) === "latest") {
+-    const sourceDir = path.join(packageRoot, result.PackageRun);
++    const sourceDir = path.join(path.dirname(packageDir), result.PackageRun);
+     result.CopyConsistency = await packageHash(packageDir) === await packageHash(sourceDir) ? "PASS" : "FAIL";
+     if (result.CopyConsistency === "FAIL") addFailure(result, "Latest job CSV differs from its source package.");
+   }
+@@ -569,6 +571,21 @@ async function main() {
+     addFailure(result, `Could not parse upload CSV: ${jobCsv.error}`);
+   } else {
+     result.GoodDocumentationJobsRows = jobCsv.rows.length;
++    const schemaPath = path.join(packageDir, "public-schema.json");
++    let schema = null;
++    try { schema = JSON.parse(await fs.readFile(schemaPath, "utf8")); }
++    catch (error) { if (error.code !== "ENOENT") addFailure(result, `Invalid public schema: ${error.message}`); }
++    if (schema) {
++      if (schema.schemaVersion !== 2) addFailure(result, "Unsupported public schema version.");
++      if (JSON.stringify(jobCsv.headers) !== JSON.stringify(SIMPLE_PUBLIC_HEADERS) || JSON.stringify(schema.publicHeaders) !== JSON.stringify(SIMPLE_PUBLIC_HEADERS)) addFailure(result, "Public schema 2 headers do not match.");
++      const expectedRange = require("../lib/employment-type-report").sheetRange(jobCsv.headers, jobCsv.rows.length);
++      if (schema.rowCount !== jobCsv.rows.length || schema.tableRange !== expectedRange) addFailure(result, "Public schema range or row count does not match.");
++    }
++    if (schema || jobCsv.headers.includes("Employment Type")) {
++      const invalid = jobCsv.rows.filter(row => !validatePublicEmploymentLabel(row["Employment Type"])).length;
++      if (invalid) addFailure(result, `${invalid} invalid Employment Type values.`);
++    }
++
+ 
+     const missing = missingHeaders(jobCsv.headers, requiredJobHeaders);
+     if (missing.length > 0) {

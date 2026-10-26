@@ -1,0 +1,3220 @@
+{
+  "run": {
+    "RunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "StartedAt": "2026-10-25T12:02:42.486Z",
+    "Status": "COMPLETE",
+    "ProjectRoot": "/Users/adampugh/GitHub/public-job-feed",
+    "LauncherPath": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+    "LauncherSHA256": "c8bc35baccefbaf9f1187dd52890de1d9faadb94851234137d29804f02039026",
+    "GitRevision": "96067095fd634c6f5e0d9d2f381423997a743b11",
+    "WorkingTreeChanged": true,
+    "Arguments": [],
+    "ParentLauncher": null,
+    "ExitCode": 0,
+    "LastStep": "Step 8: refreshing status dashboard",
+    "CompletedAt": "2026-10-25T12:36:30.191Z"
+  },
+  "process": {
+    "exitCode": 0,
+    "elapsedSeconds": 2028.1280217080002,
+    "completedAt": "2026-10-25T12:36:30.503679+00:00",
+    "recordedRun": {
+      "RunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+      "StartedAt": "2026-10-25T12:02:42.486Z",
+      "Status": "COMPLETE",
+      "ProjectRoot": "/Users/adampugh/GitHub/public-job-feed",
+      "LauncherPath": "/Users/adampugh/GitHub/public-job-feed/launchers/Refresh Job Feed.command",
+      "LauncherSHA256": "c8bc35baccefbaf9f1187dd52890de1d9faadb94851234137d29804f02039026",
+      "GitRevision": "96067095fd634c6f5e0d9d2f381423997a743b11",
+      "WorkingTreeChanged": true,
+      "Arguments": [],
+      "ParentLauncher": null,
+      "ExitCode": 0,
+      "LastStep": "Step 8: refreshing status dashboard",
+      "CompletedAt": "2026-10-25T12:36:30.191Z"
+    }
+  },
+  "checks": [
+    {
+      "requirement": "Normal launcher completed",
+      "status": "PASS",
+      "detail": 0,
+      "evidence": "process-result.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Distinct package from this refresh",
+      "status": "PASS",
+      "detail": "20261025-0724",
+      "evidence": "data/jobs/reports/release-run-summary.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Public column is appended; evidence is internal",
+      "status": "PASS",
+      "detail": [
+        "Title",
+        "Company",
+        "Location",
+        "Apply Link",
+        "Additional Apply Links",
+        "Writer Fit Score",
+        "Fit Tier",
+        "Why It Matched",
+        "Role Type",
+        "Work Arrangement",
+        "Salary",
+        "Posted Date",
+        "Age (Days)",
+        "Last Checked",
+        "Source",
+        "Employment Type"
+      ],
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Public labels validate",
+      "status": "PASS",
+      "detail": {
+        "denominator": 732,
+        "statedSchedule": 202,
+        "statedTerms": 48,
+        "neither": 492,
+        "conflicts": 0,
+        "byATS": {
+          "lever": {
+            "denominator": 70,
+            "byLabel": {
+              "Full-time": 43,
+              "Full-time; Regular": 1,
+              "Regular": 4,
+              "Freelance": 4,
+              "Contract": 1,
+              "Not stated": 16,
+              "Full-time; Contract": 1
+            }
+          },
+          "greenhouse": {
+            "denominator": 261,
+            "byLabel": {
+              "Regular": 2,
+              "Not stated": 210,
+              "Full-time": 42,
+              "Freelance": 2,
+              "Internship": 3,
+              "Contract": 2
+            }
+          },
+          "ashby": {
+            "denominator": 68,
+            "byLabel": {
+              "Full-time": 46,
+              "Internship": 1,
+              "Not stated": 16,
+              "Contract; Freelance": 1,
+              "Full-time; Internship": 1,
+              "Contract": 2,
+              "Part-time": 1
+            }
+          },
+          "direct-employer": {
+            "denominator": 1,
+            "byLabel": {
+              "Not stated": 1
+            }
+          },
+          "workday": {
+            "denominator": 198,
+            "byLabel": {
+              "Not stated": 144,
+              "Full-time": 40,
+              "Contract": 7,
+              "Full-time; Internship": 3,
+              "Part-time": 2,
+              "Internship": 2
+            }
+          },
+          "icims": {
+            "denominator": 93,
+            "byLabel": {
+              "Not stated": 89,
+              "Part-time": 2,
+              "Internship": 1,
+              "Full-time": 1
+            }
+          },
+          "bamboohr": {
+            "denominator": 41,
+            "byLabel": {
+              "Contract": 1,
+              "Full-time": 14,
+              "Part-time; Contract; Freelance": 1,
+              "Internship": 4,
+              "Full-time; Permanent": 1,
+              "Not stated": 16,
+              "Part-time; Freelance": 2,
+              "Contract; Freelance": 1,
+              "Part-time": 1
+            }
+          }
+        },
+        "byLabel": {
+          "Full-time": 186,
+          "Regular": 6,
+          "Not stated": 492,
+          "Internship": 11,
+          "Full-time; Regular": 1,
+          "Freelance": 6,
+          "Contract; Freelance": 2,
+          "Contract": 13,
+          "Full-time; Internship": 4,
+          "Full-time; Contract": 1,
+          "Part-time": 6,
+          "Part-time; Contract; Freelance": 1,
+          "Full-time; Permanent": 1,
+          "Part-time; Freelance": 2
+        }
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Schema, final coverage, and import range agree",
+      "status": "PASS",
+      "detail": {
+        "schema": {
+          "schemaVersion": 2,
+          "publicHeaders": [
+            "Title",
+            "Company",
+            "Location",
+            "Apply Link",
+            "Additional Apply Links",
+            "Writer Fit Score",
+            "Fit Tier",
+            "Why It Matched",
+            "Role Type",
+            "Work Arrangement",
+            "Salary",
+            "Posted Date",
+            "Age (Days)",
+            "Last Checked",
+            "Source",
+            "Employment Type"
+          ],
+          "formulaFileName": "",
+          "rowCount": 732,
+          "tableRange": "A1:P733"
+        },
+        "coverage": {
+          "detailed": {
+            "denominator": 811,
+            "statedSchedule": 239,
+            "statedTerms": 52,
+            "neither": 531,
+            "conflicts": 0,
+            "byATS": {
+              "greenhouse": {
+                "denominator": 293,
+                "byLabel": {
+                  "Not stated": 235,
+                  "Contract": 2,
+                  "Full-time": 46,
+                  "Internship": 4,
+                  "Freelance": 2,
+                  "Regular": 3,
+                  "Full-time; Contract": 1
+                }
+              },
+              "ashby": {
+                "denominator": 74,
+                "byLabel": {
+                  "Contract": 2,
+                  "Full-time": 50,
+                  "Internship": 1,
+                  "Full-time; Internship": 1,
+                  "Part-time": 1,
+                  "Not stated": 18,
+                  "Contract; Freelance": 1
+                }
+              },
+              "icims": {
+                "denominator": 99,
+                "byLabel": {
+                  "Not stated": 94,
+                  "Part-time": 2,
+                  "Internship": 2,
+                  "Full-time": 1
+                }
+              },
+              "workday": {
+                "denominator": 205,
+                "byLabel": {
+                  "Contract": 7,
+                  "Part-time": 2,
+                  "Not stated": 147,
+                  "Full-time": 44,
+                  "Internship": 2,
+                  "Full-time; Internship": 3
+                }
+              },
+              "lever": {
+                "denominator": 97,
+                "byLabel": {
+                  "Full-time": 67,
+                  "Regular": 4,
+                  "Freelance": 4,
+                  "Not stated": 19,
+                  "Full-time; Regular": 1,
+                  "Full-time; Contract": 1,
+                  "Contract": 1
+                }
+              },
+              "bamboohr": {
+                "denominator": 42,
+                "byLabel": {
+                  "Full-time": 14,
+                  "Full-time; Permanent": 1,
+                  "Not stated": 17,
+                  "Part-time; Freelance": 2,
+                  "Internship": 4,
+                  "Contract; Freelance": 1,
+                  "Contract": 1,
+                  "Part-time; Contract; Freelance": 1,
+                  "Part-time": 1
+                }
+              },
+              "direct-employer": {
+                "denominator": 1,
+                "byLabel": {
+                  "Not stated": 1
+                }
+              }
+            },
+            "byLabel": {
+              "Not stated": 531,
+              "Contract": 13,
+              "Full-time": 222,
+              "Part-time": 6,
+              "Regular": 7,
+              "Internship": 13,
+              "Freelance": 6,
+              "Full-time; Internship": 4,
+              "Full-time; Regular": 1,
+              "Full-time; Permanent": 1,
+              "Part-time; Freelance": 2,
+              "Contract; Freelance": 2,
+              "Full-time; Contract": 2,
+              "Part-time; Contract; Freelance": 1
+            }
+          },
+          "public": {
+            "denominator": 732,
+            "statedSchedule": 202,
+            "statedTerms": 48,
+            "neither": 492,
+            "conflicts": 0,
+            "byATS": {
+              "lever": {
+                "denominator": 70,
+                "byLabel": {
+                  "Full-time": 43,
+                  "Full-time; Regular": 1,
+                  "Regular": 4,
+                  "Freelance": 4,
+                  "Contract": 1,
+                  "Not stated": 16,
+                  "Full-time; Contract": 1
+                }
+              },
+              "greenhouse": {
+                "denominator": 261,
+                "byLabel": {
+                  "Regular": 2,
+                  "Not stated": 210,
+                  "Full-time": 42,
+                  "Freelance": 2,
+                  "Internship": 3,
+                  "Contract": 2
+                }
+              },
+              "ashby": {
+                "denominator": 68,
+                "byLabel": {
+                  "Full-time": 46,
+                  "Internship": 1,
+                  "Not stated": 16,
+                  "Contract; Freelance": 1,
+                  "Full-time; Internship": 1,
+                  "Contract": 2,
+                  "Part-time": 1
+                }
+              },
+              "direct-employer": {
+                "denominator": 1,
+                "byLabel": {
+                  "Not stated": 1
+                }
+              },
+              "workday": {
+                "denominator": 198,
+                "byLabel": {
+                  "Not stated": 144,
+                  "Full-time": 40,
+                  "Contract": 7,
+                  "Full-time; Internship": 3,
+                  "Part-time": 2,
+                  "Internship": 2
+                }
+              },
+              "icims": {
+                "denominator": 93,
+                "byLabel": {
+                  "Not stated": 89,
+                  "Part-time": 2,
+                  "Internship": 1,
+                  "Full-time": 1
+                }
+              },
+              "bamboohr": {
+                "denominator": 41,
+                "byLabel": {
+                  "Contract": 1,
+                  "Full-time": 14,
+                  "Part-time; Contract; Freelance": 1,
+                  "Internship": 4,
+                  "Full-time; Permanent": 1,
+                  "Not stated": 16,
+                  "Part-time; Freelance": 2,
+                  "Contract; Freelance": 1,
+                  "Part-time": 1
+                }
+              }
+            },
+            "byLabel": {
+              "Full-time": 186,
+              "Regular": 6,
+              "Not stated": 492,
+              "Internship": 11,
+              "Full-time; Regular": 1,
+              "Freelance": 6,
+              "Contract; Freelance": 2,
+              "Contract": 13,
+              "Full-time; Internship": 4,
+              "Full-time; Contract": 1,
+              "Part-time": 6,
+              "Part-time; Contract; Freelance": 1,
+              "Full-time; Permanent": 1,
+              "Part-time; Freelance": 2
+            }
+          },
+          "tableRange": "A1:P733",
+          "publicAfterURLPruning": true
+        }
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Manifest sizes and formats agree",
+      "status": "PASS",
+      "detail": {
+        "20261025-0724": {
+          "mismatches": [],
+          "rows": 15
+        },
+        "latest": {
+          "mismatches": [],
+          "rows": 16
+        }
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Latest and dated copies agree",
+      "status": "PASS",
+      "detail": [
+        {
+          "file": "01_good_documentation_jobs.csv",
+          "same": true
+        },
+        {
+          "file": "public-schema.json",
+          "same": true
+        },
+        {
+          "file": "employment-type-coverage.json",
+          "same": true
+        },
+        {
+          "file": "EMPLOYMENT_TYPE_IMPORT.md",
+          "same": true
+        }
+      ],
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Current URL check and safe prune completed",
+      "status": "PASS",
+      "detail": {
+        "InputPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+        "UrlColumn": "Apply Link",
+        "CheckedAt": "2026-10-25T12:26:13.346Z",
+        "TotalRows": 761,
+        "GoodRows": 720,
+        "BadRows": 41,
+        "PrunableBadRows": 29,
+        "AmbiguousBadRows": 12,
+        "MissingUrlRows": 0,
+        "InvalidUrlRows": 0,
+        "TimedOutRows": 0,
+        "FetchErrorRows": 0,
+        "ReviewCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-review.csv",
+        "FailuresCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-failures.csv",
+        "SummaryMarkdown": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-check-summary.md",
+        "Applied": true,
+        "ApplyMode": "safe",
+        "PrunedRows": 29,
+        "KeptRows": 732,
+        "KeptAmbiguousFailureRows": 12,
+        "BackupCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-before-url-prune.csv"
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Production suite belongs to this run",
+      "status": "PASS",
+      "detail": {
+        "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+        "packageId": "20261025-0724",
+        "status": "PASS",
+        "tests": 38
+      },
+      "evidence": "data/jobs/reports/test-all-results.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Current refresh and package validation pass",
+      "status": "PASS",
+      "detail": {
+        "validation": {
+          "GeneratedAt": "2026-10-25T12:27:40.129Z",
+          "PackageRun": "20261025-0724",
+          "Status": "PASS",
+          "Failures": []
+        },
+        "packageTest": {
+          "GeneratedAt": "2026-10-25T12:27:28.667Z",
+          "Status": "WARN",
+          "PackageDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest",
+          "JobCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv",
+          "CompanyCoverageCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/02_company_coverage.csv",
+          "PackageRun": "20261025-0724",
+          "CopyConsistency": "PASS",
+          "PreviousPackageDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954",
+          "PreviousJobCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs.csv",
+          "GoodDocumentationJobsRows": 732,
+          "PreviousGoodDocumentationJobsRows": 715,
+          "RowChange": 17,
+          "RowChangePercent": 2.38,
+          "CompanyCoverageRows": 40857,
+          "DuplicateApplyLinkRows": 0,
+          "MissingApplyLinkRows": 0,
+          "BlankTitleRows": 0,
+          "BlankCompanyRows": 0,
+          "OldestLastChecked": "2026-06-30T12:08:00.000Z",
+          "WarnStaleDays": 7,
+          "StrongWarnStaleDays": 14,
+          "FailStaleDays": 0,
+          "RowsOlderThanWarnStaleDays": 24,
+          "RowsOlderThanStrongWarnStaleDays": 5,
+          "RowsOlderThanFailStaleDays": 0,
+          "ReportRunDate": "2026-10-25 12:24 UTC",
+          "ReportRunDatePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/00_start_here.csv",
+          "PostedDateForwardWarnDays": 1,
+          "PostedDateMovedForwardRows": 0,
+          "PostedDateMovedForwardBySource": {},
+          "PostedDateMovedForwardSamples": [],
+          "AgeDecreasedRows": 0,
+          "AgeDecreasedBySource": {},
+          "AgeDecreasedSamples": [],
+          "SameDayPostedDateWarnCount": 10,
+          "SameDayPostedDateWarnPercent": 10,
+          "SameDayPostedDateSpikes": [],
+          "Failures": [],
+          "Warnings": [
+            "24 rows have Last Checked older than 7 days.",
+            "5 rows have Last Checked older than 14 days."
+          ],
+          "ManifestPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/gsheet-package-manifest.json",
+          "ManifestExists": true
+        }
+      },
+      "evidence": "data/jobs/reports/refresh-output-validation.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Detailed CSV contains valid JSON arrays",
+      "status": "PASS",
+      "detail": {
+        "rows": 847
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/03_top_matches_full.csv",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Shortlist evidence survives detailed CSV",
+      "status": "PASS",
+      "detail": {
+        "differences": []
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Corrected parser is materialized throughout the actual canonical feed",
+      "status": "FAIL",
+      "detail": {
+        "idempotenceDifferences": 0,
+        "previousAffectedObservations": 153,
+        "matchedSameObservation": 137,
+        "matchingCorrectionDifferences": 116,
+        "notPresentAsSameObservation": 16,
+        "limit": "Counts refer to the same ATS/catalog/job/URL/observation date. Missing prior observations can be replaced or removed by new collection. They are not assumed to need correction in the new feed."
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Canonical employment contract and observation dates validate",
+      "status": "PASS",
+      "detail": {
+        "rows": 836592,
+        "newRows": 35192,
+        "retainedRows": 801400,
+        "byATS": {
+          "ashby": {
+            "newRows": 6902,
+            "retainedRows": 37499,
+            "structuredNew": 6902
+          },
+          "bamboohr": {
+            "newRows": 614,
+            "retainedRows": 45034,
+            "structuredNew": 614
+          },
+          "greenhouse": {
+            "newRows": 13965,
+            "retainedRows": 154831,
+            "structuredNew": 5482
+          },
+          "lever": {
+            "newRows": 10147,
+            "retainedRows": 49871,
+            "structuredNew": 9961
+          },
+          "icims": {
+            "newRows": 1465,
+            "retainedRows": 255358,
+            "structuredNew": 0
+          },
+          "workday": {
+            "newRows": 2097,
+            "retainedRows": 258807,
+            "structuredNew": 1660
+          },
+          "direct-employer": {
+            "newRows": 2,
+            "retainedRows": 0,
+            "structuredNew": 0
+          }
+        },
+        "contractErrors": 0,
+        "sourceDateErrors": 0,
+        "batchMatches": 35190,
+        "batchContractDifferences": 0,
+        "rejectedVariableRows": 0,
+        "compatibleVariableRows": 42,
+        "occupationalVariableRows": 4,
+        "genuineScheduleContradictions": 343,
+        "genuineConflictErrors": 0,
+        "occupationalExamples": [
+          {
+            "ATS": "ashby",
+            "Company": "Crusoe",
+            "Title": "Senior Variable Compensation Manager",
+            "URL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+            "SourceBatch": "maintain-due-ashby-20261025t120242",
+            "FetchedAt": "2026-10-25T12:02:45.651Z",
+            "display": "Full-time",
+            "EmploymentSchedule": "Full-time",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "stated",
+            "EmploymentTypeEvidence": [
+              {
+                "Dimension": "schedule",
+                "Value": "Full-time",
+                "RawValue": "FullTime",
+                "SourceField": "employmentType",
+                "SourceKind": "structured_field",
+                "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/crusoe",
+                "ObservedAt": "2026-10-25T12:02:45.651Z"
+              }
+            ]
+          },
+          {
+            "ATS": "workday",
+            "Company": "Jacksonhealthcare",
+            "Title": "Variable Compensation Analyst",
+            "URL": "https://jacksonhealthcare.wd1.myworkdayjobs.com/careers-jacksonhealthcare/job/Alpharetta-Georgia/Variable-Compensation-Analyst_JR109369-1",
+            "SourceBatch": "maintain-due-workday-20261018t090005",
+            "FetchedAt": "2026-10-18T09:13:01.690Z",
+            "display": "Not stated",
+            "EmploymentSchedule": "Not stated",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "not_stated",
+            "EmploymentTypeEvidence": []
+          },
+          {
+            "ATS": "workday",
+            "Company": "Jacksonhealthcare",
+            "Title": "Variable Compensation Analyst",
+            "URL": "https://jacksonhealthcare.wd1.myworkdayjobs.com/careers-locumtenens/job/Alpharetta-Georgia/Variable-Compensation-Analyst_JR109369",
+            "SourceBatch": "maintain-due-workday-20261018t090005",
+            "FetchedAt": "2026-10-18T09:13:08.590Z",
+            "display": "Not stated",
+            "EmploymentSchedule": "Not stated",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "not_stated",
+            "EmploymentTypeEvidence": []
+          },
+          {
+            "ATS": "workday",
+            "Company": "Veralto",
+            "Title": "Variable Compensation Analyst",
+            "URL": "https://veralto.wd1.myworkdayjobs.com/hachjobs/job/So-Paulo-Brazil/Variable-Compensation-Analyst_R10267133",
+            "SourceBatch": "maintain-due-workday-20261025t090004",
+            "FetchedAt": "2026-10-25T09:15:49.094Z",
+            "display": "Full-time",
+            "EmploymentSchedule": "Full-time",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "stated",
+            "EmploymentTypeEvidence": [
+              {
+                "Dimension": "schedule",
+                "Value": "Full-time",
+                "RawValue": "Full time",
+                "SourceField": "timeType",
+                "SourceKind": "structured_field",
+                "SourceURL": "https://veralto.wd1.myworkdayjobs.com/wday/cxs/veralto/hachjobs/jobs",
+                "ObservedAt": "2026-10-25T09:15:49.094Z"
+              }
+            ]
+          }
+        ],
+        "compatibleExamples": [
+          {
+            "ATS": "ashby",
+            "Company": "Mebe",
+            "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+            "URL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+            "SourceBatch": "maintain-due-ashby-20261023t210006",
+            "FetchedAt": "2026-10-23T21:00:20.208Z",
+            "display": "Part-time",
+            "EmploymentSchedule": "Part-time",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "stated",
+            "EmploymentTypeEvidence": [
+              {
+                "Dimension": "schedule",
+                "Value": "Variable",
+                "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+                "SourceField": "Title",
+                "SourceKind": "title",
+                "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+                "ObservedAt": "2026-10-23T21:00:20.208Z"
+              },
+              {
+                "Dimension": "schedule",
+                "Value": "Part-time",
+                "RawValue": "This is a Part Time Variable Hour role.",
+                "SourceField": "Description",
+                "SourceKind": "description",
+                "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+                "ObservedAt": "2026-10-23T21:00:20.208Z"
+              }
+            ]
+          },
+          {
+            "ATS": "ashby",
+            "Company": "Mebe",
+            "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+            "URL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+            "SourceBatch": "maintain-due-ashby-20261023t210006",
+            "FetchedAt": "2026-10-23T21:00:20.208Z",
+            "display": "Part-time",
+            "EmploymentSchedule": "Part-time",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "stated",
+            "EmploymentTypeEvidence": [
+              {
+                "Dimension": "schedule",
+                "Value": "Variable",
+                "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+                "SourceField": "Title",
+                "SourceKind": "title",
+                "SourceURL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+                "ObservedAt": "2026-10-23T21:00:20.208Z"
+              },
+              {
+                "Dimension": "schedule",
+                "Value": "Part-time",
+                "RawValue": "This is a Part Time Variable Hour role.",
+                "SourceField": "Description",
+                "SourceKind": "description",
+                "SourceURL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+                "ObservedAt": "2026-10-23T21:00:20.208Z"
+              }
+            ]
+          },
+          {
+            "ATS": "ashby",
+            "Company": "Mebe",
+            "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+            "URL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+            "SourceBatch": "maintain-due-ashby-20261023t210006",
+            "FetchedAt": "2026-10-23T21:00:20.208Z",
+            "display": "Part-time",
+            "EmploymentSchedule": "Part-time",
+            "EmploymentTerms": [],
+            "EmploymentTypeStatus": "stated",
+            "EmploymentTypeEvidence": [
+              {
+                "Dimension": "schedule",
+                "Value": "Variable",
+                "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+                "SourceField": "Title",
+                "SourceKind": "title",
+                "SourceURL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+                "ObservedAt": "2026-10-23T21:00:20.208Z"
+              },
+              {
+                "Dimension": "schedule",
+                "Value": "Part-time",
+                "RawValue": "This is a Part Time Variable Hour role.",
+                "SourceField": "Description",
+                "SourceKind": "description",
+                "SourceURL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+                "ObservedAt": "2026-10-23T21:00:20.208Z"
+              }
+            ]
+          },
+          {
+            "ATS": "bamboohr",
+            "Company": "Saalt",
+            "Title": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+            "URL": "https://saalt.bamboohr.com/careers/83",
+            "SourceBatch": "maintain-due-bamboohr-20261021t090002",
+            "FetchedAt": "2026-10-21T09:05:09.326Z",
+            "display": "Part-time; Temporary",
+            "EmploymentSchedule": "Part-time",
+            "EmploymentTerms": [
+              "Temporary"
+            ],
+            "EmploymentTypeStatus": "stated",
+            "EmploymentTypeEvidence": [
+              {
+                "Dimension": "schedule",
+                "Value": "Part-time",
+                "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+                "SourceField": "Title",
+                "SourceKind": "title",
+                "SourceURL": "https://saalt.bamboohr.com/careers/83",
+                "ObservedAt": "2026-10-21T09:05:09.326Z"
+              },
+              {
+                "Dimension": "schedule",
+                "Value": "Variable",
+                "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+                "SourceField": "Title",
+                "SourceKind": "title",
+                "SourceURL": "https://saalt.bamboohr.com/careers/83",
+                "ObservedAt": "2026-10-21T09:05:09.326Z"
+              },
+              {
+                "Dimension": "terms",
+                "Value": "Temporary",
+                "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+                "SourceField": "Title",
+                "SourceKind": "title",
+                "SourceURL": "https://saalt.bamboohr.com/careers/83",
+                "ObservedAt": "2026-10-21T09:05:09.326Z"
+              }
+            ]
+          }
+        ],
+        "rejectedExamples": [],
+        "unsupportedVariableRows": 0,
+        "unsupportedVariableExamples": [],
+        "variableCompatibilityRows": 0,
+        "variableCompatibilityExamples": []
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Genuine schedule contradictions remain Needs review",
+      "status": "PASS",
+      "detail": {
+        "observed": 343,
+        "errors": 0
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Free text Variable values require an explicit schedule",
+      "status": "PASS",
+      "detail": {
+        "rows": 0,
+        "examples": []
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Variable hours or shifts do not contradict stated full-time or part-time hours",
+      "status": "PASS",
+      "detail": {
+        "rows": 0,
+        "examples": []
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "New normalized batch evidence survives merge",
+      "status": "PASS",
+      "detail": {
+        "matched": 35190,
+        "differences": 0,
+        "newBatchRecords": 35190
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Controlled selection reproduces actual shortlist",
+      "status": "PASS",
+      "detail": {
+        "actual": 847,
+        "calculated": 847,
+        "candidates": 1017
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Final public labels trace to current grouped shortlist",
+      "status": "PASS",
+      "detail": {
+        "differences": []
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "Employment fields do not change scores or identity keys on the same inputs",
+      "status": "PASS",
+      "detail": {
+        "rows": 1017,
+        "scoreDifferences": 0,
+        "keyDifferences": 0
+      },
+      "evidence": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "History result belongs to this run and package",
+      "status": "PASS",
+      "detail": {
+        "RunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+        "GeneratedAt": "2026-10-25T12:36:30.109Z",
+        "History": "PASS",
+        "Backup": "FAILED",
+        "LastVerified": {
+          "status": "PASS",
+          "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+          "verifiedAt": "2026-10-25T12:00:24.029Z",
+          "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+          "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+          "snapshot": "20261024-0954",
+          "metadata": {
+            "policy": "appledouble-provenance-v1",
+            "count": 0,
+            "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+          }
+        },
+        "Warnings": [
+          "Insufficient space for backup and full restore test"
+        ],
+        "Imported": 1,
+        "LatestSnapshot": "20261025-0724"
+      },
+      "evidence": "data/jobs/reports/daily-history-backup.json",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    },
+    {
+      "requirement": "New accepted backup covers the production history generation",
+      "status": "FAIL",
+      "detail": {
+        "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+        "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+        "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+        "latestSnapshot": "20261024-0954",
+        "verifiedAt": "2026-10-25T12:00:24.029Z",
+        "files": 3306,
+        "metadataFiles": [],
+        "proof": {
+          "format": "public-job-feed-daily-history-v1",
+          "status": "PASS",
+          "manifestHash": "afcd2369abfc1b286a5d92c0261c8b7da9445db833c855757d469f0605393ecc",
+          "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+          "fullRestore": true,
+          "verifiedAt": "2026-10-25T12:00:24.029Z",
+          "audit": {
+            "format": "v2",
+            "observations": "116673",
+            "canonical_urls": "3505",
+            "job_keys": "3450",
+            "company_keys": "1623",
+            "raw_top_match_rows": "116683",
+            "raw_job_keys": "3450",
+            "good_job_exceptions": "40",
+            "raw_good_job_rows": "103202",
+            "duplicate_canonical_rows": "10",
+            "snapshots": "158",
+            "latest": {
+              "snapshot_id": "20261024-0954",
+              "observed_at": "2026-10-24 09:54:00",
+              "total_postings": "831",
+              "good_postings": "715",
+              "remote_postings": "147",
+              "hybrid_postings": "126",
+              "onsite_postings": "526",
+              "us_remote_eligible_count": "43",
+              "company_count": 535,
+              "catalog_slug_count": 539,
+              "ats_type_count": 7
+            },
+            "errors": [],
+            "warnings": [
+              "20260715-0556: 10 duplicate canonical rows resolved; raw rows preserved",
+              "20260824-1624: 1 unmatched good-job rows preserved as exceptions",
+              "20260825-0538: 1 unmatched good-job rows preserved as exceptions",
+              "20260826-0658: 1 unmatched good-job rows preserved as exceptions",
+              "20260827-0509: 1 unmatched good-job rows preserved as exceptions",
+              "20260827-0518: 3 unmatched good-job rows preserved as exceptions",
+              "20260828-0620: 3 unmatched good-job rows preserved as exceptions",
+              "20260829-0639: 3 unmatched good-job rows preserved as exceptions",
+              "20260830-1127: 2 unmatched good-job rows preserved as exceptions",
+              "20260831-0536: 2 unmatched good-job rows preserved as exceptions",
+              "20260901-0603: 3 unmatched good-job rows preserved as exceptions",
+              "20260902-0528: 1 unmatched good-job rows preserved as exceptions",
+              "20260904-0441: 1 unmatched good-job rows preserved as exceptions",
+              "20260905-0704: 1 unmatched good-job rows preserved as exceptions",
+              "20260906-0700: 1 unmatched good-job rows preserved as exceptions",
+              "20260907-0701: 1 unmatched good-job rows preserved as exceptions",
+              "20260908-0506: 1 unmatched good-job rows preserved as exceptions",
+              "20260909-0608: 1 unmatched good-job rows preserved as exceptions",
+              "20260910-0605: 1 unmatched good-job rows preserved as exceptions",
+              "20260911-0656: 1 unmatched good-job rows preserved as exceptions",
+              "20260912-0710: 1 unmatched good-job rows preserved as exceptions",
+              "20260913-1043: 1 unmatched good-job rows preserved as exceptions",
+              "20260914-0650: 1 unmatched good-job rows preserved as exceptions",
+              "20260915-0613: 1 unmatched good-job rows preserved as exceptions",
+              "20260916-0616: 1 unmatched good-job rows preserved as exceptions",
+              "20260917-0458: 1 unmatched good-job rows preserved as exceptions",
+              "20260918-0646: 1 unmatched good-job rows preserved as exceptions",
+              "20260919-0628: 1 unmatched good-job rows preserved as exceptions",
+              "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+              "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+              "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+              "01_good_documentation_jobs.csv: 5 header variants (union by name)",
+              "03_top_matches_full.csv: 2 header variants (union by name)"
+            ],
+            "header_variants": {
+              "01_good_documentation_jobs.csv": [
+                {
+                  "headers": [
+                    "Title",
+                    "Company",
+                    "Location",
+                    "Apply Link",
+                    "Writer Fit Score",
+                    "Fit Tier",
+                    "Why It Matched",
+                    "Work Arrangement",
+                    "Salary",
+                    "Posted Date",
+                    "Last Checked",
+                    "Report Run Date",
+                    "Source"
+                  ],
+                  "snapshots": 2,
+                  "first": "20260602-1810",
+                  "last": "20260602-1812"
+                },
+                {
+                  "headers": [
+                    "Title",
+                    "Company",
+                    "Location",
+                    "Apply Link",
+                    "Writer Fit Score",
+                    "Fit Tier",
+                    "Why It Matched",
+                    "Work Arrangement",
+                    "Salary",
+                    "Posted Date",
+                    "Age (Days)",
+                    "Last Checked",
+                    "Source"
+                  ],
+                  "snapshots": 46,
+                  "first": "20260602-2051",
+                  "last": "20260714-1604"
+                },
+                {
+                  "headers": [
+                    "Title",
+                    "Company",
+                    "Location",
+                    "Apply Link",
+                    "Writer Fit Score",
+                    "Fit Tier",
+                    "Why It Matched",
+                    "Role Type",
+                    "Work Arrangement",
+                    "Salary",
+                    "Posted Date",
+                    "Age (Days)",
+                    "Last Checked",
+                    "Source"
+                  ],
+                  "snapshots": 32,
+                  "first": "20260714-1607",
+                  "last": "20260808-0619"
+                },
+                {
+                  "headers": [
+                    "Title",
+                    "Company",
+                    "Location",
+                    "Apply Link",
+                    "Additional Apply Links",
+                    "Writer Fit Score",
+                    "Fit Tier",
+                    "Why It Matched",
+                    "Role Type",
+                    "Work Arrangement",
+                    "Salary",
+                    "Posted Date",
+                    "Age (Days)",
+                    "Last Checked",
+                    "Source"
+                  ],
+                  "snapshots": 77,
+                  "first": "20260809-0543",
+                  "last": "20261024-0739"
+                },
+                {
+                  "headers": [
+                    "Title",
+                    "Company",
+                    "Location",
+                    "Apply Link",
+                    "Additional Apply Links",
+                    "Writer Fit Score",
+                    "Fit Tier",
+                    "Why It Matched",
+                    "Role Type",
+                    "Work Arrangement",
+                    "Salary",
+                    "Posted Date",
+                    "Age (Days)",
+                    "Last Checked",
+                    "Source",
+                    "Employment Type"
+                  ],
+                  "snapshots": 1,
+                  "first": "20261024-0954",
+                  "last": "20261024-0954"
+                }
+              ],
+              "03_top_matches_full.csv": [
+                {
+                  "headers": [
+                    "SourceBatch",
+                    "SourceATSCount",
+                    "CrossATSDuplicate",
+                    "CrossATSDuplicateATSList",
+                    "Source",
+                    "ATS",
+                    "Company",
+                    "CompanyKey",
+                    "Title",
+                    "ExportQualityFlag",
+                    "ExportQualityIssues",
+                    "PossibleDuplicate",
+                    "DuplicateReason",
+                    "JobKey",
+                    "CompanyTitleLocationKey",
+                    "CanonicalURLKey",
+                    "DuplicateGroupKey",
+                    "TitleReviewBucket",
+                    "TitleReviewPriority",
+                    "TitleReviewReason",
+                    "TitleDomainSignal",
+                    "TitleSenioritySignal",
+                    "TitleLeadershipSignal",
+                    "TitleICSignal",
+                    "WriterFitVersion",
+                    "WriterFitBaseScore",
+                    "WriterFitScore",
+                    "WriterFitTier",
+                    "WriterFitReasons",
+                    "WriterFitPositiveSignals",
+                    "WriterFitNegativeSignals",
+                    "WriterFitPenaltySignals",
+                    "WriterFitDemotionReason",
+                    "WriterFitGuardrailApplied",
+                    "TitleMatchType",
+                    "TitleMatchCategory",
+                    "MatchedWatchlistTitle",
+                    "TitleMatchScore",
+                    "TitleConfidence",
+                    "Location",
+                    "RemoteStatus",
+                    "RemoteSignal",
+                    "RemoteConfidence",
+                    "USRemoteEligible",
+                    "LocationRisk",
+                    "LocationReviewReason",
+                    "SalaryDetected",
+                    "SalaryMin",
+                    "SalaryMax",
+                    "SalaryCurrency",
+                    "SalaryPeriod",
+                    "SalaryText",
+                    "Department",
+                    "DatePosted",
+                    "URL",
+                    "Description",
+                    "CatalogSlug",
+                    "BoardURL",
+                    "FetchURL",
+                    "FetchedAt",
+                    "RawJobId",
+                    "RawJobURL",
+                    "RawLocation",
+                    "RawDepartment",
+                    "DedupeSelected",
+                    "DedupeSelectionReason",
+                    "DedupeGroupSize"
+                  ],
+                  "snapshots": 157,
+                  "first": "20260602-1810",
+                  "last": "20261024-0739"
+                },
+                {
+                  "headers": [
+                    "SourceBatch",
+                    "SourceATSCount",
+                    "CrossATSDuplicate",
+                    "CrossATSDuplicateATSList",
+                    "Source",
+                    "ATS",
+                    "Company",
+                    "CompanyKey",
+                    "Title",
+                    "ExportQualityFlag",
+                    "ExportQualityIssues",
+                    "PossibleDuplicate",
+                    "DuplicateReason",
+                    "JobKey",
+                    "CompanyTitleLocationKey",
+                    "CanonicalURLKey",
+                    "DuplicateGroupKey",
+                    "TitleReviewBucket",
+                    "TitleReviewPriority",
+                    "TitleReviewReason",
+                    "TitleDomainSignal",
+                    "TitleSenioritySignal",
+                    "TitleLeadershipSignal",
+                    "TitleICSignal",
+                    "WriterFitVersion",
+                    "WriterFitBaseScore",
+                    "WriterFitScore",
+                    "WriterFitTier",
+                    "WriterFitReasons",
+                    "WriterFitPositiveSignals",
+                    "WriterFitNegativeSignals",
+                    "WriterFitPenaltySignals",
+                    "WriterFitDemotionReason",
+                    "WriterFitGuardrailApplied",
+                    "TitleMatchType",
+                    "TitleMatchCategory",
+                    "MatchedWatchlistTitle",
+                    "TitleMatchScore",
+                    "TitleConfidence",
+                    "Location",
+                    "RemoteStatus",
+                    "RemoteSignal",
+                    "RemoteConfidence",
+                    "USRemoteEligible",
+                    "LocationRisk",
+                    "LocationReviewReason",
+                    "SalaryDetected",
+                    "SalaryMin",
+                    "SalaryMax",
+                    "SalaryCurrency",
+                    "SalaryPeriod",
+                    "SalaryText",
+                    "Department",
+                    "DatePosted",
+                    "URL",
+                    "Description",
+                    "CatalogSlug",
+                    "BoardURL",
+                    "FetchURL",
+                    "FetchedAt",
+                    "RawJobId",
+                    "RawJobURL",
+                    "RawLocation",
+                    "RawDepartment",
+                    "EmploymentSchedule",
+                    "EmploymentTerms",
+                    "EmploymentTypeStatus",
+                    "EmploymentTypeEvidence",
+                    "DedupeSelected",
+                    "DedupeSelectionReason",
+                    "DedupeGroupSize"
+                  ],
+                  "snapshots": 1,
+                  "first": "20261024-0954",
+                  "last": "20261024-0954"
+                }
+              ]
+            },
+            "pending_snapshots": []
+          },
+          "reportMatches": true
+        }
+      },
+      "evidence": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+      "runId": "67c4d611-e94f-4394-ab60-11a1de04e4bf"
+    }
+  ],
+  "limits": [
+    "Raw successful ATS responses are not archived by the normal collector. Observed field tracing starts at the normalized batch evidence. No extra source or detail request was made for verification.",
+    "Workday jobPostingInfo and iCIMS detail-only fields remain outside this release. Unknown structured labels remain evidence without a forced public category.",
+    "The daily profile does not create a formula CSV. Formula parity and synchronization were tested with offline fixtures."
+  ],
+  "generatedAt": "2026-10-25T12:40:33.751Z",
+  "packageId": "20261025-0724",
+  "packageDirectory": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724",
+  "public": {
+    "headers": [
+      "Title",
+      "Company",
+      "Location",
+      "Apply Link",
+      "Additional Apply Links",
+      "Writer Fit Score",
+      "Fit Tier",
+      "Why It Matched",
+      "Role Type",
+      "Work Arrangement",
+      "Salary",
+      "Posted Date",
+      "Age (Days)",
+      "Last Checked",
+      "Source",
+      "Employment Type"
+    ],
+    "rows": 732,
+    "coverage": {
+      "denominator": 732,
+      "statedSchedule": 202,
+      "statedTerms": 48,
+      "neither": 492,
+      "conflicts": 0,
+      "byATS": {
+        "lever": {
+          "denominator": 70,
+          "byLabel": {
+            "Full-time": 43,
+            "Full-time; Regular": 1,
+            "Regular": 4,
+            "Freelance": 4,
+            "Contract": 1,
+            "Not stated": 16,
+            "Full-time; Contract": 1
+          }
+        },
+        "greenhouse": {
+          "denominator": 261,
+          "byLabel": {
+            "Regular": 2,
+            "Not stated": 210,
+            "Full-time": 42,
+            "Freelance": 2,
+            "Internship": 3,
+            "Contract": 2
+          }
+        },
+        "ashby": {
+          "denominator": 68,
+          "byLabel": {
+            "Full-time": 46,
+            "Internship": 1,
+            "Not stated": 16,
+            "Contract; Freelance": 1,
+            "Full-time; Internship": 1,
+            "Contract": 2,
+            "Part-time": 1
+          }
+        },
+        "direct-employer": {
+          "denominator": 1,
+          "byLabel": {
+            "Not stated": 1
+          }
+        },
+        "workday": {
+          "denominator": 198,
+          "byLabel": {
+            "Not stated": 144,
+            "Full-time": 40,
+            "Contract": 7,
+            "Full-time; Internship": 3,
+            "Part-time": 2,
+            "Internship": 2
+          }
+        },
+        "icims": {
+          "denominator": 93,
+          "byLabel": {
+            "Not stated": 89,
+            "Part-time": 2,
+            "Internship": 1,
+            "Full-time": 1
+          }
+        },
+        "bamboohr": {
+          "denominator": 41,
+          "byLabel": {
+            "Contract": 1,
+            "Full-time": 14,
+            "Part-time; Contract; Freelance": 1,
+            "Internship": 4,
+            "Full-time; Permanent": 1,
+            "Not stated": 16,
+            "Part-time; Freelance": 2,
+            "Contract; Freelance": 1,
+            "Part-time": 1
+          }
+        }
+      },
+      "byLabel": {
+        "Full-time": 186,
+        "Regular": 6,
+        "Not stated": 492,
+        "Internship": 11,
+        "Full-time; Regular": 1,
+        "Freelance": 6,
+        "Contract; Freelance": 2,
+        "Contract": 13,
+        "Full-time; Internship": 4,
+        "Full-time; Contract": 1,
+        "Part-time": 6,
+        "Part-time; Contract; Freelance": 1,
+        "Full-time; Permanent": 1,
+        "Part-time; Freelance": 2
+      }
+    },
+    "range": "A1:P733",
+    "csv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+    "sha256": "460338c0067c15a64196c836b83032b4309c6095f08b8e03b70b27ebbadbc963"
+  },
+  "manifests": {
+    "20261025-0724": {
+      "mismatches": [],
+      "rows": 15
+    },
+    "latest": {
+      "mismatches": [],
+      "rows": 16
+    }
+  },
+  "urlChecks": {
+    "InputPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv",
+    "UrlColumn": "Apply Link",
+    "CheckedAt": "2026-10-25T12:26:13.346Z",
+    "TotalRows": 761,
+    "GoodRows": 720,
+    "BadRows": 41,
+    "PrunableBadRows": 29,
+    "AmbiguousBadRows": 12,
+    "MissingUrlRows": 0,
+    "InvalidUrlRows": 0,
+    "TimedOutRows": 0,
+    "FetchErrorRows": 0,
+    "ReviewCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-review.csv",
+    "FailuresCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-failures.csv",
+    "SummaryMarkdown": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-check-summary.md",
+    "Applied": true,
+    "ApplyMode": "safe",
+    "PrunedRows": 29,
+    "KeptRows": 732,
+    "KeptAmbiguousFailureRows": 12,
+    "BackupCsv": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-before-url-prune.csv"
+  },
+  "tests": {
+    "RunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "PackageRun": "20261025-0724",
+    "GeneratedAt": "2026-10-25T12:27:39.996Z",
+    "Status": "PASS",
+    "Tests": [
+      {
+        "Name": "jobs:test-employment-type",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 172
+      },
+      {
+        "Name": "jobs:test-employment-integration",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 4295
+      },
+      {
+        "Name": "jobs:test-history-backup",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 30876
+      },
+      {
+        "Name": "jobs:test-history-finalization",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 12239
+      },
+      {
+        "Name": "jobs:test-catalog-maintenance",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 204
+      },
+      {
+        "Name": "jobs:test-batch-history",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 6064
+      },
+      {
+        "Name": "jobs:test-board-freshness",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 367
+      },
+      {
+        "Name": "jobs:test-ats-errors",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 122
+      },
+      {
+        "Name": "jobs:test-failure-investigation",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 239
+      },
+      {
+        "Name": "jobs:test-board-probe",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 238
+      },
+      {
+        "Name": "jobs:test-passive-launcher",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 127
+      },
+      {
+        "Name": "jobs:test-ats-alert",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 126
+      },
+      {
+        "Name": "jobs:test-title-category",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 126
+      },
+      {
+        "Name": "jobs:test-dedupe-select",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 126
+      },
+      {
+        "Name": "jobs:test-core-pipeline",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 131
+      },
+      {
+        "Name": "jobs:test-streaming-export-phase-1",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 271
+      },
+      {
+        "Name": "jobs:test-release",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 16385
+      },
+      {
+        "Name": "jobs:test-gsheet-grouping",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 136
+      },
+      {
+        "Name": "jobs:test-gsheet-package",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 242
+      },
+      {
+        "Name": "jobs:test-url-health",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 125
+      },
+      {
+        "Name": "jobs:test-gsheet-url-pruning",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 132
+      },
+      {
+        "Name": "jobs:test-scoring",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 146
+      },
+      {
+        "Name": "jobs:test-greenhouse-normalize",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 135
+      },
+      {
+        "Name": "jobs:test-job-finder-consumer",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 129
+      },
+      {
+        "Name": "jobs:compare-last-release",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 136
+      },
+      {
+        "Name": "jobs:test-trends",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 133
+      },
+      {
+        "Name": "jobs:test-us-remote-report",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 125
+      },
+      {
+        "Name": "jobs:test-international-remote-report",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 125
+      },
+      {
+        "Name": "jobs:test-all-remote-report",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 270
+      },
+      {
+        "Name": "jobs:test-substack-full-report",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 152
+      },
+      {
+        "Name": "jobs:test-content-metrics",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 156
+      },
+      {
+        "Name": "jobs:test-status-dashboard",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 141
+      },
+      {
+        "Name": "jobs:test-refresh-launcher",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 3180
+      },
+      {
+        "Name": "jobs:test-curated-submissions",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 139
+      },
+      {
+        "Name": "jobs:test-refresh-reports",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 333
+      },
+      {
+        "Name": "jobs:test-review-improvements",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 154
+      },
+      {
+        "Name": "jobs:test-history",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 4714
+      },
+      {
+        "Name": "jobs:test-history-content",
+        "ExitCode": 0,
+        "Signal": null,
+        "DurationMs": 779
+      }
+    ],
+    "CompletedAt": "2026-10-25T12:27:39.997Z"
+  },
+  "refreshValidation": {
+    "GeneratedAt": "2026-10-25T12:27:40.129Z",
+    "PackageRun": "20261025-0724",
+    "Status": "PASS",
+    "Failures": []
+  },
+  "packageValidation": {
+    "GeneratedAt": "2026-10-25T12:27:28.667Z",
+    "Status": "WARN",
+    "PackageDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest",
+    "JobCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv",
+    "CompanyCoverageCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/02_company_coverage.csv",
+    "PackageRun": "20261025-0724",
+    "CopyConsistency": "PASS",
+    "PreviousPackageDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954",
+    "PreviousJobCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261024-0954/01_good_documentation_jobs.csv",
+    "GoodDocumentationJobsRows": 732,
+    "PreviousGoodDocumentationJobsRows": 715,
+    "RowChange": 17,
+    "RowChangePercent": 2.38,
+    "CompanyCoverageRows": 40857,
+    "DuplicateApplyLinkRows": 0,
+    "MissingApplyLinkRows": 0,
+    "BlankTitleRows": 0,
+    "BlankCompanyRows": 0,
+    "OldestLastChecked": "2026-06-30T12:08:00.000Z",
+    "WarnStaleDays": 7,
+    "StrongWarnStaleDays": 14,
+    "FailStaleDays": 0,
+    "RowsOlderThanWarnStaleDays": 24,
+    "RowsOlderThanStrongWarnStaleDays": 5,
+    "RowsOlderThanFailStaleDays": 0,
+    "ReportRunDate": "2026-10-25 12:24 UTC",
+    "ReportRunDatePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/00_start_here.csv",
+    "PostedDateForwardWarnDays": 1,
+    "PostedDateMovedForwardRows": 0,
+    "PostedDateMovedForwardBySource": {},
+    "PostedDateMovedForwardSamples": [],
+    "AgeDecreasedRows": 0,
+    "AgeDecreasedBySource": {},
+    "AgeDecreasedSamples": [],
+    "SameDayPostedDateWarnCount": 10,
+    "SameDayPostedDateWarnPercent": 10,
+    "SameDayPostedDateSpikes": [],
+    "Failures": [],
+    "Warnings": [
+      "24 rows have Last Checked older than 7 days.",
+      "5 rows have Last Checked older than 14 days."
+    ],
+    "ManifestPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/latest/gsheet-package-manifest.json",
+    "ManifestExists": true
+  },
+  "top": {
+    "rows": 847,
+    "coverage": {
+      "denominator": 847,
+      "statedSchedule": 249,
+      "statedTerms": 54,
+      "neither": 556,
+      "conflicts": 0,
+      "byATS": {
+        "greenhouse": {
+          "denominator": 297,
+          "byLabel": {
+            "Not stated": 238,
+            "Contract": 2,
+            "Full-time": 46,
+            "Internship": 4,
+            "Full-time; Regular": 1,
+            "Freelance": 2,
+            "Regular": 3,
+            "Full-time; Contract": 1
+          }
+        },
+        "ashby": {
+          "denominator": 74,
+          "byLabel": {
+            "Contract": 2,
+            "Full-time": 50,
+            "Internship": 1,
+            "Full-time; Internship": 1,
+            "Part-time": 1,
+            "Not stated": 18,
+            "Contract; Freelance": 1
+          }
+        },
+        "icims": {
+          "denominator": 116,
+          "byLabel": {
+            "Not stated": 111,
+            "Part-time": 2,
+            "Internship": 2,
+            "Full-time": 1
+          }
+        },
+        "workday": {
+          "denominator": 217,
+          "byLabel": {
+            "Contract": 7,
+            "Part-time": 2,
+            "Not stated": 152,
+            "Full-time": 51,
+            "Internship": 2,
+            "Full-time; Internship": 3
+          }
+        },
+        "lever": {
+          "denominator": 100,
+          "byLabel": {
+            "Full-time": 69,
+            "Regular": 4,
+            "Freelance": 4,
+            "Not stated": 19,
+            "Full-time; Regular": 1,
+            "Temporary": 1,
+            "Full-time; Contract": 1,
+            "Contract": 1
+          }
+        },
+        "bamboohr": {
+          "denominator": 42,
+          "byLabel": {
+            "Full-time": 14,
+            "Full-time; Permanent": 1,
+            "Not stated": 17,
+            "Part-time; Freelance": 2,
+            "Internship": 4,
+            "Contract; Freelance": 1,
+            "Contract": 1,
+            "Part-time; Contract; Freelance": 1,
+            "Part-time": 1
+          }
+        },
+        "direct-employer": {
+          "denominator": 1,
+          "byLabel": {
+            "Not stated": 1
+          }
+        }
+      },
+      "byLabel": {
+        "Not stated": 556,
+        "Contract": 13,
+        "Full-time": 231,
+        "Part-time": 6,
+        "Regular": 7,
+        "Internship": 13,
+        "Freelance": 6,
+        "Full-time; Internship": 4,
+        "Full-time; Regular": 2,
+        "Full-time; Permanent": 1,
+        "Part-time; Freelance": 2,
+        "Contract; Freelance": 2,
+        "Temporary": 1,
+        "Full-time; Contract": 2,
+        "Part-time; Contract; Freelance": 1
+      }
+    },
+    "newRows": 342
+  },
+  "newBatches": {
+    "names": [
+      "maintain-due-ashby-20261025t120242",
+      "maintain-due-bamboohr-20261025t120242",
+      "maintain-due-greenhouse-20261025t120242",
+      "maintain-due-icims-20261025t120242",
+      "maintain-due-lever-20261025t120242",
+      "maintain-due-workday-20261025t120242"
+    ],
+    "byATS": {
+      "ashby": {
+        "rows": 6902,
+        "structuredRows": 6902,
+        "statuses": {
+          "stated": 6902
+        },
+        "sourceFields": {
+          "employmentType": 6902
+        }
+      },
+      "bamboohr": {
+        "rows": 614,
+        "structuredRows": 614,
+        "statuses": {
+          "stated": 532,
+          "not_stated": 82
+        },
+        "sourceFields": {
+          "employmentStatusLabel": 648
+        }
+      },
+      "greenhouse": {
+        "rows": 13965,
+        "structuredRows": 5482,
+        "statuses": {
+          "not_stated": 8185,
+          "stated": 5778,
+          "conflict": 2
+        },
+        "sourceFields": {
+          "metadata.Employment Type": 4874,
+          "metadata.Job Type": 381,
+          "metadata.Time Type": 2525
+        }
+      },
+      "icims": {
+        "rows": 1465,
+        "structuredRows": 0,
+        "statuses": {
+          "not_stated": 1454,
+          "stated": 11
+        },
+        "sourceFields": {}
+      },
+      "lever": {
+        "rows": 10147,
+        "structuredRows": 9961,
+        "statuses": {
+          "stated": 8832,
+          "not_stated": 1312,
+          "conflict": 3
+        },
+        "sourceFields": {
+          "categories.commitment": 10135
+        }
+      },
+      "workday": {
+        "rows": 2097,
+        "structuredRows": 1660,
+        "statuses": {
+          "not_stated": 420,
+          "stated": 1677
+        },
+        "sourceFields": {
+          "timeType": 1660
+        }
+      }
+    },
+    "representatives": {
+      "ashby": {
+        "ATS": "ashby",
+        "Company": "Lancedb",
+        "Title": "Senior Product Manager",
+        "URL": "https://jobs.ashbyhq.com/lancedb/7fe25cf2-3bb8-4d05-8715-b22d72c22bd7",
+        "SourceBatch": "maintain-due-ashby-20261025t120242",
+        "FetchedAt": "2026-10-25T12:02:43.428Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "FullTime",
+            "SourceField": "employmentType",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/lancedb",
+            "ObservedAt": "2026-10-25T12:02:43.428Z"
+          }
+        ]
+      },
+      "bamboohr": {
+        "ATS": "bamboohr",
+        "Company": "Optimum7",
+        "Title": "Performance Marketing Specialist(Google Ads & Meta Ads)",
+        "URL": "https://optimum7.bamboohr.com/careers/274",
+        "SourceBatch": "maintain-due-bamboohr-20261025t120242",
+        "FetchedAt": "2026-10-25T12:03:02.953Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "Full-Time",
+            "SourceField": "employmentStatusLabel",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://optimum7.bamboohr.com/careers/list",
+            "ObservedAt": "2026-10-25T12:03:02.953Z"
+          }
+        ]
+      },
+      "greenhouse": {
+        "ATS": "greenhouse",
+        "Company": "Mastercontrol",
+        "Title": "Account Manager",
+        "URL": "https://www.mastercontrol.com/careers/job-listings/role/?role=4734012005&gh_jid=4734012005",
+        "SourceBatch": "maintain-due-greenhouse-20261025t120242",
+        "FetchedAt": "2026-10-25T12:03:23.655Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "Full-time",
+            "SourceField": "metadata.Employment Type",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://boards-api.greenhouse.io/v1/boards/mastercontrol/jobs?content=true",
+            "ObservedAt": "2026-10-25T12:03:23.655Z"
+          }
+        ]
+      },
+      "icims": {
+        "ATS": "icims",
+        "Company": "Alcami",
+        "Title": "Sr. Administrative Assistant",
+        "URL": "https://careers-alcami.icims.com/jobs/2440/sr.-administrative-assistant/job",
+        "SourceBatch": "maintain-due-icims-20261025t120242",
+        "FetchedAt": "2026-10-25T12:04:10.091Z",
+        "display": "Not stated",
+        "EmploymentSchedule": "Not stated",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "not_stated",
+        "EmploymentTypeEvidence": []
+      },
+      "lever": {
+        "ATS": "lever",
+        "Company": "Resilinc",
+        "Title": "Director / Senior Director, Professional Services",
+        "URL": "https://jobs.lever.co/resilinc/064d1f35-0faf-4552-9b7f-03cf439f09b0",
+        "SourceBatch": "maintain-due-lever-20261025t120242",
+        "FetchedAt": "2026-10-25T12:04:36.134Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "Full Time",
+            "SourceField": "categories.commitment",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://api.lever.co/v0/postings/resilinc?mode=json",
+            "ObservedAt": "2026-10-25T12:04:36.134Z"
+          }
+        ]
+      },
+      "workday": {
+        "ATS": "workday",
+        "Company": "Ritzcarltonyachtcollection",
+        "Title": "Travel Coordinator - Shipboard HR - LOCATION: INDIA | INDONESIA | PHILIPPINES",
+        "URL": "https://ritzcarltonyachtcollection.wd5.myworkdayjobs.com/external_career_site/job/Philippines/Travel-Coordinator---Shipboard-HR_R-101293",
+        "SourceBatch": "maintain-due-workday-20261025t120242",
+        "FetchedAt": "2026-10-25T12:06:05.872Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "Full time",
+            "SourceField": "timeType",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://ritzcarltonyachtcollection.wd5.myworkdayjobs.com/wday/cxs/ritzcarltonyachtcollection/external_career_site/jobs",
+            "ObservedAt": "2026-10-25T12:06:05.872Z"
+          }
+        ]
+      }
+    },
+    "presentInCanonical": 35190
+  },
+  "baselineCorrectionComparison": {
+    "previousAffectedObservations": 153,
+    "matchedSameObservation": 137,
+    "matchingCorrectionDifferences": 116,
+    "notPresentAsSameObservation": 16,
+    "limit": "Counts refer to the same ATS/catalog/job/URL/observation date. Missing prior observations can be replaced or removed by new collection. They are not assumed to need correction in the new feed."
+  },
+  "canonical": {
+    "rows": 836592,
+    "newRows": 35192,
+    "retainedRows": 801400,
+    "byATS": {
+      "ashby": {
+        "newRows": 6902,
+        "retainedRows": 37499,
+        "structuredNew": 6902
+      },
+      "bamboohr": {
+        "newRows": 614,
+        "retainedRows": 45034,
+        "structuredNew": 614
+      },
+      "greenhouse": {
+        "newRows": 13965,
+        "retainedRows": 154831,
+        "structuredNew": 5482
+      },
+      "lever": {
+        "newRows": 10147,
+        "retainedRows": 49871,
+        "structuredNew": 9961
+      },
+      "icims": {
+        "newRows": 1465,
+        "retainedRows": 255358,
+        "structuredNew": 0
+      },
+      "workday": {
+        "newRows": 2097,
+        "retainedRows": 258807,
+        "structuredNew": 1660
+      },
+      "direct-employer": {
+        "newRows": 2,
+        "retainedRows": 0,
+        "structuredNew": 0
+      }
+    },
+    "contractErrors": 0,
+    "sourceDateErrors": 0,
+    "batchMatches": 35190,
+    "batchContractDifferences": 0,
+    "rejectedVariableRows": 0,
+    "compatibleVariableRows": 42,
+    "occupationalVariableRows": 4,
+    "genuineScheduleContradictions": 343,
+    "genuineConflictErrors": 0,
+    "occupationalExamples": [
+      {
+        "ATS": "ashby",
+        "Company": "Crusoe",
+        "Title": "Senior Variable Compensation Manager",
+        "URL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+        "SourceBatch": "maintain-due-ashby-20261025t120242",
+        "FetchedAt": "2026-10-25T12:02:45.651Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "FullTime",
+            "SourceField": "employmentType",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/crusoe",
+            "ObservedAt": "2026-10-25T12:02:45.651Z"
+          }
+        ]
+      },
+      {
+        "ATS": "workday",
+        "Company": "Jacksonhealthcare",
+        "Title": "Variable Compensation Analyst",
+        "URL": "https://jacksonhealthcare.wd1.myworkdayjobs.com/careers-jacksonhealthcare/job/Alpharetta-Georgia/Variable-Compensation-Analyst_JR109369-1",
+        "SourceBatch": "maintain-due-workday-20261018t090005",
+        "FetchedAt": "2026-10-18T09:13:01.690Z",
+        "display": "Not stated",
+        "EmploymentSchedule": "Not stated",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "not_stated",
+        "EmploymentTypeEvidence": []
+      },
+      {
+        "ATS": "workday",
+        "Company": "Jacksonhealthcare",
+        "Title": "Variable Compensation Analyst",
+        "URL": "https://jacksonhealthcare.wd1.myworkdayjobs.com/careers-locumtenens/job/Alpharetta-Georgia/Variable-Compensation-Analyst_JR109369",
+        "SourceBatch": "maintain-due-workday-20261018t090005",
+        "FetchedAt": "2026-10-18T09:13:08.590Z",
+        "display": "Not stated",
+        "EmploymentSchedule": "Not stated",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "not_stated",
+        "EmploymentTypeEvidence": []
+      },
+      {
+        "ATS": "workday",
+        "Company": "Veralto",
+        "Title": "Variable Compensation Analyst",
+        "URL": "https://veralto.wd1.myworkdayjobs.com/hachjobs/job/So-Paulo-Brazil/Variable-Compensation-Analyst_R10267133",
+        "SourceBatch": "maintain-due-workday-20261025t090004",
+        "FetchedAt": "2026-10-25T09:15:49.094Z",
+        "display": "Full-time",
+        "EmploymentSchedule": "Full-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Full-time",
+            "RawValue": "Full time",
+            "SourceField": "timeType",
+            "SourceKind": "structured_field",
+            "SourceURL": "https://veralto.wd1.myworkdayjobs.com/wday/cxs/veralto/hachjobs/jobs",
+            "ObservedAt": "2026-10-25T09:15:49.094Z"
+          }
+        ]
+      }
+    ],
+    "compatibleExamples": [
+      {
+        "ATS": "ashby",
+        "Company": "Mebe",
+        "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+        "URL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+        "SourceBatch": "maintain-due-ashby-20261023t210006",
+        "FetchedAt": "2026-10-23T21:00:20.208Z",
+        "display": "Part-time",
+        "EmploymentSchedule": "Part-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Variable",
+            "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+            "SourceField": "Title",
+            "SourceKind": "title",
+            "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+            "ObservedAt": "2026-10-23T21:00:20.208Z"
+          },
+          {
+            "Dimension": "schedule",
+            "Value": "Part-time",
+            "RawValue": "This is a Part Time Variable Hour role.",
+            "SourceField": "Description",
+            "SourceKind": "description",
+            "SourceURL": "https://jobs.ashbyhq.com/mebe/f6a50abe-44ff-49a8-b230-4f86d10e8cff",
+            "ObservedAt": "2026-10-23T21:00:20.208Z"
+          }
+        ]
+      },
+      {
+        "ATS": "ashby",
+        "Company": "Mebe",
+        "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+        "URL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+        "SourceBatch": "maintain-due-ashby-20261023t210006",
+        "FetchedAt": "2026-10-23T21:00:20.208Z",
+        "display": "Part-time",
+        "EmploymentSchedule": "Part-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Variable",
+            "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+            "SourceField": "Title",
+            "SourceKind": "title",
+            "SourceURL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+            "ObservedAt": "2026-10-23T21:00:20.208Z"
+          },
+          {
+            "Dimension": "schedule",
+            "Value": "Part-time",
+            "RawValue": "This is a Part Time Variable Hour role.",
+            "SourceField": "Description",
+            "SourceKind": "description",
+            "SourceURL": "https://jobs.ashbyhq.com/mebe/b9b27808-e1f8-4c4e-b92a-4e92037f58d0",
+            "ObservedAt": "2026-10-23T21:00:20.208Z"
+          }
+        ]
+      },
+      {
+        "ATS": "ashby",
+        "Company": "Mebe",
+        "Title": "Pediatrician Liaison for ABA -  Variable Hour",
+        "URL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+        "SourceBatch": "maintain-due-ashby-20261023t210006",
+        "FetchedAt": "2026-10-23T21:00:20.208Z",
+        "display": "Part-time",
+        "EmploymentSchedule": "Part-time",
+        "EmploymentTerms": [],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Variable",
+            "RawValue": "Pediatrician Liaison for ABA -  Variable Hour",
+            "SourceField": "Title",
+            "SourceKind": "title",
+            "SourceURL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+            "ObservedAt": "2026-10-23T21:00:20.208Z"
+          },
+          {
+            "Dimension": "schedule",
+            "Value": "Part-time",
+            "RawValue": "This is a Part Time Variable Hour role.",
+            "SourceField": "Description",
+            "SourceKind": "description",
+            "SourceURL": "https://jobs.ashbyhq.com/mebe/06da3b8a-370f-4634-b9ea-1711fd7ef306",
+            "ObservedAt": "2026-10-23T21:00:20.208Z"
+          }
+        ]
+      },
+      {
+        "ATS": "bamboohr",
+        "Company": "Saalt",
+        "Title": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+        "URL": "https://saalt.bamboohr.com/careers/83",
+        "SourceBatch": "maintain-due-bamboohr-20261021t090002",
+        "FetchedAt": "2026-10-21T09:05:09.326Z",
+        "display": "Part-time; Temporary",
+        "EmploymentSchedule": "Part-time",
+        "EmploymentTerms": [
+          "Temporary"
+        ],
+        "EmploymentTypeStatus": "stated",
+        "EmploymentTypeEvidence": [
+          {
+            "Dimension": "schedule",
+            "Value": "Part-time",
+            "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+            "SourceField": "Title",
+            "SourceKind": "title",
+            "SourceURL": "https://saalt.bamboohr.com/careers/83",
+            "ObservedAt": "2026-10-21T09:05:09.326Z"
+          },
+          {
+            "Dimension": "schedule",
+            "Value": "Variable",
+            "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+            "SourceField": "Title",
+            "SourceKind": "title",
+            "SourceURL": "https://saalt.bamboohr.com/careers/83",
+            "ObservedAt": "2026-10-21T09:05:09.326Z"
+          },
+          {
+            "Dimension": "terms",
+            "Value": "Temporary",
+            "RawValue": "On-Call Warehouse Associate (Temporary, Part-Time, Variable Hours)",
+            "SourceField": "Title",
+            "SourceKind": "title",
+            "SourceURL": "https://saalt.bamboohr.com/careers/83",
+            "ObservedAt": "2026-10-21T09:05:09.326Z"
+          }
+        ]
+      }
+    ],
+    "rejectedExamples": [],
+    "unsupportedVariableRows": 0,
+    "unsupportedVariableExamples": [],
+    "variableCompatibilityRows": 0,
+    "variableCompatibilityExamples": []
+  },
+  "controlledComparison": {
+    "input": "/Users/adampugh/GitHub/public-job-feed/data/jobs/public/public-job-feed-latest.json",
+    "inputRows": 836592,
+    "strongCandidates": 1017,
+    "oldSelected": 847,
+    "newSelected": 847,
+    "oldEligible": 811,
+    "newEligible": 811,
+    "oldGroupedBeforeLinks": 761,
+    "newGroupedBeforeLinks": 761,
+    "selectionDelta": 0,
+    "publicGroupingDelta": 0,
+    "limit": "Both rule sets use the same current canonical records and scores. These counts are before URL checks. They do not assign normal source additions/removals or changed URL outcomes to the feature."
+  },
+  "publicExamples": {
+    "greenhouse": {
+      "scope": "new",
+      "ATS": "greenhouse",
+      "Company": "Ethoslife",
+      "Title": "Writer/Content Designer, Conversion and Growth",
+      "URL": "https://job-boards.greenhouse.io/ethoslife/jobs/8724221002",
+      "SourceBatch": "maintain-due-greenhouse-20261025t120242",
+      "FetchedAt": "2026-10-25T12:03:32.900Z",
+      "display": "Not stated",
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": []
+    },
+    "ashby": {
+      "scope": "new",
+      "ATS": "ashby",
+      "Company": "Nango",
+      "Title": "Technical Content Engineer",
+      "URL": "https://jobs.ashbyhq.com/nango/748e3ffc-10bf-4189-8585-21d21ede74bb",
+      "SourceBatch": "maintain-due-ashby-20261025t120242",
+      "FetchedAt": "2026-10-25T12:02:45.025Z",
+      "display": "Contract",
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [
+        "Contract"
+      ],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "terms",
+          "Value": "Contract",
+          "RawValue": "Contract",
+          "SourceField": "employmentType",
+          "SourceKind": "structured_field",
+          "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/nango",
+          "ObservedAt": "2026-10-25T12:02:45.025Z"
+        }
+      ]
+    },
+    "icims": {
+      "scope": "new",
+      "ATS": "icims",
+      "Company": "Alcami",
+      "Title": "Technical Writer",
+      "URL": "https://careers-alcami.icims.com/jobs/2377/technical-writer/job",
+      "SourceBatch": "maintain-due-icims-20261025t120242",
+      "FetchedAt": "2026-10-25T12:04:10.091Z",
+      "display": "Not stated",
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": []
+    },
+    "workday": {
+      "scope": "new",
+      "ATS": "workday",
+      "Company": "Astro",
+      "Title": "Senior SAP Technical Developer",
+      "URL": "https://astro.wd3.myworkdayjobs.com/astro_careers/job/Technology-Park-Malaysia/Senior-SAP-Technical-Developer_JR09980",
+      "SourceBatch": "maintain-due-workday-20261025t120242",
+      "FetchedAt": "2026-10-25T12:06:48.112Z",
+      "display": "Not stated",
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": []
+    },
+    "lever": {
+      "scope": "new",
+      "ATS": "lever",
+      "Company": "Cimgroup",
+      "Title": "Director, Information Architect",
+      "URL": "https://jobs.lever.co/cimgroup/e4942b3b-d317-4f7d-aaa0-a4e319a7daf6",
+      "SourceBatch": "maintain-due-lever-20261025t120242",
+      "FetchedAt": "2026-10-25T12:04:41.617Z",
+      "display": "Full-time",
+      "EmploymentSchedule": "Full-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Full-time",
+          "RawValue": "Full Time",
+          "SourceField": "categories.commitment",
+          "SourceKind": "structured_field",
+          "SourceURL": "https://api.lever.co/v0/postings/cimgroup?mode=json",
+          "ObservedAt": "2026-10-25T12:04:41.617Z"
+        }
+      ]
+    },
+    "bamboohr": {
+      "scope": "new",
+      "ATS": "bamboohr",
+      "Company": "Bljworldwide",
+      "Title": "English Writer/Editor",
+      "URL": "https://bljworldwide.bamboohr.com/careers/81",
+      "SourceBatch": "maintain-due-bamboohr-20261025t120242",
+      "FetchedAt": "2026-10-25T12:03:11.151Z",
+      "display": "Full-time",
+      "EmploymentSchedule": "Full-time",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "stated",
+      "EmploymentTypeEvidence": [
+        {
+          "Dimension": "schedule",
+          "Value": "Full-time",
+          "RawValue": "Full-Time",
+          "SourceField": "employmentStatusLabel",
+          "SourceKind": "structured_field",
+          "SourceURL": "https://bljworldwide.bamboohr.com/careers/list",
+          "ObservedAt": "2026-10-25T12:03:11.151Z"
+        }
+      ]
+    },
+    "direct-employer": {
+      "scope": "new",
+      "ATS": "direct-employer",
+      "Company": "Unity",
+      "Title": "Rédacteur technique sénior ou rédactrice technique sénior, Ingénierie L'occasion / Senior Technical Writer, Development",
+      "URL": "https://unitytech.wd1.myworkdayjobs.com/Unity/job/Montreal-Canada/Senior-Technical-Writer_JOBREQ-2616485",
+      "SourceBatch": "curated-submission",
+      "FetchedAt": "2026-10-25T12:11:07.180Z",
+      "display": "Not stated",
+      "EmploymentSchedule": "Not stated",
+      "EmploymentTerms": [],
+      "EmploymentTypeStatus": "not_stated",
+      "EmploymentTypeEvidence": []
+    }
+  },
+  "conflicts": [],
+  "backup": {
+    "RunId": "67c4d611-e94f-4394-ab60-11a1de04e4bf",
+    "GeneratedAt": "2026-10-25T12:36:30.109Z",
+    "History": "PASS",
+    "Backup": "FAILED",
+    "LastVerified": {
+      "status": "PASS",
+      "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+      "verifiedAt": "2026-10-25T12:00:24.029Z",
+      "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+      "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+      "snapshot": "20261024-0954",
+      "metadata": {
+        "policy": "appledouble-provenance-v1",
+        "count": 0,
+        "digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+      }
+    },
+    "Warnings": [
+      "Insufficient space for backup and full restore test"
+    ],
+    "Imported": 1,
+    "LatestSnapshot": "20261025-0724"
+  },
+  "historyValidation": {
+    "status": "passed",
+    "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
+    "database_sha256": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
+    "source_manifest_hash": "d75efa1781b39c77de1183edd6b5664d511295e03d8e6521cde03f20d7daec38",
+    "format": "v2",
+    "observations": "117520",
+    "canonical_urls": "3523",
+    "job_keys": "3469",
+    "company_keys": "1631",
+    "raw_top_match_rows": "117530",
+    "raw_job_keys": "3469",
+    "good_job_exceptions": "40",
+    "raw_good_job_rows": "103934",
+    "duplicate_canonical_rows": "10",
+    "snapshots": "159",
+    "latest": {
+      "snapshot_id": "20261025-0724",
+      "observed_at": "2026-10-25 07:24:00",
+      "total_postings": "847",
+      "good_postings": "732",
+      "remote_postings": "154",
+      "hybrid_postings": "128",
+      "onsite_postings": "533",
+      "us_remote_eligible_count": "44",
+      "company_count": 546,
+      "catalog_slug_count": 550,
+      "ats_type_count": 7
+    },
+    "errors": [],
+    "warnings": [
+      "20260715-0556: 10 duplicate canonical rows resolved; raw rows preserved",
+      "20260824-1624: 1 unmatched good-job rows preserved as exceptions",
+      "20260825-0538: 1 unmatched good-job rows preserved as exceptions",
+      "20260826-0658: 1 unmatched good-job rows preserved as exceptions",
+      "20260827-0509: 1 unmatched good-job rows preserved as exceptions",
+      "20260827-0518: 3 unmatched good-job rows preserved as exceptions",
+      "20260828-0620: 3 unmatched good-job rows preserved as exceptions",
+      "20260829-0639: 3 unmatched good-job rows preserved as exceptions",
+      "20260830-1127: 2 unmatched good-job rows preserved as exceptions",
+      "20260831-0536: 2 unmatched good-job rows preserved as exceptions",
+      "20260901-0603: 3 unmatched good-job rows preserved as exceptions",
+      "20260902-0528: 1 unmatched good-job rows preserved as exceptions",
+      "20260904-0441: 1 unmatched good-job rows preserved as exceptions",
+      "20260905-0704: 1 unmatched good-job rows preserved as exceptions",
+      "20260906-0700: 1 unmatched good-job rows preserved as exceptions",
+      "20260907-0701: 1 unmatched good-job rows preserved as exceptions",
+      "20260908-0506: 1 unmatched good-job rows preserved as exceptions",
+      "20260909-0608: 1 unmatched good-job rows preserved as exceptions",
+      "20260910-0605: 1 unmatched good-job rows preserved as exceptions",
+      "20260911-0656: 1 unmatched good-job rows preserved as exceptions",
+      "20260912-0710: 1 unmatched good-job rows preserved as exceptions",
+      "20260913-1043: 1 unmatched good-job rows preserved as exceptions",
+      "20260914-0650: 1 unmatched good-job rows preserved as exceptions",
+      "20260915-0613: 1 unmatched good-job rows preserved as exceptions",
+      "20260916-0616: 1 unmatched good-job rows preserved as exceptions",
+      "20260917-0458: 1 unmatched good-job rows preserved as exceptions",
+      "20260918-0646: 1 unmatched good-job rows preserved as exceptions",
+      "20260919-0628: 1 unmatched good-job rows preserved as exceptions",
+      "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+      "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+      "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+      "01_good_documentation_jobs.csv: 5 header variants (union by name)",
+      "03_top_matches_full.csv: 2 header variants (union by name)"
+    ],
+    "header_variants": {
+      "01_good_documentation_jobs.csv": [
+        {
+          "headers": [
+            "Title",
+            "Company",
+            "Location",
+            "Apply Link",
+            "Writer Fit Score",
+            "Fit Tier",
+            "Why It Matched",
+            "Work Arrangement",
+            "Salary",
+            "Posted Date",
+            "Last Checked",
+            "Report Run Date",
+            "Source"
+          ],
+          "snapshots": 2,
+          "first": "20260602-1810",
+          "last": "20260602-1812"
+        },
+        {
+          "headers": [
+            "Title",
+            "Company",
+            "Location",
+            "Apply Link",
+            "Writer Fit Score",
+            "Fit Tier",
+            "Why It Matched",
+            "Work Arrangement",
+            "Salary",
+            "Posted Date",
+            "Age (Days)",
+            "Last Checked",
+            "Source"
+          ],
+          "snapshots": 46,
+          "first": "20260602-2051",
+          "last": "20260714-1604"
+        },
+        {
+          "headers": [
+            "Title",
+            "Company",
+            "Location",
+            "Apply Link",
+            "Writer Fit Score",
+            "Fit Tier",
+            "Why It Matched",
+            "Role Type",
+            "Work Arrangement",
+            "Salary",
+            "Posted Date",
+            "Age (Days)",
+            "Last Checked",
+            "Source"
+          ],
+          "snapshots": 32,
+          "first": "20260714-1607",
+          "last": "20260808-0619"
+        },
+        {
+          "headers": [
+            "Title",
+            "Company",
+            "Location",
+            "Apply Link",
+            "Additional Apply Links",
+            "Writer Fit Score",
+            "Fit Tier",
+            "Why It Matched",
+            "Role Type",
+            "Work Arrangement",
+            "Salary",
+            "Posted Date",
+            "Age (Days)",
+            "Last Checked",
+            "Source"
+          ],
+          "snapshots": 77,
+          "first": "20260809-0543",
+          "last": "20261024-0739"
+        },
+        {
+          "headers": [
+            "Title",
+            "Company",
+            "Location",
+            "Apply Link",
+            "Additional Apply Links",
+            "Writer Fit Score",
+            "Fit Tier",
+            "Why It Matched",
+            "Role Type",
+            "Work Arrangement",
+            "Salary",
+            "Posted Date",
+            "Age (Days)",
+            "Last Checked",
+            "Source",
+            "Employment Type"
+          ],
+          "snapshots": 2,
+          "first": "20261024-0954",
+          "last": "20261025-0724"
+        }
+      ],
+      "03_top_matches_full.csv": [
+        {
+          "headers": [
+            "SourceBatch",
+            "SourceATSCount",
+            "CrossATSDuplicate",
+            "CrossATSDuplicateATSList",
+            "Source",
+            "ATS",
+            "Company",
+            "CompanyKey",
+            "Title",
+            "ExportQualityFlag",
+            "ExportQualityIssues",
+            "PossibleDuplicate",
+            "DuplicateReason",
+            "JobKey",
+            "CompanyTitleLocationKey",
+            "CanonicalURLKey",
+            "DuplicateGroupKey",
+            "TitleReviewBucket",
+            "TitleReviewPriority",
+            "TitleReviewReason",
+            "TitleDomainSignal",
+            "TitleSenioritySignal",
+            "TitleLeadershipSignal",
+            "TitleICSignal",
+            "WriterFitVersion",
+            "WriterFitBaseScore",
+            "WriterFitScore",
+            "WriterFitTier",
+            "WriterFitReasons",
+            "WriterFitPositiveSignals",
+            "WriterFitNegativeSignals",
+            "WriterFitPenaltySignals",
+            "WriterFitDemotionReason",
+            "WriterFitGuardrailApplied",
+            "TitleMatchType",
+            "TitleMatchCategory",
+            "MatchedWatchlistTitle",
+            "TitleMatchScore",
+            "TitleConfidence",
+            "Location",
+            "RemoteStatus",
+            "RemoteSignal",
+            "RemoteConfidence",
+            "USRemoteEligible",
+            "LocationRisk",
+            "LocationReviewReason",
+            "SalaryDetected",
+            "SalaryMin",
+            "SalaryMax",
+            "SalaryCurrency",
+            "SalaryPeriod",
+            "SalaryText",
+            "Department",
+            "DatePosted",
+            "URL",
+            "Description",
+            "CatalogSlug",
+            "BoardURL",
+            "FetchURL",
+            "FetchedAt",
+            "RawJobId",
+            "RawJobURL",
+            "RawLocation",
+            "RawDepartment",
+            "DedupeSelected",
+            "DedupeSelectionReason",
+            "DedupeGroupSize"
+          ],
+          "snapshots": 157,
+          "first": "20260602-1810",
+          "last": "20261024-0739"
+        },
+        {
+          "headers": [
+            "SourceBatch",
+            "SourceATSCount",
+            "CrossATSDuplicate",
+            "CrossATSDuplicateATSList",
+            "Source",
+            "ATS",
+            "Company",
+            "CompanyKey",
+            "Title",
+            "ExportQualityFlag",
+            "ExportQualityIssues",
+            "PossibleDuplicate",
+            "DuplicateReason",
+            "JobKey",
+            "CompanyTitleLocationKey",
+            "CanonicalURLKey",
+            "DuplicateGroupKey",
+            "TitleReviewBucket",
+            "TitleReviewPriority",
+            "TitleReviewReason",
+            "TitleDomainSignal",
+            "TitleSenioritySignal",
+            "TitleLeadershipSignal",
+            "TitleICSignal",
+            "WriterFitVersion",
+            "WriterFitBaseScore",
+            "WriterFitScore",
+            "WriterFitTier",
+            "WriterFitReasons",
+            "WriterFitPositiveSignals",
+            "WriterFitNegativeSignals",
+            "WriterFitPenaltySignals",
+            "WriterFitDemotionReason",
+            "WriterFitGuardrailApplied",
+            "TitleMatchType",
+            "TitleMatchCategory",
+            "MatchedWatchlistTitle",
+            "TitleMatchScore",
+            "TitleConfidence",
+            "Location",
+            "RemoteStatus",
+            "RemoteSignal",
+            "RemoteConfidence",
+            "USRemoteEligible",
+            "LocationRisk",
+            "LocationReviewReason",
+            "SalaryDetected",
+            "SalaryMin",
+            "SalaryMax",
+            "SalaryCurrency",
+            "SalaryPeriod",
+            "SalaryText",
+            "Department",
+            "DatePosted",
+            "URL",
+            "Description",
+            "CatalogSlug",
+            "BoardURL",
+            "FetchURL",
+            "FetchedAt",
+            "RawJobId",
+            "RawJobURL",
+            "RawLocation",
+            "RawDepartment",
+            "EmploymentSchedule",
+            "EmploymentTerms",
+            "EmploymentTypeStatus",
+            "EmploymentTypeEvidence",
+            "DedupeSelected",
+            "DedupeSelectionReason",
+            "DedupeGroupSize"
+          ],
+          "snapshots": 2,
+          "first": "20261024-0954",
+          "last": "20261025-0724"
+        }
+      ]
+    },
+    "pending_snapshots": []
+  },
+  "acceptedBackup": {
+    "folder": "/Volumes/1Pugh/Public Job Feed Archives/daily-history-v1/daily-20261025T115307546Z-0803bb1b-9cf2-49ee-81db-61287e4955da",
+    "generation": "66646ce5-b440-47c2-a8a8-75c003da4c28",
+    "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+    "latestSnapshot": "20261024-0954",
+    "verifiedAt": "2026-10-25T12:00:24.029Z",
+    "files": 3306,
+    "metadataFiles": [],
+    "proof": {
+      "format": "public-job-feed-daily-history-v1",
+      "status": "PASS",
+      "manifestHash": "afcd2369abfc1b286a5d92c0261c8b7da9445db833c855757d469f0605393ecc",
+      "databaseHash": "74ecdf0af2a90b3c9986cd575e325bd6e28cde60d226c117e3432868cd4cfc42",
+      "fullRestore": true,
+      "verifiedAt": "2026-10-25T12:00:24.029Z",
+      "audit": {
+        "format": "v2",
+        "observations": "116673",
+        "canonical_urls": "3505",
+        "job_keys": "3450",
+        "company_keys": "1623",
+        "raw_top_match_rows": "116683",
+        "raw_job_keys": "3450",
+        "good_job_exceptions": "40",
+        "raw_good_job_rows": "103202",
+        "duplicate_canonical_rows": "10",
+        "snapshots": "158",
+        "latest": {
+          "snapshot_id": "20261024-0954",
+          "observed_at": "2026-10-24 09:54:00",
+          "total_postings": "831",
+          "good_postings": "715",
+          "remote_postings": "147",
+          "hybrid_postings": "126",
+          "onsite_postings": "526",
+          "us_remote_eligible_count": "43",
+          "company_count": 535,
+          "catalog_slug_count": 539,
+          "ats_type_count": 7
+        },
+        "errors": [],
+        "warnings": [
+          "20260715-0556: 10 duplicate canonical rows resolved; raw rows preserved",
+          "20260824-1624: 1 unmatched good-job rows preserved as exceptions",
+          "20260825-0538: 1 unmatched good-job rows preserved as exceptions",
+          "20260826-0658: 1 unmatched good-job rows preserved as exceptions",
+          "20260827-0509: 1 unmatched good-job rows preserved as exceptions",
+          "20260827-0518: 3 unmatched good-job rows preserved as exceptions",
+          "20260828-0620: 3 unmatched good-job rows preserved as exceptions",
+          "20260829-0639: 3 unmatched good-job rows preserved as exceptions",
+          "20260830-1127: 2 unmatched good-job rows preserved as exceptions",
+          "20260831-0536: 2 unmatched good-job rows preserved as exceptions",
+          "20260901-0603: 3 unmatched good-job rows preserved as exceptions",
+          "20260902-0528: 1 unmatched good-job rows preserved as exceptions",
+          "20260904-0441: 1 unmatched good-job rows preserved as exceptions",
+          "20260905-0704: 1 unmatched good-job rows preserved as exceptions",
+          "20260906-0700: 1 unmatched good-job rows preserved as exceptions",
+          "20260907-0701: 1 unmatched good-job rows preserved as exceptions",
+          "20260908-0506: 1 unmatched good-job rows preserved as exceptions",
+          "20260909-0608: 1 unmatched good-job rows preserved as exceptions",
+          "20260910-0605: 1 unmatched good-job rows preserved as exceptions",
+          "20260911-0656: 1 unmatched good-job rows preserved as exceptions",
+          "20260912-0710: 1 unmatched good-job rows preserved as exceptions",
+          "20260913-1043: 1 unmatched good-job rows preserved as exceptions",
+          "20260914-0650: 1 unmatched good-job rows preserved as exceptions",
+          "20260915-0613: 1 unmatched good-job rows preserved as exceptions",
+          "20260916-0616: 1 unmatched good-job rows preserved as exceptions",
+          "20260917-0458: 1 unmatched good-job rows preserved as exceptions",
+          "20260918-0646: 1 unmatched good-job rows preserved as exceptions",
+          "20260919-0628: 1 unmatched good-job rows preserved as exceptions",
+          "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
+          "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
+          "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+          "01_good_documentation_jobs.csv: 5 header variants (union by name)",
+          "03_top_matches_full.csv: 2 header variants (union by name)"
+        ],
+        "header_variants": {
+          "01_good_documentation_jobs.csv": [
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Last Checked",
+                "Report Run Date",
+                "Source"
+              ],
+              "snapshots": 2,
+              "first": "20260602-1810",
+              "last": "20260602-1812"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 46,
+              "first": "20260602-2051",
+              "last": "20260714-1604"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 32,
+              "first": "20260714-1607",
+              "last": "20260808-0619"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Additional Apply Links",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source"
+              ],
+              "snapshots": 77,
+              "first": "20260809-0543",
+              "last": "20261024-0739"
+            },
+            {
+              "headers": [
+                "Title",
+                "Company",
+                "Location",
+                "Apply Link",
+                "Additional Apply Links",
+                "Writer Fit Score",
+                "Fit Tier",
+                "Why It Matched",
+                "Role Type",
+                "Work Arrangement",
+                "Salary",
+                "Posted Date",
+                "Age (Days)",
+                "Last Checked",
+                "Source",
+                "Employment Type"
+              ],
+              "snapshots": 1,
+              "first": "20261024-0954",
+              "last": "20261024-0954"
+            }
+          ],
+          "03_top_matches_full.csv": [
+            {
+              "headers": [
+                "SourceBatch",
+                "SourceATSCount",
+                "CrossATSDuplicate",
+                "CrossATSDuplicateATSList",
+                "Source",
+                "ATS",
+                "Company",
+                "CompanyKey",
+                "Title",
+                "ExportQualityFlag",
+                "ExportQualityIssues",
+                "PossibleDuplicate",
+                "DuplicateReason",
+                "JobKey",
+                "CompanyTitleLocationKey",
+                "CanonicalURLKey",
+                "DuplicateGroupKey",
+                "TitleReviewBucket",
+                "TitleReviewPriority",
+                "TitleReviewReason",
+                "TitleDomainSignal",
+                "TitleSenioritySignal",
+                "TitleLeadershipSignal",
+                "TitleICSignal",
+                "WriterFitVersion",
+                "WriterFitBaseScore",
+                "WriterFitScore",
+                "WriterFitTier",
+                "WriterFitReasons",
+                "WriterFitPositiveSignals",
+                "WriterFitNegativeSignals",
+                "WriterFitPenaltySignals",
+                "WriterFitDemotionReason",
+                "WriterFitGuardrailApplied",
+                "TitleMatchType",
+                "TitleMatchCategory",
+                "MatchedWatchlistTitle",
+                "TitleMatchScore",
+                "TitleConfidence",
+                "Location",
+                "RemoteStatus",
+                "RemoteSignal",
+                "RemoteConfidence",
+                "USRemoteEligible",
+                "LocationRisk",
+                "LocationReviewReason",
+                "SalaryDetected",
+                "SalaryMin",
+                "SalaryMax",
+                "SalaryCurrency",
+                "SalaryPeriod",
+                "SalaryText",
+                "Department",
+                "DatePosted",
+                "URL",
+                "Description",
+                "CatalogSlug",
+                "BoardURL",
+                "FetchURL",
+                "FetchedAt",
+                "RawJobId",
+                "RawJobURL",
+                "RawLocation",
+                "RawDepartment",
+                "DedupeSelected",
+                "DedupeSelectionReason",
+                "DedupeGroupSize"
+              ],
+              "snapshots": 157,
+              "first": "20260602-1810",
+              "last": "20261024-0739"
+            },
+            {
+              "headers": [
+                "SourceBatch",
+                "SourceATSCount",
+                "CrossATSDuplicate",
+                "CrossATSDuplicateATSList",
+                "Source",
+                "ATS",
+                "Company",
+                "CompanyKey",
+                "Title",
+                "ExportQualityFlag",
+                "ExportQualityIssues",
+                "PossibleDuplicate",
+                "DuplicateReason",
+                "JobKey",
+                "CompanyTitleLocationKey",
+                "CanonicalURLKey",
+                "DuplicateGroupKey",
+                "TitleReviewBucket",
+                "TitleReviewPriority",
+                "TitleReviewReason",
+                "TitleDomainSignal",
+                "TitleSenioritySignal",
+                "TitleLeadershipSignal",
+                "TitleICSignal",
+                "WriterFitVersion",
+                "WriterFitBaseScore",
+                "WriterFitScore",
+                "WriterFitTier",
+                "WriterFitReasons",
+                "WriterFitPositiveSignals",
+                "WriterFitNegativeSignals",
+                "WriterFitPenaltySignals",
+                "WriterFitDemotionReason",
+                "WriterFitGuardrailApplied",
+                "TitleMatchType",
+                "TitleMatchCategory",
+                "MatchedWatchlistTitle",
+                "TitleMatchScore",
+                "TitleConfidence",
+                "Location",
+                "RemoteStatus",
+                "RemoteSignal",
+                "RemoteConfidence",
+                "USRemoteEligible",
+                "LocationRisk",
+                "LocationReviewReason",
+                "SalaryDetected",
+                "SalaryMin",
+                "SalaryMax",
+                "SalaryCurrency",
+                "SalaryPeriod",
+                "SalaryText",
+                "Department",
+                "DatePosted",
+                "URL",
+                "Description",
+                "CatalogSlug",
+                "BoardURL",
+                "FetchURL",
+                "FetchedAt",
+                "RawJobId",
+                "RawJobURL",
+                "RawLocation",
+                "RawDepartment",
+                "EmploymentSchedule",
+                "EmploymentTerms",
+                "EmploymentTypeStatus",
+                "EmploymentTypeEvidence",
+                "DedupeSelected",
+                "DedupeSelectionReason",
+                "DedupeGroupSize"
+              ],
+              "snapshots": 1,
+              "first": "20261024-0954",
+              "last": "20261024-0954"
+            }
+          ]
+        },
+        "pending_snapshots": []
+      },
+      "reportMatches": true
+    }
+  }
+}

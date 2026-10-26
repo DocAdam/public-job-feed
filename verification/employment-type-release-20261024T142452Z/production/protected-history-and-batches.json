@@ -1,0 +1,6 @@
+{
+  "checkedAt": "2026-10-24T15:33:42.163687+00:00",
+  "changedExistingBatchOrDatedPackageEntries": [],
+  "missingExistingBatchOrDatedPackageEntries": [],
+  "scope": "Existing source batches and dated packages; metadata and symlink targets. Latest is the normal mutable copy. Full content hashes were not computed for all older large files."
+}

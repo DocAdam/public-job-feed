@@ -1,0 +1,13 @@
+{
+  "startedAt": "2026-10-25T11:47:14.091450+00:00",
+  "completedAt": "2026-10-25T11:47:46.269514+00:00",
+  "exitCode": 0,
+  "command": [
+    "/usr/bin/sandbox-exec",
+    "-f",
+    "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/offline.sb",
+    "node",
+    "src/scripts/test-history-backup.js"
+  ],
+  "log": "/Users/adampugh/GitHub/public-job-feed/verification/backup-recovery-release-20261025T114249Z/isolated/focused-backup.log"
+}

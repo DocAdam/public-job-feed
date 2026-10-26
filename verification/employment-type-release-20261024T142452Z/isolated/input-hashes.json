@@ -1,0 +1,56 @@
+[
+  {
+    "path": "data/jobs/public/public-job-feed-latest.json",
+    "bytes": 3887317961,
+    "mtimeNs": 1792845456960359416,
+    "sha256": "6c246f3b17ed6a2bbf922be74fb948f2ffedfc81bb2d150c68b7592faeeb1633"
+  },
+  {
+    "path": "data/jobs/public/public-job-feed-latest.csv",
+    "bytes": 2884268230,
+    "mtimeNs": 1792845429236083972,
+    "sha256": "4094e4a000e42b1c6461d0ca8f2de6a742cf5eeb500f61b6dfbd773f074ade09"
+  },
+  {
+    "path": "data/jobs/public/public-job-feed-deduped-top.json",
+    "bytes": 5669757,
+    "mtimeNs": 1792845467185839961,
+    "sha256": "5fae34c444889fd6646b9b85284c0f1a420126f440077c5951c1b7b9d7748fcb"
+  },
+  {
+    "path": "data/jobs/state/board-state.json",
+    "bytes": 86120656,
+    "mtimeNs": 1792844526716664200,
+    "sha256": "25aeaa4c5e65b6538cf15861d43c913cff7b4d724f7df6098671842f326ad0a9"
+  },
+  {
+    "path": "data/catalogs/crawl/board-catalog.json",
+    "bytes": 24155018,
+    "mtimeNs": 1792843786884980610,
+    "sha256": "b9000495a3f48337403aac9c87a38c3d979d5c03af7fbe1f7c434ac69ef404fe"
+  },
+  {
+    "path": "data/jobs/history/jobs-history.duckdb",
+    "bytes": 977022976,
+    "mtimeNs": 1792845952721517031,
+    "sha256": "795772d293e6701c587f888f1e31ba9fd0fcb3956cdafc1143a6e6b592c2034d"
+  },
+  {
+    "path": "data/jobs/gsheet-package/20261024-0739/03_top_matches_full.csv",
+    "bytes": 4624175,
+    "mtimeNs": 1792845585156419175,
+    "sha256": "6ae7e3d6bbf0afd7508ff23e368341f296cc51fa1d00a57bf16c336d1b39ffa7"
+  },
+  {
+    "path": "data/jobs/gsheet-package/20261024-0739/01_good_documentation_jobs.csv",
+    "bytes": 198485,
+    "mtimeNs": 1792845632255261660,
+    "sha256": "890b5a38916d0323d20949a1e6838ba30c8254bf242510e7ecbe38ac4d89e481"
+  },
+  {
+    "path": "data/jobs/gsheet-package/20261024-0739/gsheet-package-manifest.json",
+    "bytes": 7640,
+    "mtimeNs": 1792845702508107659,
+    "sha256": "bbe34b5447230f46abbece24f713fd23e1f3be44b94a73921ee14ee0ac27d4f8"
+  }
+]

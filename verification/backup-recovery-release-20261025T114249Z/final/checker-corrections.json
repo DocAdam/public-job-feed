@@ -1,0 +1,4 @@
+{
+  "sourceComparison": "Use the normal batch JSON reader. Some older batch files use multiline object formatting rather than one object per line. The first check stopped before producing a result.",
+  "spaceMeasurement": "Pass the configured absolute database path to the normal inputs helper; the relative path selected a fixture companion path. Neither checker changed production data."
+}
