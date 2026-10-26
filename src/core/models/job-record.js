@@ -26,6 +26,10 @@ const defaultEmptyRecord = {
   DatePosted: "",
   Salary: "",
   Department: "",
+  EmploymentSchedule: "Not stated",
+  EmploymentTerms: [],
+  EmploymentTypeStatus: "not_stated",
+  EmploymentTypeEvidence: [],
 
   SalaryDetected: false,
   SalaryMin: "",
@@ -70,7 +74,7 @@ const defaultEmptyRecord = {
 };
 
 function createEmptyCanonicalRecord() {
-  return { ...defaultEmptyRecord };
+  return { ...defaultEmptyRecord, EmploymentTerms: [], EmploymentTypeEvidence: [] };
 }
 
 module.exports = {

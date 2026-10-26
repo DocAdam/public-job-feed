@@ -1,7 +1,7 @@
 const fs = require("fs/promises");
 const nodeFs = require("fs");
 const path = require("path");
-const { escapeCsvValue } = require("../../lib/csv");
+const { escapeCsvValue, serializeEmploymentValue } = require("../../lib/csv");
 const { ensureDir, stringifyJsonLine } = require("../../lib/files");
 
 function writeChunk(stream, chunk) {
@@ -29,7 +29,7 @@ async function writeRecords(filePath, rows, format, headers) {
     let index = 0;
     for (const row of rows) {
       const text = format === "csv"
-        ? `${headers.map((header) => escapeCsvValue(row[header])).join(",")}\n`
+        ? `${headers.map((header) => escapeCsvValue(serializeEmploymentValue(header, row[header]))).join(",")}\n`
         : `${index > 0 ? ",\n" : ""}${stringifyJsonLine(row)}`;
       await writeChunk(stream, text);
       index += 1;

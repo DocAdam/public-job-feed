@@ -1,3 +1,4 @@
+const { ensureEmploymentType } = require("../../lib/employment-type");
 /**
  * Core job feed pipeline engine
  *
@@ -46,6 +47,8 @@ function enrichJobRecord(rawJob, context, options = {}) {
   enriched.DatePosted = rawJob.DatePosted || "";
   enriched.Salary = rawJob.Salary || rawJob.Compensation || "";
   enriched.Department = rawJob.Department || "";
+
+  Object.assign(enriched, ensureEmploymentType({ ...rawJob, ATS: enriched.ATS, FetchedAt: rawJob.FetchedAt || context.fetchedAt || "" }));
 
   // Run salary detection
   const salaryResult = detectSalary(rawJob);

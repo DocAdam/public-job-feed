@@ -1,3 +1,4 @@
+const { serializeEmploymentValue } = require("../../lib/csv");
 /**
  * CSV export adapter for canonical job records
  *
@@ -18,7 +19,7 @@ function escapeCsvValue(value) {
 }
 
 function formatRow(headers, record) {
-  return headers.map((header) => escapeCsvValue(record[header])).join(",");
+  return headers.map((header) => escapeCsvValue(serializeEmploymentValue(header, record[header]))).join(",");
 }
 
 /**

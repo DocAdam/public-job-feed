@@ -1,3 +1,4 @@
+const { extractEmploymentType } = require("./employment-type");
 const { matchTitle } = require("./title-match");
 const { getTitleReview } = require("./title-review");
 const { detectSalary } = require("./salary-detect");
@@ -147,6 +148,7 @@ function normalizeGenericAtsJob(job, context, titleRecords, fields) {
   const salaryDetection = detectSalary(baseJob);
 
   return {
+    ...extractEmploymentType(job, { Title: title, Description: description, URL: fields.url }, context),
     Source: "public-job-feed",
     ATS: context.ats,
     Company: context.company,
@@ -212,6 +214,7 @@ function normalizeAshbyJob(job, context, titleRecords) {
 
   return {
     Source: "Ashby posting API",
+    ...extractEmploymentType(job, { Title: title, Description: description, URL: job.jobUrl || job.applyUrl }, { ...context, ats: "ashby" }),
     ATS: "ashby",
     Company: context.company,
     CompanyKey: context.companyKey,
@@ -303,6 +306,7 @@ function normalizeGreenhouseJob(job, context, titleRecords) {
 
   return {
     Source: "public-job-feed",
+    ...extractEmploymentType(job, { Title: title, Description: description, URL: job.absolute_url }, { ...context, ats: "greenhouse" }),
     ATS: "greenhouse",
     Company: context.company,
     CompanyKey: context.companyKey,
@@ -403,6 +407,7 @@ function normalizeLeverJob(job, context, titleRecords) {
 
   return {
     Source: "public-job-feed",
+    ...extractEmploymentType(job, { Title: title, Description: description, URL: job.hostedUrl }, { ...context, ats: "lever" }),
     ATS: "lever",
     Company: context.company,
     CompanyKey: context.companyKey,

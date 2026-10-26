@@ -1,3 +1,5 @@
+const { SIMPLE_PUBLIC_HEADERS } = require("../lib/simple-public-export");
+const { validatePublicEmploymentLabel } = require("../lib/employment-type");
 const fs = require("fs/promises");
 const path = require("path");
 const { nullableNumber } = require("../lib/number");
@@ -7,7 +9,7 @@ const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
 const { packageIdentity, packageHash, previousPackage } = require("../lib/package-status");
 
 const packageRoot = fromRoot("data", "jobs", "gsheet-package");
-const reportsDir = fromRoot("data", "jobs", "reports");
+const reportsDir = path.resolve(getArgValue("--report-dir", fromRoot("data", "jobs", "reports")));
 const defaultPackageDir = path.join(packageRoot, "latest");
 const jobCsvName = "01_good_documentation_jobs.csv";
 const companyCoverageCsvName = "02_company_coverage.csv";
@@ -102,7 +104,7 @@ async function readCsvIfExists(filePath) {
 }
 
 async function getPreviousPackageDir(packageDir, explicitPrevious) {
-  return previousPackage(packageDir, packageRoot, explicitPrevious ? path.resolve(fromRoot(), explicitPrevious) : "");
+  return previousPackage(packageDir, path.dirname(packageDir), explicitPrevious ? path.resolve(fromRoot(), explicitPrevious) : "");
 }
 
 function addFailure(result, message) {
@@ -554,7 +556,7 @@ async function main() {
   await ensureDir(reportsDir);
   await validateManifest(result, packageDir);
   if (path.basename(packageDir) === "latest") {
-    const sourceDir = path.join(packageRoot, result.PackageRun);
+    const sourceDir = path.join(path.dirname(packageDir), result.PackageRun);
     result.CopyConsistency = await packageHash(packageDir) === await packageHash(sourceDir) ? "PASS" : "FAIL";
     if (result.CopyConsistency === "FAIL") addFailure(result, "Latest job CSV differs from its source package.");
   }
@@ -569,6 +571,21 @@ async function main() {
     addFailure(result, `Could not parse upload CSV: ${jobCsv.error}`);
   } else {
     result.GoodDocumentationJobsRows = jobCsv.rows.length;
+    const schemaPath = path.join(packageDir, "public-schema.json");
+    let schema = null;
+    try { schema = JSON.parse(await fs.readFile(schemaPath, "utf8")); }
+    catch (error) { if (error.code !== "ENOENT") addFailure(result, `Invalid public schema: ${error.message}`); }
+    if (schema) {
+      if (schema.schemaVersion !== 2) addFailure(result, "Unsupported public schema version.");
+      if (JSON.stringify(jobCsv.headers) !== JSON.stringify(SIMPLE_PUBLIC_HEADERS) || JSON.stringify(schema.publicHeaders) !== JSON.stringify(SIMPLE_PUBLIC_HEADERS)) addFailure(result, "Public schema 2 headers do not match.");
+      const expectedRange = require("../lib/employment-type-report").sheetRange(jobCsv.headers, jobCsv.rows.length);
+      if (schema.rowCount !== jobCsv.rows.length || schema.tableRange !== expectedRange) addFailure(result, "Public schema range or row count does not match.");
+    }
+    if (schema || jobCsv.headers.includes("Employment Type")) {
+      const invalid = jobCsv.rows.filter(row => !validatePublicEmploymentLabel(row["Employment Type"])).length;
+      if (invalid) addFailure(result, `${invalid} invalid Employment Type values.`);
+    }
+
 
     const missing = missingHeaders(jobCsv.headers, requiredJobHeaders);
     if (missing.length > 0) {

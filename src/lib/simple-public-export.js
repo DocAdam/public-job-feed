@@ -1,3 +1,4 @@
+const { displayEmploymentType } = require("./employment-type");
 const { categorizeTitle } = require("./title-category");
 const { getPublicJobUrl } = require("./public-job-url-overrides");
 
@@ -17,6 +18,7 @@ const SIMPLE_PUBLIC_HEADERS = [
   "Age (Days)",
   "Last Checked",
   "Source",
+  "Employment Type",
 ];
 
 const SIMPLE_FORMULA_HEADERS = [
@@ -35,6 +37,7 @@ const SIMPLE_FORMULA_HEADERS = [
   "Age (Days)",
   "Last Checked",
   "Source",
+  "Employment Type",
 ];
 
 const START_HERE_HEADERS = [
@@ -197,6 +200,7 @@ function buildSimplePublicRow(row, reportRunDate) {
     "Age (Days)": getAgeDays(row.DatePosted, reportRunDate),
     "Last Checked": formatUtcDateTime(row.FetchedAt),
     Source: row.ATS || "",
+    "Employment Type": displayEmploymentType(row),
   };
 }
 
@@ -219,6 +223,7 @@ function buildSimpleFormulaRow(row, reportRunDate) {
     "Age (Days)": simpleRow["Age (Days)"],
     "Last Checked": simpleRow["Last Checked"],
     Source: simpleRow.Source,
+    "Employment Type": simpleRow["Employment Type"],
     // Not written as a formula-export column. It lets multi-location grouping
     // retain raw alternate URLs while the visible Apply column stays a formula.
     "Apply Link": simpleRow["Apply Link"],

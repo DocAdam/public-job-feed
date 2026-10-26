@@ -1,0 +1,20 @@
+{
+  "id": "258",
+  "jobOpeningName": "Technical Writer",
+  "departmentId": "19135",
+  "departmentLabel": "Program Management",
+  "employmentStatusLabel": "Permanent, Full-Time",
+  "employmentType": null,
+  "location": {
+    "city": "Dartmouth",
+    "state": "Nova Scotia"
+  },
+  "atsLocation": {
+    "country": null,
+    "state": null,
+    "province": null,
+    "city": null
+  },
+  "isRemote": null,
+  "locationType": "0"
+}

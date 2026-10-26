@@ -1,3 +1,4 @@
+const { ensureEmploymentType } = require("../lib/employment-type");
 const fs = require("fs/promises");
 const path = require("path");
 const { getDedupeKeys } = require("../adapters/exports/export-dedupe");
@@ -105,6 +106,7 @@ async function main() {
   try {
     store = await ExportRunStore.open({ dbPath: path.join(runDir, "run-store.sqlite") });
     for await (const { lineNumber, row } of iterateStrictLineJsonArrayFile(options.inputPath)) {
+      Object.assign(row, ensureEmploymentType(row));
       rowsRead += 1;
       if (rowsRead === 1) firstHeaders = Object.keys(row);
       const rawSlices = getRawSliceNames(row, options.writeFullSlices);

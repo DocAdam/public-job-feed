@@ -1,3 +1,4 @@
+const { employmentVariant, mergeEmploymentEvidence, ensureEmploymentType } = require("../../lib/employment-type");
 const { parentPort } = require("worker_threads");
 const Database = require("better-sqlite3");
 const {
@@ -252,6 +253,8 @@ function resolveDedupe() {
       "SELECT COALESCE(MAX(row_id), 0) AS maxId, COUNT(*) AS count FROM dedupe_memberships WHERE slice_name = ?"
     ).get(sliceName);
     const parent = new Int32Array(maxId + 1);
+    const variants = new Map();
+    for (const item of db.prepare("SELECT m.row_id, r.row_json FROM dedupe_memberships m JOIN rows r ON r.id=m.row_id WHERE m.slice_name=?").iterate(sliceName)) variants.set(item.row_id, employmentVariant(JSON.parse(item.row_json)));
     const size = new Int32Array(maxId + 1);
     const membershipSequence = new Int32Array(maxId + 1);
     const maximumSequence = new Int32Array(maxId + 1);
@@ -282,7 +285,11 @@ function resolveDedupe() {
       } else {
         const left = find(anchor);
         const right = find(entry.row_id);
-        if (left !== right) parent[right] = left;
+        const strong = key.startsWith("canonical");
+        if (left !== right && (strong || variants.get(left) === variants.get(right))) {
+          parent[right] = left;
+          if (variants.get(left) !== variants.get(right)) variants.set(left, `mixed:${left}`);
+        }
       }
     }
     for (let rowId = 1; rowId <= maxId; rowId += 1) {
@@ -302,9 +309,10 @@ function resolveDedupe() {
 
     let currentComponent = null;
     let selected;
+    let employmentRows = [];
     let selectedWrites = 0;
     const persistSelected = (candidate) => {
-      const output = { ...candidate.row, DedupeSelected: true, DedupeSelectionReason: buildSelectionReason(candidate.row, candidate.groupSize), DedupeGroupSize: candidate.groupSize };
+      const output = { ...candidate.row, ...mergeEmploymentEvidence(employmentRows), DedupeSelected: true, DedupeSelectionReason: buildSelectionReason(candidate.row, candidate.groupSize), DedupeGroupSize: candidate.groupSize };
       insertSelected.run(sliceName, candidate.rowId, candidate.membershipSequence, candidate.groupSize, JSON.stringify(output));
       selectedWrites += 1;
       if (selectedWrites % 10000 === 0) {
@@ -324,9 +332,11 @@ function resolveDedupe() {
       if (currentComponent !== null && entry.component_id !== currentComponent) {
         persistSelected(selected);
         selected = undefined;
+        employmentRows = [];
       }
       currentComponent = entry.component_id;
       const candidate = { row: JSON.parse(entry.row_json), rowId: entry.row_id, membershipSequence: entry.membership_sequence, groupSize: entry.group_size };
+      employmentRows.push(ensureEmploymentType(candidate.row));
       if (!selected || compareRows(candidate.row, selected.row) < 0) selected = candidate;
     }
     if (selected) {

@@ -171,6 +171,11 @@ function getDedupeCount(dedupeSummaryRows, sliceName) {
 
 function getDataDictionaryRows(headers) {
   const descriptions = {
+    "Employment Type": "Stated schedule and employment terms. Schedule comes first. Not stated means no supported value. Needs review means a conflict.",
+    EmploymentSchedule: "Full-time, Part-time, Full-time or Part-time, Variable, or Not stated. Full-time does not establish Permanent.",
+    EmploymentTerms: "Ordered terms array: Contract, Temporary, Freelance, Internship, Permanent, Regular, Fixed-term, Apprenticeship, Seasonal. CSV uses compact JSON.",
+    EmploymentTypeStatus: "stated, not_stated, or conflict. Unknown source labels remain evidence.",
+    EmploymentTypeEvidence: "Source field or passage, raw and normalized values, source URL, and original observation date. CSV uses compact JSON. Internal only.",
     SourceBatch: "Batch folder that produced this row.",
     SourceATSCount: "Distinct ATS sources involved in this row's duplicate key group.",
     CrossATSDuplicate: "True when the duplicate group contains more than one ATS.",
@@ -424,6 +429,7 @@ async function writeInternalDocs(releaseTimestamp) {
     "DedupeSelected",
     "DedupeSelectionReason",
     "DedupeGroupSize",
+    "Employment Type",
   ]);
 
   await removeReviewerReadme();

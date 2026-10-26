@@ -1,3 +1,4 @@
+const { EMPLOYMENT_FIELDS, ensureEmploymentType } = require("../lib/employment-type");
 const fs = require("fs/promises");
 const path = require("path");
 const { rowsToCsv, writeLargeCsvFile } = require("../lib/csv");
@@ -344,9 +345,9 @@ async function main() {
 
   console.log(`Reading latest public feed: ${inputPath}`);
   console.log(`Export profile: ${options.profile}`);
-  const rows = await readLargeJsonArrayFile(inputPath);
+  const rows = (await readLargeJsonArrayFile(inputPath)).map(row => ({ ...row, ...ensureEmploymentType(row) }));
   console.log(`Rows loaded: ${rows.length}`);
-  const headers = Object.keys(rows[0] || {});
+  const headers = [...new Set([...Object.keys(rows[0] || {}), ...EMPLOYMENT_FIELDS])];
   const dedupedHeaders = [...headers, "DedupeSelected", "DedupeSelectionReason", "DedupeGroupSize"];
   const generatedAt = new Date().toISOString();
   const slices = getSlices(rows);

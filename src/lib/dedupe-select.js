@@ -1,3 +1,4 @@
+const { ensureEmploymentType, employmentVariant, mergeEmploymentEvidence } = require("./employment-type");
 const atsPriority = {
   ashby: 1,
   greenhouse: 2,
@@ -100,41 +101,42 @@ function compareRows(a, b) {
 }
 
 function getDedupeKeys(row, index) {
-  const duplicateGroupKey = cleanText(row.DuplicateGroupKey);
-  const canonicalUrlKey = cleanText(row.CanonicalURLKey);
-  const strongKeys = [
-    duplicateGroupKey ? `duplicate:${duplicateGroupKey}` : "",
-    canonicalUrlKey ? `canonical:${canonicalUrlKey}` : "",
-  ].filter(Boolean);
-
-  if (strongKeys.length > 0) return strongKeys;
-
-  const fallback =
-    cleanText(row.CompanyTitleLocationKey) ||
-    cleanText(row.JobKey) ||
-    cleanText(row.URL) ||
-    `row-${index}`;
-  return [`fallback:${fallback}`];
+  const fields = ensureEmploymentType(row);
+  const suffix = fields.EmploymentTypeStatus === "not_stated" ? "" : `|employment:${employmentVariant(row)}`;
+  const duplicate = cleanText(row.DuplicateGroupKey);
+  const canonical = cleanText(row.CanonicalURLKey);
+  const posting = row.ATS && row.RawJobId ? `canonical-posting:${row.ATS}:${row.CompanyKey || row.CatalogSlug || row.Company || ""}:${row.RawJobId}` : "";
+  const keys = [duplicate ? `duplicate:${duplicate}${suffix}` : "", canonical ? `canonical:${canonical}` : "", posting].filter(Boolean);
+  if (keys.length) return keys;
+  const fallback = cleanText(row.CompanyTitleLocationKey) || cleanText(row.JobKey) || cleanText(row.URL) || `row-${index}`;
+  return [`fallback:${fallback}${suffix}`];
 }
 
 function groupRows(rows) {
   const parents = rows.map((_, index) => index);
   const keyOwners = new Map();
+  const variants = rows.map(employmentVariant);
 
   function find(index) {
     if (parents[index] !== index) parents[index] = find(parents[index]);
     return parents[index];
   }
 
-  function union(left, right) {
+  function union(left, right, strong) {
     const leftRoot = find(left);
     const rightRoot = find(right);
-    if (leftRoot !== rightRoot) parents[rightRoot] = leftRoot;
+    if (leftRoot === rightRoot) return;
+    if (!strong && variants[leftRoot] !== variants[rightRoot]) return;
+    parents[rightRoot] = leftRoot;
+    if (variants[leftRoot] !== variants[rightRoot]) variants[leftRoot] = `mixed:${leftRoot}`;
   }
 
-  rows.forEach((row, index) => {
+  // Resolve posting identity before heuristic keys. A conflicting identity group
+  // must not bridge separate employment variants through a company/title key.
+  for (const strong of [true, false]) rows.forEach((row, index) => {
     for (const key of getDedupeKeys(row, index)) {
-      if (keyOwners.has(key)) union(index, keyOwners.get(key));
+      if (key.startsWith("canonical") !== strong) continue;
+      if (keyOwners.has(key)) union(index, keyOwners.get(key), strong);
       else keyOwners.set(key, index);
     }
   });
@@ -203,6 +205,7 @@ function selectDedupedRows(rows, sliceName) {
     const selectionReason = buildSelectionReason(selected, groupSize);
     const selectedOutputRow = {
       ...selected,
+      ...mergeEmploymentEvidence(entries.map(entry => entry.row)),
       DedupeSelected: true,
       DedupeSelectionReason: selectionReason,
       DedupeGroupSize: groupSize,

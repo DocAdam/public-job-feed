@@ -1,0 +1,146 @@
+{
+  "sourceDirectory": "/var/folders/py/60zw0pcx2lb7zp_4cms5c3900000gn/T/pjf-employment-review-20261023-j16c0tsi",
+  "reviewDate": "2026-10-23",
+  "files": [
+    {
+      "file": "01-ashby-selected-source.json",
+      "sha256": "88bf64bca378bb8fd100c48098891be0266948f28bc2de0a08fc81dc1c9a14b5",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "02-ashby-selected-source.json",
+      "sha256": "4e8d9cac9a888bcebd484585ea2221acf62a089802e420679fbd7fbfa1bc94b7",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "03-ashby-selected-source.json",
+      "sha256": "df1ffcd006549808fd3abc10f4c078c682e11d26264e00e3f4f6141b97ade729",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "04-greenhouse-selected-source.json",
+      "sha256": "1c7ca9e193d77594d76b0f824f5ef4696f2c694e1fbb74fe0e31d5a62e63acb5",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "05-greenhouse-selected-source.json",
+      "sha256": "fe8b51893c087a60ab5ea60d43af6160af5d13d19323fdc354e9f7731dc19ced",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "06-greenhouse-selected-source.json",
+      "sha256": "116c320046bccc76511bf50d0777e49f73a46f1e0e78ac72529f5995401304a8",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "07-lever-selected-source.json",
+      "sha256": "4c60d19fb6288fa6bb2a1dfa17e45c07dd924ff17985b0dc95e4c4806a02700f",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "08-lever-selected-source.json",
+      "sha256": "992651ad3b0f2419ecd415f76c516684b83aabfa102025dc54498712c544bbe2",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "09-lever-selected-source.json",
+      "sha256": "36809b366bab98021cf6c42e9c86c7bf71d5b80b4970b3a8c0b2d83501bfb048",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "10-workday-search.body",
+      "sha256": "d6c17a8d4ff30636b26f4ef0ca9239972d0e3c08b49ac46e68b5ffd24387d96d",
+      "kind": "original search response"
+    },
+    {
+      "file": "10-workday-selected-source.json",
+      "sha256": "b868d7ca683e71996d34866113d79d5c3c71e22ad697235f71c1e6b59f45bc84",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "11-workday-search.body",
+      "sha256": "ea57d4b87fb1b57d2d079df1bb5fb857b4697ce3f9d51636f9ff5c642424f31f",
+      "kind": "original search response"
+    },
+    {
+      "file": "11-workday-selected-source.json",
+      "sha256": "0d98af3b07181f78fd949b4ecabd873e8eab9b0450b5ddff8567d3ff5a3e8db2",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "12-workday-search.body",
+      "sha256": "7b160549f149677f8b4927c893a571b2a4ecb30ead15dcc81ef14e31368a17c6",
+      "kind": "original search response"
+    },
+    {
+      "file": "12-workday-selected-source.json",
+      "sha256": "bc436f0a76976add1cf4980ae398af7f3ed8d1b5c768bee4b09d380c3257099e",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "13-bamboohr-selected-source.json",
+      "sha256": "c0eb5186ac249053c25c5034fec28749b21eb8d2ae728fa92388567ff1b066af",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "14-bamboohr-selected-source.json",
+      "sha256": "36dc9658dd1f3a5f62a0e2493f279a235eeb797e010b1e6b94c4163698ad8ee6",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "15-bamboohr-selected-source.json",
+      "sha256": "8d1feff5d88791f378822fe6dfc7d20eab641b05a6212df50c03e365a3d17992",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "16-icims-detail-jsonld-0.json",
+      "sha256": "312cf201852222199e69ae550212cabfa58e125eeacc2051217a30ac17cff237",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "17-icims-detail-jsonld-0.json",
+      "sha256": "8d78f62596378236620c5fd33febf76f85e554aed9a3c27a5536c1180c1ea248",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "17-icims-selected-card.html",
+      "sha256": "490428811e3a392e5538e12c3cf83bbef86ddd29a816552b38973c8a5e062f87",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "18-icims-detail-jsonld-0.json",
+      "sha256": "164f56493242888629e72dbbb74ecbea470a2d40ad6849975522e6d5e16da539",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "employment-type-sample-review.csv",
+      "sha256": "b005f742bd210d1afbe67f61f1bbb1c2bb8db4b4562c8117af5d05eef32b7f5f",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "employment-type-sample-review.json",
+      "sha256": "425873c7c73d76229a1becaeda1d437c4638a8c3592a8220c197dfee25784cfc",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "followup-requests.json",
+      "sha256": "6fc81e6498c8545bad04e7eda838ba70a21493a38c56689d4d8511e877cdf20c",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "requests.json",
+      "sha256": "97950f515c523dbc201b29a43958be7c1fda1d1139cb0511af9786b3bf2becfd",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "selected.json",
+      "sha256": "a401b75ab945a389408a6fd2b22d74b20f2824aaaed97cf0fcd01dc540f02f80",
+      "kind": "review export or selected excerpt from prior review"
+    },
+    {
+      "file": "workday-search-requests.json",
+      "sha256": "4c5eda3ffb04198d357593e81b6a38b3e80964516ce890d16610b6c44bd2ddee",
+      "kind": "review export or selected excerpt from prior review"
+    }
+  ]
+}

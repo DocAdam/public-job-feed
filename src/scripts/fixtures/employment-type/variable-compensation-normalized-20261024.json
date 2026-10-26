@@ -1,0 +1,37 @@
+{
+  "kind": "Observed normalized batch excerpt; not an original raw API response",
+  "record": {
+    "Company": "Crusoe",
+    "Title": "Senior Variable Compensation Manager",
+    "URL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+    "FetchedAt": "2026-10-24T14:31:27.355Z",
+    "label": "Needs review",
+    "EmploymentSchedule": "Not stated",
+    "EmploymentTerms": [],
+    "EmploymentTypeStatus": "conflict",
+    "EmploymentTypeEvidence": [
+      {
+        "Dimension": "schedule",
+        "Value": "Full-time",
+        "RawValue": "FullTime",
+        "SourceField": "employmentType",
+        "SourceKind": "structured_field",
+        "SourceURL": "https://api.ashbyhq.com/posting-api/job-board/crusoe",
+        "ObservedAt": "2026-10-24T14:31:27.355Z"
+      },
+      {
+        "Dimension": "schedule",
+        "Value": "Variable",
+        "RawValue": "Senior Variable Compensation Manager",
+        "SourceField": "Title",
+        "SourceKind": "title",
+        "SourceURL": "https://jobs.ashbyhq.com/crusoe/162ccad3-5860-44e1-93d1-d28c8ed9159b",
+        "ObservedAt": "2026-10-24T14:31:27.355Z"
+      }
+    ]
+  },
+  "provenanceKind": "new normalized batch excerpt",
+  "productionRunId": "455b725d-9dc4-48c2-bb7a-8e0b24bea81c",
+  "packageId": "20261024-0954",
+  "extractedAt": "2026-10-24T15:27:44.020621+00:00"
+}

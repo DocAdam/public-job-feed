@@ -1,0 +1,37 @@
+{
+  "jobPostingInfo": {
+    "id": "f7546332d7e510010a4c97a21c860000",
+    "title": "Associate Technical Writer",
+    "jobDescription": "<p><b>What You&#39;ll Do</b></p><ul><li>Learn the product delivery life cycle and how to monitor documentation progress within it</li><li>Write and edit user-facing documentation, including user guides, technical reference guides, and release notes</li><li>Collaborate with software developers, solution/product managers, and support and services teams to gather technical information and keep documents accurate and up to date</li><li>Help maintain and organize our documentation site/knowledge base in ClickHelp</li><li>Review and edit content for clarity, consistency, grammar, and adherence to our style standards</li><li>Use AI/LLM tools to generate first-draft content from source materials (such as specs, support tickets, and transcripts), then edit, fact-check, and fill in gaps to produce polished, accurate documentation</li><li>Incorporate feedback from user testing, support tickets, and customer questions to improve existing content</li><li>Contribute to larger documentation projects such as content audits, migrations, or restructuring efforts</li></ul><br /><p><b>What We&#39;re Looking For</b></p><ul><li>1–2 years of experience in technical writing, content writing, or a related field (internships and academic experience count)</li><li>Strong writing, editing, and proofreading skills, with an eye for clarity and consistency</li><li>Ability to break down complex or technical information into simple, user-friendly language</li><li>Comfort working with tools like ClickHelp, Markdown, Confluence, or similar documentation platforms</li><li>Good organizational skills and ability to manage multiple projects/deadlines</li><li>Curiosity and willingness to learn new technical concepts and tools</li><li>Bachelor&#39;s degree in English, Communications, Technical Writing, Computer Science, or a related field or equivalent practical experience</li></ul><br /><p><b>Nice to Have</b></p><ul><li>Familiarity with software development concepts or SaaS products</li><li>Basic understanding of HTML/CSS with the ability to view and understand underlying HTML source code</li><li>Experience with generating and manipulating screenshots and diagrams</li><li>Exposure to an industry-recognized style guide, such as the Microsoft Style Guide</li></ul><br /><p><b>Why Join Us</b></p><ul><li>Fully remote team with flexible working hours</li><li>Mentorship and growth opportunities within a supportive team</li><li>Opportunity to shape how customers experience and understand our product</li></ul><br /><br /><p>Altera <i>Our company complies with all local/state regulations in regard to displaying salary ranges. The salary range displayed above is specifically for those potential hires who will perform work in or reside in the location(s) listed. Any offered salary is determined based on internal equity, internal salary ranges, market data, applicant&#39;s skills and prior relevant experience, and certain degrees and certifications. </i>Salary Range: $50,000.00 USD - $55,400.00 USD</p><br /><br />",
+    "location": "Louisiana, United States",
+    "postedOn": "Posted 16 Days Ago",
+    "startDate": "2026-10-07",
+    "timeType": "Full time",
+    "jobReqId": "R0044842",
+    "jobPostingId": "Associate-Technical-Writer_R0044842",
+    "jobPostingSiteId": "Altera",
+    "country": {
+      "descriptor": "United States of America",
+      "id": "bc33aa3152ec42d4995f4791a106ed09"
+    },
+    "canApply": true,
+    "posted": true,
+    "includeResumeParsing": true,
+    "jobRequisitionLocation": {
+      "descriptor": "Remote - Louisiana",
+      "country": {
+        "descriptor": "United States of America",
+        "id": "bc33aa3152ec42d4995f4791a106ed09",
+        "alpha2Code": "US"
+      }
+    },
+    "externalUrl": "https://harriscomputer.wd3.myworkdayjobs.com/Altera/job/Louisiana-United-States/Associate-Technical-Writer_R0044842",
+    "questionnaireId": "fd60a17b338d10019c3808e975100000"
+  },
+  "hiringOrganization": {
+    "name": "Altera Digital Health Inc.",
+    "url": ""
+  },
+  "similarJobs": [],
+  "userAuthenticated": false
+}

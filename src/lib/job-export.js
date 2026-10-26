@@ -1,3 +1,4 @@
+const { EMPLOYMENT_FIELDS, ensureEmploymentType, validateEmploymentType } = require("./employment-type");
 const { addExportValidationFields, getQualitySummaryRows } = require("./export-validation");
 const { addDedupeFields, getDuplicateSummary } = require("./job-dedupe");
 const { normalizeTitle } = require("./job-titles");
@@ -73,6 +74,7 @@ const jobHeaders = [
   "RawJobURL",
   "RawLocation",
   "RawDepartment",
+  ...EMPLOYMENT_FIELDS,
 ];
 
 const summaryHeaders = [
@@ -237,6 +239,7 @@ const publicFeedHeaders = [
   "RawJobURL",
   "RawLocation",
   "RawDepartment",
+  ...EMPLOYMENT_FIELDS,
 ];
 
 const remoteSummaryHeaders = [
@@ -303,6 +306,7 @@ function formatCsvValue(row, column) {
     return row[column] ? "TRUE" : "FALSE";
   }
 
+  if (["EmploymentTerms", "EmploymentTypeEvidence"].includes(column) && Array.isArray(row[column])) return JSON.stringify(row[column]);
   return row[column];
 }
 
@@ -596,7 +600,15 @@ function createSummary(fetchLogRows, jobRows, titleDiagnosticsRows, unmatchedTit
 
 function buildJobExportArtifacts(rawJobRows, fetchLogRows, titleRecords, generatedAt, options = {}) {
   const includePublicFeedRows = options.includePublicFeedRows !== false;
-  const jobRows = addWriterFitFields(addExportValidationFields(addDedupeFields(rawJobRows)));
+  const employmentRows = rawJobRows.map(row => {
+    const shapeErrors = validateEmploymentType(row, { checkConsistency: false });
+    if (shapeErrors.length) throw new Error(`Employment contract: ${shapeErrors.join("; ")}`);
+    const normalized = { ...row, ...ensureEmploymentType(row) };
+    const errors = validateEmploymentType(normalized);
+    if (errors.length) throw new Error(`Employment contract: ${errors.join("; ")}`);
+    return normalized;
+  });
+  const jobRows = addWriterFitFields(addExportValidationFields(addDedupeFields(employmentRows)));
   const titleDiagnosticsRows = createTitleDiagnostics(jobRows, titleRecords);
   const unmatchedTitleRows = createUnmatchedTitleRows(titleDiagnosticsRows);
   const bucketSummaryRows = createBucketSummaryRows(jobRows);

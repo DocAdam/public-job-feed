@@ -2,6 +2,11 @@ const nodeFs = require("fs");
 const fs = require("fs/promises");
 const path = require("path");
 
+// Keep CSV serialization independent of extraction. Old packages need no new fields.
+function serializeEmploymentValue(column, value) {
+  return ["EmploymentTerms", "EmploymentTypeEvidence"].includes(column) && Array.isArray(value) ? JSON.stringify(value) : value;
+}
+
 function escapeCsvValue(value) {
   if (value === null || value === undefined) {
     return "";
@@ -20,7 +25,7 @@ function escapeCsvValue(value) {
 function rowsToCsv(headers, rows) {
   const lines = [
     headers.map(escapeCsvValue).join(","),
-    ...rows.map((row) => headers.map((header) => escapeCsvValue(row[header])).join(",")),
+    ...rows.map((row) => headers.map((header) => escapeCsvValue(serializeEmploymentValue(header, row[header]))).join(",")),
   ];
 
   return `${lines.join("\n")}\n`;
@@ -138,7 +143,7 @@ async function writeLargeCsvFile(filePath, rows, columns, getValue = (row, colum
     await writeStreamChunk(stream, `${columns.map(escapeCsvValue).join(",")}\n`);
 
     for (const row of rows) {
-      await writeStreamChunk(stream, `${columns.map((column) => escapeCsvValue(getValue(row, column))).join(",")}\n`);
+      await writeStreamChunk(stream, `${columns.map((column) => escapeCsvValue(serializeEmploymentValue(column, getValue(row, column)))).join(",")}\n`);
     }
 
     await closeStream(stream);
@@ -151,6 +156,7 @@ async function writeLargeCsvFile(filePath, rows, columns, getValue = (row, colum
 }
 
 module.exports = {
+  serializeEmploymentValue,
   escapeCsvValue,
   parseCsvRecords,
   rowsToCsv,

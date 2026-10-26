@@ -1,3 +1,4 @@
+const { employmentCoverage, sheetRange, employmentImportNotes } = require("../lib/employment-type-report");
 const { packageEligibility } = require("../lib/public-package-eligibility");
 const fs = require("fs/promises");
 const path = require("path");
@@ -211,7 +212,7 @@ function getApplyValue(row) {
 }
 
 function getPublicSheetGroupingKey(row) {
-  return [row.Company, row.Title].map(normalizedText).join("|");
+  return [row.Company, row.Title, row["Employment Type"] || "Not stated"].map(normalizedText).join("|");
 }
 
 function compareRepresentativeRows(left, right) {
@@ -307,7 +308,7 @@ function groupPublicSheetCountryPostings(rows) {
   const groups = new Map();
 
   for (const row of rows) {
-    const key = getPublicSheetGroupingKey(row);
+    const key = row["Employment Type"] === "Needs review" ? `review:${groups.size}` : getPublicSheetGroupingKey(row);
     if (!groups.has(key)) {
       groups.set(key, []);
     }
@@ -680,6 +681,11 @@ async function loadCoveragePercent() {
 
 async function updateDataDictionaryFreshnessNotes() {
   const rows = [
+    { Field: "Employment Type", Category: "Employment", Description: "Stated schedule, then employment terms. Not stated means no supported value. Needs review means conflicting evidence.", SharingNote: "Public column P. Use text contains Contract or Internship for combined labels. See EMPLOYMENT_TYPE_IMPORT.md for the actual table range." },
+    { Field: "EmploymentSchedule", Category: "Employment", Description: "Full-time, Part-time, Full-time or Part-time, Variable, or Not stated.", SharingNote: "Detailed export. Full-time does not establish Permanent." },
+    { Field: "EmploymentTerms", Category: "Employment", Description: "Ordered employment terms. JSON array; compact JSON string in CSV.", SharingNote: "Detailed export." },
+    { Field: "EmploymentTypeStatus", Category: "Employment", Description: "stated, not_stated, or conflict.", SharingNote: "Detailed export." },
+    { Field: "EmploymentTypeEvidence", Category: "Employment", Description: "Source values, fields or passages, URLs, and original observation dates. Compact JSON in CSV.", SharingNote: "Internal evidence. Excluded from the simple public CSV." },
     {
       Field: "Posted Date",
       Category: "Freshness",
@@ -839,6 +845,21 @@ async function buildSimpleTopFiles(outputDir, generatedAt, topMatchesResult, opt
     )
     : [];
 
+  const schema = { schemaVersion: 2, publicHeaders: SIMPLE_PUBLIC_HEADERS, formulaFileName: options.formulaFileName || "", rowCount: simpleRows.length, tableRange: sheetRange(SIMPLE_PUBLIC_HEADERS, simpleRows.length) };
+  await writeJsonFile(path.join(outputDir, "public-schema.json"), schema);
+  await writeJsonFile(path.join(outputDir, "employment-type-coverage.json"), {
+    detailed: employmentCoverage(eligibility.included),
+    public: employmentCoverage(simpleRows, true),
+    tableRange: schema.tableRange,
+  });
+  await writeTextFile(path.join(outputDir, "EMPLOYMENT_TYPE_IMPORT.md"), employmentImportNotes(simpleRows.length));
+
+  for (const fileName of ["public-schema.json", "employment-type-coverage.json", "EMPLOYMENT_TYPE_IMPORT.md"]) {
+    manifestRows.push({ FileName: fileName, SourcePath: sourcePath, OutputPath: path.join(outputDir, fileName), Exists: true,
+      SizeBytes: (await fs.stat(path.join(outputDir, fileName))).size, RecommendedPrimary: false,
+      RecommendedUse: "Employment type reference", Purpose: "Public schema, coverage, or Sheet import instructions." });
+  }
+
   manifestRows.push(await writeGeneratedCsvFile(
     outputDir, "public-package-exclusions.csv", sourcePath,
     ["Title", "Company", "URL", "ReviewedAt", "Reason"], eligibility.excluded,
@@ -918,6 +939,7 @@ function buildPackageReadme(generatedAt, manifestRows) {
     "# Google Sheets Handoff Package",
     "",
     `Generated: ${generatedAt}`,
+    "See EMPLOYMENT_TYPE_IMPORT.md for Employment Type and the actual table and pivot source range.",
     "",
     "This folder is a local handoff package for manually uploading selected CSVs to Google Sheets. It does not upload anything, publish anything, or replace the source exports.",
     "",
@@ -979,6 +1001,7 @@ function buildTopMatchesReadme(generatedAt) {
     "# Top Matches Package",
     "",
     `Generated: ${generatedAt}`,
+    "See EMPLOYMENT_TYPE_IMPORT.md for Employment Type and the actual table and pivot source range.",
     "",
     "`top_matches_simple.csv` is the recommended upload file for the Google Sheets / Substack workflow.",
     "",
@@ -999,6 +1022,8 @@ function buildTopMatchesReadme(generatedAt) {
     "## Links",
     "",
     "`top_matches_simple.csv` keeps Apply Link as a plain URL. Google Sheets usually auto-links URLs, or you can use Insert > Link if needed. `top_matches_simple_with_formula.csv` is also included if you want a prebuilt `Apply` hyperlink formula column.",
+    "",
+    "See `EMPLOYMENT_TYPE_IMPORT.md` for Employment Type labels and the actual table and pivot source range.",
     "",
     "## Recommended Google Sheets Filters",
     "",
@@ -1024,8 +1049,11 @@ function buildCleanPackageReadme(generatedAt, manifestRows) {
     "# Clean Google Sheets Handoff Package",
     "",
     `Generated: ${generatedAt}`,
+    "See EMPLOYMENT_TYPE_IMPORT.md for Employment Type and the actual table and pivot source range.",
     "",
     "This is the clean package for manual Google Sheets upload. It prioritizes Good Documentation Jobs, preserves the public remote-jobs view, and intentionally keeps Company Coverage and the full firehose internal by default.",
+    "",
+    "See `EMPLOYMENT_TYPE_IMPORT.md` for Employment Type labels and the actual table and pivot source range.",
     "",
     "## Recommended Google Sheets Tab Order",
     "",

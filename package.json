@@ -114,7 +114,10 @@
     "jobs:probe-board": "node src/scripts/probe-board.js",
     "jobs:select-failure-probes": "node src/scripts/select-failure-probe-cohorts.js",
     "jobs:test-board-probe": "node src/scripts/test-board-probe.js",
-    "jobs:report-failure-probes": "node src/scripts/report-failure-probes.js"
+    "jobs:report-failure-probes": "node src/scripts/report-failure-probes.js",
+    "jobs:test-employment-type": "node src/scripts/test-employment-type.js",
+    "jobs:test-employment-integration": "node src/scripts/test-employment-integration.js",
+    "jobs:employment-preview": "node src/scripts/preview-employment-type.js"
   },
   "engines": {
     "node": "26.x"
@@ -124,6 +127,8 @@
     "better-sqlite3": "^12.11.1"
   },
   "testSuites": [
+    "jobs:test-employment-type",
+    "jobs:test-employment-integration",
     "jobs:test-history-backup",
     "jobs:test-history-finalization",
     "jobs:test-catalog-maintenance",

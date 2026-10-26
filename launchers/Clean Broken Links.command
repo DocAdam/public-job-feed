@@ -59,6 +59,18 @@ sync_latest_package() {
   step_start "Syncing latest upload files from the cleaned timestamped package"
   cp "$LATEST_TIMESTAMPED_DIR/00_start_here.csv" "$LATEST_DIR/00_start_here.csv"
   cp "$LATEST_TIMESTAMPED_DIR/01_good_documentation_jobs.csv" "$LATEST_DIR/01_good_documentation_jobs.csv"
+  # Keep the new public schema, coverage, formula rows, and Sheet range current.
+  # Older packages without a schema marker retain their existing behavior.
+  node - "$LATEST_DIR/01_good_documentation_jobs.csv" <<'NODE'
+const fs = require("node:fs/promises");
+const { parseCsvRecords } = require("./src/lib/csv");
+const { updateAfterPublicPrune } = require("./src/lib/employment-type-report");
+(async () => {
+  const input = process.argv[2];
+  const parsed = parseCsvRecords(await fs.readFile(input, "utf8"));
+  await updateAfterPublicPrune(input, parsed.headers, parsed.rows);
+})().catch(error => { console.error(error); process.exitCode = 1; });
+NODE
   rm -f "$LATEST_DIR/01_good_documentation_jobs-url-review.csv"
   rm -f "$LATEST_DIR/01_good_documentation_jobs-url-failures.csv"
   rm -f "$LATEST_DIR/01_good_documentation_jobs-url-check-summary.json"

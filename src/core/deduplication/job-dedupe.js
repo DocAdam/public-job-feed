@@ -1,3 +1,4 @@
+const { employmentVariant, mergeEmploymentEvidence } = require("../../lib/employment-type");
 /**
  * Core job deduplication engine
  *
@@ -28,18 +29,13 @@ function generateJobKey(job) {
 }
 
 function groupJobsByDedupeKey(jobs) {
+  const { groupRows } = require("../../lib/dedupe-select");
+  const wrapped = jobs.map(job => ({ ...job, DuplicateGroupKey: generateJobKey(job), CanonicalURLKey: job.CanonicalURLKey || job.URL || "" }));
   const groups = new Map();
-
-  for (const job of jobs) {
-    const key = generateJobKey(job);
-
-    if (!groups.has(key)) {
-      groups.set(key, []);
-    }
-
-    groups.get(key).push(job);
+  for (const [index, entries] of groupRows(wrapped)) {
+    const first = jobs[entries[0].index];
+    groups.set(`${generateJobKey(first)}|${employmentVariant(first)}|${index}`, entries.map(entry => jobs[entry.index]));
   }
-
   return groups;
 }
 
@@ -52,7 +48,7 @@ function selectCanonicalJob(group) {
     return scoreB - scoreA;
   });
 
-  return sorted[0] || null;
+  return sorted[0] ? { ...sorted[0], ...mergeEmploymentEvidence(group) } : null;
 }
 
 function getCompanyKeyMap(jobs) {

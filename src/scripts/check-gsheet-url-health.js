@@ -1,3 +1,4 @@
+const { updateAfterPublicPrune } = require("../lib/employment-type-report");
 const fs = require("fs/promises");
 const path = require("path");
 const { parseCsvRecords, rowsToCsv } = require("../lib/csv");
@@ -270,6 +271,7 @@ async function applyPrune(inputPath, headers, reviewRows, outputs, options) {
   await fs.copyFile(inputPath, outputs.backupCsv);
   await fs.writeFile(inputPath, rowsToCsv(headers, keepRows), "utf8");
   const updatedStartHere = await updateStartHereCount(inputPath, keepRows.length);
+  const updatedEmploymentMetadata = await updateAfterPublicPrune(inputPath, headers, keepRows);
 
   return {
     applyMode: safeMode ? "safe" : "all-failures",
@@ -280,6 +282,7 @@ async function applyPrune(inputPath, headers, reviewRows, outputs, options) {
       : 0,
     backupCsv: outputs.backupCsv,
     updatedStartHere,
+    updatedEmploymentMetadata,
   };
 }
 
@@ -380,6 +383,7 @@ if (require.main === module) {
 }
 
 module.exports = {
+  applyPrune,
   isPrunableFailure,
   shouldKeepReviewRow,
 };

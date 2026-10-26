@@ -4,7 +4,8 @@ const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
 const { normalizeGreenhouseJob } = require("../lib/jobs-normalize");
 const { buildSimplePublicRow } = require("../lib/simple-public-export");
 
-const reportsDir = fromRoot("data", "jobs", "reports");
+const reportIndex = process.argv.indexOf("--report-dir");
+const reportsDir = reportIndex >= 0 ? path.resolve(process.argv[reportIndex + 1]) : fromRoot("data", "jobs", "reports");
 const reportRunDate = "2026-07-05T21:22:00.000Z";
 
 const context = {
