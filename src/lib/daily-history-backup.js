@@ -11,6 +11,7 @@ const { companions, closed } = require('./job-history-migration');
 const { safeDirectory, syncDirectory } = require('./batch-maintenance');
 const files = require('./history-backup-files');
 const retention = require('./history-backup-retention');
+const { POLICY: metadataPolicy } = require('./history-backup-metadata');
 const DRIVE = '/Volumes/1Pugh';
 const DRIVE_UUID = 'A56D5D1E-1F58-30E1-9A46-A83B1E5ABDD1';
 function validateDrive(info, mount, localDevice, driveDevice) {
@@ -77,7 +78,8 @@ async function createBackup({ project, database, source, directory, checkDrive, 
     if ((await inputs(project, database, source)).fingerprint !== snapshot.fingerprint) throw new Error('Source inventory changed during backup verification');
     await checkDrive();
     return { status: 'UNCHANGED', folder: matching.folder, verifiedAt: matching.proof.verifiedAt,
-      databaseHash: j.newHash, snapshot: audit.latest.snapshot_id };
+      databaseHash: j.newHash, generation: j.id, snapshot: audit.latest.snapshot_id,
+      metadata: { policy: matching.metadataPolicy || null, count: matching.metadataFiles.length, digest: files.digest(matching.metadataFiles) } };
   }
   const total = snapshot.selected.reduce((n, r) => n + r.bytes, 0);
   const drive = await checkDrive();
@@ -96,7 +98,7 @@ async function createBackup({ project, database, source, directory, checkDrive, 
       if (await fileHash(r.from) !== r.sha256) throw new Error('Backup source changed');
       members.push({ path: r.path, bytes: r.bytes, sha256: r.sha256, stored, storedHash: await fileHash(path.join(pending, stored)) });
     }
-    const manifest = { format: files.FORMAT, createdAt: now.toISOString(), generation: j.id,
+    const manifest = { format: files.FORMAT, metadataPolicy, createdAt: now.toISOString(), generation: j.id,
       databaseHash: j.newHash, fingerprint: snapshot.fingerprint, latestSnapshot: audit.latest.snapshot_id, files: members };
     await files.writeNew(path.join(pending, 'manifest.json'), manifest);
     await at('copied', pending);
@@ -108,11 +110,46 @@ async function createBackup({ project, database, source, directory, checkDrive, 
     await files.writeNew(path.join(pending, 'VERIFIED.json'), { format: files.FORMAT, status: 'PASS',
       manifestHash: files.digest(manifest), databaseHash: j.newHash, fullRestore: true,
       verifiedAt: new Date().toISOString(), audit: restored, reportMatches: true });
-    await files.verifyBundle(pending);
+    const verified = await files.verifyBundle(pending);
     await syncDirectory(path.join(pending, 'payload')); await syncDirectory(pending);
     await checkDrive(); await fs.rename(pending, final); await syncDirectory(directory);
-    return { status: 'PASS', folder: final, verifiedAt: new Date().toISOString(), databaseHash: j.newHash, snapshot: audit.latest.snapshot_id };
+    return { status: 'PASS', folder: final, verifiedAt: verified.proof.verifiedAt, databaseHash: j.newHash,
+      generation: j.id, snapshot: audit.latest.snapshot_id,
+      metadata: { policy: metadataPolicy, count: verified.metadataFiles.length, digest: files.digest(verified.metadataFiles) } };
   } finally { await fs.rm(temporary, { recursive: true, force: true }); }
+}
+// Audit and back up the accepted generation. Do not import, collect or retain.
+async function backupOnly(options, dependencies = {}) {
+  const { project, database, source, stateFile, runId } = options;
+  const mount = options.mount || DRIVE;
+  const directory = path.join(mount, 'Public Job Feed Archives', 'daily-history-v1');
+  const probe = dependencies.probeDrive || (() => probeDrive(project, mount));
+  const checkDrive = async () => { const drive = await probe(); if (!drive) throw new Error('1Pugh disconnected'); return drive; };
+  const status = { RunId: runId, Mode: 'BACKUP_ONLY', GeneratedAt: new Date().toISOString(), History: 'NOT_RUN', Backup: 'NOT_RUN', LastVerified: null, Warnings: [] };
+  try {
+    const state = await retention.loadState(stateFile);
+    status.LastVerified = state.lastVerified;
+    await withLease(database, async lease => {
+      await closed(database); await noWal(database);
+      const j = JSON.parse(await fs.readFile(database + '.history-operation.json', 'utf8'));
+      if (j.state !== 'accepted' || j.newHash !== await fileHash(database)) throw new Error('History is not an accepted generation');
+      const checked = await (dependencies.inspect || (() => runtime.inspect(database, source)))();
+      if (checked.result.errors.length || checked.result.pending_snapshots.length) throw new Error('History audit did not pass');
+      status.History = 'PASS'; status.Imported = 0; status.LatestSnapshot = checked.result.latest.snapshot_id;
+      status.Generation = j.id; status.DatabaseHash = j.newHash;
+      await checkDrive();
+      const result = await (dependencies.createBackup || createBackup)({ project, database, source, directory, checkDrive, audit: checked.result, lease });
+      if (!['PASS', 'UNCHANGED'].includes(result.status) || result.databaseHash !== j.newHash || result.generation !== j.id) throw new Error('Backup result does not cover the accepted generation');
+      status.Backup = result.status; status.LastVerified = state.lastVerified = result;
+      await retention.saveState(stateFile, state);
+    });
+  } catch (error) {
+    if (status.History !== 'PASS') status.History = 'FAILED';
+    else status.Backup = 'FAILED';
+    status.Warnings.push(error.message);
+  }
+  status.GeneratedAt = new Date().toISOString();
+  return status;
 }
 async function dailyHistory(options, dependencies = {}) {
   const { project, database, source, stateFile, runId } = options;
@@ -155,4 +192,4 @@ async function dailyHistory(options, dependencies = {}) {
   status.GeneratedAt = new Date().toISOString();
   return status;
 }
-module.exports = { DRIVE, DRIVE_UUID, validateDrive, probeDrive, inputs, restoreAudit, createBackup, dailyHistory };
+module.exports = { DRIVE, DRIVE_UUID, validateDrive, probeDrive, inputs, restoreAudit, createBackup, dailyHistory, backupOnly };

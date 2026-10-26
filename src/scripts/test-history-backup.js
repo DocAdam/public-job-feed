@@ -75,6 +75,7 @@ async function main() {
     const audit = (await runtime.inspect(database, source)).result;
     const create = extra => withLease(database, lease => B.createBackup({ project, database, source, directory,
       audit, lease, checkDrive: drive, ...extra }));
+    await require('./test-history-backup-metadata').testMetadata({ temp, bundle, options, drive });
     // New destination forces a fresh copy while preserving the existing verified bundle.
     const makeDir = async name => { const p = path.join(mount, name); return p; };
     await assert.rejects(create({ directory: await makeDir('low-space'), checkDrive: async () => ({ FreeSpace: 1 }) }), /Insufficient space/);

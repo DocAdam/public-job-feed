@@ -100,6 +100,7 @@
     "jobs:test-review-improvements": "node src/scripts/test-review-improvements.js",
     "jobs:history-build": "node src/scripts/jobs-history.js build",
     "jobs:history-daily": "node src/scripts/daily-history-backup.js",
+    "jobs:history-backup": "node src/scripts/daily-history-backup.js --backup-only",
     "jobs:test-history-backup": "node src/scripts/test-history-backup.js",
     "jobs:test-history-finalization": "node src/scripts/test-history-package-finalization.js",
     "jobs:history-update": "node src/scripts/jobs-history.js update",

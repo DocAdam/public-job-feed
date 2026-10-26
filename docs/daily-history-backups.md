@@ -149,3 +149,94 @@ did not rebuild the database or remove existing backup and recovery copies.
 A full restore adds time and temporary disk use to each new backup. Use current
 run reports for measured results; the small isolated tests do not establish a
 full-history duration.
+
+## Backup-only verification and metadata checks
+
+Use `npm run jobs:history-backup` to audit and back up the current accepted
+history generation. This command takes the normal refresh lock and history
+lease. It does not import packages, collect jobs, build exports, or run
+retention. It uses the same backup creator, complete temporary restore,
+restored database audit, exact report comparison, and final bundle check as
+the daily workflow. It writes `history-backup-only.json` and
+`history-backup-only.md` in `data/jobs/reports/`. A failure gives a nonzero exit
+code and retains the prior accepted-backup record.
+
+The October 24 attempt failed the final inventory check because its pending
+bundle contained 3,304 extra AppleDouble files. The original failed result and
+candidate remain evidence. The exact process that created these files is not
+verified. Small file-creation tests on the same drive did not reproduce them.
+No claim is made that COPYFILE_DISABLE prevents this failure.
+
+New manifests select `metadataPolicy: appledouble-provenance-v1`. This rule
+permits only the observed 4,096-byte encoding with one 11-byte
+`com.apple.provenance` value. All other bytes must match the fixed profile in
+`src/lib/history-backup-metadata.js`. This includes the attribute table, zero
+Finder data, padding, and the observed blank resource-fork representation.
+The sidecar must name a required file or the payload directory in its own
+directory. A name that starts with `._` is insufficient. Other encodings,
+attributes, resource-fork content, unknown files, unsafe paths, and symbolic
+links fail verification.
+
+Verification records the permitted metadata files and their hashes. It does
+not delete them, remove extended attributes, restore them as payload, or use
+them to replace required files. Every required payload size and checksum,
+restore audit, and report comparison remains mandatory. A failed candidate
+stays pending. The accepted-backup record changes only after verification
+and promotion pass.
+
+Manifests without this policy retain their original exact-file checks. An
+unknown policy fails. The payload format and restore process are unchanged.
+Use the updated verifier for a new bundle that contains permitted metadata;
+the bundle includes this verifier in its saved runtime. The earlier failed
+candidate is not changed to select the new policy.
+
+The backup tests cover the exact observed bytes, every fixed profile byte,
+normal and older bundles, missing or changed payloads, unrelated files,
+misleading metadata names, unsafe paths, symlinks, incomplete proofs,
+interrupted creation, final rejection, and state updates after acceptance.
+
+## October 25 verification result
+
+The new metadata rule passed the complete 38-command isolated suite and the
+focused backup tests. A real backup-only operation then passed every restore
+and acceptance check for generation 66646ce5-b440-47c2-a8a8-75c003da4c28,
+package 20261024-0954. The accepted bundle had zero metadata sidecars. The
+exact observed sidecar case was verified in isolation.
+
+The one subsequent refresh accepted generation
+2b1dae2f-4112-493d-8252-e1a14d0832d1, package 20261025-0724. Its backup failed
+the normal local space guard before candidate creation. At measurement, the
+3,329-member inventory needed 4.29 GiB for restore plus the unchanged 32 GiB
+reserve. Free space was 34.25 GiB; required space was 36.29 GiB. The shortfall
+was about 2.05 GiB. The prior recovery backup does not cover this generation.
+
+Do not repeat the full refresh. Restore local headroom, check the exact current
+inventory and space again, then use `npm run jobs:history-backup` for a new
+backup-only attempt. Do not weaken the reserve, use an alternate restore
+location to avoid it, or label the prior backup as current. At that checkpoint, a proposed move
+of one older test snapshot remained unapproved. The approved follow-up below
+records its later execution. See the
+[release report](features/employment-type-release-verification-20261025.md).
+
+## Approved relocation follow-up
+
+The user approved only the exact prior-test-snapshot relocation in the saved
+proposal. The copied 4,017,995,774-byte file passed a complete SHA-256 check
+before its local path was replaced with a symbolic link. The external copy,
+exact original timestamps, both paths, verified hash and rollback instructions
+are preserved. The external filesystem stores the copied dates at lower
+precision; the exact values remain in the receipt. No other existing file was
+moved or deleted.
+
+Actual local restore space then passed: 37.95 GiB free against 36.29 GiB
+required, including the unchanged 32 GiB reserve. One backup-only attempt
+passed complete restore of all 3,329 payloads, the restored audit, exact report
+comparison and final bundle acceptance. It covers generation
+2b1dae2f-4112-493d-8252-e1a14d0832d1 and package 20261025-0724. No packages
+were imported. The old failed daily result remains unchanged; this success is
+a new linked result.
+
+See the [current release report](features/employment-type-release-verification-20261025.md)
+for the accepted folder, run ID, proof and relocation receipt. Do not remove the
+external snapshot copy. The symbolic link needs that drive to be connected.
+The feed refresh and live Sheet were not changed by this follow-up.

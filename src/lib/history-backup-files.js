@@ -7,6 +7,7 @@ const { createGzip, createGunzip } = require('node:zlib');
 const { regular, exists } = require('./job-history-access');
 const { safeDirectory, syncDirectory } = require('./batch-maintenance');
 const { fileHash } = require('./job-history-bounded-storage');
+const metadata = require('./history-backup-metadata');
 const FORMAT = 'public-job-feed-daily-history-v1';
 const digest = value => crypto.createHash('sha256').update(JSON.stringify(value)).digest('hex');
 const relative = value => typeof value === 'string' && value !== '' && !path.isAbsolute(value) &&
@@ -66,11 +67,22 @@ async function verifyBundle(folder) {
     logical.add(r.path); stored.add(r.stored);
   }
   if (m.files.find(r => r.path === 'history/jobs-history.duckdb')?.sha256 !== m.databaseHash) throw new Error('Backup database identity mismatch');
+  if (m.metadataPolicy !== undefined && m.metadataPolicy !== metadata.POLICY) throw new Error('Unknown backup metadata policy');
   const actual = await inventory(folder);
-  if (actual.length !== m.files.length + 2 || actual.some(r => !stored.has(r.path) && !['manifest.json', 'VERIFIED.json'].includes(r.path))) throw new Error('Unexpected backup files');
+  const required = new Set([...stored, 'manifest.json', 'VERIFIED.json']);
+  const counterparts = new Set([...required, 'payload']);
+  const metadataFiles = [];
+  for (const r of actual) {
+    if (required.has(r.path)) continue;
+    const target = metadata.counterpart(r.path, counterparts);
+    if (m.metadataPolicy !== metadata.POLICY || !target || r.bytes !== 4096 ||
+        !metadata.provenanceOnly(await fs.readFile(path.join(folder, r.path)))) throw new Error('Unexpected backup files: ' + r.path);
+    metadataFiles.push({ ...r, target, attribute: 'com.apple.provenance' });
+  }
   const byName = new Map(actual.map(r => [r.path, r]));
+  if ([...required].some(name => !byName.has(name))) throw new Error('Missing backup files');
   for (const r of m.files) if (byName.get(r.stored)?.sha256 !== r.storedHash) throw new Error('Backup checksum mismatch: ' + r.stored);
-  return { ...m, folder, proof };
+  return { ...m, folder, proof, metadataFiles };
 }
 async function managedRoot(directory, create = false) {
   if (!await exists(directory)) {
