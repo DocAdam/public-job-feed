@@ -284,6 +284,7 @@ async function main() {
     testKeyDiffAndState();
     testCorrectnessFixtures();
     testMergeFreshnessFiltering();
+    await require("./test-board-state-identity").main();
     const csvFixture = path.join(tempDir, "quoted.csv");
     await fs.writeFile(csvFixture, 'Title,Description\n"Writer, Senior","Line one\nLine two with ""quotes"""\nPlain,Text\n');
     assert.equal(await countCsvRows(csvFixture), 2);

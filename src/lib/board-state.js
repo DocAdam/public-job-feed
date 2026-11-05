@@ -64,13 +64,15 @@ function buildCoverageLookup(rows) {
     workday: getWorkdaySlugFromUrl,
   };
   for (const row of rows || []) {
-    const key = coverageKey(row.ATS, row.CompanyKey);
-    const current = byCompany.get(key);
-    if (!current || parseTime(row.LastChecked) >= parseTime(current.LastChecked)) byCompany.set(key, row);
     const ats = cleanText(row.ATS).toLowerCase();
     const reader = slugReaders[ats];
     const slug = reader ? reader(row.CareerSiteURL || row.EstimatedFetchURL || "") : "";
     const exactKey = slug ? `${ats}|${cleanText(slug).toLowerCase()}` : "";
+    const key = coverageKey(row.ATS, row.CompanyKey);
+    const current = byCompany.get(key);
+    if (!current || parseTime(row.LastChecked) >= parseTime(current.row.LastChecked)) {
+      byCompany.set(key, { row, boardKey: exactKey });
+    }
     const exactCurrent = exactKey ? byBoard.get(exactKey) : null;
     if (exactKey && (!exactCurrent || parseTime(row.LastChecked) >= parseTime(exactCurrent.LastChecked))) {
       byBoard.set(exactKey, row);
@@ -146,10 +148,14 @@ function syncBoardStateFromEntries(entries, previousState, coverageRows, now = n
   const boards = [];
 
   for (const entry of entries) {
+    const companyCoverage = coverage.byCompany.get(coverageKey(entry.ATS, entry.CompanyKey));
+    // Keep legacy fallback, but never apply a known different board's coverage.
+    const companyCoverageMatches = companyCoverage &&
+      (!companyCoverage.boardKey || companyCoverage.boardKey === entry.BoardKey);
     const coverageRow =
       coverage.byBoard.get(entry.BoardKey) ||
-      (!["workday", "icims"].includes(entry.ATS)
-        ? coverage.byCompany.get(coverageKey(entry.ATS, entry.CompanyKey))
+      (!["workday", "icims"].includes(entry.ATS) && companyCoverageMatches
+        ? companyCoverage.row
         : null);
     const previous = previousByKey.get(entry.BoardKey);
     let record = previous ? { ...previous } : newRecord(entry, coverageRow, now);
