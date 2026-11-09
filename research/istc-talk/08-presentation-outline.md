@@ -1,6 +1,6 @@
 # Proposed 35-minute presentation
 
-Status: proposed narrative, not a script or finished deck. Allow a separate 15 to 20 minutes for questions. Total event allocation: 50 to 55 minutes. Confirm the host's slot before final slide creation.
+Review date: October 27, 2026. Status: proposed narrative, not a script or finished deck. Allow a separate 15 to 20 minutes for questions. Total event allocation: 50 to 55 minutes. Confirm the host's slot before final slide creation.
 
 Title: **I Got Tired of Searching for Documentation Jobs, So I Built My Own Job Feed**.
 
@@ -35,18 +35,18 @@ Personal narrative must come from Adam. Notes below are draft prompts. They do n
 
 **Main point:** the project is now a set of connected information-processing steps. It did not acquire all of them in the first Git commit.
 
-**Supporting evidence:** initial imported application, later architecture/streaming work, direct-employer intake, report provenance, and history. The normal launcher remains the best guide to operational order. [H01-H10](11-evidence-index.md#h01), [C05](11-evidence-index.md#c05)
+**Supporting evidence:** initial imported application, later architecture/streaming work, direct-employer intake, report provenance, history, and employment evidence. The normal launcher remains the best guide to operational order. [H01-H10](11-evidence-index.md#h01), [H14](11-evidence-index.md#h14), [C05](11-evidence-index.md#c05)
 
 **Draft narrative prompts:**
 
 - Give the known origin separately from the first recorded Git milestone.
 - Describe JavaScript/Node.js as the processing runtime, Bash as the ordered launcher, and SQL as the way to compare saved history.
-- Explain the main path in plain language: employer source, common record, review rules, reader table, manual upload.
+- Explain the main path in plain language: employer source, common record, review rules, reader table, separate approved upload.
 - Explain why the internal collection is much larger than the reader view.
 
-**Slide concepts:** a short timeline; five-box architecture; broad collection versus useful display. Use the dated 837,215 internal records and 713 local public rows only with population labels. [M01](06-project-metrics.md#main-metric-register), [M09](06-project-metrics.md#main-metric-register)
+**Slide concepts:** a short timeline; five-box architecture; broad collection versus useful display. Use the dated 836,592 internal records and 732 local public rows only with population labels. [M01](06-project-metrics.md#main-metric-register), [M09](06-project-metrics.md#main-metric-register)
 
-**Visual:** a simplified derivative of [the research diagram](03-system-architecture.md#current-pipeline). Add “manual upload” at the final arrow. Put SQLite staging and DuckDB history in small side notes only if needed.
+**Visual:** a simplified derivative of [the research diagram](03-system-architecture.md#current-pipeline). Add “separate approved upload” at the final arrow. Put SQLite staging and DuckDB history in small side notes only if needed.
 
 **Transition:** “The useful work happens in the rules between the source and the table. Three examples show why those rules matter.”
 
@@ -58,7 +58,7 @@ Personal narrative must come from Adam. Notes below are draft prompts. They do n
 
 ### Duplicate identity, 3 minutes
 
-Show two fixture rows with alternate company labels and the same canonical URL. Explain selection reasons and the retained broad record. State the limit: similar rows can still describe separate openings. Use the saved top-selection reduction, 1,003 to 836, as a processing measure. [C09](11-evidence-index.md#c09), [C10](11-evidence-index.md#c10), [M05](06-project-metrics.md#main-metric-register)
+Show two fixture rows with alternate company labels and the same canonical URL. Explain selection reasons and the retained broad record. State the limit: similar rows can still describe separate openings. Use the saved top-selection reduction, 1,017 to 847, as a processing measure. [C09](11-evidence-index.md#c09), [C10](11-evidence-index.md#c10), [M05](06-project-metrics.md#main-metric-register)
 
 ### Relevance and remote geography, 3 minutes
 
@@ -66,7 +66,7 @@ Show a small table with separate columns for writing relevance, work arrangement
 
 ### A loaded page without a job, 4 minutes
 
-Spend two minutes on the HTTP 200 fixture cards. Spend two minutes on the rule and its limits. Show the saved 743 checks, 30 removals, and 12 retained ambiguous failures. Avoid saying “all remaining links are verified.” [C18](11-evidence-index.md#c18), [M07-M08](06-project-metrics.md#main-metric-register)
+Spend two minutes on the HTTP 200 fixture cards. Spend two minutes on the rule and its limits. Show the saved 761 checks, 29 removals, and 12 retained ambiguous failures. Avoid saying “all remaining links are verified.” [C18](11-evidence-index.md#c18), [M07-M08](06-project-metrics.md#main-metric-register)
 
 **Draft narrative prompt:** for each example, explain the bad result, the implemented rule, and what that rule still cannot know. If there was a personal debugging incident, Adam can add it after confirmation.
 
@@ -80,7 +80,7 @@ Spend two minutes on the HTTP 200 fixture cards. Spend two minutes on the rule a
 
 **Main point:** show what a reader can do and explain the evidence behind the visible fields.
 
-**Supporting evidence:** simple export schema, grouping rules, final saved package, and saved comparison report. The actual live Sheet must be checked separately. [C16](11-evidence-index.md#c16), [C20](11-evidence-index.md#c20), [C30](11-evidence-index.md#c30)
+**Supporting evidence:** simple export schema, grouping rules, final saved package, and saved comparison report. Saved publication records cover October 25 and the later remote-view change. The live Sheet must be checked separately before the event. [C16](11-evidence-index.md#c16), [C20](11-evidence-index.md#c20), [C30](11-evidence-index.md#c30)
 
 **Walkthrough sequence:**
 
@@ -89,7 +89,7 @@ Spend two minutes on the HTTP 200 fixture cards. Spend two minutes on the rule a
 3. Compare Posted Date, Last Checked, and package/report time. Point out that they answer different questions.
 4. Show the saved added/removed summary and explain list membership.
 
-**Draft narrative prompts:** identify the reader task each field supports. Show how to return to the employer posting. Explain that a high score, current package, or old link check cannot guarantee a job is still open.
+**Draft narrative prompts:** identify the reader task each field supports. Distinguish the all-country Sheet Remote view from the explicit-location daily reports. Show how to return to the employer posting. Explain that a high score, current package, or old link check cannot guarantee a job is still open.
 
 **Slide concepts:** reader view; one grouped row and useful fields; dates and membership changes.
 
@@ -107,7 +107,7 @@ Spend two minutes on the HTTP 200 fixture cards. Spend two minutes on the rule a
 
 **Draft narrative prompts:**
 
-- Give three concrete skill connections: information modeling, classification, and quality/lifecycle checks.
+- Give three concrete skill connections: information modeling, classification, and quality/lifecycle checks. The employment rule offers a brief reserve example. Replace an existing example if using it; do not add time.
 - State one thing the implementation does well, using the evidence rather than a personal success claim.
 - State one hard limit: incomplete sources, ambiguous links, or uncertain job identity.
 - Identify any next step as a plan or proposal. The optional streaming path is implemented staging, not a completed production replacement.

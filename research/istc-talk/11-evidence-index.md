@@ -1,6 +1,6 @@
 # Source and evidence index
 
-Research date: 2026-10-22. Repository baseline: `73ec53ddbdc8162a5d1b32823b9c00149b92219a`. Many runtime files were already modified or untracked. “Current” below means the inspected local implementation. It does not mean all changes are committed, deployed, or freshly tested.
+Review date: October 27, 2026. Repository baseline: `f4af4c2a8352daa89f31d3abb77bb43edd67a6df`. Six staged files existed before this task. Current implementation means the inspected local files. Saved operation results retain their own dates. No application test or production workflow ran for this review. The earlier research version remains in commit `f40a789`.
 
 Confidence values:
 
@@ -14,9 +14,9 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 ### C01
 
-**Claim:** Public Job Feed prepares local files for Good Doc Jobs. The inspected launcher does not upload to Google Sheets or publish to Substack.
+**Claim:** Public Job Feed prepares local files for Good Doc Jobs. Its normal launcher does not upload to Google Sheets or publish to Substack.
 
-**Evidence type:** current code and operating documentation. **Sources:** [README.md](../../README.md), “Names used in this guide” and “For maintainers”; [Refresh Job Feed.command](../../launchers/Refresh%20Job%20Feed.command), ordered command sequence; [build-gsheet-package.js](../../src/scripts/build-gsheet-package.js), package writers. **Confidence:** Confirmed for the inspected workflow. **Limit:** live Sheet content/access was not checked.
+**Evidence type:** current code and operating documentation. **Sources:** [README.md](../../README.md), opening and maintainer guidance; [Refresh Job Feed.command](../../launchers/Refresh%20Job%20Feed.command), ordered commands; [build-gsheet-package.js](../../src/scripts/build-gsheet-package.js), package writers. **Confidence:** Confirmed for this workflow. **Limit:** separate saved publication evidence is C45-C46. No live access check ran here.
 
 ### C02
 
@@ -68,9 +68,9 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 ### C10
 
-**Claim:** export selection joins rows through shared keys, then picks a deterministic representative with a recorded reason.
+**Claim:** export selection resolves strong posting keys before weak duplicate keys. It selects a deterministic representative, records its reason, and merges employment evidence.
 
-**Evidence type:** code and fixture. **Sources:** [dedupe-select.js](../../src/lib/dedupe-select.js), `getDedupeKeys`, `groupRows`, `compareRows`, `selectDedupedRows`; [test-dedupe-select.js](../../src/scripts/test-dedupe-select.js), `aliasRows`, `roleRows`. **Confidence:** Confirmed. **Limit:** stable selection does not prove semantic duplicate accuracy. Remote fields affect ranking ties.
+**Evidence type:** code and fixtures. **Sources:** [dedupe-select.js](../../src/lib/dedupe-select.js), `getDedupeKeys`, `groupRows`, `compareRows`, `selectDedupedRows`; [test-dedupe-select.js](../../src/scripts/test-dedupe-select.js), alias fixtures; [test-employment-type.js](../../src/scripts/test-employment-type.js), variants, same-posting conflicts, and bridge tests. **Confidence:** Confirmed as implementation. **Limit:** URL query removal still risks identity errors. Remote fields affect ranking ties. Employment variants restrict weak grouping, not a strong posting match.
 
 ### C11
 
@@ -98,21 +98,21 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 ### C15
 
-**Claim:** posted date, fetch time, package time, and history observation are different concepts. Greenhouse DatePosted can fall back to updated_at.
+**Claim:** posted date, fetch time, package time, and historical observation have different meanings. Greenhouse DatePosted can fall back to updated_at.
 
-**Evidence type:** code and saved warning. **Sources:** [jobs-normalize.js](../../src/lib/jobs-normalize.js), `getGreenhouseDatePosted`, Workday date mapping; [simple-public-export.js](../../src/lib/simple-public-export.js), `getAgeDays`, `formatUtcDateTime`; [test-gsheet-package-results.json](../../data/jobs/reports/test-gsheet-package-results.json), `PostedDateMovedForwardSamples`. **Confidence:** Confirmed. **Limit:** the saved continuing-role example is not proof of reposting.
+**Evidence type:** code and saved validation. **Sources:** [jobs-normalize.js](../../src/lib/jobs-normalize.js), `getGreenhouseDatePosted` and Workday mapping; [simple-public-export.js](../../src/lib/simple-public-export.js), `getAgeDays`, `formatUtcDateTime`; [test-gsheet-package.js](../../src/scripts/test-gsheet-package.js), forward-date and age checks. **Confidence:** Confirmed as implementation. **Limit:** the October 25 saved package test has zero forward-date warnings. Do not reuse an overwritten earlier report as current observed evidence.
 
 ### C16
 
-**Claim:** simple public rows reduce fields and can group exact company/title variants across different locations while keeping additional application links.
+**Claim:** public rows reduce fields and can group exact normalized company/title/Employment Type variants across different locations while retaining additional application links.
 
-**Evidence type:** code and fixture. **Sources:** [simple-public-export.js](../../src/lib/simple-public-export.js), `SIMPLE_PUBLIC_HEADERS`, `buildSimplePublicRow`; [build-gsheet-package.js](../../src/scripts/build-gsheet-package.js), `groupPublicSheetCountryPostings`, `getGroupedWorkArrangement`, `getEarliestPostedDate`, `getNewestLastChecked`; [test-gsheet-grouping.js](../../src/scripts/test-gsheet-grouping.js). **Confidence:** Confirmed. **Limit:** grouped arrangement/dates summarize members; a display row need not be one vacancy.
+**Evidence type:** code and fixtures. **Sources:** [simple-public-export.js](../../src/lib/simple-public-export.js), `SIMPLE_PUBLIC_HEADERS`, `buildSimplePublicRow`; [build-gsheet-package.js](../../src/scripts/build-gsheet-package.js), `getPublicSheetGroupingKey`, `groupPublicSheetCountryPostings`, `getGroupedWorkArrangement`, date helpers; [grouping tests](../../src/scripts/test-gsheet-grouping.js); [employment tests](../../src/scripts/test-employment-type.js). **Confidence:** Confirmed. **Limit:** 16 public columns. Conflict rows stay separate. Dates and arrangement can summarize several postings; a display row is not necessarily one vacancy.
 
 ### C17
 
 **Claim:** exact reviewed posting URLs can be excluded before public grouping, while raw records and scores remain available.
 
-**Evidence type:** code, review, and saved audit. **Sources:** [public-package-eligibility.js](../../src/lib/public-package-eligibility.js), `packageEligibility`; [public-package-role-exclusions.json](../../src/config/public-package-role-exclusions.json); [job-scope-review-2026-10-12.md](../../docs/job-scope-review-2026-10-12.md); [public-package-exclusions.csv](../../data/jobs/gsheet-package/20261022-0622/public-package-exclusions.csv). **Confidence:** Confirmed. **Limit:** configured review decisions and affected rows in one package are different populations.
+**Evidence type:** code, review, and saved audit. **Sources:** [public-package-eligibility.js](../../src/lib/public-package-eligibility.js), `packageEligibility`; [public-package-role-exclusions.json](../../src/config/public-package-role-exclusions.json); [job-scope-review-2026-10-12.md](../../docs/job-scope-review-2026-10-12.md); [public-package-exclusions.csv](../../data/jobs/gsheet-package/20261025-0724/public-package-exclusions.csv). **Confidence:** Confirmed. **Limit:** configured review decisions and affected rows in one package are different populations.
 
 ### C18
 
@@ -122,27 +122,27 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 ### C19
 
-**Claim:** the saved October 22 link check records 743 input rows, 30 pruned rows, 713 kept rows, and 12 retained ambiguous failures.
+**Claim:** the saved October 25 link check records 761 checked rows, 29 pruned rows, 732 kept rows, and 12 retained uncertain failures.
 
-**Evidence type:** saved result and bounded CSV counts. **Sources:** [URL summary](../../data/jobs/gsheet-package/20261022-0622/01_good_documentation_jobs-url-check-summary.json), `CheckedAt`, `TotalRows`, `PrunedRows`, `KeptRows`; corresponding review and before-prune CSVs. **Confidence:** Confirmed as saved evidence. **Limit:** check time is `2026-10-22T11:23:47.980Z`; not current live status. See M07-M08.
+**Evidence type:** dated saved result and bounded CSV counts. **Sources:** [URL summary](../../data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs-url-check-summary.json), `CheckedAt`, `TotalRows`, `PrunedRows`, `KeptRows`, `KeptAmbiguousFailureRows`; the same package's before-prune CSV. **Confidence:** Confirmed as saved evidence. **Limit:** check time is `2026-10-25T12:26:13.346Z`; not live status. See M07-M08.
 
 ### C20
 
-**Claim:** daily comparison uses normalized application-link membership with a fallback key; added/removed do not prove employer posting or closure.
+**Claim:** daily comparison uses normalized application-link membership with a fallback key. Added and removed do not establish employer posting or closure.
 
-**Evidence type:** code and saved report. **Sources:** [us-remote-daily-report.js](../../src/lib/us-remote-daily-report.js), `jobKey`, `compareRows`; [daily-jobs-review.js](../../src/lib/daily-jobs-review.js), comparison helpers; [all-remote-daily-report.md](../../data/jobs/reports/all-remote-daily-report.md), October 22/21 package summary. **Confidence:** Confirmed. **Limit:** URL, grouping, filtering, or source changes can alter membership. See M12.
+**Evidence type:** code and fixed saved report. **Sources:** [us-remote-daily-report.js](../../src/lib/us-remote-daily-report.js), `jobKey`, `compareRows`; [daily-jobs-review.js](../../src/lib/daily-jobs-review.js), comparison helpers; [October 25 report](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/all-remote-daily-report.md), package IDs and membership counts. **Confidence:** Confirmed. **Limit:** URL, grouping, filtering, and source changes can change membership. M12 describes October 24 to 25; N07 describes October 25 to 26.
 
 ### C21
 
-**Claim:** the local history runtime detects the installed format; saved validation reports v2. History consumes dated package sources, separately from current-feed merge.
+**Claim:** the history runtime detects the installed format. Saved validation reports v2. History consumes dated package sources, separately from current-feed merge.
 
-**Evidence type:** code/schema and saved validation. **Sources:** [job-history-runtime.js](../../src/lib/job-history-runtime.js), `detect`, `runHistory`; [jobs-history.js](../../src/lib/jobs-history.js), `discover`, `scan`; [job-history-storage.js](../../src/lib/job-history-storage.js), `TABLES`; [job-history-bounded-storage.js](../../src/lib/job-history-bounded-storage.js), schema creation; [validation.json](../../data/jobs/history/validation.json), `format`. **Confidence:** Confirmed for implementation and saved state. **Limit:** no database was opened for this task; a normal update is not migration approval.
+**Evidence type:** code/schema and saved result. **Sources:** [job-history-runtime.js](../../src/lib/job-history-runtime.js), `detect`, `runHistory`; [jobs-history.js](../../src/lib/jobs-history.js), `discover`, `scan`; [job-history-storage.js](../../src/lib/job-history-storage.js), `TABLES`; [job-history-bounded-storage.js](../../src/lib/job-history-bounded-storage.js), schema creation; [October 25 validation copy](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json), `historyValidation.format`; [later local validation](../../data/jobs/history/validation.json), generation and latest package. **Confidence:** Confirmed for code and saved states. **Limit:** no database was opened here. A normal update is not a format migration.
 
 ### C22
 
-**Claim:** raw detailed/public rows, resolved observations, public membership, and unmatched exceptions are separate history evidence.
+**Claim:** raw detailed/public rows, selected observations, public membership, and unmatched exceptions are separate history populations.
 
-**Evidence type:** code/schema and saved result. **Sources:** [jobs-history.js](../../src/lib/jobs-history.js), `scan`, raw and exception types; [job-history-storage.js](../../src/lib/job-history-storage.js), `TABLES`; [validation.json](../../data/jobs/history/validation.json), duplicate and exception warnings. **Confidence:** Confirmed. **Limit:** canonical resolution inherits identity assumptions. Counts are not interchangeable.
+**Evidence type:** code/schema and saved result. **Sources:** [jobs-history.js](../../src/lib/jobs-history.js), `scan`; [job-history-storage.js](../../src/lib/job-history-storage.js), `TABLES`; [fixed validation copy](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json), `historyValidation` counts and warnings. **Confidence:** Confirmed. **Limit:** canonical resolution inherits identity assumptions. Ten excess raw detailed rows and 40 public exceptions remain in the October 25 population. Counts are not interchangeable.
 
 ### C23
 
@@ -164,15 +164,15 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 ### C26
 
-**Claim:** saved test dispatch reports PASS for 35 commands, while the package test artifact is WARN. Dispatch success and data warnings are different states.
+**Claim:** the saved October 25 dispatch reports PASS for 38 commands, while the package result is WARN. Execution status and data warnings differ.
 
-**Evidence type:** code and saved results. **Sources:** [run-test-suite.js](../../src/scripts/run-test-suite.js), `executeTests`; [test-all-results.json](../../data/jobs/reports/test-all-results.json), `Tests`, `PackageRun`, timestamps; [test-gsheet-package-results.json](../../data/jobs/reports/test-gsheet-package-results.json), warnings; [refresh-output-validation.json](../../data/jobs/reports/refresh-output-validation.json). **Confidence:** Confirmed as saved evidence. **Limit:** no new test run; warning includes stale rows and a moved date. See M20.
+**Evidence type:** code and fixed saved results. **Sources:** [run-test-suite.js](../../src/scripts/run-test-suite.js), `executeTests`; [saved test results](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/test-all-results.json), Tests and PackageRun; [saved package result](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/test-gsheet-package-results.json), warnings; [output validation](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/refresh-output-validation.json). **Confidence:** Confirmed as saved evidence. **Limit:** no new tests ran. Warning population: 24 rows older than seven days, including five older than fourteen. See M20.
 
 ### C27
 
-**Claim:** the current local launcher holds an outer refresh lock, runs ordered validation, updates history, checks backup, and records run identity. Backup failure can leave a warning after feed checks.
+**Claim:** the current launcher holds an outer lock, checks package output, finalizes metadata before history, then records later status outside the imported package. Backup failure can remain a warning after feed checks.
 
-**Evidence type:** code and saved receipts. **Sources:** [Refresh Job Feed.command](../../launchers/Refresh%20Job%20Feed.command), refresh lock, history-daily block, completion; [feed-refresh-lock.js](../../src/lib/feed-refresh-lock.js); [daily-history-backup.js](../../src/lib/daily-history-backup.js); [batch-history-ledger.js](../../src/lib/batch-history-ledger.js); [refresh-run.json](../../data/jobs/reports/refresh-run.json); [daily-history-backup.json](../../data/jobs/reports/daily-history-backup.json). **Confidence:** Confirmed for code and recorded run. **Limit:** runtime files contain uncommitted work. Morning receipt predates current HEAD and records a dirty tree. Receipt is not continuous backup assurance.
+**Evidence type:** code and saved receipts. **Sources:** [Refresh Job Feed.command](../../launchers/Refresh%20Job%20Feed.command), ordered blocks; [feed-refresh-lock.js](../../src/lib/feed-refresh-lock.js); [daily-history-backup.js](../../src/lib/daily-history-backup.js); [October 25 run receipt](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/refresh-run.json); [history and backup result](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/daily-history-backup.json). **Confidence:** Confirmed for code and the dated run. **Limit:** that receipt records an earlier revision with working-tree changes. C43 explains finalization; C44 explains later separate backup recovery. Receipt success is not continuous backup assurance.
 
 ### C28
 
@@ -182,45 +182,45 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 ### C29
 
-**Claim:** the saved full-feed summary records 837,215 records and associated labels/classifications on October 22.
+**Claim:** the fixed October 25 artifact check records 836,592 broad feed records. A separate mutable October 26 summary records 836,383.
 
-**Evidence type:** saved producer summary. **Sources:** [public-job-feed-latest-summary.json](../../data/jobs/public/public-job-feed-latest-summary.json); [merge-batches.js](../../src/scripts/merge-batches.js), `createMergedSummary`; [test-release-results.json](../../data/jobs/reports/test-release-results.json). **Confidence:** Confirmed as saved counts. **Limit:** no full-feed recount. See M01-M04 for exact time and populations.
+**Evidence type:** saved checks and producer summary. **Sources:** [fixed artifact report](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json), `canonical.rows`, `controlledComparison`; [current summary](../../data/jobs/public/public-job-feed-latest-summary.json), GeneratedAt and TotalRows; [merge-batches.js](../../src/scripts/merge-batches.js), `createMergedSummary`. **Confidence:** Confirmed as saved counts. **Limit:** no full-feed recount. Do not use the current mutable summary as proof of the earlier count. See M01-M04 and C47.
 
 ### C30
 
-**Claim:** package `20261022-0622` has 713 final public rows; the saved daily report separates arrangement, explicit remote subsets, membership changes, and searchable-text metrics.
+**Claim:** package `20261025-0724` has 732 final public rows. Its fixed report separates arrangement, explicit remote subsets, membership, and searchable-text metrics.
 
-**Evidence type:** bounded CSV count and saved reports. **Sources:** [public jobs CSV](../../data/jobs/gsheet-package/20261022-0622/01_good_documentation_jobs.csv); [all-remote-daily-report.md](../../data/jobs/reports/all-remote-daily-report.md); [content-metrics.js](../../src/lib/content-metrics.js); [jobs-snapshot.js](../../src/lib/jobs-snapshot.js). **Confidence:** Confirmed for saved local data. **Limit:** not a live public Sheet count. Topic matches are mentions, not requirements. See M06, M09-M15.
+**Evidence type:** bounded CSV count and fixed saved report. **Sources:** [dated public CSV](../../data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv); [fixed report](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/all-remote-daily-report.md); [content-metrics.js](../../src/lib/content-metrics.js); [jobs-snapshot.js](../../src/lib/jobs-snapshot.js). **Confidence:** Confirmed as saved data. **Limit:** no current live count. Topic matches are mentions, not confirmed requirements. See M06, M09-M15, M25.
 
 ### C31
 
-**Claim:** the saved deduped-top summary records 1,003 input rows, 836 output rows, 167 removed rows, and 134 resolved multi-row groups.
+**Claim:** the October 25 same-input check records 1,017 strong candidates and 847 selected rows, a reduction of 170.
 
-**Evidence type:** saved summary and code. **Sources:** [dedupe summary](../../data/jobs/public/slices/deduped/public-job-feed-dedupe-summary.json); [dedupe-select.js](../../src/lib/dedupe-select.js), `selectDedupedRows` summary. **Confidence:** Confirmed as saved result. **Limit:** one selected view, not global duplicate elimination. See M05.
+**Evidence type:** fixed saved comparison and code. **Sources:** [artifact report](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json), `controlledComparison.strongCandidates`, `newSelected`; [dedupe-select.js](../../src/lib/dedupe-select.js), `selectDedupedRows`. **Confidence:** Confirmed as saved result. **Limit:** not proof of 170 duplicate vacancies. Both compared rule sets select 847 on this input. The later October 26 summary has different counts. See M05 and N02.
 
 ### C32
 
-**Claim:** saved attempted coverage is 50,170/50,170 stable board keys at its October 22 morning report time.
+**Claim:** the October 25 saved report records attempted coverage of 50,170/50,170 stable board keys.
 
-**Evidence type:** saved report and counter implementation. **Sources:** [crawl-coverage-summary.json](../../data/jobs/reports/crawl-coverage-summary.json), `CoverageUnit`; [report-crawl-coverage.js](../../src/scripts/report-crawl-coverage.js); [board-coverage.js](../../src/lib/board-coverage.js). **Confidence:** Confirmed as saved evidence. **Limit:** attempted at least once, not successful or recent. See M16.
+**Evidence type:** fixed report and counter implementation. **Sources:** [coverage summary](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/crawl-coverage-summary.json), CoverageUnit and GeneratedAt; [report-crawl-coverage.js](../../src/scripts/report-crawl-coverage.js); [board-coverage.js](../../src/lib/board-coverage.js). **Confidence:** Confirmed as saved evidence. **Limit:** attempted at least once, not successful or recent. See M16.
 
 ### C33
 
-**Claim:** the later October 22 freshness report distinguishes recent attempts, successful snapshots, failed boards, due boards, and retry delay.
+**Claim:** the October 25 saved board report distinguishes attempts, recent successful snapshots, failed states, due boards, and retry delay. A later October 27 report has its own counters.
 
-**Evidence type:** saved report and code. **Sources:** [board-freshness-report.json](../../data/jobs/reports/board-freshness-report.json), `GeneratedAt`, `StateGeneratedAt`, `Overall`; [report-board-freshness.js](../../src/scripts/report-board-freshness.js). **Confidence:** Confirmed as saved evidence. **Limit:** later than the morning feed; not one atomic population observation with it. See M17.
+**Evidence type:** saved reports and code. **Sources:** [fixed October 25 report](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/board-freshness-report.json), GeneratedAt, StateGeneratedAt, Overall; [later mutable report](../../data/jobs/reports/board-freshness-report.json), same fields; [report-board-freshness.js](../../src/scripts/report-board-freshness.js). **Confidence:** Confirmed as saved evidence. **Limit:** reports are not one synchronized feed snapshot. See M17 and N06.
 
 ### C34
 
-**Claim:** saved history validation reports 155 snapshots through October 22, distinct raw/resolved counts, 40 exceptions, and older source packages.
+**Claim:** the fixed October 25 history check reports 159 snapshots, distinct raw/selected counts, 40 exceptions, and retained source anomalies. Later local validation reports 160 snapshots through October 26.
 
-**Evidence type:** saved validation and companion description. **Sources:** [validation.json](../../data/jobs/history/validation.json), `generation`, `latest`, count fields, `warnings`, `header_variants`; [history README](../../data/jobs/history/README.md). **Confidence:** Confirmed as saved evidence. **Limit:** a package ID from June does not date the application's implementation. No live database audit ran. See M18-M19.
+**Evidence type:** saved validation and description. **Sources:** [fixed report](../../verification/backup-recovery-release-20261025T114249Z/production-refresh/artifact-verification.json), `historyValidation`; [later local validation](../../data/jobs/history/validation.json), generation, latest, counts, warnings; [history README](../../data/jobs/history/README.md). **Confidence:** Confirmed as saved evidence. **Limit:** package history before the initial Git commit does not date code development. Current staged companions are prior user work. See M18-M19 and N05.
 
 ### C35
 
-**Claim:** the manifest declares CommonJS, Node 26.x, DuckDB and better-sqlite3; the bounded baseline contains 228 source JavaScript files and 55 test command files.
+**Claim:** the manifest declares CommonJS, Node 26.x, DuckDB, and better-sqlite3. The October 27 path inventory contains 239 source JavaScript files and 59 test command files.
 
-**Evidence type:** manifest and derived file inventory. **Sources:** [package.json](../../package.json), `type`, `engines`, `dependencies`, `testSuites`; `src/` path inventory from `git ls-files --cached --others --exclude-standard`. **Confidence:** Confirmed for this baseline. **Limit:** includes uncommitted files. File counts do not measure test assertions or quality. See M21.
+**Evidence type:** manifest and bounded derived inventory. **Sources:** [package.json](../../package.json), type, engines, dependencies, testSuites; `git ls-files --cached --others --exclude-standard src/`, unique paths. **Confidence:** Confirmed for this checkout. **Limit:** counts files, not assertions or quality. No runtime version or dependency installation was checked. See M21.
 
 ### C36
 
@@ -258,13 +258,49 @@ Paths below are repository-relative. Symbols give more stable references than li
 
 **Evidence type:** documented product boundary. **Source:** [README.md](../../README.md), opening description, freshness, and product limits. **Confidence:** Partially Supported as documented policy. **Limit:** external service settings, reader usage, and outcomes were not audited. Do not infer traffic or success metrics.
 
+### C42
+
+**Claim:** employment extraction separates schedule, terms, status, and evidence. It requires explicit current-role text, retains unknown labels, and flags conflicts. Current rules distinguish Variable Compensation from variable hours.
+
+**Evidence type:** code, source fixtures, synthetic cases, and dated release review. **Sources:** [employment-type.js](../../src/lib/employment-type.js), `extractEmploymentType`, `textEvidence`, `fieldsFromEvidence`, `ensureEmploymentType`, `employmentVariant`; [jobs-normalize.js](../../src/lib/jobs-normalize.js), provider mappings; [focused tests](../../src/scripts/test-employment-type.js); [integration tests](../../src/scripts/test-employment-integration.js); [fixture README](../../src/scripts/fixtures/employment-type/README.md); [October 25 review](../../docs/features/employment-type-release-verification-20261025.md), parser and source limits. **Commit:** `d5cf771`. **Confidence:** Confirmed as implementation and saved release evidence. **Limit:** no new detail requests. Successful raw responses were not archived. A normalized source excerpt is not an original response capture. The tested rejected-item migration was not observed in the current production batches.
+
+### C43
+
+**Claim:** a dashboard sync after history import caused a source-hash failure. The repair finalized package metadata before import and added guarded-write and pending-dashboard checks.
+
+**Evidence type:** dated failure/repair records, code, and fixtures. **Sources:** [repair README](../../docs/plans/history-manifest-repair-20261023T135057Z/README.md), cause, scope, and retained failures; [package-history-guard.js](../../src/lib/package-history-guard.js), `withMutablePackage`, `checkPendingDashboards`; [package-manifest.js](../../src/lib/package-manifest.js), `manifestCsv`; [launcher](../../launchers/Refresh%20Job%20Feed.command), finalization order; [tests](../../src/scripts/test-history-package-finalization.js). **Commit:** `9606709`. **Confidence:** Confirmed for documented cause, code, and saved repair checks. **Limit:** guards protect those writers, not arbitrary filesystem edits. The earlier accepted dashboard can be older historical status.
+
+### C44
+
+**Claim:** backup-only recovery audits the accepted generation without collection or import. New bundles can use a narrow observed-metadata policy; full restore, audit, report comparison, and final acceptance remain required.
+
+**Evidence type:** code and dated recovery checks. **Sources:** [daily-history-backup.js](../../src/lib/daily-history-backup.js), `backupOnly`, `createBackup`, `restoreAudit`; [history-backup-files.js](../../src/lib/history-backup-files.js), `verifyBundle`; [history-backup-metadata.js](../../src/lib/history-backup-metadata.js), `provenanceOnly`, `counterpart`; [tests](../../src/scripts/test-history-backup-metadata.js); [October 25 review](../../docs/features/employment-type-release-verification-20261025.md), separate failed and successful backup records. **Commit:** `d419fa1`. **Confidence:** Confirmed as code and saved recovery evidence. **Limit:** the metadata producer remains unknown. A later success does not rewrite the original failure or prove every future backup.
+
+### C45
+
+**Claim:** saved October 25 publication records report that the Sheet main table matched package `20261025-0724`, after separate pivot and hyperlink repairs.
+
+**Evidence type:** retained operation report and machine read-back checks. **Sources:** [publication report](../../verification/sheet-publication-20261025-0724-20261025T221638Z/final/publication-report.md), main table, repairs, and acceptance; [full comparison](../../verification/sheet-publication-20261025-0724-20261025T221638Z/readback/full-final-comparison.json); [acceptance](../../verification/sheet-publication-20261025-0724-20261025T221638Z/final/acceptance.json). **Commit preserving records:** `f4af4c2`. **Confidence:** Confirmed as dated saved evidence. **Limit:** this review did not access the Sheet. The October 25 native visual check was not available. Later visual evidence is C46.
+
+### C46
+
+**Claim:** a later October 26 operation changed the Sheet remote pivot to exact Work Arrangement = Remote with no Location restriction. Saved checks match 125 expected groups and links; the browser check found clipped text at fixed widths.
+
+**Evidence type:** saved operation and verification. **Sources:** [remote-view README](../../verification/remote-only-view-20261026103340Z/README.md); [verification.json](../../verification/remote-only-view-20261026103340Z/verification.json), status, rule, counters, mainUnchanged, visualStatus. **Commit preserving records:** `f4af4c2`. **Confidence:** Confirmed as dated evidence. **Limit:** this view differs from explicit-country report subsets. Neither establishes worldwide eligibility or live state today. No screenshot was captured for this research.
+
+### C47
+
+**Claim:** later local evidence describes package `20261026-0638` with 735 public rows and history through that package. The October 27 board report is a later observation.
+
+**Evidence type:** bounded CSV count, saved summaries, and prior staged validation. **Sources:** [October 26 public CSV](../../data/jobs/gsheet-package/20261026-0638/01_good_documentation_jobs.csv); [its URL summary](../../data/jobs/gsheet-package/20261026-0638/01_good_documentation_jobs-url-check-summary.json); [employment coverage](../../data/jobs/gsheet-package/20261026-0638/employment-type-coverage.json); [full-feed summary](../../data/jobs/public/public-job-feed-latest-summary.json), GeneratedAt; [history validation](../../data/jobs/history/validation.json), generation/latest; [board report](../../data/jobs/reports/board-freshness-report.json), times and Overall. **Confidence:** Confirmed as saved local evidence. **Limit:** no Sheet publication of this later package was established. Mutable files may change. See N01-N07 and the fingerprints below.
+
 ## Historical claims from Git and dated records
 
 Git author dates below establish recorded changes. They do not establish first invention or public release. Commit IDs are local reachable history; no remote access ran.
 
 ### H01
 
-**Claim:** the earliest inspected project commit already contains the JavaScript/shell feed application. **Type:** Git tree/history. **Commit:** `4b257ee8`, author date 2026-08-13. **Paths:** `package.json`, `src/lib/ats/`, `src/scripts/`, `launchers/`. **Reference:** `git ls-tree -r 4b257ee8` and initial commit stat. **Confidence:** Confirmed. **Limit:** imported code can predate the commit. No workbook/Power Query path was found in the inspected reachable path history.
+**Claim:** the earliest inspected project commit already contains the JavaScript/shell feed application. **Type:** Git tree/history. **Commit:** `4b257ee8`, author date 2026-08-13. **Paths:** `package.json`, `src/lib/ats/`, `src/scripts/`, `launchers/`. **Reference:** `git ls-tree -r 4b257ee8` and initial commit stat. **Confidence:** Confirmed. **Limit:** imported code can predate the commit. No original Excel/Power Query implementation was identified. The two `.xlsx` paths in later history are October 25 Sheet verification exports, not the origin workbook.
 
 ### H02
 
@@ -302,7 +338,7 @@ Git author dates below establish recorded changes. They do not establish first i
 
 **Claim:** a saved receipt records accepted production history migration on 2026-10-19 at 20:50 CDT, after separate qualification.
 
-**Type:** dated operational review and result, not Git release history. **Sources:** [job-history-production-migration-review.md](../../docs/plans/job-history-production-migration-review.md), acceptance and installed-data sections; [results JSON](../../docs/plans/job-history-production-migration-results.json), `status`, `generation`, checks. **Commit:** no isolated commit of all runtime work established. **Confidence:** Confirmed as saved acceptance record. **Limit:** receipt covers 152 snapshots. Current saved validation covers 155. Old prototype reviews do not override the later acceptance, and old backups need not contain later history.
+**Type:** dated operational review and result, not Git release history. **Sources:** [job-history-production-migration-review.md](../../docs/plans/job-history-production-migration-review.md), acceptance and installed-data sections; [results JSON](../../docs/plans/job-history-production-migration-results.json), `status`, `generation`, checks. **Later runtime commit:** `bf15378`, October 23. The receipt itself dates the earlier operation. **Confidence:** Confirmed as saved acceptance record. **Limit:** receipt covers 152 snapshots. Current saved validation covers 155. Old prototype reviews do not override the later acceptance, and old backups need not contain later history.
 
 ### H11
 
@@ -310,7 +346,23 @@ Git author dates below establish recorded changes. They do not establish first i
 
 ### H12
 
-**Claim:** current HEAD indexes completed reviews and records a narrow documentation cleanup. **Type:** Git change. **Commit:** `73ec53dd`, 2026-10-22. **Paths:** `docs/plans/README.md` and cleanup record links. **Confidence:** Confirmed. **Limit:** does not commit the many existing runtime changes. It is not the revision recorded in the morning refresh receipt.
+**Claim:** an October 22 commit indexes completed reviews and a narrow documentation cleanup. **Type:** Git change. **Commit:** `73ec53dd`, 2026-10-22. **Paths:** `docs/plans/README.md` and cleanup records. **Confidence:** Confirmed. **Limit:** historical baseline only. It is not the current HEAD or the revision of every later runtime result.
+
+### H13
+
+**Claim:** compact history, fetch-event preservation, daily backup, and package-finalization controls were committed October 23. **Type:** Git changes. **Commits:** `bf15378`, `1f4f305`, `e3988e0`, `9606709`. **Paths:** `src/lib/job-history-bounded-storage.js`, `src/lib/batch-history-ledger.js`, `src/lib/daily-history-backup.js`, `src/lib/package-history-guard.js`, `launchers/Refresh Job Feed.command`, repair evidence. **Confidence:** Confirmed. **Limit:** some saved operation dates predate these commits.
+
+### H14
+
+**Claim:** employment fields, source evidence, schema propagation, and boundary tests were committed October 26. **Type:** Git change plus dated feature records. **Commit:** `d5cf771`. **Paths:** `src/lib/employment-type.js`, normalizers, exporters, grouping, tests, `docs/features/employment-type.md`. **Confidence:** Confirmed. **Limit:** implementation and release records describe October 24 to 25. The commit does not date first use.
+
+### H15
+
+**Claim:** a narrow metadata policy and backup-only route were committed October 26. **Type:** Git change. **Commit:** `d419fa1`. **Paths:** `src/lib/history-backup-metadata.js`, `src/lib/history-backup-files.js`, `src/lib/daily-history-backup.js`, backup tests. **Confidence:** Confirmed. **Limit:** recorded recovery attempts occurred earlier. Unknown metadata-file cause remains unknown.
+
+### H16
+
+**Claim:** release, recovery, Sheet publication, and remote-view evidence were saved in the October 26 documentation commit. **Type:** Git tree plus dated operation reports. **Commit:** `f4af4c2`. **Paths:** `docs/features/`, `verification/sheet-publication-20261025-0724-20261025T221638Z/`, `verification/remote-only-view-20261026103340Z/`. **Confidence:** Confirmed. **Limit:** publication date is October 25; remote-view change is October 26. These are not automatic launcher steps.
 
 ## Supplied history and unverified personal claims
 
@@ -331,7 +383,8 @@ Git author dates below establish recorded changes. They do not establish first i
 | Workday wrapper examples | `docs/ats-connections/workday.md` lists a `data` wrapper among accepted forms. | `workday.js:extractJobs` accepts top-level array, jobPostings, jobs, or data.jobPostings; not every generic data-array form. | Cite implementation for exact accepted shapes. Guide examples are not universal contracts. |
 | Streaming readiness | Root design/runbook includes performance and later-publication plans. | The dispatcher opts into a non-publishing dry run only. | Call it staging/qualification, not the normal production publisher. |
 | Early storage status | Earlier candidate reviews say migration has not started. | Later accepted migration record and saved v2 validation describe later states. | Keep each dated review's scope. Do not use an old phase limit as current status. |
-| Start-here freshness | October 22 orientation range starts June 25. | Post-prune package validation reports June 30 as the oldest final row and five rows older than 14 days. | Use final-row evidence for final freshness; label orientation metadata as a wider/pre-cleanup view. Do not hide warnings. |
+| Dated status headings | Earlier feature sections say the live Sheet is unchanged or import is still pending. | The top dated status and saved publication records describe a later October 25 publication and October 26 view change. | Keep each dated section as historical evidence. Do not treat an earlier acceptance ledger as current status. |
+| Publication checks | The October 25 publication report has no native visual acceptance. | The later October 26 remote-view record reports a browser check and clipped text. | Successful cell and link checks do not establish a readable layout. Keep both dates and limits. |
 | PASS, WARN, COMPLETE | Saved dispatch says PASS; launcher says COMPLETE. | Package result says WARN. Later board report has many current failures. Dispatcher checks exit codes; launcher backup failure can be a warning. | Keep execution success, warning state, freshness, and source health separate. |
 | Coverage and population | Orientation says 100% coverage. Full and public reports have different totals. | Coverage unit is ATS plus slug attempted at least once. Public rows are filtered/grouped/pruned. | Put the population and source time next to each count. |
 
@@ -342,3 +395,15 @@ Git author dates below establish recorded changes. They do not establish first i
 3. Confirm live Sheet access and capture a dated image only with a permitted review.
 4. Keep local file paths, diagnostic previews, backup details, and operation records out of audience screenshots.
 5. Confirm personal history and author judgment with Adam. No score, history event, or saved response supplies those facts.
+
+## Fingerprints of selected mutable evidence
+
+Observed October 27, 2026. A later file at the same path can differ. These hashes identify the bytes inspected, not an added archive or a fresh execution. Dates and populations remain in the metric register.
+
+| Repository-relative path | SHA-256 |
+| --- | --- |
+| `data/jobs/public/public-job-feed-latest-summary.json` | `1de1989d6b12747aa9aa40d553803302bf8e5fc3a955915eb18a4f79865cb1fd` |
+| `data/jobs/public/slices/deduped/public-job-feed-dedupe-summary.json` | `5ca077e9831df0b7339e7354c3c86ddfcbfa869909cf7aedf5fa388ef63155b2` |
+| `data/jobs/reports/board-freshness-report.json` | `7b01d386922cb6d1b0574d20492552139d073d4cdaa5b67a1334263dea47a8b0` |
+| `data/jobs/history/validation.json` | `5f5d16dda774b80607565ca9e574e0d7bf0b3075c100474f74dbf5bd61ab2186` |
+| `data/jobs/reports/all-remote-daily-report.md` | `b17bd75e77e6d1a6450c46903bacbd3e35d21fa4c13f12317fba04bf3cb6947b` |

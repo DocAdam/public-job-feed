@@ -1,6 +1,6 @@
 # Audience questions and suggested answers
 
-These are draft answers for Adam to adapt. They use local evidence as of 2026-10-22. They do not invent his opinions or personal history.
+These are draft answers for Adam to adapt. They use local evidence reviewed on October 27, 2026. Fixed demonstration counts are from October 25, unless stated. They do not invent his opinions or personal history.
 
 ## 1. Why did you build your own feed?
 
@@ -48,7 +48,7 @@ These are draft answers for Adam to adapt. They use local evidence as of 2026-10
 
 ## 12. Why retain some failed links?
 
-**Suggested answer:** “A blocked or rate-limited checker is not proof that the job is gone. The saved October 22 package removed 30 rows under its safe-removal rules and retained 12 ambiguous failures from 743 checked rows. Those are dated check results, not a guarantee for the remaining jobs.” [C19](11-evidence-index.md#c19)
+**Suggested answer:** “A blocked or rate-limited checker is not proof that the job is gone. The saved October 25 package removed 29 rows under its safe-removal rules and retained 12 ambiguous failures from 761 checked rows. Those are dated check results, not a guarantee for the remaining jobs.” [C19](11-evidence-index.md#c19)
 
 ## 13. What does Last Checked mean?
 
@@ -64,7 +64,7 @@ These are draft answers for Adam to adapt. They use local evidence as of 2026-10
 
 ## 16. How often does it update, and is it fully automatic?
 
-**Suggested answer:** “The normal launcher refreshes due sources, prepares local outputs, checks them, and updates history. The repository has a passive maintenance schedule example at 04:00 and 16:00, but that does not prove the schedule is installed or currently loaded. Upload to Google Sheets and publication remain manual.” **[NEEDS ADAM'S INPUT]** Confirm the present operating routine and a public update commitment, if any. [C27](11-evidence-index.md#c27), [C28](11-evidence-index.md#c28)
+**Suggested answer:** “The normal launcher refreshes due sources, prepares local outputs, checks them, and updates history. The repository has a passive maintenance schedule example at 04:00 and 16:00, but that does not prove the schedule is installed or currently loaded. The normal launcher does not upload to Google Sheets. Saved records document a separate October 25 publication and an October 26 remote-view change. These are dated operations.” [C45](11-evidence-index.md#c45), [C46](11-evidence-index.md#c46) **[NEEDS ADAM'S INPUT]** Confirm the present operating routine and a public update commitment, if any. [C27](11-evidence-index.md#c27), [C28](11-evidence-index.md#c28)
 
 ## 17. How much maintenance does it need?
 
@@ -100,8 +100,20 @@ These are draft answers for Adam to adapt. They use local evidence as of 2026-10
 
 ## 25. Where can I access Good Doc Jobs, and does it cost anything?
 
-**Suggested answer:** “The project README links to [Good Doc Jobs](https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit?usp=sharing) and says the Sheet is free to use and share. Optional Working Notes support does not provide earlier or better feed access.” These are documented terms; live access was not checked. **[NEEDS ADAM'S INPUT]** Confirm the link and current sharing settings before the event. [C01](11-evidence-index.md#c01), [C41](11-evidence-index.md#c41)
+**Suggested answer:** “The project README links to [Good Doc Jobs](https://docs.google.com/spreadsheets/d/1rECWXCGhDKUiB3-LIwEEe1teaPWaGxgSK28AZADFF4g/edit?usp=sharing) and says the Sheet is free to use and share. Optional Working Notes support does not provide earlier or better feed access.” These are documented terms; live access was not checked for this review. Saved publication records do not replace a current access check. **[NEEDS ADAM'S INPUT]** Confirm the link and current sharing settings before the event. [C01](11-evidence-index.md#c01), [C41](11-evidence-index.md#c41)
 
 ## 26. How does Working Notes relate to the feed?
 
 **Suggested answer:** “The repository prepares separate Markdown writing inputs from saved job selections and comparisons. The full Substack report means the selected detailed shortlist, not all collected records. Publishing is a separate editorial action.” **[NEEDS ADAM'S INPUT]** Supply the publication URL and one article you want to discuss. [C40](11-evidence-index.md#c40)
+
+## 27. Does Full-time mean Permanent?
+
+**Suggested answer:** “The model keeps schedule and employment terms separate. A role can be Full-time and Contract. A missing value stays Not stated. Conflicting evidence stays Needs review. Each detailed value retains source evidence.” The Variable Compensation correction is one concrete boundary case. [C42](11-evidence-index.md#c42)
+
+## 28. Why can a completed refresh have failed history or backup?
+
+**Suggested answer:** “Collection, package checks, history, backup, and publication have separate results. An earlier dashboard sync changed accepted package metadata. The repair moved finalization before import. Backup failures also retain their original result when a later backup-only recovery passes.” Do not call COMPLETE proof that every gate passed. [C43](11-evidence-index.md#c43), [C44](11-evidence-index.md#c44)
+
+## 29. Why does the Sheet remote view differ from the remote report?
+
+**Suggested answer:** “The saved October 26 Sheet view includes every row marked Remote, with no Location filter. The daily reports require explicit location evidence for their U.S. or international subsets. These views answer different questions. Neither guarantees eligibility for an individual.” [C14](11-evidence-index.md#c14), [C46](11-evidence-index.md#c46)

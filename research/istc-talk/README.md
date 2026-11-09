@@ -1,108 +1,107 @@
 # ISTC talk research package
 
-Research date: 2026-10-22, America/Chicago. Status: research and proposed content, not a finished presentation.
-
-Evidence availability note added October 23, 2026: most links under `data/`
-refer to generated local files that Git excludes. They will not be present in
-a new clone. Latest-run reports can also change after the research date.
-Use the matching dated source files when checking a historical claim; a newer
-report does not verify an older figure. The commit review checked local file
-availability, not every original report byte or research claim again. No raw
-feed, source package, or runtime report was added to this research commit.
-See the [October 23 history checkpoint](../../docs/plans/history-checkpoint-2026-10-23.md)
-for the later history failure. The October 22 research figures remain dated.
+Review date: October 27, 2026, America/Chicago. Status: research and draft presentation content. This is not a slide deck.
 
 Proposed title: **I Got Tired of Searching for Documentation Jobs, So I Built My Own Job Feed**.
 
-This package supports a 35-minute talk and 15 to 20 minutes of questions. The audience is technical writers, content designers, documentation engineers, and related staff. The main subject is an information problem: how to turn inconsistent job records into a useful public list.
+This package supports a 35-minute talk, followed by 15 to 20 minutes of questions. It is for technical writers, content designers, and documentation engineers. The main subject is an information problem: how to make inconsistent job records useful to readers.
 
-## Read first
+## Review scope
 
-1. [Executive briefing](00-executive-briefing.md): findings, recommended story, and questions for Adam.
-2. [Presentation outline](08-presentation-outline.md): the proposed 35-minute sequence.
-3. [Slide plan](09-slide-plan.md): 15 slide concepts, evidence, notes, and times.
-4. [Engineering stories](04-engineering-stories.md): concrete problems and tradeoffs.
-5. [Demo options](07-demo-options.md): five options and static alternatives.
+The 13 files already existed. Their first version is preserved in Git commit `f40a789498d26289ce2d569b1551f062e028edef`. This review updates them after inspection. It does not replace an unread draft.
 
-## Research references
+The current baseline is `f4af4c2a8352daa89f31d3abb77bb43edd67a6df`, on branch `failure-evidence-sampling-v1`. Six staged files existed before this review: the root README, the history README and validation file, two October 26 Substack draft files, and `src/scripts/report-all-remote-daily.js`. Those changes are outside this task. Current code means the local files at this baseline, including that staged script change.
 
-| File | Purpose |
-| --- | --- |
-| [01-project-inventory.md](01-project-inventory.md) | Main components, entry points, technologies, configuration, and status. |
-| [02-project-evolution.md](02-project-evolution.md) | Git milestones, saved historical evidence, and gaps in the origin story. |
-| [03-system-architecture.md](03-system-architecture.md) | Actual local workflow, Mermaid diagram, inputs, outputs, failures, and limits. |
-| [05-documentation-engineering-connections.md](05-documentation-engineering-connections.md) | Specific connections to documentation skills, with limits to each comparison. |
-| [06-project-metrics.md](06-project-metrics.md) | Dated measures with units, populations, methods, and limits. |
-| [10-audience-questions.md](10-audience-questions.md) | Suggested answers and questions that need Adam's input. |
-| [11-evidence-index.md](11-evidence-index.md) | Claim IDs, source paths, symbols, commits, confidence, and conflicts. |
+The main talk uses dated October 25 evidence. The later October 26 local package and October 27 board report have separate entries in the metric register. The saved Sheet publication check covers October 25. Its later remote-view check covers October 26. No live Sheet check was made for this review.
 
-For a technical review, read 01, 03, 06, and 11 before the outline. Claim links such as [C07](11-evidence-index.md#c07) lead to evidence. Source paths are relative to the repository root. Links use `../../` to reach that root from this directory.
+## Recommended reading order
+
+1. [00-executive-briefing.md](00-executive-briefing.md): findings, story choices, and questions for Adam.
+2. [08-presentation-outline.md](08-presentation-outline.md): the five-part, 35-minute sequence.
+3. [09-slide-plan.md](09-slide-plan.md): 15 slide concepts, notes, evidence, and times.
+4. [04-engineering-stories.md](04-engineering-stories.md): problems, examples, solutions, and tradeoffs.
+5. [07-demo-options.md](07-demo-options.md): five demo plans and static alternatives.
+6. [05-documentation-engineering-connections.md](05-documentation-engineering-connections.md): skill connections and the limits of each comparison.
+7. [03-system-architecture.md](03-system-architecture.md): the actual workflow and Mermaid diagram.
+8. [01-project-inventory.md](01-project-inventory.md): components, entry points, dependencies, and status.
+9. [02-project-evolution.md](02-project-evolution.md): Git dates, operation dates, and gaps in the origin story.
+10. [06-project-metrics.md](06-project-metrics.md): values, populations, dates, methods, and limits.
+11. [10-audience-questions.md](10-audience-questions.md): draft answers and personal input needs.
+12. [11-evidence-index.md](11-evidence-index.md): claim IDs, source paths, symbols, commits, and conflicts.
+
+For a technical review, start with 01, 03, 06, and 11. Links such as [C42](11-evidence-index.md#c42) identify claims. Source paths are relative to the repository root. Markdown links use `../../` to reach that root.
 
 ## Evidence rules
 
-- **Current code:** the local files inspected on the research date. Some files have uncommitted changes. This label confirms implementation, not a fresh execution.
-- **Saved result:** a local output with a stated package or report date. This confirms what the saved artifact records. It does not confirm a job's live status today.
-- **Git history:** a committed change with its author date and commit ID. Commit dates are not feature release dates.
-- **Adam supplied:** information in the task request. The Excel and Power Query origin belongs here until supporting material is supplied.
-- **Interpretation:** a proposed explanation or presentation connection. It is not a confirmed statement of author intent.
-- **[NEEDS ADAM'S INPUT]:** an unresolved personal, historical, or public-access detail.
+- **Current code:** implementation inspected on October 27. This does not mean it was run or tested during this task.
+- **Saved result:** a dated local output or verification record. It establishes what the record says. It does not establish live job or Sheet state today.
+- **Git history:** a reachable commit and its author date. A commit date is not a feature release date.
+- **Adam supplied:** personal history from the task request. The Excel and Power Query origin has this status.
+- **Interpretation:** a proposed story, skill comparison, or explanation of a tradeoff. It is not confirmed author intent.
+- **[NEEDS ADAM'S INPUT]:** a personal fact, priority, or missing source that needs Adam's answer.
 
-The baseline commit was `73ec53ddbdc8162a5d1b32823b9c00149b92219a` on branch `failure-evidence-sampling-v1`. The working tree was already dirty. This package describes the inspected local tree, not only that commit. The saved morning refresh records an earlier revision, `16e43cfb`, with working-tree changes. These two evidence sets are not identical.
+Generated files under `data/` can be absent from a new clone. Mutable reports can change after this review. The metric register names fixed verification copies where available. It also records file hashes for selected mutable summaries. A later report cannot verify an earlier count.
 
-Terms used in the research:
+The earlier October 23 [history checkpoint](../../docs/plans/history-checkpoint-2026-10-23.md) records a failure. The later [repair record](../../docs/plans/history-manifest-repair-20261023T135057Z/README.md) records its repair. Neither record should replace the other. The same rule applies to backup failures and later recovery.
 
-| Term | Meaning here |
+## Terms
+
+| Term | Meaning in this package |
 | --- | --- |
+| ATS | Applicant tracking system. Its public board supplies employer postings. |
 | Provenance | The source, date, and processing evidence for a value. |
 | Normalization | Conversion of different source formats into common fields. |
-| Canonical key | The selected standard key used to compare records. It can still have identity limits. |
-| Deduplication | Selection of representatives from records that the rules identify as possible duplicates. |
+| Canonical key | A selected standard key used to compare records. Its identity rules can have limits. |
+| Deduplication | Selection of representatives from records that the rules treat as possible duplicates. |
 | Heuristic | A practical rule that can give an incorrect result. |
 | Snapshot | Saved data from one observation or package. |
 | Fixture | A small saved or synthetic input used to test a rule. |
-| Parity | Agreement between the outputs of two implementations. |
-| Denominator | The population used to calculate a share or rate. |
+| Parity | Agreement between two implementations or outputs. |
+| Denominator | The population used for a share or rate. |
 | Taxonomy | The category system used to organize records. |
 
-No network research, production workflow, test suite, database query, or publication command ran for this investigation. Existing test results were read. The full multi-gigabyte feed was not scanned. Small summaries, manifests, source files, fixtures, and selected CSV files supplied the evidence. No secret files or environment values were read. External URLs are retained from local evidence; their live state was not checked.
+## Method and limits
 
-## Review and completion
+Only local source, documentation, Git history, small fixtures, saved summaries, and bounded CSV files were read. No network research, private service, external API, production workflow, test suite, database query, or publication command ran. No dependency was installed. No credential file or environment value was read. No multi-gigabyte feed was scanned. External links came from local records and were not opened.
 
-All 13 requested files were created in this directory. The source references, internal links, timing, numeric populations, and file scope were checked. The slide times total 35 minutes. The executive briefing is below 1,500 words. Existing source and document files in the bounded baseline retained their hashes. Git HEAD and all pre-existing Git changes were preserved. No commit was made.
+The inventory and architecture were checked against imports, source symbols, dispatcher logic, and launcher order. The October 25 record was checked against its saved artifact report, dated CSV, URL summary, and publication records. The October 26 CSV and small current summaries were checked separately. Test results are saved results only.
 
-The talk remains a proposal. Adam must confirm the origin details, personal judgments, live Sheet view, public repository access, and intended publication examples. See the final checklist in the briefing.
+## Completion checks
 
-| Completion check | Result |
+| Check | Result |
 | --- | --- |
-| All requested files exist and contain substantive research | PASS |
-| Source paths, claim links, and internal anchors resolve | PASS |
-| Current code, Git history, saved results, and personal history have separate labels | PASS |
-| Metric register gives values, units, populations, sources, dates, methods, and limits | PASS |
-| Authored files contain no accessed credential values or secret material | PASS |
+| All 13 files exist and contain substantive content | PASS |
+| Local source links and internal anchors resolve | PASS |
+| Architecture claims identify implementation sources | PASS |
+| Current code, dated results, Git history, and supplied history have separate labels | PASS |
+| Numeric claims identify dates and populations in the metric register | PASS |
+| No credential values or secret material were copied | PASS; content and pattern review |
 | Outline and 15 slide times total 35 minutes | PASS |
-| Content uses reader tasks and concrete examples for technical writers | PASS |
-| Bounded source/document hashes and pre-existing Git state are preserved | PASS |
-| New-file diffs and whitespace checks are complete | PASS |
-| No production workflow, dependency change, publication, or commit occurred | PASS |
-| Live Sheet contents, installed schedules, and public repository access | NOT VERIFIED; outside the permitted local investigation |
-| Original workbook, personal motives, effort, preferences, and future priorities | NEEDS ADAM'S INPUT |
+| Content uses reader tasks and concrete examples | PASS |
+| Executive briefing is below 1,500 words | PASS |
+| Existing application files and staged changes are preserved | PASS; baseline hash and Git-state comparison |
+| Full application tests, live Sheet, public access, and loaded schedules | NOT VERIFIED; outside this task |
+| Personal history, motives, effort, and future priorities | NEEDS ADAM'S INPUT |
+| Production workflow, installation, publication, or commit by this task | NONE |
 
-## Created-file report
+Validation detail: the local-link check covered 498 references after the final citation edits. All 612 non-research files in the bounded source/document baseline retained their SHA-256 values. The staged diff and Git HEAD also retained their baseline values. The separate application test suite was not run.
 
-All files below are new. No pre-existing project file was modified by this task.
+## Changed-file report
 
-| File | Task change |
+All paths below are relative to this directory. These are the only task changes. No new file was needed.
+
+| File | Change |
 | --- | --- |
-| `README.md` | Created |
-| `00-executive-briefing.md` | Created |
-| `01-project-inventory.md` | Created |
-| `02-project-evolution.md` | Created |
-| `03-system-architecture.md` | Created |
-| `04-engineering-stories.md` | Created |
-| `05-documentation-engineering-connections.md` | Created |
-| `06-project-metrics.md` | Created |
-| `07-demo-options.md` | Created |
-| `08-presentation-outline.md` | Created |
-| `09-slide-plan.md` | Created |
-| `10-audience-questions.md` | Created |
-| `11-evidence-index.md` | Created |
+| `README.md` | Updated scope, reading order, evidence rules, and checks. |
+| `00-executive-briefing.md` | Updated discoveries, dated evidence, and personal questions. |
+| `01-project-inventory.md` | Updated employment fields, package guards, and backup route. |
+| `02-project-evolution.md` | Added later commits and separate operation dates. |
+| `03-system-architecture.md` | Updated selection rules, package finalization, and publication boundary. |
+| `04-engineering-stories.md` | Updated examples and added three later stories. |
+| `05-documentation-engineering-connections.md` | Added evidence-based classification and publication checks. |
+| `06-project-metrics.md` | Replaced mutable old references with dated evidence; added later observations. |
+| `07-demo-options.md` | Updated fixed inputs, expected output, and static alternatives. |
+| `08-presentation-outline.md` | Updated evidence and retained the 35-minute allocation. |
+| `09-slide-plan.md` | Updated 15 slides and dated claims. |
+| `10-audience-questions.md` | Updated draft answers and added later questions. |
+| `11-evidence-index.md` | Updated sources, confidence, commits, and conflicts. |

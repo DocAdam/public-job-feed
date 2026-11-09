@@ -1,6 +1,6 @@
 # How the feed actually works
 
-Status: research summary of the local implementation on 2026-10-22. A code path is not proof of a new successful run. Saved results are identified separately.
+Status: research summary of the local implementation reviewed on October 27, 2026. A code path is not proof of a new successful run. Saved results are identified separately.
 
 An ATS is an applicant tracking system. An adapter is code that reads one provider's format. A normalized record uses the same field names as records from other providers. A slice is a filtered view of the full feed.
 
@@ -15,7 +15,7 @@ flowchart TD
     Queue --> Delta[After successful catalog refresh: check newly added board keys]
     Due --> Fetch[Six provider adapters: JSON or HTML]
     Delta --> Fetch
-    Fetch --> Normalize[Normalize content and provenance; derive title, salary, and location signals]
+    Fetch --> Normalize[Normalize content and provenance; derive title, salary, location, and employment evidence]
     Normalize --> Batches[Saved batch JSON and fetch logs]
     Batches --> Index[Batch index and latest successful or empty board result]
     Batches --> Ledger[Monthly compressed fetch-event history]
@@ -32,10 +32,11 @@ flowchart TD
     Links --> Final[Final local public CSV]
     Final --> Reports[Saved-package comparisons, remote views, and writing inputs]
     Reports --> Checks[Tests, package identity checks, and output validation]
-    Checks --> History[Update package history in DuckDB; check history backup]
-    History --> Status[Record run result and sync dashboard]
-    Final -. separate manual upload .-> Sheet[Good Doc Jobs in Google Sheets]
-    Reports -. separate manual publication .-> Notes[Working Notes]
+    Checks --> Freeze[Finalize dashboard and manifests; check package identity]
+    Freeze --> History[Update package history in DuckDB; check history backup]
+    History --> Status[Record run result; write external dashboard; verify package copies]
+    Final -. separate approved publication .-> Sheet[Good Doc Jobs in Google Sheets]
+    Reports -. separate editorial publication .-> Notes[Working Notes]
     Full --> Consumer[Local downstream compatibility export]
     Full -. optional staging only .-> Streaming[SQLite streaming export experiment]
 ```
@@ -76,9 +77,9 @@ This diagram follows the normal local launcher. Catalog refresh and due-board ma
 
 - **Purpose:** add useful filters and review signals.
 - **Inputs:** title, location, description, salary text, and title watchlist.
-- **Processing:** title matching uses exact/contains/token rules and title-review buckets. Work-arrangement rules scan text for remote, hybrid, office, and country signals. Hybrid/office-days signals take priority over remote signals. The eligibility field can be true, false, or `unknown`. Salary detection extracts a range, currency, period, and supporting text.
-- **Outputs:** title match/review fields; `RemoteStatus`, confidence and review reason; estimated U.S. remote eligibility; salary fields.
-- **Sources:** `title-match.js`; `title-review.js`; `work-arrangement.js:detectWorkArrangement`; `salary-detect.js`.
+- **Processing:** title matching uses exact/contains/token rules and title-review buckets. Work-arrangement rules scan text for remote, hybrid, office, and country signals. Hybrid/office-days signals take priority over remote signals. The eligibility field can be true, false, or `unknown`. Salary detection extracts a range, currency, period, and supporting text. Employment extraction keeps work schedule and employment terms separate. It retains the supporting field or passage, source URL, and observation date. Conflicts display as Needs review. Missing support displays as Not stated. [C42](11-evidence-index.md#c42)
+- **Outputs:** title match/review fields; `RemoteStatus`, confidence and review reason; estimated U.S. remote eligibility; salary fields; employment schedule, terms, status, and evidence.
+- **Sources:** `title-match.js`; `title-review.js`; `work-arrangement.js:detectWorkArrangement`; `salary-detect.js`; `employment-type.js:extractEmploymentType`, `ensureEmploymentType`, `fieldsFromEvidence`.
 - **Edges and failures:** “North America” can make the broad U.S.-eligibility signal true. That is weaker than explicit U.S. location evidence. A general mention in a description can mislead a rule. A detected range is not necessarily base salary. Mixed locations can remain uncertain.
 - **Dependency and limit:** these values support review. They do not establish state eligibility, work authorization, employer policy, or exact compensation. [C13](11-evidence-index.md#c13), [C14](11-evidence-index.md#c14)
 
@@ -116,9 +117,9 @@ This diagram follows the normal local launcher. Catalog refresh and due-board ma
 
 - **Purpose:** prepare a shorter useful set while retaining the broad evidence.
 - **Inputs:** canonical full rows and selected slice predicates.
-- **Processing:** the top predicate is **tier A or B OR title bucket STRONG_MATCH**. It is not an A/B-only filter. Duplicate selection joins rows through duplicate-group or canonical-URL keys. Fallback keys apply when strong keys are absent. Selection starts with higher Writer Fit score, then tier, quality, remote eligibility, arrangement, salary evidence, provider rank, date, labels, and stable original order.
+- **Processing:** the top predicate is **tier A or B OR title bucket STRONG_MATCH**. It is not an A/B-only filter. Duplicate selection first joins strong posting keys: canonical URL or ATS, company/board, and raw ID. It then applies weaker duplicate keys. Different employment variants stay separate under weak keys. A strong identity match can combine conflicting evidence and display Needs review. Fallback keys apply when stronger keys are absent. Selection starts with higher Writer Fit score, then tier, quality, remote eligibility, arrangement, salary evidence, provider rank, date, labels, and stable original order.
 - **Outputs:** top and deduplicated top JSON/CSV, decision records, and removal summaries.
-- **Sources:** `export-public-slices.js:isStrongMatch`, `sortTopRows`; `dedupe-select.js:getDedupeKeys`, `groupRows`, `compareRows`, `selectDedupedRows`.
+- **Sources:** `export-public-slices.js:isStrongMatch`, `sortTopRows`; `dedupe-select.js:getDedupeKeys`, `groupRows`, `compareRows`, `selectDedupedRows`; `employment-type.js:employmentVariant`, `mergeEmploymentEvidence`.
 - **Edges and failures:** transitive grouping can connect more than two rows. Canonical URLs omit query and fragment; identity-bearing query parameters can therefore be lost. Same-company/title/location is evidence of a possible duplicate, not proof of one opening.
 - **Dependency and limit:** daily mode does not rebuild every expensive full slice. SQLite staging remains optional and non-publishing. [C10](11-evidence-index.md#c10), [C12](11-evidence-index.md#c12), [C25](11-evidence-index.md#c25)
 
@@ -126,10 +127,10 @@ This diagram follows the normal local launcher. Catalog refresh and due-board ma
 
 - **Purpose:** turn detailed selected rows into a usable spreadsheet table.
 - **Inputs:** deduplicated top-match JSON, package timestamp, coverage support files, and exact-URL exclusions.
-- **Processing:** exclude reviewed posting URLs; build simple columns; group exact normalized company/title rows when locations differ; select a representative and retain additional application links. A grouped row stays Remote if any member is Remote. Write a dated package and a `latest` copy.
+- **Processing:** exclude reviewed posting URLs; build simple columns; group exact normalized company/title/Employment Type rows when locations differ; select a representative and retain additional application links. A grouped row stays Remote if any member is Remote. Write a dated package and a `latest` copy.
 - **Outputs:** `01_good_documentation_jobs.csv`, detailed `03_top_matches_full.csv`, orientation file, dictionary, exclusion audit, and manifest.
 - **Sources:** `build-gsheet-package.js:buildSimpleTopFiles`, `groupPublicSheetCountryPostings`; `public-package-eligibility.js:packageEligibility`; `simple-public-export.js`.
-- **Edges and failures:** equal titles at one location stay separate. Grouping can combine different openings and mixed arrangements. The simple row does not carry every detailed field. Missing required source files are recorded as package failures/missing files.
+- **Edges and failures:** equal titles at one location stay separate. Grouping can combine different openings and mixed arrangements. Conflict rows are not combined across locations. The simple row has 16 columns, with Employment Type last. Detailed source evidence stays outside this reader table. Missing required source files are recorded as package failures/missing files.
 - **Dependency and limit:** exact exclusions affect the package, not the raw feed or original scores. The main jobs table does not read all rows directly from the canonical CSV. [C16](11-evidence-index.md#c16), [C17](11-evidence-index.md#c17)
 
 ## 10. Check application links and prune selected failures
@@ -152,32 +153,40 @@ This diagram follows the normal local launcher. Catalog refresh and due-board ma
 - **Edges and failures:** changed URLs, grouping, exclusions, source failures, and parsing changes can alter membership. Topic mentions can be employer background text. A missing baseline prevents a valid comparison.
 - **Dependency and limit:** “added” means new to the selected list. “Removed” means absent from that list. Neither is an employer posting, closure, or filled-position event. [C14](11-evidence-index.md#c14), [C20](11-evidence-index.md#c20), [C40](11-evidence-index.md#c40)
 
-## 12. Persist package history and observed changes
+## 12. Validate and finalize the local package
 
-- **Purpose:** retain evidence across dated packages and support SQL reports.
-- **Inputs:** dated public `01` CSVs, detailed `03` CSVs, manifests, and source metadata.
-- **Processing:** preserve raw rows; resolve one observation per canonical key; store public inclusion separately; preserve unmatched public rows as exceptions. Format-aware runtime uses the installed v2 schema. It shares repeated text and stores content versions without discarding raw evidence. Lifecycle views derive first observation, absence, return, and selected content/schema changes.
-- **Outputs:** DuckDB history, validation, lifecycle query results, and historical report.
-- **Sources:** `jobs-history.js:scan`; `job-history-runtime.js:detect`, `runHistory`; `job-history-storage.js:TABLES`; `job-history-bounded-storage.js`; `job-history-lifecycle.js`.
-- **Edges and failures:** historical header variants, duplicate raw rows, and unmatched rows remain visible. Structural errors block acceptance. Updates use locks, staging, source checks, and recovery records. The database was not queried here; current format/count claims use saved validation.
-- **Dependency and limit:** this is package history, not the full broad-feed history. A reappearance is not proof of an employer repost. Older folder names can lack timezone evidence; recorded UTC times and time-source flags matter. [C21-C24](11-evidence-index.md#c21), [C34](11-evidence-index.md#c34)
+- **Purpose:** make the package ready for history import.
+- **Inputs:** final current package, reports, configured test commands, and run identity.
+- **Processing:** run the test dispatcher and output checks. Sync the correct dashboard and both manifests into the package. Check package-copy identity. The pending-dashboard guard checks the package ID and dashboard size before history import. Guarded writers reject a package already imported into history.
+- **Outputs:** saved test results, output validation, and finalized package metadata.
+- **Sources:** `Refresh Job Feed.command`; `run-test-suite.js:executeTests`; `validate-refresh-output.js`; `package-history-guard.js:withMutablePackage`, `checkPendingDashboards`; `package-manifest.js:manifestCsv`.
+- **Edges and failures:** the dispatcher checks exit codes. A passing dispatch can coexist with package warnings. A wrong package ID or changed source stops acceptance. The October 23 repair shows why metadata must be finalized before import.
+- **Dependency and limit:** this follows link cleanup and report generation. Checks establish bounded package consistency, not complete source coverage or open-job status. [C26](11-evidence-index.md#c26), [C43](11-evidence-index.md#c43)
 
-## 13. Validate, record status, back up, and publish manually
+## 13. Persist history, check backup, and record completion
 
-- **Purpose:** make the local result reviewable and recoverable.
-- **Inputs:** current package, reports, test commands, run identity, and history backup policy.
-- **Processing:** the launcher makes reports, runs configured tests, validates output identity, updates history, checks backup, records completion, and syncs the dashboard. An outer refresh lock covers this sequence. Backup failure can be a warning after feed checks pass. The passive schedule example performs maintenance only.
-- **Outputs:** test summary, output validation, refresh-run receipt, dashboard, history/backup receipt, and files ready for manual review.
-- **Sources:** `Refresh Job Feed.command`; `run-test-suite.js:executeTests`; `validate-refresh-output.js`; `daily-history-backup.js`; `com.public-job-feed.maintain-index.plist.example`.
-- **Edges and failures:** the test dispatcher checks exit codes. A passing suite can contain warnings in individual report artifacts. A COMPLETE run does not mean every source succeeded. Loaded schedule state and current public Sheet contents remain unverified.
-- **Dependency and limit:** Adam uploads the selected CSV to Google Sheets and publishes Working Notes separately. No automatic Google Sheets or Substack publisher is established by this workflow. [C26](11-evidence-index.md#c26), [C27](11-evidence-index.md#c27), [C28](11-evidence-index.md#c28)
+- **Purpose:** retain package observations and make the local result recoverable.
+- **Inputs:** finalized dated public `01` CSVs, detailed `03` CSVs, manifests, source metadata, and accepted history state.
+- **Processing:** preserve raw rows, select one observation per canonical key, store public inclusion separately, and retain unmatched public rows as exceptions. The format-aware runtime uses v2 for the saved installed state. It shares repeated text and retains content versions. Lifecycle views derive observed presence, absence, return, and selected content/schema changes. The daily step then checks backup. Afterward, the launcher records completion, writes current status outside the imported package, and checks package copies again.
+- **Outputs:** DuckDB history, validation, report and backup results, run receipt, and current dashboard.
+- **Sources:** `jobs-history.js:scan`; `job-history-runtime.js:detect`, `runHistory`; `job-history-bounded-storage.js`; `job-history-lifecycle.js`; `daily-history-backup.js:dailyHistory`, `createBackup`, `restoreAudit`; `Refresh Job Feed.command`.
+- **Edges and failures:** header variants, duplicate raw rows, and unmatched rows remain visible. Structural errors block history acceptance. Backup checks can stop for a missing drive, failed inventory, or insufficient restore space. The launcher can record COMPLETE after feed checks while the history/backup result reports a failure. Locks, staging, and recovery records protect the implemented update paths.
+- **Dependency and limit:** this is selected-package history, not full-feed history. A reappearance is not proof of an employer repost. No database audit or backup ran for this research. Saved validation supplies count and format evidence. Installed schedules and current public Sheet contents remain unverified. [C21-C24](11-evidence-index.md#c21), [C27](11-evidence-index.md#c27), [C34](11-evidence-index.md#c34), [C44](11-evidence-index.md#c44)
+
+The separate backup-only route audits and backs up an accepted generation without collection or import. It retains its own result. A later success does not change an earlier failed receipt. The passive schedule example performs index maintenance, not publication. [C28](11-evidence-index.md#c28), [C44](11-evidence-index.md#c44)
 
 ## What a job record means
 
-There is no single universal identity key. The broad feed's `JobKey` prefers ATS plus `RawJobId`. Duplicate review also uses a normalized URL and company/title/location. The export selector can join groups through more than one key. Public daily comparisons use the application URL. SQL history uses canonical posting keys from saved detailed rows and separately stores public-export membership.
+There is no single universal identity key. The current export selector also uses a company/board-scoped raw posting key. Employment variants constrain weak grouping, while strong matches merge source evidence. [C42](11-evidence-index.md#c42) The broad feed's `JobKey` prefers ATS plus `RawJobId`. Duplicate review also uses a normalized URL and company/title/location. The export selector can join groups through more than one key. Public daily comparisons use the application URL. SQL history uses canonical posting keys from saved detailed rows and separately stores public-export membership.
 
 This matters because provider IDs can be local to a board, query strings can identify a posting, and the reader view can combine several locations. A row is a representation of observed source data, not proof of one unique vacancy. [C09](11-evidence-index.md#c09), [C10](11-evidence-index.md#c10), [C16](11-evidence-index.md#c16), [C22](11-evidence-index.md#c22)
 
 ## What the system cannot reliably know
 
 It cannot establish that every employer is covered, every successful board is complete, every role is still open, every remote role accepts a specific applicant, every date is the original posting date, every range is base pay, or every removed record was filled. It does not record applicant outcomes. The presentation should show how the system retains evidence and exposes these limits. [C15](11-evidence-index.md#c15), [C29-C34](11-evidence-index.md#c29), [C41](11-evidence-index.md#c41)
+
+## Publication is a separate boundary
+
+The saved October 25 publication check covers package `20261025-0724`. It reports exact main-table values, native table and pivot ranges, link destinations, and combined-label filters. It also retains failed pivot and hyperlink checks before repairs. The later October 26 record changes only the remote-view policy to exact Work Arrangement = Remote. The initial browser view had clipped text at fixed widths. [C45](11-evidence-index.md#c45), [C46](11-evidence-index.md#c46)
+
+These records support a dated claim about publication. They do not establish live state on October 27. The latest local package is a separate output, `20261026-0638`. [C47](11-evidence-index.md#c47)

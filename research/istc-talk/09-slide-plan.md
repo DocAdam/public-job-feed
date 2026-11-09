@@ -1,6 +1,6 @@
 # Slide-by-slide content plan
 
-Status: proposed content for 15 slides. This is not a slide deck. Total presentation time is 35 minutes. Personal statements need Adam's approval and evidence.
+Review date: October 27, 2026. Status: proposed content for 15 slides. This is not a slide deck. Total presentation time is 35 minutes. Personal statements need Adam's approval and evidence.
 
 ## Slide 1. I built the list I needed
 
@@ -38,18 +38,18 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 4. What the repository can date
 
 - **Central takeaway:** the recorded application evolved after a substantial initial import.
-- **Supporting points:** August 13 initial application; August 24 curated intake; September report checks; September 29 SQL history. Later local storage work is a separate evidence class.
+- **Supporting points:** August 13 initial application; August 24 curated intake; September report checks; September 29 SQL history. October storage acceptance and later commits have separate dates. Employment evidence was committed October 26.
 - **Visual:** four Git milestones and a separate “earlier personal history” box.
 - **Speaker notes:** call these commit dates. Explain that the first commit already contains many features. Keep the rest of the timeline in backup notes.
-- **Evidence:** [H01](11-evidence-index.md#h01), [H04](11-evidence-index.md#h04), [H07](11-evidence-index.md#h07), [H08](11-evidence-index.md#h08).
+- **Evidence:** [H01](11-evidence-index.md#h01), [H04](11-evidence-index.md#h04), [H07](11-evidence-index.md#h07), [H08](11-evidence-index.md#h08), [H14](11-evidence-index.md#h14).
 - **Demo replacement:** no.
 - **Time:** 2 minutes, 5:00 to 7:00.
 - **Adam input:** any public launch date, if he wants to name one.
 
 ## Slide 5. From employer source to reader table
 
-- **Central takeaway:** the application makes several explicit transformations before manual publication.
-- **Supporting points:** public board data; common fields; review rules; simple public rows; manual upload.
+- **Central takeaway:** the application makes several explicit transformations before a separate approved publication.
+- **Supporting points:** public board data; common fields; review rules; simple public rows; separate approved upload.
 - **Visual:** five-box derivative of the full Mermaid diagram. Keep source URL and fetch date under the path.
 - **Speaker notes:** define ATS once. Describe Node.js as the runtime, Bash as the sequence, and SQL as history reporting. Do not show every script.
 - **Evidence:** [C02-C05](11-evidence-index.md#c02), [C16](11-evidence-index.md#c16), [C21](11-evidence-index.md#c21).
@@ -60,7 +60,7 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 6. A broad collection and a useful public view
 
 - **Central takeaway:** the full feed and public rows serve different purposes.
-- **Supporting points:** 837,215 internal records; 713 local public display rows; selected and grouped views between them; date both counts October 22.
+- **Supporting points:** 836,592 internal records; 732 local public display rows; selected and grouped views between them; date both counts October 25.
 - **Visual:** two labeled containers with the selection steps between them. Avoid a proportional funnel that implies validated vacancies at every level.
 - **Speaker notes:** the full feed retains low scores and possible duplicates. The public count is a saved local upload file, not a fresh live Sheet count.
 - **Evidence:** [M01](06-project-metrics.md#main-metric-register), [M09](06-project-metrics.md#main-metric-register), [C12](11-evidence-index.md#c12).
@@ -71,9 +71,9 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 7. What counts as the same posting?
 
 - **Central takeaway:** duplicate removal starts with an identity rule.
-- **Supporting points:** alternate company labels; shared canonical URL; deterministic selection; recorded reasons. Top-view result: 1,003 input rows to 836 representatives.
+- **Supporting points:** alternate company labels; shared canonical URL; deterministic selection; recorded reasons. Top-view result: 1,017 input rows to 847 representatives.
 - **Visual:** two fixture cards feeding one selected card, with a small retained decision record.
-- **Speaker notes:** use the Chenega fixture labels. Explain the risk in stripping URL query strings. Say “selected representatives,” not “167 duplicate jobs proved.”
+- **Speaker notes:** use the Chenega fixture labels. Explain the risk in stripping URL query strings. Say “selected representatives,” not “170 duplicate jobs proved.”
 - **Evidence:** [C09](11-evidence-index.md#c09), [C10](11-evidence-index.md#c10), [M05](06-project-metrics.md#main-metric-register).
 - **Demo replacement:** no; static before/after is preferred.
 - **Time:** 3 minutes, 12:00 to 15:00.
@@ -93,7 +93,7 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 9. HTTP 200 does not establish a usable job page
 
 - **Central takeaway:** validate the content a reader needs.
-- **Supporting points:** generic Ashby Jobs shell; specific role page; host-specific rule; ambiguous failures retained. Saved package: 743 checks, 30 removals, 12 ambiguous failures kept.
+- **Supporting points:** generic Ashby Jobs shell; specific role page; host-specific rule; ambiguous failures retained. Saved package: 761 checks, 29 removals, 12 ambiguous failures kept.
 - **Visual:** two page-title cards plus a small “keep for review” card.
 - **Speaker notes:** use exact fixture content. Explain transport success in one sentence. State the limit of the pattern check. A rate limit is not proof of closure.
 - **Evidence:** [C18](11-evidence-index.md#c18), [M07-M08](06-project-metrics.md#main-metric-register).
@@ -104,7 +104,7 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 10. Good Doc Jobs: start with the reader's task
 
 - **Central takeaway:** the public view helps a reader locate a plausible role and return to its source.
-- **Supporting points:** clear title/company/location; plain application link; match explanation; work arrangement.
+- **Supporting points:** clear title/company/location; plain application link; match explanation; work arrangement; Employment Type.
 - **Visual:** copied dated CSV or confirmed public Sheet, zoomed to readable columns.
 - **Speaker notes:** state the date before showing a count. Explain that the source page remains the final place to confirm the job.
 - **Evidence:** [C01](11-evidence-index.md#c01), [C16](11-evidence-index.md#c16), [C30](11-evidence-index.md#c30).
@@ -115,10 +115,10 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 11. A shorter display must keep the useful detail
 
 - **Central takeaway:** grouping can reduce repetition while preserving application routes.
-- **Supporting points:** exact company/title grouping across locations; primary link plus Additional Apply Links; same-location rows remain separate; mixed arrangements need care.
+- **Supporting points:** exact company/title/Employment Type grouping across locations; primary link plus Additional Apply Links; same-location rows remain separate; mixed arrangements need care.
 - **Visual:** a suitable saved grouped row, or the clearly labeled US/Canada test fixture before and after grouping.
-- **Speaker notes:** one display row can represent several postings. Explain summarized posted/checked dates. Demonstrate a filter only in a copy or a permitted filter view.
-- **Evidence:** [C16](11-evidence-index.md#c16), `src/scripts/test-gsheet-grouping.js`.
+- **Speaker notes:** one display row can represent several postings. Explain summarized posted/checked dates. State that the later saved remote view selects exact Remote with no Location filter. It is not a country-eligibility rule. Demonstrate a filter only in a copy or a permitted filter view.
+- **Evidence:** [C16](11-evidence-index.md#c16), [C46](11-evidence-index.md#c46), `src/scripts/test-gsheet-grouping.js`.
 - **Demo replacement:** yes, continuation of the reader-table demonstration. Static fixture fallback.
 - **Time:** 3 minutes, 24:00 to 27:00.
 - **Adam input:** choose a safe row or use the fixture.
@@ -126,7 +126,7 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 ## Slide 12. Which date, and what kind of change?
 
 - **Central takeaway:** list membership, source date, and observation date answer different questions.
-- **Supporting points:** Posted Date; Last Checked; package time; 29 added and 35 removed between named October 21/22 packages.
+- **Supporting points:** Posted Date; Last Checked; package time; 22 added and 5 removed between named October 24/25 packages.
 - **Visual:** three date labels beside a cropped saved comparison summary.
 - **Speaker notes:** removed does not mean filled. Added does not mean newly posted. A provider can move a date forward. Keep known stale-row warnings visible in discussion.
 - **Evidence:** [C15](11-evidence-index.md#c15), [C20](11-evidence-index.md#c20), [M12](06-project-metrics.md#main-metric-register).
@@ -139,7 +139,7 @@ Status: proposed content for 15 slides. This is not a slide deck. Total presenta
 - **Central takeaway:** modeling, classification, and evidence preservation are concrete documentation-engineering work.
 - **Supporting points:** source to common fields; taxonomy to filters; validation to reader trust; raw rows and exceptions retained behind the clean view.
 - **Visual:** three skill-to-feature pairs. Add a small raw row -> observation -> display-row path.
-- **Speaker notes:** explain the work, not a broad argument about the profession. Adam can describe which existing skills helped him, in his own words.
+- **Speaker notes:** explain the work, not a broad argument about the profession. The Variable Compensation correction is a reserve example of evidence-based taxonomy. Adam can describe which existing skills helped him, in his own words.
 - **Evidence:** [05-documentation-engineering-connections.md](05-documentation-engineering-connections.md), [C22](11-evidence-index.md#c22).
 - **Demo replacement:** no.
 - **Time:** 2 minutes, 30:00 to 32:00.

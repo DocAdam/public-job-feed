@@ -1,6 +1,6 @@
 # Project history and evolution
 
-This is a derived timeline. Dates in the Git table are **author dates**, in the recorded `-05:00` offset. They are not feature launch or public release dates. The local working tree also contains later uncommitted implementation.
+This is a derived timeline. Dates in the Git table are **author dates**, in the recorded `-05:00` offset. They are not feature launch or public release dates. Review date: October 27, 2026. Later operation dates are separate from commit dates. The current staged report-script edit is also separate from committed history.
 
 ## The boundary of the evidence
 
@@ -8,7 +8,7 @@ Adam supplied the origin: repeated job searches produced irrelevant results, dup
 
 The earliest reachable project commit inspected is `4b257ee8`, dated 2026-08-13. It already includes a large JavaScript and shell application: catalog intake, six provider adapters, title scoring, deduplication, Google Sheets packaging, URL checks, board maintenance, and tests. The initial commit is not evidence that these features were invented on that day. [H01](11-evidence-index.md#h01)
 
-A path search of reachable Git history found no Excel workbook or Power Query `.m`/`.pq` file. This does not prove that none existed outside Git. Saved history validation records package IDs from June, before the initial commit. Those records show retained package history; they do not date the start of the project or the Excel transition. [C34](11-evidence-index.md#c34)
+A reachable-history path search found no origin workbook or Power Query `.m`/`.pq` file. Two `.xlsx` files now exist under the October 25 publication checks. They are later Sheet exports, not evidence of the original Excel implementation. This does not establish what exists outside Git. Saved history validation records package IDs from June, before the initial commit. Those records show retained package history; they do not date the start of the project or the Excel transition. [C34](11-evidence-index.md#c34)
 
 ## Chronological Git milestones
 
@@ -34,18 +34,28 @@ A path search of reachable Git history found no Excel workbook or Power Query `.
 | 2026-09-29 | `47e29988` | Preserves the September 27 ATS behavior study. | That the study date and commit date are the same. |
 | 2026-09-29 | `3d85e440` | Adds structured ATS failure diagnostics and saved-data investigation. | A confirmed cause for every provider failure. |
 | 2026-10-12 | `16e43cfb` | Adds reviewed exact-URL exclusions for document-related roles outside the intended writing scope. | A ban on titles containing “specialist” or deletion from the source feed. |
-| 2026-10-22 | `73ec53dd` | Indexes completed review records and records a narrow documentation cleanup. | A commit of all current runtime work. Many local changes remain uncommitted. |
+| 2026-10-22 | `73ec53dd` | Indexes completed review records and a narrow documentation cleanup. | At that date, it did not include all local runtime work. |
+| 2026-10-23 | `bf15378`, `1f4f305`, `e3988e0` | Commits compact history, checked recovery, fetch-event preservation, and daily backup controls. | First implementation date or continuous operational health. |
+| 2026-10-23 | `9606709` | Finalizes packages before history import and preserves the manifest repair evidence. | A new job collection during the repair. |
+| 2026-10-26 | `d5cf771` | Commits schedule, terms, source evidence, schema changes, and regression fixtures. | Implementation began October 24; the commit date is not the first release date. |
+| 2026-10-26 | `d419fa1` | Adds a narrow metadata policy and backup-only recovery. | A confirmed cause for the metadata files or a successful future backup. |
+| 2026-10-26 | `f4af4c2` | Preserves release, Sheet publication, remote-view, and recovery records. | Publication on the commit date. The saved publication occurred October 25. |
 
-Evidence: [H01-H09](11-evidence-index.md#h01), [H11](11-evidence-index.md#h11), [H12](11-evidence-index.md#h12). Commit subjects were checked with source paths and the current implementation where relevant.
+Evidence: [H13-H16](11-evidence-index.md#h13), [H01-H09](11-evidence-index.md#h01), [H11](11-evidence-index.md#h11), [H12](11-evidence-index.md#h12). Commit subjects were checked with source paths and the current implementation where relevant.
 
 ## Later local work with dated records
 
-These records are useful, but they are not Git milestones for the current uncommitted code.
+These are operation and research dates. Some work was committed later. Do not use the operation date as the commit date.
 
-- **September 29 diagnostic probes:** a saved review records different results from suspicious Workday catalog keys and same-site controls. It also records BambooHR redirects to vendor marketing pages. The review keeps the cause of many failures unresolved. New sampling code remains uncommitted. [C38](11-evidence-index.md#c38)
+- **September 29 diagnostic probes:** a saved review records different results from suspicious Workday catalog keys and same-site controls. It also records BambooHR redirects to vendor marketing pages. The review keeps the cause of many failures unresolved. Later sampling was committed in `a9e41ae` on October 23. [C38](11-evidence-index.md#c38)
 - **October 19 full-history storage work:** the first full-candidate review retains memory failures. A later review records narrower queries, separate workers, exact SQL comparisons, and successful full-history qualification. A separate migration receipt records production acceptance on October 19 at 20:50 CDT. [C39](11-evidence-index.md#c39), [H10](11-evidence-index.md#h10)
-- **October 20 to 21 storage safeguards:** local guides and code add stronger monthly ledger writes, batch locks, guarded retirement plans, daily history backup, and refresh locking. The repository has saved operation receipts. Do not present all files in `docs/plans/` as pending plans. Conversely, an old acceptance receipt does not establish the state of every later run. [C27](11-evidence-index.md#c27)
-- **October 22 saved refresh:** the saved run records completion, package `20261022-0622`, link review, test results, and a history backup. The saved job-history validation contains 155 snapshots. These are observed saved results, not a refresh performed for this task. [C19](11-evidence-index.md#c19), [C26](11-evidence-index.md#c26), [C34](11-evidence-index.md#c34)
+- **October 20 to 21 storage safeguards:** dated guides and code describe stronger monthly ledger writes, batch locks, guarded retirement plans, daily history backup, and refresh locking. The repository has saved operation receipts. Do not present all files in `docs/plans/` as pending plans. Conversely, an old acceptance receipt does not establish the state of every later run. [C27](11-evidence-index.md#c27)
+- **October 22 accepted history:** the preserved [October 23 checkpoint](../../docs/plans/history-checkpoint-2026-10-23.md) identifies 155 accepted snapshots through `20261022-0622`. It also records a later source-hash failure. The mutable current validation now describes a later generation. Use the checkpoint for this historical count, not the current validation file.
+
+- **October 23 package repair:** a dashboard update after history import changed a manifest size. The accepted source check failed. The repair retained both versions, restored only approved metadata, finalized later packages before import, and checked a new backup. [C43](11-evidence-index.md#c43)
+- **October 24 to 25 employment release:** a title containing Variable Compensation exposed a false schedule inference. Tests now distinguish that phrase from explicit variable hours. Saved production review also retains genuine schedule conflicts. [C42](11-evidence-index.md#c42)
+- **October 25 publication and October 26 remote-view change:** saved records report exact table read-back, repairs to pivot and link metadata, and a later change from fixed Location values to Work Arrangement = Remote. These are external operation records, not automatic refresh behavior. [C45](11-evidence-index.md#c45), [C46](11-evidence-index.md#c46)
+- **October 26 latest local run:** saved receipts report package `20261026-0638`, 735 public rows, and history through that package. This review did not rerun it. [C47](11-evidence-index.md#c47)
 
 ## Five possible turning points
 
@@ -71,15 +81,15 @@ These records are useful, but they are not Git milestones for the current uncomm
 
 ### 4. A current list became a history of observations
 
-**Known:** `2faf9c2c` adds SQL history. Later local work separates raw rows, selected observations, public membership, shared text, and content versions. Source anomalies remain visible.
+**Known:** `2faf9c2c` adds SQL history. Later later work separates raw rows, selected observations, public membership, shared text, and content versions. Source anomalies remain visible.
 
 **Proposed story:** useful history requires a definition of “the same item” and “a change.” Losing a row from a list is not proof that a job was filled. [C21-C24](11-evidence-index.md#c21)
 
-### 5. The hard part became preserving meaning during change
+### 5. A metadata update broke an accepted source check
 
-**Known:** streaming export remains optional staging; architecture copies remain transitional; full-history reviews retain failed memory attempts before later qualification and migration.
+**Known:** the October 23 repair links a source-hash failure to a dashboard update after history import. Current code moves finalization before import and blocks guarded changes after import. The saved repair checks preserve the job CSVs. [C43](11-evidence-index.md#c43)
 
-**Proposed story:** an improved implementation must preserve data and report meaning. Use this as a brief lesson or a discussion answer. The storage details are too dense for the main demonstration. [C25](11-evidence-index.md#c25), [C39](11-evidence-index.md#c39)
+**Proposed story:** lifecycle rules must apply to operational metadata too. A dashboard can be useful current status, yet unsafe to change inside an accepted historical package. Use this as an alternate challenge or a discussion answer. The later employment correction gives a second example of preserving evidence while changing an interpretation. [C42](11-evidence-index.md#c42)
 
 ## Source selection and discontinuation
 

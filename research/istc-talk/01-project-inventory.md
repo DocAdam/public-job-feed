@@ -1,24 +1,24 @@
 # Project inventory
 
-Scope: local implementation inspected on 2026-10-22. See [the evidence rules](README.md#evidence-rules). This is a research summary.
+Scope: local implementation inspected on 2026-10-27. See [the evidence rules](README.md#evidence-rules). This is a research summary.
 
 ## What this application is
 
-Public Job Feed is a local data pipeline. It obtains public job-board data, applies common fields and review rules, and prepares files for a public Google Sheet called Good Doc Jobs. It also creates local reports and writing inputs. The main refresh is a Bash launcher that calls Node.js scripts. It is not a web server or a hosted job-search interface. Upload to the Sheet is manual. [C01](11-evidence-index.md#c01), [C05](11-evidence-index.md#c05)
+Public Job Feed is a local data pipeline. It obtains public job-board data, applies common fields and review rules, and prepares files for a public Google Sheet called Good Doc Jobs. It also creates local reports and writing inputs. The main refresh is a Bash launcher that calls Node.js scripts. It is not a web server or a hosted job-search interface. Sheet publication is a separate approved operation. The normal refresh does not upload it. Saved records document an October 25 upload through an external tool. [C45](11-evidence-index.md#c45) [C01](11-evidence-index.md#c01), [C05](11-evidence-index.md#c05)
 
 ## Main entry points
 
 | Entry point | Plain-language purpose | Status and limit |
 | --- | --- | --- |
-| `launchers/Refresh Job Feed.command` | Runs the normal local refresh, package checks, reports, history update, and backup check. | Current local workflow. Has uncommitted changes. Do not run for this research. |
+| `launchers/Refresh Job Feed.command` | Runs the normal local refresh, package checks, reports, history update, and backup check. | Current local workflow. Package finalization precedes history import. Do not run for this research. |
 | `launchers/Refresh Job Feed.desktop-wrapper.sh` | Starts the repository launcher from a desktop entry. | Current wrapper. The recorded run identifies the launcher used. |
 | `package.json` | Maps named commands to scripts and defines the main test list. | Current command register. It is not proof that every command runs on a schedule. |
 | `src/scripts/refresh-job-index.js` | Refreshes source catalogs and maintains due boards under a maintenance lock. | Current. Does not publish the public Sheet. |
 | `src/scripts/build-public-release.js` | Indexes saved batches, merges the current feed, builds slices and release support files. | Current. `daily` and `full` profiles differ. Full archive creation is off by default. |
-| `src/scripts/build-gsheet-package.js` | Makes simple reader rows and detailed files for manual upload. | Current. The simple jobs table starts from deduplicated top-match JSON. |
+| `src/scripts/build-gsheet-package.js` | Makes simple reader rows and detailed files for a separate approved upload. | Current; 16 public columns, with Employment Type last. The simple jobs table starts from deduplicated top-match JSON. |
 | `src/scripts/check-gsheet-url-health.js` | Checks application links and can remove selected failures from the package. | Current. Network and write effects are possible; not run here. |
 | `src/scripts/report-all-remote-daily.js` | Compares saved packages and makes daily views or a Substack input. | Current. Report generation writes files. |
-| `src/scripts/jobs-history.js` | Runs history build, update, or audit through the format-aware runtime. | Current local history route. Not an ingestion source for the main feed. |
+| `src/scripts/jobs-history.js` | Runs history build, update, or audit through the format-aware runtime. | Current format-aware history route. Not an ingestion source for the main feed. |
 | `src/index.js` | Exposes a reusable JavaScript library interface. | Transitional API. The operational scripts still import provider and export helpers from `src/lib/`. |
 
 Evidence: [C05](11-evidence-index.md#c05), [C21](11-evidence-index.md#c21), [C27](11-evidence-index.md#c27).
@@ -42,6 +42,7 @@ Evidence: [C05](11-evidence-index.md#c05), [C21](11-evidence-index.md#c21), [C27
 | `data/jobs/gsheet-package/` | Dated packages and the `latest` package. | Generated upload files and saved comparison history. |
 | `data/jobs/history/` | DuckDB history database and companion validation/description files. | Saved results only. Database not opened. |
 | `data/jobs/reports/` | Status, health, tests, comparison reports, and publication inputs. | Bounded saved evidence. Different reports can have different source dates. |
+| `verification/`, `previews/` | Saved release, publication, recovery, and isolated-preview evidence. | Read-only. Large cell captures, copied code, and fixed full-feed inputs were not scanned. |
 | `test/`, `src/scripts/fixtures/` | Small test inputs and historical examples. | Safe examples; not live employer facts. |
 | `docs/`, root design files | Operating guides, proposed designs, and review records. | Cross-checked against code. |
 | `docs/archive/` | Earlier architecture and migration records. | Historical evidence, not current operating instructions. |
@@ -70,6 +71,8 @@ See [C28](11-evidence-index.md#c28), [C35](11-evidence-index.md#c35). Dependency
 | Provider collection | `fetch-batch-jobs.js`; `src/lib/ats/{ashby,greenhouse,lever,workday,bamboohr,icims}.js` | Gets public JSON or HTML, depending on the provider. Six providers are in the normal batch route. Current, with best-effort providers and collection caps. |
 | Additional provider probe | `src/lib/ats/talentbrew.js`; `probe-talentbrew-board.js`; `test-talentbrew-parser.js` | Implements a bounded TalentBrew parser/probe. It is not in the routine six-provider batch/merge list. Experimental/separate. |
 | Curated intake | `curated-submissions.js:loadCuratedSubmissionRows`, `parseJobPosting`; `verify-curated-submissions.js` | Reads approved employer URLs, extracts structured JobPosting data, and retains a verified cached row on temporary failure. Current. Approval alone does not prove inclusion. |
+| Employment evidence | `employment-type.js:extractEmploymentType`, `ensureEmploymentType`, `fieldsFromEvidence`; `employment-type-report.js` | Keeps schedule, terms, status, and supporting source passages separate. Unknown values stay unknown. Current. [C42](11-evidence-index.md#c42) |
+| Package finalization | `package-history-guard.js:withMutablePackage`, `checkPendingDashboards`; `package-manifest.js:manifestCsv` | Blocks guarded writes after history import. Checks pending dashboard identity and size before import. Current. [C43](11-evidence-index.md#c43) |
 | Field normalization | `jobs-normalize.js:normalize*Job`, `normalizeGenericAtsJob` | Maps differing provider fields to common fields. Keeps source URL, board, ID, and fetch time. Some descriptions can be title-only or partial. Current. |
 | Classification | `title-match.js`, `title-review.js`, `work-arrangement.js`, `salary-detect.js`, `title-category.js` | Adds title, role, remote, location, and salary review signals. Rules are estimates, not employer-confirmed eligibility. Current. |
 | Export quality and scoring | `export-validation.js`; `writer-fit-score.js:scoreWriterFit`; `job-export.js:buildJobExportArtifacts` | Flags poor records and applies Writer Fit v3, with reasons, penalties, and tier limits. Current. |
@@ -82,10 +85,10 @@ See [C28](11-evidence-index.md#c28), [C35](11-evidence-index.md#c35). Dependency
 | Daily reports | `us-remote-daily-report.js`, `international-remote-daily-report.js`, `all-remote-daily-report.js`, `jobs-snapshot.js` | Compares saved public lists and creates remote, role, country, and topic views. Current. |
 | Job history | `jobs-history.js`; `job-history-runtime.js:detect`, `runHistory`; `job-history-bounded-storage.js`; `job-history-sql-compatibility.js` | Imports saved shortlist/public CSV history. Keeps raw rows, selected observations, and exceptions separately. Current saved database reports format v2. |
 | Lifecycle and SQL reports | `job-history-lifecycle.js:installLifecycleViews`, `lifecycleEvents`; `jobs-history-report.js` | Finds observed presence, absence, content changes, and returns. These are feed events, not confirmed employer actions. Current local implementation. |
-| Health and diagnostics | `http.js`; `failure-diagnostics.js`; `ats-error-classification.js`; `report-board-freshness.js`; `build-status-dashboard.js` | Separates response failure, stale data, crawl coverage, and package evidence. Current. Some diagnostic extensions are uncommitted. |
+| Health and diagnostics | `http.js`; `failure-diagnostics.js`; `ats-error-classification.js`; `report-board-freshness.js`; `build-status-dashboard.js` | Separates response failure, stale data, crawl coverage, and package evidence. Current. Saved diagnostic samples do not establish population failure causes. |
 | Validation | `run-test-suite.js:executeTests`; `validate-refresh-output.js`; test scripts and fixtures | Checks function rules, package identity, copy consistency, source dates, and outputs. Saved results exist. No new tests ran here. |
-| Backup and storage governance | `daily-history-backup.js`; `feed-refresh-lock.js`; `batch-history-ledger.js`; `batch-retention.js`; `docs/storage-lifecycle.md` | Coordinates history updates and checked backups; protects current batches and event history. Cleanup remains a separate action. Current local changes. |
-| Downstream consumer export | `export-job-finder-consumer.js`; `job-finder-consumer.js` | Writes a local compatibility file. It does not modify Job Finder records. No Job Finder files were inspected or changed. |
+| Backup and storage governance | `daily-history-backup.js`; `feed-refresh-lock.js`; `batch-history-ledger.js`; `batch-retention.js`; `docs/storage-lifecycle.md` | Coordinates history updates and checked backups; protects current batches and event history. Cleanup remains a separate action. Current implementation; saved results are dated separately. |
+| Downstream consumer export | `export-job-finder-consumer.js`; `job-finder-consumer.js` | Writes a local compatibility file. It reads a Job Finder title-policy path by default and writes only this repository’s consumer file. It does not modify Job Finder records. No Job Finder files were inspected or changed. |
 | Substack preparation | `report-substack-full.js`; `substack-full-report.js`; `docs/substack-publication.md` | Makes writing inputs from saved selections. “Full” means the selected detailed shortlist, not the complete collected feed. Publication is manual. |
 
 Evidence groups: [C02-C08](11-evidence-index.md#c02), [C09-C18](11-evidence-index.md#c09), [C20-C28](11-evidence-index.md#c20), [C38](11-evidence-index.md#c38), [C40](11-evidence-index.md#c40).
@@ -103,3 +106,11 @@ The older DuckDB schema defines `snapshots`, `posting_observations`, `raw_top_ma
 The repository contains active code, compatibility copies, designs, probes, and dated operation records. A new directory does not prove a completed migration. The default slice dispatcher still selects the legacy exporter. `src/adapters/ingestion/index.js` lists providers but does not implement their fetch logic. The normal refresh reads provider normalizers from `src/lib/`. [C05](11-evidence-index.md#c05), [C25](11-evidence-index.md#c25)
 
 Do not describe the feed as fully verified, complete, automatically published, or a record of hiring outcomes. Do not describe optional staging performance as current production performance. The unresolved document/code differences are listed in the [evidence index](11-evidence-index.md#documentation-and-code-conflicts).
+
+## Later implemented controls
+
+The October 23 fix finalizes the package dashboard before history import. Later run status stays in `data/jobs/reports/`. Guarded package writers reject an imported package. This protects accepted source evidence, but it does not make direct file edits impossible. [C43](11-evidence-index.md#c43)
+
+`jobs:history-backup` calls the backup-only route. It audits the accepted generation, copies required files, restores the copy, audits it, and compares its report. It does not collect or import jobs. The new metadata policy accepts only one tightly checked sidecar encoding. The producer of the observed metadata files remains unknown. [C44](11-evidence-index.md#c44)
+
+Employment extraction uses existing provider responses and explicit current-role text. It adds no detail-page request. Workday search fields and iCIMS cards can have less information than detail pages. The public label can therefore be `Not stated` even when a detail page has a value. [C42](11-evidence-index.md#c42)

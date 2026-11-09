@@ -1,76 +1,76 @@
 # Executive briefing
 
-Research date: 2026-10-22. Status: research findings and proposed presentation content. Current code means the inspected local working tree, which already had substantial uncommitted work. Saved results are separate from fresh validation. No production workflow or external request ran for this research.
+Review date: October 27, 2026. Status: research findings and draft presentation choices. This review updates the existing package. It uses local code, Git history, fixtures, and dated results. No production workflow, application test, database query, or external request ran.
 
 ## Five useful findings
 
-1. **The reader table is a distinct information product.** The broad saved feed has 837,215 records. The October 22 local public file has 713 display rows after selection, duplicate handling, exact exclusions, location grouping, and link cleanup. A display row can represent several postings. These are different populations, not two estimates of the same number. [M01-M10](06-project-metrics.md#main-metric-register)
+1. **The reader table is a separate information product.** The fixed October 25 review records 836,592 broad records, 1,017 candidates, 847 selected representatives, and 732 final public display rows. Selection, exact exclusions, location grouping, and link checks do different work. A display row can represent several postings. [M01, M05-M09](06-project-metrics.md#main-metric-register)
 
-2. **Link quality requires content checks.** A job URL can return HTTP 200 and only a generic Jobs page. The Ashby fixture gives a clear example. The code separates selected deterministic failures from rate limits and other ambiguous results. The saved October 22 check records 743 rows checked, 30 removed, and 12 ambiguous failures retained. [C18](11-evidence-index.md#c18), [C19](11-evidence-index.md#c19)
+2. **A loaded page can have no usable job.** The Ashby fixture returns HTTP 200 with only a generic Jobs title. The checker distinguishes that case from a role-specific page and from uncertain failures. The October 25 saved check records 761 rows checked, 29 removed, and 12 uncertain failures retained. [C18](11-evidence-index.md#c18), [C19](11-evidence-index.md#c19)
 
-3. **The system has several definitions of identity and change.** Duplicate review, representative selection, public comparisons, and SQL history use related but different keys. The history keeps raw rows, selected observations, public membership, and exceptions separate. Absence from a list does not establish that an employer filled a role. [C09](11-evidence-index.md#c09), [C20-C23](11-evidence-index.md#c20)
+3. **Classification now preserves its source evidence.** Employment Type separates schedule from contract terms. It can display Full-time; Contract. A saved Variable Compensation case exposed a false schedule inference. The corrected rule distinguishes compensation from explicit variable hours. Missing support stays Not stated; conflicting evidence stays Needs review. [C42](11-evidence-index.md#c42)
 
-4. **Operational success has several meanings.** A recent run can complete while some source boards fail. The saved full test dispatcher reports PASS, but the package test reports WARN, including five final rows older than fourteen days. Attempted coverage, recent successful snapshots, link checks, package identity, and public publication need separate labels. [C26](11-evidence-index.md#c26), [C32-C33](11-evidence-index.md#c32)
+4. **Operational metadata can damage historical evidence.** A dashboard sync changed a package after history accepted it. The October 23 repair retained the failed checks and both metadata versions. Current code finalizes metadata before import and guards later package writes. This is a clear lifecycle story. [C43](11-evidence-index.md#c43)
 
-5. **The repository preserves incomplete transitions and failed attempts.** The default export still uses the legacy route; SQLite streaming is optional staging. Earlier history reviews retain memory failures. Later records show qualification and an accepted migration. This makes a useful story about preserving meaning during technical change, with clear dates and limits. [C25](11-evidence-index.md#c25), [C39](11-evidence-index.md#c39), [H10](11-evidence-index.md#h10)
+5. **Local output and publication have separate evidence.** The latest local package has 735 rows from October 26. The saved Sheet publication check covers 732 rows from October 25. A later remote-view operation matches 125 Remote results, with no Location filter. Its browser check found clipped text despite successful value and link checks. [C45-C47](11-evidence-index.md#c45)
 
 ## Three stories for the main talk
 
-Use **duplicate identity**, **relevance versus remote geography**, and **a successful response without job content**. Each has a small example, a visible rule, and an honest limitation. They show technical depth without requiring JavaScript or SQL knowledge. The [engineering stories](04-engineering-stories.md) include ten options and select the strongest five.
+Use **duplicate identity**, **relevance versus remote geography**, and **a successful response without job content**. Each has a small fixture, an explicit rule, and a useful limit. They show depth without a code walkthrough.
 
-Keep the memory redesign as a discussion answer. It is well documented, but it would consume too much of the main talk.
+Keep the Employment Type correction as the first reserve story. It can replace remote geography if you prefer a recent failure with a direct taxonomy connection. Keep the package-finalization failure for discussion. The [story register](04-engineering-stories.md) has 13 examples and selects five for this audience.
 
 ## Strongest documentation-engineering connection
 
-The strongest connection is **information modeling with retained source evidence**. The project distinguishes what the employer supplied, what the program inferred, what a reviewer excluded, and what the reader sees. That is more specific than “technical writers can code.” It connects structured content, metadata, taxonomy, validation, and lifecycle management to concrete behavior. The comparison has limits: job identity and eligibility remain uncertain. [05-documentation-engineering-connections.md](05-documentation-engineering-connections.md)
+Use **information modeling with retained source evidence**. The project distinguishes employer text, normalized fields, inferred classifications, review decisions, historical observations, and reader rows. This connects structured content, metadata, taxonomy, validation, and lifecycle management to visible behavior.
 
-## Recommended narrative and visual
+The comparison has limits. Source fields can be incomplete. Job identity is uncertain. A rule result is not employer confirmation. The [skill comparison](05-documentation-engineering-connections.md) states where each analogy stops. Your own account must establish which skills you used consciously.
 
-Use this sequence: a repeated search problem -> the first spreadsheet -> a repeatable application -> three difficult information decisions -> the reader table -> transferable techniques and remaining limits.
+## Recommended narrative and diagram
 
-The [outline](08-presentation-outline.md) allocates 5, 7, 10, 8, and 5 minutes, for 35 minutes total. The [slide plan](09-slide-plan.md) has 15 slides. Both demonstrations are included in those times. Allow another 15 to 20 minutes for questions.
+Use this sequence: a repeated search problem -> the first spreadsheet -> a repeatable application -> three difficult information decisions -> the reader table -> transferable techniques and limits.
 
-Use a five-box talk diagram: **employer source -> common record -> review rules -> reader table -> manual upload**. Keep source URL and fetch date visible under the path. The [full Mermaid diagram](03-system-architecture.md#current-pipeline) supplies the actual technical structure, including history, reports, curated intake, and optional staging.
+The [outline](08-presentation-outline.md) allocates 5, 7, 10, 8, and 5 minutes. The [slide plan](09-slide-plan.md) has 15 slides and totals 35 minutes, including both demonstrations. Allow another 15 to 20 minutes for questions.
+
+Use five main boxes: **employer source -> common record -> review rules -> reader table -> separate approved upload**. Keep source URL and fetch date visible below the path. The [full Mermaid diagram](03-system-architecture.md#current-pipeline) shows the actual launcher order, curated intake, reports, history, and optional staging. The normal launcher does not publish the Sheet or Working Notes.
 
 ## Best two demonstrations
 
-1. **A copied dated public CSV.** Show a reader's route from title and location to the employer link, match explanation, and last-check time. Show additional links for a grouped location example. Use the live Sheet only after confirming its current view and access.
-2. **The HTTP 200 fixture comparison.** Show a generic Jobs shell beside a role-specific title. Explain why one rule removes the first and why uncertain failures remain. Use static cards by default; a fixture-only terminal run is optional after rehearsal.
+1. **A copied October 25 public CSV.** Show title, location, primary link, match reason, Employment Type, and last-check time. Use one grouped-location fixture to explain additional links. Label it as saved output. A saved publication record supports its historical Sheet use; current live access still needs a separate check.
+2. **The HTTP 200 fixture comparison.** Show the generic Jobs shell beside the role-specific title. Explain the host-specific rule and why uncertain failures stay. Static cards are the preferred form. A fixture-only terminal run is optional after rehearsal.
 
-[Five demonstration plans](07-demo-options.md) give files, expected results, preparation, risk, static alternatives, and time. No screenshots or finished deck were created.
+The [demo plan](07-demo-options.md) gives five options, inputs, expected results, preparation, risk, static alternatives, and times. No screenshots or finished deck were created.
 
-## Numbers worth showing
+## Metrics worth showing
 
-Prefer three dated processing measures:
+Use the fixed October 25 processing counts: **1,017 candidates -> 847 representatives** and **761 link rows checked -> 29 removed; 12 uncertain failures kept -> 732 display rows**. Put the package date beside each count. Do not call these verified unique open jobs.
 
-- October 22 local public file: **713 display rows**.
-- October 22 top selection: **1,003 input rows -> 836 representatives**, with 167 rows removed under duplicate rules.
-- October 22 primary-link review: **743 checked -> 30 removed; 12 ambiguous failures kept**.
+The Employment Type result is also useful: of 732 public rows, 202 have a supported schedule, 48 have supported terms, and 492 have neither. The first two groups overlap. This makes missing evidence visible. [M25](06-project-metrics.md#main-metric-register)
 
-The larger internal count is optional context. Keep recent source success separate from “100% attempted coverage.” Do not use topic mentions, feed movement, repository size, or test command counts as claims about hiring demand or user success. The [metric register](06-project-metrics.md) defines every measure and its limits.
+Keep the larger internal count optional. Avoid market conclusions, user success, and time-saving claims. The [metric register](06-project-metrics.md) separates October 25 talk evidence, October 26 local output, and October 27 source health.
 
-## Claims that need confirmation
+## Claims that need your confirmation
 
-The Excel and Power Query origin comes from your request. Reachable project history starts with an already substantial application on August 13. Saved package history goes back earlier, but it does not establish when the code was written. Supply the original workbook or a dated image if you want a visual origin story. The reasons for technology choices and redesigns also need your own account. [P01](11-evidence-index.md#p01), [H01](11-evidence-index.md#h01)
+The Excel and Power Query origin comes from your request. Reachable Git history starts with a substantial application on August 13. It does not establish the first workbook, transition date, or motive for each technology choice. Supply an original workbook, query, or dated image if you want an origin visual. [P01](11-evidence-index.md#p01), [H01](11-evidence-index.md#h01)
 
-Live Sheet state, public repository reachability, current sharing terms, contribution expectations, your maintenance effort, and the selected Working Notes article remain unverified. The local repository has an MIT license and a documented free Sheet policy. That is not a live access check.
+Current public access, repository reachability, contribution expectations, maintenance effort, and the chosen Working Notes article remain unresolved. The local repository has an MIT license and a documented free Sheet policy. Saved publication records do not establish current sharing settings or live job status.
 
 ## Material to omit
 
-Omit invented time savings, audience feedback, application outcomes, market conclusions, and claims of complete or fully verified jobs. Omit code walkthroughs, every provider endpoint, private diagnostic previews, backup paths, operation identifiers, and obsolete review commands. Do not present optional staging performance as current production performance.
+Omit invented time savings, reader feedback, application outcomes, and market claims. Omit line-by-line code, every provider endpoint, private diagnostic previews, backup locations, and old operational commands. Do not present optional SQLite staging as the normal production exporter. DuckDB history is a side branch built from packages, not the source of the current feed.
 
-An unexpected useful detail is the preservation of raw historical anomalies. The clean view does not erase the ten excess duplicate raw rows or forty unmatched public rows recorded in saved history validation. That is a concrete example of evidence preservation, not just a claim that data quality matters. [C22](11-evidence-index.md#c22), [C34](11-evidence-index.md#c34)
+An unexpected useful detail is that a valid spreadsheet filter answered the wrong question. The old fixed Location policy was not equivalent to all rows marked Remote. The later saved view change makes that distinction concrete. Another useful detail is that history retains raw anomalies instead of erasing them to obtain a clean count. [C22](11-evidence-index.md#c22), [C46](11-evidence-index.md#c46)
 
-## Final checklist for Adam
+## Final questions for Adam
 
-- [ ] What was one real search problem you want to describe in the opening?
-- [ ] When did the Excel/Power Query version start? Can you provide the workbook, query, or an image? What did it do?
-- [ ] What specific limit led you to the application? Why did you choose Node.js, Bash, and SQL? Is there a public launch date to distinguish from Git dates?
-- [ ] Which debugging or redesign experience can you describe firsthand? Which existing documentation skills helped, and how do you balance the work?
+- [ ] What is one true search example for the opening? What may be shown publicly?
+- [ ] When did the Excel/Power Query version start, what did it do, and can you supply a workbook, query, or image?
+- [ ] Which limit led to the application? Why these technologies and providers? Is there a public launch date distinct from Git dates?
+- [ ] Which failure or redesign can you describe firsthand? Which documentation skills helped, and how do you balance writing and programming?
 - [ ] What is the current maintenance routine and actual effort? Is there a public update commitment?
-- [ ] Does the public Sheet open for attendees, match the intended view, and retain the stated free-access terms? Which demonstration form do you prefer?
-- [ ] Which repository, contribution, contact, and Working Notes links should appear? Which article and any images may be shown?
-- [ ] What would you change if starting again, and which next step is a real priority rather than a research suggestion?
-- [ ] Does the host confirm 35 minutes plus 15 to 20 minutes of questions, and the final title?
+- [ ] Which reader view should the talk show? Do you prefer static fixture cards or a rehearsed terminal run?
+- [ ] What are the final Sheet, repository, contact, and Working Notes links? Which article or images may be used? Are free-access and contribution terms current?
+- [ ] What would you change if starting again? Which next step is a real priority?
+- [ ] Does the host confirm the title, 35-minute talk, and 15 to 20 minutes of questions?
 
-The [evidence index](11-evidence-index.md) maps claims to source symbols and commits. It also records document/code conflicts. No existing application file was edited and no commit was made.
+The [evidence index](11-evidence-index.md) maps the claims to code, dated records, and commits. It also records conflicts and limits. Only these 13 research documents were changed. Existing staged work was preserved. No commit was made.

@@ -1,13 +1,13 @@
 # Demonstration options
 
-These are preparation plans. No demonstration or production command ran during the research. Use copied fixtures or saved output. A job URL in a fixture is historical test input, not a current recommendation.
+Reviewed October 27, 2026. These are preparation plans. No demonstration or production command ran during the research. Use copied fixtures or saved output. A job URL in a fixture is historical test input, not a current recommendation.
 
 ## 1. Show the reader table and trace one field
 
 - **Purpose:** show the public result before explaining the internals.
-- **Audience view:** title, company, location, Apply Link, Why It Matched, Work Arrangement, and Last Checked. Show one grouped row and its Additional Apply Links if a suitable saved example is present.
-- **Files:** `data/jobs/gsheet-package/20261022-0622/01_good_documentation_jobs.csv`; `00_start_here.csv`; the Good Doc Jobs URL from the root README.
-- **Expected output:** the saved CSV has 713 rows. Its arrangement counts are in [M09-M10](06-project-metrics.md#main-metric-register). The live Sheet is not verified to match it.
+- **Audience view:** title, company, location, Apply Link, Why It Matched, Work Arrangement, Employment Type, and Last Checked. Show one grouped row and its Additional Apply Links if a suitable saved example is present.
+- **Files:** `data/jobs/gsheet-package/20261025-0724/01_good_documentation_jobs.csv`; `00_start_here.csv`; the Good Doc Jobs URL from the root README.
+- **Expected output:** the saved CSV has 732 rows. Its arrangement counts are in [M09-M10](06-project-metrics.md#main-metric-register). A saved October 25 publication check matched it. This review did not check the live Sheet.
 - **Preparation:** open a copy of the dated CSV in a spreadsheet viewer. Create a temporary filter view in that copy. Check text width and link display. If using the public Sheet, confirm its date and current visible features before the event.
 - **Live risk:** network failure, a changed Sheet, unreadable columns, or an employer link that closes. Do not refresh the feed during the talk.
 - **Static alternative:** two cropped screenshots from the copied dated CSV, with its package ID and date. Label it “saved local upload file.” A screenshot of the actual Sheet needs a separate permitted capture.
@@ -42,18 +42,18 @@ These are preparation plans. No demonstration or production command ran during t
 
 - **Purpose:** distinguish a list change from an employer action.
 - **Audience view:** current, added, removed, and continuing counts for two named packages. Show one saved report excerpt with its source dates.
-- **Files:** `data/jobs/reports/all-remote-daily-report.md`; dated packages `20261021-0636` and `20261022-0622`; `src/lib/us-remote-daily-report.js:compareRows` for the method.
-- **Expected output:** saved public membership gives 713 current, 29 added, 35 removed, and 684 continuing. These are not posting or closure counts.
+- **Files:** `verification/backup-recovery-release-20261025T114249Z/production-refresh/reports/all-remote-daily-report.md`; dated packages `20261024-0954` and `20261025-0724`; `src/lib/us-remote-daily-report.js:compareRows` for the method.
+- **Expected output:** saved public membership gives 732 current, 22 added, 5 removed, and 710 continuing. These are not posting or closure counts.
 - **Preparation:** crop the opening report and dates. Keep the large job lists out of the shared view. Explain URL-based membership with a small three-item drawing.
-- **Live risk:** the report may have been replaced by a later run. Do not run `allremotediff`; it writes current report files and can open an application.
-- **Static alternative:** a labeled excerpt captured from the saved October 22 report during later preparation.
+- **Live risk:** use the fixed report copy. The mutable current report has a different package date. Do not run `allremotediff`; it writes current report files and can open an application.
+- **Static alternative:** a labeled excerpt from the fixed October 25 report, with its generation time visible.
 - **Time:** 2 to 3 minutes.
 - **Evidence:** [C20](11-evidence-index.md#c20), [M12](06-project-metrics.md#main-metric-register).
 
 ## 5. Follow one record through a simplified architecture
 
 - **Purpose:** explain the application without showing source code line by line.
-- **Audience view:** Board -> Common record -> Review rules -> Reader row -> Manual upload. A provenance strip keeps source URL and fetch time visible as the display changes.
+- **Audience view:** Board -> Common record -> Review rules -> Reader row -> Separate approved upload. A provenance strip keeps source URL and fetch time visible as the display changes.
 - **Files:** the Mermaid flowchart in [03-system-architecture.md](03-system-architecture.md#current-pipeline), plus the normalizer mappings in `jobs-normalize.js` and display headers in `simple-public-export.js`.
 - **Expected output:** a diagram, not a program run. The expanded research diagram shows optional and side routes. The talk version should have only the five main boxes.
 - **Preparation:** render and inspect the diagram during slide creation. Use a synthetic record labeled “illustration,” with a `.example` URL. Do not call the synthetic row an actual employer posting.
@@ -67,3 +67,7 @@ These are preparation plans. No demonstration or production command ran during t
 Use **option 1**, the saved reader table, and **option 2**, the HTTP 200 fixture comparison. They show the result and one clear quality decision. Keep option 3 available as a screenshot in the reader walkthrough.
 
 A terminal run is optional. The presentation works with saved evidence alone. Static alternatives are specified here; no screenshots or finished slide assets were created in this research package.
+
+## Optional reserve visual
+
+Use the saved Variable Compensation excerpt and a synthetic variable-hours example for an employment-classification card. Keep schedule, terms, and source passage visible. The fixture README separates normalized excerpts from original response captures. Do not show it as a current open job. Allow two minutes only if it replaces another example. [C42](11-evidence-index.md#c42)
