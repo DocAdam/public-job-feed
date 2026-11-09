@@ -147,6 +147,11 @@ See [Status dashboard](docs/status-dashboard.md) for commands, status meanings,
 and the difference between board freshness, URL checks, and job status.
 Publication to Google Sheets or Substack remains a manual step.
 
+Passive maintenance and overnight catch-up now keep separate run records in
+`data/jobs/reports/index-runs/`. Read the run status, fetch counts, due boards,
+and retry-delayed failed boards together. No due boards does not mean that
+all fetches passed. See [index run status and recovery](docs/job-index-maintenance.md#run-records-and-status).
+
 ### Review evidence and package exclusions
 
 The evidence report shows source verification and final package inclusion

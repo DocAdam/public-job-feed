@@ -1,6 +1,8 @@
 const { withBatchRun } = require("../lib/batch-run");
 const fs = require("fs/promises");
 const path = require("path");
+const { randomUUID } = require("crypto");
+const { countAttempts, fetchHealth } = require("../lib/index-run-status");
 const { enumerateBoardEntries, toFetchQueueRow } = require("../lib/board-registry");
 const { selectBoards, syncBoardStateFromEntries, updateBoardState } = require("../lib/board-state");
 const { rowsToCsv } = require("../lib/csv");
@@ -130,7 +132,7 @@ async function writePlan(rows, generatedAt, dryRun, scope) {
 async function fetchAtsGroup(ats, records, entryByKey, options) {
   const config = atsOptions[ats];
   const rows = records.map((record) => toFetchQueueRow(entryByKey.get(record.BoardKey))).filter(Boolean);
-  const batchName = `maintain-${options.scope}-${ats}-${options.runId}`;
+  const batchName = `maintain-${options.scope}-${ats}-${options.runId}-${randomUUID()}`;
   const batchDir = path.join(options.outputRoot, batchName);
   const outputPaths = getOutputPaths(batchDir);
   return withBatchRun(batchDir, async phase => {
@@ -159,7 +161,9 @@ async function fetchAtsGroups(selectedByAts, entryByKey, options, fetchGroup = f
   const results = [];
   // Each group takes the same exclusive batch lock. Keep the shared deadline.
   for (const [ats, records] of selectedByAts) {
-    results.push(await fetchGroup(ats, records, entryByKey, options));
+    const result = await fetchGroup(ats, records, entryByKey, options);
+    results.push(result);
+    if (options.onResult) await options.onResult(result, results);
   }
   return results;
 }
@@ -175,12 +179,19 @@ async function main() {
   const keysFile = getArgValue("--keys-file", "");
   const keysUnattemptedOnly = parseBoolean(getArgValue("--keys-unattempted-only", "true"), true);
   const outputRoot = path.resolve(fromRoot(), getArgValue("--output-root", batchesRoot));
+  const resultPath = path.resolve(fromRoot(), getArgValue("--result-path", path.join(reportsDir, "board-maintenance-results.json")));
   const generatedAt = new Date().toISOString();
   const [queueRows, boardCatalogRows, coverageRows, previousState, requestedKeys] = await Promise.all([
     readJsonFile(queuePath),
     readJsonIfExists(boardCatalogPath, []),
     readJsonIfExists(coveragePath, []),
-    readJsonIfExists(statePath, {}),
+    readJsonFile(statePath).then(saved => {
+      if (!Array.isArray(saved.Boards)) throw new Error("Saved board state is invalid; manual review is required.");
+      return saved;
+    }).catch(error => {
+      if (error.code === "ENOENT") return {};
+      throw error;
+    }),
     requestedKeysFromFile(keysFile),
   ]);
 
@@ -201,9 +212,31 @@ async function main() {
   await ensureDir(path.dirname(statePath));
   await Promise.all([writeJsonFile(statePath, state), writePlan(rows, generatedAt, dryRun, scope)]);
 
+  const savedResults = [];
+  const saveResults = async status => {
+    const fetchLogs = savedResults.flatMap(result => result.fetchLogRows);
+    const counts = countAttempts(fetchLogs);
+    const health = fetchHealth(counts);
+    const report = {
+      RunId: runId, StartedAt: generatedAt, GeneratedAt: new Date().toISOString(),
+      CompletedAt: status === "RUNNING" ? null : new Date().toISOString(),
+      Status: status === "COMPLETE" && health === "ALL_FAILED" ? "FAILED" :
+        status === "COMPLETE" && ["PARTIAL_FAILURE", "INCOMPLETE"].includes(health) ? "COMPLETE_WITH_WARNINGS" : status,
+      FetchHealth: health, Scope: scope,
+      SelectedBoardCount: selected.length, AttemptedBoardCount: fetchLogs.length,
+      Counts: counts, JobsFetched: savedResults.reduce((sum, result) => sum + result.jobRows.length, 0),
+      Batches: savedResults.map(result => ({ ATS: result.ats, BatchName: result.batchName, Boards: result.fetchLogRows.length })),
+    };
+    await writeJsonFile(resultPath, report);
+    const latest = path.join(reportsDir, "board-maintenance-results.json");
+    if (latest !== resultPath) await writeJsonFile(latest, report);
+  };
+  await saveResults("RUNNING");
+
   console.log(`Board state: ${state.ActiveBoardCount} active; ${state.FetchEligibleBoardCount} fetch eligible.`);
   console.log(`Maintenance scope ${scope}: ${selected.length} boards selected.`);
   if (dryRun || selected.length === 0) {
+    await saveResults(dryRun ? "DRY_RUN" : "COMPLETE");
     console.log(dryRun ? "Dry run: no boards fetched." : "No boards are due in this scope.");
     return;
   }
@@ -217,27 +250,25 @@ async function main() {
   const titleRecords = await readJobTitles(jobTitlesPath);
   const deadlineAt = Date.now() + budgetMinutes * 60 * 1000;
   await ensureDir(outputRoot);
-  const results = await fetchAtsGroups(selectedByAts, entryByKey, {
+  await fetchAtsGroups(selectedByAts, entryByKey, {
     outputRoot,
     runId,
     scope,
     titleRecords,
     deadlineAt,
     includePublicFeedCsv,
+    onResult: async result => {
+      // Keep each completed group before the next group starts. Interrupted
+      // in-flight requests still require another fetch; do not reset saved state.
+      updateBoardState(state, result.fetchLogRows, result.jobRows, new Date().toISOString());
+      await writeJsonFile(statePath, state);
+      savedResults.push(result);
+      await saveResults("RUNNING");
+    },
   });
-  const fetchLogs = results.flatMap((result) => result.fetchLogRows);
-  const jobRows = results.flatMap((result) => result.jobRows);
-  updateBoardState(state, fetchLogs, jobRows, new Date().toISOString());
-  await writeJsonFile(statePath, state);
-  await writeJsonFile(path.join(reportsDir, "board-maintenance-results.json"), {
-    GeneratedAt: new Date().toISOString(),
-    Scope: scope,
-    SelectedBoardCount: selected.length,
-    AttemptedBoardCount: fetchLogs.length,
-    JobsFetched: jobRows.length,
-    Batches: results.map((result) => ({ ATS: result.ats, BatchName: result.batchName, Boards: result.fetchLogRows.length })),
-  });
-  console.log(`Maintenance complete: ${fetchLogs.length} boards attempted; ${jobRows.length} jobs fetched.`);
+  await saveResults("COMPLETE");
+  const counts = countAttempts(savedResults.flatMap(result => result.fetchLogRows));
+  console.log(`Maintenance attempts: success ${counts.Successful}, empty ${counts.Empty}, failed ${counts.Failed}, skipped ${counts.Skipped}, unknown ${counts.Unknown}.`);
 }
 
 if (require.main === module) {
