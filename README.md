@@ -298,6 +298,13 @@ Feed changes describe saved list membership. They do not establish
 posting dates, closures, hiring, or a market trend. Writing from saved inputs
 does not require a refresh. Review and publication remain separate steps.
 
+Saved draft editions: [October 26](docs/substack-draft-2026-10-26.md) and
+[November 2](docs/substack-draft-2026-11-02.md). Read the
+[November 2 review](docs/substack-review-2026-11-02.md) before use. It records
+39 revised selections and 44 application links. The saved validator and result
+cover the first draft with 40 selections and 45 links. These files do not
+establish current role availability or publication status.
+
 ### Saved job history
 
 The history database uses compact storage while it retains raw rows, resolved

@@ -1,0 +1,98 @@
+{
+  "GeneratedAt": "2026-11-02T15:05:18.273Z",
+  "Status": "WARN",
+  "PackageDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261102-0537",
+  "JobCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261102-0537/01_good_documentation_jobs.csv",
+  "CompanyCoverageCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261102-0537/02_company_coverage.csv",
+  "PackageRun": "20261102-0537",
+  "CopyConsistency": "NOT_APPLICABLE",
+  "PreviousPackageDir": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261026-0638",
+  "PreviousJobCsvPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261026-0638/01_good_documentation_jobs.csv",
+  "GoodDocumentationJobsRows": 748,
+  "PreviousGoodDocumentationJobsRows": 735,
+  "RowChange": 13,
+  "RowChangePercent": 1.77,
+  "CompanyCoverageRows": 40857,
+  "DuplicateApplyLinkRows": 0,
+  "MissingApplyLinkRows": 0,
+  "BlankTitleRows": 0,
+  "BlankCompanyRows": 0,
+  "OldestLastChecked": "2026-06-30T12:08:00.000Z",
+  "WarnStaleDays": 7,
+  "StrongWarnStaleDays": 14,
+  "FailStaleDays": 0,
+  "RowsOlderThanWarnStaleDays": 6,
+  "RowsOlderThanStrongWarnStaleDays": 6,
+  "RowsOlderThanFailStaleDays": 0,
+  "ReportRunDate": "2026-11-02 11:37 UTC",
+  "ReportRunDatePath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261102-0537/00_start_here.csv",
+  "PostedDateForwardWarnDays": 1,
+  "PostedDateMovedForwardRows": 2,
+  "PostedDateMovedForwardBySource": {
+    "ashby": 2
+  },
+  "PostedDateMovedForwardSamples": [
+    {
+      "Company": "Perplexity",
+      "Title": "Member of Technical Staff (Software Engineer, API Platform)",
+      "Source": "ashby",
+      "ApplyLink": "https://jobs.ashbyhq.com/perplexity/3f800e42-7c48-4f9a-9b12-43ee23e52516",
+      "PreviousPostedDate": "2026-08-27",
+      "CurrentPostedDate": "2026-10-31",
+      "PreviousAgeDays": "60",
+      "CurrentAgeDays": "2",
+      "PostedDateDeltaDays": 65
+    },
+    {
+      "Company": "Apex Technology Inc",
+      "Title": "Proposal Specialist / Technical Writer, US Government Markets (TS/SCI)",
+      "Source": "ashby",
+      "ApplyLink": "https://jobs.ashbyhq.com/apex-technology-inc/94ae49b5-62d6-457b-8b85-1821d43ddafe",
+      "PreviousPostedDate": "2026-09-21",
+      "CurrentPostedDate": "2026-10-28",
+      "PreviousAgeDays": "35",
+      "CurrentAgeDays": "5",
+      "PostedDateDeltaDays": 37
+    }
+  ],
+  "AgeDecreasedRows": 2,
+  "AgeDecreasedBySource": {
+    "ashby": 2
+  },
+  "AgeDecreasedSamples": [
+    {
+      "Company": "Perplexity",
+      "Title": "Member of Technical Staff (Software Engineer, API Platform)",
+      "Source": "ashby",
+      "ApplyLink": "https://jobs.ashbyhq.com/perplexity/3f800e42-7c48-4f9a-9b12-43ee23e52516",
+      "PreviousPostedDate": "2026-08-27",
+      "CurrentPostedDate": "2026-10-31",
+      "PreviousAgeDays": "60",
+      "CurrentAgeDays": "2",
+      "AgeDeltaDays": -58
+    },
+    {
+      "Company": "Apex Technology Inc",
+      "Title": "Proposal Specialist / Technical Writer, US Government Markets (TS/SCI)",
+      "Source": "ashby",
+      "ApplyLink": "https://jobs.ashbyhq.com/apex-technology-inc/94ae49b5-62d6-457b-8b85-1821d43ddafe",
+      "PreviousPostedDate": "2026-09-21",
+      "CurrentPostedDate": "2026-10-28",
+      "PreviousAgeDays": "35",
+      "CurrentAgeDays": "5",
+      "AgeDeltaDays": -30
+    }
+  ],
+  "SameDayPostedDateWarnCount": 10,
+  "SameDayPostedDateWarnPercent": 10,
+  "SameDayPostedDateSpikes": [],
+  "Failures": [],
+  "Warnings": [
+    "6 rows have Last Checked older than 7 days.",
+    "6 rows have Last Checked older than 14 days.",
+    "2 continuing rows moved Posted Date forward by more than 1 day(s): ashby: 2.",
+    "2 continuing rows have lower Age (Days) than the previous package: ashby: 2."
+  ],
+  "ManifestPath": "/Users/adampugh/GitHub/public-job-feed/data/jobs/gsheet-package/20261102-0537/gsheet-package-manifest.json",
+  "ManifestExists": true
+}

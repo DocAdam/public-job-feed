@@ -1,0 +1,127 @@
+{
+  "status": "Initial draft for Adam’s review. Do not publish.",
+  "edition_date": "2026-11-02",
+  "title": "Writing and documentation jobs",
+  "subtitle": "Week of November 2, 2026",
+  "population": "Saved public-list entries after location grouping and saved link removal. Not verified unique jobs.",
+  "current": {
+    "package_id": "20261102-0537",
+    "generated_at": "2026-11-02T11:37:22.293Z",
+    "snapshot_date": "2026-11-02",
+    "local_time": "5:37 a.m. CST"
+  },
+  "baseline": {
+    "package_id": "20261026-0638",
+    "generated_at": "2026-10-26T11:38:42.890Z",
+    "snapshot_date": "2026-10-26",
+    "local_time": "6:38 a.m. CDT"
+  },
+  "metrics": {
+    "total_entries": 748,
+    "remote_entries": 130,
+    "hybrid_entries": 123,
+    "onsite_entries": 462,
+    "unknown_entries": 33,
+    "grouped_entries": 26,
+    "application_links": 830,
+    "previous_total": 735,
+    "additions": 132,
+    "removals": 119,
+    "continuing": 616,
+    "net_change": 13,
+    "remote_percent": 17.379679144385026
+  },
+  "colors": {
+    "cream": "#F8F7F0",
+    "pale_green": "#E4F0E6",
+    "ink": "#092B24",
+    "grid": "#C7D4CB",
+    "green": "#07835C",
+    "blue": "#4D88BC",
+    "gray": "#919C99",
+    "yellow": "#E3BA48",
+    "muted": "#52665F"
+  },
+  "comparison_identity": "Repository jobKey: whitespace-cleaned, lower-case primary Apply Link, with trailing slashes removed. Same rule for both snapshots.",
+  "comparison_limit": "Three removed primary links remain as current additional links. Additions and removals are entry-key changes, not employer posting or closure events.",
+  "canvas": {
+    "width": 1600,
+    "height": 900,
+    "aspect_ratio": "16:9"
+  },
+  "segmented_bar": {
+    "x": 136,
+    "y": 450,
+    "width": 1360,
+    "height": 56,
+    "segments": [
+      {
+        "label": "Remote",
+        "count": 130,
+        "fraction": 0.17379679144385027,
+        "percent": 17.379679144385026,
+        "color": "#07835C",
+        "x": 136.0,
+        "width_px": 236.36363636363637
+      },
+      {
+        "label": "Hybrid",
+        "count": 123,
+        "fraction": 0.16443850267379678,
+        "percent": 16.443850267379677,
+        "color": "#4D88BC",
+        "x": 372.3636363636364,
+        "width_px": 223.63636363636363
+      },
+      {
+        "label": "Onsite",
+        "count": 462,
+        "fraction": 0.6176470588235294,
+        "percent": 61.76470588235294,
+        "color": "#919C99",
+        "x": 596.0,
+        "width_px": 840.0
+      },
+      {
+        "label": "Unknown",
+        "count": 33,
+        "fraction": 0.04411764705882353,
+        "percent": 4.411764705882353,
+        "color": "#E3BA48",
+        "x": 1436.0,
+        "width_px": 60.00000000000001
+      }
+    ],
+    "rounding": "Floating-point SVG widths. No gaps, minimum-width adjustments, or rounded segment values."
+  },
+  "cover": {
+    "png": "substack-assets-2026-11-02/substack-cover-2026-11-02.png",
+    "editable_svg": "substack-assets-2026-11-02/substack-cover-2026-11-02.svg",
+    "count_label": "Saved feed entries",
+    "date_label": "Week of November 2, 2026.",
+    "arrangement_labels": [
+      "Remote",
+      "Hybrid",
+      "Onsite",
+      "Unknown"
+    ]
+  },
+  "statistics": {
+    "png": "substack-assets-2026-11-02/substack-statistics-2026-11-02.png",
+    "editable_svg": "substack-assets-2026-11-02/substack-statistics-2026-11-02.svg",
+    "heading": "Good Doc Jobs: weekly statistics",
+    "addition_label": "132 added",
+    "removal_label": "119 removed",
+    "net_label": "+13 net",
+    "source_label": "Saved public list: November 2, 2026. Comparison: October 26, 2026."
+  },
+  "rendering_specification": {
+    "method": "Editable SVG rendered with installed rsvg-convert; no generated screenshot or raster reference is used as the output.",
+    "font": "DejaVu Sans with sans-serif fallback; DejaVu Sans Mono for sheet headers.",
+    "background": "Cream canvas, pale green cells, spreadsheet gridlines, column letters A–E, and row numbers.",
+    "reference": "October 26 published cover, inspected from its RSS enclosure. The statistics graphic uses the same cream spreadsheet system, as requested.",
+    "bar_formula": "segment width = count / 748 × 1360 pixels",
+    "source_dates": "Show November 2 and October 26, 2026. Do not use the render date as the edition date.",
+    "limits": "Use saved entries. Keep the grouping and comparison limits in the article and review."
+  }
+}
