@@ -82,6 +82,11 @@ See the [field contract, source limits, tests, and isolated preview commands](do
 
 ## For maintainers
 
+Board identity reconciliation has a read-only review script. See the
+[test plan](docs/board-reconciliation-test-plan-2026-11-06.md) and
+[change and evidence review](docs/board-reconciliation-hardening-2026-11-06.md).
+The script stages proposals in memory. It does not apply repairs to saved data.
+
 The normal macOS workflow is:
 
 ```sh
