@@ -1,30 +1,30 @@
 {
   "status": "passed",
-  "generation": "2b1dae2f-4112-493d-8252-e1a14d0832d1",
-  "database_sha256": "346ef76c186cf0c9ba795d078c6347c9c99fc5b50fbed6f9a82cbaf3a5af3014",
-  "source_manifest_hash": "d75efa1781b39c77de1183edd6b5664d511295e03d8e6521cde03f20d7daec38",
+  "generation": "fa50b715-51a5-4346-99b6-2319a43af35b",
+  "database_sha256": "e56a962fd8bcbd57cd24b3b6df142bdbad9eb306ab4657ea0c4546058db88647",
+  "source_manifest_hash": "925f6aa4be23a1b5eda24f7634447b4ee7ad8cb119fff34d3bb7cc6837703b62",
   "format": "v2",
-  "observations": "117520",
-  "canonical_urls": "3523",
-  "job_keys": "3469",
-  "company_keys": "1631",
-  "raw_top_match_rows": "117530",
-  "raw_job_keys": "3469",
+  "observations": "129900",
+  "canonical_urls": "3883",
+  "job_keys": "3824",
+  "company_keys": "1724",
+  "raw_top_match_rows": "129910",
+  "raw_job_keys": "3824",
   "good_job_exceptions": "40",
-  "raw_good_job_rows": "103934",
+  "raw_good_job_rows": "114294",
   "duplicate_canonical_rows": "10",
-  "snapshots": "159",
+  "snapshots": "173",
   "latest": {
-    "snapshot_id": "20261025-0724",
-    "observed_at": "2026-10-25 07:24:00",
-    "total_postings": "847",
-    "good_postings": "732",
-    "remote_postings": "154",
-    "hybrid_postings": "128",
-    "onsite_postings": "533",
-    "us_remote_eligible_count": "44",
-    "company_count": 546,
-    "catalog_slug_count": 550,
+    "snapshot_id": "20261108-0743",
+    "observed_at": "2026-11-08 07:43:00",
+    "total_postings": "938",
+    "good_postings": "751",
+    "remote_postings": "236",
+    "hybrid_postings": "136",
+    "onsite_postings": "532",
+    "us_remote_eligible_count": "56",
+    "company_count": 562,
+    "catalog_slug_count": 568,
     "ats_type_count": 7
   },
   "errors": [],
@@ -167,9 +167,9 @@
           "Source",
           "Employment Type"
         ],
-        "snapshots": 2,
+        "snapshots": 16,
         "first": "20261024-0954",
-        "last": "20261025-0724"
+        "last": "20261108-0743"
       }
     ],
     "03_top_matches_full.csv": [
@@ -321,9 +321,9 @@
           "DedupeSelectionReason",
           "DedupeGroupSize"
         ],
-        "snapshots": 2,
+        "snapshots": 16,
         "first": "20261024-0954",
-        "last": "20261025-0724"
+        "last": "20261108-0743"
       }
     ]
   },

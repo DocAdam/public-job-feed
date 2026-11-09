@@ -310,6 +310,11 @@ failure. The approved repair imported `20261023-0624`, which brought history to
 passed. The [repair record](docs/plans/history-manifest-repair-20261023T135057Z/README.md)
 contains the checks and limits. The earlier failure record remains unchanged.
 
+The saved [history validation](data/jobs/history/validation.json) records a
+passed audit for generation `fa50b715-51a5-4346-99b6-2319a43af35b`, with
+173 snapshots through package `20261108-0743`. This is a saved November 8
+result. It does not establish the current backup or publication result.
+
 ### Storage and retention
 
 The project keeps current board inputs, compact fetch history, and a short window of raw batches for recovery. New batch runs use JSON as the machine-readable format; the large batch CSV is available only when explicitly requested for investigation.
