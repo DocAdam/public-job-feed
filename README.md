@@ -183,8 +183,9 @@ The refresh generates separate U.S. and international reports and one combined
 report with a daily snapshot. They compare saved packages. Added and removed
 jobs describe list membership, not posting or closure dates.
 
-Run `npm run allremotediff` to create and open the combined report. Use
+Run `npm run allremotediff` to create and open the combined report in an existing VS Code window. Use
 `npm run jobs:report-all-remote` to generate it without opening an application.
+The `code` command must be available in your shell for the open option.
 Run `npm run allremotediff -- --substack` to create and open a separate,
 Substack Markdown input file at
 `data/jobs/reports/substack-remote-jobs.md`. This output uses the current saved

@@ -48,7 +48,7 @@ async function main() {
   console.log(`Full current package rows: ${current.rows.length}`);
   console.log(`Lines: ${markdown.split("\n").length}`);
   console.log(`Report: ${outputPath}`);
-  if (options.open) execFileSync("open", [outputPath]);
+  if (options.open) execFileSync("code", ["--reuse-window", outputPath]);
 }
 
 main().catch((error) => {
