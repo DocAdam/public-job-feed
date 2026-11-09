@@ -379,6 +379,7 @@ README, then check references and links in the same group.
 
 | Guide | Use it for |
 | --- | --- |
+| [November 9 branch review](docs/branch-review-2026-11-09.md) | Commit groups, focused checks, and remaining limits. |
 | [Refresh process diagram](docs/refresh-job-feed-process.md) | The refresh steps, data inputs, checks, and manual publication step. |
 | [Status dashboard](docs/status-dashboard.md) | Run evidence, source dates, tests, and user review. |
 | [Daily job reports](docs/daily-job-reports.md) | Remote comparisons, focused views, and command options. |
