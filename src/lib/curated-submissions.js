@@ -9,6 +9,110 @@ function cleanText(value) {
   return value === null || value === undefined ? "" : String(value).trim();
 }
 
+function decodeHtml(value) {
+  return cleanText(value)
+    .replace(/&#(\d+);/g, (match, code) => String.fromCodePoint(Number(code)))
+    .replace(/&#x([0-9a-f]+);/gi, (match, code) => String.fromCodePoint(Number.parseInt(code, 16)))
+    .replace(/&nbsp;/gi, " ")
+    .replace(/&amp;/gi, "&")
+    .replace(/&lt;/gi, "<")
+    .replace(/&gt;/gi, ">")
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;|&#39;/gi, "'");
+}
+
+function htmlToText(value) {
+  return decodeHtml(
+    cleanText(value)
+      .replace(/<script\b[\s\S]*?<\/script>/gi, " ")
+      .replace(/<style\b[\s\S]*?<\/style>/gi, " ")
+      .replace(/<[^>]+>/g, " ")
+  )
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function getAttribute(tag, name) {
+  const escapedName = String(name).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = String(tag || "").match(
+    new RegExp(`\\b${escapedName}\\s*=\\s*(?:"([^"]*)"|'([^']*)'|([^\\s>]+))`, "i")
+  );
+  return decodeHtml(match && (match[1] ?? match[2] ?? match[3]));
+}
+
+function getElementInnerHtml(source, startIndex, tagName) {
+  const openingEnd = source.indexOf(">", startIndex);
+  if (openingEnd < 0) return null;
+  const escapedTagName = String(tagName).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const tagPattern = new RegExp(`<\\/?${escapedTagName}\\b[^>]*>`, "gi");
+  tagPattern.lastIndex = openingEnd + 1;
+  let depth = 1;
+  let match;
+  while ((match = tagPattern.exec(source))) {
+    if (/^<\//.test(match[0])) {
+      depth -= 1;
+      if (depth === 0) return source.slice(openingEnd + 1, match.index);
+    } else if (!/\/\s*>$/.test(match[0])) {
+      depth += 1;
+    }
+  }
+  return null;
+}
+
+function findItempropValue(source, property, preserveHtml = false) {
+  const tagPattern = /<([a-z][\w:-]*)\b[^>]*>/gi;
+  let match;
+  while ((match = tagPattern.exec(source))) {
+    const properties = getAttribute(match[0], "itemprop").split(/\s+/).filter(Boolean);
+    if (!properties.includes(property)) continue;
+    const content = getAttribute(match[0], "content");
+    if (content) return content;
+    const innerHtml = getElementInnerHtml(source, match.index, match[1]);
+    if (innerHtml === null) continue;
+    return preserveHtml ? innerHtml.trim() : htmlToText(innerHtml);
+  }
+  return "";
+}
+
+function normalizeDatePosted(value) {
+  const text = cleanText(value);
+  if (!text || /^\d{4}-\d{2}-\d{2}(?:T|$)/.test(text)) return text;
+  const timestamp = Date.parse(text);
+  return Number.isFinite(timestamp) ? new Date(timestamp).toISOString().slice(0, 10) : text;
+}
+
+function parseJobPostingMicrodata(html) {
+  const source = String(html || "");
+  const tagPattern = /<([a-z][\w:-]*)\b[^>]*>/gi;
+  let match;
+  while ((match = tagPattern.exec(source))) {
+    const itemTypes = getAttribute(match[0], "itemtype").split(/\s+/).filter(Boolean);
+    if (!itemTypes.some((itemType) => /^https?:\/\/schema\.org\/JobPosting\/?$/i.test(itemType))) continue;
+    const body = getElementInnerHtml(source, match.index, match[1]);
+    if (body === null) continue;
+    const title = findItempropValue(body, "title");
+    const description = findItempropValue(body, "description", true);
+    if (!title || !htmlToText(description)) continue;
+    const address = {
+      addressLocality: findItempropValue(body, "addressLocality"),
+      addressRegion: findItempropValue(body, "addressRegion"),
+      addressCountry: findItempropValue(body, "addressCountry"),
+    };
+    const jobPosting = {
+      "@type": "JobPosting",
+      title,
+      description,
+      datePosted: normalizeDatePosted(findItempropValue(body, "datePosted")),
+      occupationalCategory: findItempropValue(body, "industry"),
+    };
+    if (Object.values(address).some(Boolean)) {
+      jobPosting.jobLocation = { "@type": "Place", address: { "@type": "PostalAddress", ...address } };
+    }
+    return jobPosting;
+  }
+  return null;
+}
+
 function parseJobPosting(html) {
   const scripts = String(html || "").match(/<script\b[^>]*type="application\/ld\+json"[^>]*>[\s\S]*?<\/script>/gi) || [];
   for (const script of scripts) {
@@ -25,7 +129,7 @@ function parseJobPosting(html) {
       // Keep looking: a page can contain multiple JSON-LD blocks.
     }
   }
-  return null;
+  return parseJobPostingMicrodata(html);
 }
 
 function getLocations(jobPosting) {
@@ -43,7 +147,8 @@ function getLocations(jobPosting) {
 }
 
 function getJobId(url) {
-  return cleanText(url).match(/\/(\d+)(?:[/?#]|$)/)?.[1] || "";
+  const matches = Array.from(cleanText(url).matchAll(/\/(\d+)(?=[/?#]|$)/g));
+  return matches.at(-1)?.[1] || "";
 }
 
 function getApplyUrl(html, baseUrl) {
@@ -74,7 +179,7 @@ async function fetchPosting(url) {
       throw error;
     }
     const jobPosting = parseJobPosting(html);
-    if (!jobPosting) throw new Error("Missing JobPosting JSON-LD");
+    if (!jobPosting) throw new Error("Missing JobPosting structured data");
     return { html, jobPosting, finalUrl: response.url, httpStatus: response.status };
   } finally {
     clearTimeout(timer);
@@ -186,4 +291,4 @@ async function loadCuratedSubmissionRows(titleRecords, generatedAt = new Date().
   return { rows, health };
 }
 
-module.exports = { loadCuratedSubmissionRows, parseJobPosting, submissionsPath };
+module.exports = { getJobId, loadCuratedSubmissionRows, parseJobPosting, submissionsPath };

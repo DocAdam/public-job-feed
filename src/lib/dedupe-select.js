@@ -112,10 +112,38 @@ function getDedupeKeys(row, index) {
   return [`fallback:${fallback}${suffix}`];
 }
 
+function getStablePostingIdentity(row) {
+  const ats = cleanText(row.ATS).toLowerCase();
+  const company = cleanText(row.CompanyKey || row.CatalogSlug || row.Company).toLowerCase();
+  const rawJobId = cleanText(row.RawJobId).toLowerCase();
+  return ats && company && rawJobId ? { source: `${ats}:${company}`, rawJobId } : null;
+}
+
+function getAmbiguousHeuristicKeys(rows) {
+  const identitiesByKey = new Map();
+  rows.forEach((row, index) => {
+    const identity = getStablePostingIdentity(row);
+    if (!identity) return;
+    for (const key of getDedupeKeys(row, index)) {
+      if (!key.startsWith("duplicate:")) continue;
+      if (!identitiesByKey.has(key)) identitiesByKey.set(key, new Map());
+      const bySource = identitiesByKey.get(key);
+      if (!bySource.has(identity.source)) bySource.set(identity.source, new Set());
+      bySource.get(identity.source).add(identity.rawJobId);
+    }
+  });
+  return new Set(
+    Array.from(identitiesByKey.entries())
+      .filter(([, bySource]) => Array.from(bySource.values()).some((rawJobIds) => rawJobIds.size > 1))
+      .map(([key]) => key)
+  );
+}
+
 function groupRows(rows) {
   const parents = rows.map((_, index) => index);
   const keyOwners = new Map();
   const variants = rows.map(employmentVariant);
+  const ambiguousHeuristicKeys = getAmbiguousHeuristicKeys(rows);
 
   function find(index) {
     if (parents[index] !== index) parents[index] = find(parents[index]);
@@ -136,6 +164,7 @@ function groupRows(rows) {
   for (const strong of [true, false]) rows.forEach((row, index) => {
     for (const key of getDedupeKeys(row, index)) {
       if (key.startsWith("canonical") !== strong) continue;
+      if (ambiguousHeuristicKeys.has(key)) continue;
       if (keyOwners.has(key)) union(index, keyOwners.get(key), strong);
       else keyOwners.set(key, index);
     }

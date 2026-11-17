@@ -12,12 +12,12 @@ const rawJobs = [
     DatePosted: "2026-08-13",
   },
   {
-    RawJobId: "writer-002",
+    RawJobId: "writer-001",
     Company: "Example Co",
     Title: "Technical Writer",
     Location: "Remote, United States",
     Description: "Remote US role.",
-    URL: "https://careers.example.com/jobs/writer-002",
+    URL: "https://careers.example.com/jobs/writer-001",
   },
 ];
 

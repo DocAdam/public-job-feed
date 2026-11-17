@@ -25,7 +25,17 @@ Only `APPROVED` entries are checked during `npm run jobs:public-release`.
 3. The job is normalized, scored, checked for export quality, and deduplicated against the full feed.
 4. If it qualifies, it appears in the next Google Sheets package.
 
+The parser accepts `JobPosting` data in JSON-LD or schema.org microdata. It
+requires a title and description. It also uses the posting date, location, and
+industry when the employer supplies them. It does not add missing job facts.
+
 The original employer page remains the deduplication key. If the page provides a more direct application URL, the Good Documentation Jobs CSV uses that link for `Apply Link`.
+
+For a URL with more than one numeric path part, the final numeric part is the
+job ID. Two records from the same source stay separate when they have different
+stable job IDs. This rule prevents a shared title and location from merging
+different openings. Exact URLs and identical source job IDs can still merge.
+The cross-source duplicate check continues when the source IDs do not conflict.
 
 ## If a page cannot be checked
 
