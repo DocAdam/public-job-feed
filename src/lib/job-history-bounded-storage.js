@@ -310,15 +310,19 @@ async function createBoundedPrototype(options = {}) {
           for await (const batch of batches(records(staged, limits), limits, stats)) await saveObservationBatch(c, id, batch);
           for await (const batch of batches(records(exceptionStaged, limits), limits, stats)) await append(c, 'history_v2_good_job_exceptions', batch.map(r => [id, GOOD, r.raw_row_number, r.reason]));
           // All appended rows are flushed. Release native write buffers before
-          // the full audit and metric queries, while retaining the transaction.
+          // the package integrity and metric queries, while retaining the transaction.
           closeWriters(c);
           memoryStage('rows stored');
           stage='refresh run context'; await refreshRunContext(c, limits);
           stage='audit package';
           await auditPackage(c, s, limits);
           memoryStage('package audited');
+          // The runtime audits the complete accepted database before an update
+          // and the complete candidate before installation. In this write
+          // transaction, audit only the new snapshot so historical query
+          // buffers do not overlap the retained write buffers.
           stage='audit integrity';
-          await auditIntegrity(c);
+          await auditIntegrity(c,[id]);
           memoryStage('integrity audited');
           if (hasMetrics) {
             stage='refresh SQL compatibility and metrics';
@@ -442,15 +446,18 @@ async function auditPackage(c, s, limits = LIMITS) {
 function memoryStage(name){
   if(process.env.HISTORY_MEMORY_TRACE)console.error(JSON.stringify({stage:name,...process.memoryUsage(),peak_rss_bytes:process.resourceUsage().maxRSS*1024}));
 }
-async function auditIntegrity(c) {
+async function auditIntegrity(c, snapshotIds) {
   const checks = [
     ['import metadata', `SELECT count(*) n FROM history_v2_snapshots s FULL JOIN history_v2_imports i USING(snapshot_id) WHERE s.snapshot_id IS NULL OR i.snapshot_id IS NULL OR imported_at IS NULL`],
     ['observation attributes', `SELECT count(*) n FROM history_v2_observations o FULL JOIN history_v2_observation_attributes a USING(snapshot_id,canonical_url_key) WHERE o.snapshot_id IS NULL OR a.snapshot_id IS NULL OR a.selection_rule IS NULL`],
-    ['payload text references', `WITH refs AS MATERIALIZED (
-      SELECT payload_hash,json_extract_string(list_extract(list_filter(json_extract(encoding,'$[1]')::JSON[],
-      e -> json_extract_string(e,'$[1][0]')='text_ref'),1),'$[1][1]') expected_text_hash FROM history_v2_row_payloads)
-      SELECT count(*) n FROM refs p FULL JOIN history_v2_payload_texts x USING(payload_hash)
-      WHERE p.payload_hash IS NULL OR x.payload_hash IS NULL OR x.text_hash IS DISTINCT FROM p.expected_text_hash`],
+    // Primary and foreign keys make these tables subsets with unique payload
+    // hashes. Equal narrow counts prove complete coverage without materializing
+    // both wide history tables in one full join.
+    ['payload text references', `SELECT count(*) n FROM (SELECT
+      (SELECT count(*) FROM history_v2_row_payloads) row_payloads,
+      (SELECT count(*) FROM history_v2_payload_texts) payload_texts,
+      (SELECT count(DISTINCT payload_hash) FROM history_v2_raw_rows) referenced_payloads) counts
+      WHERE row_payloads<>payload_texts OR row_payloads<>referenced_payloads`],
     ['text hash', 'SELECT count(*) n FROM history_v2_text_blobs WHERE sha256(content)<>text_hash'],
     ['payload hash', 'SELECT count(*) n FROM history_v2_row_payloads WHERE sha256(encoding)<>payload_hash'],
     ['content hash', `SELECT count(*) n FROM history_v2_content_versions WHERE sha256(encoding)<>content_hash OR projection<>${q(PROJECTION)}`],
@@ -475,7 +482,10 @@ async function auditIntegrity(c) {
   // Restrict both wide join inputs before reconstruction. The unfiltered join
   // retained historical text for every snapshot and exceeded the fixed limit.
   // Every raw row is still checked, including duplicate siblings and exceptions.
-  for (const {snapshot_id:id} of await query(c,'SELECT snapshot_id FROM history_v2_snapshots ORDER BY snapshot_id')) {
+  const selectedSnapshots=snapshotIds
+    ? [...new Set(snapshotIds)].sort().map(snapshot_id=>({snapshot_id}))
+    : await query(c,'SELECT snapshot_id FROM history_v2_snapshots ORDER BY snapshot_id');
+  for (const {snapshot_id:id} of selectedSnapshots) {
     // Cross-check narrow reference counts and run scalars against preserved
     // source metadata one package at a time. The metric planner reads this
     // metadata before the write transaction; do not trust its counts alone.
@@ -489,15 +499,29 @@ async function auditIntegrity(c) {
     for(const key of ['top','good','resolved','unmatched'])counts[key]=Number(counts[key]);
     counts.duplicates=counts.top-counts.resolved;
     assert.deepEqual(counts,Object.fromEntries(Object.keys(counts).map(key=>[key,metadata[key]])),`Snapshot count/run metadata mismatch ${id}`);
-    const mismatches=await query(c,`WITH payloads AS MATERIALIZED (
-      SELECT p.* FROM history_v2_payload_texts p SEMI JOIN history_v2_raw_rows r
+    // auditPackage already checks every source row and observation in the new
+    // snapshot with bounded pages. Defer the SQL-wide reconstruction to the
+    // fresh-process full audit that gates candidate installation.
+    if(snapshotIds){memoryStage('scoped integrity '+id);continue;}
+    // Extract expected text hashes and reconstruct raw rows in one bounded
+    // query. A separate query for each check retained allocator memory across
+    // the complete snapshot loop.
+    const mismatches=await query(c,`WITH refs AS MATERIALIZED (SELECT p.payload_hash,
+      json_extract_string(list_extract(list_filter(json_extract(p.encoding,'$[1]')::JSON[],
+      e -> json_extract_string(e,'$[1][0]')='text_ref'),1),'$[1][1]') expected_text_hash
+      FROM history_v2_row_payloads p SEMI JOIN history_v2_raw_rows r
       ON p.payload_hash=r.payload_hash AND r.snapshot_id=${q(id)}),
+      payloads AS MATERIALIZED (SELECT p.*,r.expected_text_hash FROM history_v2_payload_texts p
+      JOIN refs r USING(payload_hash)),
       texts AS MATERIALIZED (SELECT t.* FROM history_v2_text_blobs t SEMI JOIN payloads p USING(text_hash))
-      SELECT count(*) n FROM history_v2_raw_rows r JOIN payloads p USING(payload_hash) LEFT JOIN texts t USING(text_hash)
-      WHERE r.snapshot_id=${q(id)} AND sha256(CASE WHEN p.json_suffix IS NULL THEN p.json_prefix
-      ELSE p.json_prefix || to_json(t.content)::VARCHAR || p.json_suffix END) IS DISTINCT FROM r.raw_hash`);
-    if(Number(mismatches[0].n))throw new Error(`Integrity failure: SQL reconstruction ${id}`);
-    memoryStage('reconstruction '+id);
+      SELECT count(*) FILTER (WHERE p.text_hash IS DISTINCT FROM p.expected_text_hash) reference_mismatches,
+      count(*) FILTER (WHERE sha256(CASE WHEN p.json_suffix IS NULL THEN p.json_prefix
+      ELSE p.json_prefix || to_json(t.content)::VARCHAR || p.json_suffix END) IS DISTINCT FROM r.raw_hash) reconstruction_mismatches
+      FROM history_v2_raw_rows r JOIN payloads p USING(payload_hash) LEFT JOIN texts t USING(text_hash)
+      WHERE r.snapshot_id=${q(id)}`);
+    if(Number(mismatches[0].reference_mismatches))throw new Error(`Integrity failure: payload text references ${id}`);
+    if(Number(mismatches[0].reconstruction_mismatches))throw new Error(`Integrity failure: SQL reconstruction ${id}`);
+    memoryStage('payload references and reconstruction '+id);
   }
 }
 module.exports = { LIMITS, DATABASE_OPTIONS, FILES, fileHash, records, batches, merge, createBoundedPrototype, boundedReader, auditPackage, auditIntegrity, parseCsvFlat, preparePackage, q };

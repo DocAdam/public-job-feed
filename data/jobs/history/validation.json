@@ -1,30 +1,30 @@
 {
   "status": "passed",
-  "generation": "fa50b715-51a5-4346-99b6-2319a43af35b",
-  "database_sha256": "e56a962fd8bcbd57cd24b3b6df142bdbad9eb306ab4657ea0c4546058db88647",
-  "source_manifest_hash": "925f6aa4be23a1b5eda24f7634447b4ee7ad8cb119fff34d3bb7cc6837703b62",
+  "generation": "f4322533-4184-4df7-85c7-5f37fe8ef4d8",
+  "database_sha256": "4561508a3f30e31f3fa8f414e240ad813c775e46eb546b41aa3cc75ad8f76783",
+  "source_manifest_hash": "73fa51eeef49c5b6a888ce84c5480625d8f102dd5a71d863c2f232ae744c94de",
   "format": "v2",
-  "observations": "129900",
-  "canonical_urls": "3883",
-  "job_keys": "3824",
-  "company_keys": "1724",
-  "raw_top_match_rows": "129910",
-  "raw_job_keys": "3824",
-  "good_job_exceptions": "40",
-  "raw_good_job_rows": "114294",
+  "observations": "138511",
+  "canonical_urls": "4116",
+  "job_keys": "4047",
+  "company_keys": "1782",
+  "raw_top_match_rows": "138521",
+  "raw_job_keys": "4047",
+  "good_job_exceptions": "42",
+  "raw_good_job_rows": "121323",
   "duplicate_canonical_rows": "10",
-  "snapshots": "173",
+  "snapshots": "182",
   "latest": {
-    "snapshot_id": "20261108-0743",
-    "observed_at": "2026-11-08 07:43:00",
-    "total_postings": "938",
-    "good_postings": "751",
-    "remote_postings": "236",
-    "hybrid_postings": "136",
-    "onsite_postings": "532",
-    "us_remote_eligible_count": "56",
-    "company_count": 562,
-    "catalog_slug_count": 568,
+    "snapshot_id": "20261117-0728",
+    "observed_at": "2026-11-17 07:28:00",
+    "total_postings": "966",
+    "good_postings": "799",
+    "remote_postings": "229",
+    "hybrid_postings": "132",
+    "onsite_postings": "574",
+    "us_remote_eligible_count": "63",
+    "company_count": 588,
+    "catalog_slug_count": 593,
     "ats_type_count": 7
   },
   "errors": [],
@@ -60,6 +60,7 @@
     "20260920-0545: 1 unmatched good-job rows preserved as exceptions",
     "20260921-0631: 1 unmatched good-job rows preserved as exceptions",
     "20260922-0700: 1 unmatched good-job rows preserved as exceptions",
+    "20261117-0728: 2 unmatched good-job rows preserved as exceptions",
     "01_good_documentation_jobs.csv: 5 header variants (union by name)",
     "03_top_matches_full.csv: 2 header variants (union by name)"
   ],
@@ -167,9 +168,9 @@
           "Source",
           "Employment Type"
         ],
-        "snapshots": 16,
+        "snapshots": 25,
         "first": "20261024-0954",
-        "last": "20261108-0743"
+        "last": "20261117-0728"
       }
     ],
     "03_top_matches_full.csv": [
@@ -321,9 +322,9 @@
           "DedupeSelectionReason",
           "DedupeGroupSize"
         ],
-        "snapshots": 16,
+        "snapshots": 25,
         "first": "20261024-0954",
-        "last": "20261108-0743"
+        "last": "20261117-0728"
       }
     ]
   },

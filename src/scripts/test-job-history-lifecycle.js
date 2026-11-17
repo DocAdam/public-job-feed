@@ -4,7 +4,7 @@ const path = require('node:path');
 const os = require('node:os');
 const { rowsToCsv, parseCsvRecords } = require('../lib/csv');
 const { query } = require('../lib/jobs-history');
-const { TOP, GOOD } = require('../lib/job-history-storage');
+const { TOP, GOOD, sha256 } = require('../lib/job-history-storage');
 const { createBoundedPrototype, boundedReader, merge, auditIntegrity, parseCsvFlat, q } = require('../lib/job-history-bounded-storage');
 const { installLifecycleViews, lifecycleEvents, lifecycleSummary } = require('../lib/job-history-lifecycle');
 const job = { CanonicalURLKey: 'https://fixture/a', URL: 'https://fixture/a', JobKey: 'same-key', Company: 'One', Title: 'Technical Writer', Description: 'A' };
@@ -88,6 +88,18 @@ async function main() {
       try {await p.connection.run(sql);await assert.rejects(auditIntegrity(p.connection),/payload text references/);}
       finally {await p.connection.run('ROLLBACK');}
     }
+    // A payload and text row without a raw-row reference must also fail the
+    // narrow coverage check.
+    await p.connection.run('BEGIN TRANSACTION');
+    try {
+      const base=(await query(p.connection,`SELECT p.encoding,x.text_hash,x.json_prefix,x.json_suffix
+        FROM history_v2_row_payloads p JOIN history_v2_payload_texts x USING(payload_hash) LIMIT 1`))[0];
+      const decoded=JSON.parse(base.encoding);decoded[1].push(['OrphanAuditFixture',['value','true']]);
+      const encoding=JSON.stringify(decoded),payloadHash=sha256(encoding);
+      await p.connection.run(`INSERT INTO history_v2_row_payloads VALUES (${q(payloadHash)},${q(encoding)});
+        INSERT INTO history_v2_payload_texts VALUES (${q(payloadHash)},${q(base.text_hash)},${q(base.json_prefix)},${base.json_suffix===null?'NULL':q(base.json_suffix)})`);
+      await assert.rejects(auditIntegrity(p.connection),/payload text references/);
+    } finally { await p.connection.run('ROLLBACK'); }
     for(const sql of [
       'UPDATE history_v2_runs SET company_count=company_count+1',
       'UPDATE history_v2_runs SET catalog_slug_count=NULL',
