@@ -16,6 +16,61 @@
     "first_published": "2026-11-01T12:00:00.000Z"
   },
   "expectedRemoteStatus": "Onsite",
+  "samlino": {
+    "provenance": {
+      "packageId": "20261118-0959",
+      "sourceBatch": "maintain-due-greenhouse-20261117t220002-2f5a8102-6233-4fee-9da2-ee18d0114cc0-042fd0cc-5071-44a3-9a7d-6b81ca1ba84d",
+      "sourceArtifact": "public-job-feed-batch.json",
+      "sourceField": "Description",
+      "note": "Each fixture keeps the exact saved schedule and remote-work sentences used by the classifier. Unrelated posting text is omitted."
+    },
+    "jobs": [
+      {
+        "id": "6221512003",
+        "title": "Content Writer - Samlino.dk",
+        "absolute_url": "https://job-boards.greenhouse.io/samlino/jobs/6221512003",
+        "location": {
+          "name": "Copenhagen, Denmark"
+        },
+        "content": "<p>Start date and schedule</p><p>Flexible start date. Monday to Friday, we thrive in our office environment, where we create magic. Remote work options are currently unavailable, as we believe in the power of collaboration and synergy that arises from working together.</p>",
+        "first_published": "2026-11-17T12:00:00.000Z",
+        "expectedRemoteStatus": "Onsite"
+      },
+      {
+        "id": "6221507003",
+        "title": "Content Manager - Samlino.dk",
+        "absolute_url": "https://job-boards.greenhouse.io/samlino/jobs/6221507003",
+        "location": {
+          "name": "Copenhagen, Denmark"
+        },
+        "content": "<p>Start date and schedule</p><p>Flexible start date. Monday to Friday, we thrive in our office environment, where we create magic. Remote work options are currently unavailable, as we believe in the power of collaboration and synergy that arises from working together.</p>",
+        "first_published": "2026-11-17T12:00:00.000Z",
+        "expectedRemoteStatus": "Onsite"
+      }
+    ]
+  },
+  "tenALabs": {
+    "provenance": {
+      "packageId": "20261118-0959",
+      "sourceBatch": "maintain-due-greenhouse-20261118t142243-f88c68f4-b649-4fa5-9bfc-6616a52347da-70749a22-f4f4-4f79-8fca-5ef42d6f72fe",
+      "sourceArtifact": "public-job-feed-batch.json",
+      "sourceField": "Description",
+      "descriptionSha256": "387bcc07e58bdc0dc438627359695b76428e35957b0f8dc062c3a3dc7d209270",
+      "note": "The fixture keeps the exact saved Location and Location & Travel Expectations prose used by the classifier. Unrelated posting text is omitted."
+    },
+    "savedJob": {
+      "id": "4467508009",
+      "title": "Technical Writer & Instructional Designer",
+      "absolute_url": "https://job-boards.greenhouse.io/10alabs/jobs/4467508009",
+      "location": {
+        "name": "Remote"
+      },
+      "content": "<p>Location & Travel Expectations</p><p>We are primarily seeking candidates based in the Washington, DC, New York City, San Francisco Bay Area, and Denver metropolitan areas. Candidates hired in these locations will be expected to work from a 10a Labs office at least two days per week. All new hires will participate in in-person onboarding in Washington, DC, New York City, or San Francisco during their first week. Occasional travel may also be required for interviews, in-person meetings, and other business needs.</p>",
+      "first_published": "2026-10-15T12:00:00.000Z"
+    },
+    "expectedRemoteStatusFromSavedInputs": "Unknown",
+    "expectedRemoteStatusWhenRemoteOutsideIsExplicit": "Remote"
+  },
   "adyenHybridSchedule": {
     "provenance": {
       "packageId": "20261117-2049",

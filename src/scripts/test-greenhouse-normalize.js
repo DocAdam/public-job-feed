@@ -87,6 +87,141 @@ const workArrangementFixtures = [
     expectedRemoteStatus: onsiteNegationFixture.expectedRemoteStatus,
     excludedSignals: ["remote"],
   },
+  ...onsiteNegationFixture.samlino.jobs.map((job) => ({
+    name: `saved Samlino ${job.id} full-week office schedule and remote denial is onsite`,
+    job,
+    expectedRemoteStatus: job.expectedRemoteStatus,
+    expectedSignals: ["full-time office attendance", "remote work denied"],
+    excludedSignals: ["remote"],
+  })),
+  {
+    name: "saved 10a Labs conditional metro office requirement is unknown",
+    job: onsiteNegationFixture.tenALabs.savedJob,
+    expectedRemoteStatus: onsiteNegationFixture.tenALabs.expectedRemoteStatusFromSavedInputs,
+    expectedSignals: ["conditional office requirement"],
+    excludedSignals: ["fully remote outside named locations"],
+    expectedReviewPatterns: [
+      /recurring office requirement applies to named candidate locations/,
+      /Washington, DC, New York City, San Francisco Bay Area, and Denver metropolitan areas/,
+      /office at least two days per week/,
+      /fully remote eligibility outside them is not stated/,
+    ],
+  },
+  {
+    name: "conditional metro office requirement stays remote when outside eligibility is explicit",
+    job: {
+      ...onsiteNegationFixture.tenALabs.savedJob,
+      id: "conditional-office-explicit-remote-control",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/conditional-office-explicit-remote-control",
+      content: `${onsiteNegationFixture.tenALabs.savedJob.content}<p>Candidates outside these locations may work fully remotely.</p>`,
+    },
+    expectedRemoteStatus: onsiteNegationFixture.tenALabs.expectedRemoteStatusWhenRemoteOutsideIsExplicit,
+    expectedSignals: ["conditional office requirement", "fully remote outside named locations"],
+    expectedReviewPatterns: [
+      /source explicitly permits fully remote work outside them/,
+      /Candidates outside these locations may work fully remotely/,
+    ],
+  },
+  {
+    name: "a named metro office rule without remote evidence keeps onsite",
+    job: {
+      ...onsiteNegationFixture.tenALabs.savedJob,
+      id: "conditional-office-city-control",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/conditional-office-city-control",
+      location: { name: "New York City" },
+    },
+    expectedRemoteStatus: "Onsite",
+    expectedSignals: ["conditional office requirement", "office days in qualifying location"],
+    expectedReviewPatterns: [
+      /recurring office requirement applies to this posting location/,
+      /posting location: New York City/,
+    ],
+  },
+  {
+    name: "a named metro office rule plus explicit remote evidence is hybrid",
+    job: {
+      ...onsiteNegationFixture.tenALabs.savedJob,
+      id: "conditional-office-city-remote-control",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/conditional-office-city-remote-control",
+      location: { name: "New York City" },
+      content: `${onsiteNegationFixture.tenALabs.savedJob.content}<p>Work Environment: Fully remote.</p>`,
+    },
+    expectedRemoteStatus: "Hybrid",
+    expectedSignals: ["remote", "conditional office requirement", "office days in qualifying location"],
+    expectedReviewPattern: /recurring office requirement applies to this posting location/,
+  },
+  {
+    name: "an outside city stays unknown when remote eligibility is unresolved",
+    job: {
+      ...onsiteNegationFixture.tenALabs.savedJob,
+      id: "conditional-office-outside-city-control",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/conditional-office-outside-city-control",
+      location: { name: "Boston, Massachusetts" },
+    },
+    expectedRemoteStatus: "Unknown",
+    expectedSignals: ["conditional office requirement"],
+    excludedSignals: ["office days in qualifying location", "fully remote outside named locations"],
+    expectedReviewPattern: /fully remote eligibility outside them is not stated/,
+  },
+  {
+    name: "explicit hybrid evidence remains hybrid with a conditional metro office rule",
+    job: {
+      ...onsiteNegationFixture.tenALabs.savedJob,
+      id: "conditional-office-explicit-hybrid-control",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/conditional-office-explicit-hybrid-control",
+      content: `${onsiteNegationFixture.tenALabs.savedJob.content}<p>This is a hybrid role.</p>`,
+    },
+    expectedRemoteStatus: "Hybrid",
+    expectedSignals: ["hybrid", "conditional office requirement"],
+  },
+  {
+    name: "onboarding and occasional travel alone do not make a remote role hybrid",
+    job: {
+      id: "onboarding-travel-control",
+      title: "Technical Writer & Instructional Designer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/onboarding-travel-control",
+      location: { name: "Remote" },
+      content: "<p>All new hires will participate in in-person onboarding during their first week. Occasional travel may also be required for interviews, in-person meetings, and other business needs.</p>",
+    },
+    expectedRemoteStatus: "Remote",
+    excludedSignals: ["hybrid", "conditional office requirement"],
+  },
+  {
+    name: "office business hours and a remote denial do not establish attendance",
+    job: {
+      id: "office-hours-denial-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/office-hours-denial-control",
+      location: { name: "" },
+      content: "<p>Our office business hours are Monday to Friday, 9 a.m. to 5 p.m. Remote work options are currently unavailable.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["remote", "full-time office attendance"],
+  },
+  {
+    name: "an isolated weekday range and a remote denial do not establish office attendance",
+    job: {
+      id: "weekday-range-denial-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/weekday-range-denial-control",
+      location: { name: "" },
+      content: "<p>Monday to Friday is our publishing schedule. Remote work options are currently unavailable.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["remote", "full-time office attendance"],
+  },
+  {
+    name: "a remote-only denial does not turn a weekday office sentence into onsite proof",
+    job: {
+      id: "remote-only-weekday-office-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/remote-only-weekday-office-control",
+      location: { name: "" },
+      content: "<p>Monday to Friday, we thrive in our office environment. We do not offer remote-only roles.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["remote", "full-time office attendance"],
+  },
   {
     name: "saved Adyen office-first text stays unknown without its form schedule",
     job: onsiteNegationFixture.adyen.savedJob,
@@ -348,6 +483,11 @@ async function main() {
     if (fixture.expectedReviewPattern && !fixture.expectedReviewPattern.test(normalized.LocationReviewReason)) {
       failures.push(`expected review reason to match ${fixture.expectedReviewPattern}, got ${normalized.LocationReviewReason}`);
     }
+    for (const pattern of fixture.expectedReviewPatterns || []) {
+      if (!pattern.test(normalized.LocationReviewReason)) {
+        failures.push(`expected review reason to match ${pattern}, got ${normalized.LocationReviewReason}`);
+      }
+    }
 
     const status = failures.length ? "FAIL" : "PASS";
     result.Results.push({
@@ -355,6 +495,7 @@ async function main() {
       Status: status,
       RemoteStatus: normalized.RemoteStatus,
       RemoteSignal: normalized.RemoteSignal,
+      LocationReviewReason: normalized.LocationReviewReason,
       ExpectedRemoteStatus: fixture.expectedRemoteStatus,
     });
     for (const failure of failures) {

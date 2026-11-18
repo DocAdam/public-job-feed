@@ -35,6 +35,7 @@ const greenhouseRemoteWorkDenialPatterns = [
   /\b(?:do|does|did|will)\s+not\s+(?:offer|allow|support|permit)\s+remote(?![- ]only)(?:\s+work(?:ing)?)?\b/i,
   /\bno\s+(?:option\s+for\s+)?remote(?![- ]only)(?:\s+work(?:ing)?)?\b/i,
   /\bremote(?:\s+work(?:ing)?)?\s+(?:is|are|will be)\s+not\s+(?:available|offered|allowed|supported|permitted)\b/i,
+  /\bremote(?:\s+work(?:ing)?)?\s+options?\s+(?:is|are)\s+currently\s+unavailable\b/i,
   /\bnot\s+(?:a\s+)?remote\s+(?:role|position|job|opportunity)\b/i,
   /\bnot\s+remote\b(?![- ]only)/i,
 ];
@@ -50,7 +51,7 @@ const greenhouseRemoteNegationPatterns = [
 ];
 
 const greenhouseFullTimeOfficePatterns = [
-  /\bmonday\s*(?:-|–|—|to|through)\s*friday\b[^.]{0,160}\b(?:we|you|employees?|team|this role|the role)\b[^.]{0,80}\bwork(?:s|ing)?\s+(?:from|in|at)\b[^.]{0,80}\boffice\b/i,
+  /\bmonday\s*(?:-|–|—|to|through)\s*friday\b[^.]{0,160}\b(?:we|you|employees?|team|this role|the role)\b[^.]{0,80}\b(?:work(?:s|ing)?|thrive(?:s|d|ing)?)\s+(?:from|in|at)\b[^.]{0,80}\boffice\b/i,
   /\bfull[- ]time\b[^.]{0,60}\bin[- ]office\s+(?:presence|attendance)\b/i,
   /\b(?:five|5)\s+days?\s+(?:a|per|each)\s+week\b[^.]{0,160}\b(?:in|at|from)\b[^.]{0,80}\boffice\b/i,
   /\b(?:in|at|from)\b[^.]{0,80}\boffice\b[^.]{0,100}\b(?:every\s+(?:workday|weekday)|(?:five|5)\s+days?\s+(?:a|per|each)\s+week)\b/i,
@@ -65,14 +66,106 @@ const greenhouseExplicitHybridPatterns = [
   /\b(?:two|three|2|3)\s+days?\b[^.]{0,80}\b(?:home|remote)\b[^.]{0,120}\b(?:two|three|2|3)\s+days?\b[^.]{0,100}\boffice\b/i,
 ];
 
+const greenhouseExplicitRemoteArrangementPatterns = [
+  /\bfully\s+remote\b/i,
+  /\bremote\s+(?:role|position|job|work|working|setting|environment)\b/i,
+  /\bwork(?:ing)?\s+remotely\b/i,
+];
+
+const greenhouseConditionalOfficePattern =
+  /\b(?:candidates?|employees?|team members?|people|new hires?)\b[^.]{0,100}\b(?:hired|based|located|living|working)\s+(?:in|within)\s+(?:these|those|the\s+(?:above|listed|named))\s+(?:locations|areas|metros|regions)\b[^.]{0,140}\b(?:will be\s+)?(?:expected|required)\s+to\s+(?:work|be)\b[^.]{0,100}\b(?:from|in|at)\b[^.]{0,80}\boffice\b[^.]{0,100}\b(?:at least\s+)?(?:one|two|three|four|1|2|3|4)\s+days?\s+(?:a|per|each)\s+week\b/i;
+
+const greenhouseQualifyingGeographyPatterns = [
+  /\b(?:primarily\s+)?(?:seeking|hiring|considering)\s+(?:qualified\s+)?candidates?\s+(?:who\s+are\s+)?(?:based|located|living)\s+in\b/i,
+  /\bcandidates?\b[^.]{0,80}\b(?:must|should|need to)\s+be\s+(?:based|located|living)\s+in\b/i,
+];
+
+const greenhouseRemoteOutsideNamedLocationsPatterns = [
+  /\b(?:candidates?|employees?|team members?|people)\s+(?:who\s+are\s+)?(?:based|located|living)\s+outside\s+(?:of\s+)?(?:these|those|the\s+(?:above|listed|named))\s+(?:locations|areas|metros|regions)\b[^.]{0,120}\b(?:may|can|are\s+(?:allowed|permitted|eligible)\s+to)\s+(?:work|be)\s+(?:fully\s+)?remote(?:ly)?\b/i,
+  /\b(?:candidates?|employees?|team members?|people)\s+outside\s+(?:of\s+)?(?:these|those|the\s+(?:above|listed|named))\s+(?:locations|areas|metros|regions)\b[^.]{0,120}\b(?:may|can|are\s+(?:allowed|permitted|eligible)\s+to)\s+(?:work|be)\s+(?:fully\s+)?remote(?:ly)?\b/i,
+  /\boutside\s+(?:of\s+)?(?:these|those|the\s+(?:above|listed|named))\s+(?:locations|areas|metros|regions)\b[^.]{0,120}\b(?:fully\s+remote|work\s+remotely)\b/i,
+];
+
+function getGreenhouseSentences(value) {
+  return cleanText(value)
+    .replace(/\s+/g, " ")
+    .match(/[^.!?]+(?:[.!?]+|$)/g)
+    ?.map((sentence) => sentence.trim())
+    .filter(Boolean) || [];
+}
+
+function getGreenhouseConditionalOfficeEvidence(description) {
+  const sentences = getGreenhouseSentences(description);
+  const officeIndex = sentences.findIndex((sentence) => greenhouseConditionalOfficePattern.test(sentence));
+
+  if (officeIndex < 0) {
+    return {
+      hasConditionalOfficeRequirement: false,
+      qualifyingGeography: "",
+      officeRequirement: "",
+      explicitlyPermitsRemoteOutside: false,
+      remoteOutsideEvidence: "",
+    };
+  }
+
+  const qualifyingGeography = sentences
+    .slice(Math.max(0, officeIndex - 2), officeIndex)
+    .reverse()
+    .find((sentence) => greenhouseQualifyingGeographyPatterns.some((pattern) => pattern.test(sentence))) || "";
+
+  if (!qualifyingGeography) {
+    return {
+      hasConditionalOfficeRequirement: false,
+      qualifyingGeography: "",
+      officeRequirement: "",
+      explicitlyPermitsRemoteOutside: false,
+      remoteOutsideEvidence: "",
+    };
+  }
+
+  const remoteOutsideEvidence = sentences.find((sentence) =>
+    greenhouseRemoteOutsideNamedLocationsPatterns.some((pattern) => pattern.test(sentence))
+  ) || "";
+
+  return {
+    hasConditionalOfficeRequirement: true,
+    qualifyingGeography,
+    officeRequirement: sentences[officeIndex],
+    explicitlyPermitsRemoteOutside: Boolean(remoteOutsideEvidence),
+    remoteOutsideEvidence,
+  };
+}
+
+function locationMatchesQualifyingGeography(job, qualifyingGeography) {
+  const rawLocation = cleanText(job.Location || job.RawLocation);
+  if (!rawLocation || /\bremote\b|\banywhere\b|\bglobal\b|\bworldwide\b/i.test(rawLocation)) {
+    return false;
+  }
+
+  const normalizeLocation = (value) => normalizeText(value)
+    .replace(/\./g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+  const geography = normalizeLocation(qualifyingGeography);
+  const locationCandidates = Array.from(new Set([
+    normalizeLocation(rawLocation),
+    normalizeLocation(rawLocation.split(",")[0]),
+  ])).filter((value) => value.length >= 5);
+
+  return locationCandidates.some((location) => geography.includes(location));
+}
+
 function getGreenhouseRoleEvidence(job) {
   const description = normalizeText(job.Description);
+  const conditionalOffice = getGreenhouseConditionalOfficeEvidence(job.Description);
 
   return {
     hasRemoteNegation: greenhouseRemoteNegationPatterns.some((pattern) => pattern.test(description)),
     deniesRemoteWork: greenhouseRemoteWorkDenialPatterns.some((pattern) => pattern.test(description)),
     hasExplicitHybrid: greenhouseExplicitHybridPatterns.some((pattern) => pattern.test(description)),
+    hasExplicitRemoteArrangement: greenhouseExplicitRemoteArrangementPatterns.some((pattern) => pattern.test(description)),
     requiresFullTimeOffice: greenhouseFullTimeOfficePatterns.some((pattern) => pattern.test(description)),
+    conditionalOffice,
   };
 }
 
@@ -415,7 +508,15 @@ function detectWorkArrangement(job, structuredEvidence = {}, options = {}) {
       hasRemoteNegation: false,
       deniesRemoteWork: false,
       hasExplicitHybrid: false,
+      hasExplicitRemoteArrangement: false,
       requiresFullTimeOffice: false,
+      conditionalOffice: {
+        hasConditionalOfficeRequirement: false,
+        qualifyingGeography: "",
+        officeRequirement: "",
+        explicitlyPermitsRemoteOutside: false,
+        remoteOutsideEvidence: "",
+      },
     };
   const signalText = isGreenhouse && greenhouseEvidence.hasRemoteNegation
     ? removeGreenhouseRemoteNegations(text)
@@ -429,15 +530,36 @@ function detectWorkArrangement(job, structuredEvidence = {}, options = {}) {
     greenhouseEvidence.requiresFullTimeOffice &&
     !greenhouseEvidence.hasExplicitHybrid
   );
+  const greenhouseConditionalOfficeApplies = (
+    greenhouseEvidence.conditionalOffice.hasConditionalOfficeRequirement &&
+    locationMatchesQualifyingGeography(
+      job,
+      greenhouseEvidence.conditionalOffice.qualifyingGeography
+    )
+  );
+  const greenhouseConditionalHybrid = (
+    greenhouseConditionalOfficeApplies &&
+    (greenhouseEvidence.hasExplicitRemoteArrangement || greenhouseEvidence.hasExplicitHybrid)
+  );
+  const greenhouseConditionalOfficeUnresolved = (
+    greenhouseEvidence.conditionalOffice.hasConditionalOfficeRequirement &&
+    !greenhouseEvidence.conditionalOffice.explicitlyPermitsRemoteOutside &&
+    !greenhouseEvidence.hasExplicitHybrid &&
+    !greenhouseConditionalOfficeApplies
+  );
   const statusSignals = isGreenhouse && greenhouseEvidence.hasRemoteNegation && !greenhouseFullWeekOnsite
     ? remoteSignals.filter((signal) => !["onsite", "must be located in"].includes(signal))
     : remoteSignals;
   const textCountrySignals = getCountrySignal(signalText, remoteSignals);
   const textRemoteStatus = greenhouseFullWeekOnsite
     ? "Onsite"
-    : getRemoteStatus(statusSignals, job, signalText, {
-      allowCityFallback: !(isGreenhouse && greenhouseEvidence.hasRemoteNegation),
-    });
+    : greenhouseConditionalHybrid
+      ? "Hybrid"
+      : greenhouseConditionalOfficeUnresolved
+        ? "Unknown"
+        : getRemoteStatus(statusSignals, job, signalText, {
+          allowCityFallback: !(isGreenhouse && greenhouseEvidence.hasRemoteNegation),
+        });
   const structured = getStructuredWorkArrangement(
     structuredEvidence.workplaceType,
     structuredEvidence.isRemote
@@ -469,6 +591,32 @@ function detectWorkArrangement(job, structuredEvidence = {}, options = {}) {
     diagnostics.push(
       "Work arrangement review: remote wording is negated, but full-week office attendance is not established"
     );
+  }
+
+  if (greenhouseEvidence.conditionalOffice.hasConditionalOfficeRequirement) {
+    remoteSignals.push("conditional office requirement");
+    const qualifyingGeography = greenhouseEvidence.conditionalOffice.qualifyingGeography;
+    const officeRequirement = greenhouseEvidence.conditionalOffice.officeRequirement;
+
+    if (greenhouseConditionalOfficeApplies) {
+      remoteSignals.push("office days in qualifying location");
+      diagnostics.push(
+        `Greenhouse role evidence: recurring office requirement applies to this posting location (posting location: ${cleanText(job.Location || job.RawLocation)}; qualifying geography: ${qualifyingGeography}; office requirement: ${officeRequirement})`
+      );
+    } else if (greenhouseEvidence.conditionalOffice.explicitlyPermitsRemoteOutside) {
+      remoteSignals.push("fully remote outside named locations");
+      diagnostics.push(
+        `Greenhouse role evidence: recurring office requirement applies to named candidate locations, and the source explicitly permits fully remote work outside them (qualifying geography: ${qualifyingGeography}; office requirement: ${officeRequirement}; remote evidence: ${greenhouseEvidence.conditionalOffice.remoteOutsideEvidence})`
+      );
+    } else if (greenhouseEvidence.hasExplicitHybrid) {
+      diagnostics.push(
+        `Work arrangement note: explicit Hybrid evidence retained; a recurring office requirement is tied to named candidate locations (qualifying geography: ${qualifyingGeography}; office requirement: ${officeRequirement})`
+      );
+    } else {
+      diagnostics.push(
+        `Work arrangement review: recurring office requirement applies to named candidate locations, but fully remote eligibility outside them is not stated (qualifying geography: ${qualifyingGeography}; office requirement: ${officeRequirement})`
+      );
+    }
   }
 
   if (structured.remoteStatus && textRemoteStatus !== "Unknown" && textRemoteStatus !== structured.remoteStatus) {
