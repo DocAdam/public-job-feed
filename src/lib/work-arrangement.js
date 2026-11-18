@@ -49,6 +49,112 @@ function getCountrySignal(text, remoteSignals) {
   return Array.from(new Set(signals));
 }
 
+function addUniqueSignals(...signalGroups) {
+  return Array.from(new Set(signalGroups.flat().filter(Boolean)));
+}
+
+function getAshbyLocationCountrySignals(job) {
+  const location = normalizeText(job.Location || job.RawLocation);
+  const signals = getCountrySignal(location, getRemoteSignal(location));
+
+  if (/(^|[^a-z0-9])us([^a-z0-9]|$)/.test(location)) {
+    signals.push("United States");
+  }
+
+  if (/\bgermany\b/.test(location)) {
+    signals.push("Germany");
+  }
+
+  if (
+    /,\s*(al|ak|az|ar|ca|co|ct|de|fl|ga|hi|id|il|in|ia|ks|ky|la|me|md|ma|mi|mn|ms|mo|mt|ne|nv|nh|nj|nm|ny|nc|nd|oh|ok|or|pa|ri|sc|sd|tn|tx|ut|vt|va|wa|wv|wi|wy|dc)\b/.test(location)
+  ) {
+    signals.push("United States");
+  }
+
+  if (/,\s*(ab|bc|mb|nb|nl|ns|nt|nu|on|pe|qc|sk|yt)\b/.test(location)) {
+    signals.push("Canada");
+  }
+
+  return addUniqueSignals(signals);
+}
+
+function getStructuredCountrySignals(addressCountries) {
+  const values = Array.isArray(addressCountries) ? addressCountries : [addressCountries];
+  const signals = [];
+
+  for (const value of values) {
+    for (const rawPart of cleanText(value).split(/\s*(?:\||;|\/)\s*/)) {
+      const part = cleanText(rawPart);
+      const normalized = normalizeText(part).replace(/\./g, "");
+      if (!normalized) continue;
+
+      if (["us", "usa", "united states", "united states of america"].includes(normalized)) {
+        signals.push("United States");
+      } else if (["ca", "canada"].includes(normalized)) {
+        signals.push("Canada");
+      } else if (["uk", "gb", "gbr", "united kingdom"].includes(normalized)) {
+        signals.push("United Kingdom");
+      } else if (["eu", "europe", "european union", "emea"].includes(normalized)) {
+        signals.push("Europe/EMEA");
+      } else if (["de", "deu", "germany"].includes(normalized)) {
+        signals.push("Germany");
+      } else if (["au", "aus", "australia"].includes(normalized)) {
+        signals.push("APAC");
+      } else if (["in", "ind", "india"].includes(normalized)) {
+        signals.push("India");
+      } else {
+        signals.push(part);
+      }
+    }
+  }
+
+  return addUniqueSignals(signals);
+}
+
+function getRoleDescriptionCountrySignals(job) {
+  const description = cleanText(job.Description);
+  if (!description) return [];
+
+  const roleSpecificPattern = /\b(this|the)\s+(role|position|job)\b|\b(candidate|applicant)s?\b|\bmust\s+(be|reside|live|work)\b|\bopen to\b|\bavailable (to|in|only)\b|\beligib(le|ility)\b|\blocated in\b|\bbased in\b|\bwork(ing)? (from|in)\b/;
+  const salaryPattern = /\bsalary\b|\bcompensation\b|\bpay range\b|\bbase pay\b|\bannual base\b|\bpay transparency\b|\b(?:usd|cad|gbp|eur)\b/;
+  const signals = [];
+
+  for (const sentence of description.split(/(?<=[.!?])\s+|\n+/)) {
+    const normalized = normalizeText(sentence);
+    if (!normalized || salaryPattern.test(normalized) || !roleSpecificPattern.test(normalized)) {
+      continue;
+    }
+
+    signals.push(...getAshbyLocationCountrySignals({ Location: sentence }));
+  }
+
+  return addUniqueSignals(signals);
+}
+
+function getAshbyCountryEvidence(job, addressCountries) {
+  const structuredSignals = getStructuredCountrySignals(addressCountries);
+  const locationSignals = getAshbyLocationCountrySignals(job);
+  const descriptionSignals = structuredSignals.length === 0 && locationSignals.length === 0
+    ? getRoleDescriptionCountrySignals(job)
+    : [];
+  const diagnostics = [];
+
+  if (
+    structuredSignals.length > 0 &&
+    locationSignals.length > 0 &&
+    !structuredSignals.some((signal) => locationSignals.includes(signal))
+  ) {
+    diagnostics.push(
+      `Country evidence conflict: structured address=${structuredSignals.join("|")} differs from posting location=${locationSignals.join("|")}`
+    );
+  }
+
+  return {
+    countrySignals: addUniqueSignals(structuredSignals, locationSignals, descriptionSignals),
+    diagnostics,
+  };
+}
+
 function hasCitySpecificLocation(job, text) {
   const location = normalizeText(job.Location || job.RawLocation);
 
@@ -81,6 +187,71 @@ function getRemoteStatus(signals, job, text) {
   }
 
   return "Unknown";
+}
+
+function getRecognizedWorkplaceType(value) {
+  const normalized = normalizeText(value).replace(/[\s_-]+/g, "");
+
+  if (normalized === "remote") return "Remote";
+  if (normalized === "hybrid") return "Hybrid";
+  if (normalized === "onsite") return "Onsite";
+  return "";
+}
+
+function getStructuredWorkArrangement(workplaceType, isRemote) {
+  const rawWorkplaceType = cleanText(workplaceType);
+  const recognizedWorkplaceType = getRecognizedWorkplaceType(rawWorkplaceType);
+  const hasIsRemote = typeof isRemote === "boolean";
+  const remoteStatus = recognizedWorkplaceType;
+  const evidence = [];
+  const diagnostics = [];
+
+  if (rawWorkplaceType) evidence.push(`workplaceType=${rawWorkplaceType}`);
+  if (hasIsRemote) evidence.push(`isRemote=${isRemote}`);
+
+  if (rawWorkplaceType && !recognizedWorkplaceType) {
+    diagnostics.push(`Unrecognized workplaceType=${rawWorkplaceType}`);
+  }
+
+  const expectedIsRemote = recognizedWorkplaceType
+    ? recognizedWorkplaceType !== "Onsite"
+    : null;
+
+  if (hasIsRemote && expectedIsRemote !== null && expectedIsRemote !== isRemote) {
+    diagnostics.push(`Work arrangement conflict: workplaceType=${rawWorkplaceType} conflicts with isRemote=${isRemote}`);
+  }
+
+  return {
+    remoteStatus,
+    evidence,
+    diagnostics,
+  };
+}
+
+function hasExplicitRoleOfficeRequirement(job) {
+  const description = normalizeText(job.Description);
+  if (!description) return false;
+
+  return (
+    /\bthis (is )?(a )?hybrid (role|position|job)\b/.test(description) ||
+    /\bthis (role|position|job) (is|will be) hybrid\b/.test(description) ||
+    /\b(this (role|position|job)|you) (requires?|will be required|will be expected|are expected)\b[^.]{0,160}\b(in[- ]office|from [^.]{0,80}\boffice|at [^.]{0,80}\boffice)\b/.test(description) ||
+    /\b\d+\s+days?\s+(a|per|each)\s+week\b[^.]{0,100}\b(in|at|from)\b[^.]{0,80}\boffice\b/.test(description)
+  );
+}
+
+function getArrangementConflictDiagnostic(job, structuredStatus, textStatus) {
+  if (structuredStatus === "Remote" && ["Hybrid", "Onsite"].includes(textStatus)) {
+    if (hasExplicitRoleOfficeRequirement(job)) {
+      return `Work arrangement review: explicit role-specific office requirement conflicts with structured Remote (text classification=${textStatus})`;
+    }
+
+    if (textStatus === "Hybrid") {
+      return "Work arrangement note: structured Remote overrides hybrid text with no explicit role-specific office-day requirement";
+    }
+  }
+
+  return `Work arrangement conflict: structured ${structuredStatus} overrides text classification=${textStatus}`;
 }
 
 function getRemoteConfidence(remoteStatus, signals, countrySignals) {
@@ -183,21 +354,43 @@ function getReviewReason(remoteStatus, usRemoteEligible, signals, countrySignals
   return "Insufficient location/work arrangement signal";
 }
 
-function detectWorkArrangement(job) {
+function detectWorkArrangement(job, structuredEvidence = {}) {
   const text = getHaystack(job);
   const remoteSignals = getRemoteSignal(text);
-  const countrySignals = getCountrySignal(text, remoteSignals);
-  const remoteStatus = getRemoteStatus(remoteSignals, job, text);
+  const textCountrySignals = getCountrySignal(text, remoteSignals);
+  const textRemoteStatus = getRemoteStatus(remoteSignals, job, text);
+  const structured = getStructuredWorkArrangement(
+    structuredEvidence.workplaceType,
+    structuredEvidence.isRemote
+  );
+  const remoteStatus = structured.remoteStatus || textRemoteStatus;
+  const hasAshbyCountryEvidence = Object.prototype.hasOwnProperty.call(
+    structuredEvidence,
+    "addressCountries"
+  );
+  const countryEvidence = hasAshbyCountryEvidence
+    ? getAshbyCountryEvidence(job, structuredEvidence.addressCountries)
+    : { countrySignals: textCountrySignals, diagnostics: [] };
+  const countrySignals = countryEvidence.countrySignals;
   const usRemoteEligible = getUSRemoteEligible(remoteStatus, countrySignals);
+  const diagnostics = [...structured.diagnostics, ...countryEvidence.diagnostics];
+
+  if (structured.remoteStatus && textRemoteStatus !== "Unknown" && textRemoteStatus !== structured.remoteStatus) {
+    diagnostics.push(getArrangementConflictDiagnostic(job, structured.remoteStatus, textRemoteStatus));
+  }
+
+  const locationReviewReason = getReviewReason(remoteStatus, usRemoteEligible, remoteSignals, countrySignals);
 
   return {
     RemoteStatus: remoteStatus,
-    RemoteSignal: remoteSignals.join(" | "),
-    RemoteConfidence: getRemoteConfidence(remoteStatus, remoteSignals, countrySignals),
+    RemoteSignal: [...structured.evidence, ...remoteSignals].join(" | "),
+    RemoteConfidence: structured.remoteStatus
+      ? "high"
+      : getRemoteConfidence(remoteStatus, remoteSignals, countrySignals),
     LocationCountrySignal: countrySignals.join(" | "),
     USRemoteEligible: usRemoteEligible,
     LocationRisk: getLocationRisk(remoteStatus, usRemoteEligible, countrySignals),
-    LocationReviewReason: getReviewReason(remoteStatus, usRemoteEligible, remoteSignals, countrySignals),
+    LocationReviewReason: [locationReviewReason, ...diagnostics].join("; "),
   };
 }
 

@@ -209,7 +209,19 @@ function normalizeAshbyJob(job, context, titleRecords) {
     Description: description,
     Salary: getSalary(job),
   };
-  const workArrangement = detectWorkArrangement(baseJob);
+  const workArrangement = detectWorkArrangement(baseJob, {
+    workplaceType: job.workplaceType,
+    isRemote: job.isRemote,
+    addressCountries: [
+      job.address && job.address.postalAddress && job.address.postalAddress.addressCountry,
+      ...(Array.isArray(job.secondaryLocations) ? job.secondaryLocations : []).map((location) =>
+        location && location.address && (
+          location.address.addressCountry ||
+          (location.address.postalAddress && location.address.postalAddress.addressCountry)
+        )
+      ),
+    ].filter(Boolean),
+  });
   const salaryDetection = detectSalary(baseJob);
 
   return {
