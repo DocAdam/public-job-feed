@@ -31,6 +31,58 @@ function getRemoteSignal(text) {
   return Array.from(new Set(signals));
 }
 
+const greenhouseRemoteWorkDenialPatterns = [
+  /\b(?:do|does|did|will)\s+not\s+(?:offer|allow|support|permit)\s+remote(?![- ]only)(?:\s+work(?:ing)?)?\b/i,
+  /\bno\s+(?:option\s+for\s+)?remote(?![- ]only)(?:\s+work(?:ing)?)?\b/i,
+  /\bremote(?:\s+work(?:ing)?)?\s+(?:is|are|will be)\s+not\s+(?:available|offered|allowed|supported|permitted)\b/i,
+  /\bnot\s+(?:a\s+)?remote\s+(?:role|position|job|opportunity)\b/i,
+  /\bnot\s+remote\b(?![- ]only)/i,
+];
+
+const greenhouseRemoteNegationPatterns = [
+  ...greenhouseRemoteWorkDenialPatterns,
+  /\b(?:do|does|did|will)\s+not\s+(?:offer|allow|support|permit)\s+fully\s+remote(?:\s+work(?:ing)?)?\b/i,
+  /\bno\s+(?:option\s+for\s+)?fully\s+remote(?:\s+work(?:ing)?)?\b/i,
+  /\b(?:do|does|did|will)\s+not\s+(?:offer|allow|support|permit)\s+remote[- ]only(?:\s+(?:roles?|positions?|jobs?))?\b/i,
+  /\bno\s+remote[- ]only(?:\s+(?:roles?|positions?|jobs?))?\b/i,
+  /\bnot\s+fully\s+remote\b/i,
+  /\bnot\s+remote[- ]only\b/i,
+];
+
+const greenhouseFullTimeOfficePatterns = [
+  /\bmonday\s*(?:-|–|—|to|through)\s*friday\b[^.]{0,160}\b(?:we|you|employees?|team|this role|the role)\b[^.]{0,80}\bwork(?:s|ing)?\s+(?:from|in|at)\b[^.]{0,80}\boffice\b/i,
+  /\bfull[- ]time\b[^.]{0,60}\bin[- ]office\s+(?:presence|attendance)\b/i,
+  /\b(?:five|5)\s+days?\s+(?:a|per|each)\s+week\b[^.]{0,160}\b(?:in|at|from)\b[^.]{0,80}\boffice\b/i,
+  /\b(?:in|at|from)\b[^.]{0,80}\boffice\b[^.]{0,100}\b(?:every\s+(?:workday|weekday)|(?:five|5)\s+days?\s+(?:a|per|each)\s+week)\b/i,
+];
+
+const greenhouseExplicitHybridPatterns = [
+  /\bthis\s+(?:is\s+)?(?:a\s+)?hybrid\s+(?:role|position|job)\b/i,
+  /\bthis\s+(?:role|position|job)\s+(?:is|will be)\s+(?:a\s+)?hybrid\b/i,
+  /\bhybrid\s+(?:role|position|job|schedule|model|work(?:ing)?(?:\s+arrangement)?)\b/i,
+  /\b[23]\s*x\s+(?:in|at)\s+(?:the\s+)?office\s*(?:,|;|\/|\band\b)\s*[23]\s*x\s+(?:wfh|(?:work(?:ing)?\s+)?from\s+home|remote)\b/i,
+  /\b(?:two|three|2|3)\s+days?\b[^.]{0,100}\boffice\b[^.]{0,120}\b(?:two|three|2|3)\s+days?\b[^.]{0,80}\b(?:home|remote)\b/i,
+  /\b(?:two|three|2|3)\s+days?\b[^.]{0,80}\b(?:home|remote)\b[^.]{0,120}\b(?:two|three|2|3)\s+days?\b[^.]{0,100}\boffice\b/i,
+];
+
+function getGreenhouseRoleEvidence(job) {
+  const description = normalizeText(job.Description);
+
+  return {
+    hasRemoteNegation: greenhouseRemoteNegationPatterns.some((pattern) => pattern.test(description)),
+    deniesRemoteWork: greenhouseRemoteWorkDenialPatterns.some((pattern) => pattern.test(description)),
+    hasExplicitHybrid: greenhouseExplicitHybridPatterns.some((pattern) => pattern.test(description)),
+    requiresFullTimeOffice: greenhouseFullTimeOfficePatterns.some((pattern) => pattern.test(description)),
+  };
+}
+
+function removeGreenhouseRemoteNegations(text) {
+  return greenhouseRemoteNegationPatterns.reduce(
+    (result, pattern) => result.replace(new RegExp(pattern.source, "gi"), " "),
+    text
+  );
+}
+
 function getCountrySignal(text, remoteSignals) {
   const signals = [];
 
@@ -169,7 +221,7 @@ function hasCitySpecificLocation(job, text) {
   return /\bbased in\b|\bmust be located in\b/.test(text) || location.length > 0;
 }
 
-function getRemoteStatus(signals, job, text) {
+function getRemoteStatus(signals, job, text, options = {}) {
   if (signals.some((signal) => ["hybrid", "office days"].includes(signal))) {
     return "Hybrid";
   }
@@ -182,7 +234,7 @@ function getRemoteStatus(signals, job, text) {
     return "Onsite";
   }
 
-  if (hasCitySpecificLocation(job, text)) {
+  if (options.allowCityFallback !== false && hasCitySpecificLocation(job, text)) {
     return "Onsite";
   }
 
@@ -354,11 +406,38 @@ function getReviewReason(remoteStatus, usRemoteEligible, signals, countrySignals
   return "Insufficient location/work arrangement signal";
 }
 
-function detectWorkArrangement(job, structuredEvidence = {}) {
+function detectWorkArrangement(job, structuredEvidence = {}, options = {}) {
   const text = getHaystack(job);
-  const remoteSignals = getRemoteSignal(text);
-  const textCountrySignals = getCountrySignal(text, remoteSignals);
-  const textRemoteStatus = getRemoteStatus(remoteSignals, job, text);
+  const isGreenhouse = normalizeText(options.ats) === "greenhouse";
+  const greenhouseEvidence = isGreenhouse
+    ? getGreenhouseRoleEvidence(job)
+    : {
+      hasRemoteNegation: false,
+      deniesRemoteWork: false,
+      hasExplicitHybrid: false,
+      requiresFullTimeOffice: false,
+    };
+  const signalText = isGreenhouse && greenhouseEvidence.hasRemoteNegation
+    ? removeGreenhouseRemoteNegations(text)
+    : text;
+  const remoteSignals = getRemoteSignal(signalText);
+  if (isGreenhouse && greenhouseEvidence.hasExplicitHybrid && !remoteSignals.includes("hybrid")) {
+    remoteSignals.push("hybrid");
+  }
+  const greenhouseFullWeekOnsite = (
+    greenhouseEvidence.deniesRemoteWork &&
+    greenhouseEvidence.requiresFullTimeOffice &&
+    !greenhouseEvidence.hasExplicitHybrid
+  );
+  const statusSignals = isGreenhouse && greenhouseEvidence.hasRemoteNegation && !greenhouseFullWeekOnsite
+    ? remoteSignals.filter((signal) => !["onsite", "must be located in"].includes(signal))
+    : remoteSignals;
+  const textCountrySignals = getCountrySignal(signalText, remoteSignals);
+  const textRemoteStatus = greenhouseFullWeekOnsite
+    ? "Onsite"
+    : getRemoteStatus(statusSignals, job, signalText, {
+      allowCityFallback: !(isGreenhouse && greenhouseEvidence.hasRemoteNegation),
+    });
   const structured = getStructuredWorkArrangement(
     structuredEvidence.workplaceType,
     structuredEvidence.isRemote
@@ -374,6 +453,23 @@ function detectWorkArrangement(job, structuredEvidence = {}) {
   const countrySignals = countryEvidence.countrySignals;
   const usRemoteEligible = getUSRemoteEligible(remoteStatus, countrySignals);
   const diagnostics = [...structured.diagnostics, ...countryEvidence.diagnostics];
+
+  if (greenhouseFullWeekOnsite) {
+    remoteSignals.push("full-time office attendance", "remote work denied");
+    diagnostics.push("Greenhouse role evidence: full-time office attendance and remote work denied");
+  } else if (
+    greenhouseEvidence.deniesRemoteWork &&
+    greenhouseEvidence.requiresFullTimeOffice &&
+    greenhouseEvidence.hasExplicitHybrid
+  ) {
+    diagnostics.push(
+      "Work arrangement conflict: explicit Hybrid evidence conflicts with full-time office attendance and remote-work denial; Hybrid retained"
+    );
+  } else if (greenhouseEvidence.hasRemoteNegation && textRemoteStatus === "Unknown") {
+    diagnostics.push(
+      "Work arrangement review: remote wording is negated, but full-week office attendance is not established"
+    );
+  }
 
   if (structured.remoteStatus && textRemoteStatus !== "Unknown" && textRemoteStatus !== structured.remoteStatus) {
     diagnostics.push(getArrangementConflictDiagnostic(job, structured.remoteStatus, textRemoteStatus));

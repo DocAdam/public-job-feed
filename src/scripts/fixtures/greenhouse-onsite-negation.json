@@ -1,0 +1,56 @@
+{
+  "provenance": {
+    "packageId": "20261117-2049",
+    "sourceArtifact": "03_top_matches_full.csv",
+    "sourceField": "Description",
+    "note": "Saved role-specific excerpt from the detailed selected row. The fixture omits unrelated posting text."
+  },
+  "job": {
+    "id": "5718404003",
+    "title": "Senior Content Writer",
+    "absolute_url": "https://job-boards.greenhouse.io/cfoinsights/jobs/5718404003",
+    "location": {
+      "name": "London, United Kingdom"
+    },
+    "content": "<p>Monday - Friday we work from our office (next to Victoria Station) and do not offer remote work.</p>",
+    "first_published": "2026-11-01T12:00:00.000Z"
+  },
+  "expectedRemoteStatus": "Onsite",
+  "adyenHybridSchedule": {
+    "provenance": {
+      "packageId": "20261117-2049",
+      "sourceArtifact": "data/jobs/public/public-job-feed-latest.json",
+      "sourceField": "Description",
+      "note": "Exact saved sentence from Greenhouse ID 7340050 in the migration input."
+    },
+    "savedJob": {
+      "id": "7340050",
+      "title": "Account Manager",
+      "absolute_url": "https://job-boards.greenhouse.io/adyen/jobs/7340050",
+      "location": {
+        "name": "London"
+      },
+      "content": "<p>This role is based out of our London office (3x in the office, 2x WFH). We do not offer remote-only roles.</p>",
+      "first_published": "2025-11-17T07:58:55-05:00"
+    },
+    "expectedRemoteStatus": "Hybrid"
+  },
+  "adyen": {
+    "savedJob": {
+      "id": "8242353",
+      "title": "Content Writer, Global",
+      "absolute_url": "https://job-boards.greenhouse.io/adyen/jobs/8242353",
+      "location": {
+        "name": "Amsterdam"
+      },
+      "content": "<p>This role will work from our Amsterdam office and report directly to our Global Content Lead.</p><p>This role is based out of our Amsterdam office.</p><p>We are an office-first company and value in-person collaboration; we do not offer remote-only roles.</p>",
+      "first_published": "2026-10-28T12:00:00.000Z"
+    },
+    "expectedRemoteStatusFromSavedInputs": "Unknown",
+    "expectedRemoteStatusWhenScheduleIsAvailable": "Hybrid",
+    "externalEvidenceNotAvailableToNormalizer": {
+      "url": "https://job-boards.greenhouse.io/adyen/jobs/8242353#app",
+      "statement": "The employer application form says three days in the Amsterdam office and two days from home."
+    }
+  }
+}

@@ -313,7 +313,7 @@ function normalizeGreenhouseJob(job, context, titleRecords) {
     Description: description,
     Salary: "",
   };
-  const workArrangement = detectWorkArrangement(baseJob);
+  const workArrangement = detectWorkArrangement(baseJob, {}, { ats: "greenhouse" });
   const salaryDetection = detectSalary(baseJob);
 
   return {

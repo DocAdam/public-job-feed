@@ -1,8 +1,9 @@
 const fs = require("fs/promises");
 const path = require("path");
 const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
-const { normalizeGreenhouseJob } = require("../lib/jobs-normalize");
+const { normalizeGreenhouseJob, normalizeLeverJob } = require("../lib/jobs-normalize");
 const { buildSimplePublicRow } = require("../lib/simple-public-export");
+const onsiteNegationFixture = require("./fixtures/greenhouse-onsite-negation.json");
 
 const reportIndex = process.argv.indexOf("--report-dir");
 const reportsDir = reportIndex >= 0 ? path.resolve(process.argv[reportIndex + 1]) : fromRoot("data", "jobs", "reports");
@@ -79,6 +80,189 @@ const fixtures = [
   },
 ];
 
+const workArrangementFixtures = [
+  {
+    name: "saved full-week office and remote denial is onsite",
+    job: onsiteNegationFixture.job,
+    expectedRemoteStatus: onsiteNegationFixture.expectedRemoteStatus,
+    excludedSignals: ["remote"],
+  },
+  {
+    name: "saved Adyen office-first text stays unknown without its form schedule",
+    job: onsiteNegationFixture.adyen.savedJob,
+    expectedRemoteStatus: onsiteNegationFixture.adyen.expectedRemoteStatusFromSavedInputs,
+    excludedSignals: ["remote"],
+    expectedReviewPattern: /full-week office attendance is not established/,
+  },
+  {
+    name: "saved Adyen 3x office and 2x WFH schedule is hybrid",
+    job: onsiteNegationFixture.adyenHybridSchedule.savedJob,
+    expectedRemoteStatus: onsiteNegationFixture.adyenHybridSchedule.expectedRemoteStatus,
+    expectedSignals: ["hybrid"],
+    excludedSignals: ["remote"],
+  },
+  {
+    name: "Adyen three-office-days and two-home-days schedule is hybrid when present in normal inputs",
+    job: {
+      ...onsiteNegationFixture.adyen.savedJob,
+      content: `${onsiteNegationFixture.adyen.savedJob.content}<p>This role works three days in the Amsterdam office and two days from home.</p>`,
+    },
+    expectedRemoteStatus: onsiteNegationFixture.adyen.expectedRemoteStatusWhenScheduleIsAvailable,
+    excludedSignals: ["remote"],
+  },
+  {
+    name: "standalone WFH does not establish an explicit hybrid schedule",
+    job: {
+      id: "standalone-wfh-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/standalone-wfh-control",
+      location: { name: "" },
+      content: "<p>WFH may be available.</p><p>We do not offer remote-only roles.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["hybrid"],
+  },
+  {
+    name: "lone 3x office count does not add explicit hybrid evidence",
+    job: {
+      id: "lone-office-count-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/lone-office-count-control",
+      location: { name: "" },
+      content: "<p>This role works 3x in the office.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["hybrid"],
+  },
+  {
+    name: "unrelated numeric office and WFH mentions do not establish hybrid",
+    job: {
+      id: "unrelated-numeric-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/unrelated-numeric-control",
+      location: { name: "" },
+      content: "<p>The platform delivered 3x office growth. A separate survey reported 2x WFH usage.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["hybrid"],
+  },
+  {
+    name: "separate 3x office and 2x WFH sentences do not establish hybrid",
+    job: {
+      id: "separate-schedule-sentences-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/separate-schedule-sentences-control",
+      location: { name: "" },
+      content: "<p>The team works 3x in the office. A separate policy example mentions 2x WFH.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["hybrid"],
+  },
+  {
+    name: "hybrid role with fully remote denial stays hybrid",
+    job: {
+      id: "hybrid-control",
+      title: "Content Designer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/hybrid-control",
+      location: { name: "Manchester, United Kingdom" },
+      content: "<p>This role is hybrid. You work in office two days per week. We do not offer fully remote work.</p>",
+    },
+    expectedRemoteStatus: "Hybrid",
+    excludedSignals: ["remote"],
+  },
+  {
+    name: "optional office visit stays remote",
+    job: {
+      id: "optional-office-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/optional-office-control",
+      location: { name: "Remote UK" },
+      content: "<p>This is a remote role. You may optionally visit our office for team events.</p>",
+    },
+    expectedRemoteStatus: "Remote",
+  },
+  {
+    name: "travel does not make a remote role hybrid",
+    job: {
+      id: "travel-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/travel-control",
+      location: { name: "Remote UK" },
+      content: "<p>This is a remote role with quarterly travel to client offices.</p>",
+    },
+    expectedRemoteStatus: "Remote",
+  },
+  {
+    name: "remote denial without office evidence is unknown",
+    job: {
+      id: "denial-only-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/denial-only-control",
+      location: { name: "London, United Kingdom" },
+      content: "<p>We do not offer remote work.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["remote"],
+  },
+  {
+    name: "travel plus remote denial is not forced onsite",
+    job: {
+      id: "travel-denial-control",
+      title: "Change Manager",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/travel-denial-control",
+      location: { name: "Baltimore, United States" },
+      content: "<p>This is not a remote position because the role requires 75% travel to client locations.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+    excludedSignals: ["remote"],
+  },
+  {
+    name: "full-week office evidence without denial is not forced onsite",
+    job: {
+      id: "office-only-control",
+      title: "Technical Writer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/office-only-control",
+      location: { name: "" },
+      content: "<p>Monday through Friday we work from our office.</p>",
+    },
+    expectedRemoteStatus: "Unknown",
+  },
+  {
+    name: "Affirm-style Remote UK text stays remote",
+    job: {
+      id: "remote-uk-control",
+      title: "Content Designer II",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/remote-uk-control",
+      location: { name: "Remote UK" },
+      content: "<p>Remote-first with flexibility built in. Some positions may occasionally require in-person work at an office.</p>",
+    },
+    expectedRemoteStatus: "Remote",
+  },
+  {
+    name: "remote-first but not remote-only is not a role denial",
+    job: {
+      id: "remote-only-boilerplate-control",
+      title: "Support Specialist",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/remote-only-boilerplate-control",
+      location: { name: "Manila, Philippines" },
+      content: "<p>We are a remote-first, but not remote-only company. This role requires full-time, in-office presence, five days a week.</p>",
+    },
+    expectedRemoteStatus: "Hybrid",
+  },
+  {
+    name: "explicit hybrid evidence wins a contradictory full-week office statement",
+    job: {
+      id: "hybrid-conflict-control",
+      title: "Content Designer",
+      absolute_url: "https://boards.greenhouse.io/fixture/jobs/hybrid-conflict-control",
+      location: { name: "London, United Kingdom" },
+      content: "<p>This is a hybrid role with three days in the office and two days from home. Another statement says Monday through Friday we work from our office and do not offer remote work.</p>",
+    },
+    expectedRemoteStatus: "Hybrid",
+    expectedReviewPattern: /explicit Hybrid evidence conflicts/,
+  },
+];
+
 function buildMarkdown(result) {
   return [
     "# Greenhouse Normalize Regression",
@@ -144,6 +328,63 @@ async function main() {
     }
   }
 
+  for (const fixture of workArrangementFixtures) {
+    const normalized = normalizeGreenhouseJob(fixture.job, context, []);
+    const failures = [];
+
+    if (normalized.RemoteStatus !== fixture.expectedRemoteStatus) {
+      failures.push(`expected RemoteStatus ${fixture.expectedRemoteStatus}, got ${normalized.RemoteStatus}`);
+    }
+    for (const signal of fixture.expectedSignals || []) {
+      if (!normalized.RemoteSignal.split(" | ").includes(signal)) {
+        failures.push(`expected positive signal ${signal}, got ${normalized.RemoteSignal}`);
+      }
+    }
+    for (const signal of fixture.excludedSignals || []) {
+      if (normalized.RemoteSignal.split(" | ").includes(signal)) {
+        failures.push(`did not expect positive signal ${signal}, got ${normalized.RemoteSignal}`);
+      }
+    }
+    if (fixture.expectedReviewPattern && !fixture.expectedReviewPattern.test(normalized.LocationReviewReason)) {
+      failures.push(`expected review reason to match ${fixture.expectedReviewPattern}, got ${normalized.LocationReviewReason}`);
+    }
+
+    const status = failures.length ? "FAIL" : "PASS";
+    result.Results.push({
+      Name: fixture.name,
+      Status: status,
+      RemoteStatus: normalized.RemoteStatus,
+      RemoteSignal: normalized.RemoteSignal,
+      ExpectedRemoteStatus: fixture.expectedRemoteStatus,
+    });
+    for (const failure of failures) {
+      result.Failures.push(`${fixture.name}: ${failure}`);
+    }
+  }
+
+  const leverControl = normalizeLeverJob(
+    {
+      id: "lever-provider-control",
+      text: "Technical Writer",
+      hostedUrl: "https://jobs.lever.co/fixture/lever-provider-control",
+      categories: { location: "London, United Kingdom" },
+      descriptionPlain: "Monday - Friday we work from our office and do not offer remote work.",
+    },
+    { ...context, ats: "lever" },
+    []
+  );
+  const leverControlStatus = leverControl.RemoteStatus === "Remote" ? "PASS" : "FAIL";
+  result.Results.push({
+    Name: "non-Greenhouse provider behavior is unchanged",
+    Status: leverControlStatus,
+    RemoteStatus: leverControl.RemoteStatus,
+    RemoteSignal: leverControl.RemoteSignal,
+    ExpectedRemoteStatus: "Remote",
+  });
+  if (leverControlStatus === "FAIL") {
+    result.Failures.push(`non-Greenhouse provider behavior is unchanged: expected RemoteStatus Remote, got ${leverControl.RemoteStatus}`);
+  }
+
   result.Status = result.Failures.length ? "FAIL" : "PASS";
 
   await writeJsonFile(path.join(reportsDir, "test-greenhouse-normalize-results.json"), result);
@@ -151,7 +392,10 @@ async function main() {
 
   console.log(`Greenhouse normalize regression: ${result.Status}`);
   for (const row of result.Results) {
-    console.log(`${row.Status}: ${row.Name} -> ${row.PostedDate} age ${row.AgeDays}`);
+    const detail = row.PostedDate
+      ? `${row.PostedDate} age ${row.AgeDays}`
+      : `${row.RemoteStatus} (${row.RemoteSignal || "no positive text signal"})`;
+    console.log(`${row.Status}: ${row.Name} -> ${detail}`);
   }
 
   if (result.Failures.length > 0) {
