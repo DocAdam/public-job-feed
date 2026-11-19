@@ -42,7 +42,9 @@ historical and must not be copied into a new edition.
 
    The launcher regenerates local trend files from saved packages, opens the
    writing inputs, and copies the request below to the clipboard. Read the
-   actual range and source dates in those files. It does not fetch jobs.
+   actual range and source dates in those files. A verified package disposition
+   removes only its exact package from the trend snapshot set. The weekly report
+   and trend manifest record the package ID and reason. It does not fetch jobs.
 
 3. Paste the copied request into Codex.
 
@@ -157,7 +159,7 @@ expense of relevance. The selection requires reading the postings.
 - `data/jobs/gsheet-package/latest/01_good_documentation_jobs.csv`: the current
   cleaned jobs list after deterministic dead links are removed.
 - `data/jobs/trends/latest/weekly-substack-report.md`: feed counts, the actual
-  range, source dates, and data limits.
+  range, source dates, package dispositions, and data limits.
 - `data/jobs/trends/latest/substack-notes.md`: shorter factual notes when the
   full weekly report is more detail than needed.
 

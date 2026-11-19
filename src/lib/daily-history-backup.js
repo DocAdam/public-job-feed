@@ -28,8 +28,13 @@ async function probeDrive(project, mount = DRIVE) {
 }
 async function inputs(project, database, source) {
   const selected = [], sourceManifest = await runtime.manifest(source);
-  for (const id of sourceManifest.ids) for (const r of await files.inventory(path.join(source, id))) {
+  for (const id of sourceManifest.allIds) for (const r of await files.inventory(path.join(source, id))) {
     selected.push({ ...r, path: 'snapshots/' + id + '/' + r.path, from: path.join(source, id, r.path) });
+  }
+  const dispositionDirectory = require('./package-snapshot-disposition').DIRECTORY;
+  const dispositionRoot = path.join(source, dispositionDirectory);
+  if (await exists(dispositionRoot)) for (const r of await files.inventory(dispositionRoot)) {
+    selected.push({ ...r, path: 'snapshots/' + dispositionDirectory + '/' + r.path, from: path.join(dispositionRoot, r.path) });
   }
   for (const name of ['src', 'launchers']) for (const r of await files.inventory(path.join(project, name))) {
     selected.push({ ...r, path: 'runtime/' + name + '/' + r.path, from: path.join(project, name, r.path) });
@@ -136,6 +141,7 @@ async function backupOnly(options, dependencies = {}) {
       const checked = await (dependencies.inspect || (() => runtime.inspect(database, source)))();
       if (checked.result.errors.length || checked.result.pending_snapshots.length) throw new Error('History audit did not pass');
       status.History = 'PASS'; status.Imported = 0; status.LatestSnapshot = checked.result.latest.snapshot_id;
+      status.SkippedPackages = checked.result.skipped_packages;
       status.Generation = j.id; status.DatabaseHash = j.newHash;
       await checkDrive();
       const result = await (dependencies.createBackup || createBackup)({ project, database, source, directory, checkDrive, audit: checked.result, lease });
@@ -164,7 +170,8 @@ async function dailyHistory(options, dependencies = {}) {
   let state;
   try {
     state = await retention.loadState(stateFile); status.LastVerified = state.lastVerified;
-    await require('./package-history-guard').checkPendingDashboards(source, database);
+    const guarded = await require('./package-history-guard').checkPendingDashboards(source, database);
+    status.SkippedPackages = guarded.skipped;
     // Reclaim only managed, proven obsolete payloads before the writer's disk guard.
     try {
       const available = await probe();
@@ -176,6 +183,7 @@ async function dailyHistory(options, dependencies = {}) {
       const checked = await inspect();
       if (checked.result.errors.length || checked.result.pending_snapshots.length) throw new Error('History audit did not pass');
       status.History = 'PASS'; status.Imported = changed.imported; status.LatestSnapshot = checked.result.latest.snapshot_id;
+      status.SkippedPackages = checked.result.skipped_packages;
       const drive = await probe();
       if (!drive) { status.Backup = 'SKIPPED'; status.Warnings.push('1Pugh is not connected. No backup or retention ran.'); return; }
       const result = await backup({ project, database, source, directory, checkDrive, audit: checked.result, lease });

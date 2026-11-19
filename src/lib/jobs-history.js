@@ -78,10 +78,12 @@ function observationSelect(s, headers) {
 }
 async function scan(root, stage, { parseCsv = parseCsvRecords } = {}) {
   const discovery = await discover(root);
-  const result = { ...discovery, snapshots: [], headers: new Set(REQUIRED), variants: {}, warnings: [], errors: [] };
+  const dispositions = await require('./package-snapshot-disposition').resolveDispositions(root, discovery.ids);
+  const result = { ...discovery, ids: dispositions.ids, allIds: discovery.ids, skipped: dispositions.skipped,
+    snapshots: [], headers: new Set(REQUIRED), variants: {}, warnings: [], errors: [] };
   if (discovery.malformed.length) result.errors.push(`Malformed snapshot names: ${discovery.malformed.join(', ')}`);
   if (!discovery.ids.length) result.errors.push('No dated snapshots found');
-  for (const id of discovery.ids) {
+  for (const id of dispositions.ids) {
     try {
       const sources = [];
       for (const file of FILES) {
@@ -285,7 +287,8 @@ async function runLegacyHistory(mode, { root = path.resolve('data/jobs/gsheet-pa
       } catch (error) { await c.run('ROLLBACK'); throw error; }
     }
     const errors = await audit(c, scanned);
-    const result = { mode, imported, metrics_refreshed: metricsRefreshed, ...await summary(c), header_variants: Object.fromEntries(Object.entries(scanned.variants).map(([f,v]) => [f, Object.entries(v).map(([h, ids]) => ({ headers: JSON.parse(h), snapshots: ids.length, first: ids[0], last: ids.at(-1) }))])), warnings: scanned.warnings, errors };
+    const result = { mode, imported, metrics_refreshed: metricsRefreshed, ...await summary(c), skipped_packages: scanned.skipped,
+      header_variants: Object.fromEntries(Object.entries(scanned.variants).map(([f,v]) => [f, Object.entries(v).map(([h, ids]) => ({ headers: JSON.parse(h), snapshots: ids.length, first: ids[0], last: ids.at(-1) }))])), warnings: scanned.warnings, errors };
     if (errors.length) throw new Error(errors.join('\n'));
     if (mode !== 'audit') await c.run('CHECKPOINT');
     c.closeSync(); c = null; instance.closeSync(); instance = null;

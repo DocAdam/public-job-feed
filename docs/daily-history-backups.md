@@ -40,6 +40,76 @@ preserves the complete manifest CSV schema. It and the package builder refuse
 to change a package that history already contains. The history lease covers the
 package writes, so an active history writer or reader also stops them.
 
+## Package-specific snapshot exclusion
+
+Use an exclusion only when evidence proves that one dated directory is not a
+distinct history snapshot. An active record is
+`data/jobs/gsheet-package/package-dispositions/PACKAGE_ID.json`. It is outside
+the dated package. Do not edit the dated package to make an exclusion valid.
+
+The command takes the refresh lock and the history lease. It refuses an already
+imported package. It records the exact package ID, reason, time, dashboard
+package ID, the exact history and trends consumers, file sizes, and SHA-256
+hashes for both history CSV files, the dashboard, and the JSON package manifest.
+The history guard and `jobs:trends` check the same evidence before they skip the
+package. An unknown file, format, action, consumer, field, package, or changed
+evidence stops the operation. An exclusion for one package does not apply to
+another package.
+
+`jobs:trends` holds the history lease while it lists and validates dispositions
+and loads the eligible CSV files into memory. It releases the lease before it
+calculates or writes reports. Thus one trends run uses one complete disposition
+state. An activation or rollback that overlaps this capture stops at the lease
+and must be retried.
+
+After read-only preflight confirms the intended disposition, activate one
+record with:
+
+```sh
+npm run jobs:package-disposition -- activate PACKAGE_ID --reason 'REVIEWED REASON'
+```
+
+The daily history reports and the trends manifest list the skipped package and
+reason. The weekly trends Markdown also records the disposition. Backups include
+the active record and every file in the excluded package. Thus the full restore
+test checks the same evidence and skip result.
+
+After activation, connect 1Pugh and use one daily run to import the eligible
+package and make its verified backup:
+
+```sh
+npm run jobs:history-daily
+```
+
+Do not run `jobs:history-backup` again by default. The daily command already
+imports, audits, creates the backup, restores it, and verifies the restored
+history. Do not trust the command exit code alone. In
+`data/jobs/reports/daily-history-backup.json`, require `History: PASS`, the
+expected `Imported` count and `LatestSnapshot`, the reviewed package in
+`SkippedPackages`, `Backup: PASS`, and the expected snapshot, generation,
+database hash, and 1Pugh folder in `LastVerified`.
+
+In that external folder, require `manifest.json` to have the same generation,
+database hash, and latest snapshot. Its file list must contain both dated
+packages and the active disposition. Require `VERIFIED.json` to have
+`status: PASS`, `fullRestore: true`, `reportMatches: true`, the same database
+hash, no restored audit errors or pending snapshots, the expected latest
+snapshot, and the reviewed package in `audit.skipped_packages`. Use
+`jobs:history-backup` later only when a valid accepted generation still needs a
+backup after a drive or backup failure.
+
+To roll back the exclusion, use:
+
+```sh
+npm run jobs:package-disposition -- rollback PACKAGE_ID
+```
+
+Rollback copies the verified record to
+`data/jobs/gsheet-package/package-disposition-rollbacks/` before it removes the
+active record. It does not delete or change the dated package. The original
+dashboard guard applies again on the next history run. A later review can use
+the archived record as evidence, but the history scanner ignores it.
+
 The new backup root is:
 
 ```text

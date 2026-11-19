@@ -46,13 +46,15 @@ async function detect(database){
 async function manifest(root){
   root=await fs.realpath(root);const found=await discover(root);
   if(found.malformed.length||!found.ids.length)throw new Error('Invalid history source inventory');
+  const dispositions=await require('./package-snapshot-disposition').resolveDispositions(root,found.ids);
   const files={};
-  for(const id of found.ids)for(const name of FILES){
+  for(const id of dispositions.ids)for(const name of FILES){
     const file=path.join(root,id,name);
     if(!await exists(file)){if(name.startsWith('01_')||name.startsWith('03_'))throw new Error('Missing required source');continue;}
     await regular(file);files[id+'/'+name]=await fileHash(file);
   }
-  return {root,ids:found.ids,files};
+  for(const file of dispositions.files)files[file.path]=file.sha256;
+  return {root,ids:dispositions.ids,allIds:found.ids,files,skipped:dispositions.skipped};
 }
 async function verifyManifest(saved){
   if(JSON.stringify(await manifest(saved.root))!==JSON.stringify(saved))throw new Error('Source hash or inventory changed');

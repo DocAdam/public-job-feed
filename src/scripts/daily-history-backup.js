@@ -19,6 +19,7 @@ async function main() {
   await writeAtomic(path.join(base, reportName + '.json'), JSON.stringify(status, null, 2) + '\n');
   const text = [`History: ${status.History}; 1Pugh backup: ${status.Backup}`,
     `Latest history snapshot: ${status.LatestSnapshot || 'unknown'}`,
+    `Skipped history packages: ${(status.SkippedPackages || []).map(item => item.packageId).join(', ') || 'none'}`,
     `Last verified backup: ${status.LastVerified?.verifiedAt || 'none recorded'}; snapshot: ${status.LastVerified?.snapshot || 'unknown'}`,
     ...status.Warnings.map(w => 'Warning: ' + w)].join('\n');
   await writeAtomic(path.join(base, reportName + '.md'), '# ' + (only ? 'Backup-only verification' : 'Daily history and backup') + '\n\n' + text + '\n');

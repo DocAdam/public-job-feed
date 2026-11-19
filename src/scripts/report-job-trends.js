@@ -4,8 +4,11 @@ const { parseCsvRecords, rowsToCsv } = require("../lib/csv");
 const { ensureDir, fromRoot, writeJsonFile } = require("../lib/files");
 const { categorizeTitle, titleCategories } = require("../lib/title-category");
 const { nullableNumber } = require("../lib/number");
+const { resolveDispositions } = require("../lib/package-snapshot-disposition");
+const { withLease } = require("../lib/job-history-access");
 
 const packageRoot = fromRoot("data", "jobs", "gsheet-package");
+const historyDatabase = fromRoot("data", "jobs", "history", "jobs-history.duckdb");
 const trendsRoot = fromRoot("data", "jobs", "trends");
 const latestTrendDir = path.join(trendsRoot, "latest");
 const publicSheetConfigPath = fromRoot("data", "config", "public-sheet.json");
@@ -296,32 +299,43 @@ function displayRowCompany(row, companyNormalization) {
   return displayCompany(row.Company, companyNormalization);
 }
 
-async function loadSnapshots() {
-  snapshotDates.clear();
-  const entries = await fs.readdir(packageRoot, { withFileTypes: true });
-  const snapshots = [];
+async function loadSnapshots(root = packageRoot, { database = historyDatabase, lease, at } = {}) {
+  return withLease(database, async () => {
+    snapshotDates.clear();
+    const entries = await fs.readdir(root, { withFileTypes: true });
+    const packageIds = entries
+      .filter((entry) => entry.isDirectory() && packageTimestampPattern.test(entry.name))
+      .map((entry) => entry.name)
+      .sort();
+    const dispositions = await resolveDispositions(root, packageIds, { at });
+    const snapshots = [];
 
-  for (const entry of entries) {
-    if (!entry.isDirectory() || !packageTimestampPattern.test(entry.name)) continue;
-    const packageDir = path.join(packageRoot, entry.name);
-    const jobCsvPath = path.join(packageDir, jobCsvName);
-    if (!(await fileExists(jobCsvPath))) continue;
+    for (const entry of entries) {
+      if (!entry.isDirectory() || !packageTimestampPattern.test(entry.name)) continue;
+      if (dispositions.records.has(entry.name)) continue;
+      const packageDir = path.join(root, entry.name);
+      const jobCsvPath = path.join(packageDir, jobCsvName);
+      if (!(await fileExists(jobCsvPath))) continue;
 
-    const companyCoveragePath = path.join(packageDir, companyCoverageCsvName);
-    const rows = await readCsvRows(jobCsvPath);
-    snapshotDates.set(entry.name, await readPackageTimestamp(packageDir));
-    snapshots.push({
-      id: entry.name,
-      date: parseTimestamp(entry.name),
-      packageDir,
-      jobCsvPath,
-      companyCoveragePath: (await fileExists(companyCoveragePath)) ? companyCoveragePath : "",
-      rows,
-      keyedRows: new Map(rows.map((row) => [normalizeJobKey(row), row])),
-    });
-  }
+      const companyCoveragePath = path.join(packageDir, companyCoverageCsvName);
+      const rows = await readCsvRows(jobCsvPath);
+      snapshotDates.set(entry.name, await readPackageTimestamp(packageDir));
+      snapshots.push({
+        id: entry.name,
+        date: parseTimestamp(entry.name),
+        packageDir,
+        jobCsvPath,
+        companyCoveragePath: (await fileExists(companyCoveragePath)) ? companyCoveragePath : "",
+        rows,
+        keyedRows: new Map(rows.map((row) => [normalizeJobKey(row), row])),
+      });
+    }
 
-  return snapshots.sort((left, right) => left.date - right.date || left.id.localeCompare(right.id));
+    return {
+      snapshots: snapshots.sort((left, right) => left.date - right.date || left.id.localeCompare(right.id)),
+      skippedPackages: dispositions.skipped,
+    };
+  }, { lease });
 }
 
 function buildHistory(snapshots) {
@@ -763,7 +777,7 @@ function buildRollingMetrics(snapshots, history, current, days, companyNormaliza
   };
 }
 
-function buildTrendRange(snapshots, options) {
+function buildTrendRange(snapshots, options, skippedPackages = []) {
   const current = snapshots[snapshots.length - 1];
   const previous = snapshots[snapshots.length - 2];
   let mode = options.rangeMode;
@@ -819,6 +833,7 @@ function buildTrendRange(snapshots, options) {
     snapshots: included,
     snapshotIds: included.map((snapshot) => snapshot.id),
     excludedSnapshotIds: snapshots.filter((snapshot) => !includedIds.has(snapshot.id)).map((snapshot) => snapshot.id),
+    skippedPackages,
     endSnapshot,
     previousSnapshot,
   };
@@ -864,6 +879,9 @@ function reportRangeSection(weeklyContext) {
     `- Start: ${formatDateTimeDisplay(range.startIso)}`,
     `- End: ${formatDateTimeDisplay(range.endIso)}`,
     `- Snapshots included (${range.snapshotIds.length}): ${range.snapshotIds.map(formatSnapshotLabel).join(", ")}`,
+    ...(range.skippedPackages.length
+      ? range.skippedPackages.map((item) => `- Package disposition: ${item.packageId} skipped for ${item.consumers.join(" and ")}: ${item.reason}`)
+      : []),
     ...(range.note ? [`- ${range.note}`] : []),
     "",
   ];
@@ -1705,6 +1723,7 @@ function buildManifest({ generatedAt, current, previous, snapshots, outputs, pub
     TrendSnapshotsIncludedDisplay: outputs.weeklyContext.trendRange.snapshotIds.map(formatSnapshotLabel),
     TrendSnapshotsExcluded: outputs.weeklyContext.trendRange.excludedSnapshotIds,
     TrendSnapshotsExcludedDisplay: outputs.weeklyContext.trendRange.excludedSnapshotIds.map(formatSnapshotLabel),
+    SkippedPackageDispositions: outputs.weeklyContext.trendRange.skippedPackages,
     TrendWindowNote: outputs.weeklyContext.trendRange.note,
     Inputs: {
       CurrentGoodDocumentationJobsCsv: current.jobCsvPath,
@@ -1768,12 +1787,13 @@ async function main() {
   const cliOptions = parseCliOptions(process.argv.slice(2));
   const publicSheet = await loadPublicSheetConfig();
   const companyNormalization = await loadCompanyNormalization();
-  const snapshots = await loadSnapshots();
+  const discovery = await loadSnapshots();
+  const snapshots = discovery.snapshots;
   if (snapshots.length < 2) {
     throw new Error("At least two timestamped Google Sheets package snapshots are required.");
   }
 
-  const trendRange = buildTrendRange(snapshots, cliOptions);
+  const trendRange = buildTrendRange(snapshots, cliOptions, discovery.skippedPackages);
   const current = trendRange.endSnapshot;
   const previous = trendRange.previousSnapshot;
   const historySnapshots = snapshots.filter((snapshot) => snapshot.date.getTime() <= current.date.getTime());
@@ -1891,6 +1911,7 @@ async function main() {
   console.log(`Current snapshot: ${current.id}`);
   console.log(`Previous snapshot: ${previous.id}`);
   console.log(`Snapshots counted: ${snapshots.length}`);
+  console.log(`Package dispositions: ${discovery.skippedPackages.map((item) => item.packageId).join(", ") || "none"}`);
   console.log(`Current jobs: ${current.rows.length}`);
   console.log(`Trend range mode: ${trendRange.mode}`);
   console.log(`Trend range label: ${trendRange.label}`);
@@ -1906,7 +1927,9 @@ async function main() {
   console.log(`Latest trend folder: ${latestTrendDir}`);
 }
 
-main().catch((error) => {
+if (require.main === module) main().catch((error) => {
   console.error(error);
   process.exitCode = 1;
 });
+
+module.exports = { loadSnapshots };

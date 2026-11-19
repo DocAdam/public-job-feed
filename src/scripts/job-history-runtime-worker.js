@@ -45,7 +45,8 @@ async function main(){
     }
     const header_variants=Object.fromEntries(Object.entries(variants).map(([file,v])=>[file,Object.entries(v).map(([h,ids])=>({headers:JSON.parse(h),snapshots:ids.length,first:ids[0],last:ids.at(-1)}))]));
     for(const [file,v] of Object.entries(header_variants))if(v.length>1)warnings.push(`${file}: ${v.length} header variants (union by name)`);
-    phase='summary';const result={format,...await summary(c),errors:[],warnings,header_variants,pending_snapshots:sources.ids.filter(id=>!ids.includes(id))};
+    phase='summary';const result={format,...await summary(c),errors:[],warnings,header_variants,
+      skipped_packages:sources.skipped,pending_snapshots:sources.ids.filter(id=>!ids.includes(id))};
     await verifyManifest(sources);return result;
   });
 }

@@ -34,8 +34,12 @@ async function checkPendingDashboards(packageRoot, database) {
         (await connection.runAndReadAll('SELECT snapshot_id FROM snapshots')).getRowObjectsJson());
     }
     const ids = new Set(imported.map(row => row.snapshot_id));
-    for (const entry of await fs.readdir(packageRoot, { withFileTypes: true })) {
+    const entries = await fs.readdir(packageRoot, { withFileTypes: true });
+    const packageIds = entries.filter(entry => entry.isDirectory() && /^\d{8}-\d{4}$/.test(entry.name)).map(entry => entry.name).sort();
+    const dispositions = await require('./package-snapshot-disposition').resolveDispositions(packageRoot, packageIds);
+    for (const entry of entries.sort((a, b) => a.name.localeCompare(b.name))) {
       if (!entry.isDirectory() || !/^\d{8}-\d{4}$/.test(entry.name) || ids.has(entry.name)) continue;
+      if (dispositions.records.has(entry.name)) continue;
       const directory = path.join(packageRoot, entry.name), dashboard = path.join(directory, 'PROJECT_STATUS_DASHBOARD.md');
       // Older source fixtures and archives can have no operational dashboard.
       if (!await exists(dashboard)) {
@@ -55,6 +59,7 @@ async function checkPendingDashboards(packageRoot, database) {
         throw new Error(`Package dashboard is not finalized: ${entry.name}; sync it before history import.`);
       }
     }
+    return { skipped: dispositions.skipped };
   });
 }
 
