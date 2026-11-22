@@ -1,30 +1,30 @@
 {
   "status": "passed",
-  "generation": "f4322533-4184-4df7-85c7-5f37fe8ef4d8",
-  "database_sha256": "4561508a3f30e31f3fa8f414e240ad813c775e46eb546b41aa3cc75ad8f76783",
-  "source_manifest_hash": "73fa51eeef49c5b6a888ce84c5480625d8f102dd5a71d863c2f232ae744c94de",
+  "generation": "9a58cd90-ac54-49f6-9d1f-2a5b58c98fa4",
+  "database_sha256": "cf770ef2bb5d9cdb62274607332e1f7d44f8d35ae3e5be5804b3ff22b5d2a7d1",
+  "source_manifest_hash": "e795a2af933cf0a32fdfb91d8ffb959950976adf200c29980a42bca0cbeced9a",
   "format": "v2",
-  "observations": "138511",
-  "canonical_urls": "4116",
-  "job_keys": "4047",
-  "company_keys": "1782",
-  "raw_top_match_rows": "138521",
-  "raw_job_keys": "4047",
+  "observations": "142429",
+  "canonical_urls": "4198",
+  "job_keys": "4128",
+  "company_keys": "1798",
+  "raw_top_match_rows": "142439",
+  "raw_job_keys": "4128",
   "good_job_exceptions": "42",
-  "raw_good_job_rows": "121323",
+  "raw_good_job_rows": "124553",
   "duplicate_canonical_rows": "10",
-  "snapshots": "182",
+  "snapshots": "186",
   "latest": {
-    "snapshot_id": "20261117-0728",
-    "observed_at": "2026-11-17 07:28:00",
-    "total_postings": "966",
-    "good_postings": "799",
-    "remote_postings": "229",
-    "hybrid_postings": "132",
-    "onsite_postings": "574",
+    "snapshot_id": "20261121-0830",
+    "observed_at": "2026-11-21 08:30:00",
+    "total_postings": "980",
+    "good_postings": "810",
+    "remote_postings": "206",
+    "hybrid_postings": "138",
+    "onsite_postings": "602",
     "us_remote_eligible_count": "63",
-    "company_count": 588,
-    "catalog_slug_count": 593,
+    "company_count": 590,
+    "catalog_slug_count": 596,
     "ats_type_count": 7
   },
   "errors": [],
@@ -168,9 +168,9 @@
           "Source",
           "Employment Type"
         ],
-        "snapshots": 25,
+        "snapshots": 29,
         "first": "20261024-0954",
-        "last": "20261117-0728"
+        "last": "20261121-0830"
       }
     ],
     "03_top_matches_full.csv": [
@@ -322,11 +322,24 @@
           "DedupeSelectionReason",
           "DedupeGroupSize"
         ],
-        "snapshots": 25,
+        "snapshots": 29,
         "first": "20261024-0954",
-        "last": "20261117-0728"
+        "last": "20261121-0830"
       }
     ]
   },
+  "skipped_packages": [
+    {
+      "packageId": "20261118-0959",
+      "action": "exclude_from_snapshot_consumers",
+      "consumers": [
+        "history",
+        "trends"
+      ],
+      "reason": "Supplemental Greenhouse repair candidate held from public release; its copied dashboard identifies 20261118-0846, so it is not a distinct daily snapshot.",
+      "recordedAt": "2026-11-19T19:09:35.855Z",
+      "dashboardPackageRun": "20261118-0846"
+    }
+  ],
   "pending_snapshots": []
 }
